@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+  <title>Home - Unifty</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+  <script type="text/javascript" src="js/buffer.js"></script>
+  <script type="text/javascript" src="js/misc.js?v=1.8.6"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="assets/js/plugins/chartist.min.js"></script>
+  <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <script type="text/javascript" src="js/cookie.js?v=1.8"></script>
+  <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+  <style type="text/css">
+
+    .dark-edition .modal a{
+      color: #8b92a9;
+      font-weight: 700;
+    }
+
+    .main-timeline {
+      position: relative
+    }
+
+    .main-timeline:before {
+      content: "";
+      display: block;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      margin: 0 auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0
+    }
+
+    .main-timeline .timeline {
+      margin-bottom: 40px;
+      position: relative
+    }
+
+    .main-timeline .timeline:after {
+      content: "";
+      display: block;
+      clear: both
+    }
+
+    .main-timeline .icon {
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      display: none;
+    }
+
+    .main-timeline .icon:before,
+    .main-timeline .icon:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: all 0.33s ease-out 0s
+    }
+
+    .main-timeline .icon:before {
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      border: 2px solid #232323;
+      left: -3px
+    }
+
+    .main-timeline .icon:after {
+      border: 2px solid #25b1c3;
+      left: 3px
+    }
+
+    .main-timeline .timeline:hover .icon:before {
+      left: 3px
+    }
+
+    .main-timeline .timeline:hover .icon:after {
+      left: -3px
+    }
+
+    .main-timeline .date-content {
+      width: 50%;
+      float: left;
+      margin-top: 22px;
+      position: relative
+    }
+
+    .main-timeline .date-content:before {
+      content: "";
+      width: 36.5%;
+      height: 2px;
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      margin: auto 0;
+      position: absolute;
+      top: 0;
+      right: 10px;
+      bottom: 0
+    }
+
+    .main-timeline .date-outer {
+      width: 125px;
+      height: 125px;
+      font-size: 16px;
+      text-align: center;
+      margin: auto;
+      z-index: 1
+    }
+
+    .main-timeline .date-outer:before,
+    .main-timeline .date-outer:after {
+      content: "";
+      width: 125px;
+      height: 125px;
+      margin: 0 auto;
+      border-radius: 50%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      transition: all 0.33s ease-out 0s
+    }
+
+    .main-timeline .date-outer:before {
+      background: linear-gradient(60deg, #029eb1, #25b1c3);
+      border: 2px solid #232323;
+      left: -6px
+    }
+
+    .main-timeline .date-outer:after {
+      border: 2px solid #25b1c3;
+      left: 6px
+    }
+
+    .main-timeline .timeline:hover .date-outer:before {
+      left: 6px
+    }
+
+    .main-timeline .timeline:hover .date-outer:after {
+      left: -6px
+    }
+
+    .main-timeline .date {
+      width: 100%;
+      margin: auto;
+      position: absolute;
+      top: 27%;
+      left: 0
+    }
+
+    .main-timeline .month {
+      font-size: 18px;
+      font-weight: 700
+    }
+
+    .main-timeline .month {
+      color: #232323;
+    }
+
+    .main-timeline .year {
+      display: block;
+      font-size: 30px;
+      font-weight: 700;
+      color: #232323;
+      line-height: 36px
+    }
+
+    .main-timeline .timeline-content {
+      width: 50%;
+      padding: 20px 0 20px 50px;
+      float: right
+    }
+
+    .main-timeline .title {
+      font-size: 19px;
+      line-height: 24px;
+      margin: 0 0 15px 0
+    }
+
+    .main-timeline .description {
+      margin-bottom: 0
+    }
+
+    .main-timeline .timeline:nth-child(2n) .date-content {
+      float: right
+    }
+
+    .main-timeline .timeline:nth-child(2n) .date-content:before {
+      left: 10px
+    }
+
+    .main-timeline .timeline:nth-child(2n) .timeline-content {
+      padding: 20px 50px 20px 0;
+      text-align: right
+    }
+
+    @media only screen and (max-width: 991px) {
+      .main-timeline .date-content {
+        margin-top: 35px
+      }
+      .main-timeline .date-content:before {
+        width: 22.5%
+      }
+      .main-timeline .timeline-content {
+        padding: 10px 0 10px 30px
+      }
+      .main-timeline .title {
+        font-size: 17px
+      }
+      .main-timeline .timeline:nth-child(2n) .timeline-content {
+        padding: 10px 30px 10px 0
+      }
+    }
+
+    @media only screen and (max-width: 767px) {
+      .main-timeline:before {
+        margin: 0;
+        left: 7px
+      }
+      .main-timeline .timeline {
+        margin-bottom: 20px
+      }
+      .main-timeline .timeline:last-child {
+        margin-bottom: 0
+      }
+      .main-timeline .icon {
+        margin: auto 0
+      }
+      .main-timeline .date-content {
+        width: 95%;
+        float: right;
+        margin-top: 0
+      }
+      .main-timeline .date-content:before {
+        display: none
+      }
+      .main-timeline .date-outer {
+        width: 110px;
+        height: 110px
+      }
+      .main-timeline .date-outer:before,
+      .main-timeline .date-outer:after {
+        width: 110px;
+        height: 110px
+      }
+      .main-timeline .date {
+        top: 30%
+      }
+      .main-timeline .year {
+        font-size: 24px
+      }
+      .main-timeline .timeline-content,
+      .main-timeline .timeline:nth-child(2n) .timeline-content {
+        width: 95%;
+        text-align: center;
+        padding: 10px 0
+      }
+      .main-timeline .title {
+        margin-bottom: 10px
+      }
+    }
+    .dark-edition .card .card-body .card-description {
+      color: #8b92a9;
+    }
+    .description, .card-description, .footer-big p {
+      color: #8b92a9;
+    }
+    .title, .title a, .card-title, .card-title a, .info-title, .info-title a, .footer-brand, .footer-brand a, .footer-big h5, .footer-big h5 a, .footer-big h4, .footer-big h4 a, .media .media-heading, .media .media-heading a {
+      color: #8b92a9;
+    }
+    body{
+      color: #8b92a9;
+    }
+    .navbar, .navbar-text a{
+      color: inherit;
+    }
+  </style>
+
+</head>
+<body class="dark-edition">
+
+
+<div class="sidebar" data-color="purple" data-background-color="black" data-image="assets/img/mort.jpg">
+  <div class="logo"><a href="https://unifty.io" class="simple-text logo-normal">
+    <img src="assets/img/unifty2.png" width="125" border="0"/> UNIFTY
+    <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">Binance Smart Chain</div>
+  </a></div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li class="nav-item active  ">
+        <a class="nav-link" href="index.html">
+          <i class="material-icons">dashboard</i>
+          <p>Home</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="collectibles.html">
+          <i class="material-icons">account_box</i>
+          <p>Your Wallet</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="manager.html">
+          <i class="material-icons">collections</i>
+          <p>Collection Manager</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="farm-builder.html">
+          <i class="material-icons">build</i>
+          <p>Farm Builder</p>
+        </a>
+      </li>
+      <li class="nav-item bridgeNav">
+        <a class="nav-link" href="bridge.html">
+          <i class="material-icons">360</i>
+          <p>NFT Bridge</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="javascript:void(0);" id="nulsSco">
+          <i class="material-icons">monetization_on</i>
+          <p>Get Project Funding</p>
+        </a>
+      </li>
+
+      <li class="nav-item" id="xdaiFarm">
+        <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
+          <i class="material-icons">grass</i>
+          <p>Rares Farm - NIF (xDai)</p>
+        </a>
+      </li>
+
+      <li class="nav-item" id="genesisFarm">
+        <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+          <i class="material-icons">grass</i>
+          <p>Genesis Farm - NIF-LP</p>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<div class="main-panel">
+
+  <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+    <div class="container-fluid">
+      <!--
+      <div class="navbar-wrapper">
+        <a class="navbar-brand" href="javascript:void(0)">The Hub for Your NFT Projects</a>
+      </div>-->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+        <span class="navbar-toggler-icon icon-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+
+          <li class="nav-item">
+            <style>
+              @media (max-width: 991px) {
+                .nav-mobile-menu .dropdown.show .dropdown-menu {
+                  transform: none !important;
+                  will-change: unset !important;
+                }
+              }
+              .shop a i {
+                float: none !important;
+              }
+            </style>
+            <div class="dropdown ml-3 mr-3">
+              <button id="chainSelectionDropdown" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Chain
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
+                <a class="dropdown-item" href="https://unifty.io/xdai/">xDai</a>
+                <a class="dropdown-item" href="https://unifty.io/bsc/">Binance Smart Chain</a>
+                <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
+                <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
+                <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
+              </div>
+            </div>
+          </li>
+
+          <script>
+            // fix for initial doubleclick required upon page load
+            $(document).ready(function(){
+              $('#chainSelectionDropdown').click();
+            });
+          </script>
+
+          <li class="nav-item shop" id="shopEthereum" style="display:none;">
+            <a class="btn btn-link" style="color: #25b1c3" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
+          </li>
+
+          <li class="nav-item shop" id="shopXdai" style="display:none;">
+            <a class="btn btn-link" style="color: #25b1c3" href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
+          </li>
+
+          <li class="nav-item shop" id="shopBsc" style="display:none;">
+            <a class="btn btn-link" style="color: #25b1c3" href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
+          </li>
+
+
+
+
+          <li class="nav-item" id="getNifUniswap">
+            <a class="nav-link" style="color: #25b1c3;" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">Get $NIF at Uniswap</a>
+          </li>
+
+          <li class="nav-item" id="mirror">
+            <a class="nav-link" style="color: #913f9e;" target="_blank" href="https://unifty.eth">Mirror: https://unifty.eth</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="faq.html">FAQ</a>
+          </li>
+        </ul>
+
+        <span class="navbar-text">
+                  Join Us On
+                </span>
+        &nbsp;&nbsp;
+        <span class="navbar-text">
+                    <a href="https://t.me/unifty" target="_blank">
+                      <i class="fa fa-telegram"></i>
+                      &nbsp;Telegram&nbsp;
+                    </a>
+                </span>
+        &nbsp;
+        <span class="navbar-text">
+                    <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
+                    <i class="fa fa-discord"></i>
+                        &nbsp;Discord&nbsp;
+                    </a>
+                </span>
+        &nbsp;
+        <span class="navbar-text">
+                    <a href="https://twitter.com/unifty_io" target="_blank">
+                    <i class="fa fa-twitter"></i>
+                        &nbsp;Twitter
+                    </a>
+                </span>
+      </div>
+
+
+    </div>
+  </nav>
+
+  <div class="content">
+
+
+
+
+    <div class="container-fluid">
+
+
+      <!-- main begin -->
+
+      <div class="row">
+
+        <div class="col-xl-4 col-lg-12">
+          <div class="card">
+            <div class="card-header card-header-primary card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">accessibility_new</i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Welcome!</h4>
+              <p class="card-description">
+                UNIFTY is a new hub for NFT projects to create custom farms, NFT collections (and soon a lot more) with just a few clicks!
+                No coding or difficult contract interactions required while you are fully owning your contracts. Use our tools to market your work!
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-12">
+          <div class="card">
+            <div class="card-header card-header-primary card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">done_outline</i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Your NFTs, Your Contracts!</h4>
+              <p class="card-description">
+                All NFT collections you will be creating and managing here are entirely yours, running on your own contracts, verified!
+                Once created, we won't have any administrative rights to your collections as they are entirely owned by you.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-12">
+          <div class="card">
+            <div class="card-header card-header-primary card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">self_improvement</i>
+              </div>
+            </div>
+            <div class="card-body">
+              <h4 class="card-title">Get Unlimited Access!</h4>
+              <p class="card-description">
+                Get unlimited access to features of Unifty through our wildcards.
+                You may want to explore our shops for the chain of your interest:<br/>
+
+                <a href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145"><i class="material-icons">shopping_cart</i> Shop (Ethereum)</a><br/>
+                <a href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082"><i class="material-icons">shopping_cart</i> Shop (xDai)</a><br/>
+                <a href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90"><i class="material-icons">shopping_cart</i> Shop (Binance SmartChain)</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- main end -->
+
+      <!-- featured begin -->
+
+      <div>
+
+      <div class="row">
+        <div class="col-xl-12 col-lg-12">
+          <h1>Featured Farms</h1>
+          <h4 class="card-subtitle mb-2 text-muted">Selected farms created with Unifty's Farm Builder by 3rd parties</h4>
+        </div>
+      </div>
+
+        <div class="row">
+
+
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <img src="https://unifty.io/assets/img/srn.jpg" style="width: 120px;" border="0">
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">$SACT Brings out a Different COLOR in You</h3>
+                <p class="card-description">
+                  srnArtGallery is a union of artists and $SACT is the token of the community. You can stake $SACT or can make LP's with $SACT then earn points to have our unique NFTs.
+                  <br/><br/>
+                  Don't forget that $SACT is the first Binance Smart Chain token and farm on Unifty.io. For more info you can visit our website and other channels linked in our farm.
+                  <a class="btn btn-outline-secondary mt-3" data-toggle="collapse" href="#collapseSrn" role="button" aria-expanded="false" aria-controls="collapseSrn}">
+                    More Info
+                  </a>
+                  <div class="collapse traits-collapse" id="collapseSrn">
+                    <ul class="list-group">
+                      Art pieces to be minted in each farm will be in different edition quantities. Art piece edition quantities will be high on only $SACT stake, while on LP farms will be rare and unique.
+                      <br/><br/>
+                      (E.g. Only $SACT stake 10/10 editions and for LP stakes 1/1 editions. These are only examples not exact quantities.)
+                      <br/></br>
+                    </ul>
+                  </div>
+                  <a class="card-link" href="https://unifty.io/bsc/farm-view.html?address=0x3B5fe5bBE679973ffcb840C7736b8d2989FB5f2a"><i class="fa fa-external-link"></i> Open Farm ($SACT, BSC)</a></br>
+                <a class="card-link" href="https://unifty.io/bsc/farm-view.html?address=0xbdBa682864710903DB578bC1F19f5e63BA9C1Fe2"><i class="fa fa-external-link"></i> Open Farm ($SACT-CAKE LP, BSC)</a></br>
+                <a class="card-link" href="https://unifty.io/bsc/farm-view.html?address=0xf7C3dDbd46003829Ef902524D54D7F087ce3c376"><i class="fa fa-external-link"></i> Open Farm ($SACT-BUSD LP, BSC)</a></br>
+                <a class="card-link" href="https://unifty.io/bsc/farm-view.html?address=0x05e91319F36b24ebAdaa91A21517ba4D23638a4A"><i class="fa fa-external-link"></i> Open Farm ($SACT-BNB LP, BSC)</a>
+
+                </p>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <img src="https://unifty.io/assets/img/eboy.jpg" style="width: 120px;" border="0">
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">CRIPTOGRANJA EBOY</h3>
+                <p class="card-description">
+                  The mexican eboy community became bound into the cryptoworld through this cryptofarm in favor of the future generations' value of what the $COLD token is<br/></br>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0xe1bD67dcd93C17cbC474aA2BFB7a90D2Ed892EDb"><i class="fa fa-external-link"></i> Open Farm (xDai)</a></br>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <img src="https://uploads-ssl.webflow.com/5f25b95c4e0af7c62817409b/6018e01d2e13f67a089be92b_tacoshi.jpeg" style="width: 120px;" border="0">
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">$TACO</h3>
+                <p class="card-description">
+                  $TACO is a deflationary currency where liquidity providers wrap the token in a hard shell and are rewarded with hot and spicy $SALSA. This is the evolution of money.
+                  </br></br>
+                  It's time to go down the Rabbit Hole!</br>
+                  Taqueros, it's time to start staking your $TACOs and $SALSA to earn those amazing NFTs!<br/></br>
+                  <a class="card-link" href="https://unifty.io/farm-view.html?address=0xA6fBbE582D41c6ebbb4ad5803793dcce8662C910"><i class="fa fa-external-link"></i> Open Tacoshi's Farm ($TACO)</a></br>
+                  <a class="card-link" href="https://unifty.io/farm-view.html?address=0xe567c8eE1C362C6CfCb217e43aCfd0F68dC456F2"><i class="fa fa-external-link"></i> Open Tacoshi's Rabbit Hole ($SALSA)</a></br>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      <div class="row">
+
+        <div class="col-xl-4 col-lg-12">
+          <div class="card">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <img src="https://gateway.ipfs.io/ipfs/QmcRiBpo1LFWKT4RmgAu3CGqt1DYQjySxjYSSf6HcfbcJG" style="width: 120px;" border="0">
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">The King</h3>
+              <p class="card-description">
+                Exclusive legendary, rare and common Downbeat / Hiphop tracks by The King from Naugatuck, CT, USA. Only a few points required.<br/></br>
+                <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0x2c329eC3E2Da642A21C9bD9eC158F27E534911E5"><i class="fa fa-external-link"></i>  Open Farm (xDai)</a></br>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-12">
+          <div class="card">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <a href="https://twitter.com/Niftyshots23" target="_blank" title="Nifty Shots"><img src="https://gateway.ipfs.io/ipfs/QmRXDxd3TksUxqfoCR3q4yaRfAboVubF3XXfhhVJbCwMrE" style="width: 120px;" border="0"></a>
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">Nifty Shots</h3>
+              <p class="card-description">
+                Nifty Shots offers wrapped NFTs for basketball trading cards in his farm. He is offering free and discounted cards for low redemption fees. The actual swap is performed in his Telegram group.<br/></br>
+                <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0xEdd121188A9B5148f38BEC842D043332822F6FA7"><i class="fa fa-external-link"></i> Open Farm (xDai)</a></br>
+                <a class="card-link" href="https://twitter.com/Niftyshots23" target="_blank"><i class="fa fa-twitter"></i> Twitter</a></br>
+                <a class="card-link" href="https://t.me/niftyshots" target="_blank"><i class="fa fa-telegram"></i> Telegram</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-4 col-lg-12">
+          <div class="card">
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <img src="https://gateway.ipfs.io/ipfs/QmSxRYWABH7uZNWLoHZMEfh6ndzLsr1Fho13YmoVdrEJgv" style="width: 120px;" border="0">
+              </div>
+            </div>
+            <div class="card-body">
+              <h3 class="card-title">The Musicians Farm House</h3>
+              <p class="card-description">
+                Here you will find exclusive NFT's from new musicians/artists originating from all around the world. Be the one of the first to own a piece of history and support artists directly by staking Honey and earning points. Have fun and enjoy great music, videos and art.<br/></br>
+                <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0x0B03DBA64dF374ac8cE29F2b59EbFcE5820e9cad"><i class="fa fa-external-link"></i>  Open Farm (xDai)</a></br>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+        <div class="row">
+
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <a href="https://trism.io/" target="_blank" title="Trism"><img src="https://gateway.ipfs.io/ipfs/QmX6GD1geSpHUuZtsiyST6vXJhiqQnGwc6RGAYfivmHuMY" style="width: 120px;" border="0"></a>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Trism</h3>
+                <p class="card-description">
+                  Trism is a digital collectibles producer & trader, providing liquidity for trism token. Activities include art/merchandise sale, NFT creation and commissions. Future plans include creating finance or token reward (APY) linked incentive due to vesting duration. Trism can be bought on Uniswap and Southxchange.com                  <br/></br>
+                  <a class="card-link" href="https://unifty.io/farm-view.html?address=0x7FC238a8685Fa554f9361680270727ebD12Be2Ac"><i class="fa fa-external-link"></i> Open Farm (Ethereum)</a><br/>
+                  <a class="card-link" href="https://trism.io/" target="_blank"><i class="fa fa-home"></i> Web</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <a href="http://coldtruthculture.io" target="_blank" title="Cold Truth Culture"><img src="https://images.squarespace-cdn.com/content/5fffc3f1e90dd00ceac34ce5/1610646024806-11HXTWKSVC0Z2XXCPEKP/CTC+COLOURWAY+1.png?format=1500w&content-type=image%2Fpng" style="width: 120px;" border="0"></a>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Cold Truth Culture</h3>
+                <p class="card-description">
+                  Cold Truth Culture is a new artist-founded project on the xDai chain, which provides the same features like Ethereum while being compatible with Metamask - at extremely low gas costs! With the release of of the project's $COLD token you are able to stake for exclusive art. The token will be airdropped as well as listed on xDai's Honeyswap DEX.
+                  <br/></br>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0x4C0dB34dDfe13C86863c363b03d933f80599a3BD"><i class="fa fa-external-link"></i> Open Farm ($COLD, xDai)</a><br/>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0xFcf213136b9D48d210AA79B7F372e6e63BDF2737"><i class="fa fa-external-link"></i> Open Farm ($COLD-LP, xDai)</a><br/>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0xb474F405F0DF84fbe57751Af0CB1AE534f5639b5"><i class="fa fa-external-link"></i> Open Farm ($HNY/$COLD LP RARES, xDai)</a><br/>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0x5d004F2576465aEa90328bCcC219cC8b4873cC53"><i class="fa fa-external-link"></i> Open Farm ($COLD / NSFW!!, xDai)</a><br/>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0x305dc5048d9680d8b93a60Fd9f0054Bb0F6C5B19"><i class="fa fa-external-link"></i> Open Farm ($COLD / Music, xDai)</a><br/>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0x18D57C5Dfe2e5839AC81630bE7dF359F2d4AE0A6"><i class="fa fa-external-link"></i> Open Farm ($COLD-LP / Music, xDai)</a><br/>
+
+
+                  <a class="card-link" href="http://coldtruthculture.io" target="_blank"><i class="fa fa-home"></i> Web</a>
+
+
+
+
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-4 col-lg-12">
+            <div class="card">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <a href="https://www.cryptovoxels.com/play?coords=S@238W,649S" target="_blank" title="Richard Dixon"><img src="https://lh3.googleusercontent.com/xcKXiO8vEHLHZBkdG1DHevPvh_57rlJj3cB2IJRpXwJKsNmZOquIukPavMdJguYRH0KEHBgYs_7cmyTQ2fS9xhEy=s120" border="0"></a>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Richard Dixon</h3>
+                <p class="card-description">
+                  Excited to be one of the first artists on Unifty! I will be dropping unique works that you won't see anywhere else. My work is a combination of hand painted and mixed media, finished digitally. Love and hearts abound. Richard Dixon loves you.
+                  <br/></br>
+                  <a class="card-link" href="https://unifty.io/farm-view.html?address=0x6321a656994aFd64b8faA79bcD99CC6a4C4e69c3"><i class="fa fa-external-link"></i> Open Farm ($NIF, Ethereum)</a><br/>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0xc7Fda3781431883994E3ccb585FDE606480D98Bf"><i class="fa fa-external-link"></i> Open Farm ($RICH, xDai)</a><br/>
+                  <a class="card-link" href="https://www.cryptovoxels.com/play?coords=S@238W,649S" target="_blank"><i class="fa fa-home"></i> Web</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-xl-12 col-lg-12">
+            <div class="card">
+              <div class="card-header card-header-info card-header-icon">
+                <div class="card-icon">
+                  <a href="https://www.harem-token.com" target="_blank" title="Harem Token"><img src="assets/img/harem.png" border="0" style="width:100px;"></a>
+                </div>
+              </div>
+              <div class="card-body">
+                <h3 class="card-title">Harem Token</h3>
+                <p class="card-description">
+                  <a href="https://www.harem-token.com" target="_blank" title="Harem Token">Harem Token</a> trains machine learning algorithms to automate the creation and distribution of adult entertainment content. In layman's terms, it trains AIs to create porn.<br /><br />
+                  Each Harem Token NFT represents total or partial ownership of an AI generated woman, specifically, the girl you see in your NFT. These NFTs can be kept for personal use, resold as collectibles, or staked on the Harem web platform. <br /><br />If you stake your Harem Token NFT, the girl represented in it will become available for Harem web platform users to deepfake into videos using Harem's open Deepfake API, and you as the NFT owner & staker will receive a portion of profits for each video created through Harem using your NFT girl.
+                  <br/></br>
+                  <a class="card-link" href="https://unifty.io/farm-view.html?address=0x6997fC1c9305771398C6B8756894Bb8207921DE0"><i class="fa fa-external-link"></i> Open Farm (Ethereum)</a><br/>
+                  <a class="card-link" href="https://unifty.io/xdai/farm-view.html?address=0x3B7e510fe15CCc5ca0B1dfAAfefA57fA980E1394"><i class="fa fa-external-link"></i> Open Farm (xDai)</a><br/>
+                  <a class="card-link" href="https://www.harem-token.com" target="_blank"><i class="fa fa-home"></i> Web</a>
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- featured end -->
+
+      <!-- Roadmap begin -->
+      <div class="row">
+        <div class="col-xl-12 col-lg-12">
+          <h1>Unifty Roadmap</h1>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <div class="col-xl-12 col-lg-12">
+          <div class="card">
+
+            <div class="card-header card-header-info card-header-icon">
+              <div class="card-icon">
+                <i class="material-icons">date_range</i>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <h4 class="card-title">Roadmap - Phase 1</h4>
+
+              <div class="main-timeline">
+
+                <div class="timeline">
+                  <div class="icon"></div>
+                  <div class="date-content">
+                    <div class="date-outer">
+                                    <span class="date">
+                                            <span class="month">November</span>
+                                    <span class="year">2020</span>
+                                    </span>
+                    </div>
+                  </div>
+                  <div class="timeline-content">
+                    <h5 class="title">Initial Release (done)</h5>
+                    <p class="description">
+                      Releasing website, collection management dapp, free pass collectibles, first announcements and social media setup.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline">
+                  <div class="icon"></div>
+                  <div class="date-content">
+                    <div class="date-outer">
+                                    <span class="date">
+                                            <span class="month">December</span>
+                                    <span class="year">2020</span>
+                                    </span>
+                    </div>
+                  </div>
+                  <div class="timeline-content">
+                    <h5 class="title">Farming Dapp &amp; Token Release (done)</h5>
+                    <p class="description">
+                      Create and manage unlimited farms for your NFT community.
+                      Starting to distribute our ERC20 token (NIF).
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline">
+                  <div class="icon"></div>
+                  <div class="date-content">
+                    <div class="date-outer">
+                                    <span class="date">
+                                            <span class="month">February</span>
+                                    <span class="year">2021</span>
+                                    </span>
+                    </div>
+                  </div>
+                  <div class="timeline-content">
+                    <h5 class="title">Marketplace Release</h5>
+                    <p class="description">
+                      Buy &amp; sell NFTs on all supported chains.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline">
+                  <div class="icon"></div>
+                  <div class="date-content">
+                    <div class="date-outer">
+                                    <span class="date">
+                                            <span class="month">March</span>
+                                    <span class="year">2021</span>
+                                    </span>
+                    </div>
+                  </div>
+                  <div class="timeline-content">
+                    <h5 class="title">Presale &amp; Copyright Dapps Release</h5>
+                    <p class="description">
+                      Create presale auctions as well as copyright evidence for your NFTs.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline">
+                  <div class="icon"></div>
+                  <div class="date-content">
+                    <div class="date-outer">
+                                    <span class="date">
+                                            <span class="month">June</span>
+                                    <span class="year">2021</span>
+                                    </span>
+                    </div>
+                  </div>
+                  <div class="timeline-content">
+                    <h5 class="title">NFT Swap Release & Entering Phase 2</h5>
+                    <p class="description">
+                      Swap NFTs of similar value on UNIFTY and looking ahead for Phase 2.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="timeline">
+                  <div class="icon"></div>
+                  <div class="date-content">
+                    <div class="date-outer">
+                                    <span class="date">
+                                            <span class="month">Coming</span>
+                                    <span class="year">Soon™</span>
+                                    </span>
+                    </div>
+                  </div>
+                  <div class="timeline-content">
+                    <h5 class="title">Polkadot / Moonbeam</h5>
+                    <p class="description">
+                      Moonbeam support for all Unifty features, utilizing Polkadot (already running on Moonbeam Alpha).
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <!-- Roadmap end -->
+
+
+      <!-- ALERT -->
+
+      <div class="modal fade" style="overflow-y: scroll;" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="alertModalLabel">Info</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        </div>
+      </div>
+
+    </div>
+
+
+
+  </div>
+</div>
+
+</body>
+</html>
