@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f96cdbc5-0575-4042-925c-c64b6e5ee530" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1iut4TgBWvT9sXe1A0iIdoGrLjl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\knots\dapp\js" />
+      <recent name="C:\MAMP\htdocs\knots\dapp\assets\css" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\knots\dapp\assets\img" />
+      <recent name="C:\MAMP\htdocs\knots\dapp\js" />
+      <recent name="C:\MAMP\htdocs\knots\dapp" />
+      <recent name="C:\MAMP\htdocs\knots\dapp\assets\js" />
+      <recent name="C:\MAMP\htdocs\knots\dapp\css" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f96cdbc5-0575-4042-925c-c64b6e5ee530" name="Default Changelist" comment="" />
+      <created>1602769115520</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602769115520</updated>
+      <workItem from="1602769116858" duration="21203000" />
+      <workItem from="1602942552256" duration="20341000" />
+      <workItem from="1603092209860" duration="2642000" />
+      <workItem from="1603123859555" duration="1003000" />
+      <workItem from="1603125810768" duration="111000" />
+      <workItem from="1603125937513" duration="6986000" />
+      <workItem from="1603210190879" duration="2672000" />
+      <workItem from="1603462001420" duration="26696000" />
+      <workItem from="1603702825433" duration="12410000" />
+      <workItem from="1604083195876" duration="612000" />
+      <workItem from="1604242216763" duration="27095000" />
+      <workItem from="1604831714297" duration="116442000" />
+      <workItem from="1605236797091" duration="10899000" />
+      <workItem from="1607099365815" duration="752000" />
+      <workItem from="1607222300823" duration="3874000" />
+      <workItem from="1607311977323" duration="1260000" />
+      <workItem from="1607786311371" duration="41311000" />
+      <workItem from="1607871385940" duration="23448000" />
+      <workItem from="1608148597716" duration="29916000" />
+      <workItem from="1609017507545" duration="721000" />
+      <workItem from="1609117257563" duration="1273000" />
+      <workItem from="1609303692289" duration="11036000" />
+      <workItem from="1609358383900" duration="29583000" />
+      <workItem from="1609433338835" duration="57091000" />
+      <workItem from="1609610086318" duration="32550000" />
+      <workItem from="1609979773686" duration="44901000" />
+      <workItem from="1610182533004" duration="9908000" />
+      <workItem from="1610202153735" duration="9103000" />
+      <workItem from="1610263090102" duration="1057000" />
+      <workItem from="1610287705710" duration="360000" />
+      <workItem from="1610302081620" duration="15819000" />
+      <workItem from="1610342508773" duration="64208000" />
+      <workItem from="1610701681843" duration="3483000" />
+      <workItem from="1610756374527" duration="4764000" />
+      <workItem from="1610795296322" duration="6028000" />
+      <workItem from="1610896451052" duration="637000" />
+      <workItem from="1610923194160" duration="874000" />
+      <workItem from="1610965204949" duration="1499000" />
+      <workItem from="1611085669873" duration="649000" />
+      <workItem from="1611143721705" duration="10711000" />
+      <workItem from="1611161220453" duration="4720000" />
+      <workItem from="1611274305154" duration="34918000" />
+      <workItem from="1611714147911" duration="3135000" />
+      <workItem from="1611802521861" duration="34423000" />
+      <workItem from="1612059646144" duration="3951000" />
+      <workItem from="1612116397990" duration="16048000" />
+      <workItem from="1612215931574" duration="10690000" />
+      <workItem from="1612483602018" duration="7830000" />
+      <workItem from="1612636435062" duration="2361000" />
+      <workItem from="1612788986125" duration="72593000" />
+      <workItem from="1613092223323" duration="3220000" />
+      <workItem from="1613232972749" duration="4365000" />
+      <workItem from="1613257971528" duration="47859000" />
+      <workItem from="1613423292189" duration="19482000" />
+      <workItem from="1613569801959" duration="4958000" />
+      <workItem from="1613703807794" duration="8409000" />
+      <workItem from="1614014821807" duration="3168000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="477" y="12" width="582" height="801" key="find.popup" timestamp="1613756179851">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="477" y="12" width="582" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1613756179851" />
+    <state x="530" y="13" width="647" height="895" key="find.popup/0.0.1707.920@0.0.1707.920" timestamp="1611522695975" />
+    <state x="453" y="190" key="run.anything.popup" timestamp="1613320541641">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="-1184" y="233" key="run.anything.popup/0.0.1536.824/-1680.0.1680.1010@-1680.0.1680.1010" timestamp="1605177015391" />
+    <state x="453" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1613320541641" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605196439312">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605196439312" />
+  </component>
+</project>
