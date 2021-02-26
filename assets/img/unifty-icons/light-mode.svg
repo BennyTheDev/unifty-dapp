@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+    <defs>
+        <style>
+            .cls-2{fill:#fd79e2}
+        </style>
+    </defs>
+    <g id="Group_92" transform="translate(-1857 -17)">
+        <g id="Ellipse_1" fill="none" stroke="#fd79e2" stroke-width="2px" transform="translate(1857 17)">
+            <circle cx="22" cy="22" r="22" stroke="none"/>
+            <circle cx="22" cy="22" r="21"/>
+        </g>
+        <g id="Icon_ionic-ios-sunny" transform="translate(1863.625 23.625)">
+            <g id="Group_140" transform="translate(3.375 3.375)">
+                <path id="Path_115" d="M17.806 27.211a.889.889 0 0 0-.889.889v2.666a.889.889 0 0 0 1.777 0V28.1a.889.889 0 0 0-.888-.889z" class="cls-2" transform="translate(-5.806 -7.654)"/>
+                <path id="Path_116" d="M17.806 3.375a.889.889 0 0 0-.889.889V6.93a.889.889 0 0 0 1.777 0V4.264a.889.889 0 0 0-.888-.889z" class="cls-2" transform="translate(-5.806 -3.375)"/>
+                <path id="Path_117" d="M7.818 17.806a.889.889 0 0 0-.889-.889H4.264a.889.889 0 0 0 0 1.777H6.93a.889.889 0 0 0 .888-.888z" class="cls-2" transform="translate(-3.375 -5.806)"/>
+                <path id="Path_118" d="M30.766 16.917H28.1a.889.889 0 0 0 0 1.777h2.666a.889.889 0 0 0 0-1.777z" class="cls-2" transform="translate(-7.654 -5.806)"/>
+                <path id="Path_119" d="M10.116 24.195a.886.886 0 0 0-.629.26L7.6 26.341A.89.89 0 0 0 8.858 27.6l1.887-1.887a.889.889 0 0 0-.629-1.518z" class="cls-2" transform="translate(-4.086 -7.114)"/>
+                <path id="Path_120" d="M25.083 11.005a.886.886 0 0 0 .629-.26L27.6 8.858A.89.89 0 0 0 26.341 7.6l-1.887 1.887a.889.889 0 0 0 .629 1.518z" class="cls-2" transform="translate(-7.114 -4.086)"/>
+                <path id="Path_121" d="M8.858 7.6A.89.89 0 0 0 7.6 8.858l1.887 1.887a.89.89 0 0 0 1.258-1.258z" class="cls-2" transform="translate(-4.086 -4.086)"/>
+                <path id="Path_122" d="M25.712 24.454a.89.89 0 0 0-1.258 1.258l1.887 1.888a.89.89 0 0 0 1.259-1.259z" class="cls-2" transform="translate(-7.114 -7.114)"/>
+            </g>
+            <path id="Path_123" d="M16.79 11.25a5.54 5.54 0 1 0 5.54 5.54 5.549 5.549 0 0 0-5.54-5.54z" class="cls-2" transform="translate(-1.415 -1.415)"/>
+        </g>
+    </g>
+</svg>
