@@ -1,0 +1,35 @@
+.dark-edition .sidebar {
+  width: 30rem;
+
+  @include respond(big-desktop) {
+    width: 33rem;
+  }
+  @include respond(nav-collapse) {
+    width: 260px;
+  }
+
+  .sidebar-wrapper {
+    width: 100%;
+  }
+}
+
+.dark-edition .main-panel {
+  width: calc(100% - 30rem);
+
+  @include respond(big-desktop) {
+    width: calc(100% - 33rem);
+  }
+  @include respond(nav-collapse) {
+    width: 100%;
+  }
+}
+
+.dark-edition .main-panel {
+  background-color: $dark-primary;
+
+  &.title {
+    color: $pink-title;
+    font-size: 4.5rem;
+    font-weight: 700;
+  }
+}

@@ -22,8 +22,12 @@
   <script type="text/javascript" src="js/cookie.js?v=1.8"></script>
   <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+  </style> 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+  
   <style type="text/css">
 
     .dark-edition .modal a{
@@ -299,40 +303,42 @@
       color: inherit;
     }
   </style>
+  
+  <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
 <body class="dark-edition">
 
 
-<div class="sidebar" data-color="purple" data-background-color="black" data-image="assets/img/mort.jpg">
+<div class="sidebar">
   <div class="logo"><a href="https://unifty.io" class="simple-text logo-normal">
-    <img src="assets/img/unifty2.png" width="125" border="0"/> UNIFTY
+    <img src="assets/img/unifty2.png" width="125" border="0"/>
     <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">Binance Smart Chain</div>
   </a></div>
   <div class="sidebar-wrapper">
     <ul class="nav">
-      <li class="nav-item active  ">
+      <li class="nav-item active">
         <a class="nav-link" href="index.html">
-          <i class="material-icons">dashboard</i>
+          <i class="material-icons">home</i>
           <p>Home</p>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="collectibles.html">
-          <i class="material-icons">account_box</i>
-          <p>Your Wallet</p>
+          <i class="material-icons">account_balance_wallet</i>
+          <p>Wallet</p>
         </a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="manager.html">
           <i class="material-icons">collections</i>
-          <p>Collection Manager</p>
+          <p>Collections</p>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="farm-builder.html">
-          <i class="material-icons">build</i>
-          <p>Farm Builder</p>
+        <a class="nav-link" href="#">
+          <i class="material-icons">storefront</i>
+          <p>SwapSpot</p>
         </a>
       </li>
       <li class="nav-item bridgeNav">
@@ -342,34 +348,69 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="farm-builder.html">
+          <i class="material-icons">build</i>
+          <p>Farm Builder</p>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="javascript:void(0);" id="nulsSco">
           <i class="material-icons">monetization_on</i>
           <p>Get Project Funding</p>
         </a>
       </li>
 
+      <li class="nav-item">
+        <div class="sidebar-divider"></div>
+      </li>
+
       <li class="nav-item" id="xdaiFarm">
         <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
-          <i class="material-icons">grass</i>
-          <p>Rares Farm - NIF (xDai)</p>
+          <i class="material-icons">agriculture</i>
+          <p>2 Farm - NIF (XDai)</p>
         </a>
       </li>
 
       <li class="nav-item" id="genesisFarm">
         <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
           <i class="material-icons">grass</i>
-          <p>Genesis Farm - NIF-LP</p>
+          <p>1 Farm - NIF-LP</p>
         </a>
       </li>
 
     </ul>
+
+    <div class="sidebar-text">
+      <div class="sidebar-text icons">
+        <span class="navbar-text">
+          <a href="https://t.me/unifty" target="_blank">
+            <i class="fa fa-telegram"></i>
+          </a>
+          <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
+            <i class="fa fa-discord"></i>
+          </a>
+          <a href="https://twitter.com/unifty_io" target="_blank">
+            <i class="fa fa-twitter"></i>
+          </a>
+      </div>
+      <div class="sidebar-text rights">
+        <span>
+          <i class="material-icons">copyright</i>
+          Unifty, Inc. All rights reserved.
+        </span>
+      </div>
+    </div>
+
+    <div></div>
   </div>
 </div>
 
 <div class="main-panel">
-
+  <!-- <h1 class="main-panel title">Unifty.io</h1> -->
   <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+    
     <div class="container-fluid">
+      
       <!--
       <div class="navbar-wrapper">
         <a class="navbar-brand" href="javascript:void(0)">The Hub for Your NFT Projects</a>
@@ -419,7 +460,7 @@
           </script>
 
           <li class="nav-item shop" id="shopEthereum" style="display:none;">
-            <a class="btn btn-link" style="color: #25b1c3" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
+            <a class="btn btn-link" style="color: #25b1c3" href="./farm-view.html"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
           </li>
 
           <li class="nav-item shop" id="shopXdai" style="display:none;">
@@ -446,7 +487,7 @@
           </li>
         </ul>
 
-        <span class="navbar-text">
+        <!-- <span class="navbar-text">
                   Join Us On
                 </span>
         &nbsp;&nbsp;
@@ -469,7 +510,7 @@
                     <i class="fa fa-twitter"></i>
                         &nbsp;Twitter
                     </a>
-                </span>
+                </span> -->
       </div>
 
 

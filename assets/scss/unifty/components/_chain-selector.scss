@@ -1,0 +1,30 @@
+#chainSelectionDropdown {
+  background-color: $dark-secondary;
+  color: $pink;
+  border: .2rem solid $pink;
+  border-radius: .8rem;
+  box-shadow: none;
+  font-size: 2rem;
+  text-transform: none;
+  padding: 1rem 2.1rem;
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  background-color: $dark-secondary;
+
+  a.dropdown-item {
+    font-size: 1.4rem;
+    
+  }
+}
+
+.dark-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item {
+  color: #fff;
+  padding: 1rem 2.1rem;
+  &:hover {
+    background: none;
+    box-shadow: none;
+    background-color: rgba(248, 121, 226, .1);
+  }
+}

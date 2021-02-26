@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {  
+  font-size: 62.5%;
+
+  @include respond(big-desktop) {   //1rem = 12px, 12/16 = 75%
+    font-size: 75%;
+  }
+  @include respond(tab-land) {      //1rem = 9px, 9/16 = 56.25%
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {      //1rem = 8px, 8/16 = 50%
+    font-size: 50%;
+  }
+  @include respond(phone) {         //1rem = 7px, 7/16 = 43.75%
+    font-size: 43.75%;
+  }
+}
+
+body {
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  cursor: url(../img/unifty-icons/cursor-dark.svg), auto;
+}
