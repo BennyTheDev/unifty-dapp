@@ -28,5 +28,12 @@ body {
 
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  cursor: url(../img/unifty-icons/cursor-dark.svg), auto;
+  cursor: url(../img/unifty-icons/cursor-default.svg), auto;
+
+  a:link,
+  a:hover,
+  a:active,
+  .btn:not(:disabled):not(.disabled) {
+    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+  }
 }

@@ -1,6 +1,4 @@
-#chainSelectionDropdown,
-#shopSelectionDropdown,
-#farmSelectionDropdown {
+#chainSelectionDropdown {
   background-color: $dark-secondary;
   color: $pink;
   border: .2rem solid $pink;
@@ -16,14 +14,14 @@
   background-color: $dark-secondary;
 
   a.dropdown-item {
-    font-size: 1.4rem;
-    
+    font-size: 1.4rem;    
   }
 }
 
 .dark-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item {
   color: #fff;
   padding: 1rem 2.1rem;
+  
   &:hover {
     background: none;
     box-shadow: none;

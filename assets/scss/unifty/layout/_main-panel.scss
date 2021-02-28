@@ -1,0 +1,21 @@
+.dark-edition .main-panel {
+  width: calc(100% - 30rem);
+  background-color: $dark-primary;
+
+  @include respond(big-desktop) {
+    width: calc(100% - 33rem);
+  }
+  @include respond(nav-collapse) {
+    width: 100%;
+  }
+
+  .content {
+    margin-top: .5rem;
+    padding: 3rem 5rem;
+  }
+
+  //navbar toggle
+  .navbar.navbar-absolute {
+    padding-top: 2rem;
+  }
+}

@@ -1,0 +1,42 @@
+.main-panel .content {
+  &__welcome-text {
+    width: 50%;
+    font-size: 1.4rem;
+    color: $grey-tertiary;
+    padding: .8rem 0;
+    margin-bottom: 2rem;
+  }
+
+  .custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include respond(nav-collapse) {
+      margin-top: -3rem;
+      margin-left: 2rem;
+
+      &__dropdowns {
+        z-index: 1050;
+      }
+    }
+  
+    &__title {
+      color: $pink-title;
+      font-size: 4.5rem;
+      font-weight: 700;
+    }
+  
+    &__dropdowns {
+      display: flex;  
+  
+      .switch-light-mode  {
+        img {
+          max-width: 6rem;
+          max-height: 6rem;
+          fill: $pink;
+        }
+      }
+    }
+  }
+}

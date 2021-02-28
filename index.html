@@ -27,6 +27,7 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
   </style>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
     integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
@@ -358,51 +359,57 @@
       <ul class="nav">
         <li class="nav-item active">
           <a class="nav-link" href="index.html">
-            <i class="material-icons">home</i>
+            <i class="material-icons-round">home</i>
             <p>Home</p>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="collectibles.html">
-            <i class="material-icons">account_balance_wallet</i>
+            <i class="material-icons-round">account_balance_wallet</i>
             <p>Wallet</p>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="manager.html">
-            <i class="material-icons">collections</i>
+            <i class="material-icons-round">collections</i>
             <p>Collections</p>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="material-icons">storefront</i>
+            <i class="material-icons-round">storefront</i>
             <p>Marketplace</p>
           </a>
         </li>
         <li class="nav-item bridgeNav">
           <a class="nav-link" href="bridge.html">
-            <i class="material-icons">360</i>
+            <i class="material-icons-round">360</i>
             <p>NFT Bridge</p>
           </a>
         </li>
         <!-- this is linking to all farms -->
         <li class="nav-item">
           <a class="nav-link" href="#">
-            <i class="material-icons">grass</i>
+            <i class="material-icons-round">grass</i>
             <p>Farms</p>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="farm-builder.html">
-            <i class="material-icons">build</i>
+            <i class="material-icons-round">build</i>
             <p>Farm Builder</p>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="javascript:void(0);" id="nulsSco">
-            <i class="material-icons">monetization_on</i>
+            <i class="material-icons-round">monetization_on</i>
             <p>Get Project Funding</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="javascript:void(0);" id="nulsSco">
+            <i class="material-icons-round">shopping_basket</i>
+            <p>Shops</p>
           </a>
         </li>
 
@@ -473,12 +480,10 @@
   <div class="main-panel">
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
 
-      <div class="container-fluid">
-
-        <!--
-      <div class="navbar-wrapper">
-        <a class="navbar-brand" href="javascript:void(0)">The Hub for Your NFT Projects</a>
-      </div>-->
+      <div class="container-fluid">        
+        <!-- <div class="navbar-wrapper">
+          <a class="navbar-brand" href="javascript:void(0)">The Hub for Your NFT Projects</a>
+        </div> -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
           aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
           <span class="sr-only">Toggle navigation</span>
@@ -487,9 +492,9 @@
           <span class="navbar-toggler-icon icon-bar"></span>
         </button>
 
+        <!-- THINK WE CAN REMOVE THIS -->
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav mr-auto">
-
             <li class="nav-item">
               <style>
                 @media (max-width: 991px) {
@@ -503,10 +508,11 @@
                   float: none !important;
                 }
               </style>
+
               <!-- <div class="dropdown ml-3 mr-3">
                 <button id="chainSelectionDropdown" class="btn btn-info dropdown-toggle" type="button"
                   id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Select Chain
+                  Chains
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
@@ -515,16 +521,16 @@
                   <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
                   <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
                   <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
-                </div>
+                </div>            
               </div> -->
             </li>
 
-            <script>
+            <!-- <script>
               // fix for initial doubleclick required upon page load
               $(document).ready(function () {
                 $('#chainSelectionDropdown').click();
               });
-            </script>
+            </script> -->
 
             <!-- NOT SURE WHY 3 SHOPS LINK -->
 
@@ -555,11 +561,10 @@
             <a class="nav-link" href="faq.html">FAQ</a>
           </li> -->
           </ul>
-
         </div>
 
-
       </div>
+
     </nav>
 
     <div class="content">
@@ -567,41 +572,18 @@
       <div class="custom-header">
         <div class="custom-header__title">Unifty.io</div>
         <div class="custom-header__dropdowns">
-          <div class="dropdown ml-3 mr-3 dropdown--shops">
-            <button id="shopSelectionDropdown" class="btn btn-info dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Shops
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
-              <a class="dropdown-item" href="https://unifty.io/xdai/">xDai</a>
-              <a class="dropdown-item" href="https://unifty.io/bsc/">Binance Smart Chain</a>
-              <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
-              <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
-              <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
-            </div>
-          </div>
 
-          <div class="dropdown ml-3 mr-3 dropdown--farms">
-            <button id="farmSelectionDropdown" class="btn btn-info dropdown-toggle" type="button"
-              id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Farms
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
-              <a class="dropdown-item" href="https://unifty.io/xdai/">xDai</a>
-              <a class="dropdown-item" href="https://unifty.io/bsc/">Binance Smart Chain</a>
-              <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
-              <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
-              <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
-            </div>
-
-          </div>
+          <script>
+            // fix for initial doubleclick required upon page load
+            $(document).ready(function () {
+              $('#chainSelectionDropdown').click();
+            });
+          </script>
 
           <div class="dropdown ml-3 mr-3 dropdown--chains">
             <button id="chainSelectionDropdown" class="btn btn-info dropdown-toggle" type="button"
               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Chains
+              Select chain
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
@@ -630,6 +612,7 @@
         <!-- main begin -->
 
         <!-- WE ARE REMOVING THESE WELCOME CARDS -->
+
         <!-- <div class="row">
           <div class="col-xl-4 col-lg-12">
             <div class="card">
@@ -702,20 +685,19 @@
 
           <div class="row">
             <div class="col-xl-12 col-lg-12">
-              <h1>Featured Farms</h1>
-              <h4 class="card-subtitle mb-2 text-muted">Selected farms created with Unifty's Farm Builder by 3rd parties
-              </h4>
+              <h1 class="grid-title">Featured Farms</h1>
+              <!-- <h4 class="card-subtitle mb-2 text-muted">Selected farms created with Unifty's Farm Builder by 3rd parties
+              </h4> -->
             </div>
           </div>
 
           <div class="row">
 
-
             <div class="col-xl-4 col-lg-12">
               <div class="card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <img src="https://unifty.io/assets/img/srn.jpg" style="width: 120px;" border="0">
+                    <img src="https://unifty.io/assets/img/srn.jpg">
                   </div>
                 </div>
                 <div class="card-body">
@@ -763,7 +745,7 @@
               <div class="card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <img src="https://unifty.io/assets/img/eboy.jpg" style="width: 120px;" border="0">
+                    <img src="https://unifty.io/assets/img/eboy.jpg">
                   </div>
                 </div>
                 <div class="card-body">
@@ -784,8 +766,7 @@
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                     <img
-                      src="https://uploads-ssl.webflow.com/5f25b95c4e0af7c62817409b/6018e01d2e13f67a089be92b_tacoshi.jpeg"
-                      style="width: 120px;" border="0">
+                      src="https://uploads-ssl.webflow.com/5f25b95c4e0af7c62817409b/6018e01d2e13f67a089be92b_tacoshi.jpeg">
                   </div>
                 </div>
                 <div class="card-body">
@@ -815,8 +796,7 @@
               <div class="card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <img src="https://gateway.ipfs.io/ipfs/QmcRiBpo1LFWKT4RmgAu3CGqt1DYQjySxjYSSf6HcfbcJG"
-                      style="width: 120px;" border="0">
+                    <img src="https://gateway.ipfs.io/ipfs/QmcRiBpo1LFWKT4RmgAu3CGqt1DYQjySxjYSSf6HcfbcJG">
                   </div>
                 </div>
                 <div class="card-body">
@@ -837,8 +817,7 @@
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                     <a href="https://twitter.com/Niftyshots23" target="_blank" title="Nifty Shots"><img
-                        src="https://gateway.ipfs.io/ipfs/QmRXDxd3TksUxqfoCR3q4yaRfAboVubF3XXfhhVJbCwMrE"
-                        style="width: 120px;" border="0"></a>
+                        src="https://gateway.ipfs.io/ipfs/QmRXDxd3TksUxqfoCR3q4yaRfAboVubF3XXfhhVJbCwMrE"></a>
                   </div>
                 </div>
                 <div class="card-body">
@@ -863,8 +842,7 @@
               <div class="card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
-                    <img src="https://gateway.ipfs.io/ipfs/QmSxRYWABH7uZNWLoHZMEfh6ndzLsr1Fho13YmoVdrEJgv"
-                      style="width: 120px;" border="0">
+                    <img src="https://gateway.ipfs.io/ipfs/QmSxRYWABH7uZNWLoHZMEfh6ndzLsr1Fho13YmoVdrEJgv" border="0">
                   </div>
                 </div>
                 <div class="card-body">
@@ -890,8 +868,7 @@
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                     <a href="https://trism.io/" target="_blank" title="Trism"><img
-                        src="https://gateway.ipfs.io/ipfs/QmX6GD1geSpHUuZtsiyST6vXJhiqQnGwc6RGAYfivmHuMY"
-                        style="width: 120px;" border="0"></a>
+                        src="https://gateway.ipfs.io/ipfs/QmX6GD1geSpHUuZtsiyST6vXJhiqQnGwc6RGAYfivmHuMY"></a>
                   </div>
                 </div>
                 <div class="card-body">
@@ -915,8 +892,7 @@
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                     <a href="http://coldtruthculture.io" target="_blank" title="Cold Truth Culture"><img
-                        src="https://images.squarespace-cdn.com/content/5fffc3f1e90dd00ceac34ce5/1610646024806-11HXTWKSVC0Z2XXCPEKP/CTC+COLOURWAY+1.png?format=1500w&content-type=image%2Fpng"
-                        style="width: 120px;" border="0"></a>
+                        src="https://images.squarespace-cdn.com/content/5fffc3f1e90dd00ceac34ce5/1610646024806-11HXTWKSVC0Z2XXCPEKP/CTC+COLOURWAY+1.png?format=1500w&content-type=image%2Fpng"></a>
                   </div>
                 </div>
                 <div class="card-body">
@@ -992,12 +968,12 @@
 
           <div class="row">
 
-            <div class="col-xl-12 col-lg-12">
+            <div class="col-xl-4 col-lg-12">
               <div class="card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
                     <a href="https://www.harem-token.com" target="_blank" title="Harem Token"><img
-                        src="assets/img/harem.png" border="0" style="width:100px;"></a>
+                        src="assets/img/harem.png"></a>
                   </div>
                 </div>
                 <div class="card-body">

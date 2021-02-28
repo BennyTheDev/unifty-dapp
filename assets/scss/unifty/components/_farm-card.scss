@@ -1,0 +1,83 @@
+.dark-edition .card {
+  background: linear-gradient(30deg, 
+    rgba(18, 26, 33, 1) 50%, 
+    rgba(255, 118, 226, .15) 73%, 
+    rgba(255, 118, 226, .35) 100%);
+
+  .card-body {
+    a {
+      font-size: 1.1rem;
+    }
+
+    .card-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: .32px;
+      margin-bottom: 1rem;
+      color: #fff
+    }
+
+    .card-description {
+      height: 100%;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: $grey-tertiary;
+
+      overflow: hidden;
+    }
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: row-reverse;
+  height: 20rem;
+  border-radius: 1rem;
+
+  // .card [class*="card-header-"] 
+
+  [class*="card-header-"] {
+    margin: 0;
+    background-color: none;
+  }
+
+  //card picture
+  .card-header.card-header-info.card-header-icon {
+    flex: 1;
+    box-shadow: none;
+
+    .card-icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      border-radius: .3rem;
+
+      margin: 0;
+      padding: 2rem;
+      background-color: none;
+      background: none;
+      box-shadow: none;
+
+      a {
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: fill;
+        border-radius: .3rem;
+      }
+    }
+  }
+
+  .card-body {
+    flex: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+}

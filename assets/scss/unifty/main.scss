@@ -3,7 +3,10 @@
 
 @import "./base";
 
-@import "./components/sidebar";
-@import "./components/chain-selector";
+@import "./components/dropdown-selector";
+@import "./components/farm-card";
 
-@import "./layout";
+@import "./layout/sidebar";
+@import "./layout/header";
+@import "./layout/main-panel";
+@import "./layout/grid";
