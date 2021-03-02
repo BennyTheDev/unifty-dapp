@@ -11,6 +11,12 @@
   @if $breakpoint == tab-land {
     @media only screen and (max-width: 75em) { @content};     //1200px
   }
+
+  //xxl bootstrap breakpoint
+  @if $breakpoint == bootstrap-xxl {
+    @media only screen and (max-width: 1400px) { @content};
+  }
+
   @if $breakpoint == big-desktop {
     @media only screen and (min-width: 112.5em) { @content};  //1800px
   }

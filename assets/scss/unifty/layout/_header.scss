@@ -31,10 +31,11 @@
       display: flex;  
   
       .switch-light-mode  {
-        img {
-          max-width: 6rem;
-          max-height: 6rem;
-          fill: $pink;
+        display: flex;
+        align-items: center;
+        span {
+          font-size: 4.5rem;
+          color: $pink;
         }
       }
     }

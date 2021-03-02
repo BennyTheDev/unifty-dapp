@@ -1,8 +1,8 @@
-.dark-edition .card {
+.dark-edition .card.farm-card {
   background: linear-gradient(30deg, 
     rgba(18, 26, 33, 1) 50%, 
     rgba(255, 118, 226, .15) 73%, 
-    rgba(255, 118, 226, .35) 100%);
+    rgba(255, 118, 226, .35) 100%);  
 
   .card-body {
     a {
@@ -14,27 +14,23 @@
       font-weight: 700;
       letter-spacing: .32px;
       margin-bottom: 1rem;
-      color: #fff
+      color: #fff;
+      display: flex;
+      width: calc(100% - 10rem);
     }
 
     .card-description {
-      height: 100%;
       font-size: 1.2rem;
       font-weight: 300;
       color: $grey-tertiary;
-
-      overflow: hidden;
     }
   }
 }
 
-.card {
+.card.card.farm-card {
   display: flex;
   flex-direction: row-reverse;
-  height: 20rem;
   border-radius: 1rem;
-
-  // .card [class*="card-header-"] 
 
   [class*="card-header-"] {
     margin: 0;
@@ -43,19 +39,19 @@
 
   //card picture
   .card-header.card-header-info.card-header-icon {
-    flex: 1;
     box-shadow: none;
 
     .card-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+
+      width: 10rem;
+      height: 10rem;
       border-radius: .3rem;
 
       margin: 0;
-      padding: 2rem;
+      padding: 1rem;
       background-color: none;
       background: none;
       box-shadow: none;
@@ -76,8 +72,40 @@
 
   .card-body {
     flex: 1;
-    padding: 2rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
+
+    //toggler collapsible
+    .btn.btn-primary.card-toggler {
+      display: flex;
+      align-items: center;
+      text-transform: none;
+      background: none;
+      box-shadow: none;
+      padding: 1rem 0;
+      text-align: left;
+      width: calc(100% - 10rem);
+
+      //collapsible carets switch
+      &[aria-expanded="false"] {
+        &::after {
+          font-family: "Material Icons Round";
+          content: "keyboard_arrow_down";
+          font-size: 2.4rem;
+        }
+      }
+      &[aria-expanded="true"] {
+        &::after {
+          font-family: "Material Icons Round";
+          content: "keyboard_arrow_up";
+          font-size: 2.4rem;
+        }
+      }
+
+      &:hover {
+        color: $pink-title;
+      }
+    }
   }
 }
