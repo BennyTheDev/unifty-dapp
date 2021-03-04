@@ -148,6 +148,200 @@ h1 {
   color: #9d9db4;
   font-weight: 300; }
 
+.dark-edition #stakingOptions {
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between !important;
+  background-color: #121a21;
+  padding: 2.4rem 3.6rem 1.3rem;
+  border-radius: .8rem; }
+  .dark-edition #stakingOptions .mb-3, .dark-edition #stakingOptions .my-3 {
+    margin: 0 !important; }
+  .dark-edition #stakingOptions a.btn.btn-secondary.mb-3.mr-1 {
+    border: 0.1rem solid #707070;
+    border-radius: .8rem;
+    background-color: #0d141a;
+    box-shadow: none;
+    color: #fff;
+    font-size: 1.6rem;
+    letter-spacing: .32px;
+    font-weight: 700;
+    text-transform: none; }
+    .dark-edition #stakingOptions a.btn.btn-secondary.mb-3.mr-1 span {
+      font-weight: 400; }
+  .dark-edition #stakingOptions .first-row {
+    display: flex; }
+    .dark-edition #stakingOptions .first-row a:first-child {
+      margin-right: 1rem !important; }
+  .dark-edition #stakingOptions .second-row {
+    width: 100%; }
+    .dark-edition #stakingOptions .second-row .dropdown > a {
+      width: 100%;
+      box-shadow: none;
+      background-color: #f879e2;
+      color: #0d141a;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: .32px;
+      border-radius: .8rem; }
+      .dark-edition #stakingOptions .second-row .dropdown > a:hover {
+        background-color: #f047ce; }
+    .dark-edition #stakingOptions .second-row .dropdown.show .dropdown-menu.show {
+      width: 100%; }
+      .dark-edition #stakingOptions .second-row .dropdown.show .dropdown-menu.show a {
+        justify-content: center; }
+  .dark-edition #stakingOptions .third-row {
+    font-size: 1.2rem;
+    color: #9d9db4; }
+    .dark-edition #stakingOptions .third-row a {
+      color: #f879e2; }
+
+.dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
+  flex: 3;
+  margin-right: 4.8rem; }
+  .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader.col-md-12.mb-4 {
+    padding: 0 !important;
+    margin: 0 !important; }
+  .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader {
+    margin: 0 !important; }
+    .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card {
+      margin: 0;
+      border-radius: .8rem;
+      height: 100%;
+      color: #9d9db4; }
+      .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content {
+        display: flex; }
+        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3 img {
+          margin: 2rem 0; }
+        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 {
+          padding: 0; }
+          .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body {
+            padding: 2rem 0;
+            font-size: 1.4rem; }
+      .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links {
+        padding: 0 1rem; }
+        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a {
+          display: inline-flex;
+          align-items: center;
+          margin: 0;
+          padding: .5rem;
+          font-size: 1.1rem;
+          color: #9d9db4; }
+          .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:hover, .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:active {
+            color: #fff; }
+          .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a i {
+            font-size: 2rem;
+            margin-right: .5rem; }
+        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links .mt-2 {
+          font-size: 1.1rem;
+          margin: 1rem 0 1rem .5rem; }
+
+.dark-edition.modal-open .main-panel .modal-dialog .modal-content {
+  border: 0.1rem solid #3b414c;
+  background-color: #121a21; }
+  .dark-edition.modal-open .main-panel .modal-dialog .modal-content a:hover, .dark-edition.modal-open .main-panel .modal-dialog .modal-content a:active {
+    color: #f879e2; }
+  .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    color: #fff;
+    border-bottom: 0.1rem solid #3b414c; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-header h5.modal-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: .48px; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-header .close {
+      color: #c2cad1;
+      opacity: 1;
+      text-shadow: none; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-header .close:focus {
+        outline: none; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-header .close span {
+        font-size: 2rem; }
+  .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body {
+    padding: 1rem 2rem; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body .col {
+      padding: 0; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group label {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: .32px;
+      color: #fff; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group label span {
+        color: #f879e2; }
+        .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round {
+          font-size: 2.2rem;
+          color: #3b414c;
+          margin-left: .5rem; }
+          .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round:hover {
+            color: #f879e2; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group input {
+      background-color: transparent;
+      background-image: none;
+      border: 0.1rem solid #3b414c;
+      border-radius: .8rem;
+      padding: 1rem;
+      font-size: 1.3rem;
+      color: #fff;
+      transition: all .3s; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group input::placeholder {
+        font-size: 1.3rem;
+        color: #707070; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group input:focus {
+        border: 0.1rem solid #f879e2; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea {
+      background-color: transparent;
+      background-image: none;
+      border: 0.1rem solid #3b414c;
+      border-radius: .8rem;
+      padding: 1rem;
+      font-size: 1.3rem;
+      color: #fff;
+      transition: all .3s; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea:focus {
+        border: 0.1rem solid #f879e2; }
+  .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer {
+    border-top: 0.1rem solid #3b414c;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer > :not(:first-child) {
+      margin-left: 0; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .footer-description {
+      margin: 0 0 1rem 0; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .buttons-container {
+      width: 100%;
+      display: flex; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer div {
+      font-size: 1.4rem;
+      color: #707070; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .btn {
+      box-shadow: none;
+      font-size: 1.4rem;
+      flex: 1;
+      border-radius: .8rem;
+      margin: 0; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-secondary {
+      background-color: transparent;
+      border: 0.1rem solid #707070;
+      color: #707070;
+      margin-right: 2rem; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-secondary:hover, .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-secondary:active {
+        background-color: #0d141a;
+        border: 0.1rem solid #f879e2;
+        color: #f879e2; }
+    .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary {
+      background-color: #f879e2;
+      color: #0d141a;
+      font-weight: 700; }
+      .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary:hover, .dark-edition.modal-open .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary:active {
+        background-color: #f047ce; }
+
 .dark-edition .sidebar {
   width: 30rem;
   background-color: #121a21;
@@ -308,11 +502,15 @@ h1 {
       width: 100%; } }
   .dark-edition .main-panel .content {
     margin-top: .5rem;
-    padding: 3rem 5rem; }
+    padding: 3rem 5rem;
+    min-height: calc(100vh - 5.5rem); }
   .dark-edition .main-panel .navbar.navbar-absolute {
     padding-top: 2rem; }
   .dark-edition .main-panel .card {
     background: #121a21; }
+  .dark-edition .main-panel .nftHeader-stakingOptions-container {
+    width: 100%;
+    display: flex; }
 
 .container-fluid {
   padding: 0; }

@@ -1,0 +1,163 @@
+.dark-edition.modal-open .main-panel .modal-dialog .modal-content {
+  border: .1rem solid $modal-border;
+  background-color: $dark-secondary;
+
+  //links on hover
+  a:hover, a:active {
+    color: $pink;
+  }
+
+  .modal-header {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem;
+    color: #fff;
+    border-bottom: .1rem solid $modal-border;
+
+    h5.modal-title {
+      font-family: "Poppins", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: .48px;
+    }
+
+    //icon close
+    .close {
+      color: $grey-secondary;
+      opacity: 1;
+      text-shadow: none;
+
+      &:focus {
+        outline: none;
+      }
+
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .modal-body {
+    padding: 1rem 2rem;
+
+    .col {
+      padding: 0;
+    }
+
+    form .form-group label {
+      display: flex;
+      align-items: center;
+      font-size: 1.3rem;
+      font-weight: 500;
+      letter-spacing: .32px;
+      color: #fff;
+
+      span {
+        color: $pink;
+
+        &.material-icons-round {
+          font-size: 2.2rem;
+          color: $modal-border;
+          margin-left: .5rem;
+
+          &:hover {
+            color: $pink;
+          }
+        }
+      }
+    }
+
+    form .form-group input {
+      background-color: transparent;
+      background-image: none;
+      border: .1rem solid $modal-border;
+      border-radius: .8rem;
+      padding: 1rem;
+      font-size: 1.3rem;
+      color: #fff;
+      transition: all .3s;
+
+      &::placeholder {
+        font-size: 1.3rem;
+        color: $grey-border;
+      }
+
+      &:focus {
+        border: .1rem solid $pink;
+      }
+    }
+
+    form .form-group textarea {
+      background-color: transparent;
+      background-image: none;
+      border: .1rem solid $modal-border;
+      border-radius: .8rem;
+      padding: 1rem;
+      font-size: 1.3rem;
+      color: #fff;
+      transition: all .3s;
+      &:focus {
+        border: .1rem solid $pink;
+      }
+    }
+  }
+
+  .modal-footer {
+    border-top: .1rem solid $modal-border;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+
+    & > :not(:first-child) {
+      margin-left: 0;
+    }
+
+    .footer-description {
+      margin: 0 0 1rem 0;
+    }
+
+    .buttons-container {
+      width: 100%;
+      display: flex;
+    }
+
+    div {
+      font-size: 1.4rem;
+      color: $grey-border;
+    }
+
+    .btn {
+      box-shadow: none;
+      font-size: 1.4rem;
+      flex: 1;
+      border-radius: .8rem;
+      margin: 0;
+    }
+
+    .btn.btn-secondary {
+      background-color: transparent;
+      border: .1rem solid $grey-border;      
+      color: $grey-border;
+      margin-right: 2rem;
+
+      &:hover,
+      &:active {
+        background-color: $dark-primary;
+        border: .1rem solid $pink;      
+        color: $pink;
+      }
+    }
+
+    .btn.btn-primary {
+      background-color: $pink;
+      color: $dark-primary;
+      font-weight: 700;
+
+      &:hover,
+      &:active {
+        background-color: $pink-submit-hover;
+      }
+    }
+  }
+}

@@ -12,6 +12,7 @@
   .content {
     margin-top: .5rem;
     padding: 3rem 5rem;
+    min-height: calc(100vh - 5.5rem);
   }
 
   //navbar toggle
@@ -29,5 +30,11 @@
 
     //   }
     // }
+  }
+
+  //nft header + staking options
+  .nftHeader-stakingOptions-container {
+    width: 100%;
+    display: flex;
   }
 }

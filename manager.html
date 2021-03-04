@@ -110,11 +110,17 @@
         }
     </style>
 
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet" />
+
 </head>
 <body class="dark-edition">
 
 
-<div class="sidebar" data-color="purple" data-background-color="black" data-image="assets/img/alex.jpg">
+<div class="sidebar">
     <div class="logo"><a href="https://unifty.io" class="simple-text logo-normal">
         <img src="assets/img/unifty2.png" width="125" border="0"/> UNIFTY
         <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">Binance Smart Chain</div>
@@ -176,12 +182,14 @@
 
 <div class="main-panel">
 
-    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
-        <div class="container-fluid">
-            <!--
+    <!--
             <div class="navbar-wrapper">
                 <a class="navbar-brand" href="javascript:void(0)">Your Collections</a>
             </div>-->
+
+    <!-- <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon icon-bar"></span>
@@ -274,7 +282,7 @@
 
 
         </div>
-    </nav>
+    </nav> -->
 
 <div class="content">
 <div class="container-fluid">
@@ -530,7 +538,10 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="nftContractModalLabel">New Collection</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span class="material-icons-round">
+                            cancel
+                        </span>
+                        <!-- <span aria-hidden="true">&times;</span> -->
                     </button>
                 </div>
                 <div class="modal-body">
@@ -539,11 +550,11 @@
 
                             <form id="contractForm" onsubmit="return false;">
                                 <div class="form-group">
-                                    <label for="erc1155Name">Name *</label>
+                                    <label for="erc1155Name">Name <span>*</span></label>
                                     <input type="text" placeholder="Enter a name for your NFT collection" class="form-control" id="erc1155Name">
                                 </div>
                                 <div id="collectionTicker" class="form-group">
-                                    <label for="erc1155Ticker">Ticker *</label>
+                                    <label for="erc1155Ticker">Ticker <span>*</span></label>
                                     <input type="text" placeholder="Should be a short representation of the collection name" class="form-control" id="erc1155Ticker">
                                 </div>
                                 <div class="form-group">
@@ -552,7 +563,12 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="erc1155ImageFile">Click to Choose Image....</label>
+                                    <label for="erc1155ImageFile">
+                                        Upload image
+                                        <span class="material-icons-round">
+                                            upload
+                                        </span>
+                                    </label>
                                     <input type="file" class="form-control-file imageFile" id="erc1155ImageFile" accept="image/*">
                                     <div class="imageFileDisplay mt-3"></div>
                                     <input type="hidden" id="erc1155ImageUrl" value="" />
@@ -571,9 +587,11 @@
                     </div>
 
                 <div class="modal-footer">
-                    <div id="feeCollection"><span id="ethFeeCollection"></span> <span class="currency"></span> developer fee per collection. <div id="paymentDescription">Unlimited collection creation if holding <span id="nifMinCollection"></span> NIF or owning one of our <a href="https://opensea.io/assets/0x774418646555f414cbaeca6cf3c72a0613d4dab4/1" target="_blank">free pass wildcards</a>.</div> No subsequent fees on actual NFT creation as the collection is yours after creation. Gas fees always apply.</div>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary submitNewUpdate" id="erc1155Submit">Create Collection</button>
+                    <div id="feeCollection" class="footer-description"><span id="ethFeeCollection"></span> <span class="currency"></span> developer fee per collection. <div id="paymentDescription">Unlimited collection creation if holding <span id="nifMinCollection"></span> NIF or owning one of our <a href="https://opensea.io/assets/0x774418646555f414cbaeca6cf3c72a0613d4dab4/1" target="_blank">free pass wildcards</a>.</div> No subsequent fees on actual NFT creation as the collection is yours after creation. Gas fees always apply.</div>
+                    <div class="buttons-container">
+                        <button type="button" class="btn btn-secondary modal-cancel" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary submitNewUpdate" id="erc1155Submit">Create Collection</button>
+                    </div>
                 </div>
             </div>
         </div>
