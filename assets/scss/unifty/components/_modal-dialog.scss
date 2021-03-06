@@ -52,6 +52,10 @@
       letter-spacing: .32px;
       color: #fff;
 
+      &:hover {
+        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+      }
+
       span {
         color: $pink;
 
@@ -62,6 +66,7 @@
 
           &:hover {
             color: $pink;
+            cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
           }
         }
       }

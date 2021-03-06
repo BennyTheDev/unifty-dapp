@@ -1,8 +1,8 @@
 .dark-edition .card.farm-card {
-  background: linear-gradient(30deg, 
-    rgba(18, 26, 33, 1) 50%, 
-    rgba(255, 118, 226, .15) 73%, 
-    rgba(255, 118, 226, .35) 100%);  
+  // background: linear-gradient(30deg, 
+  //   rgba(18, 26, 33, 1) 50%, 
+  //   rgba(255, 118, 226, .15) 73%, 
+  //   rgba(255, 118, 226, .35) 100%);  
 
   .card-body {
     a {
@@ -17,6 +17,7 @@
       color: #fff;
       display: flex;
       width: calc(100% - 10rem);
+      // height: 9rem;
     }
 
     .card-description {
@@ -108,4 +109,30 @@
       }
     }
   }
+}
+
+.dark-edition .main-panel .content .container-fluid .row .col-xl-4 {
+
+  &:nth-of-type(1) {
+    .card.farm-card {
+      .card-body {
+        background: $lg-blue;
+      }
+    }
+  }
+  &:nth-of-type(2) {
+    .card.farm-card {
+      .card-body {
+        background: $lg-yellow;
+        ;
+      }
+    }
+  }
+  &:nth-of-type(3) {
+    .card.farm-card {
+      .card-body {
+        background: $lg-purple;
+      }
+    }
+  }  
 }

@@ -41,6 +41,11 @@
       new ClipboardJS('.btn-clipboard');
     });
   </script>
+  <script>
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+  </script>
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -581,13 +586,16 @@
 
         <!-- Farm View -->
         <script id="farm-template" type="text/x-handlebars-template">
+          
         <div class="nftListing col-md-4 mb-3">
+          
             <div class="card card-profile">
                 {{#ifNotEquals image ""}}
                     <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                 {{/ifNotEquals}}
                 <a class="text-muted mt-2" style="font-size: 0.7em;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
                 <div class="card-body">
+                  <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
                     {{#ifNotEquals animation_url ""}}
                     <a class="btn btn-outline mb-3" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
                         Open Video
@@ -613,13 +621,24 @@
                         <span class="badge badge-info">You Own: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
                     </div>
 
-                    <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-                    <p class="card-text text-truncate">{{description}}</p>
+                    
+                    <!-- <p class="card-text text-truncate">{{description}}</p> -->
+
+                    
+                    <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="NFT Description" data-content="ver since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets co">
+                      <span class="material-icons">
+                        info
+                      </span>
+                    </button>
+                    
 
                     {{#ifNotEquals options ""}}
                     <div class="dropdown">
                         <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Options
+                            <!-- Options -->
+                            <span class="material-icons-round">
+                              edit
+                            </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
                             <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmEditDataModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmEditData{{erc1155}}{{id}}" class="farmEditData">Edit Data</a>
@@ -647,7 +666,7 @@
                         <br/>
                     {{/ifNotEquals}}
 
-                    <a {{{traitsHide}}} class="btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                    <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
                         Traits
                     </a>
                     <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
@@ -661,8 +680,14 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> 
         </div>
+
+        <script>
+          $(function () {
+            $('[data-toggle="popover"]').popover()
+          })
+        </script>
     </script>
 
         <div class="row" id="farmPage" style="display: none;"></div>

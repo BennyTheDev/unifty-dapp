@@ -18,3 +18,21 @@ $color-divider: #4c4c6f;
 $modal-border: #3b414c;
 $modal-bg: #3b414c;
 
+$stocks-font: #f4f7fb;
+
+//gradients
+$lg-blue: linear-gradient(30deg, 
+  rgba(18, 26, 33, 1) 50%, 
+  rgba(48, 178, 211, 0.15) 73%, 
+  rgba(64, 190, 240, 0.35) 100%);
+
+$lg-yellow: linear-gradient(30deg, 
+  rgba(18, 26, 33, 1) 50%, 
+  rgba(155, 153, 41, 0.15) 73%, 
+  rgba(247, 225, 31, 0.35) 100%);
+
+$lg-purple: linear-gradient(30deg, 
+  rgba(18, 26, 33, 1) 50%, 
+  rgba(255, 118, 226, .15) 73%, 
+  rgba(255, 118, 226, .35) 100%);
+

@@ -1,6 +1,19 @@
-.dark-edition .card .card-body h4.card-title {
+.dark-edition .card.roadmap {
   font-size: 1.4rem;
   color: $grey-tertiary;
+
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+
+  .card-body {
+    padding: 3rem 2rem;
+
+    .main-timeline {
+      &::before {
+        background: $pink;
+      }
+    }
+  }
 }
 
 .main-timeline h5.title{
@@ -14,4 +27,46 @@
   font-size: 1.4rem;
   color: $grey-tertiary;
   font-weight: 300;
+}
+
+.main-timeline .date-outer {
+  &:before {
+    background: linear-gradient(60deg, #ff9bee, $pink);
+  }
+  &::after {
+    border: 2px solid $pink-darker;
+  }
+}
+
+.main-timeline .date-content:before {
+  background: linear-gradient(60deg, #ff9bee, $pink);
+  background: $pink
+}
+
+.main-timeline .timeline-content .fajar {
+  &::before {
+    content: "\01F525";
+    width: 10px;
+    animation: 1s linear ff infinite;
+    // animation-delay: 2s;
+    // 128293
+  }
+}
+
+@keyframes ff{
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

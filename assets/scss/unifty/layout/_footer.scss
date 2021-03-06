@@ -1,6 +1,8 @@
 .footer {
   padding: .5rem;
   background: $dark-secondary;
+  border-top-left-radius: .8rem;
+  border-top-right-radius: .8rem;
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 56%), 
     0 4px 25px 0px rgba(0, 0, 0, 12%), 
     0 8px 10px -5px rgba(0, 0, 0, 20%);
@@ -9,7 +11,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 1rem 5rem;
+    padding: 1rem;
     
 
     li.nav-item a {
