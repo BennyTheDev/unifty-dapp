@@ -1,4 +1,4 @@
-//COLORS
+//colors
 $pink: #f879e2;
 $pink-darker: #9e3e8d;
 $pink-hover: rgba(253, 121, 226, .1);
@@ -19,6 +19,14 @@ $modal-border: #3b414c;
 $modal-bg: #3b414c;
 
 $stocks-font: #f4f7fb;
+
+$golden: #f7b936;
+
+//box-shadows
+$shadow-secondary-dark: 0 16px 38px -12px rgba(0, 0, 0, 56%), 
+  0 4px 25px 0px rgba(0, 0, 0, 12%), 
+  0 8px 10px -5px rgba(0, 0, 0, 20%);
+$shadow-pink: 5px 5px 43px -10px rgba(248,121,226,0.5);
 
 //gradients
 $lg-blue: linear-gradient(30deg, 

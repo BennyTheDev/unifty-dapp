@@ -2,10 +2,18 @@
   border: .1rem solid $modal-border;
   background-color: $dark-secondary;
 
-  //links on hover
-  a:hover, a:active {
-    color: $pink;
+  .close:not(:disabled):not(.disabled) {
+    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
   }
+
+  a {
+    color: $pink;
+    font-weight: 400;
+
+    &:hover, &:active {
+      color: $pink-submit-hover;
+    }
+  }  
 
   .modal-header {
     display: flex;
@@ -39,9 +47,51 @@
 
   .modal-body {
     padding: 1rem 2rem;
+    color: $grey-border;
+    font-size: 1.3rem;
+
+    select {
+      background-color: transparent;
+      background-image: none;
+      border: .1rem solid $modal-border;
+      border-radius: .8rem;
+      font-size: 1.3rem;
+      color: #fff;
+      padding: 1rem;
+
+      &:hover {
+        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+      }
+
+      option {
+        background-color: $dark-secondary;
+        padding: .5rem 0;
+
+        &:hover {
+          background-color: $lg-purple;
+          box-shadow: none;
+        }
+      }
+    }
 
     .col {
       padding: 0;
+    }
+
+    button {
+      padding: .8rem .5rem;
+      font-size: 1.2rem;
+      border: .1rem solid $pink;
+      border-radius: .4rem;
+      background-color: transparent;
+      color: $pink;
+      box-shadow: none;
+
+      &:hover {
+        border: .1rem solid $pink-submit-hover;
+        color: $pink-submit-hover;
+        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto !important;
+      }
     }
 
     form .form-group label {
@@ -57,7 +107,9 @@
       }
 
       span {
-        color: $pink;
+        &.required {
+          color: $pink;
+        }
 
         &.material-icons-round {
           font-size: 2.2rem;
@@ -73,7 +125,7 @@
     }
 
     form .form-group input {
-      background-color: transparent;
+      background-color: transparent !important;
       background-image: none;
       border: .1rem solid $modal-border;
       border-radius: .8rem;
@@ -105,6 +157,50 @@
         border: .1rem solid $pink;
       }
     }
+
+    form fieldset {
+      margin-top: 2.5rem;
+      legend {
+        color: $grey-primary;
+        text-transform: uppercase;
+        margin: 0;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      .form-row {
+        margin: 0;
+      }
+
+      .form-group {
+        input, select {
+          margin-bottom: 1rem;
+        }
+        // select {
+        //   background-color: transparent;
+        //   background-image: none;
+        //   border: .1rem solid $modal-border;
+        //   border-radius: .8rem;
+        //   font-size: 1.3rem;
+        //   color: #fff;
+        //   padding: 1rem;
+
+        //   &:hover {
+        //     cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+        //   }
+
+        //   option {
+        //     background-color: $dark-secondary;
+        //     padding: .5rem 0;
+
+        //     &:hover {
+        //       background-color: $lg-purple;
+        //       box-shadow: none;
+        //     }
+        //   }
+        // }
+      }
+    }
   }
 
   .modal-footer {
@@ -113,6 +209,7 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 1.5rem;
+    line-height: 1.3;
 
     & > :not(:first-child) {
       margin-left: 0;
@@ -141,6 +238,7 @@
     }
 
     .btn.btn-secondary {
+      flex: 1;
       background-color: transparent;
       border: .1rem solid $grey-border;      
       color: $grey-border;
@@ -155,6 +253,7 @@
     }
 
     .btn.btn-primary {
+      flex: 1;
       background-color: $pink;
       color: $dark-primary;
       font-weight: 700;

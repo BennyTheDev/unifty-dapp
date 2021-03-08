@@ -276,67 +276,6 @@
   </div>
   <!-- SIDEBAR END -->
 
-  <!-- <div class="sidebar" data-color="purple" data-background-color="black" data-image="assets/img/alex.jpg">
-    <div class="logo"><a href="https://unifty.io" class="simple-text logo-normal">
-        <img src="assets/img/unifty2.png" width="125" border="0" /> UNIFTY
-        <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">Binance Smart Chain</div>
-      </a></div>
-    <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">
-            <i class="material-icons">dashboard</i>
-            <p>Home</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="collectibles.html">
-            <i class="material-icons">account_box</i>
-            <p>Your Wallet</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="manager.html">
-            <i class="material-icons">collections</i>
-            <p>Collection Manager</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="farm-builder.html">
-            <i class="material-icons">build</i>
-            <p>Farm Builder</p>
-          </a>
-        </li>
-        <li class="nav-item bridgeNav">
-          <a class="nav-link" href="bridge.html">
-            <i class="material-icons">360</i>
-            <p>NFT Bridge</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" id="nulsSco">
-            <i class="material-icons">monetization_on</i>
-            <p>Get Project Funding</p>
-          </a>
-        </li>
-        <li class="nav-item" id="xdaiFarm">
-          <a class="nav-link"
-            href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
-            <i class="material-icons">grass</i>
-            <p>Rares Farm - NIF (xDai)</p>
-          </a>
-        </li>
-
-        <li class="nav-item" id="genesisFarm">
-          <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
-            <i class="material-icons">grass</i>
-            <p>Genesis Farm - NIF-LP</p>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div> -->
-
   <div class="main-panel">
 
     <!-- NAV TOGGLER -->
@@ -378,15 +317,9 @@
               <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
               <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
               <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
-              <!-- <a class="dropdown-item" href="/dapp/rinkeby/">Rinkeby (Testnet)</a> -->
             </div>
           </div>
 
-          <div class="switch-light-mode">
-            <span class="material-icons-round">
-              light_mode
-            </span>
-          </div>
         </div>
       </div>
       <!-- HEADER END -->
@@ -465,64 +398,10 @@
                             <div class="mt-2" style="white-space: nowrap;">Phone: {{phone}}</div>
                         {{/ifNotEquals}}
                       </div>
-                        <!-- {{#ifNotEquals image ""}}
-                            <div class="col-3">
-                                <img class="card-img" loading="lazy" src="{{image}}" alt="{{name}}" style="width: 100%;max-width:500px;margin: 20px;" />
-                            </div>
-                        {{/ifNotEquals}} -->
-                        <!-- <div class="col-9">
-                            <div class="card-body">
-                                <h1>{{name}}</h1>
-                                {{#ifNotEquals description ""}}
-                                <p class="card-text">{{breaklines description}}</p>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals custom_link_value ""}}
-                                    <a href="{{custom_link_value}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-external-link"></i> {{custom_link_name}}</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals twitter ""}}
-                                    <a href="{{twitter}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-twitter"></i> Twitter</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals telegram ""}}
-                                    <a href="{{telegram}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-telegram"></i> Telegram</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals discord ""}}
-                                    <a href="{{discord}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-discord"></i> Discord</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals instagram ""}}
-                                    <a href="{{instagram}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-instagram"></i> Instagram</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals medium ""}}
-                                    <a href="{{medium}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-medium"></i> Medium</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals youtube ""}}
-                                    <a href="{{youtube}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-youtube"></i> Youtube</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals web ""}}
-                                    <a href="{{web}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-home"></i> Web</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals email ""}}
-                                    <a href="mailto:{{email}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-envelope"></i> Email</a>
-                                {{/ifNotEquals}}
-    
-                                {{#ifNotEquals phone ""}}
-                                    <div class="mt-2" style="white-space: nowrap;">Phone: {{phone}}</div>
-                                {{/ifNotEquals}}
-    
-                            </div>
-                        </div> -->
                     </div>
                 </div>
             </div>
-        </script>
+          </script>
 
           <!-- <div class="row" id="farmHeader"></div> -->
           <div id="farmHeader"></div>
@@ -569,136 +448,165 @@
             </div>
           </div>
 
-
         </div>
-
-
-
-        <!-- <div class="row justify-content-center content-center mb-3" style="font-size: 0.8em;">
-          Powered&nbsp;by&nbsp;<a href="https://t.me/unifty">Unifty</a>&nbsp;and&nbsp;<a
-            href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e"
-            target="_blank">$NIF</a>
-        </div> -->
-
-
-
-
 
         <!-- Farm View -->
-        <script id="farm-template" type="text/x-handlebars-template">
-          
-        <div class="nftListing col-md-4 mb-3">
-          
-            <div class="card card-profile">
-                {{#ifNotEquals image ""}}
-                    <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
-                {{/ifNotEquals}}
-                <a class="text-muted mt-2" style="font-size: 0.7em;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                <div class="card-body">
-                  <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-                    {{#ifNotEquals animation_url ""}}
-                    <a class="btn btn-outline mb-3" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
-                        Open Video
-                    </a>
-                    <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <video style="width: 100%" src="{{animation_url}}" preload="auto" muted="muted" controls="controls" loop="loop" poster="{{image}}">
-                                    Your browser does not support the video tag.
-                                </video>
-                            </li>
-                        </ul>
-                    </div>
-                    {{/ifNotEquals}}
-                    {{#ifNotEquals audio_url ""}}
-                        <audio class="mb-3" style="width: 90%;" controls="controls" preload="auto" loop="loop">
-                            <source src="{{audio_url}}" type="audio/mp3">
-                            Your browser does not support the audio tag.
-                        </audio>
-                    {{/ifNotEquals}}
-                    <div class="mb-3">
-                        <span class="badge badge-info">In Stock: <span id="farmStockInfo{{erc1155}}{{id}}">{{stock}}</span> / <span id="farmTotalSupplyInfo{{erc1155}}{{id}}">{{totalSupply}}</span></span>
-                        <span class="badge badge-info">You Own: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
-                    </div>
+        <script id="farm-template" type="text/x-handlebars-template">          
+          <div class="nftListing col-md-4 mb-3">
+            
+              <div class="card card-profile">
+                  {{#ifNotEquals image ""}}
+                      <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                  {{/ifNotEquals}}
+                  <a class="text-muted mt-2" style="font-size: 0.7em;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
 
-                    
-                    <!-- <p class="card-text text-truncate">{{description}}</p> -->
+                  <div class="card-body">
+                    <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                      {{#ifNotEquals animation_url ""}}
+                      <a class="btn btn-outline mb-3" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
+                          Open Video
+                      </a>
+                      <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
+                          <ul class="list-group">
+                              <li class="list-group-item">
+                                  <video style="width: 100%" src="{{animation_url}}" preload="auto" muted="muted" controls="controls" loop="loop" poster="{{image}}">
+                                      Your browser does not support the video tag.
+                                  </video>
+                              </li>
+                          </ul>
+                      </div>
+                      {{/ifNotEquals}}
+                      {{#ifNotEquals audio_url ""}}
+                          <audio class="mb-3" style="width: 90%;" controls="controls" preload="auto" loop="loop">
+                              <source src="{{audio_url}}" type="audio/mp3">
+                              Your browser does not support the audio tag.
+                          </audio>
+                      {{/ifNotEquals}}
+                      <div class="mb-3">
+                          <span class="badge badge-info">In Stock: <span id="farmStockInfo{{erc1155}}{{id}}">{{stock}}</span> / <span id="farmTotalSupplyInfo{{erc1155}}{{id}}">{{totalSupply}}</span></span>
+                          <span class="badge badge-info">You Own: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
+                      </div>
 
-                    
-                    <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="NFT Description" data-content="ver since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets co">
-                      <span class="material-icons">
-                        info
-                      </span>
-                    </button>
-                    
+                      
+                      <!-- <p class="card-text text-truncate">{{description}}</p> -->
 
-                    {{#ifNotEquals options ""}}
-                    <div class="dropdown">
-                        <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <!-- Options -->
-                            <span class="material-icons-round">
-                              edit
-                            </span>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
-                            <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmEditDataModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmEditData{{erc1155}}{{id}}" class="farmEditData">Edit Data</a>
-                            <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmRemoveNftsModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmRemoveNfts{{erc1155}}{{id}}" class="farmRemoveNfts">Remove NFTs</a>
-                            <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmSetShopPriceModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" data-shop-address="{{shop}}" id="farmSetShopPrice{{erc1155}}{{id}}" class="farmSetShopPrice">Set Shop Price</a>
-                        </div>
-                    </div>
-                    {{/ifNotEquals}}
+                      
+                      <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="NFT Description" data-content="{{description}}">
+                        <span class="material-icons-round">
+                          info
+                        </span>
+                      </button>
+                      
 
-                    <a class="redeemButton btn btn-primary mb-3" data-erc1155="{{erc1155}}" data-token-id="{{id}}" data-points="{{pointsRaw}}" id="redeemButton{{erc1155}}{{id}}" href="javascript:void(0);" role="button" aria-expanded="false"></a>
-                    <br />
+                      {{#ifNotEquals options ""}}
+                      <div class="dropdown">
+                          <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span class="material-icons-round">
+                                settings
+                              </span>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
+                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmEditDataModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmEditData{{erc1155}}{{id}}" class="farmEditData">Edit Data</a>
+                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmRemoveNftsModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmRemoveNfts{{erc1155}}{{id}}" class="farmRemoveNfts">Remove NFTs</a>
+                              <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmSetShopPriceModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" data-shop-address="{{shop}}" id="farmSetShopPrice{{erc1155}}{{id}}" class="farmSetShopPrice">Set Shop Price</a>
+                          </div>
+                      </div>
+                      {{/ifNotEquals}}
 
-                    {{#ifNotEquals buy ""}}
-                        <a class="buyButton btn btn-info" data-toggle="modal" data-target="#farmBuyModal" data-erc1155="{{erc1155}}" data-token-id="{{id}}" data-shop-address="{{shop}}" id="buyButton{{erc1155}}{{id}}" href="javascript:void(0);" role="button" aria-expanded="false">{{buy}}</a>
-                        <br />
-                        <span class="text-muted" style="font-size: 0.8em">{{price}}</span>
-                        <br />
-                        <br />
-                    {{/ifNotEquals}}
+                      <a class="redeemButton btn btn-primary mb-3" data-erc1155="{{erc1155}}" data-token-id="{{id}}" data-points="{{pointsRaw}}" id="redeemButton{{erc1155}}{{id}}" href="javascript:void(0);" role="button" aria-expanded="false"></a>
+                      <br />
 
-                    {{#ifNotEquals interactive_url ""}}
-                        <a class="btn btn-danger mb-2" style="cursor: pointer;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
-                            Run NFT
-                        </a>
-                        <br/>
-                    {{/ifNotEquals}}
+                      {{#ifNotEquals buy ""}}
+                          <a class="buyButton btn btn-info" data-toggle="modal" data-target="#farmBuyModal" data-erc1155="{{erc1155}}" data-token-id="{{id}}" data-shop-address="{{shop}}" id="buyButton{{erc1155}}{{id}}" href="javascript:void(0);" role="button" aria-expanded="false">{{buy}}</a>
+                          <br />
+                          <span class="text-muted" style="font-size: 0.8em">{{price}}</span>
+                          <br />
+                          <br />
+                      {{/ifNotEquals}}
 
-                    <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                        Traits
-                    </a>
-                    <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
-                        <ul class="list-group">
-                            {{#each attributes}}
-                                <li class="list-group-item">
-                                    <sub>{{this.trait_type}}</sub><br />
-                                    <div>{{this.value}}</div>
-                                </li>
-                            {{/each}}
-                        </ul>
-                    </div>
-                </div>
-            </div> 
-        </div>
+                      {{#ifNotEquals interactive_url ""}}
+                          <a class="btn btn-danger mb-2" style="cursor: pointer;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
+                              Run NFT
+                          </a>
+                          <br/>
+                      {{/ifNotEquals}}
 
-        <script>
-          $(function () {
-            $('[data-toggle="popover"]').popover()
-          })
+                      <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                          Traits
+                      </a>
+                      <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
+                          <ul class="list-group">
+                              {{#each attributes}}
+                                  <li class="list-group-item">
+                                      <sub>{{this.trait_type}}</sub><br />
+                                      <div>{{this.value}}</div>
+                                  </li>
+                              {{/each}}
+                          </ul>
+                      </div>
+                  </div>
+              </div> 
+          </div>
+
+          <script>
+            $(function () {
+              $('[data-toggle="popover"]').popover()
+            })
+          </script>
         </script>
-    </script>
 
         <div class="row" id="farmPage" style="display: none;"></div>
 
         <script id="next-button" type="text/x-handlebars-template">
-        <div id="loadMore" class="container-fluid">
-            <div style="text-align: center" class="justify-content-center content-center">
-                <button class="btn btn-primary" id="loadMoreButton">Load More</button>
-            </div>
+          <div id="loadMore" class="container-fluid">
+              <div style="text-align: center" class="justify-content-center content-center">
+                  <button class="btn btn-primary" id="loadMoreButton">Load More</button>
+              </div>
+          </div>
+        </script>
+
+        <!-- FOOTER -->
+        <div class="footer">
+          <ul>
+            <li class="nav-item" id="getNifUniswap">
+              <a class="nav-link" target="_blank"
+                href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
+                <span class="material-icons-round">
+                  find_replace
+                </span>
+                Get $NIF at Uniswap
+              </a>
+            </li>
+
+            <li class="nav-item" id="mirror">
+              <a class="nav-link" target="_blank" href="https://unifty.eth">
+                <span class="material-icons-round">
+                  present_to_all
+                </span>
+                Mirror: https://unifty.eth
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/dapp/roadmap.html">
+                <span class="material-icons-round">
+                  swap_calls
+                </span>
+                Roadmap
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="faq.html">
+                <span class="material-icons-round">
+                  help_outline
+                </span>
+                FAQ
+              </a>
+            </li>
+          </ul>
         </div>
-    </script>
+        <!-- FOOTER END -->
 
         <!-- Add NFTs Modal -->
         <div class="modal fade" style="overflow-y: scroll;" id="addNftsModal" tabindex="-1"
@@ -716,7 +624,7 @@
                 <form onsubmit="return false;">
 
                   <div class="form-group">
-                    <label for="farmNftCollection">Select Your NFT Collection *</label>
+                    <label for="farmNftCollection">Select Your NFT Collection<span class="required">*</span></label>
                     <select class="form-control" id="farmNftCollection">
                     </select>
                   </div>
@@ -746,19 +654,19 @@
                   </div>
 
                   <div class="form-group">
-                    <label for="farmPoints">Redemption Points *</label>
+                    <label for="farmPoints">Redemption Points<span class="required">*</span></label>
                     <input type="text" placeholder="The amount of points needed to redeem a copy of this NFT."
                       class="form-control" id="farmPoints">
                   </div>
 
                   <div class="form-group">
-                    <label for="farmArtistFee">Artist Fee <span class="currency"></span> *</label>
+                    <label for="farmArtistFee">Artist Fee <span class="currency"></span><span class="required">*</span></label>
                     <input type="text" placeholder="Redemption fee for the artist." class="form-control" value="0"
                       id="farmArtistFee">
                   </div>
 
                   <div class="form-group">
-                    <label for="farmControllerFee">Controller Fee <span class="currency"></span> *</label>
+                    <label for="farmControllerFee">Controller Fee <span class="currency"></span><span class="required">*</span></label>
                     <input type="text" placeholder="Redemption fee for the controller (usually you)."
                       class="form-control" value="0" id="farmControllerFee">
                   </div>
@@ -774,8 +682,10 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="addNftsButton">Add</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="addNftsButton">Add</button>
+                </div>
               </div>
             </div>
           </div>
@@ -807,8 +717,10 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="nftStakeButton">Stake!</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="nftStakeButton">Stake!</button>
+                </div>
               </div>
             </div>
           </div>
@@ -842,8 +754,10 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="nftUnstakeButton">Unstake!</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="nftUnstakeButton">Unstake!</button>
+                </div>
               </div>
             </div>
           </div>
@@ -863,7 +777,9 @@
               <div class="modal-body" id="walletModalBody">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right: 0;">Close</button>
+                </div>
                 <!--<button type="button" class="btn btn-primary" id="farmWalletAddButton">Add Selected</button>-->
               </div>
             </div>
@@ -884,8 +800,10 @@
               <div class="modal-body" id="withdrawFeesBody">
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="withdrawFeesButton">Withdraw</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="withdrawFeesButton">Withdraw</button>
+                </div>
               </div>
             </div>
           </div>
@@ -907,7 +825,7 @@
                 <form onsubmit="return false">
 
                   <div class="form-group">
-                    <label for="farmRemoveNftsAmount">Amount of NFTs to remove *</label>
+                    <label for="farmRemoveNftsAmount">Amount of NFTs to remove<span class="required">*</span></label>
                     <input type="text" placeholder="After removal, the NFTs will be transferred to your wallet."
                       class="form-control" id="farmRemoveNftsAmount">
                   </div>
@@ -919,8 +837,10 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="farmWalletAddButton">Remove</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="farmWalletAddButton">Remove</button>
+                </div>
               </div>
             </div>
           </div>
@@ -942,19 +862,19 @@
                 <form onsubmit="return false;">
 
                   <div class="form-group">
-                    <label for="farmEditPoints">Redemption Points *</label>
+                    <label for="farmEditPoints">Redemption Points<span class="required">*</span></label>
                     <input type="text" placeholder="The amount of points needed to redeem a copy of this NFT."
                       class="form-control" id="farmEditPoints">
                   </div>
 
                   <div class="form-group">
-                    <label for="farmEditArtistFee">Artist Fee <span class="currency"></span> *</label>
+                    <label for="farmEditArtistFee">Artist Fee <span class="currency"></span><span class="required">*</span></label>
                     <input type="text" placeholder="Redemption fee for the artist." class="form-control" value="0"
                       id="farmEditArtistFee">
                   </div>
 
                   <div class="form-group">
-                    <label for="farmEditControllerFee">Controller Fee <span class="currency"></span> *</label>
+                    <label for="farmEditControllerFee">Controller Fee <span class="currency"></span><span class="required">*</span></label>
                     <input type="text" placeholder="Redemption fee for the controller (usually you)."
                       class="form-control" value="0" id="farmEditControllerFee">
                   </div>
@@ -973,15 +893,16 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="farmEditDataButton">Update</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="farmEditDataButton">Update</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Interactive -->
-
         <div class="modal fade" style="overflow-y: scroll;" id="nftInteractiveModal" tabindex="-1" role="dialog"
           aria-labelledby="nftInteractiveModalLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg" role="document">
@@ -1005,17 +926,17 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                  id="closeInteractive">Close</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    id="closeInteractive" style="margin-right: 0;">Close</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
         <!-- Interactive END -->
 
         <!-- SHOP PRICE -->
-
         <div class="modal fade" style="overflow-y: scroll;" id="farmSetShopPriceModal" tabindex="-1" role="dialog"
           aria-labelledby="farmSetShopPriceModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -1035,13 +956,13 @@
                 </p>
 
                 <div class="form-group">
-                  <label for="farmShopEditArtistPrice">Artist Price <span class="currency"></span> *</label>
+                  <label for="farmShopEditArtistPrice">Artist Price <span class="currency"></span><span class="required">*</span></label>
                   <input type="text" placeholder="Sale price share for the artist." class="form-control" value="0"
                     id="farmShopEditArtistPrice">
                 </div>
 
                 <div class="form-group">
-                  <label for="farmShopEditControllerPrice">Controller Price <span class="currency"></span> *</label>
+                  <label for="farmShopEditControllerPrice">Controller Price <span class="currency"></span><span class="required">*</span></label>
                   <input type="text" placeholder="Sale price share for the controller (usually you)."
                     class="form-control" value="0" id="farmShopEditControllerPrice">
                 </div>
@@ -1052,15 +973,16 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="farmShopEditDataButton">Update</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="farmShopEditDataButton">Update</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Buy -->
-
         <div class="modal fade" style="overflow-y: scroll;" id="farmBuyModal" tabindex="-1" role="dialog"
           aria-labelledby="farmBuyModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -1076,7 +998,7 @@
                 <form onsubmit="return false">
 
                   <div class="form-group">
-                    <label for="farmBuyAmount">Amount to buy *</label>
+                    <label for="farmBuyAmount">Amount to buy<span class="required">*</span></label>
                     <input type="text" placeholder="Please choose how much you want to buy." value="1"
                       class="form-control" id="farmBuyAmount">
                     <span class="text-muted" style="font-size: 0.8em">Price: <span id="farmBuyPrice"></span> <span
@@ -1091,15 +1013,16 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" id="buyButton">Buy</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="buyButton">Buy</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
         <!-- ALERT -->
-
         <div class="modal fade" style="overflow-y: scroll;" id="alertModal" tabindex="-1" role="dialog"
           aria-labelledby="alertModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -1114,60 +1037,17 @@
 
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal" style="margin-right: 0;">Close</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
         <!-- MODALS END -->
-
 
       </div>
     </div>
-
-    <!-- FOOTER -->
-    <div class="footer">
-      <ul>
-        <li class="nav-item" id="getNifUniswap">
-          <a class="nav-link" target="_blank"
-            href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-            <span class="material-icons-round">
-              find_replace
-            </span>
-            Get $NIF at Uniswap
-          </a>
-        </li>
-
-        <li class="nav-item" id="mirror">
-          <a class="nav-link" target="_blank" href="https://unifty.eth">
-            <span class="material-icons-round">
-              present_to_all
-            </span>
-            Mirror: https://unifty.eth
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="/dapp/roadmap.html">
-            <span class="material-icons-round">
-              swap_calls
-            </span>
-            Roadmap
-          </a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="faq.html">
-            <span class="material-icons-round">
-              help_outline
-            </span>
-            FAQ
-          </a>
-        </li>
-      </ul>
-    </div>
-    <!-- FOOTER END -->
 
   </div>
 

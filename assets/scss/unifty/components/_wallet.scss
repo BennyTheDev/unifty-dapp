@@ -1,0 +1,26 @@
+.dark-edition .main-panel .content .container-fluid.wallet {
+  h1 {
+    margin-bottom: 2rem;
+  }
+
+  .wallet-container {
+    padding: 2rem;
+    background-color: $dark-secondary;
+    box-shadow: $shadow-secondary-dark;
+    border-radius: .8rem;
+
+    .row {
+      margin: 0;
+  
+      color: $grey-secondary;
+  
+      .container-fluid {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  
+
+
+}

@@ -33,12 +33,36 @@
         padding: .5rem;
         font-size: 1rem;
         font-weight: 400;
+        position: relative;
 
-        border-right: .1rem solid #fff;
+        // border-right: .1rem solid #fff;
 
         &.badge-info {
           color: $stocks-font;
           background-color: transparent;
+
+          &:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 1px;
+            height: 80%;
+            background: #fff;
+            right: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+
+          // &::after {
+          //   content: "";
+          //   position: absolute;
+          //   display: block;
+          //   height: 100%;
+          //   width: 1px;
+          //   right: 0;
+
+          //   margin-right: .1rem solid #fff;
+          // }
         }
       }
 
@@ -53,6 +77,7 @@
         color: #000;
         padding: .3rem .8rem;
         font-weight: 500;
+        width: 90%;
 
         &:active {
           color: #fff;
@@ -70,6 +95,7 @@
         text-transform: none;
         color: $grey-border;
         padding: .3rem .8rem;
+        width: 90%;
       }
 
       //description

@@ -24,10 +24,6 @@
   <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
-  </style>
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
     integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
@@ -343,6 +339,10 @@
     }
   </style>
 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
@@ -390,13 +390,6 @@
           <a class="nav-link" href="bridge.html">
             <i class="material-icons-round">360</i>
             <p>NFT Bridge</p>
-          </a>
-        </li>
-        <!-- this is linking to all farms -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="material-icons-round">grass</i>
-            <p>Farms</p>
           </a>
         </li>
         <li class="nav-item">
@@ -490,15 +483,9 @@
               <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
               <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
               <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
-              <!-- <a class="dropdown-item" href="/dapp/rinkeby/">Rinkeby (Testnet)</a> -->
             </div>            
           </div>
 
-          <div class="switch-light-mode">
-            <span class="material-icons-round">
-              light_mode
-              </span>
-          </div>
         </div>
       </div>
       <!-- HEADER END -->
@@ -508,22 +495,12 @@
           UNIFTY is a new hub for NFT projects to create custom farms, NFT collections with just a few clicks! No coding or difficult contract interactions required while you are fully owning your contracts. Use our tools to market your work!
         </p>
       </div>
+
+      <h1>Featured Farms</h1>
+      <h3>Selected farms created with Unifty's Farm Builder by 3rd parties</h3>
       
-      <div class="container-fluid">
+      <div class="container-fluid featured-farms">
 
-        <!-- FEATURED -->
-        <div>
-          <div class="row">
-            <div class="col-xl-12 col-lg-12">
-              <h1>Farms</h1>
-              <!-- <h4 class="card-subtitle mb-2 text-muted">Selected farms created with Unifty's Farm Builder by 3rd parties
-              </h4> -->
-            </div>
-          </div>
-
-          <div class="row">
-
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -532,7 +509,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">$SACT Brings out a Different COLOR in You</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseDesc10" role="button" aria-expanded="false" aria-controls="multiCollapseDesc10">
                     Read more...
                   </a>
@@ -545,7 +521,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler first-collapsed" data-toggle="collapse" href="#multiCollapseLinks10" role="button" aria-expanded="false" aria-controls="multiCollapseLinks10">
-                    Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks10">
                     <a class="card-link"
@@ -563,9 +539,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -574,7 +548,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">CRIPTOGRANJA EBOY</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc9" role="button" aria-expanded="false" aria-controls="multiCollapseDesc9">
                     Read more...
                   </a>
@@ -584,18 +557,16 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks9" role="button" aria-expanded="false" aria-controls="multiCollapseLinks9">
-                    Farm links...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks9">
                     <a class="card-link"
                       href="https://unifty.io/xdai/farm-view.html?address=0xe1bD67dcd93C17cbC474aA2BFB7a90D2Ed892EDb"><i
-                        class="fa fa-external-link"></i> Open Farm (xDai)</a>
+                        class="fa fa-external-link"></i>xDai</a>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -605,9 +576,8 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">$TACO</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc8" role="button" aria-expanded="false" aria-controls="multiCollapseDesc8">
-                    See more...
+                    Read more...
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseDesc8">
                     <p class="card-description">
@@ -617,7 +587,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks8" role="button" aria-expanded="false" aria-controls="multiCollapseLinks8">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks8">
                     <a class="card-link"
@@ -629,13 +599,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-          </div>
-
-          <div class="row">
-
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -644,7 +608,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">The King</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc7" role="button" aria-expanded="false" aria-controls="multiCollapseDesc7">
                     Read more...
                   </a>
@@ -655,7 +618,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks7" role="button" aria-expanded="false" aria-controls="multiCollapseLinks7">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks7">
                     <a class="card-link"
@@ -664,9 +627,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -676,7 +637,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">Nifty Shots</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc6" role="button" aria-expanded="false" aria-controls="multiCollapseDesc6">
                     Read more...
                   </a>
@@ -686,7 +646,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks6" role="button" aria-expanded="false" aria-controls="multiCollapseLinks6">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks6">
                     <a class="card-link"
@@ -698,9 +658,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -709,7 +667,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">The Musicians Farm House</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc5" role="button" aria-expanded="false" aria-controls="multiCollapseDesc5">
                     Read more...
                   </a>
@@ -719,7 +676,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks5" role="button" aria-expanded="false" aria-controls="multiCollapseLinks5">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks5">
                     <a class="card-link"
@@ -728,13 +685,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-          </div>
-
-          <div class="row">
-
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -744,7 +695,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">Trism</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc4" role="button" aria-expanded="false" aria-controls="multiCollapseDesc4">
                     Read more...
                   </a>
@@ -755,7 +705,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks4" role="button" aria-expanded="false" aria-controls="multiCollapseLinks4">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks4">
                     <a class="card-link"
@@ -765,9 +715,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -777,7 +725,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">Cold Truth Culture</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc3" role="button" aria-expanded="false" aria-controls="multiCollapseDesc3">
                     Read more...
                   </a>
@@ -788,7 +735,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks3" role="button" aria-expanded="false" aria-controls="multiCollapseLinks3">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks3">
                       <a class="card-link"
@@ -816,9 +763,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -830,7 +775,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">Richard Dixon</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc2" role="button" aria-expanded="false" aria-controls="multiCollapseDesc2">
                     Read more...
                   </a>
@@ -840,7 +784,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks2" role="button" aria-expanded="false" aria-controls="multiCollapseLinks2">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks2">
                     <a class="card-link"
@@ -853,13 +797,7 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-          </div>
-
-          <div class="row">
-
-            <div class="col-xl-4 col-lg-12">
               <div class="card farm-card">
                 <div class="card-header card-header-info card-header-icon">
                   <div class="card-icon">
@@ -869,7 +807,6 @@
                 </div>
                 <div class="card-body">
                   <h3 class="card-title">Harem Token</h3>
-                  <h4 class="card-intro-text">short intro description of farm card.... bla bla bla</h4>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseDesc1" role="button" aria-expanded="false" aria-controls="multiCollapseDesc1">
                     Read more...
                   </a>
@@ -882,7 +819,7 @@
                     </p>
                   </div>
                   <a class="btn btn-primary card-toggler" data-toggle="collapse" href="#multiCollapseLinks1" role="button" aria-expanded="false" aria-controls="multiCollapseLinks1">
-                    Open Farms...
+                    Open Farms
                   </a>
                   <div class="collapse multi-collapse" id="multiCollapseLinks1">
                     <a class="card-link"
@@ -895,8 +832,47 @@
                   </div>
                 </div>
               </div>
-            </div>
 
+          </div>
+
+          <div class="footer">
+            <ul>
+              <li class="nav-item" id="getNifUniswap">              
+                <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
+                  <span class="material-icons-round">
+                    find_replace                  
+                  </span>
+                  Get $NIF at Uniswap
+                </a>
+              </li>
+        
+              <li class="nav-item" id="mirror">
+                <a class="nav-link" target="_blank" href="https://unifty.eth">
+                  <span class="material-icons-round">
+                    present_to_all                
+                  </span>
+                  Mirror: https://unifty.eth
+                </a>
+              </li>
+        
+              <li class="nav-item">
+                <a class="nav-link" href="/dapp/roadmap.html">
+                  <span class="material-icons-round">
+                    swap_calls
+                  </span>
+                  Roadmap
+                </a>
+              </li>
+        
+              <li class="nav-item">
+                <a class="nav-link" href="faq.html">
+                  <span class="material-icons-round">
+                    help_outline
+                  </span>
+                  FAQ
+                </a>
+              </li>
+            </ul>
           </div>
 
         </div>
@@ -924,90 +900,8 @@
         </div>
 
       </div>
-
-      <div class="footer">
-        <ul>
-          <li class="nav-item" id="getNifUniswap">              
-            <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-              <span class="material-icons-round">
-                find_replace                  
-              </span>
-              Get $NIF at Uniswap
-            </a>
-          </li>
-    
-          <li class="nav-item" id="mirror">
-            <a class="nav-link" target="_blank" href="https://unifty.eth">
-              <span class="material-icons-round">
-                present_to_all                
-              </span>
-              Mirror: https://unifty.eth
-            </a>
-          </li>
-    
-          <li class="nav-item">
-            <a class="nav-link" href="/dapp/roadmap.html">
-              <span class="material-icons-round">
-                swap_calls
-              </span>
-              Roadmap
-            </a>
-          </li>
-    
-          <li class="nav-item">
-            <a class="nav-link" href="faq.html">
-              <span class="material-icons-round">
-                help_outline
-              </span>
-              FAQ
-            </a>
-          </li>
-        </ul>
-      </div>
       
     </div>
-
-    <!-- FOOTER -->
-    <!-- <div class="footer">
-      <ul>
-        <li class="nav-item" id="getNifUniswap">              
-          <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-            <span class="material-icons-round">
-              find_replace                  
-            </span>
-            Get $NIF at Uniswap
-          </a>
-        </li>
-  
-        <li class="nav-item" id="mirror">
-          <a class="nav-link" target="_blank" href="https://unifty.eth">
-            <span class="material-icons-round">
-              present_to_all                
-            </span>
-            Mirror: https://unifty.eth
-          </a>
-        </li>
-  
-        <li class="nav-item">
-          <a class="nav-link" href="/dapp/roadmap.html">
-            <span class="material-icons-round">
-              swap_calls
-            </span>
-            Roadmap
-          </a>
-        </li>
-  
-        <li class="nav-item">
-          <a class="nav-link" href="faq.html">
-            <span class="material-icons-round">
-              help_outline
-            </span>
-            FAQ
-          </a>
-        </li>
-      </ul>
-    </div> -->
-    <!-- FOOTER END -->
 
   </div>
 

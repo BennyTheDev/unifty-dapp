@@ -1,11 +1,13 @@
 .footer {
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 10rem);
   padding: .5rem;
   background: $dark-secondary;
   border-top-left-radius: .8rem;
   border-top-right-radius: .8rem;
-  box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 56%), 
-    0 4px 25px 0px rgba(0, 0, 0, 12%), 
-    0 8px 10px -5px rgba(0, 0, 0, 20%);
+  box-shadow: $shadow-secondary-dark;
+  margin-top: 2rem;
 
   ul {
     width: 100%;
@@ -22,7 +24,7 @@
       padding: 0;
 
       &:hover {
-        color: $pink-darker;
+        color: $pink;
       }
 
       span {

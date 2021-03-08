@@ -1,4 +1,6 @@
-#chainSelectionDropdown {
+#chainSelectionDropdown,
+#walletActions,
+#bridgeActions {
   background-color: $dark-secondary;
   color: $pink;
   border: .2rem solid $pink;
@@ -7,7 +9,26 @@
   font-size: 2rem;
   text-transform: none;
   padding: 1rem 2.1rem;
-  font-weight: bold;
+  font-weight: 700;
+}
+
+#walletActions,
+#bridgeActions {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: .8rem 1.2rem;
+
+  // &:hover {
+  //   color: $pink-submit-hover;
+  //   border: .2rem solid $pink-submit-hover
+  // }
+
+  span {
+    font-size: 1.4rem;
+    margin-right: .3rem;
+  }
 }
 
 .dropdown-menu {

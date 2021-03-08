@@ -24,10 +24,6 @@
   <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
-  </style>
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
     integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
@@ -343,13 +339,17 @@
     }
   </style>
 
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
 
 <body class="dark-edition">
 
-  <!-- SIDEBAR COMPONENT -->
+  <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="logo">
       <a href="https://unifty.io" class="simple-text logo-normal">
@@ -390,13 +390,6 @@
           <a class="nav-link" href="bridge.html">
             <i class="material-icons-round">360</i>
             <p>NFT Bridge</p>
-          </a>
-        </li>
-        <!-- this is linking to all farms -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="material-icons-round">grass</i>
-            <p>Farms</p>
           </a>
         </li>
         <li class="nav-item">
@@ -478,7 +471,7 @@
             });
           </script>
 
-          <!-- <div class="dropdown ml-3 mr-3 dropdown--chains">
+          <div class="dropdown ml-3 mr-3 dropdown--chains">
             <button id="chainSelectionDropdown" class="btn btn-info dropdown-toggle" type="button"
               id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Select chain
@@ -491,13 +484,8 @@
               <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
               <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
             </div>            
-          </div> -->
-
-          <div class="switch-light-mode">
-            <span class="material-icons-round">
-              light_mode
-              </span>
           </div>
+
         </div>
       </div>
       <!-- HEADER END -->
@@ -510,7 +498,7 @@
       
       <div class="container-fluid">         
 
-        <!-- Roadmap begin -->
+        <!-- ROADMAP -->
         <div class="row">
           <div class="col-xl-12 col-lg-12">
             <h1>Roadmap</h1>
@@ -539,9 +527,6 @@
                     <div class="timeline-content">
                       <h5 class="title">
                         Initial Release
-                        <span class="material-icons-round">
-                          sports_score
-                        </span>
                       </h5>
                       <p class="description">
                         Releasing website, collection management dapp, free pass collectibles, first announcements and
@@ -562,12 +547,7 @@
                     </div>
                     <div class="timeline-content">
                       <h5 class="title">
-                        <div class="fajar">
-
-                          <img src="assets/img/unifty2.png" width="35" border="0" />
-                        </div>
-                        Farming Dapp &amp; Token Release
-                        
+                        Farming Dapp &amp; Token Release                        
                       </h5>
                       <p class="description">
                         Create and manage unlimited farms for your NFT community.
@@ -589,9 +569,6 @@
                     <div class="timeline-content">
                       <h5 class="title">
                         Marketplace Release
-                        <span class="material-icons-round">
-                          storefront
-                        </span>
                       </h5>
                       <p class="description">
                         Buy &amp; sell NFTs on all supported chains.
@@ -612,9 +589,6 @@
                     <div class="timeline-content">
                       <h5 class="title">
                         Presale &amp; Copyright Dapps Release
-                        <span class="material-icons-round">
-                          copyright
-                        </span>
                       </h5>
                       <p class="description">
                         Create presale auctions as well as copyright evidence for your NFTs.
@@ -635,9 +609,6 @@
                     <div class="timeline-content">
                       <h5 class="title">
                         NFT Swap Release
-                        <span class="material-icons-round">
-                          find_replace
-                        </span>
                       </h5>
                       <p class="description">
                         Swap NFTs of similar value on UNIFTY.
@@ -656,18 +627,9 @@
                       </div>
                     </div>
                     <div class="timeline-content">
-                      <h5 class="title">Polkadot / Moonbeam</h5>
-                      <!-- <div class="hourglass">
-                        <div class="top">
-                          <div class="topBg"></div>
-                          <div class="topProgress"></div>
-                        </div>
-                        <div class="line"></div>
-                        <div class="bottom">
-                          <div class="bottomBg"></div>
-                          <div class="bottomProgress"></div>
-                        </div>
-                      </div> -->
+                      <h5 class="title">
+                        Polkadot / Moonbeam
+                      </h5>
                       <p class="description">
                         Moonbeam support for all Unifty features, utilizing Polkadot (already running on Moonbeam
                         Alpha).
@@ -705,10 +667,9 @@
         </div>
 
       </div>
-    </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
+      <!-- FOOTER -->
+      <div class="footer">
         <ul>
           <li class="nav-item" id="getNifUniswap">              
             <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
@@ -749,9 +710,8 @@
       </div>
       <!-- FOOTER END -->
 
-  </div>
+    </div>
 
-  </div>
   </div>
 
 </body>
