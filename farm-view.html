@@ -41,11 +41,6 @@
       new ClipboardJS('.btn-clipboard');
     });
   </script>
-  <script>
-    $(function () {
-      $('[data-toggle="popover"]').popover()
-    })
-  </script>
   <link rel="stylesheet" type="text/css"
     href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
@@ -217,13 +212,6 @@
           <a class="nav-link" href="bridge.html">
             <i class="material-icons-round">360</i>
             <p>NFT Bridge</p>
-          </a>
-        </li>
-        <!-- this is linking to all farms -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="material-icons-round">grass</i>
-            <p>Farms</p>
           </a>
         </li>
         <li class="nav-item">
@@ -403,10 +391,8 @@
             </div>
           </script>
 
-          <!-- <div class="row" id="farmHeader"></div> -->
           <div id="farmHeader"></div>
 
-          <!-- <div id="stakingOptions" style="display:none;" class="row justify-content-center content-center"> -->
           <div id="stakingOptions" style="display:none;">
             <!-- make container consist from 3 rows -->
             <div class="first-row">
@@ -414,6 +400,7 @@
                 <!-- Staking <span id="farmTokensStaked"></span> <span id="farmTokenSymbol"></span> -->
                 Staking <span id="farmTokensStaked"></span>
               </a>
+              <div class="divider"></div>
               <a href="javascript:void(0);" class="btn btn-secondary mb-3 mr-1">
                 <!-- Earned <span id="farmPointsEarned"></span> <span>Points</span> -->
                 Earned <span id="farmPointsEarned"></span>
@@ -450,9 +437,11 @@
 
         </div>
 
+        <h1 class="nftListingsTitle">Farm NFTs</h1>
+
         <!-- Farm View -->
         <script id="farm-template" type="text/x-handlebars-template">          
-          <div class="nftListing col-md-4 mb-3">
+          <div class="nftListing mb-3">
             
               <div class="card card-profile">
                   {{#ifNotEquals image ""}}
@@ -463,8 +452,11 @@
                   <div class="card-body">
                     <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
                       {{#ifNotEquals animation_url ""}}
-                      <a class="btn btn-outline mb-3" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
-                          Open Video
+                      <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
+                        <span class="material-icons">
+                          play_circle
+                        </span>
+                        Play video
                       </a>
                       <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
                           <ul class="list-group">
@@ -487,11 +479,8 @@
                           <span class="badge badge-info">You Own: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
                       </div>
 
-                      
-                      <!-- <p class="card-text text-truncate">{{description}}</p> -->
-
-                      
-                      <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="NFT Description" data-content="{{description}}">
+                      <!-- <p class="card-text text-truncate">{{description}}</p> -->                      
+                      <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="Description" data-content="{{description}}">
                         <span class="material-icons-round">
                           info
                         </span>
@@ -502,7 +491,7 @@
                       <div class="dropdown">
                           <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               <span class="material-icons-round">
-                                settings
+                                create
                               </span>
                           </a>
                           <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
@@ -564,49 +553,6 @@
               </div>
           </div>
         </script>
-
-        <!-- FOOTER -->
-        <div class="footer">
-          <ul>
-            <li class="nav-item" id="getNifUniswap">
-              <a class="nav-link" target="_blank"
-                href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-                <span class="material-icons-round">
-                  find_replace
-                </span>
-                Get $NIF at Uniswap
-              </a>
-            </li>
-
-            <li class="nav-item" id="mirror">
-              <a class="nav-link" target="_blank" href="https://unifty.eth">
-                <span class="material-icons-round">
-                  present_to_all
-                </span>
-                Mirror: https://unifty.eth
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="/dapp/roadmap.html">
-                <span class="material-icons-round">
-                  swap_calls
-                </span>
-                Roadmap
-              </a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="faq.html">
-                <span class="material-icons-round">
-                  help_outline
-                </span>
-                FAQ
-              </a>
-            </li>
-          </ul>
-        </div>
-        <!-- FOOTER END -->
 
         <!-- Add NFTs Modal -->
         <div class="modal fade" style="overflow-y: scroll;" id="addNftsModal" tabindex="-1"
@@ -1047,7 +993,51 @@
         <!-- MODALS END -->
 
       </div>
+
     </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <ul>
+        <li class="nav-item" id="getNifUniswap">
+          <a class="nav-link" target="_blank"
+            href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
+            <span class="material-icons-round">
+              find_replace
+            </span>
+            Get $NIF at Uniswap
+          </a>
+        </li>
+
+        <li class="nav-item" id="mirror">
+          <a class="nav-link" target="_blank" href="https://unifty.eth">
+            <span class="material-icons-round">
+              present_to_all
+            </span>
+            Mirror: https://unifty.eth
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="/dapp/roadmap.html">
+            <span class="material-icons-round">
+              swap_calls
+            </span>
+            Roadmap
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="faq.html">
+            <span class="material-icons-round">
+              help_outline
+            </span>
+            FAQ
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- FOOTER END -->
 
   </div>
 

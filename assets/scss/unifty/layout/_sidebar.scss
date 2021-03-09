@@ -3,7 +3,7 @@
   background-color: $dark-secondary;
   opacity: 1;
   font-size: 1.6rem;
-  box-sizing: $shadow-secondary-dark;
+  box-shadow: $shadow-secondary-dark;
 
   &::before {
     background-color: $dark-secondary;
@@ -22,15 +22,21 @@
     height: calc(100vh - 16rem);
     display: flex;
     flex-direction: column;
-    padding-bottom: 3.5rem;
+    padding-bottom: 2rem;
 
+    @include respond(big-desktop) {
+      padding-bottom: .7rem;
+    }
+    @include respond(tab-land) {
+      padding-bottom: 2.7rem;
+    }
     @include respond(nav-collapse) {
       padding-bottom: 4rem;
     }
     @include respond(tab-port) {
       padding-bottom: 5.5rem;
     }
-   @include respond(phone) {
+    @include respond(phone) {
       padding-bottom: 8rem;
     }
 

@@ -2,17 +2,19 @@
   position: absolute;
   bottom: 0;
   width: calc(100% - 10rem);
-  padding: .5rem;
+
+  margin: 0 5rem;
+  padding: .5rem 0;
   background: $dark-secondary;
   border-top-left-radius: .8rem;
   border-top-right-radius: .8rem;
   box-shadow: $shadow-secondary-dark;
-  margin-top: 2rem;
 
   ul {
     width: 100%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 1rem;
     
 

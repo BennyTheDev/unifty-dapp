@@ -22,21 +22,8 @@
   
     &__title {
       color: $pink-title;
-      font-size: 4.5rem;
+      font-size: 4rem;
       font-weight: 700;
-    }
-  
-    &__dropdowns {
-      display: flex;  
-  
-      .switch-light-mode  {
-        display: flex;
-        align-items: center;
-        span {
-          font-size: 4.5rem;
-          color: $pink;
-        }
-      }
     }
   }
 }

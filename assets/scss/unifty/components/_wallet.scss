@@ -1,13 +1,39 @@
 .dark-edition .main-panel .content .container-fluid.wallet {
-  h1 {
-    margin-bottom: 2rem;
+  
+  .title-options-container {
+    display: flex;
+    padding: 1rem 0;
+    align-items: center;
+
+    h1 {
+      margin-bottom: 0;
+    }
+    
+    a#walletActions {
+      margin: 0 !important;
+      background-color: transparent;
+      color: #fff;
+      // border: .2rem solid $grey-secondary;
+      border: none;
+
+      &:hover {
+        color: $pink;
+        // border: .2rem solid $pink;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
   }
 
   .wallet-container {
-    padding: 2rem;
-    background-color: $dark-secondary;
-    box-shadow: $shadow-secondary-dark;
-    border-radius: .8rem;
+    padding: 2rem 0;
+    background-color: transparent;
+    box-shadow: none;
+    // background-color: $dark-secondary;
+    // box-shadow: $shadow-secondary-dark;
+    // border-radius: .8rem;
 
     .row {
       margin: 0;

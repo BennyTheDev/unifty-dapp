@@ -1,9 +1,14 @@
-.nftListing {
-  width: 36rem;
+.nftListing,
+.farmListing {
+  min-width: 20rem;
+  width: 26.5rem;
+  padding: 0;
+  margin-right: 2rem !important; 
 
   .card-profile {
     position: relative;
     margin-top: 0;
+    box-shadow: $shadow-secondary-dark;
 
     //image
     .card-avatar {
@@ -20,7 +25,7 @@
 
       //title
       h5.card-title {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
         font-weight: 700;
         letter-spacing: .28px;
         a {
@@ -28,17 +33,45 @@
         }
       }
 
+      .collection-name {
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+      }
+
+      a.video-btn-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $pink;
+        border: none;
+        font-size: 1.4rem;
+        text-transform: none;
+
+        &:hover {
+          color: $pink-submit-hover;
+        }
+  
+        span {
+          font-size: 2rem;
+          margin-right: .5rem;
+        }
+      }
+
+      audio {
+        height: 3.2rem;
+        margin-top: 0 !important;
+      }
+
       //stocks
       .badge {
         padding: .5rem;
         font-size: 1rem;
-        font-weight: 400;
+        font-weight: 300;
         position: relative;
-
-        // border-right: .1rem solid #fff;
 
         &.badge-info {
           color: $stocks-font;
+          color: $grey-secondary;
           background-color: transparent;
 
           &:not(:last-child)::before {
@@ -47,22 +80,11 @@
             display: block;
             width: 1px;
             height: 80%;
-            background: #fff;
+            background: $grey-secondary;
             right: -2px;
             top: 50%;
             transform: translateY(-50%);
           }
-
-          // &::after {
-          //   content: "";
-          //   position: absolute;
-          //   display: block;
-          //   height: 100%;
-          //   width: 1px;
-          //   right: 0;
-
-          //   margin-right: .1rem solid #fff;
-          // }
         }
       }
 
@@ -81,7 +103,7 @@
 
         &:active {
           color: #fff;
-          background-color: #9e3e8d;
+          background-color: $pink-submit-hover;
           font-weight: 400;
         }
       }
@@ -164,7 +186,7 @@
 
 .dark-edition .popover.fade.bs-popover-bottom {
   background-color: $dark-secondary;
-  box-shadow: none;
+  box-shadow: $shadow-secondary-dark;
 
   .arrow, .arrow::before {
     display: none;

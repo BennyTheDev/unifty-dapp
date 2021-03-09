@@ -11,7 +11,7 @@
 
   .content {
     margin-top: .5rem;
-    padding: 3rem 5rem 0;
+    padding: 3rem 5rem 7rem;
     min-height: calc(100vh - .5rem);
   }
 
@@ -41,36 +41,47 @@
     padding-top: 2rem;
   }
 
-  .container-fluid.featured-farms {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
+  .container-fluid {
+    padding: 0;
+
+    &.featured-farms {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
   }
 
   //card general style
   .card {
     background: $dark-secondary;
-
-    // .card-header.card-header-info.card-header-icon {
-    //   .card-icon {
-    //     // background: linear-gradient(30deg, rgba(93, 45, 85, 1) 0%, rgba(62, 30, 56, 1) 51%);
-
-    //   }
-    // }
   }
 
   //nft header + staking options
   .nftHeader-stakingOptions-container {
     width: 100%;
     display: flex;
+    align-items: flex-start;
+    margin-bottom: 3rem;
+
+    @include respond(bootstrap-xxl) {
+      flex-direction: column;
+    }
   }
 
   .content .container-fluid {
-
     &.wallet, &.bridge {
       h1 {
         margin-bottom: 2rem;
       }
+    }
+    
+    .row {
+      margin: 0 0 1rem 0;
+    }
+
+    .col-xl-12,
+    .col-lg-12 {
+      padding: 0;
     }
 
     .wallet-container .row, 

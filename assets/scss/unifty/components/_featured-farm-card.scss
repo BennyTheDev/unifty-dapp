@@ -1,5 +1,5 @@
 .dark-edition .card.farm-card {
-  margin: 1rem 3rem 1rem 0;
+  margin: 1rem 2rem 1rem 0;
 
   .card-body {
     box-shadow: $shadow-secondary-dark;
@@ -10,6 +10,7 @@
       &:hover {
         color: $pink;
       }
+      
       i {
         margin-right: .5rem;
       }

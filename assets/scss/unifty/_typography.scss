@@ -6,7 +6,8 @@ h1 {
   color: #fff;
 }
 
-h1#nftContractNameTitle {
+h1#nftContractNameTitle,
+h1.nftListingsTitle {
   color: $grey-secondary;
   display: flex;
   justify-content: center;
@@ -20,6 +21,11 @@ h1#nftContractNameTitle {
     margin-right: .5rem;
     transform: rotate(-45deg);
   }
+}
+
+h1.nftListingsTitle {
+  justify-content: flex-start;
+  margin-bottom: 1rem;
 }
 
 h3 {

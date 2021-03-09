@@ -313,23 +313,9 @@
 
       <div class="container-fluid">
 
-        <!-- <div class="row justify-content-center content-center mb-5">
-          <div class="dropdown">
-            <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle mb-3" id="collectionActions"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Collection Options
-            </a>
-            <div class="dropdown-menu" aria-labelledby="nftActions">
-              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftContractModal"
-                id="nftNewCollectionModalButton">New Collection</a>
-              <a href="javascript:void(0);" class="dropdown-item" id="myPoolsButton">My Collections</a>
-            </div>
-          </div>
-        </div> -->
-
         <!-- My Pools -->
         <script id="mypool-template" type="text/x-handlebars-template">
-        <div class="nftListing col-md-4 mb-3">
+        <div class="nftListing mb-3">
             <div class="card card-profile">
                 {{#ifNotEquals image ""}}
                 <img class="card-avatar" src="{{image}}" alt="{{name}}"/>
@@ -346,7 +332,7 @@
                     <div class="dropdown">
                         <a href="javascript:void(0);" class="btn btn-secondary dropdown-toggle mb-3" id="nftActionSelection{{erc1155}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <span class="material-icons-round">
-                            settings
+                            create
                           </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="nftActionSelection{{erc1155}}">
@@ -358,7 +344,6 @@
                         </div>
                     </div>
                     <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-                    <!-- <p class="card-text text-truncate">{{description}}</p> -->
 
                     {{#ifNotEquals description ""}}
                       <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="Description" data-content="{{description}}">
@@ -367,12 +352,6 @@
                         </span>
                       </button>
                     {{/ifNotEquals}}
-
-                    <!-- <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="NFT Description" data-content="{{description}}">
-                      <span class="material-icons-round">
-                        info
-                      </span>
-                    </button> -->
                 </div>
             </div>
         </div>
@@ -408,7 +387,7 @@
 
         <!-- My NFTs -->
         <script id="mynft-template" type="text/x-handlebars-template">
-        <div class="nftListing col-md-4 mb-3">
+        <div class="nftListing mb-3">
             <div class="card card-profile">
 
                 {{#ifNotEquals image ""}}
@@ -416,10 +395,14 @@
                 {{/ifNotEquals}}
 
                 <div class="card-body">
+                  <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
 
                     {{#ifNotEquals animation_url ""}}
-                    <a class="btn btn-outline mb-3" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
-                        Open Video
+                    <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
+                      <span class="material-icons">
+                        play_circle
+                      </span>
+                      Play video
                     </a>
                     <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
                         <ul class="list-group">
@@ -446,7 +429,9 @@
                     </div>
                     <div class="dropdown">
                         <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="nftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Options
+                          <span class="material-icons-round">
+                            create
+                          </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="nftActions{{erc1155}}{{id}}">
                             <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftTransferModal" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftTransferModalButton{{erc1155}}{{id}}">Transfer</a>
@@ -455,9 +440,13 @@
                             <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftNewModal" data-edit="true" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftEditModalButton{{erc1155}}{{id}}">Edit</a>
                         </div>
                     </div>
-                    <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-                    <p class="card-text text-truncate">{{description}}</p>
-                    <a class="btn btn-outline" data-toggle="collapse" href="#collapse{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{id}}">
+                    <!-- <p class="card-text text-truncate">{{description}}</p> -->
+                    <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="Description" data-content="{{description}}">
+                      <span class="material-icons-round">
+                        info
+                      </span>
+                    </button>
+                    <a class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{id}}">
                         Traits
                     </a>
                     <div class="collapse traits-collapse" id="collapse{{id}}">
@@ -473,6 +462,12 @@
                 </div>
             </div>
         </div>
+
+        <script>
+          $(function () {
+            $('[data-toggle="popover"]').popover()
+          })
+        </script>
     </script>
 
         <div class="row" id="myNftsPage" style="display: none;"></div>
@@ -625,12 +620,7 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="erc1155ImageFile">
-                        Upload image
-                        <span class="material-icons-round">
-                          upload
-                        </span>
-                      </label>
+                      <label for="erc1155ImageFile">Click to Choose Image...</label>
                       <input type="file" class="form-control-file imageFile" id="erc1155ImageFile" accept="image/*">
                       <div class="imageFileDisplay mt-3"></div>
                       <input type="hidden" id="erc1155ImageUrl" value="" />
@@ -802,52 +792,52 @@
 
         <input type="hidden" id="nftErc1155CurrName" value="" />
 
-
       </div>
-
-      <!-- FOOTER -->
-      <div class="footer">
-        <ul>
-          <li class="nav-item" id="getNifUniswap">              
-            <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-              <span class="material-icons-round">
-                find_replace                  
-              </span>
-              Get $NIF at Uniswap
-            </a>
-          </li>
-
-          <li class="nav-item" id="mirror">
-            <a class="nav-link" target="_blank" href="https://unifty.eth">
-              <span class="material-icons-round">
-                present_to_all                
-              </span>
-              Mirror: https://unifty.eth
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span class="material-icons-round">
-                swap_calls
-              </span>
-              Roadmap
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="faq.html">
-              <span class="material-icons-round">
-                help_outline
-              </span>
-              FAQ
-            </a>
-          </li>
-        </ul>
-      </div>
-      <!-- FOOTER END -->
 
     </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <ul>
+        <li class="nav-item" id="getNifUniswap">              
+          <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
+            <span class="material-icons-round">
+              find_replace                  
+            </span>
+            Get $NIF at Uniswap
+          </a>
+        </li>
+
+        <li class="nav-item" id="mirror">
+          <a class="nav-link" target="_blank" href="https://unifty.eth">
+            <span class="material-icons-round">
+              present_to_all                
+            </span>
+            Mirror: https://unifty.eth
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="material-icons-round">
+              swap_calls
+            </span>
+            Roadmap
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="faq.html">
+            <span class="material-icons-round">
+              help_outline
+            </span>
+            FAQ
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- FOOTER END -->
+
   </div>
 
 </body>

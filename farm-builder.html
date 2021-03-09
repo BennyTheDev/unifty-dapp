@@ -350,35 +350,46 @@
 
         <!-- Farms View -->
         <script id="farm-template" type="text/x-handlebars-template">
-                <div class="farmListing col-md-4 mb-3">
+                <div class="farmListing mb-3">
                     <div class="card card-profile">
                         {{#ifNotEquals image ""}}
                         <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
                         <div class="card-body">
+                            <div>
+                              <p class="text-truncate">
+                                  <button class="btn btn-sm btn-clipboard btn-clipboard{{index}}" data-clipboard-text="{{farm}}" data-toggle="tooltip" data-placement="top" title="Copied">
+                                      <i class="fa fa-clipboard"></i>
+                                  </button>
+                                  <a style="font-size: 0.7rem !important;" href="{{explorer}}{{farm}}" target="_blank">{{farm}}</a>
+                              </p>
+                            </div>
+
+                            <h5 class="card-title">
+                              <button class="btn btn-sm btn-clipboard btn-clipboard{{index2}}" data-clipboard-text="{{url}}" data-toggle="tooltip" data-placement="top" title="Copied">
+                                  <i class="fa fa-clipboard"></i>
+                              </button>
+                              <a href="{{url}}">{{name}} <i class="fa fa-external-link"></i></a>
+                            </h5>
+
                             <div class="mb-3">
                                 <span class="badge badge-info">NFT Count: {{nftcount}}</span>
                                 <span class="badge badge-info">Controller Funds: {{controllerFunds}} {{currency}}</span>
                                 <span class="badge badge-info">Total Fees: {{totalFees}} {{currency}}</span>
                             </div>
-                            <div>
-                                <p class="text-truncate">
-                                    <button class="btn btn-sm btn-clipboard btn-clipboard{{index}}" data-clipboard-text="{{farm}}" data-toggle="tooltip" data-placement="top" title="Copied">
-                                        <i class="fa fa-clipboard"></i>
-                                    </button>
-                                    <a style="font-size: 0.7rem !important;" href="{{explorer}}{{farm}}" target="_blank">{{farm}}</a>
-                                </p>
-                            </div>
-                            <h5 class="card-title">
-                                <button class="btn btn-sm btn-clipboard btn-clipboard{{index2}}" data-clipboard-text="{{url}}" data-toggle="tooltip" data-placement="top" title="Copied">
-                                    <i class="fa fa-clipboard"></i>
-                                </button>
-                                <a href="{{url}}">{{name}} <i class="fa fa-external-link"></i></a>
-                            </h5>
-                            <p class="card-text text-truncate">{{description}}</p>
+                            
+                            
+                            <!-- <p class="card-text text-truncate">{{description}}</p> -->
+                            <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="Description" data-content="{{description}}">
+                              <span class="material-icons-round">
+                                info
+                              </span>
+                            </button>
                             <div class="dropdown">
                                 <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmActions{{farm}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Options
+                                  <span class="material-icons-round">
+                                    create
+                                  </span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="farmActions{{farm}}">
                                     <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmInfoModal" data-contract-address="{{farm}}" id="farmEditInfo{{farm}}" class="farmEditInfo">Edit Farm Info</a>
@@ -394,6 +405,12 @@
                         </div>
                     </div>
                 </div>
+
+                <script>
+                  $(function () {
+                    $('[data-toggle="popover"]').popover()
+                  })
+                </script>
             </script>
 
         <div class="row" id="farmsPage" style="display: none;"></div>

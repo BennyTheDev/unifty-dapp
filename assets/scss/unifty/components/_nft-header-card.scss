@@ -1,7 +1,12 @@
 .dark-edition .main-panel .nftHeader-stakingOptions-container {
   #farmHeader {
-    flex: 3;
     margin-right: 4.8rem;
+    box-shadow: $shadow-secondary-dark;
+
+    @include respond (bootstrap-xxl) {
+      margin-right: 0;
+      margin-bottom: 3rem;
+    }
 
     .nftHeader.col-md-12.mb-4 {
       padding: 0 !important;
@@ -17,13 +22,19 @@
         border-radius: .8rem;
         height: 100%;
         color: $grey-tertiary;
+        word-wrap: normal;
+        padding: .5rem 2rem;
 
         .card-content {
           display: flex;
 
           //image
-          .col-3 img {
-            margin: 2rem 0;
+          .col-3 {
+            min-width: 5rem;
+            max-width: 10rem;
+            img {
+              margin: 2rem 0;
+            }
           }
 
           //title and description

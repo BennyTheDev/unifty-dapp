@@ -311,20 +311,16 @@
       </div>
 
       <div class="container-fluid wallet">
-
-        <h1>Wallet</h1>
-
-        <div class="wallet-container">
-          
-          <div id="walletOptions" style="display:none;" class="row">
-  
+        
+        <div class="title-options-container">
+          <h1>Wallet</h1>
+          <div id="walletOptions" style="display:none;">
             <div class="dropdown">
               <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle mb-3" id="walletActions"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="material-icons">
                   settings
                 </span>
-                Wallet Options
               </a>
               <div class="dropdown-menu" aria-labelledby="walletActions">
                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#addCollectionModal"
@@ -333,515 +329,551 @@
                   data-target="#cancelBridgeModal" id="cancelBridgeModalButton">Cancel Bridge Job</a>
               </div>
             </div>
-  
           </div>
-  
-          <div id="foreignWalletInfo" style="display:none;" class="row">
-            <h3 id="walletAddress"></h3>
-          </div>
-  
-          <script id="no-collectibles" type="text/x-handlebars-template">
-            <div class="container-fluid">
-              <div>
-                No collectibles found. Please register a collection address in Wallet Options => Register Collection.
-              </div>
+        </div>
+
+        <div class="wallet-container">
+          
+        <!-- <div id="walletOptions" style="display:none;" class="row">
+          <div class="dropdown">
+            <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle mb-3" id="walletActions"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="material-icons">
+                settings
+              </span>
+              Wallet Options
+            </a>
+            <div class="dropdown-menu" aria-labelledby="walletActions">
+              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#addCollectionModal"
+                id="addCollectionModalButton">Register Collection</a>
+              <a href="javascript:void(0);" style="display: none;" class="dropdown-item" data-toggle="modal"
+                data-target="#cancelBridgeModal" id="cancelBridgeModalButton">Cancel Bridge Job</a>
             </div>
-          </script>
-  
-          <!-- Collectible View -->
-          <script id="collectible-template" type="text/x-handlebars-template">
-                  <div class="nftListing col-md-4 mb-3">
-                      <div class="card card-profile">
-  
-                          {{#ifNotEquals image ""}}
-                              <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
-                          {{/ifNotEquals}}
-  
-                          <a class="text-muted mt-2" style="font-size: 0.7em;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                          <div class="card-body">
-  
-                              {{#ifNotEquals animation_url ""}}
-                              <a class="btn btn-outline mb-3" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
-                                  Open Video
-                              </a>
-                              <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
-                                  <ul class="list-group">
-                                      <li class="list-group-item">
-                                          <video style="width: 100%" src="{{animation_url}}" preload="auto" muted="muted" controls="controls" loop="loop" poster="{{image}}">
-                                              Your browser does not support the video tag.
-                                          </video>
-                                      </li>
-                                  </ul>
-                              </div>
-                              {{/ifNotEquals}}
-  
-                              {{#ifNotEquals audio_url ""}}
-                                  <audio class="mb-3" style="width: 90%;" controls="controls" preload="auto" loop="loop">
-                                      <source src="{{audio_url}}" type="audio/mp3">
-                                      Your browser does not support the audio tag.
-                                  </audio>
-                              {{/ifNotEquals}}
-  
-                              <div class="mb-3">
-                                  <span class="badge badge-info">{{owns}}: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
-                              </div>
-  
-                              {{{collectionName}}}
-  
-                              <h4 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h4>
-  
-                              <p class="card-text text-truncate">{{description}}</p>
-  
-                              {{#ifNotEquals options ""}}
-                                  <div class="dropdown">
-                                      <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="walletNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                          Options
-                                      </a>
-                                      <div class="dropdown-menu" aria-labelledby="walletNftActions{{erc1155}}{{id}}">
-                                          {{#ifNotEquals bridgeOn ""}}
-                                          <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeButton{{erc1155}}{{id}}">Bridge to Ethereum</a>
-                                          {{/ifNotEquals}}
-                                          {{#ifNotEquals bridgeOnBack ""}}
-                                          <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeBackModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeBackButton{{erc1155}}{{id}}">Bridge Back</a>
-                                          {{/ifNotEquals}}
-                                          <!--<a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftSellModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftSell{{erc1155}}{{id}}">Sell!</a>-->
-                                          <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftTransferModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftTransfer{{erc1155}}{{id}}">Transfer</a>
-                                      </div>
-                                  </div>
-                              {{/ifNotEquals}}
-  
-                              {{#ifNotEquals interactive_url ""}}
-                                  <a class="btn btn-danger mb-2" style="cursor: pointer;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
-                                      Run NFT
-                                  </a>
-                                  <br/>
-                              {{/ifNotEquals}}
-  
-                              <a {{{traitsHide}}} class="btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                                  Traits
-                              </a>
-  
-                              <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
-                                  <ul class="list-group">
-  
-                                      {{#ifNotEquals bridgeOnBack ""}}
-                                      <li class="list-group-item">
-                                          <sub>Source Chain ID</sub><br />
-                                          <div>{{srcChainid}}</div>
-                                      </li>
-                                      <li class="list-group-item">
-                                          <sub>Source Collection</sub><br />
-                                          <div class="text-truncate">
-                                              <button class="btn btn-sm btn-clipboard btn-clipboard{{id}}" data-clipboard-text="{{srcCollection}}" data-toggle="tooltip" data-placement="top" title="Copied">
-                                                  <i class="fa fa-clipboard"></i>
-                                              </button>
-                                              <a style="font-size: 0.7rem !important;" href="{{explorer}}{{erc1155}}" target="_blank">{{srcCollection}}</a>
-                                          </div>
-                                      </li>
-                                      <li class="list-group-item">
-                                          <sub>Source NFT ID</sub><br />
-                                          <div>{{srcId}}</div>
-                                      </li>
-                                      {{/ifNotEquals}}
-  
-                                      {{#each attributes}}
-                                          <li class="list-group-item">
-                                              <sub>{{this.trait_type}}</sub><br />
-                                              <div>{{this.value}}</div>
-                                          </li>
-                                      {{/each}}
-                                  </ul>
-                              </div>
+          </div>
+        </div> -->
+
+        <div id="foreignWalletInfo" style="display:none;" class="row">
+          <h3 id="walletAddress"></h3>
+        </div>
+
+        <script id="no-collectibles" type="text/x-handlebars-template">
+          <div class="container-fluid">
+            <div>
+              No collectibles found. Please register a collection address in Wallet Options => Register Collection.
+            </div>
+          </div>
+        </script>
+
+        <!-- Collectible View -->
+        <script id="collectible-template" type="text/x-handlebars-template">
+                <div class="nftListing mb-3">
+                    <div class="card card-profile">
+
+                        {{#ifNotEquals image ""}}
+                            <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                        {{/ifNotEquals}}
+
+                        <a class="text-muted mt-2" style="font-size: 0.7em;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                        <div class="card-body">
+                          <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                          <div class="collection-name">
+                            {{{collectionName}}}
                           </div>
-                      </div>
-                  </div>
-              </script>
-  
-          <div class="row" id="collectiblesPage" style="display: none;"></div>
-  
-  
-  
-          <!-- Sell Modal -->
-          <div class="modal fade" style="overflow-y: scroll;" id="nftSellModal" tabindex="-1"
-            aria-labelledby="nftSellModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="nftSellModalLabel">Sell NFTs</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+
+                            {{#ifNotEquals animation_url ""}}
+                            <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
+                              <span class="material-icons">
+                                play_circle
+                              </span>
+                              Play video
+                            </a>
+                            <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <video style="width: 100%" src="{{animation_url}}" preload="auto" muted="muted" controls="controls" loop="loop" poster="{{image}}">
+                                            Your browser does not support the video tag.
+                                        </video>
+                                    </li>
+                                </ul>
+                            </div>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals audio_url ""}}
+                                <audio class="mb-3" style="width: 90%;" controls="controls" preload="auto" loop="loop">
+                                    <source src="{{audio_url}}" type="audio/mp3">
+                                    Your browser does not support the audio tag.
+                                </audio>
+                            {{/ifNotEquals}}
+
+                            <div class="mb-3">
+                                <span class="badge badge-info">{{owns}}: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
+                            </div>
+
+                            <!-- <p class="card-text text-truncate">{{description}}</p> -->
+                            <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" title="Description" data-content="{{description}}">
+                              <span class="material-icons-round">
+                                info
+                              </span>
+                            </button>
+
+                            {{#ifNotEquals options ""}}
+                                <div class="dropdown">
+                                    <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="walletNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      <span class="material-icons">
+                                        create
+                                      </span>
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="walletNftActions{{erc1155}}{{id}}">
+                                        {{#ifNotEquals bridgeOn ""}}
+                                        <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeButton{{erc1155}}{{id}}">Bridge to Ethereum</a>
+                                        {{/ifNotEquals}}
+                                        {{#ifNotEquals bridgeOnBack ""}}
+                                        <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeBackModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeBackButton{{erc1155}}{{id}}">Bridge Back</a>
+                                        {{/ifNotEquals}}
+                                        <!--<a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftSellModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftSell{{erc1155}}{{id}}">Sell!</a>-->
+                                        <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftTransferModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftTransfer{{erc1155}}{{id}}">Transfer</a>
+                                    </div>
+                                </div>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals interactive_url ""}}
+                                <a class="btn btn-danger mb-2" style="cursor: pointer;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
+                                    Run NFT
+                                </a>
+                                <br/>
+                            {{/ifNotEquals}}
+
+                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                                Traits
+                            </a>
+
+                            <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
+                                <ul class="list-group">
+
+                                    {{#ifNotEquals bridgeOnBack ""}}
+                                    <li class="list-group-item">
+                                        <sub>Source Chain ID</sub><br />
+                                        <div>{{srcChainid}}</div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <sub>Source Collection</sub><br />
+                                        <div class="text-truncate">
+                                            <button class="btn btn-sm btn-clipboard btn-clipboard{{id}}" data-clipboard-text="{{srcCollection}}" data-toggle="tooltip" data-placement="top" title="Copied">
+                                                <i class="fa fa-clipboard"></i>
+                                            </button>
+                                            <a style="font-size: 0.7rem !important;" href="{{explorer}}{{erc1155}}" target="_blank">{{srcCollection}}</a>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <sub>Source NFT ID</sub><br />
+                                        <div>{{srcId}}</div>
+                                    </li>
+                                    {{/ifNotEquals}}
+
+                                    {{#each attributes}}
+                                        <li class="list-group-item">
+                                            <sub>{{this.trait_type}}</sub><br />
+                                            <div>{{this.value}}</div>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-  
-                  <form onsubmit="return false;">
-  
-                    <div class="form-group">
-                      <label for="nftSellAmount">Amount *</label>
-                      <input type="text" placeholder="Enter the amount of NFTs to sell" class="form-control"
-                        id="nftSellAmount">
-                    </div>
-  
-                    <div class="form-group">
-                      <label for="nftSellToken">Token to sell into *</label>
-                      <select class="form-control" id="nftSellToken">
-                      </select>
-                    </div>
-  
-                    <div id="nftSellCustomTokenAddressWrapper" class="form-group" style="display:none;">
-                      <label for="nftSellCustomTokenAddress">Custom <span class="networkStd"></span> Token Address
-                        *</label>
-                      <input type="text" placeholder="Enter a token address to use as sale currency" class="form-control"
-                        id="nftSellCustomTokenAddress">
-                      <small id="nftSellCustomTokenAddressInfo" class="form-text text-muted"></small>
-                    </div>
-  
-                    <div class="form-group">
-                      <label for="nftSellPricePerItem">Price per item *</label>
-                      <input type="text" placeholder="Enter the price per item" class="form-control"
-                        id="nftSellPricePerItem">
-                    </div>
-  
-                    <input type="hidden" name="nftSellErc1155Address" id="nftSellErc1155Address" value="" />
-                    <input type="hidden" name="nftSellNftId" id="nftSellNftId" value="" />
-  
-                  </form>
-  
-                </div>
-                <div class="modal-footer">
-                  <div class="buttons-container">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="nftSellButton">Sell!</button>
-                  </div>
-                </div>
+
+                <script>
+                  $(function () {
+                    $('[data-toggle="popover"]').popover()
+                  })
+                </script>
+            </script>
+
+        <div class="row" id="collectiblesPage" style="display: none;"></div>
+
+
+
+        <!-- Sell Modal -->
+        <div class="modal fade" style="overflow-y: scroll;" id="nftSellModal" tabindex="-1"
+          aria-labelledby="nftSellModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftSellModalLabel">Sell NFTs</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
               </div>
-            </div>
-          </div>
-  
-          <!-- Bridge -->  
-          <div class="modal fade" style="overflow-y: scroll;" id="bridgeModal" tabindex="-1" role="dialog"
-            aria-labelledby="bridgeModallLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="bridgeModallLabel">Bridge to Ethereum</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-  
-                  <form onsubmit="return false;">
-  
-                    <p>
-                      Before proceeding, please add enough gas <a href="https://unifty.io/bridge.html">here</a>.
-                    </p>
-  
-                    <div class="form-group">
-                      <label for="bridgeAmount">Amount to Bridge</label>
-                      <input type="text" placeholder="Enter the amount of NFTs you want to bridge." class="form-control"
-                        id="bridgeAmount">
-                      <button class="btn btn-secondary" type="button" id="bridgeAddMax">Add Max.</button>
-                    </div>
-  
-                    <p>
-                      Please note: you will be given a Job ID after confirming the bridging transaction.<br /><br />
-                      You can use this Job ID to check the bridging progress in our <a
-                        href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord's</a> bridging logs
-                      channels.<br /><br />
-                      You will also need the Job ID to cancel and restore your NFTs if the bridging job fails after a
-                      2-hour grace-time.
-                    </p>
-  
-                    <input type="hidden" name="bridgeErc1155Address" id="bridgeErc1155Address" value="" />
-                    <input type="hidden" name="bridgeNftId" id="bridgeNftId" value="" />
-  
-                  </form>
-  
-                </div>
-                <div class="modal-footer">
-                  <div class="buttons-container">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="bridgeButton">Bridge</button>
-                  </div>            
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Bridge Back -->  
-          <div class="modal fade" style="overflow-y: scroll;" id="bridgeBackModal" tabindex="-1" role="dialog"
-            aria-labelledby="bridgeBackModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="bridgeBackModalLabel">Bridge Back</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-  
-                  <form onsubmit="return false;">
-  
-                    <div class="form-group">
-                      <label for="bridgeBackAmount">Amount to Bridge Back</label>
-                      <input type="text" placeholder="Enter the amount of NFTs you want to bridge back."
-                        class="form-control" id="bridgeBackAmount">
-                      <button class="btn btn-secondary" type="button" id="bridgeBackAddMax">Add Max.</button>
-                    </div>
-  
-                    <p>
-                      Please note: you will be given a Job ID after confirming the bridging transaction.<br /><br />
-                      You can use this Job ID to check the bridging progress in our <a
-                        href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord's</a> bridging logs
-                      channels.<br /><br />
-                      You will also need the Job ID to cancel and restore your NFTs if the bridging job fails after a
-                      2-hour grace-time.
-                    </p>
-  
-                    <input type="hidden" name="bridgeBackErc1155Address" id="bridgeBackErc1155Address" value="" />
-                    <input type="hidden" name="bridgeBackNftId" id="bridgeBackNftId" value="" />
-  
-                  </form>
-  
-                </div>
-                <div class="modal-footer">
-                  <div class="buttons-container">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="bridgeBackButton">Bridge</button>
+              <div class="modal-body">
+
+                <form onsubmit="return false;">
+
+                  <div class="form-group">
+                    <label for="nftSellAmount">Amount *</label>
+                    <input type="text" placeholder="Enter the amount of NFTs to sell" class="form-control"
+                      id="nftSellAmount">
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- RESTORE -->  
-          <div class="modal fade" style="overflow-y: scroll;" id="cancelBridgeModal" tabindex="-1" role="dialog"
-            aria-labelledby="cancelBridgeModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="cancelBridgeModalLabel">Cancel Bridge Job</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-  
-                  <form onsubmit="return false;">
-  
-                    <p>
-                      Please enter your Job ID to cancel the bridging job.<br />
-                      If the cancellation fails it means you either cancelled the job already or the 2-hour grace-time
-                      didn't expire yet.
-                    </p>
-  
-                    <div class="form-group">
-                      <label for="jobId">Job ID</label>
-                      <input type="text" placeholder="Enter the Job ID to cancel the job" class="form-control" id="jobId">
-                    </div>
-  
-                  </form>
-  
-                </div>
-                <div class="modal-footer">
-                  <div class="buttons-container">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelButton">Cancel</button>
+
+                  <div class="form-group">
+                    <label for="nftSellToken">Token to sell into *</label>
+                    <select class="form-control" id="nftSellToken">
+                    </select>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Transfer Modal -->
-          <div class="modal fade" style="overflow-y: scroll;" id="nftTransferModal" tabindex="-1"
-            aria-labelledby="nftTransferModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="nftTransferModalLabel">Transfer NFTs</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-  
-                  <form onsubmit="return false;">
-  
-                    <div class="form-group">
-                      <label for="nftTransferToAddress">To Address</label>
-                      <input type="text" placeholder="Enter the address of the NFT recipient" class="form-control"
-                        id="nftTransferToAddress">
-                    </div>
-  
-                    <div class="form-group">
-                      <label for="nftTransferAmount">Amount</label>
-                      <input type="text" placeholder="Enter the amount of NFTs to transfer" class="form-control"
-                        id="nftTransferAmount">
-                    </div>
-  
-                    <input type="hidden" name="nftTransferErc1155Address" id="nftTransferErc1155Address" value="" />
-                    <input type="hidden" name="nftTransferNftId" id="nftTransferNftId" value="" />
-  
-                  </form>
-  
-                </div>
-                <div class="modal-footer">
-                  <div class="buttons-container">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="nftTransferButton">Send</button>
+
+                  <div id="nftSellCustomTokenAddressWrapper" class="form-group" style="display:none;">
+                    <label for="nftSellCustomTokenAddress">Custom <span class="networkStd"></span> Token Address
+                      *</label>
+                    <input type="text" placeholder="Enter a token address to use as sale currency" class="form-control"
+                      id="nftSellCustomTokenAddress">
+                    <small id="nftSellCustomTokenAddressInfo" class="form-text text-muted"></small>
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Register Collections -->  
-          <div class="modal fade" style="overflow-y: scroll;" id="addCollectionModal" tabindex="-1" role="dialog"
-            aria-labelledby="addCollectionModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="addCollectionModalLabel">Register Collection</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-  
-                  <form onsubmit="return false;">
-  
-                    <div class="form-group">
-                      <label for="collectionAddress">Collection Address</label>
-                      <input type="text" placeholder="Enter the address of a collection." class="form-control"
-                        id="collectionAddress">
-                    </div>
-  
-                    <div id="registeredCollections"></div>
-  
-                  </form>
-  
-                </div>
-                <div class="modal-footer">
-                  <div class="buttons-container">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="addCollectionButton">Add Collection</button>
+
+                  <div class="form-group">
+                    <label for="nftSellPricePerItem">Price per item *</label>
+                    <input type="text" placeholder="Enter the price per item" class="form-control"
+                      id="nftSellPricePerItem">
                   </div>
-                </div>
+
+                  <input type="hidden" name="nftSellErc1155Address" id="nftSellErc1155Address" value="" />
+                  <input type="hidden" name="nftSellNftId" id="nftSellNftId" value="" />
+
+                </form>
+
               </div>
-            </div>
-          </div>
-  
-          <!-- Interactive -->  
-          <div class="modal fade" style="overflow-y: scroll;" id="nftInteractiveModal" tabindex="-1" role="dialog"
-            aria-labelledby="nftInteractiveModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="nftInteractiveModalLabel">Run NFT</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body" id="interactiveBody">
-  
-                  Click the run button below to start this interactive NFT.<br /><br />
-                  Only run this if you trust the NFT creator.<br /><br />
-                  In doubts, please ask the creator of this NFT about potential risks prior running it.<br /><br />
-                  <button class="btn btn-primary" type="button" id="runNftNewTab">Run NFT (new window)</button> <button
-                    class="btn btn-primary" type="button" id="runNft">Run NFT (inline)</button>
-  
-                  <br /><br />
-                  Inspired by <a href="https://beyondnft.io/" target="_blank">beyondNFT</a>. Check them out!
-  
-                  <input type="hidden" name="nftInteractiveUrl" id="nftInteractiveUrl" value="" />
-  
-                </div>
-                <div class="modal-footer">
-                  <div class="buttons-container">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                    id="closeInteractive">Close</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <!-- Interactive END -->
-  
-          <!-- ALERT -->
-  
-          <div class="modal fade" style="overflow-y: scroll;" id="alertModal" tabindex="-1" role="dialog"
-            aria-labelledby="alertModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="alertModalLabel">Info</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-  
-                </div>
-                <div class="modal-footer">
+              <div class="modal-footer">
+                <div class="buttons-container">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="nftSellButton">Sell!</button>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Bridge -->  
+        <div class="modal fade" style="overflow-y: scroll;" id="bridgeModal" tabindex="-1" role="dialog"
+          aria-labelledby="bridgeModallLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="bridgeModallLabel">Bridge to Ethereum</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form onsubmit="return false;">
+
+                  <p>
+                    Before proceeding, please add enough gas <a href="https://unifty.io/bridge.html">here</a>.
+                  </p>
+
+                  <div class="form-group">
+                    <label for="bridgeAmount">Amount to Bridge</label>
+                    <input type="text" placeholder="Enter the amount of NFTs you want to bridge." class="form-control"
+                      id="bridgeAmount">
+                    <button class="btn btn-secondary" type="button" id="bridgeAddMax">Add Max.</button>
+                  </div>
+
+                  <p>
+                    Please note: you will be given a Job ID after confirming the bridging transaction.<br /><br />
+                    You can use this Job ID to check the bridging progress in our <a
+                      href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord's</a> bridging logs
+                    channels.<br /><br />
+                    You will also need the Job ID to cancel and restore your NFTs if the bridging job fails after a
+                    2-hour grace-time.
+                  </p>
+
+                  <input type="hidden" name="bridgeErc1155Address" id="bridgeErc1155Address" value="" />
+                  <input type="hidden" name="bridgeNftId" id="bridgeNftId" value="" />
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="bridgeButton">Bridge</button>
+                </div>            
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bridge Back -->  
+        <div class="modal fade" style="overflow-y: scroll;" id="bridgeBackModal" tabindex="-1" role="dialog"
+          aria-labelledby="bridgeBackModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="bridgeBackModalLabel">Bridge Back</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form onsubmit="return false;">
+
+                  <div class="form-group">
+                    <label for="bridgeBackAmount">Amount to Bridge Back</label>
+                    <input type="text" placeholder="Enter the amount of NFTs you want to bridge back."
+                      class="form-control" id="bridgeBackAmount">
+                    <button class="btn btn-secondary" type="button" id="bridgeBackAddMax">Add Max.</button>
+                  </div>
+
+                  <p>
+                    Please note: you will be given a Job ID after confirming the bridging transaction.<br /><br />
+                    You can use this Job ID to check the bridging progress in our <a
+                      href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord's</a> bridging logs
+                    channels.<br /><br />
+                    You will also need the Job ID to cancel and restore your NFTs if the bridging job fails after a
+                    2-hour grace-time.
+                  </p>
+
+                  <input type="hidden" name="bridgeBackErc1155Address" id="bridgeBackErc1155Address" value="" />
+                  <input type="hidden" name="bridgeBackNftId" id="bridgeBackNftId" value="" />
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="bridgeBackButton">Bridge</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RESTORE -->  
+        <div class="modal fade" style="overflow-y: scroll;" id="cancelBridgeModal" tabindex="-1" role="dialog"
+          aria-labelledby="cancelBridgeModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cancelBridgeModalLabel">Cancel Bridge Job</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form onsubmit="return false;">
+
+                  <p>
+                    Please enter your Job ID to cancel the bridging job.<br />
+                    If the cancellation fails it means you either cancelled the job already or the 2-hour grace-time
+                    didn't expire yet.
+                  </p>
+
+                  <div class="form-group">
+                    <label for="jobId">Job ID</label>
+                    <input type="text" placeholder="Enter the Job ID to cancel the job" class="form-control" id="jobId">
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelButton">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transfer Modal -->
+        <div class="modal fade" style="overflow-y: scroll;" id="nftTransferModal" tabindex="-1"
+          aria-labelledby="nftTransferModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftTransferModalLabel">Transfer NFTs</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form onsubmit="return false;">
+
+                  <div class="form-group">
+                    <label for="nftTransferToAddress">To Address</label>
+                    <input type="text" placeholder="Enter the address of the NFT recipient" class="form-control"
+                      id="nftTransferToAddress">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="nftTransferAmount">Amount</label>
+                    <input type="text" placeholder="Enter the amount of NFTs to transfer" class="form-control"
+                      id="nftTransferAmount">
+                  </div>
+
+                  <input type="hidden" name="nftTransferErc1155Address" id="nftTransferErc1155Address" value="" />
+                  <input type="hidden" name="nftTransferNftId" id="nftTransferNftId" value="" />
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="nftTransferButton">Send</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Register Collections -->  
+        <div class="modal fade" style="overflow-y: scroll;" id="addCollectionModal" tabindex="-1" role="dialog"
+          aria-labelledby="addCollectionModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="addCollectionModalLabel">Register Collection</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <form onsubmit="return false;">
+
+                  <div class="form-group">
+                    <label for="collectionAddress">Collection Address</label>
+                    <input type="text" placeholder="Enter the address of a collection." class="form-control"
+                      id="collectionAddress">
+                  </div>
+
+                  <div id="registeredCollections"></div>
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="addCollectionButton">Add Collection</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive -->  
+        <div class="modal fade" style="overflow-y: scroll;" id="nftInteractiveModal" tabindex="-1" role="dialog"
+          aria-labelledby="nftInteractiveModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftInteractiveModalLabel">Run NFT</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body" id="interactiveBody">
+
+                Click the run button below to start this interactive NFT.<br /><br />
+                Only run this if you trust the NFT creator.<br /><br />
+                In doubts, please ask the creator of this NFT about potential risks prior running it.<br /><br />
+                <button class="btn btn-primary" type="button" id="runNftNewTab">Run NFT (new window)</button> <button
+                  class="btn btn-primary" type="button" id="runNft">Run NFT (inline)</button>
+
+                <br /><br />
+                Inspired by <a href="https://beyondnft.io/" target="_blank">beyondNFT</a>. Check them out!
+
+                <input type="hidden" name="nftInteractiveUrl" id="nftInteractiveUrl" value="" />
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                  id="closeInteractive">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive END -->
+
+        <!-- ALERT -->
+
+        <div class="modal fade" style="overflow-y: scroll;" id="alertModal" tabindex="-1" role="dialog"
+          aria-labelledby="alertModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
   
           <!-- MODALS END -->
         </div>
 
-
       </div>
-
-      <!-- FOOTER -->
-      <div class="footer">
-        <ul>
-          <li class="nav-item" id="getNifUniswap">              
-            <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-              <span class="material-icons-round">
-                find_replace                  
-              </span>
-              Get $NIF at Uniswap
-            </a>
-          </li>
-
-          <li class="nav-item" id="mirror">
-            <a class="nav-link" target="_blank" href="https://unifty.eth">
-              <span class="material-icons-round">
-                present_to_all                
-              </span>
-              Mirror: https://unifty.eth
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span class="material-icons-round">
-                swap_calls
-              </span>
-              Roadmap
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="faq.html">
-              <span class="material-icons-round">
-                help_outline
-              </span>
-              FAQ
-            </a>
-          </li>
-        </ul>
-      </div>
-      <!-- FOOTER END -->
 
     </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <ul>
+        <li class="nav-item" id="getNifUniswap">              
+          <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
+            <span class="material-icons-round">
+              find_replace                  
+            </span>
+            Get $NIF at Uniswap
+          </a>
+        </li>
+
+        <li class="nav-item" id="mirror">
+          <a class="nav-link" target="_blank" href="https://unifty.eth">
+            <span class="material-icons-round">
+              present_to_all                
+            </span>
+            Mirror: https://unifty.eth
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <span class="material-icons-round">
+              swap_calls
+            </span>
+            Roadmap
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="faq.html">
+            <span class="material-icons-round">
+              help_outline
+            </span>
+            FAQ
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!-- FOOTER END -->
+
   </div>
 
 </body>
