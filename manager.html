@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/web3.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="text/javascript" src="js/ipfs.js"></script>
     <script type="text/javascript" src="js/buffer.js"></script>
     <script type="text/javascript" src="js/misc.js?v=1.8.6"></script>
@@ -23,7 +24,11 @@
     <script type="text/javascript" src="js/farmShopABI.js?v=1.8.6"></script>
     <script type="text/javascript" src="js/erc20ABI.js?v=1.8.6"></script>
     <script type="text/javascript" src="js/multiBatchABI.js?v=1.8.6"></script>
+    <script type="text/javascript" src="js/marketABI.js?v=1.8.6"></script>
+    <script type="text/javascript" src="js/swapABI.js?v=1.8.6"></script>
+    <script type="text/javascript" src="js/marketWrapABI.js?v=1.8.6"></script>
     <script type="text/javascript" src="js/lib.js?v=1.8.6"></script>
+    <script type="text/javascript" src="js/lib-market.js?v=1.8.6"></script>
     <script type="text/javascript" src="js/erc1155-dapp.js?v=1.8.6"></script>
     <script type="text/javascript" src="js/dapp-init.js?v=1.8.6"></script>
     <script type="text/javascript" src="js/cookie.js?v=1.8.6"></script>
@@ -126,6 +131,12 @@
                 <a class="nav-link" href="index.html">
                     <i class="material-icons">dashboard</i>
                     <p>Home</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="market.html">
+                    <i class="material-icons">shopping_cart</i>
+                    <p>NFT Market</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -322,7 +333,13 @@
                         </div>
                     </div>
                     <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-                    <p class="card-text text-truncate">{{description}}</p>
+
+                    {{#ifNotEquals description ""}}
+                    <a class="btn btn-outline mb-3 mt-3" data-toggle="collapse" href="#desc{{erc1155}}" role="button" aria-expanded="false" aria-controls="desc{{erc1155}}">
+                        Description
+                    </a>
+                    <div class="card-text collapse" id="desc{{erc1155}}">{{markdown description}}</div>
+                    {{/ifNotEquals}}
                 </div>
             </div>
         </div>
@@ -397,10 +414,19 @@
                             <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftMintModal" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftMintModalButton{{erc1155}}{{id}}">Mint</a>
                             <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftBurnModal" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftBurnModalButton{{erc1155}}{{id}}">Burn</a>
                             <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftNewModal" data-edit="true" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftEditModalButton{{erc1155}}{{id}}">Edit</a>
+                            <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#royaltiesModal" data-edit="true" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftRoyaltiesModalButton{{erc1155}}{{id}}">Royalties</a>
                         </div>
                     </div>
                     <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-                    <p class="card-text text-truncate">{{description}}</p>
+
+                    {{#ifNotEquals description ""}}
+                    <a class="btn btn-outline mb-3 mt-3" data-toggle="collapse" href="#desc{{id}}" role="button" aria-expanded="false" aria-controls="desc{{id}}">
+                        Description
+                    </a>
+                    <div class="card-text collapse" id="desc{{id}}">{{markdown description}}</div>
+                    <br/>
+                    {{/ifNotEquals}}
+
                     <a class="btn btn-outline" data-toggle="collapse" href="#collapse{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{id}}">
                         Traits
                     </a>
@@ -726,6 +752,40 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary submitNewUpdate" id="nftSubmit">Create NFT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Royalties -->
+
+    <div class="modal fade" style="overflow-y: scroll;" id="royaltiesModal" tabindex="-1" role="dialog" aria-labelledby="royaltiesModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="royaltiesModalLabel">Set Royalties</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+
+                    <p>
+                        If you intend to use royalties, please add them below in percent. 50% max. royalties allowed, only for purchases on the Unifty Market.
+                    </p>
+
+                    <div class="form-group">
+                        <label for="nftRoyalties">Royalties in percent *</label>
+                        <input value="" type="text" placeholder="Add royalties in percent" class="form-control" id="nftRoyalties">
+                    </div>
+
+                    <input type="hidden" id="nftRoyaltiesErc1155Address" value="" />
+                    <input type="hidden" id="nftRoyaltiesId" value="" />
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="storeRoyaltiesButton">Set Royalties</button>
                 </div>
             </div>
         </div>

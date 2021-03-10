@@ -85,7 +85,7 @@ function TncDapp() {
 
                     farm_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     farm_description = typeof data.description != 'undefined' && data.description ? data.description : '';
-                    farm_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://', 'https://gateway.ipfs.io/') : '';
+                    farm_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://', 'https://gateway.ipfs.io/ipfs/') : '';
                     farm_twitter = typeof data.twitter != 'undefined' && data.twitter ? data.twitter : '';
                     farm_discord = typeof data.discord != 'undefined' && data.discord ? data.discord : '';
                     farm_instagram = typeof data.instagram != 'undefined' && data.instagram ? data.instagram : '';
@@ -179,14 +179,14 @@ function TncDapp() {
 
             try {
 
-                let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/'));
+                let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/'));
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -200,10 +200,10 @@ function TncDapp() {
 
                     if (typeof data == 'object') {
 
-                        data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
                         data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                         data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                         data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -240,6 +240,10 @@ function TncDapp() {
             }
 
             console.log('buy text: ', buy);
+
+            if(data_interactive_url != ''){
+                data_interactive_url =  + "?erc1155Address="+nfts[i].erc1155+"&id="+nfts[i].id+"&chain_id="+chain_id;
+            }
 
             let tmpl = _this.farmTemplate({
                 checkOpenSea : chain_id == '1' || chain_id == '4' ? 'Check on OpenSea' : 'Open Details',
@@ -372,8 +376,10 @@ function TncDapp() {
                     let nifBalance = web3.utils.toBN(await tncLib.nif.methods.balanceOf(tncLib.account).call({from:tncLib.account}));
                     let feeMinNif = web3.utils.toBN(await tncLib.getFarmMinimumNif());
 
+                    let erc1155 = nfts[i].erc1155;
+
                     await tncLib.farmRedeem(
-                        farmAddress, nfts[i].erc1155,
+                        farmAddress, erc1155,
                         nfts[i].id,
                         !await tncLib.farmIsCloned(farmAddress) && ( haveWildcard || nifBalance.gte(feeMinNif) ) ? '0' : nfts[i].mintFee.toString(),
                         function () {
@@ -383,14 +389,11 @@ function TncDapp() {
                             console.log(receipt);
                             toastr.remove();
                             toastr["success"]('Transaction has been finished.', "Success");
-                            $('#nftStakeButton').prop('disabled', false);
-                            $('#nftStakeButton').html('Stake Now!');
+                            _this.updateRegisteredCollections(erc1155);
                         },
                         function (err) {
                             toastr.remove();
                             toastr["error"]('An error occurred with your redeem transaction.', "Error");
-                            $('#nftStakeButton').prop('disabled', false);
-                            $('#nftStakeButton').html('Stake!');
                         });
 
                 }
@@ -559,6 +562,21 @@ function TncDapp() {
                 });
         });
     };
+
+    this.updateRegisteredCollections = async function(address){
+
+        let collectionAddresses = [];
+
+        if(localStorage.getItem('collectionAddresses'+chain_id)){
+            collectionAddresses = JSON.parse(localStorage.getItem('collectionAddresses'+chain_id));
+        }
+
+        if(!collectionAddresses.includes(address)) {
+            collectionAddresses.push(address);
+            localStorage.setItem('collectionAddresses'+chain_id, JSON.stringify(collectionAddresses));
+        }
+
+    }
 
     this.observeChanges = async function(){
 

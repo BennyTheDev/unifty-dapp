@@ -16,14 +16,14 @@ const marketABI = [
             },
             {
                 "indexed": true,
-                "internalType": "address",
-                "name": "_erc1155Address",
-                "type": "address"
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
             },
             {
                 "indexed": true,
                 "internalType": "uint256",
-                "name": "_id",
+                "name": "_subIndex",
                 "type": "uint256"
             },
             {
@@ -31,9 +31,15 @@ const marketABI = [
                 "internalType": "uint256",
                 "name": "_amount",
                 "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "_add",
+                "type": "bool"
             }
         ],
-        "name": "Amount",
+        "name": "AmountUpdate",
         "type": "event"
     },
     {
@@ -66,14 +72,14 @@ const marketABI = [
             },
             {
                 "indexed": true,
-                "internalType": "address",
-                "name": "_erc1155Address",
-                "type": "address"
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
             },
             {
                 "indexed": true,
                 "internalType": "uint256",
-                "name": "_id",
+                "name": "_subIndex",
                 "type": "uint256"
             },
             {
@@ -89,7 +95,7 @@ const marketABI = [
                 "type": "uint256"
             }
         ],
-        "name": "Price",
+        "name": "PriceUpdate",
         "type": "event"
     },
     {
@@ -108,15 +114,9 @@ const marketABI = [
                 "type": "address"
             },
             {
-                "indexed": false,
-                "internalType": "address",
-                "name": "_erc1155Address",
-                "type": "address"
-            },
-            {
-                "indexed": false,
+                "indexed": true,
                 "internalType": "uint256",
-                "name": "_id",
+                "name": "_index",
                 "type": "uint256"
             },
             {
@@ -164,14 +164,8 @@ const marketABI = [
             },
             {
                 "indexed": false,
-                "internalType": "address",
-                "name": "_erc1155Address",
-                "type": "address"
-            },
-            {
-                "indexed": false,
                 "internalType": "uint256",
-                "name": "_id",
+                "name": "_index",
                 "type": "uint256"
             },
             {
@@ -202,13 +196,56 @@ const marketABI = [
             {
                 "indexed": true,
                 "internalType": "address",
+                "name": "_buyer",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_collectionOwner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
                 "name": "_erc1155Address",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "_royalties",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "_erc20TokenAddress",
+                "type": "address"
+            }
+        ],
+        "name": "Royalty",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "_seller",
                 "type": "address"
             },
             {
                 "indexed": true,
                 "internalType": "uint256",
-                "name": "_id",
+                "name": "_index",
                 "type": "uint256"
             },
             {
@@ -218,7 +255,7 @@ const marketABI = [
                 "type": "uint256"
             },
             {
-                "indexed": false,
+                "indexed": true,
                 "internalType": "address",
                 "name": "_erc20TokenAddress",
                 "type": "address"
@@ -316,85 +353,33 @@ const marketABI = [
                 "type": "address"
             },
             {
-                "internalType": "uint256",
-                "name": "pricePerItem",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "erc1155Address",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "id",
-                "type": "uint256"
-            },
-            {
                 "internalType": "address",
                 "name": "tokenAddress",
                 "type": "address"
             },
             {
                 "internalType": "uint256",
-                "name": "amount",
+                "name": "price",
                 "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
             },
             {
                 "internalType": "uint256",
-                "name": "",
+                "name": "amounts",
                 "type": "uint256"
-            }
-        ],
-        "name": "asksMapping",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_account",
-                "type": "address"
             },
             {
-                "internalType": "address",
-                "name": "_tokenAddress",
-                "type": "address"
-            }
-        ],
-        "name": "balanceOf",
-        "outputs": [
+                "internalType": "bool",
+                "name": "released",
+                "type": "bool"
+            },
             {
                 "internalType": "uint256",
-                "name": "",
+                "name": "swapMode",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "updates",
                 "type": "uint256"
             }
         ],
@@ -411,16 +396,6 @@ const marketABI = [
                 "type": "address"
             },
             {
-                "internalType": "address",
-                "name": "_erc1155Address",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_id",
-                "type": "uint256"
-            },
-            {
                 "internalType": "uint256",
                 "name": "_amount",
                 "type": "uint256"
@@ -429,6 +404,11 @@ const marketABI = [
                 "internalType": "address",
                 "name": "_referrer",
                 "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
             }
         ],
         "name": "buy",
@@ -521,40 +501,87 @@ const marketABI = [
                 "internalType": "uint256",
                 "name": "_index",
                 "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "_privateAddress",
-                "type": "address"
             }
         ],
         "name": "getAsk",
         "outputs": [
             {
-                "internalType": "address",
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "seller",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "pricePerItem",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "address[]",
+                        "name": "erc1155Address",
+                        "type": "address[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "id",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "tokenAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "amount",
+                        "type": "uint256[]"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "price",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amounts",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "released",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "swapMode",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "updates",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "royalties",
+                        "type": "uint256[]"
+                    }
+                ],
+                "internalType": "struct UniftyMarket.Ask",
                 "name": "",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
+                "type": "tuple"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getAsksLength",
+        "outputs": [
             {
                 "internalType": "uint256",
                 "name": "",
@@ -570,11 +597,68 @@ const marketABI = [
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_privateAddress",
+                "name": "_seller",
                 "type": "address"
             }
         ],
-        "name": "getAsksLength",
+        "name": "getAsksLengths",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_erc1155Address",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            }
+        ],
+        "name": "getSubIndex",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            }
+        ],
+        "name": "getSubIndexLength",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -616,6 +700,21 @@ const marketABI = [
                 "internalType": "bool",
                 "name": "",
                 "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "nifAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
             }
         ],
         "payable": false,
@@ -706,37 +805,6 @@ const marketABI = [
     },
     {
         "constant": true,
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_seller",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_erc1155Address",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_id",
-                "type": "uint256"
-            }
-        ],
-        "name": "onSale",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
         "inputs": [],
         "name": "owner",
         "outputs": [
@@ -769,17 +837,12 @@ const marketABI = [
         "constant": true,
         "inputs": [
             {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
-            {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
             }
         ],
-        "name": "privateAsks",
+        "name": "publicAsks",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -795,26 +858,67 @@ const marketABI = [
         "constant": true,
         "inputs": [
             {
-                "internalType": "address",
+                "internalType": "bytes",
                 "name": "",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
+                "type": "bytes"
+            }
+        ],
+        "name": "publicAsksRef",
+        "outputs": [
             {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
             }
         ],
-        "name": "privateAsksMapping",
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "name": "referencedAsk",
         "outputs": [
             {
+                "internalType": "address",
+                "name": "seller",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "tokenAddress",
+                "type": "address"
+            },
+            {
                 "internalType": "uint256",
-                "name": "",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amounts",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "released",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "swapMode",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "updates",
                 "type": "uint256"
             }
         ],
@@ -862,8 +966,86 @@ const marketABI = [
         "type": "function"
     },
     {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "name": "royalties",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "royaltyOwner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_seller",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            }
+        ],
+        "name": "saleExists",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "constant": false,
         "inputs": [
+            {
+                "internalType": "address",
+                "name": "_sender",
+                "type": "address"
+            },
             {
                 "internalType": "address",
                 "name": "_erc1155Address",
@@ -888,9 +1070,55 @@ const marketABI = [
                 "internalType": "uint256",
                 "name": "_pricePerItem",
                 "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "_released",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_swapMode",
+                "type": "uint256"
             }
         ],
         "name": "sell",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_erc1155Address",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_id",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_royaltyPercent",
+                "type": "uint256"
+            }
+        ],
+        "name": "setRoyalty",
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
@@ -903,39 +1131,24 @@ const marketABI = [
                 "internalType": "uint256",
                 "name": "_fee",
                 "type": "uint256"
-            }
-        ],
-        "name": "setFee",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
+            },
             {
                 "internalType": "address",
                 "name": "_feeAddress",
                 "type": "address"
-            }
-        ],
-        "name": "setFeeAddress",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "constant": false,
-        "inputs": [
+            },
+            {
+                "internalType": "address",
+                "name": "_nifAddress",
+                "type": "address"
+            },
             {
                 "internalType": "address",
                 "name": "_poolAddress",
                 "type": "address"
             }
         ],
-        "name": "setPoolAddress",
+        "name": "setup",
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
@@ -961,13 +1174,13 @@ const marketABI = [
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_erc1155Address",
+                "name": "_sender",
                 "type": "address"
             },
             {
-                "internalType": "uint256",
-                "name": "_id",
-                "type": "uint256"
+                "internalType": "address",
+                "name": "_receiver",
+                "type": "address"
             },
             {
                 "internalType": "uint256",
@@ -978,9 +1191,19 @@ const marketABI = [
                 "internalType": "bool",
                 "name": "_add",
                 "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_subIndex",
+                "type": "uint256"
             }
         ],
-        "name": "updateAskAmount",
+        "name": "updateAskAmountAdmin",
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
@@ -991,24 +1214,81 @@ const marketABI = [
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_erc1155Address",
+                "name": "_sender",
                 "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_id",
-                "type": "uint256"
             },
             {
                 "internalType": "uint256",
                 "name": "_pricePerItem",
                 "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_subIndex",
+                "type": "uint256"
             }
         ],
-        "name": "updateAskPricePerItem",
+        "name": "updateAskPricePerItemAdmin",
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "userAsks",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "name": "userAsksRef",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
         "type": "function"
     },
     {

@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/web3.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="text/javascript" src="js/ipfs.js"></script>
     <script type="text/javascript" src="js/buffer.js"></script>
     <script type="text/javascript" src="js/misc.js?v=1.8.6"></script>
@@ -133,6 +134,12 @@
                 <a class="nav-link" href="index.html">
                     <i class="material-icons">dashboard</i>
                     <p>Home</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="market.html">
+                    <i class="material-icons">shopping_cart</i>
+                    <p>NFT Market</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -336,7 +343,13 @@
                                 </button>
                                 <a href="{{url}}">{{name}} <i class="fa fa-external-link"></i></a>
                             </h5>
-                            <p class="card-text text-truncate">{{description}}</p>
+                            {{#ifNotEquals description ""}}
+                            <a class="btn btn-outline mb-3 mt-3" data-toggle="collapse" href="#desc{{farm}}" role="button" aria-expanded="false" aria-controls="desc{{farm}}">
+                                Description
+                            </a>
+                            <div class="card-text collapse" id="desc{{farm}}">{{markdown description}}</div>
+                            <br/>
+                            {{/ifNotEquals}}
                             <div class="dropdown">
                                 <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmActions{{farm}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Options

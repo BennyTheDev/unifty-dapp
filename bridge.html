@@ -13,6 +13,7 @@
     <script type="text/javascript" src="js/web3.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/handlebars.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="text/javascript" src="js/ipfs.js"></script>
     <script type="text/javascript" src="js/buffer.js"></script>
     <script type="text/javascript" src="js/misc.js?v=1.8.6"></script>
@@ -130,6 +131,12 @@
                 <a class="nav-link" href="index.html">
                     <i class="material-icons">dashboard</i>
                     <p>Home</p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="market.html">
+                    <i class="material-icons">shopping_cart</i>
+                    <p>NFT Market</p>
                 </a>
             </li>
             <li class="nav-item">
@@ -357,7 +364,13 @@
 
                             <h4 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h4>
 
-                            <p class="card-text text-truncate">{{description}}</p>
+                            {{#ifNotEquals description ""}}
+                            <a class="btn btn-outline mb-3 mt-3" data-toggle="collapse" href="#desc{{index}}" role="button" aria-expanded="false" aria-controls="desc{{index}}">
+                                Description
+                            </a>
+                            <div class="card-text collapse" id="desc{{index}}">{{markdown description}}</div>
+                            <br/>
+                            {{/ifNotEquals}}
 
                             <div>
                                 <button class="redeemButton btn btn-primary mb-3" data-token-id="{{id}}" id="redeemButton{{index}}" role="button" aria-expanded="false">Redeem</button>

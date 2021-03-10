@@ -1,5 +1,5 @@
-let network = 'BSC';
-let chain_id = '38';
+let network = 'Rinkeby';
+let chain_id = '4';
 
 $(document).ready(function(){
 
@@ -92,6 +92,18 @@ $(document).ready(function(){
 
     $('#nulsSco').on('click', displayNulsScoInfo);
 });
+
+if(typeof marked != 'undefined') {
+    marked.setOptions({
+        renderer: new marked.Renderer(),
+        pedantic: false,
+        gfm: true,
+        breaks: false,
+        smartLists: true,
+        smartypants: false,
+        xhtml: true
+    });
+}
 
 function _alert(msg){
     $('#alertModal .modal-body').html(msg);
@@ -219,6 +231,22 @@ Handlebars.registerHelper('mod4', function (value, res) {
     return args.every(function (expression) {
         return _this.index % expression === 4;
     });
+});
+
+Handlebars.registerHelper("markdown", function(md, options) {
+    md = Handlebars.Utils.escapeExpression(md);
+    md = md.replace(/(\r\n|\n|\r)/gm, '<br>');
+    if(typeof marked == 'undefined'){
+        return new Handlebars.SafeString(md);
+    }
+    return new Handlebars.SafeString(marked(md));
+});
+
+Handlebars.registerHelper("markdownNoBr", function(md, options) {
+    if(typeof marked == 'undefined'){
+        return new Handlebars.SafeString(md);
+    }
+    return new Handlebars.SafeString(marked(md));
 });
 
 $(function () {

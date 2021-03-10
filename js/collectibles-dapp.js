@@ -90,11 +90,6 @@ function TncDapp() {
         }
     };
 
-    this.getMarketNfts = async function(address){
-
-
-    };
-
     this.render = async function(erc1155, id, address){
 
         let nft = await window.tncLib.getForeignNft(erc1155, address, id);
@@ -122,14 +117,14 @@ function TncDapp() {
 
         try {
 
-            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/'));
+            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/'));
 
             if (typeof data == 'object') {
 
-                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
                 data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                 data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                 data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -143,10 +138,10 @@ function TncDapp() {
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -173,6 +168,10 @@ function TncDapp() {
             srcInfo[1] = _this.hexToInt(srcInfo[1]);
             bridgeBack = true;
 
+        }
+
+        if(data_interactive_url != ''){
+            data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id;
         }
 
         let tmpl = _this.collectibleTemplate({
@@ -204,8 +203,8 @@ function TncDapp() {
 
         $('#collectiblesPage').append(tmpl);
 
-        $('.btn-clipboard' + id).off('click');
-        $('.btn-clipboard' + id).on('click', function () {
+        $('.btn-clipboard' + erc1155 + id).off('click');
+        $('.btn-clipboard' + erc1155 + id).on('click', function () {
 
             $(this).tooltip('enable');
             let _this2 = this;
@@ -218,8 +217,8 @@ function TncDapp() {
 
         });
 
-        $('.btn-clipboard' + id).off('mouseover');
-        $('.btn-clipboard' + id).on('mouseover', function () {
+        $('.btn-clipboard' + erc1155 + id).off('mouseover');
+        $('.btn-clipboard' + erc1155 + id).on('mouseover', function () {
 
             $(this).tooltip('disable');
 
@@ -387,6 +386,9 @@ function TncDapp() {
 
         $('#nftSellErc1155Address').val(erc1155);
         $('#nftSellNftId').val(id);
+        $('#nftSellAmount').val("1");
+        $('#nftSellPricePerItem').val("");
+        //$('input[name="nftMode"]:checked').val('0');
 
         $('#nftSellToken').off('change');
         $('#nftSellToken').on('change', function(){
@@ -413,6 +415,12 @@ function TncDapp() {
                 $('#nftSellCustomTokenAddressInfo').text('Invalid token address!');
             }
 
+        });
+
+        $('#sellAddMax').off('click');
+        $('#sellAddMax').on('click', async function(){
+            let balance = await tncLib.balanceof(erc1155, tncLib.account, id);
+            $('#nftSellAmount').val(balance);
         });
     };
 
@@ -473,6 +481,7 @@ function TncDapp() {
 
         $('#bridgeErc1155Address').val(contractAddress);
         $('#bridgeNftId').val(id);
+
     }
 
     this.populateBackBridging = async function(e){
@@ -698,6 +707,13 @@ function TncDapp() {
         let amount = parseInt($('#nftSellAmount').val().trim()) || 0;
         let sellToken = $('#nftSellToken').val().trim();
         let pricePerItem = parseFloat($('#nftSellPricePerItem').val().trim()) || 0;
+        let category = parseInt($('#nftSellCategory').val().trim());
+
+        if(isNaN(category) || category < 0){
+
+            _alert('Invalid category');
+            return;
+        }
 
         if(sellToken == 'custom'){
 
@@ -719,7 +735,7 @@ function TncDapp() {
             return;
         }
 
-        if(decimals > 118){
+        if(decimals >= 118){
 
             _alert('Invalid token! Too many decimals (117 max.)');
             return;
@@ -730,13 +746,19 @@ function TncDapp() {
             return;
         }
 
+        /*
         let _pricePerItem = web3.utils.toBN(pricePerItem);
-        pricePerItem = _this.resolveNumberString(""+pricePerItem, decimals);
+        let comp = web3.utils.toBN('1000');
 
-        if(_pricePerItem < 1000){
+        if(_pricePerItem.lt(comp)){
             _alert('Price per item too low.');
             return;
-        }
+        }*/
+
+        //pricePerItem = _this.resolveNumberString(""+pricePerItem, decimals);
+        let itemPrice = web3.utils.toBN(_this.resolveNumberString(""+pricePerItem, decimals));
+        let itemAmount = web3.utils.toBN(amount);
+        let finalPrice = itemPrice.mul(itemAmount).toString();
 
         if(amount <= 0){
             _alert('Please enter a valid amount to sell.');
@@ -749,10 +771,11 @@ function TncDapp() {
             return;
         }
 
-        if(await tncLibMarket.onSale(tncLib.account, erc1155, id)){
+        /*
+        if(await tncLibMarket.saleExists(tncLib.account, erc1155, id)){
             _alert('Item is already on sale. Please edit the amounts or price for the existing sell order.');
             return;
-        }
+        }*/
 
         let approved = await tncLib.erc1155IsApprovedForAll(tncLib.account, tncLibMarket.market.options.address, erc1155);
 
@@ -763,17 +786,21 @@ function TncDapp() {
             $('#nftSellButton').prop('disabled', true);
 
             window.tncLibMarket.sell(
-                erc1155,
-                "" + id,
-                "" + amount,
+                [erc1155],
+                [id],
+                [itemAmount],
                 sellToken,
-                pricePerItem,
+                finalPrice,
+                $('input[name="nftMode"]:checked').val(),
+                category,
                 function () {
                     toastr["info"]('Please wait for the transaction to finish.', "Selling NFTs....");
                 },
                 function (receipt) {
                     console.log(receipt);
                     toastr.remove();
+                    $('#nftSellModal').modal('hide');
+                    _alert("Your offer has been successfully posted.");
                     $('#nftSellButton').html('Sell!');
                     $('#nftSellButton').prop('disabled', false);
                     toastr["success"]('Transaction has been finished.', "Success");
@@ -852,7 +879,6 @@ function TncDapp() {
                 $('#addCollectionButton').on('click', _this.registerCollection);
                 $('#nftTransferButton').on('click', _this.transfer);
                 $('#nftSellButton').on('click', _this.sell);
-
 
                 $('#nftInteractiveModal').off('hide.bs.modal');
                 $('#nftInteractiveModal').on('hide.bs.modal', function(){

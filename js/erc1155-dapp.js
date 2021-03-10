@@ -363,7 +363,7 @@ function TncDapp() {
         $("#contractForm")[0].reset();
         $('#collectionUpdateAddress').val('');
         $('#nftContractModalLabel').html('New Collection');
-        $('#erc1155Submit').html('Create Collection');
+        $('#erc1155Submit').html('Create');
         $('#collectionIsEdit').val(0);
         $('#collectionTicker').css('display', 'block');
         $('#erc1155ImageUrl').val('');
@@ -456,6 +456,10 @@ function TncDapp() {
 
                     if(typeof data.interactive_url == 'undefined'){
                         data['interactive_url'] = '';
+                    }
+                    else
+                    {
+                        data.interactive_url = data.interactive_url;
                     }
 
                     $('#nftNewModalLabel').html('Edit NFT');
@@ -610,6 +614,89 @@ function TncDapp() {
         }
     }
 
+    this.performRoyalties = async function(){
+
+        let perc = parseFloat($('#nftRoyalties').val().trim());
+
+        if(isNaN(perc) || perc < 0){
+
+            _alert('Invalid royalties');
+            return;
+
+        }
+
+        perc = _this.resolveNumberString(""+(perc.toFixed(2)), 2);
+
+        toastr.remove();
+        $('#storeRoyaltiesButton').html('Pending Transaction...');
+        $('#storeRoyaltiesButton').prop('disabled', true);
+
+        window.tncLibMarket.setRoyalties(
+            $('#nftRoyaltiesErc1155Address').val(),
+            $('#nftRoyaltiesId').val(),
+            perc,
+            function (){
+                toastr["info"]('Please wait for the transaction to finish.', "Setting royalties....");
+            },
+            function(receipt){
+                console.log(receipt);
+                toastr.remove();
+                $('#storeRoyaltiesButton').html('Set Royalties');
+                $('#storeRoyaltiesButton').prop('disabled', false);
+                toastr["success"]('Transaction has been finished.', "Success");
+            },
+            function(){
+                toastr.remove();
+                $('#storeRoyaltiesButton').prop('disabled', false);
+                $('#storeRoyaltiesButton').html('Set Royalties');
+                toastr["error"]('An error occurred with your royalties transaction.', "Error");
+            });
+    }
+
+    this.populateRoyalties = async function(e){
+
+        $('#nftRoyaltiesErc1155Address').val( $(e.relatedTarget).data('contractAddress') );
+        $('#nftRoyaltiesId').val( $(e.relatedTarget).data('nftId') );
+
+        $('#nftRoyalties').val(_this.formatNumberString(await tncLibMarket.getRoyalties($(e.relatedTarget).data('contractAddress'), $(e.relatedTarget).data('nftId')), 2));
+    }
+
+    this.formatNumberString = function (string, decimals) {
+
+        let pos = string.length - decimals;
+
+        if(decimals == 0) {
+            // nothing
+        }else
+        if(pos > 0){
+            string = string.substring(0, pos) + "." + string.substring(pos, string.length);
+        }else{
+            string = '0.' + ( "0".repeat( decimals - string.length ) ) + string;
+        }
+
+        return string
+    };
+
+    this.resolveNumberString = function(number, decimals){
+
+        let splitted = number.split(".");
+        if(splitted.length == 1 && decimals > 0){
+            splitted[1] = '';
+        }
+        if(splitted.length > 1) {
+            let size = decimals - splitted[1].length;
+            for (let i = 0; i < size; i++) {
+                splitted[1] += "0";
+            }
+            number = "" + (splitted[0] == 0 ? '' : splitted[0]) + splitted[1];
+            if(parseInt(number) == 0){
+                number = "0";
+            }
+        }
+
+        return number;
+    };
+
     this.loadPage = async function (page){
 
         $('#myPoolsPage').css('display', 'none');
@@ -618,6 +705,12 @@ function TncDapp() {
         switch (page){
 
             case 'myNftsPage':
+
+                $('#storeRoyaltiesButton').off('click');
+                $('#storeRoyaltiesButton').on('click', _this.performRoyalties);
+
+                $('#royaltiesModal').off('show.bs.modal');
+                $('#royaltiesModal').on('show.bs.modal', _this.populateRoyalties);
 
                 $('#nftTransferModal').off('show.bs.modal');
                 $('#nftTransferModal').on('show.bs.modal', function(e){
@@ -1341,12 +1434,15 @@ function run(connected) {
         }
 
         window.tncLib = new TncLib();
-
         tncLib.account = accounts[0];
+
+        window.tncLibMarket = new TncLibMarket();
+        tncLibMarket.account = tncLib.account;
 
         if(typeof accounts == 'undefined' || accounts.length == 0){
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
+            tncLibMarket.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();
