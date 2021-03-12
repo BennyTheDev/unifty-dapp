@@ -1,4 +1,5 @@
-.dark-edition .main-panel .content .container-fluid.wallet {
+.dark-edition .main-panel .content .container-fluid.wallet,
+.light-edition .main-panel .content .container-fluid.wallet {
   
   .title-options-container {
     display: flex;
@@ -12,12 +13,12 @@
     a#walletActions {
       margin: 0 !important;
       background-color: transparent;
-      color: #fff;
+      color: var(--heading-color);
       // border: .2rem solid $grey-secondary;
       border: none;
 
       &:hover {
-        color: $pink;
+        color: var(--primary-color);
         // border: .2rem solid $pink;
       }
 

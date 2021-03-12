@@ -1,7 +1,9 @@
-.dark-edition .main-panel .nftHeader-stakingOptions-container {
+.dark-edition .main-panel .nftHeader-stakingOptions-container,
+.light-edition .main-panel .nftHeader-stakingOptions-container {
   #farmHeader {
     margin-right: 4.8rem;
     box-shadow: $shadow-secondary-dark;
+    border-radius: .8rem;
 
     @include respond (bootstrap-xxl) {
       margin-right: 0;
@@ -21,7 +23,7 @@
         margin: 0;
         border-radius: .8rem;
         height: 100%;
-        color: $grey-tertiary;
+        color: var(--text-primary);
         word-wrap: normal;
         padding: .5rem 2rem;
 
@@ -57,14 +59,14 @@
             margin: 0;
             padding: .5rem;
             font-size: 1.1rem;
-            color: $grey-tertiary;
+            color: var(--text-footer);
 
             &:hover, &:active {
-              color: #fff;
+              color: var(--heading-color);
             }
 
             i {
-              font-size: 2rem;
+              font-size: 1.8rem;
               margin-right: .5rem;
             }
           }
@@ -73,6 +75,7 @@
           .mt-2 {
             font-size: 1.1rem;
             margin: 1rem 0 1rem .5rem;
+            color: var(--text-footer);
           }
         }
       }

@@ -5,7 +5,7 @@
 
   margin: 0 5rem;
   padding: .5rem 0;
-  background: $dark-secondary;
+  background: var(--bg-tertiary);
   border-top-left-radius: .8rem;
   border-top-right-radius: .8rem;
   box-shadow: $shadow-secondary-dark;
@@ -22,11 +22,11 @@
       display: flex;
       align-items: center;
       font-size: 1.2rem;
-      color: $grey-primary;
+      color: var(--text-footer);
       padding: 0;
 
       &:hover {
-        color: $pink;
+        color: var(--primary-color);
       }
 
       span {

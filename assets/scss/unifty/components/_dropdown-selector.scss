@@ -1,46 +1,49 @@
-#chainSelectionDropdown,
-#walletActions,
-#bridgeActions {
-  background-color: $dark-secondary;
-  color: $pink;
-  border: .2rem solid $pink;
-  border-radius: .8rem;
-  box-shadow: none;
-  font-size: 1.8rem;
-  text-transform: none;
-  padding: 1rem 1.8rem;
-  font-weight: 700;
-}
-
-#walletActions,
-#bridgeActions {
-  display: flex;
-  align-items: center;
-  font-size: 1.2rem;
-  font-weight: 400;
-  padding: .8rem 1.2rem;
-
-  span {
-    font-size: 1.4rem;
-    margin-right: .3rem;
-  }
-}
-
-.dropdown-menu {
-  background-color: $dark-secondary;
-
-  a.dropdown-item {
-    font-size: 1.4rem;    
-  }
-}
-
-.dark-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item {
-  color: #fff;
-  padding: 1rem 1.2rem;
-  
-  &:hover {
-    background: none;
+.light-edition, .dark-edition {
+  #chainSelectionDropdown,
+  #walletActions,
+  #bridgeActions {
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);;
+    border: .2rem solid var(--primary-color);;
+    border-radius: .8rem;
     box-shadow: none;
-    background-color: rgba(248, 121, 226, .1);
+    font-size: 1.8rem;
+    text-transform: none;
+    padding: 1rem 1.8rem;
+    font-weight: 700;
+  }
+  
+  #walletActions,
+  #bridgeActions {
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    padding: .8rem 1.2rem;
+  
+    span {
+      font-size: 1.4rem;
+      margin-right: .3rem;
+    }
+  }
+  
+  .dropdown-menu {
+    background-color: var(--bg-secondary);
+  
+    a.dropdown-item {
+      font-size: 1.4rem;    
+    }
+  }
+  
+  .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item {
+    color: var(--text-primary);
+    padding: 1rem 1.2rem;
+    
+    &:hover {
+      color: var(--text-primary);
+      background: none;
+      box-shadow: none;
+      background-color: var(--primary-hover-light);
+    }
   }
 }

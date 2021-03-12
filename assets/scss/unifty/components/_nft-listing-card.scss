@@ -18,6 +18,7 @@
       max-height: 15.6rem;
       padding: .8rem !important;
       margin: 1.5rem auto .5rem;
+      background-color: var(--image-padding);
     }
 
     .card-body {
@@ -29,7 +30,7 @@
         font-weight: 700;
         letter-spacing: .28px;
         a {
-          color: #fff;
+          color: var(--heading-color);
         }
       }
 
@@ -42,13 +43,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        color: $pink;
+        color: var(--primary-color);
         border: none;
         font-size: 1.4rem;
         text-transform: none;
 
         &:hover {
-          color: $pink-submit-hover;
+          color: var(--primary-hover-dark);
         }
   
         span {
@@ -70,8 +71,7 @@
         position: relative;
 
         &.badge-info {
-          color: $stocks-font;
-          color: $grey-secondary;
+          color: var(--text-primary);
           background-color: transparent;
 
           &:not(:last-child)::before {
@@ -95,7 +95,7 @@
         border: none;
         text-transform: none;
         border-radius: .6rem;
-        background-color: $pink;
+        background-color: var(--primary-color);
         color: #000;
         padding: .3rem .8rem;
         font-weight: 500;
@@ -103,7 +103,7 @@
 
         &:active {
           color: #fff;
-          background-color: $pink-submit-hover;
+          background-color: var(--primary-hover-dark);
           font-weight: 400;
         }
       }

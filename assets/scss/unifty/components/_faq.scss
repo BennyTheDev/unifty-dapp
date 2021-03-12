@@ -1,4 +1,5 @@
-.dark-edition .card.faq {
+.dark-edition .card.faq,
+.light-edition .card.faq {
   font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
@@ -9,15 +10,15 @@
 
     .card-description {
       font-size: 1.2rem;
-      color: $grey-secondary;
+      color: var(--text-primary);
       font-weight: 300;
 
       a {
         font-weight: 400;
-        color: $pink;
+        color: var(--primary-color);
 
         &:hover {
-          color: $pink-submit-hover;
+          color: var(--primary-hover-dark);
         }
       }
 
@@ -26,6 +27,7 @@
         font-size: 1.7rem;
         font-weight: 700;
         letter-spacing: 0.32px;
+        color: var(--heading-color);
         margin: 2rem 0 .5rem !important;
 
         &:nth-of-type(1) {

@@ -1,4 +1,5 @@
-.dark-edition .card.farm-card {
+.dark-edition .card.farm-card,
+.light-edition .card.farm-card {
   margin: 1rem 2rem 1rem 0;
 
   .card-body {
@@ -6,10 +7,15 @@
 
     a {
       font-size: 1.1rem;
-
-      &:hover {
-        color: $pink;
+      color: var(--text-primary);
+      
+      //fix for dark mode on (toggler on click white)
+      &:active {
+        color: var(--text-primary);
       }
+      // &:hover {
+      //   color: var(--title-color);
+      // }
       
       i {
         margin-right: .5rem;
@@ -21,7 +27,7 @@
       font-weight: 700;
       letter-spacing: .32px;
       margin-bottom: 1rem;
-      color: #fff;
+      color: var(--heading-color);
       display: flex;
       width: calc(100% - 10rem);
       height: 6rem;
@@ -30,7 +36,7 @@
     .card-description {
       font-size: 1rem;
       font-weight: 300;
-      color: $grey-tertiary;
+      color: var(--text-primary);
     }
   }
 }
@@ -114,9 +120,9 @@
         }
       }
 
-      &:hover {
-        color: $pink-title;
-      }
+      // &:hover {
+      //   color: var(--title-color);
+      // }
     }
   }
 }

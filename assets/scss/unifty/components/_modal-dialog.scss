@@ -1,17 +1,18 @@
-.dark-edition.modal-open .main-panel .modal-dialog .modal-content {
-  border: .1rem solid $modal-border;
-  background-color: $dark-secondary;
+.dark-edition.modal-open .main-panel .modal-dialog .modal-content,
+.light-edition.modal-open .main-panel .modal-dialog .modal-content {
+  border: .1rem solid var(--modal-border-text);
+  background-color: var(--bg-tertiary);
 
   .close:not(:disabled):not(.disabled) {
     cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
   }
 
   a {
-    color: $pink;
+    color: var(--primary-color);
     font-weight: 400;
 
     &:hover, &:active {
-      color: $pink-submit-hover;
+      color: var(--primary-hover-dark);
     }
   }  
 
@@ -19,8 +20,8 @@
     display: flex;
     align-items: center;
     padding: 1.5rem;
-    color: #fff;
-    border-bottom: .1rem solid $modal-border;
+    color: var(--modal-text);
+    border-bottom: .1rem solid var(--modal-border-text);
 
     h5.modal-title {
       font-family: "Poppins", sans-serif;
@@ -31,7 +32,7 @@
 
     //icon close
     .close {
-      color: $grey-secondary;
+      color: var(--modal-text);
       opacity: 1;
       text-shadow: none;
 
@@ -47,16 +48,17 @@
 
   .modal-body {
     padding: 1rem 2rem;
-    color: $grey-border;
+    color: var(--modal-border-text);
     font-size: 1.3rem;
 
     select {
       background-color: transparent;
+      height: auto;
       background-image: none;
       border: .1rem solid $modal-border;
       border-radius: .8rem;
       font-size: 1.3rem;
-      color: #fff;
+      color: var(--modal-text);
       padding: 1rem;
 
       &:hover {
@@ -64,13 +66,8 @@
       }
 
       option {
-        background-color: $dark-secondary;
+        background-color: var(--bg-tertiary);
         padding: .5rem 0;
-
-        &:hover {
-          background-color: $lg-purple;
-          box-shadow: none;
-        }
       }
     }
 
@@ -82,15 +79,15 @@
       min-width: 10rem;
       padding: .8rem .5rem;
       font-size: 1.2rem;
-      border: .1rem solid $pink;
+      border: .1rem solid var(--primary-color);
       border-radius: .4rem;
       background-color: transparent;
-      color: $pink;
+      color: var(--primary-color);
       box-shadow: none;
 
       &:hover {
-        border: .1rem solid $pink-submit-hover;
-        color: $pink-submit-hover;
+        border: .1rem solid var(--primary-hover-dark);
+        color: var(--primary-hover-dark);
         cursor: url(../img/unifty-icons/cursor-pointer.svg), auto !important;
       }
     }
@@ -101,7 +98,7 @@
       font-size: 1.3rem;
       font-weight: 500;
       letter-spacing: .32px;
-      color: #fff;
+      color: var(--modal-text);
 
       &:hover {
         cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
@@ -109,16 +106,16 @@
 
       span {
         &.required {
-          color: $pink;
+          color: var(--primary-color);
         }
 
         &.material-icons-round {
           font-size: 2.2rem;
-          color: $modal-border;
+          color: var(--modal-border-text);
           margin-left: .5rem;
 
           &:hover {
-            color: $pink;
+            color: var(--primary-color);
             cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
           }
         }
@@ -126,36 +123,38 @@
     }
 
     form .form-group input {
+      height: auto;
       background-color: transparent !important;
       background-image: none;
-      border: .1rem solid $modal-border;
+      border: .1rem solid var(--modal-border-text);
       border-radius: .8rem;
       padding: 1rem;
       font-size: 1.3rem;
-      color: #fff;
+      color: var(--modal-text);
       transition: all .3s;
 
       &::placeholder {
         font-size: 1.3rem;
-        color: $grey-border;
+        color: var(--modal-border-text);
       }
 
       &:focus {
-        border: .1rem solid $pink;
+        border: .1rem solid var(--primary-color);
       }
     }
 
     form .form-group textarea {
+      height: auto;
       background-color: transparent;
       background-image: none;
-      border: .1rem solid $modal-border;
+      border: .1rem solid var(--modal-border-text);
       border-radius: .8rem;
       padding: 1rem;
       font-size: 1.3rem;
-      color: #fff;
+      color: var(--modal-text);
       transition: all .3s;
       &:focus {
-        border: .1rem solid $pink;
+        border: .1rem solid var(--primary-color);
       }
     }
 
@@ -175,6 +174,7 @@
 
       .form-group {
         input, select {
+          height: auto;
           margin-bottom: 1rem;
         }
       }
@@ -182,7 +182,7 @@
   }
 
   .modal-footer {
-    border-top: .1rem solid $modal-border;
+    border-top: .1rem solid var(--modal-border-text);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -204,7 +204,7 @@
 
     div {
       font-size: 1.4rem;
-      color: $grey-border;
+      color: var(--modal-border-text);
     }
 
     .btn {
@@ -218,27 +218,27 @@
     .btn.btn-secondary {
       flex: 1;
       background-color: transparent;
-      border: .1rem solid $grey-border;      
-      color: $grey-border;
+      border: .1rem solid var(--modal-border-text);      
+      color: var(--modal-border-text);
       margin-right: 2rem;
 
       &:hover,
       &:active {
-        background-color: $dark-primary;
-        border: .1rem solid $pink;      
-        color: $pink;
+        background-color: var(--bg-secondary);
+        border: .1rem solid var(--primary-color);      
+        color: var(--primary-color);
       }
     }
 
     .btn.btn-primary {
       flex: 1;
-      background-color: $pink;
-      color: $dark-primary;
+      background-color: var(--primary-color);
+      color: var(--bg-secondary);
       font-weight: 700;
 
       &:hover,
       &:active {
-        background-color: $pink-submit-hover;
+        background-color: var(--primary-hover-dark);
       }
     }
   }

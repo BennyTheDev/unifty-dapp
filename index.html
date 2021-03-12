@@ -347,7 +347,7 @@
 
 </head>
 
-<body class="dark-edition">
+<body class="light-edition">
 
   <!-- SIDEBAR -->
   <div class="sidebar">
@@ -486,6 +486,20 @@
             </div>            
           </div>
 
+          <button id="btn-toggle-theme">change theme</button>
+          <script>
+            document.getElementById("btn-toggle-theme").addEventListener("click", () => {
+              const body = document.getElementsByTagName('body')[0];
+
+              if (body.classList.contains("light-edition")) {
+                body.classList.remove("light-edition");
+                body.classList.add("dark-edition");
+              } else {
+                body.classList.remove("dark-edition");
+                body.classList.add("light-edition");
+              }
+            })
+          </script>
         </div>
       </div>
       <!-- HEADER END -->

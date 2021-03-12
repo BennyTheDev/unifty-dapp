@@ -1,12 +1,13 @@
-.dark-edition .sidebar {
+.dark-edition .sidebar,
+.light-edition .sidebar {
   width: 30rem;
-  background-color: $dark-secondary;
+  background-color: var(--bg-secondary);
   opacity: 1;
   font-size: 1.6rem;
   box-shadow: $shadow-secondary-dark;
 
   &::before {
-    background-color: $dark-secondary;
+    background-color: var(--bg-secondary);
     font-size: 1.6rem;
   }
 
@@ -58,15 +59,12 @@
           margin: 1rem 0;
         }
       }
-
-      #getNifUniswap a {
-        color: $pink;
-      }
     }
   }
 }
 
-.dark-edition .sidebar .sidebar-wrapper ul.nav {
+.dark-edition .sidebar .sidebar-wrapper ul.nav,
+.light-edition .sidebar .sidebar-wrapper ul.nav {
   height: 65%;
   max-height: 30rem;
   overflow: auto;
@@ -93,12 +91,14 @@
 }
 
 //fix for mobile sidebar
-.dark-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu {
+.dark-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu,
+.light-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu {
   display: none;
 }
 
 //logo
-.dark-edition .sidebar .logo {
+.dark-edition .sidebar .logo,
+.light-edition .sidebar .logo {
   padding: 1.5rem 0;
 
   &::after {
@@ -116,7 +116,7 @@
 
   i {
     font-size: 2.1rem;
-    color: $pink;
+    color: var(--primary-color);
     margin-right: 1.3rem;
   }
 
@@ -135,16 +135,16 @@
   }
 
   li.active > a {
-    background-color: $pink;
+    background-color: var(--primary-color);
   }
 
   li.active a i,
   li.active a p {
-    color: $dark-secondary;
+    color: var(--bg-secondary);
   }
 
   .nav-item:not(.nav-item.active) a:hover {
-    background-color: $pink-hover;
+    background-color: var(--primary-hover-light);
   }
 
   li a, 
@@ -159,7 +159,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;  
-  color: $grey-secondary;
+  color: var(--text-footer);
 
   &.icons {
     margin: 4rem 0 1rem;
@@ -168,7 +168,7 @@
     }
 
     span a:hover {
-      color: $pink;
+      color: var(--heading-color);
     }
   }
 
