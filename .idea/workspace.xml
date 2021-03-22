@@ -1,43 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f96cdbc5-0575-4042-925c-c64b6e5ee530" name="Default Changelist" comment="ignore .idea folder">
-      <change afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/marketWrapABI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/swapABI.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridge.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridge.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bridge-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/bridge-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectible-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/erc1155-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/erc1155-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-market.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-market.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/marketABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/marketABI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager.html" afterDir="false" />
-    </list>
+    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,161 +13,97 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
   </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  <component name="NamedScopeManager">
+    <scope name="local" pattern="file[dapp_new]:assets/scss//*||file:assets/scss/unifty/main.scss" />
   </component>
-  <component name="ProjectId" id="1iut4TgBWvT9sXe1A0iIdoGrLjl" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1pgM1DQtbF5MxRKtjcR9T2oRgYa" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\MAMP\htdocs\knots\dapp\js" />
-      <recent name="C:\MAMP\htdocs\knots\dapp" />
-      <recent name="C:\MAMP\htdocs\knots\dapp\assets\img" />
-      <recent name="C:\MAMP\htdocs\knots\dapp\assets\js" />
-      <recent name="C:\MAMP\htdocs\knots\dapp\css" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\MAMP\htdocs\knots\dapp\js" />
-      <recent name="C:\MAMP\htdocs\knots\dapp\assets\css" />
+      <recent name="C:\MAMP\htdocs\knots\dapp_new" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f96cdbc5-0575-4042-925c-c64b6e5ee530" name="Default Changelist" comment="" />
-      <created>1602769115520</created>
+      <changelist id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="" />
+      <created>1615600063349</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602769115520</updated>
-      <workItem from="1602769116858" duration="21203000" />
-      <workItem from="1602942552256" duration="20341000" />
-      <workItem from="1603092209860" duration="2642000" />
-      <workItem from="1603123859555" duration="1003000" />
-      <workItem from="1603125810768" duration="111000" />
-      <workItem from="1603125937513" duration="6986000" />
-      <workItem from="1603210190879" duration="2672000" />
-      <workItem from="1603462001420" duration="26696000" />
-      <workItem from="1603702825433" duration="12410000" />
-      <workItem from="1604083195876" duration="612000" />
-      <workItem from="1604242216763" duration="27095000" />
-      <workItem from="1604831714297" duration="116442000" />
-      <workItem from="1605236797091" duration="10899000" />
-      <workItem from="1607099365815" duration="752000" />
-      <workItem from="1607222300823" duration="3874000" />
-      <workItem from="1607311977323" duration="1260000" />
-      <workItem from="1607786311371" duration="41311000" />
-      <workItem from="1607871385940" duration="23448000" />
-      <workItem from="1608148597716" duration="29916000" />
-      <workItem from="1609017507545" duration="721000" />
-      <workItem from="1609117257563" duration="1273000" />
-      <workItem from="1609303692289" duration="11036000" />
-      <workItem from="1609358383900" duration="29583000" />
-      <workItem from="1609433338835" duration="57091000" />
-      <workItem from="1609610086318" duration="32550000" />
-      <workItem from="1609979773686" duration="44901000" />
-      <workItem from="1610182533004" duration="9908000" />
-      <workItem from="1610202153735" duration="9103000" />
-      <workItem from="1610263090102" duration="1057000" />
-      <workItem from="1610287705710" duration="360000" />
-      <workItem from="1610302081620" duration="15819000" />
-      <workItem from="1610342508773" duration="64208000" />
-      <workItem from="1610701681843" duration="3483000" />
-      <workItem from="1610756374527" duration="4764000" />
-      <workItem from="1610795296322" duration="6028000" />
-      <workItem from="1610896451052" duration="637000" />
-      <workItem from="1610923194160" duration="874000" />
-      <workItem from="1610965204949" duration="1499000" />
-      <workItem from="1611085669873" duration="649000" />
-      <workItem from="1611143721705" duration="10711000" />
-      <workItem from="1611161220453" duration="4720000" />
-      <workItem from="1611274305154" duration="34918000" />
-      <workItem from="1611714147911" duration="3135000" />
-      <workItem from="1611802521861" duration="34423000" />
-      <workItem from="1612059646144" duration="3951000" />
-      <workItem from="1612116397990" duration="16048000" />
-      <workItem from="1612215931574" duration="10690000" />
-      <workItem from="1612483602018" duration="7830000" />
-      <workItem from="1612636435062" duration="2361000" />
-      <workItem from="1612788986125" duration="72593000" />
-      <workItem from="1613092223323" duration="3220000" />
-      <workItem from="1613232972749" duration="4365000" />
-      <workItem from="1613257971528" duration="47859000" />
-      <workItem from="1613423292189" duration="19482000" />
-      <workItem from="1613569801959" duration="4958000" />
-      <workItem from="1613703807794" duration="8409000" />
-      <workItem from="1614014821807" duration="14019000" />
-      <workItem from="1614172025649" duration="1655000" />
-      <workItem from="1614175392436" duration="46783000" />
-      <workItem from="1614469379471" duration="69240000" />
-      <workItem from="1614856966525" duration="2038000" />
-      <workItem from="1614959741673" duration="40911000" />
+      <updated>1615600063349</updated>
+      <workItem from="1615600064541" duration="26943000" />
+      <workItem from="1615733045732" duration="10049000" />
+      <workItem from="1615823530576" duration="3403000" />
+      <workItem from="1615914834084" duration="78803000" />
+      <workItem from="1616164148409" duration="675000" />
+      <workItem from="1616194763123" duration="4999000" />
+      <workItem from="1616355184311" duration="5366000" />
     </task>
-    <task id="LOCAL-00001" summary="ignore .idea folder">
-      <created>1614176281239</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1614176281239</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="ignore .idea folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore .idea folder" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1614176291395">
+    <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1614176291395" />
-    <state x="477" y="12" width="582" height="801" key="find.popup" timestamp="1614987494032">
+    <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog/0.0.1536.824@0.0.1536.824" timestamp="1615626530217" />
+    <state x="550" y="168" key="FileChooserDialogImpl" timestamp="1615624793764">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="477" y="12" width="582" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1614987494032" />
-    <state x="530" y="13" width="647" height="895" key="find.popup/0.0.1707.920@0.0.1707.920" timestamp="1611522695975" />
-    <state x="453" y="190" key="run.anything.popup" timestamp="1615327381419">
+    <state x="550" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1615624793764" />
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom" timestamp="1615624549993">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="453" y="190" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1615327381419" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1614989471542">
+    <state width="1493" height="211" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1615624549993" />
+    <state width="1493" height="211" key="GridCell.Tab.0.center" timestamp="1615624549993">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1614989471542" />
+    <state width="1493" height="211" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1615624549993" />
+    <state width="1493" height="211" key="GridCell.Tab.0.left" timestamp="1615624549993">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="211" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1615624549993" />
+    <state width="1493" height="211" key="GridCell.Tab.0.right" timestamp="1615624549993">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615624549993" />
+    <state x="279" y="58" key="SettingsEditor" timestamp="1615626734654">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615626734654" />
+    <state x="478" y="145" width="581" height="592" key="find.popup" timestamp="1616194994432">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="145" width="581" height="592" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1616194994432" />
+    <state x="426" y="188" key="run.anything.popup" timestamp="1615752332818">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="426" y="188" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1615752332818" />
+    <state x="562" y="364" width="486" height="394" key="scopes" timestamp="1615626528910">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="562" y="364" width="486" height="394" key="scopes/0.0.1536.824@0.0.1536.824" timestamp="1615626528910" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1616355612235">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1616355612235" />
   </component>
 </project>

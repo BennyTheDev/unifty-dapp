@@ -1,0 +1,45 @@
+//colors
+$pink: #f879e2;
+// $pink: #202060;
+
+$pink-hover: rgba(253, 121, 226, .1);
+$pink-title:#ec6fd2;
+$pink-submit-hover: #f047ce;
+
+$dark-primary: #0d141a;
+$dark-secondary: #121a21;
+
+//this is global for both
+$grey-primary: #a3abb2;
+
+$grey-secondary: #c2cad1;
+$grey-tertiary: #9d9db4;
+$grey-border: #707070;
+
+$color-divider: #4c4c6f;
+$modal-border: #3b414c;
+$modal-bg: #3b414c;
+
+$stocks-font: #f4f7fb;
+
+//box-shadows
+$shadow-secondary-dark: 0 16px 38px -12px rgba(0, 0, 0, 56%), 
+  0 4px 25px 0px rgba(0, 0, 0, 12%), 
+  0 8px 10px -5px rgba(0, 0, 0, 20%);
+
+//gradients
+$lg-blue: linear-gradient(30deg, 
+  rgba(18, 26, 33, 1) 50%, 
+  rgba(48, 178, 211, 0.15) 73%, 
+  rgba(64, 190, 240, 0.35) 100%);
+
+$lg-yellow: linear-gradient(30deg, 
+  rgba(18, 26, 33, 1) 50%, 
+  rgba(155, 153, 41, 0.15) 73%, 
+  rgba(247, 225, 31, 0.35) 100%);
+
+$lg-purple: linear-gradient(30deg, 
+  rgba(18, 26, 33, 1) 50%, 
+  rgba(255, 118, 226, .15) 73%, 
+  rgba(255, 118, 226, .35) 100%);
+

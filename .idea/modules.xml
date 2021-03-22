@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dapp.iml" filepath="$PROJECT_DIR$/.idea/dapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/dapp_new.iml" filepath="$PROJECT_DIR$/.idea/dapp_new.iml" />
     </modules>
   </component>
 </project>

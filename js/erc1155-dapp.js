@@ -116,6 +116,8 @@ function TncDapp() {
                         $('#nftErc1155CurrName').val($(this).data('contractName'));
                         _this.loadPage('myNftsPage');
                     });
+
+                    $('[data-toggle="popover"]').popover();
                 }
 
             }catch (e){
@@ -123,7 +125,7 @@ function TncDapp() {
                 console.log('Trouble resolving collection uri: ', _uri);
             }
 
-            let maxPerLoad = 6;
+            let maxPerLoad = 8;
             let currInvertedIndex = (length - 1) - i;
 
             if( currInvertedIndex % maxPerLoad == maxPerLoad - 1 ){
@@ -168,13 +170,13 @@ function TncDapp() {
 
         let nfts = await window.tncLib.getNftsByUri(erc1155Address);
 
-        console.log(nfts);
-
-        $('#myNftsPage').append('<div style="text-align: center" class="container-fluid mb-5"><h1 id="nftContractNameTitle"></h1></div>');
-        $('#nftContractNameTitle').text($('#nftErc1155CurrName').val());
-
         let offset = _this.lastNftIndex > -1 ? _this.lastNftIndex : 0;
         let currentIndex = offset;
+
+        if(offset <= 0) {
+            $('#myNftsPage').append('<div class="container-fluid mb-5"><h1 id="nftContractNameTitle"></h1></div>');
+            $('#nftContractNameTitle').text($('#nftErc1155CurrName').val());
+        }
 
         for(let i = offset; i < nfts.length; i++){
 
@@ -217,6 +219,12 @@ function TncDapp() {
                     });
 
                     $('#myNftsPage').append(tmpl);
+
+                    $('[data-toggle="popover"]').popover();
+
+                    if(chain_id == '1') {
+                        $('.marketRoyaltiesLink').css('display', 'none');
+                    }
                 }
 
             }catch (e){
@@ -224,7 +232,7 @@ function TncDapp() {
                 console.log('Trouble resolving nft uri: ', nft);
             }
 
-            let maxPerLoad = 6;
+            let maxPerLoad = 8;
 
             if( i % maxPerLoad == maxPerLoad - 1 ){
 
@@ -728,12 +736,6 @@ function TncDapp() {
 
                 _this.lastErc1155Index = -1;
 
-                // tmp: xdai only
-                if(chain_id == '64'){
-
-                    $('#nftTransferMultiBatchModalButton').css('display', 'block');
-                }
-
                 $('#nftContractModal').off('show.bs.modal');
                 $('#nftContractModal').on('show.bs.modal', this.newUpdateCollection);
                 $('#nftTransferMultiBatchButton').off('click');
@@ -1002,7 +1004,7 @@ function TncDapp() {
             setInterval( function() {
                 web3.eth.getAccounts(function(err, accounts){
                     const _that = _this;
-                    if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
+                    if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
                         _that.accountChangeAlert();
                         _that.prevAccounts = accounts;
                     }
@@ -1419,11 +1421,11 @@ function run(connected) {
 
         let accounts = [];
 
-        if(ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
+        if(typeof ethereum != 'undefined' && ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
             accounts = await web3.eth.getAccounts();
             console.log('account classic with ethereum');
         }
-        else if(ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
+        else if(typeof ethereum != 'undefined' && ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
             accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts',
             });

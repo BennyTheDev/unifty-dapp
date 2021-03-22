@@ -29,17 +29,17 @@ function waitForPaging(pageId, itemCount) {
     $(window).off('scroll');
     return new Promise(
         function(resolve, reject){
-            if(itemCount % 6 == 0){
+            if(itemCount % 8 == 0){
                 let nearToBottom = 450;
-                if ($(window).scrollTop() + $(window).height() >
+                if ($(window).scrollTop() + $(window).height() >=
                     $(document).height() - nearToBottom) {
                     resolve('done');
                 }
             }
-            else if(itemCount % 6 == 5){
+            else if(itemCount % 8 == 7){
                 $(window).on('scroll', function(){
                     let nearToBottom = 450;
-                    if ($(window).scrollTop() + $(window).height() >
+                    if ($(window).scrollTop() + $(window).height() >=
                         $(document).height() - nearToBottom) {
                         resolve('done');
                     }
@@ -54,6 +54,11 @@ function waitForPaging(pageId, itemCount) {
 }
 
 $(document).ready(async function(){
+
+    if(window.celo){
+
+        window.ethereum = window.celo;
+    }
 
     if (window.ethereum) {
 
@@ -199,7 +204,7 @@ $(document).ready(async function(){
                     }else if(chain_id == '89'){
 
                         chainName = 'Polygon (Matic)';
-                        rpcUrl = 'https://rpc-mainnet.matic.network';
+                        rpcUrl = 'https://holy-weathered-glade.matic.quiknode.pro/9c7e1575f6d450d4fceeffde6b2e5ed69a3eed13/';
                         currencyName = 'MATIC';
                         currencySymbol = 'MATIC';
                         currencyDecimals = 18;
@@ -271,8 +276,6 @@ $(document).ready(async function(){
     // Legacy dapp browsers...
     else if (window.web3) {
 
-
-
         if(typeof  window.web3 == 'undefined' || !window.web3) {
             window.web3 = new Web3(web3.currentProvider);
         }
@@ -290,19 +293,35 @@ $(document).ready(async function(){
     // Non-dapp browsers...
     else {
 
-        let rpcUrl = '';
+        if(chain_id == '89' || chain_id == '38' || chain_id == '64' || chain_id == '4' || chain_id == '1') {
 
-        switch(chain_id) {
-            case '4':
-                rpcUrl = 'https://rinkeby.infura.io/v3/fb5477e6dc7145b8a89f4296d78c500a';
-                break;
-            default:
-                rpcUrl = 'https://mainnet.infura.io/v3/ba2d61d52e4246fd8d58a64e2f754d48';
+            let rpcUrl = '';
+
+            switch (chain_id) {
+                case '89':
+                    rpcUrl = 'https://holy-weathered-glade.matic.quiknode.pro/9c7e1575f6d450d4fceeffde6b2e5ed69a3eed13/';
+                    break;
+                case '38':
+                    rpcUrl = 'https://bsc1-rpc.unifty.cloud/';
+                    break;
+                case '64':
+                    rpcUrl = 'https://ancient-wandering-thunder.xdai.quiknode.pro/e63baf3261859fd9a4aaf2dcc42d4ec1535805df/';
+                    break;
+                case '4':
+                    rpcUrl = 'https://rinkeby.infura.io/v3/fb5477e6dc7145b8a89f4296d78c500a';
+                    break;
+                default:
+                    rpcUrl = 'https://mainnet.infura.io/v3/ba2d61d52e4246fd8d58a64e2f754d48';
+            }
+
+            window.web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
+
+            run(true);
+
+        }else{
+
+            _alert('Please install a wallet like Metamask to use this dapp.');
         }
-
-        window.web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
-
-        run(true);
     }
 
 });

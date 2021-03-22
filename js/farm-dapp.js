@@ -179,14 +179,15 @@ function TncDapp() {
 
             try {
 
-                let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/'));
+                let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/'));
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -200,10 +201,10 @@ function TncDapp() {
 
                     if (typeof data == 'object') {
 
-                        data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
                         data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                         data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                         data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -239,10 +240,8 @@ function TncDapp() {
                 }
             }
 
-            console.log('buy text: ', buy);
-
             if(data_interactive_url != ''){
-                data_interactive_url =  + "?erc1155Address="+nfts[i].erc1155+"&id="+nfts[i].id+"&chain_id="+chain_id;
+                data_interactive_url =  data_interactive_url + "?erc1155Address="+nfts[i].erc1155+"&id="+nfts[i].id+"&chain_id="+chain_id;
             }
 
             let tmpl = _this.farmTemplate({
@@ -399,7 +398,9 @@ function TncDapp() {
                 }
             });
 
-            let maxPerLoad = 6;
+            $('[data-toggle="popover"]').popover();
+
+            let maxPerLoad = 8;
 
             if( i % maxPerLoad == maxPerLoad - 1 ){
 
@@ -626,7 +627,7 @@ function TncDapp() {
 
             _this.observeChanges();
 
-        }, 5000);
+        }, 15000);
 
     };
 
@@ -691,7 +692,7 @@ function TncDapp() {
 
             _this.observeChanges2();
 
-        }, 5000);
+        }, 15000);
 
     };
 
@@ -1349,7 +1350,7 @@ function TncDapp() {
 
         if(window.ethereum){
 
-            window.ethereum.on('accountsChanged', function(err, accounts){
+            window.ethereum.on('accountsChanged', function(accounts){
                 const _that = _this;
                 if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
                     _that.accountChangeAlert();
@@ -1362,7 +1363,7 @@ function TncDapp() {
             setInterval( function() {
                 web3.eth.getAccounts(function(err, accounts){
                     const _that = _this;
-                    if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
+                    if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
                         _that.accountChangeAlert();
                         _that.prevAccounts = accounts;
                     }
@@ -1435,11 +1436,11 @@ function run(connected) {
 
         let accounts = [];
 
-        if(ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
+        if(typeof ethereum != 'undefined' && ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
             accounts = await web3.eth.getAccounts();
             console.log('account classic with ethereum');
         }
-        else if(ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
+        else if(typeof ethereum != 'undefined' && ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
             accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts',
             });

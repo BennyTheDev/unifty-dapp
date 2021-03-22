@@ -15,18 +15,18 @@
     <script type="text/javascript" src="js/handlebars.js"></script>
     <script type="text/javascript" src="js/ipfs.js"></script>
     <script type="text/javascript" src="js/buffer.js"></script>
-    <script type="text/javascript" src="js/misc.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/nifABI.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/erc1155ABI.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/genesisABI.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/farmABI-legacy.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/erc20ABI.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/multiBatchABI.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/univ2ABI.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/lib-legacy.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/farm-dapp-legacy.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/dapp-init.js?v=1.8.6"></script>
-    <script type="text/javascript" src="js/cookie.js?v=1.8.6"></script>
+    <script type="text/javascript" src="js/misc.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/nifABI.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/genesisABI.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/farmABI-legacy.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/lib-legacy.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/farm-dapp-legacy.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/dapp-init.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/cookie.js?v=1.9.0"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -40,24 +40,32 @@
             new ClipboardJS('.btn-clipboard');
         });
     </script>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+
+    <link rel="stylesheet" type="text/css"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css" integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+          integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
     <style type="text/css">
-        .dark-edition .modal .form-control{
+        .dark-edition .modal .form-control {
             color: #8b92a9;
         }
-        .dark-edition .modal a{
+
+        .dark-edition .modal a {
             color: #8b92a9;
             font-weight: 700;
         }
-        .dark-edition .modal .form-control, .is-focused .dark-edition .modal .form-control {
+
+        .dark-edition .modal .form-control,
+        .is-focused .dark-edition .modal .form-control {
             background-color: #eee;
             padding: 5px;
         }
-        .dark-edition .modal select{
+
+        .dark-edition .modal select {
             height: 36px !important;
         }
+
         .card-profile .card-avatar {
             max-width: 230px;
             max-height: 230px;
@@ -67,17 +75,20 @@
             padding: 15px !important;
             object-fit: cover;
         }
-        .nftListing{
+
+        .nftListing {
             min-width: 300px;
         }
-        .btn-outline{
+
+        .btn-outline {
             background-color: transparent !important;
             box-shadow: none !important;
             -moz-box-shadow: none !important;
             -o-box-shadow: none !important;
             -webkit-box-shadow: none !important;
         }
-        .btn-clipboard{
+
+        .btn-clipboard {
             background-color: transparent !important;
             box-shadow: none !important;
             -moz-box-shadow: none !important;
@@ -85,82 +96,119 @@
             -webkit-box-shadow: none !important;
             padding: 0 !important;
         }
-        .fa-clipboard{
+
+        .fa-clipboard,
+        .fa-external-link {
             font-size: 0.8rem !important;
         }
-        .traits-collapse ul li{
+
+        .traits-collapse ul li {
             border-bottom: 1px solid #8b92a9;
         }
-        .traits-collapse ul li:last-child{
+
+        .traits-collapse ul li:last-child {
             border-bottom: none;
         }
+
         .dark-edition .card .card-body .card-description {
             color: #8b92a9;
         }
-        .description, .card-description, .footer-big p {
+
+        .description,
+        .card-description,
+        .footer-big p {
             color: #8b92a9;
         }
-        .title, .title a, .card-title, .card-title a, .info-title, .info-title a, .footer-brand, .footer-brand a, .footer-big h5, .footer-big h5 a, .footer-big h4, .footer-big h4 a, .media .media-heading, .media .media-heading a {
+
+        .title,
+        .title a,
+        .card-title,
+        .card-title a,
+        .info-title,
+        .info-title a,
+        .footer-brand,
+        .footer-brand a,
+        .footer-big h5,
+        .footer-big h5 a,
+        .footer-big h4,
+        .footer-big h4 a,
+        .media .media-heading,
+        .media .media-heading a {
             color: #8b92a9;
         }
-        body{
+
+        body {
             color: #8b92a9;
         }
-        .navbar, .navbar-text a{
+
+        .navbar,
+        .navbar-text a {
             color: inherit;
         }
     </style>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+    </style>
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
 <body class="dark-edition">
 
 
-<div class="sidebar" data-color="purple" data-background-color="black" data-image="assets/img/alex.jpg">
-    <div class="logo"><a href="https://unifty.io" class="simple-text logo-normal">
-        <img src="assets/img/unifty2.png" width="125" border="0"/> UNIFTY
-        <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">Binance Smart Chain</div>
-    </a></div>
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <div class="logo">
+        <a href="https://unifty.io" class="simple-text logo-normal">
+            <img src="assets/img/unifty2.png" width="125" border="0" />
+            <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
+                Binance Smart Chain
+            </div>
+        </a>
+    </div>
+
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons-round">home</i>
                     <p>Home</p>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" id="marketNavLink">
                 <a class="nav-link" href="market.html">
-                    <i class="material-icons">shopping_cart</i>
+                    <i class="material-icons-round">storefront</i>
                     <p>NFT Market</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="collectibles.html">
-                    <i class="material-icons">account_box</i>
+                    <i class="material-icons-round">account_balance_wallet</i>
                     <p>Your Wallet</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="manager.html">
-                    <i class="material-icons">collections</i>
+                    <i class="material-icons-round">collections</i>
                     <p>Collection Manager</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="farm-builder.html">
-                    <i class="material-icons">build</i>
+                    <i class="material-icons-round">build</i>
                     <p>Farm Builder</p>
                 </a>
             </li>
             <li class="nav-item bridgeNav">
                 <a class="nav-link" href="bridge.html">
-                    <i class="material-icons">360</i>
+                    <i class="material-icons-round">360</i>
                     <p>NFT Bridge</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0);" id="nulsSco">
-                    <i class="material-icons">monetization_on</i>
+                    <i class="material-icons-round">monetization_on</i>
                     <p>Get Project Funding</p>
                 </a>
             </li>
@@ -178,134 +226,207 @@
                 </a>
             </li>
         </ul>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-text">
+                <div class="sidebar-text icons">
+            <span class="navbar-text">
+              <a href="https://t.me/unifty" target="_blank">
+                <i class="fa fa-telegram"></i>
+              </a>
+              <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
+                <i class="fa fa-discord"></i>
+              </a>
+              <a href="https://twitter.com/unifty_io" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </span>
+                </div>
+
+                <div class="sidebar-text rights">
+            <span>
+              <i class="material-icons">copyright</i>
+              Unifty Development d.o.o.<br/>All rights reserved.
+            </span>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
+<!-- SIDEBAR END -->
 
 <div class="main-panel">
 
+    <!-- NAV TOGGLER -->
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
         <div class="container-fluid">
-            <!--
-            <div class="navbar-wrapper">
-                <a class="navbar-brand" href="javascript:void(0)">Your Collections</a>
-            </div>-->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                    aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="navbar-toggler-icon icon-bar"></span>
                 <span class="navbar-toggler-icon icon-bar"></span>
                 <span class="navbar-toggler-icon icon-bar"></span>
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarText">
-
-                <ul class="navbar-nav mr-auto">
-
-                    <li class="nav-item">
-                        <style>
-                            @media (max-width: 991px) {
-                                .nav-mobile-menu .dropdown.show .dropdown-menu {
-                                    transform: none !important;
-                                    will-change: unset !important;
-                                }
-                            }
-                            .shop a i {
-                                float: none !important;
-                            }
-                        </style>
-                        <div class="dropdown ml-3 mr-3">
-                            <button id="chainSelectionDropdown" class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Select Chain
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
-                                <a class="dropdown-item" href="https://unifty.io/xdai/">xDai</a>
-                                <a class="dropdown-item" href="https://unifty.io/bsc/">Binance Smart Chain</a>
-                                <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
-                                <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
-                                <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="nav-item shop" id="shopEthereum" style="display:none;">
-                        <a class="btn btn-link" style="color: #25b1c3" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
-                    </li>
-
-                    <li class="nav-item shop" id="shopXdai" style="display:none;">
-                        <a class="btn btn-link" style="color: #25b1c3" href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
-                    </li>
-
-                    <li class="nav-item shop" id="shopBsc" style="display:none;">
-                        <a class="btn btn-link" style="color: #25b1c3" href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90"><i class="material-icons" style="color: #25b1c3">shopping_cart</i> Shop</a>
-                    </li>
-
-                    <li class="nav-item" id="getNifUniswap">
-                        <a class="nav-link" style="color: #25b1c3;" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">Get $NIF at Uniswap</a>
-                    </li>
-
-                    <li class="nav-item" id="mirror">
-                        <a class="nav-link" style="color: #913f9e;" target="_blank" href="https://unifty.eth">Mirror: https://unifty.eth</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="faq.html">FAQ</a>
-                    </li>
-                </ul>
-
-                <span class="navbar-text">
-                  Join Us On
-                </span>
-                &nbsp;&nbsp;
-                <span class="navbar-text">
-                    <a href="https://t.me/unifty" target="_blank">
-                      <i class="fa fa-telegram"></i>
-                      &nbsp;Telegram&nbsp;
-                    </a>
-                </span>
-                &nbsp;
-                <span class="navbar-text">
-                    <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
-                    <i class="fa fa-discord"></i>
-                        &nbsp;Discord&nbsp;
-                    </a>
-                </span>
-                &nbsp;
-                <span class="navbar-text">
-                    <a href="https://twitter.com/unifty_io" target="_blank">
-                    <i class="fa fa-twitter"></i>
-                        &nbsp;Twitter
-                    </a>
-                </span>
-            </div>
-
-
         </div>
     </nav>
+    <!-- NAV TOGGLER END -->
 
 <div class="content">
+
+    <!-- HEADER -->
+    <div class="custom-header">
+        <div class="custom-header__title">Unifty.io</div>
+        <div class="custom-header__dropdowns">
+            <script>
+                // fix for initial doubleclick required upon page load
+                // $(document).ready(function () {
+                //   $('#chainSelectionDropdown').click();
+                // });
+            </script>
+
+            <div class="dropdown ml-3 mr-3 dropdown--chains">
+                <button id="chainSelectionDropdown" class="btn btn-info dropdown-toggle" type="button"
+                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Select chain
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
+                    <a class="dropdown-item" href="https://unifty.io/xdai/">xDai</a>
+                    <a class="dropdown-item" href="https://unifty.io/bsc/">Binance Smart Chain</a>
+                    <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
+                    <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
+                    <!--<a class="dropdown-item" href="https://unifty.io/moonbeam-alpha/">Moonbeam (Alpha/Test)</a>-->
+                    <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- HEADER END -->
+
 <div class="container-fluid">
 
-    <div id="stakingOptions" style="display:none;" class="row justify-content-center content-center mb-5">
-        <a href="javascript:void(0);" class="btn btn-secondary mb-3 mr-1">
-            Staking <span id="farmTokensStaked"></span> <span id="farmTokenSymbol"></span>
-        </a>
-        <a href="javascript:void(0);" class="btn btn-secondary mb-3 mr-1">
-            Earned <span id="farmPointsEarned"></span> Points
-        </a>
-        <div class="dropdown">
-            <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle mb-3" id="collectionActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Staking Options
-            </a>
-            <div class="dropdown-menu" aria-labelledby="nftActions">
-                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftStakeModal" id="farmStakeButton">Stake</a>
-                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftUnstakeModal" id="farmUnstakeButton">Unstake</a>
+    <div class="nftHeader-stakingOptions-container row justify-content-center content-center mb-5" style="width: 100%;">
+
+        <script id="farm-header-template" type="text/x-handlebars-template">
+            <div class="nftHeader col-md-12 mb-4">
+                <div class="card">
+                    <!-- <div class="row"> -->
+                    <div>
+                        <div class="card-content">
+                            {{#ifNotEquals image ""}}
+                            <div class="col-3">
+                                <img class="card-img" loading="lazy" src="{{image}}" alt="{{name}}" style="width: 100%;max-width: 500px;" />
+                            </div>
+                            {{/ifNotEquals}}
+
+                            <div class="col-9">
+                                <div class="card-body">
+                                    <h1>{{name}}</h1>
+                                    {{#ifNotEquals description ""}}
+                                    <p class="card-text">{{markdown description}}</p>
+                                    {{/ifNotEquals}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-links">
+                            {{#ifNotEquals custom_link_value ""}}
+                            <a href="{{custom_link_value}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-external-link"></i> {{custom_link_name}}</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals twitter ""}}
+                            <a href="{{twitter}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-twitter"></i> Twitter</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals telegram ""}}
+                            <a href="{{telegram}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-telegram"></i> Telegram</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals discord ""}}
+                            <a href="{{discord}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-discord"></i> Discord</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals instagram ""}}
+                            <a href="{{instagram}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-instagram"></i> Instagram</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals medium ""}}
+                            <a href="{{medium}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-medium"></i> Medium</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals youtube ""}}
+                            <a href="{{youtube}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-youtube"></i> Youtube</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals web ""}}
+                            <a href="{{web}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-home"></i> Web</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals email ""}}
+                            <a href="mailto:{{email}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-envelope"></i> Email</a>
+                            {{/ifNotEquals}}
+
+                            {{#ifNotEquals phone ""}}
+                            <div class="mt-2" style="white-space: nowrap;">Phone: {{phone}}</div>
+                            {{/ifNotEquals}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </script>
+
+        <div id="farmHeader"></div>
+
+        <div id="stakingOptions" style="display:none;">
+            <!-- make container consist from 3 rows -->
+            <div class="first-row">
+                <a href="javascript:void(0);" class="btn btn-secondary mb-3 mr-1">
+                    <!-- Staking <span id="farmTokensStaked"></span> <span id="farmTokenSymbol"></span> -->
+                    Staking <span id="farmTokensStaked"></span> <span id="farmTokenSymbol"></span>
+                </a>
+                <div class="divider"></div>
+                <a href="javascript:void(0);" class="btn btn-secondary mb-3 mr-1">
+                    <!-- Earned <span id="farmPointsEarned"></span> <span>Points</span> -->
+                    Earned <span id="farmPointsEarned"></span>
+                </a>
+            </div>
+
+            <div class="second-row">
+                <div class="dropdown">
+                    <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle mb-3" id="collectionActions"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Staking Options
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="nftActions">
+                        <a style="display:none;" href="javascript:void(0);" class="dropdown-item" data-toggle="modal"
+                           data-target="#addNftsModal" id="farmAddNftsButton">Add NFTs</a>
+                        <a style="display:none;" href="javascript:void(0);" class="dropdown-item" data-toggle="modal"
+                           data-target="#withdrawFeesModal" id="withdrawFeesModalButton">Withdraw Fees</a>
+                        <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftStakeModal"
+                           id="farmStakeButton">Stake</a>
+                        <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftUnstakeModal"
+                           id="farmUnstakeButton">Unstake</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="third-row">
+                <div class="row justify-content-center content-center mb-3" style="font-size: 0.8em;">
+                    Powered&nbsp;by&nbsp;<a href="https://t.me/unifty">Unifty</a>&nbsp;and&nbsp;<a
+                        href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e"
+                        target="_blank">$NIF</a>
+                </div>
             </div>
         </div>
+
     </div>
 
     <!-- Farm View -->
     <script id="farm-template" type="text/x-handlebars-template">
-        <div class="nftListing col-md-4 mb-3">
+        <div class="nftListing mb-3">
             <div class="card card-profile">
                 <img class="card-avatar" src="{{image}}" alt="{{name}}">
                 <div class="card-body">
@@ -320,7 +441,7 @@
 
                     </a>
                     <br/>
-                    <a {{{traitsHide}}} class="btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                    <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
                         Traits
                     </a>
                     <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
@@ -343,7 +464,7 @@
     <script id="next-button" type="text/x-handlebars-template">
         <div id="loadMore" class="container-fluid">
             <div style="text-align: center" class="justify-content-center content-center">
-                <button class="btn btn-primary" id="loadMoreButton">Load More</button>
+                <button class="btn btn-outline" id="loadMoreButton">Load More</button>
             </div>
         </div>
     </script>
@@ -358,7 +479,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-non-nft-content">
 
                     <form onsubmit="return false;">
 
@@ -373,8 +494,10 @@
 
                 </div>
                 <div class="modal-footer">
+                    <div class="buttons-container">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="nftStakeButton">Stake!</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -390,7 +513,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-non-nft-content">
 
                     <form onsubmit="return false;">
 
@@ -405,8 +528,10 @@
 
                 </div>
                 <div class="modal-footer">
+                    <div class="buttons-container">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary" id="nftUnstakeButton">Unstake!</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -423,11 +548,13 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body modal-non-nft-content">
 
                 </div>
                 <div class="modal-footer">
+                    <div class="buttons-container">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -438,6 +565,64 @@
 
 </div>
 </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        <ul>
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
+            <span class="material-icons-round">
+              find_replace
+            </span>
+                    Get $NIF on Uniswap
+                </a>
+            </li>
+
+            <li class="nav-item shop" id="shopEthereum" style="display:none;">
+                <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145"><i class="material-icons">shopping_cart</i> Shop</a>
+            </li>
+
+            <li class="nav-item shop" id="shopXdai" style="display:none;">
+                <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082"><i class="material-icons">shopping_cart</i> Shop</a>
+            </li>
+
+            <li class="nav-item shop" id="shopBsc" style="display:none;">
+                <a class="nav-link" href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90"><i class="material-icons">shopping_cart</i> Shop</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" target="_blank" href="https://unifty.eth">
+            <span class="material-icons-round">
+              present_to_all
+            </span>
+                    Mirror
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="roadmap.html">
+            <span class="material-icons-round">
+              swap_calls
+            </span>
+                    Roadmap
+                </a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="faq.html">
+            <span class="material-icons-round">
+              help_outline
+            </span>
+                    FAQ
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <!-- FOOTER END -->
+
 </div>
 
 </body>

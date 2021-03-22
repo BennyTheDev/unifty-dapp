@@ -129,7 +129,7 @@ function TncDapp() {
             traitsHide : traits_hide,
             owns: address == tncLib.account ? 'You Own' : 'Owns',
             options: address == tncLib.account ? 'true' : '',
-            collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 0.8rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 0.7rem !important;">' + erc1155 + '</div>',
+            collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
             opensea : chain_id == '1' || chain_id == '4' ? 'https://opensea.io/assets/'+erc1155+'/'+id : 'collectible.html?collection=' +  erc1155 + '&id=' + id
         });
 
@@ -381,7 +381,7 @@ function TncDapp() {
 
                     $('#gasFunds').html(_this.formatNumberString(await tncLibBridgeOut.getGasFunds(tncLib.account), 18));
 
-                }, 5000);
+                }, 20000);
 
                 $('#restoreCancelButton').on('click', _this.performRestore);
                 $('#depositFundsButton').on('click', _this.performFunds);
@@ -470,7 +470,7 @@ function TncDapp() {
             setInterval( function() {
                 web3.eth.getAccounts(function(err, accounts){
                     const _that = _this;
-                    if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
+                    if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
                         _that.accountChangeAlert();
                         _that.prevAccounts = accounts;
                     }
@@ -478,10 +478,6 @@ function TncDapp() {
             }, 1000);
         }
     };
-
-    this.hexToInt = function (hex) {
-        return parseInt(hex.replace('0x','').replace(/\b0+/g, ''));
-    }
 
     this.startChainCheck = function(){
 
@@ -507,6 +503,10 @@ function TncDapp() {
             }, 1000);
         }
     };
+
+    this.hexToInt = function (hex) {
+        return parseInt(hex.replace('0x','').replace(/\b0+/g, ''));
+    }
 
     $(document).ready(async function(){
 
@@ -543,11 +543,11 @@ function run(connected) {
 
         let accounts = [];
 
-        if(ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
+        if(typeof ethereum != 'undefined' && ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
             accounts = await web3.eth.getAccounts();
             console.log('account classic with ethereum');
         }
-        else if(ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
+        else if(typeof ethereum != 'undefined' && ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
             accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts',
             });

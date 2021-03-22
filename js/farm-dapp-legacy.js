@@ -178,7 +178,7 @@ function TncDapp() {
                 }
             });
 
-            let maxPerLoad = 6;
+            let maxPerLoad = 8;
 
             if( i % maxPerLoad == maxPerLoad - 1 ){
 

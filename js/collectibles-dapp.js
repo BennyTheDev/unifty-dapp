@@ -117,14 +117,16 @@ function TncDapp() {
 
         try {
 
-            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/'));
+            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/'));
 
             if (typeof data == 'object') {
 
-                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
-                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
-                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
-                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/') : '';
+                console.log('IMAGE: ', data.image);
+
+                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
                 data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                 data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                 data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -138,10 +140,10 @@ function TncDapp() {
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -186,7 +188,7 @@ function TncDapp() {
             audio_url: data_audio_url,
             interactive_url: data_interactive_url,
             name: data_name,
-            description: data_description,
+            description: _this.truncate(data_description, 320),
             url: data_link,
             attributes: data_attributes,
             id: id,
@@ -197,11 +199,15 @@ function TncDapp() {
             traitsHide : bridgeBack ? '' : traits_hide,
             owns: address == tncLib.account ? 'You Own' : 'Owns',
             options: address == tncLib.account ? 'true' : '',
-            collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 0.8rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 0.7rem !important;">' + erc1155 + '</div>',
+            collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
             opensea : chain_id == '1' || chain_id == '4' ? 'https://opensea.io/assets/'+erc1155+'/'+id : 'collectible.html?collection=' +  erc1155 + '&id=' + id
         });
 
         $('#collectiblesPage').append(tmpl);
+
+        if(chain_id == '1') {
+            $('.marketSellLink').css('display', 'none');
+        }
 
         $('.btn-clipboard' + erc1155 + id).off('click');
         $('.btn-clipboard' + erc1155 + id).on('click', function () {
@@ -224,7 +230,13 @@ function TncDapp() {
 
         });
 
+        $('[data-toggle="popover"]').popover();
+
     };
+
+    this.truncate = function(str, n){
+        return (str.length > n) ? str.substr(0, n-1) + '&hellip;' : str;
+    }
 
     this.hexToInt = function (hex) {
         return parseInt(hex.replace('0x','').replace(/\b0+/g, ''));
@@ -321,13 +333,35 @@ function TncDapp() {
 
         switch(chain_id){
             case '64': // xDai
-                var o = new Option("NIF (Unifty)", "0x1A186E7268F3Ed5AdFEa6B9e0655f70059941E11");
-                $(o).html("NIF (Unifty)");
+
+                var o = new Option("HNY", "0x71850b7E9Ee3f13Ab46d67167341E4bDc905Eef9");
+                $(o).html("HNY");
                 $("#nftSellToken").append(o);
 
-                var o2 = new Option("wxDai (Wrapped xDai)", "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d");
-                $(o2).html("wxDai (Wrapped xDai)");
+                var o2 = new Option("NIF (Unifty)", "0x1A186E7268F3Ed5AdFEa6B9e0655f70059941E11");
+                $(o2).html("NIF (Unifty)");
                 $("#nftSellToken").append(o2);
+
+                var o3 = new Option("COLD", "0xdbcade285846131a5e7384685eaddbdfd9625557");
+                $(o3).html("COLD");
+                $("#nftSellToken").append(o3);
+
+                var o4 = new Option("wxDai (Wrapped xDai)", "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d");
+                $(o4).html("wxDai (Wrapped xDai)");
+                $("#nftSellToken").append(o4);
+
+                var o6 = new Option("WETH (Wrapped Ether)", "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1");
+                $(o6).html("WETH (Wrapped Ether)");
+                $("#nftSellToken").append(o6);
+
+                var o5 = new Option("AGVE (Agave Token)", "0x3a97704a1b25f08aa230ae53b352e2e72ef52843");
+                $(o5).html("AGVE (Agave Token)");
+                $("#nftSellToken").append(o5);
+
+                var o7 = new Option("USDC", "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83");
+                $(o7).html("USDC");
+                $("#nftSellToken").append(o7);
+
                 break;
             case '4d': // xDai (SPOA) Testnet
                 var o = new Option("NIF (Unifty)", "0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7");
@@ -342,12 +376,22 @@ function TncDapp() {
                 console.log($("#nftSellToken").html());
                 break;
             case 'a4ec': // CELO
-                var o = new Option("NIF (Unifty)", "0x3dF39266F1246128C39086E1b542Db0148A30d8c");
-                $(o).html("NIF (Unifty)");
+
+
+                var o = new Option("CELO (token)", "0x471ece3750da237f93b8e339c536989b8978a438");
+                $(o).html("CELO (token)");
                 $("#nftSellToken").append(o);
                 console.log($("#nftSellToken").html());
+
+                var o2 = new Option("CUSD", "0x765DE816845861e75A25fCA122bb6898B8B1282a");
+                $(o2).html("CUSD");
+                $("#nftSellToken").append(o2);
+                console.log($("#nftSellToken").html());
+
                 break;
             case '38': // BSC MAINNET
+
+
                 var o2 = new Option("bNIF (Unifty)", "0x3aD4eC50f30dAb25C60e0e71755AF6B9690B1297");
                 $(o2).html("bNIF (Unifty)");
                 $("#nftSellToken").append(o2);
@@ -355,6 +399,24 @@ function TncDapp() {
                 var o = new Option("WBNB (Wrapped BNB)", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
                 $(o).html("WBNB (Wrapped BNB)");
                 $("#nftSellToken").append(o);
+
+                var o3 = new Option("CAKE", "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82");
+                $(o3).html("CAKE");
+                $("#nftSellToken").append(o3);
+
+                var o4 = new Option("BUSD", "0xe9e7cea3dedca5984780bafc599bd69add087d56");
+                $(o4).html("BUSD");
+                $("#nftSellToken").append(o4);
+
+                var o5 = new Option("ETH", "0x2170ed0880ac9a755fd29b2688956bd959f933f8");
+                $(o5).html("ETH");
+                $("#nftSellToken").append(o5);
+
+                var o6 = new Option("TETHER", "0x55d398326f99059ff775485246999027b3197955");
+                $(o6).html("TETHER");
+                $("#nftSellToken").append(o6);
+
+
                 break;
             case '89': // Matic Mainnet
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");
@@ -995,7 +1057,7 @@ function TncDapp() {
             setInterval( function() {
                 web3.eth.getAccounts(function(err, accounts){
                     const _that = _this;
-                    if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
+                    if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
                         _that.accountChangeAlert();
                         _that.prevAccounts = accounts;
                     }
@@ -1064,11 +1126,11 @@ function run(connected) {
 
         let accounts = [];
 
-        if(ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
+        if(typeof ethereum != 'undefined' && ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
             accounts = await web3.eth.getAccounts();
             console.log('account classic with ethereum');
         }
-        else if(ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
+        else if(typeof ethereum != 'undefined' && ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
             accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts',
             });

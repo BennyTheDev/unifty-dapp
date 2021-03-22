@@ -1,0 +1,236 @@
+.nftListing,
+.farmListing,
+.nftHeader{
+  .btn{
+    font-size: 1.2rem;
+  }
+
+  min-width: 24.5rem;
+  width: 24.5rem;
+  padding: 0;
+  margin-right: 2rem !important;
+
+  .card .traits-collapse{
+    font-size: 1.4rem;
+  }
+
+  .card-profile, .header-profile {
+    position: relative;
+    margin-top: 0;
+    box-shadow: $shadow-secondary-dark;
+
+    //image
+    .card-avatar {
+      min-width: 15.6rem;
+      min-height: 15.6rem;
+      max-width: 15.6rem;
+      max-height: 15.6rem;
+      padding: .8rem !important;
+      margin: 1.5rem auto .5rem;
+      background-color: var(--image-padding);
+    }
+
+    .card-body, .header-left {
+      position: static;
+
+      //title
+      h5.card-title {
+        font-size: 1.8rem;
+        font-weight: 700;
+        letter-spacing: .28px;
+        a {
+          color: var(--heading-color);
+        }
+      }
+
+      .collection-name {
+        font-size: 1.2rem;
+        margin-bottom: .5rem;
+      }
+
+      a.video-btn-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary-color);
+        border: none;
+        font-size: 1.4rem;
+        text-transform: none;
+
+        &:hover {
+          color: var(--primary-hover-dark);
+        }
+  
+        span {
+          font-size: 2rem;
+          margin-right: .5rem;
+        }
+      }
+
+      audio {
+        height: 3.2rem;
+        margin-top: 0 !important;
+      }
+
+      //stocks
+      .badge {
+        padding: .5rem;
+        font-size: 1rem;
+        font-weight: 300;
+        position: relative;
+
+        &.badge-info {
+          color: var(--text-primary);
+          background-color: transparent;
+
+          &:not(:last-child)::before {
+            content: "";
+            position: absolute;
+            display: block;
+            width: 1px;
+            height: 80%;
+            background: $grey-secondary;
+            right: -2px;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+      }
+
+      //points
+      a.redeemButton {
+        font-size: 1.4rem;
+        box-shadow: none;
+        border: none;
+        text-transform: none;
+        border-radius: .6rem;
+        background-color: var(--primary-color);
+        color: #000;
+        padding: .3rem .8rem;
+        font-weight: 500;
+        width: 90%;
+
+        &:active {
+          color: #fff;
+          background-color: var(--primary-hover-dark);
+          font-weight: 400;
+        }
+      }
+
+      //traits
+      a.traits {
+        font-size: 1.4rem;
+        border: .1rem solid $grey-border;
+        border-radius: .6rem;
+        background-color: $dark-primary !important;
+        text-transform: none;
+        color: $grey-border;
+        padding: .3rem .8rem;
+        width: 90%;
+      }
+
+      //description
+      .popover-description {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: $grey-primary;
+        background-color: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+
+        span {
+          font-size: 1.8rem;
+        }
+
+        &:hover, &:active {
+          span {
+            color: #fff;
+          }
+        }
+      }
+
+      //options
+      .dropdown {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+
+        a {
+          padding: 0;
+          margin: 0;
+          background-color: transparent;
+          box-shadow: none;
+
+          &::after {
+            content: none;
+          }
+
+          &:hover, &:active {
+            span {
+              color: #fff;
+            }
+          }
+
+          span {
+            color: $grey-primary;
+            font-size: 1.8rem;
+          }
+        }
+      }
+
+      .dropdown.show a {
+        background-color: transparent;
+
+        span {
+          color: #fff;
+        }
+        
+      }
+    }
+  }
+}
+
+
+.dark-edition .popover.fade.bs-popover-bottom,
+.dark-edition .popover.fade.bs-popover-top{
+  background-color: $dark-secondary;
+  box-shadow: $shadow-secondary-dark;
+
+  .arrow, .arrow::before {
+    display: none;
+  }
+
+  .popover-header, .popover-body {
+    padding: 1rem;
+    color: $grey-primary;
+  }
+  
+  .popover-header {
+    background-color: transparent;
+    border-bottom: .1rem solid $grey-border;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: .32px;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  .popover-body {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .nftListing,
+  .farmListing {
+    min-width: 300px;
+  }
+}
+
+.nftHeader {
+  width: 100%;
+}

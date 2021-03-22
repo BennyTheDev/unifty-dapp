@@ -166,6 +166,8 @@ function TncDapp() {
                         $(this).tooltip('disable');
 
                     });
+
+                    $('[data-toggle="popover"]').popover();
                 }
 
             }catch (e){
@@ -173,7 +175,7 @@ function TncDapp() {
                 console.log('Trouble resolving farm uri: ', _uri);
             }
 
-            let maxPerLoad = 6;
+            let maxPerLoad = 9;
             let currInvertedIndex = (length - 1) - i;
 
             if( currInvertedIndex % maxPerLoad == maxPerLoad - 1 ){
@@ -1082,7 +1084,7 @@ function TncDapp() {
             setInterval( function() {
                 web3.eth.getAccounts(function(err, accounts){
                     const _that = _this;
-                    if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
+                    if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
                         _that.accountChangeAlert();
                         _that.prevAccounts = accounts;
                     }
@@ -1213,11 +1215,11 @@ function run(connected) {
 
         let accounts = [];
 
-        if(ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
+        if(typeof ethereum != 'undefined' && ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable){
             accounts = await web3.eth.getAccounts();
             console.log('account classic with ethereum');
         }
-        else if(ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
+        else if(typeof ethereum != 'undefined' && ethereum && ( typeof ethereum.enable == 'undefined' || !ethereum.enable ) ){
             accounts = await window.ethereum.request({
                 method: 'eth_requestAccounts',
             });

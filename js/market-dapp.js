@@ -35,7 +35,7 @@ function TncDapp() {
             if(category > 0){
 
                 let ask_id = await tncLibMarket.getCategory(category, i);
-                ret = {ask: await tncLibMarket.getAskBase(ask_id), index: i};
+                ret = {ask: await tncLibMarket.getAskBase(ask_id), index: ask_id};
 
             }else{
 
@@ -64,7 +64,9 @@ function TncDapp() {
                 hasMore,
                 which,
                 ask.erc1155Address.length > 1 ? true : false,
-                ask.erc1155Address.length - 1
+                ask.erc1155Address.length - 1,
+                category,
+                i
             );
 
             await sleep(300);
@@ -92,7 +94,7 @@ function TncDapp() {
         }
     };
 
-    this.render = async function(erc1155, id, amount, price, token, address, sellerAddress, swapMode, index, hasMore, which, isBatch, multiplier){
+    this.render = async function(erc1155, id, amount, price, token, address, sellerAddress, swapMode, index, hasMore, which, isBatch, multiplier, category, category_index){
 
         let nft = await window.tncLib.getForeignNft(erc1155, address, id);
 
@@ -171,8 +173,13 @@ function TncDapp() {
             bridgeBack = true;
         }
 
-        price = _this.formatNumberString(price, 18);
-        price = price.substring(0, price.length - 10);
+        let decimals = await tncLib.tokenDecimalsErc20(token);
+        price = _this.formatNumberString(price, decimals);
+
+        if(decimals > 2) {
+
+            price = price.substring(0, price.length - 10);
+        }
 
         let explorer = 'https://etherscan.io/token/';
         switch(chain_id){
@@ -202,6 +209,7 @@ function TncDapp() {
                 break;
         }
 
+
         if(which == 'picker' || which == 'request'){
 
             if(data_interactive_url != ''){
@@ -220,7 +228,7 @@ function TncDapp() {
                 audio_url: data_audio_url,
                 interactive_url: data_interactive_url,
                 name: data_name,
-                description: data_description,
+                description: _this.truncate(data_description, 320),
                 url: data_link,
                 attributes: data_attributes,
                 id: id,
@@ -238,13 +246,15 @@ function TncDapp() {
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
-                collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 0.8rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 0.7rem !important;">' + erc1155 + '</div>',
-                opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id
+                collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
+                opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
             });
 
             if(which == 'picker') {
 
                 $('#nftSwapPicker').append(tmpl);
+
+                $('[data-toggle="popover"]').popover();
 
                 $('#nftListing' + index).off('click');
                 $('#nftListing' + index).on('click', function () {
@@ -283,7 +293,7 @@ function TncDapp() {
                 audio_url: data_audio_url,
                 interactive_url: data_interactive_url,
                 name: data_name,
-                description: data_description,
+                description: _this.truncate(data_description, 320),
                 url: data_link,
                 attributes: data_attributes,
                 id: id,
@@ -301,11 +311,13 @@ function TncDapp() {
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
-                collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 0.8rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 0.7rem !important;">' + erc1155 + '</div>',
-                opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id
+                collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
+                opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
             });
 
             $('#offersPage').append(tmpl);
+
+            $('[data-toggle="popover"]').popover();
 
             $('#nftBuyButtonShortcut' + index).on('click', function(e){
 
@@ -353,6 +365,10 @@ function TncDapp() {
 
         }
     };
+
+    this.truncate = function(str, n){
+        return (str.length > n) ? str.substr(0, n-1) + '&hellip;' : str;
+    }
 
     this.performCancellation = async function(){
 
@@ -466,7 +482,7 @@ function TncDapp() {
             tncLibMarket.buy(
                 ask.seller,
                 "0",
-                _this.getUrlParam('ref') != null ? _this.getUrlParam('ref') : '0x0000000000000000000000000000000000000000',
+                localStorage.getItem('marketRef') != null ? localStorage.getItem('marketRef') : '0x0000000000000000000000000000000000000000',
                 index,
                 function (){
                     toastr["info"]('Please wait for the transaction to finish.', "Buying....");
@@ -547,6 +563,12 @@ function TncDapp() {
                 ) );
 
                 console.log('ALLOWANCE: ', allowance.toString());
+                console.log('PRICE: ', price.toString());
+                console.log('AMOUNT: ', amount.toString());
+                console.log('FULL PRICE: ', fullPrice.toString());
+                console.log('BALANCE: ', balance.toString());
+                console.log('TOKEN ADDRESS: ', ask.tokenAddress);
+                console.log('ACCOUNT: ', tncLib.account);
 
                 if(
                     allowance.lt(fullPrice)
@@ -858,13 +880,33 @@ function TncDapp() {
 
         switch(chain_id){
             case '64': // xDai
-                var o = new Option("NIF (Unifty)", "0x1A186E7268F3Ed5AdFEa6B9e0655f70059941E11");
-                $(o).html("NIF (Unifty)");
+                var o = new Option("HNY", "0x71850b7E9Ee3f13Ab46d67167341E4bDc905Eef9");
+                $(o).html("HNY");
                 $("#lookupToken").append(o);
 
-                var o2 = new Option("wxDai (Wrapped xDai)", "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d");
-                $(o2).html("wxDai (Wrapped xDai)");
+                var o2 = new Option("NIF (Unifty)", "0x1A186E7268F3Ed5AdFEa6B9e0655f70059941E11");
+                $(o2).html("NIF (Unifty)");
                 $("#lookupToken").append(o2);
+
+                var o3 = new Option("COLD", "0xdbcade285846131a5e7384685eaddbdfd9625557");
+                $(o3).html("COLD");
+                $("#lookupToken").append(o3);
+
+                var o4 = new Option("wxDai (Wrapped xDai)", "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d");
+                $(o4).html("wxDai (Wrapped xDai)");
+                $("#lookupToken").append(o4);
+
+                var o6 = new Option("WETH (Wrapped Ether)", "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1");
+                $(o6).html("WETH (Wrapped Ether)");
+                $("#lookupToken").append(o6);
+
+                var o5 = new Option("AGVE (Agave Token)", "0x3a97704a1b25f08aa230ae53b352e2e72ef52843");
+                $(o5).html("AGVE (Agave Token)");
+                $("#lookupToken").append(o5);
+
+                var o6 = new Option("USDC", "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83");
+                $(o6).html("USDC");
+                $("#lookupToken").append(o6);
                 break;
             case '4d': // xDai (SPOA) Testnet
                 var o = new Option("NIF (Unifty)", "0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7");
@@ -879,10 +921,17 @@ function TncDapp() {
                 console.log($("#lookupToken").html());
                 break;
             case 'a4ec': // CELO
-                var o = new Option("NIF (Unifty)", "0x3dF39266F1246128C39086E1b542Db0148A30d8c");
-                $(o).html("NIF (Unifty)");
+
+                var o = new Option("CELO (token)", "0x471ece3750da237f93b8e339c536989b8978a438");
+                $(o).html("CELO (token)");
                 $("#lookupToken").append(o);
                 console.log($("#lookupToken").html());
+
+                var o2 = new Option("CUSD", "0x765DE816845861e75A25fCA122bb6898B8B1282a");
+                $(o2).html("CUSD");
+                $("#lookupToken").append(o2);
+                console.log($("#lookupToken").html());
+
                 break;
             case '38': // BSC MAINNET
                 var o2 = new Option("bNIF (Unifty)", "0x3aD4eC50f30dAb25C60e0e71755AF6B9690B1297");
@@ -892,6 +941,22 @@ function TncDapp() {
                 var o = new Option("WBNB (Wrapped BNB)", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
                 $(o).html("WBNB (Wrapped BNB)");
                 $("#lookupToken").append(o);
+
+                var o3 = new Option("CAKE", "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82");
+                $(o3).html("CAKE");
+                $("#lookupToken").append(o3);
+
+                var o4 = new Option("BUSD", "0xe9e7cea3dedca5984780bafc599bd69add087d56");
+                $(o4).html("BUSD");
+                $("#lookupToken").append(o4);
+
+                var o5 = new Option("ETH", "0x2170ed0880ac9a755fd29b2688956bd959f933f8");
+                $(o5).html("ETH");
+                $("#lookupToken").append(o5);
+
+                var o6 = new Option("TETHER", "0x55d398326f99059ff775485246999027b3197955");
+                $(o6).html("TETHER");
+                $("#lookupToken").append(o6);
                 break;
             case '89': // Matic Mainnet
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");
@@ -1248,13 +1313,33 @@ function TncDapp() {
 
         switch(chain_id){
             case '64': // xDai
-                var o = new Option("NIF (Unifty)", "0x1A186E7268F3Ed5AdFEa6B9e0655f70059941E11");
-                $(o).html("NIF (Unifty)");
+                var o = new Option("HNY", "0x71850b7E9Ee3f13Ab46d67167341E4bDc905Eef9");
+                $(o).html("HNY");
                 $("#nftSellToken2").append(o);
 
-                var o2 = new Option("wxDai (Wrapped xDai)", "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d");
-                $(o2).html("wxDai (Wrapped xDai)");
+                var o2 = new Option("NIF (Unifty)", "0x1A186E7268F3Ed5AdFEa6B9e0655f70059941E11");
+                $(o2).html("NIF (Unifty)");
                 $("#nftSellToken2").append(o2);
+
+                var o3 = new Option("COLD", "0xdbcade285846131a5e7384685eaddbdfd9625557");
+                $(o3).html("COLD");
+                $("#nftSellToken2").append(o3);
+
+                var o4 = new Option("wxDai (Wrapped xDai)", "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d");
+                $(o4).html("wxDai (Wrapped xDai)");
+                $("#nftSellToken2").append(o4);
+
+                var o6 = new Option("WETH (Wrapped Ether)", "0x6a023ccd1ff6f2045c3309768ead9e68f978f6e1");
+                $(o6).html("WETH (Wrapped Ether)");
+                $("#nftSellToken2").append(o6);
+
+                var o5 = new Option("AGVE (Agave Token)", "0x3a97704a1b25f08aa230ae53b352e2e72ef52843");
+                $(o5).html("AGVE (Agave Token)");
+                $("#nftSellToken2").append(o5);
+
+                var o6 = new Option("USDC", "0xddafbb505ad214d7b80b1f830fccc89b60fb7a83");
+                $(o6).html("USDC");
+                $("#nftSellToken2").append(o6);
                 break;
             case '4d': // xDai (SPOA) Testnet
                 var o = new Option("NIF (Unifty)", "0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7");
@@ -1267,9 +1352,15 @@ function TncDapp() {
                 $("#nftSellToken2").append(o);
                 break;
             case 'a4ec': // CELO
-                var o = new Option("NIF (Unifty)", "0x3dF39266F1246128C39086E1b542Db0148A30d8c");
-                $(o).html("NIF (Unifty)");
+                var o = new Option("CELO (token)", "0x471ece3750da237f93b8e339c536989b8978a438");
+                $(o).html("CELO (token)");
                 $("#nftSellToken2").append(o);
+                console.log($("#nftSellToken2").html());
+
+                var o2 = new Option("CUSD", "0x765DE816845861e75A25fCA122bb6898B8B1282a");
+                $(o2).html("CUSD");
+                $("#nftSellToken2").append(o2);
+                console.log($("#nftSellToken2").html());
                 break;
             case '38': // BSC MAINNET
                 var o2 = new Option("bNIF (Unifty)", "0x3aD4eC50f30dAb25C60e0e71755AF6B9690B1297");
@@ -1279,6 +1370,22 @@ function TncDapp() {
                 var o = new Option("WBNB (Wrapped BNB)", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
                 $(o).html("WBNB (Wrapped BNB)");
                 $("#nftSellToken2").append(o);
+
+                var o3 = new Option("CAKE", "0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82");
+                $(o3).html("CAKE");
+                $("#nftSellToken2").append(o3);
+
+                var o4 = new Option("BUSD", "0xe9e7cea3dedca5984780bafc599bd69add087d56");
+                $(o4).html("BUSD");
+                $("#nftSellToken2").append(o4);
+
+                var o5 = new Option("ETH", "0x2170ed0880ac9a755fd29b2688956bd959f933f8");
+                $(o5).html("ETH");
+                $("#nftSellToken2").append(o5);
+
+                var o6 = new Option("TETHER", "0x55d398326f99059ff775485246999027b3197955");
+                $(o6).html("TETHER");
+                $("#nftSellToken2").append(o6);
                 break;
             case '89': // Matic Mainnet
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");
@@ -1385,7 +1492,7 @@ function TncDapp() {
             let extraNif = '';
             if(nifAmount.gt(zero)){
                 extraNif = _this.formatNumberString(nifAmount.toString(), 18);
-                extraNif = '<div style="text-align: center;">(+'+extraNif.substring(0, extraNif.length - 10)+' NIF)</div>';
+                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-5">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
             }
 
             out += '<div class="col">';
@@ -1399,11 +1506,11 @@ function TncDapp() {
                 ask1.seller,
                 ask1.seller,
                 ask1.swapMode,
-                ask1.index0,
+                request.index1,
                 hasMore1,
                 'request',
-                false,
-                0
+                ask1.erc1155Address.length > 1,
+                ask1.erc1155Address.length - 1
             );
 
             out += extraNif;
@@ -1437,7 +1544,7 @@ function TncDapp() {
             }
 
             if(info != '') {
-                out += '<div style="margin-top: 50px; border: 1px solid white; border-radius: 10px; padding: 10px;">' + info + '</div>';
+                out += '<div style="margin-top: 50px;">' + info + '</div>';
             }
 
             //out += '<button type="button" class="btn btn-danger mt-3" id="rejectSwapButton'+i+'">Reject</button>';
@@ -1453,11 +1560,11 @@ function TncDapp() {
                 ask0.seller,
                 ask0.seller,
                 ask0.swapMode,
-                ask0.index0,
+                request.index0,
                 hasMore0,
                 'request',
-                false,
-                0
+                ask0.erc1155Address.length > 1,
+                ask0.erc1155Address.length - 1
             );
 
             out += '</div>';
@@ -1525,11 +1632,11 @@ function TncDapp() {
                 ask0.seller,
                 ask0.seller,
                 ask0.swapMode,
-                ask0.index0,
+                request.index0,
                 hasMore0,
                 'request',
-                false,
-                0
+                ask0.erc1155Address.length > 1,
+                ask0.erc1155Address.length - 1
             );
 
             out += '</div>';
@@ -1561,7 +1668,7 @@ function TncDapp() {
             }
 
             if(info != '') {
-                out += '<div class="col" style="text-align: center; margin-bottom: 50px; vertical-align: middle; margin-top: -50px;"><div style="margin-top: 50px; border: 1px solid white; border-radius: 10px; padding: 10px;">' + info + '</div></div>';
+                out += '<div class="col" style="text-align: center; margin-bottom: 50px; vertical-align: middle; margin-top: -50px;"><div style="margin-top: 50px;">' + info + '</div></div>';
             }
 
             //out += '<button type="button" class="btn btn-danger mt-3" id="rejectSwapButton'+i+'">Reject</button>';
@@ -1571,7 +1678,7 @@ function TncDapp() {
             let extraNif = '';
             if(nifAmount.gt(zero)){
                 extraNif = _this.formatNumberString(nifAmount.toString(), 18);
-                extraNif = '<div style="text-align: center;">(+'+extraNif.substring(0, extraNif.length - 10)+' NIF)</div>';
+                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-5">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
             }
 
             out += '<div class="col">';
@@ -1585,11 +1692,11 @@ function TncDapp() {
                 ask1.seller,
                 ask1.seller,
                 ask1.swapMode,
-                ask1.index0,
+                request.index1,
                 hasMore1,
                 'request',
-                false,
-                0
+                ask1.erc1155Address.length > 1,
+                ask1.erc1155Address.length - 1
             );
 
             out += extraNif;
@@ -1806,6 +1913,8 @@ function TncDapp() {
             );
 
             $('#nftsViewContainer').append(out);
+
+            $('[data-toggle="popover"]').popover();
         }
     }
 
@@ -1816,6 +1925,16 @@ function TncDapp() {
     this.loadPage = async function (page){
 
         $('#offersPage').css('display', 'none');
+
+        if( _this.getUrlParam('ref') != null &&
+            localStorage.getItem('marketRef') == null &&
+            web3.utils.isAddress(_this.getUrlParam('ref'))
+        ){
+
+            console.log("REFFED!");
+
+            localStorage.setItem('marketRef', _this.getUrlParam('ref'));
+        }
 
         switch (page){
 

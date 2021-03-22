@@ -1,0 +1,46 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 10rem);
+
+  margin: 0 5rem;
+  padding: .5rem 0;
+  background: var(--bg-tertiary);
+  border-top-left-radius: .8rem;
+  border-top-right-radius: .8rem;
+  box-shadow: $shadow-secondary-dark;
+
+  ul {
+    margin: 0 auto;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    
+
+    li.nav-item a {
+      display: flex;
+      align-items: center;
+      font-size: 1.2rem;
+      color: var(--text-footer);
+      padding: 0;
+
+      &:hover {
+        color: var(--primary-color);
+      }
+
+      span {
+        font-size: 2rem;
+        margin-right: .3rem;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 990px) {
+    ul {
+      margin: unset;
+      width: 100%;
+    }
+  }
+}

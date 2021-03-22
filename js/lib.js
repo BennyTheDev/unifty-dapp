@@ -17,6 +17,7 @@ function TncLib(){
         this.genesis = new web3.eth.Contract(genesisABI, '0xD0B9250e4d6786ec3205E8c303eCF6FF4e8b0270', {from: this.account});
         this.farm = new web3.eth.Contract(farmABI, '0x9103F8A3063905DB85031a8e700EA7729504EaEA', {from: this.account});
         this.farmShop = new web3.eth.Contract(farmShopABI, '0xe6f337111Cb71CC1dfB92175cC0e8Cbc3F584fBA', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '0xee139E1bFE4f9691d51b2F182a033850Bf94c921', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0xf57b2c51ded3a29e6891aba85459d600256cf317'; // opensea
 
@@ -40,6 +41,7 @@ function TncLib(){
         this.genesis = new web3.eth.Contract(genesisABI, '0x7A72058F64e831a3E5651c80f18c067a06F62a8B', {from: this.account});
         this.farm = new web3.eth.Contract(farmABI, '0x9ec9B9A81d823567d89506B05a7B636207E61993', {from: this.account});
         this.farmShop = new web3.eth.Contract(farmShopABI, '0xe93cd5ba46c2fd69ba94958e4161FA4FC27F9f8A', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '0xf460EE4fFE9e1eB3E489a83b5C4D0DCbB5336989', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
 
@@ -51,6 +53,7 @@ function TncLib(){
         this.genesis = new web3.eth.Contract(genesisABI, '0x88a7D2bfF66408Ed3F853a3FAD1Fb1e3b6D7284e', {from: this.account});
         this.farm = new web3.eth.Contract(farmABI, '0x6D8C5CB3DD2aBE2B78F18445f60E4e7a822f1c11', {from: this.account});
         this.farmShop = new web3.eth.Contract(farmShopABI, '0x3bed2637738c403bE932E81a8D66137Ee94c1D3c', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
 
@@ -64,6 +67,7 @@ function TncLib(){
         this.genesis = new web3.eth.Contract(genesisABI, '0x0dF727dFD080224678307FCDd9B86a4EB6D5533C', {from: this.account});
         this.farm = new web3.eth.Contract(farmABI, '0xC2bC267EF4EA7Db7bD0F4F924A04A9eaE64D8eE3', {from: this.account});
         this.farmShop = new web3.eth.Contract(farmShopABI, '0x3bed2637738c403bE932E81a8D66137Ee94c1D3c', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '0x5E441Ce3Fde4a6172985913B64f9804A4552c45e', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
 
@@ -75,6 +79,7 @@ function TncLib(){
         this.genesis = new web3.eth.Contract(genesisABI, '0x624dC4783AF51340C9beC08715D00636422b74bD', {from: this.account});
         this.farm = new web3.eth.Contract(farmABI, '0x988495e85b0d3c2baa1b9bdFa2A02C93037ab307', {from: this.account});
         this.farmShop = new web3.eth.Contract(farmShopABI, '0x1ef05AdbeBd0934fF7b145deD8CC0E73D0f504fB', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
 
@@ -86,6 +91,7 @@ function TncLib(){
         this.genesis = new web3.eth.Contract(genesisABI, '0x76a29480bAF57cbCAB5361712Ca215A139269003', {from: this.account});
         this.farm = new web3.eth.Contract(farmABI, '0xa50D64462767fef27C6AB60626fD23E4d9890882', {from: this.account});
         this.farmShop = new web3.eth.Contract(farmShopABI, '0x4696040254E1E710dbba19963F868E639aF468F4', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '0xB6B6dEe4C1b94918c38B59a7740839785cb2C60C', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
 
@@ -94,11 +100,12 @@ function TncLib(){
     // MOOBASE ALPHA
     } else if(chain_id === "507") {
 
-        this.nif = new web3.eth.Contract(nifABI, '0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7', {from: this.account});
-        this.erc1155 = new web3.eth.Contract(erc1155ABI, '0xfeA7FDE0ab6A0e32C264FE4Db3597E1938e49947', {from: this.account});
-        this.genesis = new web3.eth.Contract(genesisABI, '0x0dF727dFD080224678307FCDd9B86a4EB6D5533C', {from: this.account});
-        this.farm = new web3.eth.Contract(farmABI, '0xC2bC267EF4EA7Db7bD0F4F924A04A9eaE64D8eE3', {from: this.account});
-        this.farmShop = new web3.eth.Contract(farmShopABI, '0x95Ff48e9DBCEAfaB6217E2B539b2B1f9E9FF66dD', {from: this.account});
+        this.nif = new web3.eth.Contract(nifABI, '', {from: this.account});
+        this.erc1155 = new web3.eth.Contract(erc1155ABI, '', {from: this.account});
+        this.genesis = new web3.eth.Contract(genesisABI, '', {from: this.account});
+        this.farm = new web3.eth.Contract(farmABI, '', {from: this.account});
+        this.farmShop = new web3.eth.Contract(farmShopABI, '', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
 
@@ -120,6 +127,7 @@ function TncLib(){
             this.farm = new web3.eth.Contract( farmABI, '0xC4F31771928923490722bFfC484167c2d355be85', {from:this.account} );
         }
         this.farmShop = new web3.eth.Contract(farmShopABI, '0x3E58801d8F3379bb5090Dc742e60614bC94b1bd8', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '0xCfE23033cd9dFBb4bF01a099Bb8C9D855A357D14', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0xa5409ec958c83c3f309868babaca7c86dcb077c1'; // opensea
 
@@ -838,13 +846,6 @@ function TncLib(){
             .on("receipt", function (receipt) {
                 postCallback(receipt);
             });
-    };
-
-    this.balanceOfErc20Raw = async function(erc20Address, owner){
-        await sleep(sleep_time);
-        let erc20 = new web3.eth.Contract( erc20ABI, erc20Address, {from:this.account} );
-        let balance = await erc20.methods.balanceOf(owner).call({from:this.account});
-        return balance;
     };
 
     this.allowanceErc20 = async function(erc20Address, owner, spender){

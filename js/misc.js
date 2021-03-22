@@ -7,6 +7,19 @@ $(document).ready(function(){
         $('.bridgeNav').css('display', 'none');
     }
 
+    if(chain_id != '1'){
+
+        $('#chainSelectionDropdown').html(network);
+
+    }
+
+    if(chain_id == '1'){
+
+        $('#marketNavLink').css('display', 'none');
+        $('#marketRoyaltiesLink').css('display', 'none');
+        $('#marketSellLink').css('display', 'none');
+    }
+
     if(chain_id == '61' || chain_id == '38') {
         $('#featured').css('display', 'none');
         //$('#genesisFarm').css('display', 'none');

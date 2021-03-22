@@ -17,47 +17,67 @@ function TncLibMarket(){
         // xDAI MAINNET
     } else if(chain_id === "64") {
 
-        this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        this.market = new web3.eth.Contract(marketABI, '0xd799e8dA5b767328A8201d4ca759bE7AD2BeD3aA', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '0xDeBaEfa50E0CA793F062234D0D44F0f64dd9eB5d', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '0xC2c4E274F64501CDFE307877c0E42621A137d696', {from: this.account});
         this.account = '';
 
         // xDAI / POA (Sokol) TESTNET
     } else if(chain_id === "4d") {
 
         this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '', {from: this.account});
         this.account = '';
 
         // Matic
     } else if(chain_id === "89") {
 
-        this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        this.market = new web3.eth.Contract(marketABI, '0xB62b9EA9453942dC884190b07D36C79727C59505', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '0x1E4fF0af2e269B659D3D18b984036d93B99B28d2', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '0xBD541908B498De6fD3a88055ceCE6a838de5053f', {from: this.account});
         this.account = '';
 
         // BINANCE TESTNET
     } else if(chain_id === "61") {
 
         this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '', {from: this.account});
         this.account = '';
 
         // Moonbase Alpha
     } else if(chain_id === "507") {
 
         this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '', {from: this.account});
         this.account = '';
 
         // CELO
     } else if(chain_id === "a4ec") {
 
-        this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        this.market = new web3.eth.Contract(marketABI, '0x2d5cf3610e496Db8c25895302Ff8201a9c7fd766', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '0x19bC9705c2f620C41974BF2f8f12180c608a8ee6', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '0x86b71b4742D8Dbc645B01062adbd4b07455934FB', {from: this.account});
         this.account = '';
 
+        // BSC MAINNET
     } else if(chain_id === "38") {
 
-        this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        // pool 0x70d1Bf17A8382758270dfC18df5B03F6Fae8D6cc
+        // burn 0x194C3F17A4cA65347783C6F987e47e50110092e1
+
+        this.market = new web3.eth.Contract(marketABI, '0x76D99F15894A3C7038d2C9c7215733d8107A2Da3', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '0x3Fbf41d865f86e5950CBB7f72926Dc2B0Cc5036b', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '0x0fe8e7051b31a63d9da26815a999990463B53f94', {from: this.account});
         this.account = '';
 
     } else{
 
         this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '', {from: this.account});
         this.account = '';
 
     }
@@ -99,7 +119,8 @@ function TncLibMarket(){
     this.getSwapExists = async function(seller0, seller1, index0){
 
         await sleep(sleep_time);
-        return await this.swap.methods.swapStakers(seller0, seller1, '0x'+web3.utils.padLeft(""+index0.toString(16), 64)).call({from:this.account});
+        let _index0 = parseInt(index0);
+        return await this.swap.methods.swapStakers( seller0, seller1, '0x'+web3.utils.padLeft(_index0.toString(16), 64) ).call({from:this.account});
     };
 
     this.getAsksLengths = async function(account){
@@ -146,7 +167,8 @@ function TncLibMarket(){
 
         await sleep(sleep_time);
 
-        return await this.wrap.methods.categories('0x'+web3.utils.padLeft(""+category.toString(16), 64), index).call({from: this.account});
+        let _cat = parseInt(category);
+        return await this.wrap.methods.categories( '0x'+web3.utils.padLeft(_cat.toString(16), 64), index ).call({from: this.account});
     }
 
     this.getAskBase = async function(askIndex){
@@ -167,7 +189,8 @@ function TncLibMarket(){
 
         await sleep(sleep_time);
 
-        return await this.market.methods.royalties(erc1155Address, '0x'+web3.utils.padLeft(""+id.toString(16), 64)).call({from: this.account});
+        let _id = parseInt(id);
+        return await this.market.methods.royalties( erc1155Address, '0x'+web3.utils.padLeft(_id.toString(16), 64) ).call({from: this.account});
     }
 
     this.sell = async function(erc1155Address, id, amount, token, collectionPrice, swapMode, category, preCallback, postCallback, errCallback){
