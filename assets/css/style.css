@@ -155,7 +155,7 @@ h3 {
 
 .dark-edition .card.farm-card,
 .light-edition .card.farm-card {
-  margin: 1rem 2rem 1rem 0; }
+  margin: 0; }
   .dark-edition .card.farm-card .card-body,
   .light-edition .card.farm-card .card-body {
     box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
@@ -186,7 +186,6 @@ h3 {
       color: var(--text-primary); }
 
 .card.card.farm-card {
-  width: 25rem;
   display: flex;
   flex-direction: row-reverse;
   border-radius: 1rem; }
@@ -1241,7 +1240,7 @@ h3 {
   margin: 1.5rem 2.4rem; }
 
 .main-panel .content__welcome-text {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--text-primary);
   padding: .8rem 0;
   margin-bottom: 2rem; }
@@ -1304,9 +1303,15 @@ h3 {
     padding: 0; }
     .dark-edition .main-panel .container-fluid.featured-farms,
     .light-edition .main-panel .container-fluid.featured-farms {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start; }
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      grid-gap: 2rem;
+      align-items: flex-start;
+      margin-top: 2rem; }
+      @media only screen and (max-width: 990px) {
+        .dark-edition .main-panel .container-fluid.featured-farms .card.card.farm-card,
+        .light-edition .main-panel .container-fluid.featured-farms .card.card.farm-card {
+          width: unset; } }
   .dark-edition .main-panel .card,
   .light-edition .main-panel .card {
     background: var(--bg-tertiary);

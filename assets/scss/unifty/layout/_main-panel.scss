@@ -46,9 +46,17 @@
     padding: 0;
 
     &.featured-farms {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      grid-gap: 2rem;
       align-items: flex-start;
+      margin-top: 2rem;
+
+      @media only screen and (max-width: 990px) {
+        .card.card.farm-card {
+          width: unset;
+        }
+      }
     }
   }
 

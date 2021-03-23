@@ -1,6 +1,6 @@
 .dark-edition .card.farm-card,
 .light-edition .card.farm-card {
-  margin: 1rem 2rem 1rem 0;
+  margin: 0;
 
   .card-body {
     box-shadow: $shadow-secondary-dark;
@@ -42,7 +42,6 @@
 }
 
 .card.card.farm-card {
-  width: 25rem;
   display: flex;
   flex-direction: row-reverse;
   border-radius: 1rem;
