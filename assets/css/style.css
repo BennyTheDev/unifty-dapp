@@ -1368,20 +1368,30 @@ h3 {
 .footer {
   position: fixed;
   bottom: 0;
-  width: calc(100% - 10rem);
+  left: 30rem;
+  width: calc(100% - 40rem);
   margin: 0 5rem;
   padding: .5rem 0;
   background: var(--bg-tertiary);
   border-top-left-radius: .8rem;
   border-top-right-radius: .8rem;
   box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  @media only screen and (min-width: 112.5em) {
+    .footer {
+      left: 33rem;
+      width: calc(100% - 43rem); } }
+  @media only screen and (max-width: 991px) {
+    .footer {
+      left: 0;
+      width: -moz-available;
+      width: -webkit-fill-available;
+      width: fill-available; } }
   .footer ul {
-    margin: 0 auto;
-    width: 50%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem; }
+    padding: 1rem 2rem; }
     .footer ul li.nav-item a {
       display: flex;
       align-items: center;
@@ -1393,7 +1403,3 @@ h3 {
       .footer ul li.nav-item a span {
         font-size: 2rem;
         margin-right: .3rem; }
-  @media only screen and (max-width: 990px) {
-    .footer ul {
-      margin: unset;
-      width: 100%; } }
