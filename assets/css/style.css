@@ -1230,7 +1230,8 @@ h3 {
   .sidebar-text.rights span {
     font-size: 1.2rem;
     font-weight: 300;
-    letter-spacing: 0.24px; }
+    letter-spacing: 0.24px;
+    text-align: center; }
     .sidebar-text.rights span i {
       font-size: 1rem;
       vertical-align: middle; }
