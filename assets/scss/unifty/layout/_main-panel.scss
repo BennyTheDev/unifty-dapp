@@ -65,6 +65,7 @@
     background: var(--bg-tertiary);
     border-radius: .8rem;
     z-index: 0;
+    margin: 0;
   }
 
   //nft header + staking options
@@ -79,15 +80,38 @@
     }
   }
 
+  //grid farm builder
+  .content {
+    .row {
+      margin: 0 0 1rem 0;
+    }
+
+    #farmsPage.row {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      grid-gap: 2rem;
+    }
+  }
+
   .content .container-fluid {
     &.wallet, &.bridge {
       h1 {
         margin-bottom: 2rem;
       }
     }
-    
+
     .row {
       margin: 0 0 1rem 0;
+    }
+    
+    //grid farms
+    #farmPage.row,
+    #collectiblesPage.row,
+    #offersPage.row,
+    #myPoolsPage.row {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      grid-gap: 2rem;
     }
 
     .col-xl-12,

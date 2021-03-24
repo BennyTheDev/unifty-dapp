@@ -1,14 +1,14 @@
 .nftListing,
 .farmListing,
-.nftHeader{
+.nftHeader {
+  display: flex;
+  padding: 0;
+  margin: 0 !important;
+  min-width: unset;
+
   .btn{
     font-size: 1.2rem;
   }
-
-  min-width: 24.5rem;
-  width: 24.5rem;
-  padding: 0;
-  margin-right: 2rem !important;
 
   .card .traits-collapse{
     font-size: 1.4rem;
@@ -38,6 +38,7 @@
         font-size: 1.8rem;
         font-weight: 700;
         letter-spacing: .28px;
+        margin: 0 0 1rem 0;
         a {
           color: var(--heading-color);
         }
@@ -45,7 +46,7 @@
 
       .collection-name {
         font-size: 1.2rem;
-        margin-bottom: .5rem;
+        margin: -.8rem 0 1rem 0;
       }
 
       a.video-btn-link {
@@ -56,6 +57,8 @@
         border: none;
         font-size: 1.4rem;
         text-transform: none;
+        padding: 0;
+        margin: 0 0 1rem 0 !important;
 
         &:hover {
           color: var(--primary-hover-dark);
@@ -69,7 +72,7 @@
 
       audio {
         height: 3.2rem;
-        margin-top: 0 !important;
+        margin: 0 0 1rem 0 !important;
       }
 
       //stocks
@@ -109,6 +112,9 @@
         padding: .3rem .8rem;
         font-weight: 500;
         width: 90%;
+        text-overflow: ellipsis;
+        overflow : hidden;
+        white-space: nowrap;
 
         &:active {
           color: #fff;
@@ -193,8 +199,10 @@
 }
 
 
-.dark-edition .popover.fade.bs-popover-bottom,
-.dark-edition .popover.fade.bs-popover-top{
+.dark-edition .popover.bs-popover-bottom,
+.dark-edition .popover.bs-popover-top,
+.light-edition .popover.bs-popover-bottom,
+.light-edition .popover.bs-popover-top {
   background-color: $dark-secondary;
   box-shadow: $shadow-secondary-dark;
 
@@ -204,15 +212,36 @@
 
   .popover-header, .popover-body {
     padding: 1rem;
-    color: $grey-primary;
+    max-height: 15rem;
+    overflow: auto;
+    color: var(--text-primary);
+
+    &::-webkit-scrollbar {
+      width: .8rem;
+      height: .3rem;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: linear-gradient(0deg, #5c5c73 27%,#8b6084 60%);
+      border-radius: 10px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(13deg, #414166 14%,#eb7bd6 64%);;
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(253, 121, 226, .1);
+      box-shadow: inset 7px 10px 12px #121a21;
+    }
+    &::-webkit-scrollbar-track:hover {
+      background: #666666;
+    }
   }
   
   .popover-header {
     background-color: transparent;
-    border-bottom: .1rem solid $grey-border;
+    border-bottom: .1rem solid var(--modal-border-text);
+    font-family: "Poppins", sans-serif;
     font-size: 1.4rem;
-    font-weight: 700;
-    letter-spacing: .32px;
+    font-weight: 500;
 
     &::before {
       content: none;
@@ -224,12 +253,12 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
-  .nftListing,
-  .farmListing {
-    min-width: 300px;
-  }
-}
+// @media only screen and (max-width: 500px) {
+//   .nftListing,
+//   .farmListing {
+//     min-width: 300px;
+//   }
+// }
 
 .nftHeader {
   width: 100%;

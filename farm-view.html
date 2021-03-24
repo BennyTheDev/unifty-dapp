@@ -520,7 +520,7 @@
                       </div>
                       {{/ifNotEquals}}
 
-                      <a class="redeemButton btn btn-primary mb-3" data-erc1155="{{erc1155}}" data-token-id="{{id}}" data-points="{{pointsRaw}}" id="redeemButton{{erc1155}}{{id}}" href="javascript:void(0);" role="button" aria-expanded="false"></a>
+                      <a class="redeemButton btn btn-primary mb-3" data-erc1155="{{erc1155}}" data-token-id="{{id}}" data-points="{{pointsRaw}}" id="redeemButton{{erc1155}}{{id}}" href="javascript:void(0);" role="button" aria-expanded="false" title="{{pointsRaw}} Points"></a>
                       <br />
 
                       {{#ifNotEquals buy ""}}
@@ -548,7 +548,7 @@
               </div> 
           </div>
 
-
+          
         </script>
 
         <div class="row" id="farmPage" style="display: none;"></div>
