@@ -243,15 +243,6 @@ h3 {
   .card.card.farm-card {
     width: 671px; } }
 
-.dark-edition .main-panel .content .container-fluid.featured-farms .card.farm-card:nth-of-type(3n+1) .card-body {
-  background: linear-gradient(30deg, #121a21 50%, rgba(48, 178, 211, 0.15) 73%, rgba(64, 190, 240, 0.35) 100%); }
-
-.dark-edition .main-panel .content .container-fluid.featured-farms .card.farm-card:nth-of-type(3n+2) .card-body {
-  background: linear-gradient(30deg, #121a21 50%, rgba(155, 153, 41, 0.15) 73%, rgba(247, 225, 31, 0.35) 100%); }
-
-.dark-edition .main-panel .content .container-fluid.featured-farms .card.farm-card:nth-of-type(3n+3) .card-body {
-  background: linear-gradient(30deg, #121a21 50%, rgba(255, 118, 226, 0.15) 73%, rgba(255, 118, 226, 0.35) 100%); }
-
 .dark-edition .card.roadmap,
 .light-edition .card.roadmap {
   font-size: 1.4rem;
@@ -327,6 +318,7 @@ h3 {
 .light-edition .nftHeader-stakingOptions-container #stakingOptions {
   flex-direction: column;
   align-items: center;
+  justify-content: space-around !important;
   background-color: var(--bg-tertiary);
   padding: 2.4rem 3.6rem 1.3rem;
   border-radius: .8rem;
@@ -352,7 +344,8 @@ h3 {
       font-weight: 400; }
   .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .first-row {
-    display: flex; }
+    display: flex;
+    width: 100%; }
     @media only screen and (max-width: 26em) {
       .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row,
       .light-edition .nftHeader-stakingOptions-container #stakingOptions .first-row {
@@ -360,8 +353,13 @@ h3 {
     .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row .divider,
     .light-edition .nftHeader-stakingOptions-container #stakingOptions .first-row .divider {
       width: 1rem; }
+    @media only screen and (max-width: 26em) {
+      .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row a:not(:last-child),
+      .light-edition .nftHeader-stakingOptions-container #stakingOptions .first-row a:not(:last-child) {
+        margin-bottom: .5rem !important; } }
     .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row a,
     .light-edition .nftHeader-stakingOptions-container #stakingOptions .first-row a {
+      flex: 1;
       margin: 0 !important;
       padding: 1rem 1.5rem; }
   .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row, .dark-edition .nftHeader-stakingOptions-container #stakingOptions .second-row,
@@ -389,7 +387,7 @@ h3 {
         justify-content: center; }
   .dark-edition .nftHeader-stakingOptions-container #stakingOptions .third-row,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .third-row {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: var(--text-primary); }
     .dark-edition .nftHeader-stakingOptions-container #stakingOptions .third-row a,
     .light-edition .nftHeader-stakingOptions-container #stakingOptions .third-row a {
@@ -403,7 +401,9 @@ h3 {
 
 .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
 .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-  margin-right: 4.8rem;
+  background-color: var(--bg-secondary);
+  flex: 1;
+  margin-right: 2rem;
   box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black;
   border-radius: .8rem; }
   @media only screen and (max-width: 87.5em) {
@@ -431,8 +431,8 @@ h3 {
         display: flex; }
         .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3,
         .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3 {
-          min-width: 5rem;
-          max-width: 10rem; }
+          min-width: 10rem;
+          max-width: 20rem; }
           .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3 img,
           .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3 img {
             margin: 2rem 0; }
@@ -441,8 +441,10 @@ h3 {
           padding: 0; }
           .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body,
           .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body {
-            padding: 2rem 0;
-            font-size: 1.4rem; }
+            padding: 2rem 0; }
+            .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body p,
+            .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body p {
+              font-size: 1.6rem; }
       .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links,
       .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links {
         padding: 0 1rem; }
@@ -452,7 +454,7 @@ h3 {
           align-items: center;
           margin: 0;
           padding: .5rem;
-          font-size: 1.1rem;
+          font-size: 1.2rem;
           color: var(--text-footer); }
           .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:hover, .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:active,
           .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:hover,
@@ -460,11 +462,11 @@ h3 {
             color: var(--heading-color); }
           .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a i,
           .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a i {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             margin-right: .5rem; }
         .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links .mt-2,
         .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links .mt-2 {
-          font-size: 1.1rem;
+          font-size: 1.2rem;
           margin: 1rem 0 1rem .5rem;
           color: var(--text-footer); }
 
@@ -911,6 +913,18 @@ h3 {
 .nftHeader {
   width: 100%; }
 
+.dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline,
+.light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline {
+  background: var(--primary-color) !important;
+  border-radius: .6rem;
+  font-size: 1.6rem;
+  color: var(--bg-secondary);
+  font-weight: 700; }
+  .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover, .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active,
+  .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover,
+  .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active {
+    background-color: var(--primary-hover-dark) !important; }
+
 .dark-edition .main-panel .modal-dialog .modal-content,
 .light-edition .main-panel .modal-dialog .modal-content {
   border: 0.1rem solid var(--modal-border-text);
@@ -1305,7 +1319,8 @@ h3 {
   font-size: 1.6rem;
   color: var(--text-primary);
   padding: .8rem 0;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  width: 80%; }
 
 .main-panel .content .custom-header {
   display: flex;
@@ -1382,9 +1397,7 @@ h3 {
     margin: 0; }
   .dark-edition .main-panel .nftHeader-stakingOptions-container,
   .light-edition .main-panel .nftHeader-stakingOptions-container {
-    width: 100%;
     display: flex;
-    align-items: flex-start;
     margin-bottom: 3rem; }
     @media only screen and (max-width: 87.5em) {
       .dark-edition .main-panel .nftHeader-stakingOptions-container,

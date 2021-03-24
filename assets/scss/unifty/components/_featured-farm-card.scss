@@ -131,22 +131,3 @@
     width: 671px;
   }
 }
-
-.dark-edition .main-panel .content .container-fluid.featured-farms .card.farm-card {
-
-  &:nth-of-type(3n+1) {
-    .card-body {
-      background: $lg-blue;
-    }
-  }
-  &:nth-of-type(3n+2) {
-    .card-body {
-      background: $lg-yellow;
-    }
-  }
-  &:nth-of-type(3n+3) {
-    .card-body {
-      background: $lg-purple;
-    }
-  }
-}

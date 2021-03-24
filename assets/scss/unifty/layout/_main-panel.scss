@@ -70,9 +70,7 @@
 
   //nft header + staking options
   .nftHeader-stakingOptions-container {
-    width: 100%;
     display: flex;
-    align-items: flex-start;
     margin-bottom: 3rem;
 
     @include respond(bootstrap-xxl) {
