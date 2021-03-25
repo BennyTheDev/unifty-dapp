@@ -1184,6 +1184,45 @@ h3 {
     .light-edition .main-panel .content .container-fluid.wallet .wallet-container .row .container-fluid {
       font-size: 1.4rem; }
 
+.dark-edition .main-panel .content .custom-header__dropdowns,
+.light-edition .main-panel .content .custom-header__dropdowns {
+  display: flex;
+  align-items: center; }
+
+.dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler,
+.light-edition .main-panel .content .custom-header__dropdowns .theme-toggler {
+  position: relative;
+  width: 80px;
+  height: 50px;
+  background-color: var(--bg-secondary);
+  border-radius: 20px;
+  padding: 2px;
+  height: 36px;
+  margin-left: 5px;
+  user-select: none;
+  cursor: pointer;
+  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler input,
+  .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler input {
+    opacity: 0; }
+  .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options,
+  .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span,
+    .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span {
+      font-size: 32px;
+      border-radius: 20px;
+      color: var(--bg-primary); }
+    .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span.light-mode.active,
+    .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span.light-mode.active {
+      color: var(--primary-color); }
+    .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span.dark-mode.active,
+    .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span.dark-mode.active {
+      background-color: var(--primary-color); }
+
 .dark-edition .sidebar,
 .light-edition .sidebar {
   width: 30rem;
