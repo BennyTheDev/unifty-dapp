@@ -670,10 +670,12 @@
                             <form onsubmit="return false;">
 
                                 <div class="form-group">
-                                    <label for="nftBuyAmount">Amount *</label>
-                                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control" id="nftBuyAmount">
-                                    <button class="btn btn-secondary" type="button" id="buyAddMax">Add Max.</button>
+                                    <label for="nftBuyAmount">Amount<span class="required">*</span></label>
+                                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control" id="nftBuyAmount">                                   
+                                </div>
 
+                                <div class="form-group">
+                                    <button class="btn btn-secondary" type="button" id="buyAddMax">Add Max.</button>
                                 </div>
 
                                 <input type="hidden" name="nftBuyErc1155Address" id="nftBuyErc1155Address" value=""/>
@@ -713,27 +715,27 @@
                                 <p>Please enter the desired amounts of NFTs from your wallet you want to offer.</p>
                                 <p>Note: if you add more than one type of an NFT, the offer can only be purchased by a buyer as a whole.</p>
 
-                                <div class="container" id="nftSellWallet" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                                <div class="container" id="nftSellWallet" style="padding-top: 10px;  padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                                 <div class="form-group">
-                                    <label for="nftSellToken2">Token to sell into *</label>
+                                    <label for="nftSellToken2">Token to sell into<span class="required">*</span></label>
                                     <select class="form-control" id="nftSellToken2">
                                     </select>
                                 </div>
 
                                 <div id="nftSellCustomTokenAddressWrapper2" class="form-group" style="display:none;">
-                                    <label for="nftSellCustomTokenAddress2">Custom <span class="networkStd"></span> Token Address *</label>
+                                    <label for="nftSellCustomTokenAddress2">Custom <span class="networkStd"></span> Token Address<span class="required">*</span></label>
                                     <input type="text" placeholder="Enter a token address to use as sale currency" class="form-control" id="nftSellCustomTokenAddress2">
                                     <small id="nftSellCustomTokenAddressInfo2" class="form-text text-muted"></small>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nftSellPrice">Price *</label>
+                                    <label for="nftSellPrice">Price<span class="required">*</span></label>
                                     <input type="text" placeholder="Enter a price" class="form-control" id="nftSellPrice">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nftSellCategory">Category *</label>
+                                    <label for="nftSellCategory">Category<span class="required">*</span></label>
                                     <select class="form-control" id="nftSellCategory">
                                         <option value="1">Art</option>
                                         <option value="2">Music</option>
@@ -747,7 +749,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nftMode1">Type *</label>
+                                    <label for="nftMode1">Type<span class="required">*</span></label>
                                 </div>
 
                                 <div class="form-check">
@@ -777,8 +779,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="nftSellButton">Sell!</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="nftSellButton">Sell!</button>
                             </div>
                         </div>
                     </div>
@@ -803,7 +805,7 @@
 
                                 <p>Pick one of your existing offers to request a swap.</p>
 
-                                <div class="container" id="nftSwapPicker" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                                <div class="container" id="nftSwapPicker" style="padding-top: 10px;  padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                                 <div class="form-group mt-5">
                                     <label for="nftSwapNif">Offer additional NIF for the swap (optional)</label>
@@ -822,8 +824,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="nftSwapButton">Swap!</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="nftSwapButton">Swap!</button>
                             </div>
                         </div>
                     </div>
@@ -850,8 +852,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="nftCancelButton">Cancel</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="nftCancelButton">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -897,8 +899,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="withdrawFundsButton" style="display:none;">Withdraw</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="withdrawFundsButton" style="display:none;">Withdraw</button>
                             </div>
                         </div>
                     </div>
@@ -920,16 +922,18 @@
 
                             <h3>Incoming</h3>
 
-                            <div class="container" id="incomingSwapRequests" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                            <div class="container" id="incomingSwapRequests" style="padding-top: 10px; padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                             <h3>Outgoing</h3>
 
-                            <div class="container" id="outgoingSwapRequests" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                            <div class="container" id="outgoingSwapRequests" style="padding-top: 10px; padding-left: 25px; height: 500px; overflow:auto;"></div>
 
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -948,11 +952,13 @@
                         </div>
                         <div class="modal-body">
 
-                            <div class="container" id="nftsViewContainer" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                            <div class="container" id="nftsViewContainer" style="padding-top: 10px; padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -983,7 +989,9 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeInteractive">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeInteractive">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1006,7 +1014,9 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>

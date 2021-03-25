@@ -917,9 +917,11 @@ h3 {
 .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline {
   background: var(--primary-color) !important;
   border-radius: .6rem;
+  border: 0.1rem solid var(--bg-primary);
   font-size: 1.6rem;
   color: var(--bg-secondary);
-  font-weight: 700; }
+  font-weight: 700;
+  padding: 1rem 2.5rem; }
   .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover, .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active,
   .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover,
   .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active {
@@ -969,6 +971,11 @@ h3 {
     padding: 1rem 2rem;
     color: var(--modal-border-text);
     font-size: 1.3rem; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .container,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .container {
+      border-radius: .4rem;
+      background-color: var(--bg-primary);
+      margin-bottom: 1rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body select,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body select {
       background-color: transparent;
@@ -1017,7 +1024,8 @@ h3 {
         cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.required,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.required {
-        color: var(--primary-color); }
+        color: var(--primary-color);
+        margin-left: .3rem; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round {
         font-size: 2.2rem;
@@ -1028,7 +1036,9 @@ h3 {
           color: var(--primary-color);
           cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input,
-    .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input {
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input {
       height: auto;
       background-color: transparent !important;
       background-image: none;
@@ -1039,12 +1049,19 @@ h3 {
       color: var(--modal-text);
       transition: all .3s; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input::placeholder,
-      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input::placeholder {
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input::placeholder,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input::placeholder,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input::placeholder {
         font-size: 1.3rem;
         color: var(--modal-border-text); }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input:focus,
-      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input:focus {
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input:focus,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input:focus,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input:focus {
         border: 0.1rem solid var(--primary-color); }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input {
+      padding: .5rem 1rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea {
       height: auto;
@@ -1119,6 +1136,9 @@ h3 {
         background-color: var(--bg-secondary);
         border: 0.1rem solid var(--primary-color);
         color: var(--primary-color); }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-secondary:only-child,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-secondary:only-child {
+        margin-right: 0; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary,
     .light-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary {
       flex: 1;

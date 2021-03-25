@@ -3,9 +3,11 @@
   button.btn-outline {
     background: var(--primary-color) !important;
     border-radius: .6rem;
+    border: .1rem solid var(--bg-primary);
     font-size: 1.6rem;
     color: var(--bg-secondary);
     font-weight: 700;
+    padding: 1rem 2.5rem;
 
     &:hover,
     &:active {
