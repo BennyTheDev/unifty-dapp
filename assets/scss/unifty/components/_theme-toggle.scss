@@ -8,31 +8,38 @@
   &__dropdowns .theme-toggler {
     position: relative;
     width: 80px;
-    height: 50px;
     background-color: var(--bg-secondary);
     border-radius: 20px;
     padding: 2px;
     height: 36px;
     margin-left: 5px;
     user-select: none;
-    cursor: pointer;
     box-shadow: $shadow-secondary-dark;
+
+    @include respond (nav-collapse) {
+      width: 58px;
+      height: 28px;
+    }
 
     input {
       opacity: 0;
     }
 
     .theme-options {
-      // position: absolute;
       width: 100%;
       display: flex;
       justify-content: space-around;
       align-items: center;
+      cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
 
       span {
         font-size: 32px;
         border-radius: 20px;
         color: var(--bg-primary);
+
+        @include respond (nav-collapse) {
+          font-size: 24px;
+        }
       }
 
       span.light-mode.active {
