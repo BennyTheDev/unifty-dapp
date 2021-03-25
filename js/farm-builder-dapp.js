@@ -57,7 +57,7 @@ function TncDapp() {
         for(let i = offset - 1; i >= 0; i--){
             currentIndex = i;
             let farm = await window.tncLib.getMyFarm(i);
-            let _uri = farm.uri.replace('ipfs://','https://gateway.ipfs.io/');
+            let _uri = farm.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/');
 
             try {
 
@@ -79,7 +79,7 @@ function TncDapp() {
                     let tmpl = _this.farmTemplate({
                         explorer : explorer,
                         currency: getCurrency(),
-                        image: data.image.replace('ipfs://','https://gateway.ipfs.io/'),
+                        image: data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'),
                         name: data.name,
                         description: data.description,
                         url : window.location.origin + window.location.pathname.replace('farm-builder.html', 'farm-view.html') + "?address=" + farm.farm,
@@ -1247,6 +1247,19 @@ function run(connected) {
         }
         else if(window.web3){
             dapp.prevChainId = await web3.eth.net.getId();
+        }
+        if(window.torus){
+            $('#torusAddress').css('display', 'inline-block')
+            $('#torusAddressPopover').data('content', tncLib.account);
+            $('#torusAddressPopover').popover();
+            $('#torusAddressPopover').on('click', function(){
+                let input = document.createElement("textarea");
+                input.value = tncLib.account;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand("Copy");
+                input.remove();
+            })
         }
         dapp.startAccountCheck();
         dapp.startChainCheck();

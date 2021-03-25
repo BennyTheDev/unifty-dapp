@@ -1458,6 +1458,19 @@ function run(connected) {
         else if(window.web3){
             dapp.prevChainId = await web3.eth.net.getId();
         }
+        if(window.torus){
+            $('#torusAddress').css('display', 'inline-block')
+            $('#torusAddressPopover').data('content', tncLib.account);
+            $('#torusAddressPopover').popover();
+            $('#torusAddressPopover').on('click', function(){
+                let input = document.createElement("textarea");
+                input.value = tncLib.account;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand("Copy");
+                input.remove();
+            })
+        }
         dapp.startAccountCheck();
         dapp.startChainCheck();
         //dapp.startBlockCounter();

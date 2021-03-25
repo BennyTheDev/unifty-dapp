@@ -1,7 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="" />
+    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="implemented new design and marketplace">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridge.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridge.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectible.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-builder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/bridge-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/bridge-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectible-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/erc1155-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/erc1155-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/farm-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-builder-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/farm-dapp-legacy.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp-legacy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/farm-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roadmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/roadmap.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,10 +59,14 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="NamedScopeManager">
     <scope name="local" pattern="file[dapp_new]:assets/scss//*||file:assets/scss/unifty/main.scss" />
   </component>
   <component name="ProjectId" id="1pgM1DQtbF5MxRKtjcR9T2oRgYa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -54,11 +100,37 @@
       <workItem from="1616164148409" duration="675000" />
       <workItem from="1616194763123" duration="4999000" />
       <workItem from="1616355184311" duration="5366000" />
+      <workItem from="1616416894467" duration="35689000" />
     </task>
+    <task id="LOCAL-00001" summary="implemented new design and marketplace">
+      <created>1616417086932</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616417086932</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="implemented new design and marketplace" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented new design and marketplace" />
   </component>
   <component name="WindowStateProjectService">
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
@@ -89,10 +161,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1615626734654" />
-    <state x="478" y="145" width="581" height="592" key="find.popup" timestamp="1616194994432">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1616417096631">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="145" width="581" height="592" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1616194994432" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1616417096631" />
+    <state x="478" y="145" width="581" height="592" key="find.popup" timestamp="1616615271268">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="145" width="581" height="592" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1616615271268" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1615752332818">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

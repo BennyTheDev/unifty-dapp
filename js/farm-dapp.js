@@ -85,7 +85,7 @@ function TncDapp() {
 
                     farm_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     farm_description = typeof data.description != 'undefined' && data.description ? data.description : '';
-                    farm_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://', 'https://gateway.ipfs.io/ipfs/') : '';
+                    farm_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://', 'https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
                     farm_twitter = typeof data.twitter != 'undefined' && data.twitter ? data.twitter : '';
                     farm_discord = typeof data.discord != 'undefined' && data.discord ? data.discord : '';
                     farm_instagram = typeof data.instagram != 'undefined' && data.instagram ? data.instagram : '';
@@ -179,14 +179,14 @@ function TncDapp() {
 
             try {
 
-                let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/'));
+                let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
 
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
@@ -201,10 +201,10 @@ function TncDapp() {
 
                     if (typeof data == 'object') {
 
-                        data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                        data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                        data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
                         data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                         data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                         data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -1107,7 +1107,7 @@ function TncDapp() {
                 }
 
                 if(typeof data.image != "undefined" && data.image != '') {
-                    image = '<img src="' + data.image.replace('ipfs://','https://gateway.ipfs.io/') + '" border="0" style="width: 25px;" />';
+                    image = '<img src="' + data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') + '" border="0" style="width: 25px;" />';
                 }
             }
 
@@ -1468,6 +1468,19 @@ function run(connected) {
         }
         else if(window.web3){
             dapp.prevChainId = await web3.eth.net.getId();
+        }
+        if(window.torus){
+            $('#torusAddress').css('display', 'inline-block')
+            $('#torusAddressPopover').data('content', tncLib.account);
+            $('#torusAddressPopover').popover();
+            $('#torusAddressPopover').on('click', function(){
+                let input = document.createElement("textarea");
+                input.value = tncLib.account;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand("Copy");
+                input.remove();
+            })
         }
         dapp.startAccountCheck();
         dapp.startChainCheck();

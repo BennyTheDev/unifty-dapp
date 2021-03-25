@@ -640,7 +640,7 @@ function TncDapp() {
 
 function run(connected) {
 
-    $(document).ready(async function() {
+    $(document).ready(async function () {
 
         toastr.options = {
             "closeButton": true,
@@ -660,53 +660,56 @@ function run(connected) {
             "hideMethod": "fadeOut"
         };
 
-        ethereum
-            .request({
-                method: 'eth_requestAccounts' ,
-                params: [{ eth_accounts: {} }],
-            })
-            .then(async function(accounts){
+        let accounts = [];
 
-                window.tncLib = new TncLib();
-
-                if(connected) {
-                    tncLib.account = accounts[0];
-                }else{
-                    tncLib.account = '0x0000000000000000000000000000000000000000';
-                }
-
-                if(typeof accounts == 'undefined' || accounts.length == 0){
-
-                    tncLib.account = '0x0000000000000000000000000000000000000000';
-                }
-
-                let dapp = new TncDapp();
-                window.tncDapp = dapp;
-                dapp.prevAccounts = accounts;
-                if(window.ethereum){
-                    let chain = await web3.eth.getChainId();
-                    let actualChainId = chain.toString(16);
-                    dapp.prevChainId = actualChainId;
-                }
-                else if(window.web3){
-                    dapp.prevChainId = await web3.eth.net.getId();
-                }
-                dapp.startAccountCheck();
-                dapp.startChainCheck();
-                //dapp.startBlockCounter();
-                dapp.loadPage(''); // default
-                dapp.observeChanges();
-
-            })
-            .catch((error) => {
-                if (error.code === 4001) {
-
-                    console.log('Please connect to MetaMask.');
-
-                } else {
-
-                    console.error(error);
-                }
+        if (typeof ethereum != 'undefined' && ethereum && typeof ethereum.enable != 'undefined' && ethereum.enable) {
+            accounts = await web3.eth.getAccounts();
+            console.log('account classic with ethereum');
+        } else if (typeof ethereum != 'undefined' && ethereum && (typeof ethereum.enable == 'undefined' || !ethereum.enable)) {
+            accounts = await window.ethereum.request({
+                method: 'eth_requestAccounts',
             });
+            console.log('account new with ethereum');
+        } else {
+            accounts = await web3.eth.getAccounts();
+            console.log('account classic without ethereum');
+        }
+
+        window.tncLib = new TncLib();
+        tncLib.account = accounts[0];
+
+        if (typeof accounts == 'undefined' || accounts.length == 0) {
+
+            tncLib.account = '0x0000000000000000000000000000000000000000';
+        }
+
+        let dapp = new TncDapp();
+        window.tncDapp = dapp;
+        dapp.prevAccounts = accounts;
+        if (window.ethereum) {
+            let chain = await web3.eth.getChainId()
+            let actualChainId = chain.toString(16);
+            dapp.prevChainId = actualChainId;
+        } else if (window.web3) {
+            dapp.prevChainId = await web3.eth.net.getId();
+        }
+        if(window.torus){
+            $('#torusAddress').css('display', 'inline-block')
+            $('#torusAddressPopover').data('content', tncLib.account);
+            $('#torusAddressPopover').popover();
+            $('#torusAddressPopover').on('click', function(){
+                let input = document.createElement("textarea");
+                input.value = tncLib.account;
+                document.body.appendChild(input);
+                input.select();
+                document.execCommand("Copy");
+                input.remove();
+            })
+        }
+        dapp.startAccountCheck();
+        dapp.startChainCheck();
+        //dapp.startBlockCounter();
+        dapp.loadPage(''); // default
+        dapp.observeChanges();
     });
 }

@@ -1418,6 +1418,32 @@ function TncLib(){
             }
         }
 
+        events = await erc1155.getPastEvents('TransferBatch', {
+            filter: {
+                _to: this.account
+            },
+            fromBlock: min_block,
+            toBlock: 'latest'
+        });
+
+        if(Array.isArray(events)){
+
+            events = events.reverse();
+
+            for(let i = 0; i < events.length; i++){
+
+                if(typeof events[i] == 'object') {
+
+                    for(let j = 0; j < events[i].returnValues[3].length; j++){
+
+                        if(!nfts.includes(events[i].returnValues[3][j])) {
+                            nfts.push(events[i].returnValues[3][j]);
+                        }
+                    }
+                }
+            }
+        }
+
         return nfts;
     };
 
@@ -1483,6 +1509,35 @@ function TncLib(){
             }
         }
 
+        events = await erc1155.getPastEvents('TransferBatch', {
+            filter: {
+                _to: address
+            },
+            fromBlock: min_block,
+            toBlock: 'latest'
+        });
+
+        if(Array.isArray(events)){
+
+            events = events.reverse();
+
+            for(let i = 0; i < events.length; i++){
+
+                if(typeof events[i] == 'object') {
+
+                    for(let j = 0; j < events[i].returnValues[3].length; j++){
+
+                        if(!nfts.includes(events[i].returnValues[3][j])) {
+                            nfts.push(events[i].returnValues[3][j]);
+                        }
+                    }
+                }
+            }
+        }
+
+        console.log(events);
+
+
         return nfts;
     };
 
@@ -1511,6 +1566,32 @@ function TncLib(){
                 if(typeof events[i] == 'object') {
                     if(!nfts.includes(events[i].returnValues._id)) {
                         nfts.push(events[i].returnValues._id);
+                    }
+                }
+            }
+        }
+
+        events = await erc1155.getPastEvents('TransferBatch', {
+            filter: {
+                _from: '0x0000000000000000000000000000000000000000'
+            },
+            fromBlock: min_block,
+            toBlock: 'latest'
+        });
+
+        if(Array.isArray(events)){
+
+            events = events.reverse();
+
+            for(let i = 0; i < events.length; i++){
+
+                if(typeof events[i] == 'object') {
+
+                    for(let j = 0; j < events[i].returnValues[3].length; j++){
+
+                        if(!nfts.includes(events[i].returnValues[3][j])) {
+                            nfts.push(events[i].returnValues[3][j]);
+                        }
                     }
                 }
             }

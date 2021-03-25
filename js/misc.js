@@ -1,5 +1,5 @@
-let network = 'Rinkeby';
-let chain_id = '4';
+let network = 'xDai';
+let chain_id = '64';
 
 $(document).ready(function(){
 

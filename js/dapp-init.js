@@ -122,7 +122,7 @@ $(document).ready(async function(){
                         desc =  'You are not connected to '+chainName+'.<br/><br/>' +
                             'Please use the following setup in Metamask => Settings => Networks => Add Network: <br /><br />' +
                             'Network Name: '+chainName+'<br/>' +
-                            'New RPC URL: '+rpcUrl+'<br/>' +
+                            'New RPC URL: '+rpcUrl+' (or https://bsc2-rpc.unifty.cloud/)<br/>' +
                             'ChainID: 56<br/>' +
                             'Symbol: '+currencySymbol+'<br/>' +
                             'Block Explorer URL: '+blockExplorerUrl+'<br /><br/>' +
@@ -186,7 +186,7 @@ $(document).ready(async function(){
                     }else if(chain_id == '64'){
 
                         chainName = 'xDAI';
-                        rpcUrl = 'https://ancient-wandering-thunder.xdai.quiknode.pro/e63baf3261859fd9a4aaf2dcc42d4ec1535805df/';
+                        rpcUrl = 'https://xdai1-rpc.unifty.cloud/';
                         currencyName = 'xDai';
                         currencySymbol = 'xDai';
                         currencyDecimals = 18;
@@ -293,36 +293,150 @@ $(document).ready(async function(){
     // Non-dapp browsers...
     else {
 
-        if(chain_id == '89' || chain_id == '38' || chain_id == '64' || chain_id == '4' || chain_id == '1') {
+        if(localStorage.getItem('torusLoaded') != 'true') {
+            $('#torus').css('display', 'inline-block');
+            runReadableOnly();
+        }else{
+            enableTorus();
+        }
+            /*$.getScript('https://cdn.jsdelivr.net/npm/@portis/web3@3.0.2/umd/index.js').done(function(){
 
-            let rpcUrl = '';
+                let chain = '0';
+                switch(chain_id){
+                    case '4':
+                        chain = 'rinkeby';
+                        break;
+                    case '64':
+                        chain = 'xdai';
+                        break;
+                    case '89':
+                        chain = 'matic';
+                        break;
+                    case '38':
+                        chain = 'bsc';
+                        break;
+                    case '1':
+                        chain = 'mainnet';
+                        break;
+                }
 
-            switch (chain_id) {
-                case '89':
-                    rpcUrl = 'https://holy-weathered-glade.matic.quiknode.pro/9c7e1575f6d450d4fceeffde6b2e5ed69a3eed13/';
-                    break;
-                case '38':
-                    rpcUrl = 'https://bsc1-rpc.unifty.cloud/';
-                    break;
-                case '64':
-                    rpcUrl = 'https://ancient-wandering-thunder.xdai.quiknode.pro/e63baf3261859fd9a4aaf2dcc42d4ec1535805df/';
-                    break;
-                case '4':
-                    rpcUrl = 'https://rinkeby.infura.io/v3/fb5477e6dc7145b8a89f4296d78c500a';
-                    break;
-                default:
-                    rpcUrl = 'https://mainnet.infura.io/v3/ba2d61d52e4246fd8d58a64e2f754d48';
-            }
+                if(chain != '0') {
 
-            window.web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
+                    localStorage.setItem('useWallet', 'true');
+
+                    const portis = new Portis('baa31c5c-a6fe-4252-911f-7608fa1f8ebe', chain);
+                    window.web3 = new Web3(portis.provider);
+
+                    run(true);
+
+                }
+                else{
+
+                    _alert('Unsupported Network. You may still browser our dapp but not interact with the blockchain.');
+                    runReadableOnly();
+                }
+
+            });*/
+    }
+});
+
+function enableTorus(){
+
+    $.getScript('https://unpkg.com/@toruslabs/torus-embed').done(async function(){
+
+        let chain = '0';
+        let networkName = '';
+
+        switch(chain_id){
+            case '4':
+                chain = 'rinkeby';
+                networkName = 'Rinkeby';
+                break;
+            case '64':
+                chain = 'https://xdai1-rpc.unifty.cloud';
+                networkName = 'xDai';
+                break;
+            case '89':
+                chain = 'matic';
+                networkName = 'Polygon';
+                break;
+            case '38':
+                chain = 'https://bsc1-rpc.unifty.cloud';
+                networkName = 'Binance Smart Chain';
+                break;
+            case '1':
+                chain = 'mainnet';
+                networkName = 'Mainnet';
+                break;
+        }
+
+        if(chain != '0') {
+
+            const torus = new Torus({
+                buttonPosition: "bottom-right" // default: bottom-left
+            });
+            await torus.init({
+                buildEnv: "production", // default: production
+                enableLogging: true, // default: false
+                network: {
+                    host: chain, // default: mainnet
+                    chainId: chain_id, // default: 1
+                    networkName: networkName // default: Main Ethereum Network
+                },
+                showTorusButton: true // default: true
+            });
+
+            $('#torus').css('display', 'none');
+            localStorage.setItem('torusLoaded', 'true');
+
+            await torus.login(); // await torus.ethereum.enable()
+            window.web3 = new Web3(torus.provider);
+            window.torus = torus;
 
             run(true);
 
-        }else{
-
-            _alert('Please install a wallet like Metamask to use this dapp.');
         }
+        else{
+
+            runReadableOnly();
+        }
+    });
+}
+
+function runReadableOnly(){
+
+    if(chain_id == '89' || chain_id == '38' || chain_id == '64' || chain_id == '4' || chain_id == '1' || chain_id == 'a4ec') {
+
+        let rpcUrl = '';
+
+        switch (chain_id) {
+            case 'a4ec':
+                rpcUrl = 'https://forno.celo.org/';
+                break;
+            case '89':
+                rpcUrl = 'https://holy-weathered-glade.matic.quiknode.pro/9c7e1575f6d450d4fceeffde6b2e5ed69a3eed13/';
+                break;
+            case '38':
+                rpcUrl = 'https://bsc1-rpc.unifty.cloud/';
+                break;
+            case '64':
+                rpcUrl = 'https://xdai1-rpc.unifty.cloud/';
+                break;
+            case '4':
+                rpcUrl = 'https://rinkeby.infura.io/v3/fb5477e6dc7145b8a89f4296d78c500a';
+                break;
+            default:
+                rpcUrl = 'https://mainnet.infura.io/v3/ba2d61d52e4246fd8d58a64e2f754d48';
+        }
+
+        window.web3 = new Web3(new Web3.providers.HttpProvider(rpcUrl));
+
+        run(true);
+
+    }else{
+
+        _alert('Please install a wallet like Metamask to use this dapp.');
     }
 
-});
+}
 
