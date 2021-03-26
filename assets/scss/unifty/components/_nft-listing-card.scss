@@ -17,7 +17,7 @@
   .card-profile, .header-profile {
     position: relative;
     margin-top: 0;
-    box-shadow: $shadow-secondary-dark;
+    box-shadow: var(--shadow-primary);
 
     //image
     .card-avatar {
@@ -203,8 +203,8 @@
 .dark-edition .popover.bs-popover-top,
 .light-edition .popover.bs-popover-bottom,
 .light-edition .popover.bs-popover-top {
-  background-color: $dark-secondary;
-  box-shadow: $shadow-secondary-dark;
+  background-color: var(--bg-tertiary);
+  box-shadow: var(--shadow-primary);
 
   .arrow, .arrow::before {
     display: none;
@@ -217,7 +217,7 @@
     color: var(--text-primary);
 
     &::-webkit-scrollbar {
-      width: .8rem;
+      width: .5rem;
       height: .3rem;
     }
     &::-webkit-scrollbar-thumb {
@@ -228,7 +228,7 @@
       background: linear-gradient(13deg, #414166 14%,#eb7bd6 64%);;
     }
     &::-webkit-scrollbar-track {
-      background: rgba(253, 121, 226, .1);
+      background: var(--primary-hover-light);
       box-shadow: inset 7px 10px 12px #121a21;
     }
     &::-webkit-scrollbar-track:hover {
@@ -252,13 +252,6 @@
     font-size: 1.4rem;
   }
 }
-
-// @media only screen and (max-width: 500px) {
-//   .nftListing,
-//   .farmListing {
-//     min-width: 300px;
-//   }
-// }
 
 .nftHeader {
   width: 100%;

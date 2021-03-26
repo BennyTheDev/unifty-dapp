@@ -14,7 +14,7 @@
     height: 36px;
     margin-left: 5px;
     user-select: none;
-    box-shadow: $shadow-secondary-dark;
+    box-shadow: var(--shadow-primary);
 
     @include respond (nav-collapse) {
       width: 58px;

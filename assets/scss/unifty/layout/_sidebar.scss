@@ -4,7 +4,7 @@
   background-color: var(--bg-secondary);
   opacity: 1;
   font-size: 1.6rem;
-  box-shadow: $shadow-secondary-dark;
+  box-shadow: var(--shadow-primary);
 
   &::before {
     background-color: var(--bg-secondary);

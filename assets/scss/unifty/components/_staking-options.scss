@@ -6,7 +6,7 @@
   background-color: var(--bg-tertiary);
   padding: 2.4rem 3.6rem 1.3rem;
   border-radius: .8rem;
-  box-shadow: $shadow-secondary-dark;
+  box-shadow: var(--shadow-primary);
 
   //reset margins
   .mb-3, .my-3 {

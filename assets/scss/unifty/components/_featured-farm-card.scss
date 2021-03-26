@@ -3,7 +3,7 @@
   margin: 0;
 
   .card-body {
-    box-shadow: $shadow-secondary-dark;
+    box-shadow: var(--shadow-primary);
 
     a {
       font-size: 1.4rem;

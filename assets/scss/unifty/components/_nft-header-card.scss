@@ -7,10 +7,10 @@
 .dark-edition .main-panel .nftHeader-stakingOptions-container,
 .light-edition .main-panel .nftHeader-stakingOptions-container {
   #farmHeader {
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-tertiary);
     flex: 1;
     margin-right: 2rem;
-    box-shadow: $shadow-secondary-dark;
+    box-shadow: var(--shadow-primary);
     border-radius: .8rem;
 
     @include respond (bootstrap-xxl) {

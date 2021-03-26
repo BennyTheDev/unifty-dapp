@@ -3,7 +3,7 @@
   font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  box-shadow: $shadow-secondary-dark;
+  box-shadow: var(--shadow-primary);
 
   .card-body {
     padding: 3rem 2rem;

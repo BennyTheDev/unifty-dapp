@@ -46,7 +46,10 @@ body {
   --subheading-color: rgba(255, 255, 255, .3);
   --modal-border-text: #707070;
   --modal-text: #f4f7fb;
-  --image-padding: #192027; }
+  --image-padding: #192027;
+  --shadow-primary: 0 16px 38px -12px rgba(0, 0, 0, .56), 
+  0 4px 25px 0px rgba(0, 0, 0, .12), 
+  0 8px 10px -5px rgba(0, 0, 0, .20); }
 
 .light-edition {
   --primary-color: #202060;
@@ -62,7 +65,10 @@ body {
   --subheading-color: rgba(76, 76, 111, .3);
   --modal-border-text: #a3abb2;
   --modal-text: #202040;
-  --image-padding: #e2e3e8; }
+  --image-padding: #e2e3e8;
+  --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, .56), 
+  0 4px 25px 0px rgba(225, 225, 225, .12), 
+  0 8px 10px -5px rgba(225, 225, 225, .2); }
 
 h1 {
   font-family: "Poppins", sans-serif;
@@ -158,7 +164,7 @@ h3 {
   margin: 0; }
   .dark-edition .card.farm-card .card-body,
   .light-edition .card.farm-card .card-body {
-    box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+    box-shadow: var(--shadow-primary); }
     .dark-edition .card.farm-card .card-body a,
     .light-edition .card.farm-card .card-body a {
       font-size: 1.4rem;
@@ -248,7 +254,7 @@ h3 {
   font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  box-shadow: var(--shadow-primary); }
   .dark-edition .card.roadmap .card-body,
   .light-edition .card.roadmap .card-body {
     padding: 3rem 2rem; }
@@ -286,7 +292,7 @@ h3 {
   font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  box-shadow: var(--shadow-primary); }
   .dark-edition .card.faq .card-body,
   .light-edition .card.faq .card-body {
     padding: 2rem; }
@@ -322,7 +328,7 @@ h3 {
   background-color: var(--bg-tertiary);
   padding: 2.4rem 3.6rem 1.3rem;
   border-radius: .8rem;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  box-shadow: var(--shadow-primary); }
   .dark-edition .nftHeader-stakingOptions-container #stakingOptions .mb-3, .dark-edition .nftHeader-stakingOptions-container #stakingOptions .my-3,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .mb-3,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .my-3 {
@@ -401,10 +407,10 @@ h3 {
 
 .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
 .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-tertiary);
   flex: 1;
   margin-right: 2rem;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black;
+  box-shadow: var(--shadow-primary);
   border-radius: .8rem; }
   @media only screen and (max-width: 87.5em) {
     .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
@@ -492,7 +498,7 @@ h3 {
   .nftHeader .header-profile {
     position: relative;
     margin-top: 0;
-    box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+    box-shadow: var(--shadow-primary); }
     .nftListing .card-profile .card-avatar, .nftListing .header-profile .card-avatar,
     .farmListing .card-profile .card-avatar,
     .farmListing .header-profile .card-avatar,
@@ -826,8 +832,8 @@ h3 {
 .dark-edition .popover.bs-popover-top,
 .light-edition .popover.bs-popover-bottom,
 .light-edition .popover.bs-popover-top {
-  background-color: #121a21;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  background-color: var(--bg-tertiary);
+  box-shadow: var(--shadow-primary); }
   .dark-edition .popover.bs-popover-bottom .arrow, .dark-edition .popover.bs-popover-bottom .arrow::before,
   .dark-edition .popover.bs-popover-top .arrow,
   .dark-edition .popover.bs-popover-top .arrow::before,
@@ -854,7 +860,7 @@ h3 {
     .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar {
-      width: .8rem;
+      width: .5rem;
       height: .3rem; }
     .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb,
@@ -880,7 +886,7 @@ h3 {
     .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track {
-      background: rgba(253, 121, 226, 0.1);
+      background: var(--primary-hover-light);
       box-shadow: inset 7px 10px 12px #121a21; }
     .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track:hover, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track:hover,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track:hover,
@@ -1199,7 +1205,7 @@ h3 {
   height: 36px;
   margin-left: 5px;
   user-select: none;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  box-shadow: var(--shadow-primary); }
   @media only screen and (max-width: 991px) {
     .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler,
     .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler {
@@ -1237,7 +1243,7 @@ h3 {
   background-color: var(--bg-secondary);
   opacity: 1;
   font-size: 1.6rem;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  box-shadow: var(--shadow-primary); }
   .dark-edition .sidebar::before,
   .light-edition .sidebar::before {
     background-color: var(--bg-secondary);
@@ -1518,7 +1524,7 @@ h3 {
   .light-edition .main-panel .content .container-fluid .bridge-container {
     padding: 2rem;
     background-color: var(--bg-tertiary);
-    box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black;
+    box-shadow: var(--shadow-primary);
     border-radius: .8rem; }
     .dark-edition .main-panel .content .container-fluid .wallet-container #stakingOptions a.btn-secondary, .dark-edition .main-panel .content .container-fluid .bridge-container #stakingOptions a.btn-secondary,
     .light-edition .main-panel .content .container-fluid .wallet-container #stakingOptions a.btn-secondary,
@@ -1531,6 +1537,9 @@ h3 {
       font-size: 1.2rem;
       letter-spacing: .32px;
       padding: .8rem 1.2rem; }
+  .dark-edition .main-panel .footer,
+  .light-edition .main-panel .footer {
+    border-top: none; }
 
 .footer {
   position: fixed;
@@ -1542,7 +1551,7 @@ h3 {
   background: var(--bg-tertiary);
   border-top-left-radius: .8rem;
   border-top-right-radius: .8rem;
-  box-shadow: 0 16px 38px -12px black, 0 4px 25px 0px black, 0 8px 10px -5px black; }
+  box-shadow: var(--shadow-primary); }
   @media only screen and (min-width: 112.5em) {
     .footer {
       left: 33rem;
