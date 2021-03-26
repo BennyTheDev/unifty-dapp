@@ -108,7 +108,7 @@
         text-transform: none;
         border-radius: .6rem;
         background-color: var(--primary-color);
-        color: #000;
+        color: var(--bg-secondary);
         padding: .3rem .8rem;
         font-weight: 500;
         width: 90%;
@@ -117,7 +117,7 @@
         white-space: nowrap;
 
         &:active {
-          color: #fff;
+          color: var(--bg-secondary);
           background-color: var(--primary-hover-dark);
           font-weight: 400;
         }
@@ -140,7 +140,7 @@
         position: absolute;
         top: 1rem;
         right: 1rem;
-        color: $grey-primary;
+        color: var(--text-primary);
         background-color: transparent;
         box-shadow: none;
         padding: 0;
@@ -152,7 +152,7 @@
 
         &:hover, &:active {
           span {
-            color: #fff;
+            color: var(--text-primary-light);
           }
         }
       }
@@ -173,15 +173,15 @@
             content: none;
           }
 
-          &:hover, &:active {
-            span {
-              color: #fff;
-            }
+          span {
+            color: var(--text-primary);
+            font-size: 1.8rem;
           }
 
-          span {
-            color: $grey-primary;
-            font-size: 1.8rem;
+          &:hover, &:active {
+            span {
+              color: var(--text-primary-light);
+            }
           }
         }
       }
@@ -190,9 +190,8 @@
         background-color: transparent;
 
         span {
-          color: #fff;
-        }
-        
+          color: var(--text-primary-light);;
+        }        
       }
     }
   }

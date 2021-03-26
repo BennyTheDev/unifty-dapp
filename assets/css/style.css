@@ -51,6 +51,7 @@ body.light-edition {
   --bg-secondary: #121a21;
   --bg-tertiary: #121a21;
   --text-primary: #9d9db4;
+  --text-primary-light: rgba(157, 157, 180, .5);
   --text-footer: #9d9db4;
   --heading-color: #ffffff;
   --subheading-color: rgba(255, 255, 255, .3);
@@ -72,6 +73,7 @@ body.light-edition {
   --bg-secondary: #ffffff;
   --bg-tertiary: #eef0f8;
   --text-primary: #4c4c6f;
+  --text-primary-light: rgba(76, 76, 111, .5);
   --text-footer: rgba(76, 76, 111, .5);
   --heading-color: #202060;
   --subheading-color: rgba(76, 76, 111, .3);
@@ -105,6 +107,9 @@ h1.nftListingsTitle {
     font-size: 1.8rem;
     margin-right: .5rem;
     transform: rotate(-45deg); }
+
+h1#nftContractNameTitle {
+  margin-top: 4rem; }
 
 h1.nftListingsTitle {
   justify-content: flex-start;
@@ -265,7 +270,6 @@ h3 {
 
 .dark-edition .card.roadmap,
 .light-edition .card.roadmap {
-  font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
   box-shadow: var(--shadow-primary); }
@@ -287,7 +291,7 @@ h3 {
   font-weight: 400; }
 
 .main-timeline p.description {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: var(--text-footer);
   font-weight: 400; }
 
@@ -303,7 +307,6 @@ h3 {
 
 .dark-edition .card.faq,
 .light-edition .card.faq {
-  font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: 3rem;
   box-shadow: var(--shadow-primary); }
@@ -312,7 +315,7 @@ h3 {
     padding: 2rem; }
     .dark-edition .card.faq .card-body .card-description,
     .light-edition .card.faq .card-body .card-description {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       color: var(--text-primary);
       font-weight: 300; }
       .dark-edition .card.faq .card-body .card-description a,
@@ -445,7 +448,8 @@ h3 {
       height: 100%;
       color: var(--text-primary);
       word-wrap: normal;
-      padding: .5rem 2rem; }
+      padding: .5rem 2rem;
+      box-shadow: none; }
       .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content,
       .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content {
         display: flex; }
@@ -676,7 +680,7 @@ h3 {
         text-transform: none;
         border-radius: .6rem;
         background-color: var(--primary-color);
-        color: #000;
+        color: var(--bg-secondary);
         padding: .3rem .8rem;
         font-weight: 500;
         width: 90%;
@@ -692,7 +696,7 @@ h3 {
         .nftHeader .card-profile .header-left a.redeemButton:active,
         .nftHeader .header-profile .card-body a.redeemButton:active,
         .nftHeader .header-profile .header-left a.redeemButton:active {
-          color: #fff;
+          color: var(--bg-secondary);
           background-color: var(--primary-hover-dark);
           font-weight: 400; }
       .nftListing .card-profile .card-body a.traits, .nftListing .card-profile .header-left a.traits, .nftListing .header-profile .card-body a.traits, .nftListing .header-profile .header-left a.traits,
@@ -724,7 +728,7 @@ h3 {
         position: absolute;
         top: 1rem;
         right: 1rem;
-        color: #a3abb2;
+        color: var(--text-primary);
         background-color: transparent;
         box-shadow: none;
         padding: 0;
@@ -756,7 +760,7 @@ h3 {
         .nftHeader .header-profile .card-body .popover-description:active span,
         .nftHeader .header-profile .header-left .popover-description:hover span,
         .nftHeader .header-profile .header-left .popover-description:active span {
-          color: #fff; }
+          color: var(--text-primary-light); }
       .nftListing .card-profile .card-body .dropdown, .nftListing .card-profile .header-left .dropdown, .nftListing .header-profile .card-body .dropdown, .nftListing .header-profile .header-left .dropdown,
       .farmListing .card-profile .card-body .dropdown,
       .farmListing .card-profile .header-left .dropdown,
@@ -792,6 +796,17 @@ h3 {
           .nftHeader .header-profile .card-body .dropdown a::after,
           .nftHeader .header-profile .header-left .dropdown a::after {
             content: none; }
+          .nftListing .card-profile .card-body .dropdown a span, .nftListing .card-profile .header-left .dropdown a span, .nftListing .header-profile .card-body .dropdown a span, .nftListing .header-profile .header-left .dropdown a span,
+          .farmListing .card-profile .card-body .dropdown a span,
+          .farmListing .card-profile .header-left .dropdown a span,
+          .farmListing .header-profile .card-body .dropdown a span,
+          .farmListing .header-profile .header-left .dropdown a span,
+          .nftHeader .card-profile .card-body .dropdown a span,
+          .nftHeader .card-profile .header-left .dropdown a span,
+          .nftHeader .header-profile .card-body .dropdown a span,
+          .nftHeader .header-profile .header-left .dropdown a span {
+            color: var(--text-primary);
+            font-size: 1.8rem; }
           .nftListing .card-profile .card-body .dropdown a:hover span, .nftListing .card-profile .card-body .dropdown a:active span, .nftListing .card-profile .header-left .dropdown a:hover span, .nftListing .card-profile .header-left .dropdown a:active span, .nftListing .header-profile .card-body .dropdown a:hover span, .nftListing .header-profile .card-body .dropdown a:active span, .nftListing .header-profile .header-left .dropdown a:hover span, .nftListing .header-profile .header-left .dropdown a:active span,
           .farmListing .card-profile .card-body .dropdown a:hover span,
           .farmListing .card-profile .card-body .dropdown a:active span,
@@ -809,18 +824,7 @@ h3 {
           .nftHeader .header-profile .card-body .dropdown a:active span,
           .nftHeader .header-profile .header-left .dropdown a:hover span,
           .nftHeader .header-profile .header-left .dropdown a:active span {
-            color: #fff; }
-          .nftListing .card-profile .card-body .dropdown a span, .nftListing .card-profile .header-left .dropdown a span, .nftListing .header-profile .card-body .dropdown a span, .nftListing .header-profile .header-left .dropdown a span,
-          .farmListing .card-profile .card-body .dropdown a span,
-          .farmListing .card-profile .header-left .dropdown a span,
-          .farmListing .header-profile .card-body .dropdown a span,
-          .farmListing .header-profile .header-left .dropdown a span,
-          .nftHeader .card-profile .card-body .dropdown a span,
-          .nftHeader .card-profile .header-left .dropdown a span,
-          .nftHeader .header-profile .card-body .dropdown a span,
-          .nftHeader .header-profile .header-left .dropdown a span {
-            color: #a3abb2;
-            font-size: 1.8rem; }
+            color: var(--text-primary-light); }
       .nftListing .card-profile .card-body .dropdown.show a, .nftListing .card-profile .header-left .dropdown.show a, .nftListing .header-profile .card-body .dropdown.show a, .nftListing .header-profile .header-left .dropdown.show a,
       .farmListing .card-profile .card-body .dropdown.show a,
       .farmListing .card-profile .header-left .dropdown.show a,
@@ -840,7 +844,7 @@ h3 {
         .nftHeader .card-profile .header-left .dropdown.show a span,
         .nftHeader .header-profile .card-body .dropdown.show a span,
         .nftHeader .header-profile .header-left .dropdown.show a span {
-          color: #fff; }
+          color: var(--text-primary-light); }
 
 .dark-edition .popover.bs-popover-bottom,
 .dark-edition .popover.bs-popover-top,

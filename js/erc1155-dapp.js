@@ -192,7 +192,7 @@ function TncDapp() {
         let currentIndex = offset;
 
         if(offset <= 0) {
-            $('#myNftsPage').append('<div class="container-fluid mb-5"><h1 id="nftContractNameTitle"></h1></div>');
+            $('#myNftsPage').append('<div class="container-fluid" style="grid-column-start: 1; grid-column-end: -1;"><h1 id="nftContractNameTitle"></h1></div>');
             $('#nftContractNameTitle').text($('#nftErc1155CurrName').val());
         }
 
@@ -238,7 +238,24 @@ function TncDapp() {
 
                     $('#myNftsPage').append(tmpl);
 
-                    $('[data-toggle="popover"]').popover();
+                    $(".popover-description").popover({
+                        trigger: "manual",
+                        html: true,
+                        animation: false
+                    }).on("mouseenter", function() {
+                        var _this = this;
+                        $(this).popover("show");
+                        $(".popover").on("mouseleave", function() {
+                            $(_this).popover('hide');
+                        });
+                    }).on("mouseleave", function() {
+                        var _this = this;
+                        setTimeout(function() {
+                            if (!$(".popover:hover").length) {
+                                $(_this).popover("hide");
+                            }
+                        }, 300);
+                    });
 
                     if(chain_id == '1') {
                         $('.marketRoyaltiesLink').css('display', 'none');
@@ -745,7 +762,13 @@ function TncDapp() {
                 });
 
                 this.lastNftIndex = -1;
-                $('#myNftsPage').css('display', 'flex');
+
+                $('#myNftsPage').css({
+                    'display': 'grid', 
+                    'grid-template-columns': 'repeat(auto-fill, minmax(25rem, 1fr)',
+                    'grid-gap': '2rem'
+                });
+
                 await _this.populateMyNfts();
 
                 break;

@@ -4,6 +4,7 @@
 .card-title{
   font-size: 2rem;
 }
+
 .dark-edition .main-panel .nftHeader-stakingOptions-container,
 .light-edition .main-panel .nftHeader-stakingOptions-container {
   #farmHeader {
@@ -34,6 +35,7 @@
         color: var(--text-primary);
         word-wrap: normal;
         padding: .5rem 2rem;
+        box-shadow: none;
 
         .card-content {
           display: flex;
