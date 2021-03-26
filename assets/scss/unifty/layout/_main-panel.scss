@@ -30,7 +30,7 @@
     }
 
     &:hover {
-      cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+      cursor: var(--cursor-pointer);
       span {
         transform: scale(1.1);
       }

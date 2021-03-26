@@ -30,7 +30,7 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+      cursor: var(--cursor-pointer);
 
       span {
         font-size: 32px;

@@ -4,7 +4,7 @@
   background-color: var(--bg-tertiary);
 
   .close:not(:disabled):not(.disabled) {
-    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+    cursor: var(--cursor-pointer);
   }
 
   .modal-non-nft-content a {
@@ -68,7 +68,7 @@
       padding: 1rem;
 
       &:hover {
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+        cursor: var(--cursor-pointer);
       }
 
       option {
@@ -94,7 +94,7 @@
       &:hover {
         border: .1rem solid var(--primary-hover-dark);
         color: var(--primary-hover-dark);
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto !important;
+        cursor: var(--cursor-pointer) !important;
       }
     }
 
@@ -107,7 +107,7 @@
       color: var(--modal-text);
 
       &:hover {
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+        cursor: var(--cursor-pointer);
       }
 
       span {
@@ -123,7 +123,7 @@
 
           &:hover {
             color: var(--primary-color);
-            cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+            cursor: var(--cursor-pointer);
           }
         }
       }

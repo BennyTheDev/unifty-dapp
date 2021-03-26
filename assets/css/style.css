@@ -24,13 +24,23 @@ body {
   box-sizing: border-box;
   font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  cursor: url(../img/unifty-icons/cursor-default.svg), auto; }
-  body a:link,
-  body a:hover,
-  body a:active,
-  body .btn:not(:disabled):not(.disabled) {
-    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
+  font-weight: 400; }
+
+body.dark-edition {
+  cursor: var(--cursor-default); }
+  body.dark-edition a:link,
+  body.dark-edition a:hover,
+  body.dark-edition a:active,
+  body.dark-edition .btn:not(:disabled):not(.disabled) {
+    cursor: var(--cursor-pointer); }
+
+body.light-edition {
+  cursor: var(--cursor-default); }
+  body.light-edition a:link,
+  body.light-edition a:hover,
+  body.light-edition a:active,
+  body.light-edition .btn:not(:disabled):not(.disabled) {
+    cursor: var(--cursor-pointer); }
 
 .dark-edition {
   --primary-color: #fd79e2;
@@ -48,8 +58,10 @@ body {
   --modal-text: #f4f7fb;
   --image-padding: #192027;
   --shadow-primary: 0 16px 38px -12px rgba(0, 0, 0, .56), 
-  0 4px 25px 0px rgba(0, 0, 0, .12), 
-  0 8px 10px -5px rgba(0, 0, 0, .20); }
+    0 4px 25px 0px rgba(0, 0, 0, .12), 
+    0 8px 10px -5px rgba(0, 0, 0, .20);
+  --cursor-default: url(../img/unifty-icons/cursor-default-dark.svg), auto;
+  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto; }
 
 .light-edition {
   --primary-color: #202060;
@@ -67,8 +79,10 @@ body {
   --modal-text: #202040;
   --image-padding: #e2e3e8;
   --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, .56), 
-  0 4px 25px 0px rgba(225, 225, 225, .12), 
-  0 8px 10px -5px rgba(225, 225, 225, .2); }
+    0 4px 25px 0px rgba(225, 225, 225, .12), 
+    0 8px 10px -5px rgba(225, 225, 225, .2);
+  --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
+  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto; }
 
 h1 {
   font-family: "Poppins", sans-serif;
@@ -939,7 +953,7 @@ h3 {
   background-color: var(--bg-tertiary); }
   .dark-edition .main-panel .modal-dialog .modal-content .close:not(:disabled):not(.disabled),
   .light-edition .main-panel .modal-dialog .modal-content .close:not(:disabled):not(.disabled) {
-    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
+    cursor: var(--cursor-pointer); }
   .dark-edition .main-panel .modal-dialog .modal-content .modal-non-nft-content a,
   .light-edition .main-panel .modal-dialog .modal-content .modal-non-nft-content a {
     color: var(--primary-color);
@@ -994,7 +1008,7 @@ h3 {
       padding: 1rem; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body select:hover,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body select:hover {
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
+        cursor: var(--cursor-pointer); }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body select option,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body select option {
         background-color: var(--bg-tertiary);
@@ -1016,7 +1030,7 @@ h3 {
       .light-edition .main-panel .modal-dialog .modal-content .modal-body.modal-non-nft-content button:hover {
         border: 0.1rem solid var(--primary-hover-dark);
         color: var(--primary-hover-dark);
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto !important; }
+        cursor: var(--cursor-pointer) !important; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label {
       display: flex;
@@ -1027,7 +1041,7 @@ h3 {
       color: var(--modal-text); }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label:hover,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label:hover {
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
+        cursor: var(--cursor-pointer); }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.required,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.required {
         color: var(--primary-color);
@@ -1040,7 +1054,7 @@ h3 {
         .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round:hover,
         .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round:hover {
           color: var(--primary-color);
-          cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
+          cursor: var(--cursor-pointer); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input,
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input,
@@ -1220,7 +1234,7 @@ h3 {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
+    cursor: var(--cursor-pointer); }
     .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span,
     .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span {
       font-size: 32px;
@@ -1441,7 +1455,7 @@ h3 {
       font-size: 1.8rem; }
     .dark-edition .main-panel .content .add-new-card-container:hover,
     .light-edition .main-panel .content .add-new-card-container:hover {
-      cursor: url(../img/unifty-icons/cursor-pointer.svg), auto; }
+      cursor: var(--cursor-pointer); }
       .dark-edition .main-panel .content .add-new-card-container:hover span,
       .light-edition .main-panel .content .add-new-card-container:hover span {
         transform: scale(1.1); }
