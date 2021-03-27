@@ -165,6 +165,23 @@ $(document).ready(async function(){
                             'Block Explorer URL: '+blockExplorerUrl+'<br /><br/>' +
                             'Install the CELO Desktop Wallet from here <a href="https://chrome.google.com/webstore/detail/celo-desktop-wallet/kkilomkmpmkbdnfelcpgckmpcaemjcdh" target="_blank">here</a>.';
 
+                    }else if(chain_id == 'a86a'){
+
+                        chainName = 'Avalanche';
+                        rpcUrl = 'https://api.avax.network/ext/bc/C/rpc';
+                        currencyName = 'AVAX';
+                        currencySymbol = 'AVAX';
+                        currencyDecimals = 18;
+                        blockExplorerUrl = 'https://cchain.explorer.avax.network/';
+
+                        desc =  'You are not connected to '+chainName+'.<br/><br/>' +
+                            'Please use the following setup in Metamask => Settings => Networks => Add Network: <br /><br />' +
+                            'Network Name: '+chainName+'<br/>' +
+                            'New RPC URL: '+rpcUrl+'<br/>' +
+                            'ChainID: 43114<br/>' +
+                            'Symbol: '+currencySymbol+'<br/>' +
+                            'Block Explorer URL: '+blockExplorerUrl+'<br /><br/>';
+
                     }else if(chain_id == '4d'){
 
                         chainName = 'xDAI/POA (Sokol) TESTNET';
@@ -364,6 +381,10 @@ function enableTorus(){
                 chain = 'https://bsc1-rpc.unifty.cloud';
                 networkName = 'Binance Smart Chain';
                 break;
+            case 'a86a':
+                chain = 'https://api.avax.network/ext/bc/C/rpc';
+                networkName = 'Avalanche';
+                break;
             case '1':
                 chain = 'mainnet';
                 networkName = 'Mainnet';
@@ -405,11 +426,14 @@ function enableTorus(){
 
 function runReadableOnly(){
 
-    if(chain_id == '89' || chain_id == '38' || chain_id == '64' || chain_id == '4' || chain_id == '1' || chain_id == 'a4ec') {
+    if(chain_id == '89' || chain_id == '38' || chain_id == '64' || chain_id == '4' || chain_id == '1' || chain_id == 'a4ec' || chain_id == 'a86a') {
 
         let rpcUrl = '';
 
         switch (chain_id) {
+            case 'a86a':
+                rpcUrl = 'https://api.avax.network/ext/bc/C/rpc';
+                break;
             case 'a4ec':
                 rpcUrl = 'https://forno.celo.org/';
                 break;

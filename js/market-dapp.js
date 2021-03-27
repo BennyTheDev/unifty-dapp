@@ -201,6 +201,9 @@ function TncDapp() {
             case 'a4ec':
                 explorer = 'https://explorer.celo.org/address/';
                 break;
+            case 'a86a': // avalanche
+                explorer = 'https://cchain.explorer.avax.network/address/';
+                break;
             case '64':
                 explorer = 'https://blockscout.com/poa/xdai/address/';
                 break;
@@ -933,6 +936,22 @@ function TncDapp() {
                 console.log($("#lookupToken").html());
 
                 break;
+            case 'a86a': // AVALANCHE
+
+                var o = new Option("WAVAX (Wrapped AVAX)", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7");
+                $(o).html("WAVAX (Wrapped AVAX)");
+                $("#lookupToken").append(o);
+                console.log($("#lookupToken").html());
+
+                break;
+            case 'a86a': // CELO
+
+                var o = new Option("WAVAX (Wrapped AVAX)", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7");
+                $(o).html("WAVAX (Wrapped AVAX)");
+                $("#lookupToken").append(o);
+                console.log($("#lookupToken").html());
+
+                break;
             case '38': // BSC MAINNET
                 var o2 = new Option("bNIF (Unifty)", "0x3aD4eC50f30dAb25C60e0e71755AF6B9690B1297");
                 $(o2).html("bNIF (Unifty)");
@@ -1360,6 +1379,12 @@ function TncDapp() {
                 var o2 = new Option("CUSD", "0x765DE816845861e75A25fCA122bb6898B8B1282a");
                 $(o2).html("CUSD");
                 $("#nftSellToken2").append(o2);
+                console.log($("#nftSellToken2").html());
+                break;
+            case 'a86a': // AVALANCHE
+                var o = new Option("WAVAX (Wrapped AVAX)", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7");
+                $(o).html("WAVAX (Wrapped AVAX)");
+                $("#nftSellToken2").append(o);
                 console.log($("#nftSellToken2").html());
                 break;
             case '38': // BSC MAINNET

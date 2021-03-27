@@ -57,6 +57,9 @@ function TncDapp() {
             case 'a4ec':
                 explorer = 'https://explorer.celo.org/address/';
                 break;
+            case 'a86a': // avalanche
+                explorer = 'https://cchain.explorer.avax.network/address/';
+                break;
             case '64':
                 explorer = 'https://blockscout.com/poa/xdai/address/';
                 break;

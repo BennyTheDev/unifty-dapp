@@ -390,6 +390,14 @@ function TncDapp() {
                 console.log($("#nftSellToken").html());
 
                 break;
+            case 'a86a': // AVALANCHE
+
+                var o = new Option("WAVAX (Wrapped AVAX)", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7");
+                $(o).html("WAVAX (Wrapped AVAX)");
+                $("#nftSellToken").append(o);
+                console.log($("#nftSellToken").html());
+
+                break;
             case '38': // BSC MAINNET
 
 

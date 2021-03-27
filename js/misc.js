@@ -1,5 +1,5 @@
-let network = 'xDai';
-let chain_id = '64';
+let network = 'Avalanche';
+let chain_id = 'a86a';
 
 $(document).ready(function(){
 
@@ -91,6 +91,17 @@ $(document).ready(function(){
         $('#paymentDescription').css('display', 'none');
         $('.hideNonEth').css('display', 'none');
         $('.networkStd').html('CRC20');
+    }else if(chain_id == 'a86a'){
+        $('#featured').css('display', 'none');
+        //$('#genesisFarm').css('display', 'none');
+        //$('#xdaiFarm').css('display', 'none');
+        $('#getNifUniswap').css('display', 'none');
+        $('#mirror').css('display', 'none');
+        $('#bscLogo').html('AVALANCHE');
+        $('#bscLogo').css('display', 'block');
+        $('#paymentDescription').css('display', 'none');
+        $('.hideNonEth').css('display', 'none');
+        $('.networkStd').html('ARC20');
     }
     else{
         $('.networkStd').html('ERC20');

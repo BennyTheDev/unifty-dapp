@@ -44,6 +44,9 @@ function TncDapp() {
             case 'a4ec':
                 explorer = 'https://explorer.celo.org/address/';
                 break;
+            case 'a86a': // avalanche
+                explorer = 'https://cchain.explorer.avax.network/address/';
+                break;
             case '64':
                 explorer = 'https://blockscout.com/poa/xdai/address/';
                 break;
@@ -787,6 +790,11 @@ function TncDapp() {
             case 'a4ec': // xDai (SPOA) Testnet
                 var o = new Option("NIF (Unifty)", "0x3dF39266F1246128C39086E1b542Db0148A30d8c");
                 $(o).html("NIF (Unifty)");
+                $("#farmTokenAddress").append(o);
+                break;
+            case 'a86a': // xDai (SPOA) Testnet
+                var o = new Option("WAVAX (Wrapped AVAX)", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7");
+                $(o).html("WAVAX (Wrapped AVAX)");
                 $("#farmTokenAddress").append(o);
                 break;
             case '38': // BSC MAINNET

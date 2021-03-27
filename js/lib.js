@@ -97,7 +97,7 @@ function TncLib(){
 
         // assuming ethereum mainnet if nothing else specified
 
-    // MOOBASE ALPHA
+    // MOONBASE ALPHA
     } else if(chain_id === "507") {
 
         this.nif = new web3.eth.Contract(nifABI, '', {from: this.account});
@@ -106,6 +106,20 @@ function TncLib(){
         this.farm = new web3.eth.Contract(farmABI, '', {from: this.account});
         this.farmShop = new web3.eth.Contract(farmShopABI, '', {from: this.account});
         this.multiBatch = new web3.eth.Contract(multiBatchABI, '0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7', {from: this.account});
+        this.account = '';
+        this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
+
+        // assuming ethereum mainnet if nothing else specified
+
+        // AVALANCHE
+    } else if(chain_id === "a86a") {
+
+        this.nif = new web3.eth.Contract(nifABI, '0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7', {from: this.account});
+        this.erc1155 = new web3.eth.Contract(erc1155ABI, '0x27012AB8fD80b31e9169964aE53656640fa6B431', {from: this.account});
+        this.genesis = new web3.eth.Contract(genesisABI, '0x0544d7968749587122a2BeE4df134DD4f7E17a94', {from: this.account});
+        this.farm = new web3.eth.Contract(farmABI, '0xC2bC267EF4EA7Db7bD0F4F924A04A9eaE64D8eE3', {from: this.account});
+        this.farmShop = new web3.eth.Contract(farmShopABI, '0x88a7D2bfF66408Ed3F853a3FAD1Fb1e3b6D7284e', {from: this.account});
+        this.multiBatch = new web3.eth.Contract(multiBatchABI, '0x6D8C5CB3DD2aBE2B78F18445f60E4e7a822f1c11', {from: this.account});
         this.account = '';
         this.defaultProxyRegistryAddress = '0x0000000000000000000000000000000000000000'; // opensea
 

@@ -73,6 +73,14 @@ function TncLibMarket(){
         this.wrap = new web3.eth.Contract(marketWrapABI, '0x0fe8e7051b31a63d9da26815a999990463B53f94', {from: this.account});
         this.account = '';
 
+        // AVALANCHE
+    } else if(chain_id === "a86a") {
+
+        this.market = new web3.eth.Contract(marketABI, '0xF42421e2FFA453762C75010aac3b688598F87494', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '0xEB2F7E7162f8D6FefD3ae7E5e1Ab63BA192FFBa9', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '0x14a870A37116EB70Bab88739a99a529cfac04C9d', {from: this.account});
+        this.account = '';
+
     } else{
 
         this.market = new web3.eth.Contract(marketABI, '', {from: this.account});
