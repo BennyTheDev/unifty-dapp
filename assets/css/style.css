@@ -58,11 +58,17 @@ body.light-edition {
   --modal-border-text: #707070;
   --modal-text: #f4f7fb;
   --image-padding: #192027;
+  --traits-bg: rgba(13, 20, 26, .5);
   --shadow-primary: 0 16px 38px -12px rgba(0, 0, 0, .56), 
     0 4px 25px 0px rgba(0, 0, 0, .12), 
     0 8px 10px -5px rgba(0, 0, 0, .20);
   --cursor-default: url(../img/unifty-icons/cursor-default-dark.svg), auto;
-  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto; }
+  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto;
+  -scrollbar-track: rgba(253, 121, 226, 0.1);
+  --scrollbar-track-shadow: #121a21;
+  --scrollbar-track-hover: #666666;
+  --scrollbar-thumb: linear-gradient(0deg, #5c5c73 27%,rgba(253, 121, 226, .5) 60%);
+  --scrollbar-thumb-hover: linear-gradient(13deg, #414166 14%,#eb7bd6 64%); }
 
 .light-edition {
   --primary-color: #202060;
@@ -80,11 +86,17 @@ body.light-edition {
   --modal-border-text: #a3abb2;
   --modal-text: #202040;
   --image-padding: #e2e3e8;
+  --traits-bg: #fff;
   --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, .56), 
     0 4px 25px 0px rgba(225, 225, 225, .12), 
     0 8px 10px -5px rgba(225, 225, 225, .2);
   --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
-  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto; }
+  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;
+  --scrolbar-track: rgba(32, 32, 96, .1);
+  --scrollbar-track-shadow: #f4f7fb;
+  --scrollbar-track-hover: #cdcfd6;
+  --scrollbar-thumb: linear-gradient(0deg, #ccccdd 27%, rgba(32, 32, 96, .5) 60%);
+  --scrollbar-thumb-hover: linear-gradient(13deg, #b8b8c5 14%, #202060 64%); }
 
 h1 {
   font-family: "Poppins", sans-serif;
@@ -122,6 +134,9 @@ h3 {
   letter-spacing: 0.32px;
   color: var(--text-primary);
   margin: 0 0 1rem; }
+
+.text-muted a {
+  color: var(--heading-color); }
 
 .light-edition #chainSelectionDropdown,
 .light-edition #walletActions,
@@ -539,6 +554,26 @@ h3 {
     .nftHeader .header-profile .card-body,
     .nftHeader .header-profile .header-left {
       position: static; }
+      .nftListing .card-profile .card-body .text-truncate a, .nftListing .card-profile .header-left .text-truncate a, .nftListing .header-profile .card-body .text-truncate a, .nftListing .header-profile .header-left .text-truncate a,
+      .farmListing .card-profile .card-body .text-truncate a,
+      .farmListing .card-profile .header-left .text-truncate a,
+      .farmListing .header-profile .card-body .text-truncate a,
+      .farmListing .header-profile .header-left .text-truncate a,
+      .nftHeader .card-profile .card-body .text-truncate a,
+      .nftHeader .card-profile .header-left .text-truncate a,
+      .nftHeader .header-profile .card-body .text-truncate a,
+      .nftHeader .header-profile .header-left .text-truncate a {
+        color: var(--heading-color); }
+      .nftListing .card-profile .card-body .text-truncate button, .nftListing .card-profile .header-left .text-truncate button, .nftListing .header-profile .card-body .text-truncate button, .nftListing .header-profile .header-left .text-truncate button,
+      .farmListing .card-profile .card-body .text-truncate button,
+      .farmListing .card-profile .header-left .text-truncate button,
+      .farmListing .header-profile .card-body .text-truncate button,
+      .farmListing .header-profile .header-left .text-truncate button,
+      .nftHeader .card-profile .card-body .text-truncate button,
+      .nftHeader .card-profile .header-left .text-truncate button,
+      .nftHeader .header-profile .card-body .text-truncate button,
+      .nftHeader .header-profile .header-left .text-truncate button {
+        color: var(--heading-color); }
       .nftListing .card-profile .card-body h5.card-title, .nftListing .card-profile .header-left h5.card-title, .nftListing .header-profile .card-body h5.card-title, .nftListing .header-profile .header-left h5.card-title,
       .farmListing .card-profile .card-body h5.card-title,
       .farmListing .card-profile .header-left h5.card-title,
@@ -665,6 +700,16 @@ h3 {
             right: -2px;
             top: 50%;
             transform: translateY(-50%); }
+          .nftListing .card-profile .card-body .badge.badge-info a, .nftListing .card-profile .header-left .badge.badge-info a, .nftListing .header-profile .card-body .badge.badge-info a, .nftListing .header-profile .header-left .badge.badge-info a,
+          .farmListing .card-profile .card-body .badge.badge-info a,
+          .farmListing .card-profile .header-left .badge.badge-info a,
+          .farmListing .header-profile .card-body .badge.badge-info a,
+          .farmListing .header-profile .header-left .badge.badge-info a,
+          .nftHeader .card-profile .card-body .badge.badge-info a,
+          .nftHeader .card-profile .header-left .badge.badge-info a,
+          .nftHeader .header-profile .card-body .badge.badge-info a,
+          .nftHeader .header-profile .header-left .badge.badge-info a {
+            color: var(--heading-color); }
       .nftListing .card-profile .card-body a.redeemButton, .nftListing .card-profile .header-left a.redeemButton, .nftListing .header-profile .card-body a.redeemButton, .nftListing .header-profile .header-left a.redeemButton,
       .farmListing .card-profile .card-body a.redeemButton,
       .farmListing .card-profile .header-left a.redeemButton,
@@ -709,11 +754,11 @@ h3 {
       .nftHeader .header-profile .card-body a.traits,
       .nftHeader .header-profile .header-left a.traits {
         font-size: 1.4rem;
-        border: 0.1rem solid #707070;
+        border: 0.1rem solid var(--text-primary);
         border-radius: .6rem;
-        background-color: #0d141a !important;
+        background-color: var(--image-padding) !important;
         text-transform: none;
-        color: #707070;
+        color: var(--text-primary);
         padding: .3rem .8rem;
         width: 90%; }
       .nftListing .card-profile .card-body .popover-description, .nftListing .card-profile .header-left .popover-description, .nftListing .header-profile .card-body .popover-description, .nftListing .header-profile .header-left .popover-description,
@@ -887,7 +932,7 @@ h3 {
     .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb {
-      background: linear-gradient(0deg, #5c5c73 27%, #8b6084 60%);
+      background: var(--scrollbar-thumb);
       border-radius: 10px; }
     .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb:hover, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb:hover,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb:hover,
@@ -896,7 +941,7 @@ h3 {
     .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb:hover,
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb:hover,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(13deg, #414166 14%, #eb7bd6 64%); }
+      background: var(--scrollbar-thumb-hover); }
     .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track,
     .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track,
@@ -904,8 +949,9 @@ h3 {
     .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track {
-      background: var(--primary-hover-light);
-      box-shadow: inset 7px 10px 12px #121a21; }
+      background: var(--scrolbar-track);
+      border-radius: 10px;
+      box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow); }
     .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track:hover, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track:hover,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track:hover,
     .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track:hover,
@@ -913,7 +959,7 @@ h3 {
     .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track:hover,
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track:hover,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track:hover {
-      background: #666666; }
+      background: var(--scrollbar-track-hover); }
   .dark-edition .popover.bs-popover-bottom .popover-header,
   .dark-edition .popover.bs-popover-top .popover-header,
   .light-edition .popover.bs-popover-bottom .popover-header,
@@ -921,7 +967,8 @@ h3 {
     background-color: transparent;
     border-bottom: 0.1rem solid var(--modal-border-text);
     font-family: "Poppins", sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    color: var(--text-primary);
     font-weight: 500; }
     .dark-edition .popover.bs-popover-bottom .popover-header::before,
     .dark-edition .popover.bs-popover-top .popover-header::before,
@@ -932,7 +979,16 @@ h3 {
   .dark-edition .popover.bs-popover-top .popover-body,
   .light-edition .popover.bs-popover-bottom .popover-body,
   .light-edition .popover.bs-popover-top .popover-body {
-    font-size: 1.4rem; }
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+    color: var(--text-primary);
+    font-weight: 400; }
+
+.dark-edition .tooltip.bs-tooltip-bottom .tooltip-inner,
+.dark-edition .tooltip.bs-tooltip-top .tooltip-inner,
+.light-edition .tooltip.bs-tooltip-bottom .tooltip-inner,
+.light-edition .tooltip.bs-tooltip-top .tooltip-inner {
+  background-color: var(--subheading-color); }
 
 .nftHeader {
   width: 100%; }
@@ -1327,19 +1383,19 @@ h3 {
     height: .1rem; }
   .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb,
   .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb {
-    background: linear-gradient(0deg, #5c5c73 27%, #8b6084 60%);
+    background: var(--scrollbar-thumb);
     border-radius: 10px; }
   .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb:hover,
   .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(13deg, #414166 14%, #eb7bd6 64%); }
+    background: var(--scrollbar-thumb-hover); }
   .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track,
   .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track {
-    background: rgba(253, 121, 226, 0.1);
+    background: var(--scrolbar-track);
     border-radius: 10px;
-    box-shadow: inset 7px 10px 12px #121a21; }
+    box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow); }
   .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track:hover,
   .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track:hover {
-    background: #666666; }
+    background: var(--scrollbar-track-hover); }
 
 .dark-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu,
 .light-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu {

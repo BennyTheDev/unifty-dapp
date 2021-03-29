@@ -33,6 +33,17 @@
     .card-body, .header-left {
       position: static;
 
+      //copy address
+      .text-truncate {
+        a {
+          color: var(--heading-color);
+        }
+        //copy to clipboard icon
+        button {
+          color: var(--heading-color);
+        }
+      }
+
       //title
       h5.card-title {
         font-size: 1.8rem;
@@ -97,6 +108,10 @@
             top: 50%;
             transform: translateY(-50%);
           }
+
+          a {
+            color: var(--heading-color);
+          }
         }
       }
 
@@ -126,11 +141,11 @@
       //traits
       a.traits {
         font-size: 1.4rem;
-        border: .1rem solid $grey-border;
+        border: .1rem solid var(--text-primary);
         border-radius: .6rem;
-        background-color: $dark-primary !important;
+        background-color: var(--image-padding) !important;
         text-transform: none;
-        color: $grey-border;
+        color: var(--text-primary);
         padding: .3rem .8rem;
         width: 90%;
       }
@@ -220,18 +235,19 @@
       height: .3rem;
     }
     &::-webkit-scrollbar-thumb {
-      background: linear-gradient(0deg, #5c5c73 27%,#8b6084 60%);
+      background: var(--scrollbar-thumb);
       border-radius: 10px;
     }
     &::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(13deg, #414166 14%,#eb7bd6 64%);;
+      background: var(--scrollbar-thumb-hover);
     }
     &::-webkit-scrollbar-track {
-      background: var(--primary-hover-light);
-      box-shadow: inset 7px 10px 12px #121a21;
+      background: var(--scrolbar-track);
+      border-radius: 10px;
+      box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
     }
     &::-webkit-scrollbar-track:hover {
-      background: #666666;
+      background: var(--scrollbar-track-hover);
     }
   }
   
@@ -239,7 +255,8 @@
     background-color: transparent;
     border-bottom: .1rem solid var(--modal-border-text);
     font-family: "Poppins", sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    color: var(--text-primary);
     font-weight: 500;
 
     &::before {
@@ -248,7 +265,22 @@
   }
 
   .popover-body {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    font-family: "Poppins", sans-serif;
+    color: var(--text-primary);
+    font-weight: 400;
+  }
+}
+
+//tooltip when copy to clipboard
+.dark-edition .tooltip.bs-tooltip-bottom,
+.dark-edition .tooltip.bs-tooltip-top,
+.light-edition .tooltip.bs-tooltip-bottom,
+.light-edition .tooltip.bs-tooltip-top {
+  
+
+  .tooltip-inner {
+    background-color: var(--subheading-color);
   }
 }
 

@@ -76,12 +76,21 @@ body.light-edition {
 
   --image-padding: #192027;
 
+  --traits-bg: rgba(13, 20, 26, .5);
+
   --shadow-primary: 0 16px 38px -12px rgba(0, 0, 0, .56), 
     0 4px 25px 0px rgba(0, 0, 0, .12), 
     0 8px 10px -5px rgba(0, 0, 0, .20);
 
   --cursor-default: url(../img/unifty-icons/cursor-default-dark.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto;
+
+  //scrollbar bg
+  -scrollbar-track: rgba(253, 121, 226, .1);
+  --scrollbar-track-shadow: #121a21;
+  --scrollbar-track-hover: #666666;
+  --scrollbar-thumb: linear-gradient(0deg, #5c5c73 27%,rgba(253, 121, 226, .5) 60%);
+  --scrollbar-thumb-hover: linear-gradient(13deg, #414166 14%,#eb7bd6 64%);
 }
 
 .light-edition {
@@ -107,10 +116,19 @@ body.light-edition {
 
   --image-padding: #e2e3e8;
 
+  --traits-bg: #fff;
+
   --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, .56), 
     0 4px 25px 0px rgba(225, 225, 225, .12), 
     0 8px 10px -5px rgba(225, 225, 225, .2);
 
   --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;
+
+  //scrollbar bg
+  --scrolbar-track: rgba(32, 32, 96, .1);
+  --scrollbar-track-shadow: #f4f7fb;
+  --scrollbar-track-hover: #cdcfd6;
+  --scrollbar-thumb: linear-gradient(0deg, #ccccdd 27%, rgba(32, 32, 96, .5) 60%);
+  --scrollbar-thumb-hover: linear-gradient(13deg, #b8b8c5 14%, #202060 64%);
 }
