@@ -1001,7 +1001,8 @@ h3 {
   font-size: 1.6rem;
   color: var(--bg-secondary);
   font-weight: 700;
-  padding: 1rem 2.5rem; }
+  padding: .3rem .8rem;
+  width: 90%; }
   .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover, .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active,
   .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover,
   .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active {

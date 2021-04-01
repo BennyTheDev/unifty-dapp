@@ -75,9 +75,25 @@
             max-height: 230px;
             min-width: 230px;
             min-height: 230px;
-            border-radius: 50% !important;
+            border-radius: .6rem !important;
             padding: 15px !important;
             object-fit: cover;
+
+            /*
+            -webkit-filter: blur(5px); // Safari 6.0 - 9.0
+            filter: blur(5px);
+            */
+
+            transition: transform .2s;
+        }
+
+        .card-profile .card-avatar:hover{
+            transform: scale(1.3);
+            
+            /*
+            -webkit-filter: blur(0px); // Safari 6.0 - 9.0
+            filter: blur(0px);
+            */
         }
 
         .nftListing {
@@ -170,7 +186,10 @@
     <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
-<body class="dark-edition">
+<body>
+
+  <script src="js/themeDefault.js"></script>
+
 
 <div class="sidebar">
     <div class="logo">
@@ -499,7 +518,7 @@
 
                             {{#ifNotEquals swap ""}}
                                 {{#ifNotEquals buy ""}}
-                                <span style="font-size: 1.4rem;">Or</span>
+                                <span style="font-size: 1.4rem; display: block;">Or</span>
                                 <br/>
                                 {{/ifNotEquals}}
                                 <button id="nftSwap{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-target="#nftSwapModal" data-index="{{index}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
