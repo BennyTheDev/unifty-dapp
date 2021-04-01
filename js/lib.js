@@ -926,6 +926,10 @@ function TncLib(){
             await sleep(sleep_time);
             symbol = await token0Instance.methods.symbol().call({from:this.account}) + "-LP";
         }
+        // cGLD to CELO fix
+        if(tokenAddress.toLowerCase() == "0x471ece3750da237f93b8e339c536989b8978a438".toLowerCase() && chain_id == 'a4ec'){
+            return 'CELO';
+        }
         return symbol;
     };
 

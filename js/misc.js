@@ -1,5 +1,5 @@
-let network = 'Avalanche';
-let chain_id = 'a86a';
+let network = 'Rinkeby';
+let chain_id = '4';
 
 $(document).ready(function(){
 
