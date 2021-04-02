@@ -19,29 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="removed 1hive from featured">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/scss/unifty/layout/_main-panel.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/unifty/layout/_main-panel.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridge.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridge.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bridge-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/bridge-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectible-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-builder-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-dapp-legacy.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp-legacy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
+    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="merged from optimizations &#10;# fixed cards for swaps">
       <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roadmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/roadmap.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +86,7 @@
       <workItem from="1616877665898" duration="4725000" />
       <workItem from="1616883858158" duration="8498000" />
       <workItem from="1617298722308" duration="2585000" />
-      <workItem from="1617368197809" duration="10174000" />
+      <workItem from="1617368197809" duration="10480000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -137,7 +116,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617300898877</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="merged from optimizations &#10;# fixed cards for swaps">
+      <created>1617382452338</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617382452338</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +148,8 @@
     <MESSAGE value="# fixed IPFS image display issues&#10;# added Torus wallet support" />
     <MESSAGE value="+ added avalanche chain support" />
     <MESSAGE value="removed 1hive from featured" />
-    <option name="LAST_COMMIT_MESSAGE" value="removed 1hive from featured" />
+    <MESSAGE value="merged from optimizations &#10;# fixed cards for swaps" />
+    <option name="LAST_COMMIT_MESSAGE" value="merged from optimizations &#10;# fixed cards for swaps" />
   </component>
   <component name="WindowStateProjectService">
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
