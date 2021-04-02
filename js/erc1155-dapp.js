@@ -117,10 +117,36 @@ function TncDapp() {
                         console.log('manage nft for contract', $(this).data('contractAddress'));
                         $('#nftErc1155Address').val($(this).data('contractAddress'));
                         $('#nftErc1155CurrName').val($(this).data('contractName'));
+                        $('#view-collections').css('display', 'initial');
+
                         _this.loadPage('myNftsPage');
                     });
 
-                    $('[data-toggle="popover"]').popover();
+                    $('#view-collections').on('click', function(){
+                        $('#myPoolsPage').css('display', 'grid');
+                        $('#myNftsPage').css('display', 'none');
+                        $('#view-collections').css('display', 'none');
+
+                    })
+
+                    $(".popover-description").popover({
+                        trigger: "manual",
+                        html: true,
+                        animation: false
+                    }).on("mouseenter", function() {
+                        var _this = this;
+                        $(this).popover("show");
+                        $(".popover").on("mouseleave", function() {
+                            $(_this).popover('hide');
+                        });
+                    }).on("mouseleave", function() {
+                        var _this = this;
+                        setTimeout(function() {
+                            if (!$(".popover:hover").length) {
+                                $(_this).popover("hide");
+                            }
+                        }, 300);
+                    });
                 }
 
             }catch (e){
@@ -177,7 +203,7 @@ function TncDapp() {
         let currentIndex = offset;
 
         if(offset <= 0) {
-            $('#myNftsPage').append('<div class="container-fluid mb-5"><h1 id="nftContractNameTitle"></h1></div>');
+            $('#myNftsPage').append('<div class="container-fluid" style="grid-column-start: 1; grid-column-end: -1;"><h1 id="nftContractNameTitle"></h1></div>');
             $('#nftContractNameTitle').text($('#nftErc1155CurrName').val());
         }
 
@@ -223,7 +249,24 @@ function TncDapp() {
 
                     $('#myNftsPage').append(tmpl);
 
-                    $('[data-toggle="popover"]').popover();
+                    $(".popover-description").popover({
+                        trigger: "manual",
+                        html: true,
+                        animation: false
+                    }).on("mouseenter", function() {
+                        var _this = this;
+                        $(this).popover("show");
+                        $(".popover").on("mouseleave", function() {
+                            $(_this).popover('hide');
+                        });
+                    }).on("mouseleave", function() {
+                        var _this = this;
+                        setTimeout(function() {
+                            if (!$(".popover:hover").length) {
+                                $(_this).popover("hide");
+                            }
+                        }, 300);
+                    });
 
                     if(chain_id == '1') {
                         $('.marketRoyaltiesLink').css('display', 'none');
@@ -730,7 +773,13 @@ function TncDapp() {
                 });
 
                 this.lastNftIndex = -1;
-                $('#myNftsPage').css('display', 'flex');
+
+                $('#myNftsPage').css({
+                    'display': 'grid', 
+                    'grid-template-columns': 'repeat(auto-fill, minmax(25rem, 1fr)',
+                    'grid-gap': '2rem'
+                });
+
                 await _this.populateMyNfts();
 
                 break;
@@ -744,7 +793,8 @@ function TncDapp() {
                 $('#nftTransferMultiBatchButton').off('click');
                 $('#nftTransferMultiBatchButton').on('click', this.processTransferMultiBatch);
                 _this.clearNewUpdateNft();
-                $('#myPoolsPage').css('display', 'flex');
+                $('#myPoolsPage').css('display', 'grid');
+                $('#view-collections').css('display', 'none');
 
                 await _this.populateMyErc1155s();
 

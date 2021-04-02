@@ -28,13 +28,28 @@ body {
   font-size: 1.4rem;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  cursor: url(../img/unifty-icons/cursor-default.svg), auto;
+  
+}
+
+body.dark-edition {
+  cursor: var(--cursor-default);
 
   a:link,
   a:hover,
   a:active,
   .btn:not(:disabled):not(.disabled) {
-    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+    cursor: var(--cursor-pointer);
+  }
+}
+
+body.light-edition {
+  cursor: var(--cursor-default);
+
+  a:link,
+  a:hover,
+  a:active,
+  .btn:not(:disabled):not(.disabled) {
+    cursor: var(--cursor-pointer);
   }
 }
 
@@ -50,6 +65,7 @@ body {
   --bg-tertiary: #121a21;
 
   --text-primary: #9d9db4;
+  --text-primary-light: rgba(157, 157, 180, .5);
   --text-footer: #9d9db4;
 
   --heading-color: #ffffff;
@@ -59,6 +75,23 @@ body {
   --modal-text: #f4f7fb;
 
   --image-padding: #192027;
+
+  --traits-bg: rgba(13, 20, 26, .5);
+
+  --shadow-primary: 0 16px 38px -12px rgba(0, 0, 0, .56), 
+    0 4px 25px 0px rgba(0, 0, 0, .12), 
+    0 8px 10px -5px rgba(0, 0, 0, .20);
+
+  --cursor-default: url(../img/unifty-icons/cursor-default-dark.svg), auto;
+  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto;
+  --cursor-text: url(../img/unifty-icons/cursor-text-dark-thin.svg), auto;
+
+  //scrollbar bg
+  -scrollbar-track: rgba(253, 121, 226, .1);
+  --scrollbar-track-shadow: #121a21;
+  --scrollbar-track-hover: #666666;
+  --scrollbar-thumb: linear-gradient(0deg, #5c5c73 27%,rgba(253, 121, 226, .5) 60%);
+  --scrollbar-thumb-hover: linear-gradient(13deg, #414166 14%,#eb7bd6 64%);
 }
 
 .light-edition {
@@ -73,6 +106,7 @@ body {
   --bg-tertiary: #eef0f8;
 
   --text-primary: #4c4c6f;
+  --text-primary-light: rgba(76, 76, 111, .5);
   --text-footer: rgba(76, 76, 111, .5);
 
   --heading-color: #202060;
@@ -82,4 +116,21 @@ body {
   --modal-text: #202040;
 
   --image-padding: #e2e3e8;
+
+  --traits-bg: #fff;
+
+  --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, .56), 
+    0 4px 25px 0px rgba(225, 225, 225, .12), 
+    0 8px 10px -5px rgba(225, 225, 225, .2);
+
+  --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
+  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;
+  --cursor-text: url(../img/unifty-icons/cursor-text-light-thin.svg), auto;
+
+  //scrollbar bg
+  --scrolbar-track: rgba(32, 32, 96, .1);
+  --scrollbar-track-shadow: #f4f7fb;
+  --scrollbar-track-hover: #cdcfd6;
+  --scrollbar-thumb: linear-gradient(0deg, #ccccdd 27%, rgba(32, 32, 96, .5) 60%);
+  --scrollbar-thumb-hover: linear-gradient(13deg, #b8b8c5 14%, #202060 64%);
 }

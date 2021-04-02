@@ -70,16 +70,6 @@
             height: 36px !important;
         }
 
-        .card-profile .card-avatar {
-            max-width: 230px;
-            max-height: 230px;
-            min-width: 230px;
-            min-height: 230px;
-            border-radius: 50% !important;
-            padding: 15px !important;
-            object-fit: cover;
-        }
-
         .nftListing {
             min-width: 300px;
         }
@@ -170,7 +160,9 @@
     <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
-<body class="dark-edition">
+<body>
+
+  <script src="js/themeDefault.js"></script>
 
 
 <div class="sidebar">
@@ -186,43 +178,43 @@
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="index.html">
-                    <i class="material-icons">dashboard</i>
+                    <i class="material-icons-round">home</i>
                     <p>Home</p>
                 </a>
             </li>
             <li class="nav-item active" id="marketNavLink">
                 <a class="nav-link" href="market.html">
-                    <i class="material-icons">storefront</i>
+                    <i class="material-icons-round">storefront</i>
                     <p>NFT Market</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="collectibles.html">
-                    <i class="material-icons">account_box</i>
+                    <i class="material-icons-round">account_box</i>
                     <p>Your Wallet</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="manager.html">
-                    <i class="material-icons">collections</i>
+                    <i class="material-icons-round">collections</i>
                     <p>Collection Manager</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="farm-builder.html">
-                    <i class="material-icons">build</i>
+                    <i class="material-icons-round">build</i>
                     <p>Farm Builder</p>
                 </a>
             </li>
             <li class="nav-item bridgeNav">
                 <a class="nav-link" href="bridge.html">
-                    <i class="material-icons">360</i>
+                    <i class="material-icons-round">360</i>
                     <p>NFT Bridge</p>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="javascript:void(0);" id="nulsSco">
-                    <i class="material-icons">monetization_on</i>
+                    <i class="material-icons-round">monetization_on</i>
                     <p>Get Project Funding</p>
                 </a>
             </li>
@@ -317,6 +309,18 @@
                     </div>
                 </div>
 
+                <div class="theme-toggler">
+                    <label for="themeSwitch" class="theme-options">
+                      <span class="material-icons-round light-mode">
+                        light_mode
+                      </span>
+                      <span class="material-icons-round dark-mode">
+                        dark_mode
+                      </span>
+                    </label>
+                    <input type="checkbox" id="themeSwitch" name="themeSwitch" />
+                </div>
+
             </div>
         </div>
         <!-- HEADER END -->
@@ -391,7 +395,15 @@
                             <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
 
-                        <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                        {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                        {{/ifEquals}}
+
+                        {{#ifEquals checkOpenSea "Open Details"}}
+                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
+                        {{/ifEquals}}
+
+
                         <div class="card-body">
 
                             {{#ifNotEquals animation_url ""}}
@@ -488,7 +500,7 @@
 
                             {{#ifNotEquals swap ""}}
                                 {{#ifNotEquals buy ""}}
-                                <span style="font-size: 1.4rem;">Or</span>
+                                <span style="font-size: 1.4rem; display: block;">Or</span>
                                 <br/>
                                 {{/ifNotEquals}}
                                 <button id="nftSwap{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-target="#nftSwapModal" data-index="{{index}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
@@ -670,10 +682,12 @@
                             <form onsubmit="return false;">
 
                                 <div class="form-group">
-                                    <label for="nftBuyAmount">Amount *</label>
-                                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control" id="nftBuyAmount">
-                                    <button class="btn btn-secondary" type="button" id="buyAddMax">Add Max.</button>
+                                    <label for="nftBuyAmount">Amount<span class="required">*</span></label>
+                                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control" id="nftBuyAmount">                                   
+                                </div>
 
+                                <div class="form-group">
+                                    <button class="btn btn-secondary" type="button" id="buyAddMax">Add Max.</button>
                                 </div>
 
                                 <input type="hidden" name="nftBuyErc1155Address" id="nftBuyErc1155Address" value=""/>
@@ -713,27 +727,27 @@
                                 <p>Please enter the desired amounts of NFTs from your wallet you want to offer.</p>
                                 <p>Note: if you add more than one type of an NFT, the offer can only be purchased by a buyer as a whole.</p>
 
-                                <div class="container" id="nftSellWallet" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                                <div class="container" id="nftSellWallet" style="padding-top: 10px;  padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                                 <div class="form-group">
-                                    <label for="nftSellToken2">Token to sell into *</label>
+                                    <label for="nftSellToken2">Token to sell into<span class="required">*</span></label>
                                     <select class="form-control" id="nftSellToken2">
                                     </select>
                                 </div>
 
                                 <div id="nftSellCustomTokenAddressWrapper2" class="form-group" style="display:none;">
-                                    <label for="nftSellCustomTokenAddress2">Custom <span class="networkStd"></span> Token Address *</label>
+                                    <label for="nftSellCustomTokenAddress2">Custom <span class="networkStd"></span> Token Address<span class="required">*</span></label>
                                     <input type="text" placeholder="Enter a token address to use as sale currency" class="form-control" id="nftSellCustomTokenAddress2">
                                     <small id="nftSellCustomTokenAddressInfo2" class="form-text text-muted"></small>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nftSellPrice">Price *</label>
+                                    <label for="nftSellPrice">Price<span class="required">*</span></label>
                                     <input type="text" placeholder="Enter a price" class="form-control" id="nftSellPrice">
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nftSellCategory">Category *</label>
+                                    <label for="nftSellCategory">Category<span class="required">*</span></label>
                                     <select class="form-control" id="nftSellCategory">
                                         <option value="1">Art</option>
                                         <option value="2">Music</option>
@@ -747,7 +761,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="nftMode1">Type *</label>
+                                    <label for="nftMode1">Type<span class="required">*</span></label>
                                 </div>
 
                                 <div class="form-check">
@@ -777,8 +791,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="nftSellButton">Sell!</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="nftSellButton">Sell!</button>
                             </div>
                         </div>
                     </div>
@@ -803,7 +817,7 @@
 
                                 <p>Pick one of your existing offers to request a swap.</p>
 
-                                <div class="container" id="nftSwapPicker" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                                <div class="container" id="nftSwapPicker" style="padding-top: 10px;  padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                                 <div class="form-group mt-5">
                                     <label for="nftSwapNif">Offer additional NIF for the swap (optional)</label>
@@ -822,8 +836,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="nftSwapButton">Swap!</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="nftSwapButton">Swap!</button>
                             </div>
                         </div>
                     </div>
@@ -850,8 +864,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="nftCancelButton">Cancel</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="nftCancelButton">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -897,8 +911,8 @@
                         </div>
                         <div class="modal-footer">
                             <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="withdrawFundsButton" style="display:none;">Withdraw</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="withdrawFundsButton" style="display:none;">Withdraw</button>
                             </div>
                         </div>
                     </div>
@@ -920,16 +934,18 @@
 
                             <h3>Incoming</h3>
 
-                            <div class="container" id="incomingSwapRequests" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                            <div class="container" id="incomingSwapRequests" style="padding-top: 10px; padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                             <h3>Outgoing</h3>
 
-                            <div class="container" id="outgoingSwapRequests" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                            <div class="container" id="outgoingSwapRequests" style="padding-top: 10px; padding-left: 25px; height: 500px; overflow:auto;"></div>
 
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -948,11 +964,13 @@
                         </div>
                         <div class="modal-body">
 
-                            <div class="container" id="nftsViewContainer" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
+                            <div class="container" id="nftsViewContainer" style="padding-top: 10px; padding-left: 25px; height: 500px; overflow:auto;"></div>
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -983,7 +1001,9 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeInteractive">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeInteractive">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1006,7 +1026,9 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1031,15 +1053,30 @@
             </li>
 
             <li class="nav-item shop" id="shopEthereum" style="display:none;">
-                <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145"><i class="material-icons">shopping_cart</i> Shop</a>
+                <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
+                    <span class="material-icons-round">
+                        shopping_cart
+                      </span>
+                      Shop
+                </a>
             </li>
 
             <li class="nav-item shop" id="shopXdai" style="display:none;">
-                <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082"><i class="material-icons">shopping_cart</i> Shop</a>
+                <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082">
+                    <span class="material-icons-round">
+                        shopping_cart
+                      </span>
+                      Shop
+                </a>
             </li>
 
             <li class="nav-item shop" id="shopBsc" style="display:none;">
-                <a class="nav-link" href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90"><i class="material-icons">shopping_cart</i> Shop</a>
+                <a class="nav-link" href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90">
+                    <span class="material-icons-round">
+                        shopping_cart
+                      </span>
+                      Shop
+                </a>
             </li>
 
             <li class="nav-item">
@@ -1095,6 +1132,6 @@
 
 
 </div>
-
+<script src="js/themeSwitch.js"></script>
 </body>
 </html>

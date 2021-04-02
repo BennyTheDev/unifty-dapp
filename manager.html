@@ -69,17 +69,7 @@
     .dark-edition .modal select {
       height: 36px !important;
     }
-
-    .card-profile .card-avatar {
-      max-width: 230px;
-      max-height: 230px;
-      min-width: 230px;
-      min-height: 230px;
-      border-radius: 50% !important;
-      padding: 15px !important;
-      object-fit: cover;
-    }
-
+    
     .nftListing {
       min-width: 300px;
     }
@@ -148,6 +138,19 @@
     .navbar-text a {
       color: inherit;
     }
+
+    #addedAttributes .col {
+      margin-top: auto;
+      margin-bottom: auto;
+
+      margin-right: 5px;
+    }
+
+    #addedAttributes .col .addedAttributeDelete{
+      margin-bottom: 0px;
+      margin-top: 0px !important;
+    }
+   
   </style>
 
   <style>
@@ -158,7 +161,10 @@
 
 </head>
 
-<body class="dark-edition">
+<body>
+
+  <script src="js/themeDefault.js"></script>
+  
 
   <!-- SIDEBAR -->
   <div class="sidebar">
@@ -305,6 +311,19 @@
               <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
             </div>            
           </div>
+
+          <div class="theme-toggler">
+            <label for="themeSwitch" class="theme-options">
+              <span class="material-icons-round light-mode">
+                light_mode
+              </span>
+              <span class="material-icons-round dark-mode">
+                dark_mode
+              </span>
+            </label>
+            <input type="checkbox" id="themeSwitch" name="themeSwitch" />
+          </div>
+
         </div>
       </div>
       <!-- HEADER END -->
@@ -398,7 +417,8 @@
             </div>
         </div>
     </script>
-
+      
+    <button id="view-collections" class="btn btn-outline" style="font-size: initial; display: none;"> View collections </button>
         <div class="row" id="myPoolsPage" style="display: none;"></div>
 
         <!-- My NFTs -->
@@ -912,15 +932,30 @@
           </li>
 
           <li class="nav-item shop" id="shopEthereum" style="display:none;">
-              <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145"><i class="material-icons">shopping_cart</i> Shop</a>
+              <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
+                <span class="material-icons-round">
+                  shopping_cart
+                </span>
+                Shop
+              </a>
           </li>
 
           <li class="nav-item shop" id="shopXdai" style="display:none;">
-              <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082"><i class="material-icons">shopping_cart</i> Shop</a>
+              <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0xCBe3F53c26A717704d12D219F8B43016BbDa9082">
+                <span class="material-icons-round">
+                  shopping_cart
+                </span>
+                Shop
+              </a>
           </li>
 
           <li class="nav-item shop" id="shopBsc" style="display:none;">
-              <a class="nav-link" href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90"><i class="material-icons">shopping_cart</i> Shop</a>
+              <a class="nav-link" href="https://unifty.io/bsc/farm-view.html?address=0x7B717526fF81f28053F82170D96f01B4605A5e90">
+                <span class="material-icons-round">
+                  shopping_cart
+                </span>
+                Shop
+              </a>
           </li>
 
           <li class="nav-item">
@@ -975,6 +1010,7 @@
 
   </div>
 
+  <script src="js/themeSwitch.js"></script>
 </body>
 
 </html>

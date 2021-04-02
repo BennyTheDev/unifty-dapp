@@ -30,7 +30,7 @@
     }
 
     &:hover {
-      cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+      cursor: var(--cursor-pointer);
       span {
         transform: scale(1.1);
       }
@@ -46,9 +46,17 @@
     padding: 0;
 
     &.featured-farms {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      grid-gap: 2rem;
       align-items: flex-start;
+      margin-top: 2rem;
+
+      @media only screen and (max-width: 990px) {
+        .card.card.farm-card {
+          width: unset;
+        }
+      }
     }
   }
 
@@ -57,17 +65,29 @@
     background: var(--bg-tertiary);
     border-radius: .8rem;
     z-index: 0;
+    margin: 0;
   }
 
   //nft header + staking options
   .nftHeader-stakingOptions-container {
-    width: 100%;
     display: flex;
-    align-items: flex-start;
     margin-bottom: 3rem;
 
     @include respond(bootstrap-xxl) {
       flex-direction: column;
+    }
+  }
+
+  //grid farm builder
+  .content {
+    .row {
+      margin: 0 0 1rem 0;
+    }
+
+    #farmsPage.row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      grid-gap: 2rem;
     }
   }
 
@@ -77,9 +97,19 @@
         margin-bottom: 2rem;
       }
     }
-    
+
     .row {
       margin: 0 0 1rem 0;
+    }
+    
+    //grid farms
+    #farmPage.row,
+    #collectiblesPage.row,
+    #offersPage.row,
+    #myPoolsPage.row {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+      grid-gap: 2rem;
     }
 
     .col-xl-12,
@@ -101,7 +131,7 @@
     .wallet-container, .bridge-container {
       padding: 2rem;
       background-color: var(--bg-tertiary);
-      box-shadow: $shadow-secondary-dark;
+      box-shadow: var(--shadow-primary);
       border-radius: .8rem;
 
       #stakingOptions a.btn-secondary {
@@ -115,5 +145,9 @@
         padding: .8rem 1.2rem
       }
     }
+  }
+
+  .footer {
+    border-top: none;
   }
 }

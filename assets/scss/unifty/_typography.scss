@@ -23,6 +23,10 @@ h1.nftListingsTitle {
   }
 }
 
+h1#nftContractNameTitle {
+  margin-top: 4rem;
+}
+
 h1.nftListingsTitle {
   justify-content: flex-start;
   margin-bottom: 1rem;
@@ -36,4 +40,8 @@ h3 {
   color: var(--text-primary);
   // color: var(--subheading-color);
   margin: 0 0 1rem;
+}
+
+.text-muted a {
+  color: var(--heading-color);
 }

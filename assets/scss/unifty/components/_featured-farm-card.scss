@@ -1,9 +1,9 @@
 .dark-edition .card.farm-card,
 .light-edition .card.farm-card {
-  margin: 1rem 2rem 1rem 0;
+  margin: 0;
 
   .card-body {
-    box-shadow: $shadow-secondary-dark;
+    box-shadow: var(--shadow-primary);
 
     a {
       font-size: 1.4rem;
@@ -42,7 +42,6 @@
 }
 
 .card.card.farm-card {
-  width: 25rem;
   display: flex;
   flex-direction: row-reverse;
   border-radius: 1rem;
@@ -130,24 +129,5 @@
 @media only screen and (max-width: 990px) {
   .card.card.farm-card {
     width: 671px;
-  }
-}
-
-.dark-edition .main-panel .content .container-fluid.featured-farms .card.farm-card {
-
-  &:nth-of-type(3n+1) {
-    .card-body {
-      background: $lg-blue;
-    }
-  }
-  &:nth-of-type(3n+2) {
-    .card-body {
-      background: $lg-yellow;
-    }
-  }
-  &:nth-of-type(3n+3) {
-    .card-body {
-      background: $lg-purple;
-    }
   }
 }

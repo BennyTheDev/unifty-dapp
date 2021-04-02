@@ -4,7 +4,7 @@
   background-color: var(--bg-tertiary);
 
   .close:not(:disabled):not(.disabled) {
-    cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+    cursor: var(--cursor-pointer);
   }
 
   .modal-non-nft-content a {
@@ -51,6 +51,12 @@
     color: var(--modal-border-text);
     font-size: 1.3rem;
 
+    .container {
+      border-radius: .4rem;
+      background-color: var(--bg-primary);
+      margin-bottom: 1rem;
+    }
+
     select {
       background-color: transparent;
       height: auto;
@@ -62,7 +68,7 @@
       padding: 1rem;
 
       &:hover {
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+        cursor: var(--cursor-pointer);
       }
 
       option {
@@ -88,7 +94,7 @@
       &:hover {
         border: .1rem solid var(--primary-hover-dark);
         color: var(--primary-hover-dark);
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto !important;
+        cursor: var(--cursor-pointer) !important;
       }
     }
 
@@ -101,12 +107,13 @@
       color: var(--modal-text);
 
       &:hover {
-        cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+        cursor: var(--cursor-pointer);
       }
 
       span {
         &.required {
           color: var(--primary-color);
+          margin-left: .3rem;
         }
 
         &.material-icons-round {
@@ -116,13 +123,14 @@
 
           &:hover {
             color: var(--primary-color);
-            cursor: url(../img/unifty-icons/cursor-pointer.svg), auto;
+            cursor: var(--cursor-pointer);
           }
         }
       }
     }
 
-    form .form-group input {
+    form .form-group input,
+    .col-3 input {
       height: auto;
       background-color: transparent !important;
       background-image: none;
@@ -143,6 +151,10 @@
       }
     }
 
+    .col-3 input {
+      padding: .5rem 1rem;
+    }
+
     form .form-group textarea {
       height: auto;
       background-color: transparent;
@@ -153,6 +165,7 @@
       font-size: 1.3rem;
       color: var(--modal-text);
       transition: all .3s;
+
       &:focus {
         border: .1rem solid var(--primary-color);
       }
@@ -227,6 +240,10 @@
         background-color: var(--bg-secondary);
         border: .1rem solid var(--primary-color);      
         color: var(--primary-color);
+      }
+
+      &:only-child {
+        margin-right: 0;
       }
     }
 
