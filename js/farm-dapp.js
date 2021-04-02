@@ -1247,7 +1247,7 @@ function TncDapp() {
 
                     $('#farmTokenSymbol').html(await tncLib.farmTokenSymbol(farm_address));
                     //$('#stakingOptions').css('display', 'flex');
-                    $('#farmPage').css('display', 'flex');
+                    $('#farmPage').css('display', 'grid');
                     _this.populateFarm(farm_address);
                 }
 

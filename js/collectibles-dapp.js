@@ -189,7 +189,7 @@ function TncDapp() {
             audio_url: data_audio_url,
             interactive_url: data_interactive_url,
             name: data_name,
-            description: _this.truncate(data_description, 320),
+            description: _this.truncate(data_description, 1250),
             url: data_link,
             attributes: data_attributes,
             id: id,
@@ -991,7 +991,7 @@ function TncDapp() {
                 $('#nftTransferModal').off('show.bs.modal');
                 $('#nftTransferModal').on('show.bs.modal', _this.populateTransfer);
 
-                $('#collectiblesPage').css('display', 'flex');
+                $('#collectiblesPage').css('display', 'grid');
 
                 let address = tncLib.account;
                 if(web3.utils.isAddress(_this.getUrlParam('address'))){

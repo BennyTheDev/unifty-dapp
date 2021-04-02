@@ -395,7 +395,7 @@ function TncDapp() {
                 $('#nftInteractiveModal').off('show.bs.modal');
                 $('#nftInteractiveModal').on('show.bs.modal', _this.populateInteractive);
 
-                $('#bridgedPage').css('display', 'flex');
+                $('#bridgedPage').css('display', 'grid');
 
                 await _this.getBridgedNfts();
 

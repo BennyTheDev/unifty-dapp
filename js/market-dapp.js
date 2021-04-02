@@ -213,13 +213,14 @@ function TncDapp() {
         }
 
 
-        if(which == 'picker' || which == 'request'){
+        if(which == 'picker' || which == 'request' || which == 'request2'){
 
             if(data_interactive_url != ''){
                 data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id
             }
 
             let tmpl = _this.pickerTemplate({
+                which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcChainid : srcInfo[2],
                 srcCollection : srcInfo[0],
@@ -231,7 +232,7 @@ function TncDapp() {
                 audio_url: data_audio_url,
                 interactive_url: data_interactive_url,
                 name: data_name,
-                description: _this.truncate(data_description, 320),
+                description: _this.truncate(data_description, 1250),
                 url: data_link,
                 attributes: data_attributes,
                 id: id,
@@ -277,6 +278,7 @@ function TncDapp() {
                     }, 300);
                 });
 
+
                 $('#nftListing' + index).off('click');
                 $('#nftListing' + index).on('click', function () {
 
@@ -314,7 +316,7 @@ function TncDapp() {
                 audio_url: data_audio_url,
                 interactive_url: data_interactive_url,
                 name: data_name,
-                description: _this.truncate(data_description, 320),
+                description: _this.truncate(data_description, 1250),
                 url: data_link,
                 attributes: data_attributes,
                 id: id,
@@ -1523,7 +1525,7 @@ function TncDapp() {
 
         for(let i = length - 1; i >= 0; i--){
 
-            out = '<div class="row">';
+            out = '<div class="row mb-5">';
 
             let listEntry = await tncLibMarket.getSwapRequestListEntry(tncLib.account, i);
 
@@ -1553,10 +1555,12 @@ function TncDapp() {
             let extraNif = '';
             if(nifAmount.gt(zero)){
                 extraNif = _this.formatNumberString(nifAmount.toString(), 18);
-                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-5">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
+                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-1">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
             }
 
             out += '<div class="col">';
+
+            out += extraNif;
 
             out += await _this.render(
                 ask1.erc1155Address[0],
@@ -1573,8 +1577,6 @@ function TncDapp() {
                 ask1.erc1155Address.length > 1,
                 ask1.erc1155Address.length - 1
             );
-
-            out += extraNif;
 
             out += '</div><div class="col" style="text-align: center; margin-bottom: 50px;">';
 
@@ -1633,6 +1635,27 @@ function TncDapp() {
 
             $('#outgoingSwapRequests').append(out);
 
+            // $('[data-toggle="popover"]').popover();
+            $(".popover-description").popover({
+                trigger: "manual",
+                html: true,
+                animation: false
+            }).on("mouseenter", function() {
+                var _this = this;
+                $(this).popover("show");
+                $(".popover").on("mouseleave", function() {
+                    $(_this).popover('hide');
+                });
+            }).on("mouseleave", function() {
+                var _this = this;
+                setTimeout(function() {
+                    if (!$(".popover:hover").length) {
+                        $(_this).popover("hide");
+                    }
+                }, 300);
+            });
+
+
             $('.cancelSwapButton').off('click');
             $('.cancelSwapButton').on('click', _this.performSwapCancel);
 
@@ -1660,7 +1683,7 @@ function TncDapp() {
 
         for(let i = length - 1; i >= 0; i--){
 
-            out = '<div class="row">';
+            out = '<div class="row mb-5">';
 
             let request = await tncLibMarket.getSwapRequest(tncLib.account, i);
             // "mine"
@@ -1739,10 +1762,12 @@ function TncDapp() {
             let extraNif = '';
             if(nifAmount.gt(zero)){
                 extraNif = _this.formatNumberString(nifAmount.toString(), 18);
-                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-5">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
+                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-1">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
             }
 
             out += '<div class="col">';
+
+            out += extraNif;
 
             out += await _this.render(
                 ask1.erc1155Address[0],
@@ -1760,12 +1785,30 @@ function TncDapp() {
                 ask1.erc1155Address.length - 1
             );
 
-            out += extraNif;
-
             out += '</div>';
             out += '</div>';
 
             $('#incomingSwapRequests').append(out);
+
+            // $('[data-toggle="popover"]').popover();
+            $(".popover-description").popover({
+                trigger: "manual",
+                html: true,
+                animation: false
+            }).on("mouseenter", function() {
+                var _this = this;
+                $(this).popover("show");
+                $(".popover").on("mouseleave", function() {
+                    $(_this).popover('hide');
+                });
+            }).on("mouseleave", function() {
+                var _this = this;
+                setTimeout(function() {
+                    if (!$(".popover:hover").length) {
+                        $(_this).popover("hide");
+                    }
+                }, 300);
+            });
 
             $('.acceptSwapButton').off('click');
             $('.acceptSwapButton').on('click', _this.performSwapAccept);
@@ -1968,7 +2011,7 @@ function TncDapp() {
                 ask.swapMode,
                 ask.index0,
                 false,
-                'request',
+                'request2',
                 false,
                 0
             );

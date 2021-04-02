@@ -1592,10 +1592,12 @@ textarea, input {
   .dark-edition .main-panel .content .container-fluid #collectiblesPage.row,
   .dark-edition .main-panel .content .container-fluid #offersPage.row,
   .dark-edition .main-panel .content .container-fluid #myPoolsPage.row,
+  .dark-edition .main-panel .content .container-fluid #bridgedPage.row,
   .light-edition .main-panel .content .container-fluid #farmPage.row,
   .light-edition .main-panel .content .container-fluid #collectiblesPage.row,
   .light-edition .main-panel .content .container-fluid #offersPage.row,
-  .light-edition .main-panel .content .container-fluid #myPoolsPage.row {
+  .light-edition .main-panel .content .container-fluid #myPoolsPage.row,
+  .light-edition .main-panel .content .container-fluid #bridgedPage.row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem; }

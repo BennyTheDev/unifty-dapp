@@ -321,13 +321,14 @@ function TncDapp() {
         }
 
 
-        if(which == 'picker' || which == 'request'){
+        if(which == 'picker' || which == 'request' || which == 'request2'){
 
             if(data_interactive_url != ''){
                 data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id
             }
 
             let tmpl = _this.pickerTemplate({
+                which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcChainid : srcInfo[2],
                 srcCollection : srcInfo[0],
@@ -1025,14 +1026,31 @@ function TncDapp() {
                 ask.swapMode,
                 ask.index0,
                 false,
-                'request',
+                'request2',
                 false,
                 0
             );
 
             $('#nftsViewContainer').append(out);
 
-            $('[data-toggle="popover"]').popover();
+            $(".popover-description").popover({
+                trigger: "manual",
+                html: true,
+                animation: false
+            }).on("mouseenter", function() {
+                var _this = this;
+                $(this).popover("show");
+                $(".popover").on("mouseleave", function() {
+                    $(_this).popover('hide');
+                });
+            }).on("mouseleave", function() {
+                var _this = this;
+                setTimeout(function() {
+                    if (!$(".popover:hover").length) {
+                        $(_this).popover("hide");
+                    }
+                }, 300);
+            });
         }
     }
 
@@ -1157,7 +1175,7 @@ function TncDapp() {
                 $('#nftTransferModal').off('show.bs.modal');
                 $('#nftTransferModal').on('show.bs.modal', _this.populateTransfer);
 
-                $('#collectiblePage').css('display', 'flex');
+                $('#collectiblePage').css('display', 'grid');
 
                 if(!web3.utils.isAddress(_this.getUrlParam('collection'))){
                     _alert('Invalid  Address Provided');

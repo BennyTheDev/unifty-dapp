@@ -1,5 +1,5 @@
-let network = 'Rinkeby';
-let chain_id = '4';
+let network = 'Ethereum';
+let chain_id = '1';
 
 $(document).ready(function(){
 

@@ -997,7 +997,7 @@ function TncDapp() {
                 $('#editRewardRateModal').off('show.bs.modal');
                 $('#editRewardRateModal').on('show.bs.modal', _this.populateRewardRate);
 
-                $('#farmsPage').css('display', 'flex');
+                $('#farmsPage').css('display', 'grid');
                 await _this.populateMyFarms();
 
                 break;

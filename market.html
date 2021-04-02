@@ -16,27 +16,27 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="text/javascript" src="js/ipfs.js"></script>
     <script type="text/javascript" src="js/buffer.js"></script>
-    <script type="text/javascript" src="js/misc.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/nifABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/genesisABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/farmABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/farmShopABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/marketABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/swapABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/lib.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/lib-bridge.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/lib-market.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/market-dapp.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/dapp-init.js?v=1.9.0"></script>
-    <script type="text/javascript" src="js/cookie.js?v=1.9.0"></script>
+    <script type="text/javascript" src="js/misc.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/nifABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/genesisABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/farmABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/farmShopABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/marketABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/swapABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/lib.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/lib-bridge.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/lib-market.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/market-dapp.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/dapp-init.js?v=1.9.1"></script>
+    <script type="text/javascript" src="js/cookie.js?v=1.9.1"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
     <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -501,7 +501,7 @@
                             {{#ifNotEquals swap ""}}
                                 {{#ifNotEquals buy ""}}
                                 <span style="font-size: 1.4rem; display: block;">Or</span>
-                                <br/>
+
                                 {{/ifNotEquals}}
                                 <button id="nftSwap{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-target="#nftSwapModal" data-index="{{index}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                     Swap
@@ -559,7 +559,7 @@
             <!-- Swap Picker View -->
             <script id="picker-template" type="text/x-handlebars-template">
 
-                <div style="cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
+                <div style="{{#ifEquals which "request"}}min-width: 100%;{{/ifEquals}}{{#ifEquals which "request2"}}margin-bottom: 3rem !important;margin-left: 3rem !important;{{/ifEquals}}cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
