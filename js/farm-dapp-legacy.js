@@ -45,14 +45,17 @@ function TncDapp() {
 
         }
 
-        $('#farmPage').append('<div style="text-align: center" class="container-fluid mb-1"><h1 id="nftFarmNameTitle"></h1></div>');
+        $('#farmPageHead').append('<div class="w-100 row justify-content-center content-center mb-3" id="headerInclude"></div>\'');
+
+        $('#headerInclude').append('<div style="text-align: center" class="container-fluid mb-1"><h1 id="nftFarmNameTitle"></h1></div>');
         $('#nftFarmNameTitle').text(farm_name);
 
         if(custom_link_value != '') {
-            $('#farmPage').append('<div style="text-align: center" class="container-fluid mb-5"><a id="nftFarmCustomLink" href="#"></a></div>');
+            $('#headerInclude').append('<div style="text-align: center" class="container-fluid mb-5"><a id="nftFarmCustomLink" href="#"></a></div>');
             $('#nftFarmCustomLink').text(custom_link_name);
             $('#nftFarmCustomLink').attr('href', custom_link_value);
         }
+
 
         let offset = _this.lastNftIndex > -1 ? _this.lastNftIndex : 0;
         let currentIndex = offset;
