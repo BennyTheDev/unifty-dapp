@@ -28,8 +28,27 @@
       padding: .8rem !important;
       margin: 1.5rem auto .5rem;
       background-color: var(--image-padding);
-    }
 
+      border-radius: .6rem !important;
+      object-fit: cover;
+
+      /*
+            -webkit-filter: blur(5px); // Safari 6.0 - 9.0
+            filter: blur(5px);
+            */
+
+      transition: transform .2s;
+
+    }
+    .card-avatar:hover{
+      transform: scale(1.3);
+          
+          /*
+          -webkit-filter: blur(0px); // Safari 6.0 - 9.0
+          filter: blur(0px);
+          */
+    }
+    
     .card-body, .header-left {
       position: static;
 

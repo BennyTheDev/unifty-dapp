@@ -2035,7 +2035,7 @@ function TncDapp() {
                 $('#nftInteractiveModal').off('show.bs.modal');
                 $('#nftInteractiveModal').on('show.bs.modal', _this.populateInteractive);
 
-                $('#offersPage').css('display', 'flex');
+                $('#offersPage').css('display', 'grid');
 
                 let address = '';
                 if(web3.utils.isAddress(_this.getUrlParam('address'))){

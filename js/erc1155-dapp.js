@@ -114,9 +114,17 @@ function TncDapp() {
                         console.log('manage nft for contract', $(this).data('contractAddress'));
                         $('#nftErc1155Address').val($(this).data('contractAddress'));
                         $('#nftErc1155CurrName').val($(this).data('contractName'));
+                        $('#view-collections').css('display', 'initial');
+
                         _this.loadPage('myNftsPage');
                     });
 
+                    $('#view-collections').on('click', function(){
+                        $('#myPoolsPage').css('display', 'grid');
+                        $('#myNftsPage').css('display', 'none');
+                        $('#view-collections').css('display', 'none');
+
+                    })
 
                     $(".popover-description").popover({
                         trigger: "manual",
@@ -782,7 +790,8 @@ function TncDapp() {
                 $('#nftTransferMultiBatchButton').off('click');
                 $('#nftTransferMultiBatchButton').on('click', this.processTransferMultiBatch);
                 _this.clearNewUpdateNft();
-                $('#myPoolsPage').css('display', 'flex');
+                $('#myPoolsPage').css('display', 'grid');
+                $('#view-collections').css('display', 'none');
 
                 await _this.populateMyErc1155s();
 

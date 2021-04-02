@@ -64,6 +64,7 @@ body.light-edition {
     0 8px 10px -5px rgba(0, 0, 0, .20);
   --cursor-default: url(../img/unifty-icons/cursor-default-dark.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto;
+  --cursor-text: url(../img/unifty-icons/cursor-text-dark-thin.svg), auto;
   -scrollbar-track: rgba(253, 121, 226, 0.1);
   --scrollbar-track-shadow: #121a21;
   --scrollbar-track-hover: #666666;
@@ -92,6 +93,7 @@ body.light-edition {
     0 8px 10px -5px rgba(225, 225, 225, .2);
   --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;
+  --cursor-text: url(../img/unifty-icons/cursor-text-light-thin.svg), auto;
   --scrolbar-track: rgba(32, 32, 96, .1);
   --scrollbar-track-shadow: #f4f7fb;
   --scrollbar-track-hover: #cdcfd6;
@@ -137,6 +139,9 @@ h3 {
 
 .text-muted a {
   color: var(--heading-color); }
+
+textarea, input {
+  cursor: var(--cursor-text); }
 
 .light-edition #chainSelectionDropdown,
 .light-edition #walletActions,
@@ -543,7 +548,24 @@ h3 {
       max-height: 15.6rem;
       padding: .8rem !important;
       margin: 1.5rem auto .5rem;
-      background-color: var(--image-padding); }
+      background-color: var(--image-padding);
+      border-radius: .6rem !important;
+      object-fit: cover;
+      /*
+            -webkit-filter: blur(5px); // Safari 6.0 - 9.0
+            filter: blur(5px);
+            */
+      transition: transform .2s; }
+    .nftListing .card-profile .card-avatar:hover, .nftListing .header-profile .card-avatar:hover,
+    .farmListing .card-profile .card-avatar:hover,
+    .farmListing .header-profile .card-avatar:hover,
+    .nftHeader .card-profile .card-avatar:hover,
+    .nftHeader .header-profile .card-avatar:hover {
+      transform: scale(1.3);
+      /*
+          -webkit-filter: blur(0px); // Safari 6.0 - 9.0
+          filter: blur(0px);
+          */ }
     .nftListing .card-profile .card-body, .nftListing .card-profile .header-left, .nftListing .header-profile .card-body, .nftListing .header-profile .header-left,
     .farmListing .card-profile .card-body,
     .farmListing .card-profile .header-left,
@@ -1556,7 +1578,7 @@ h3 {
     margin: 0 0 1rem 0; }
   .dark-edition .main-panel .content #farmsPage.row,
   .light-edition .main-panel .content #farmsPage.row {
-    display: grid !important;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem; }
   .dark-edition .main-panel .content .container-fluid.wallet h1, .dark-edition .main-panel .content .container-fluid.bridge h1,
@@ -1574,7 +1596,7 @@ h3 {
   .light-edition .main-panel .content .container-fluid #collectiblesPage.row,
   .light-edition .main-panel .content .container-fluid #offersPage.row,
   .light-edition .main-panel .content .container-fluid #myPoolsPage.row {
-    display: grid !important;
+    display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem; }
   .dark-edition .main-panel .content .container-fluid .col-xl-12,
