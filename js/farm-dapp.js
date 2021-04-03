@@ -56,8 +56,6 @@ function TncDapp() {
             $('#loadMore').remove();
         }
 
-        let nfts = await window.tncLib.getFarmNfts(farmAddress);
-
         if(_this.lastNftIndex == -1) {
 
             let farm_name = 'Farm';
@@ -147,6 +145,8 @@ function TncDapp() {
 
         let offset = _this.lastNftIndex > -1 ? _this.lastNftIndex : 0;
         let currentIndex = offset;
+
+        let nfts = await window.tncLib.getFarmNfts(farmAddress);
 
         for(let i = offset; i < nfts.length; i++){
 
@@ -644,7 +644,7 @@ function TncDapp() {
 
             _this.observeChanges();
 
-        }, 15000);
+        }, 5000);
 
     };
 
@@ -709,7 +709,7 @@ function TncDapp() {
 
             _this.observeChanges2();
 
-        }, 15000);
+        }, 5000);
 
     };
 

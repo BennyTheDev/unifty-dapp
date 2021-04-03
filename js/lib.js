@@ -269,6 +269,9 @@ function TncLib(){
         await sleep(sleep_time);
 
         let uris = await farm.getPastEvents('FarmUri', {
+            filter: {
+                farm: farmAddress
+            },
             fromBlock: min_block,
             toBlock: 'latest'
         });

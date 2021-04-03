@@ -75,7 +75,9 @@ function TncDapp() {
                         runMode = await tncLib.farmShopRunMode(addonAddress);
                     }
 
-                    let nftcount = await tncLib.farmNftCount(farm.farm);
+                    //let nftcount = await tncLib.farmNftCount(farm.farm);
+                    // too slow, removed
+                    let nftcount = 0;
                     let controllerFunds = await tncLib.farmPendingWithdrawals(await tncLib.farmController(farm.farm), farm.farm);
                     let totalFees = await tncLib.farmTotalFeesCollected(farm.farm);
 
