@@ -56,6 +56,148 @@ function TncDapp() {
             $('#loadMore').remove();
         }
 
+        /**
+         * STAKE ACTION
+         */
+
+        $('#nftStakeButton').off('click');
+        $('#nftStakeButton').on('click', async function(){
+
+            toastr.remove();
+
+            let stake_amount = $('#nftStakeAmount').val();
+
+            stake_amount = _this.resolveNumberString(stake_amount, decimals);
+
+            let maxStakes = await tncLib.farmMaxStakeRaw(farmAddress);
+            let minStakes = await tncLib.farmMinStakeRaw(farmAddress);
+            let balance = await tncLib.farmBalanceOfRaw(farmAddress, tncLib.account);
+
+            console.log(stake_amount);
+
+            let added = parseInt(balance) + parseInt(stake_amount);
+
+            if( added == 0 || added < minStakes || added > maxStakes ){
+                let symbol = await tncLib.farmTokenSymbol(farmAddress);
+                let maxStakesLeft = web3.utils.toBN( await tncLib.farmMaxStakeRaw(farmAddress) ).sub( web3.utils.toBN( balance ) );
+                _alert("Please stake with the proper amounts.<br />Left for staking: " + _this.formatNumberString(maxStakesLeft.toString(), decimals) + " " + symbol + "<br /> " + ( minStakes == 0 ? '' : "Minimum Stake: " + ( _this.formatNumberString( minStakes, decimals ) ) + " " + symbol + "<br />" ) + "Maximum Stake: " + ( _this.formatNumberString( maxStakes, decimals ) ) + " " + symbol );
+                return;
+            }
+
+            let farmToken = await tncLib.farmToken(farmAddress);
+
+            if(
+                await tncLib.allowanceErc20Raw(
+                    farmToken,
+                    tncLib.account,
+                    farmAddress
+                ) < parseInt(stake_amount)
+            ){
+
+                $('#nftStakeButton').prop('disabled', true);
+                $('#nftStakeButton').html('Approve first!');
+
+                await window.tncLib.approveErc20(
+                    farmToken,
+                    stake_amount,
+                    farmAddress,
+                    function () {
+                        toastr["info"]('Please wait for the transaction to finish.', "Approve....");
+                    },
+                    function (receipt) {
+                        console.log(receipt);
+                        toastr.remove();
+                        toastr["success"]('Transaction has been finished.', "Success");
+                        $('#nftStakeButton').prop('disabled', false);
+                        $('#nftStakeButton').html('Stake Now!');
+                    },
+                    function () {
+                        toastr.remove();
+                        toastr["error"]('An error occurred with your approval transaction.', "Error");
+                        $('#nftStakeButton').prop('disabled', false);
+                        $('#nftStakeButton').html('Stake!');
+                    });
+            }
+            else {
+
+                $('#nftStakeButton').prop('disabled', false);
+                $('#nftStakeButton').html('Stake!');
+
+                await window.tncLib.farmStake(
+                    farmAddress,
+                    stake_amount,
+                    function () {
+                        toastr["info"]('Please wait for the transaction to finish.', "Staking....");
+                        $('#nftStakeButton').prop('disabled', true);
+                        $('#nftStakeButton').html('Processing...');
+                    },
+                    function (receipt) {
+                        console.log(receipt);
+                        toastr.remove();
+                        toastr["success"]('Transaction has been finished.', "Success");
+                        $('#nftStakeButton').prop('disabled', false);
+                        $('#nftStakeButton').html('Staking successful!');
+                        setTimeout(function(){
+
+                            $('#nftStakeButton').html('Stake!');
+
+                        }, 5000);
+                    },
+                    function (err) {
+                        toastr.remove();
+                        let errMsg = 'An error occurred with your staking transaction.';
+                        if(err == 'gas'){
+                            errMsg = 'Staking amount exceeds limit or general gas error.';
+                        }
+                        toastr["error"](errMsg, "Error");
+                        $('#nftStakeButton').prop('disabled', false);
+                        $('#nftStakeButton').html('Stake!');
+                    });
+            }
+        });
+
+        /**
+         * UNSTAKE ACTION
+         */
+
+        $('#nftUnstakeButton').off('click');
+        $('#nftUnstakeButton').on('click', async function(){
+
+            toastr.remove();
+
+            let unstake_amount = $('#nftUnstakeAmount').val();
+
+            unstake_amount = _this.resolveNumberString(unstake_amount, decimals);
+
+            console.log("unstake amount",unstake_amount);
+
+            await window.tncLib.farmUnstake(
+                farmAddress,
+                unstake_amount,
+                function () {
+                    toastr["info"]('Please wait for the transaction to finish.', "Unstaking....");
+                },
+                function (receipt) {
+                    console.log(receipt);
+                    toastr.remove();
+                    toastr["success"]('Transaction has been finished.', "Success");
+                    $('#nftUnstakeButton').html('Unstaking successful!');
+                    setTimeout(function(){
+
+                        $('#nftUnstakeButton').html('Unstake!');
+
+                    }, 5000);
+                },
+                function (err) {
+                    toastr.remove();
+                    let errMsg = 'An error occurred with your unstaking transaction.';
+                    if(err == 'gas'){
+                        errMsg = 'Unstaking amount exceeds balance or general gas error.';
+                    }
+                    toastr["error"](errMsg, "Error");
+                });
+        });
+
         if(_this.lastNftIndex == -1) {
 
             let farm_name = 'Farm';
@@ -107,6 +249,8 @@ function TncDapp() {
                 }
 
             } catch (e) {
+
+                console.log(e);
             }
 
             let cookieValue = JSON.stringify({farm: farmAddress, name: farm_name.replace(';', '.')});
@@ -436,149 +580,6 @@ function TncDapp() {
                 _this.populateFarm(farmAddress);
             });
         }
-
-        /**
-         * STAKE ACTION
-         */
-
-        $('#nftStakeButton').off('click');
-        $('#nftStakeButton').on('click', async function(){
-
-            toastr.remove();
-
-            let stake_amount = $('#nftStakeAmount').val();
-
-            stake_amount = _this.resolveNumberString(stake_amount, decimals);
-
-            let maxStakes = await tncLib.farmMaxStakeRaw(farmAddress);
-            let minStakes = await tncLib.farmMinStakeRaw(farmAddress);
-            let balance = await tncLib.farmBalanceOfRaw(farmAddress, tncLib.account);
-
-            console.log(stake_amount);
-
-            let added = parseInt(balance) + parseInt(stake_amount);
-
-
-            if( added == 0 || added < minStakes || added > maxStakes ){
-                let symbol = await tncLib.farmTokenSymbol(farmAddress);
-                let maxStakesLeft = web3.utils.toBN( await tncLib.farmMaxStakeRaw(farmAddress) ).sub( web3.utils.toBN( balance ) );
-                _alert("Please stake with the proper amounts.<br />Left for staking: " + _this.formatNumberString(maxStakesLeft.toString(), decimals) + " " + symbol + "<br /> " + ( minStakes == 0 ? '' : "Minimum Stake: " + ( _this.formatNumberString( minStakes, decimals ) ) + " " + symbol + "<br />" ) + "Maximum Stake: " + ( _this.formatNumberString( maxStakes, decimals ) ) + " " + symbol );
-                return;
-            }
-
-            let farmToken = await tncLib.farmToken(farmAddress);
-
-            if(
-                await tncLib.allowanceErc20Raw(
-                    farmToken,
-                    tncLib.account,
-                    farmAddress
-                ) < parseInt(stake_amount)
-            ){
-
-                $('#nftStakeButton').prop('disabled', true);
-                $('#nftStakeButton').html('Approve first!');
-
-                await window.tncLib.approveErc20(
-                    farmToken,
-                    stake_amount,
-                    farmAddress,
-                    function () {
-                        toastr["info"]('Please wait for the transaction to finish.', "Approve....");
-                    },
-                    function (receipt) {
-                        console.log(receipt);
-                        toastr.remove();
-                        toastr["success"]('Transaction has been finished.', "Success");
-                        $('#nftStakeButton').prop('disabled', false);
-                        $('#nftStakeButton').html('Stake Now!');
-                    },
-                    function () {
-                        toastr.remove();
-                        toastr["error"]('An error occurred with your approval transaction.', "Error");
-                        $('#nftStakeButton').prop('disabled', false);
-                        $('#nftStakeButton').html('Stake!');
-                    });
-            }
-            else {
-
-                $('#nftStakeButton').prop('disabled', false);
-                $('#nftStakeButton').html('Stake!');
-
-                await window.tncLib.farmStake(
-                    farmAddress,
-                    stake_amount,
-                    function () {
-                        toastr["info"]('Please wait for the transaction to finish.', "Staking....");
-                        $('#nftStakeButton').prop('disabled', true);
-                        $('#nftStakeButton').html('Processing...');
-                    },
-                    function (receipt) {
-                        console.log(receipt);
-                        toastr.remove();
-                        toastr["success"]('Transaction has been finished.', "Success");
-                        $('#nftStakeButton').prop('disabled', false);
-                        $('#nftStakeButton').html('Staking successful!');
-                        setTimeout(function(){
-
-                            $('#nftStakeButton').html('Stake!');
-
-                        }, 5000);
-                    },
-                    function (err) {
-                        toastr.remove();
-                        let errMsg = 'An error occurred with your staking transaction.';
-                        if(err == 'gas'){
-                            errMsg = 'Staking amount exceeds limit or general gas error.';
-                        }
-                        toastr["error"](errMsg, "Error");
-                        $('#nftStakeButton').prop('disabled', false);
-                        $('#nftStakeButton').html('Stake!');
-                    });
-            }
-        });
-
-        /**
-         * UNSTAKE ACTION
-         */
-
-        $('#nftUnstakeButton').off('click');
-        $('#nftUnstakeButton').on('click', async function(){
-
-            toastr.remove();
-
-            let unstake_amount = $('#nftUnstakeAmount').val();
-
-            unstake_amount = _this.resolveNumberString(unstake_amount, decimals);
-
-            console.log("unstake amount",unstake_amount);
-
-            await window.tncLib.farmUnstake(
-                farmAddress,
-                unstake_amount,
-                function () {
-                    toastr["info"]('Please wait for the transaction to finish.', "Unstaking....");
-                },
-                function (receipt) {
-                    console.log(receipt);
-                    toastr.remove();
-                    toastr["success"]('Transaction has been finished.', "Success");
-                    $('#nftUnstakeButton').html('Unstaking successful!');
-                    setTimeout(function(){
-
-                        $('#nftUnstakeButton').html('Unstake!');
-
-                    }, 5000);
-                },
-                function (err) {
-                    toastr.remove();
-                    let errMsg = 'An error occurred with your unstaking transaction.';
-                    if(err == 'gas'){
-                        errMsg = 'Unstaking amount exceeds balance or general gas error.';
-                    }
-                    toastr["error"](errMsg, "Error");
-                });
-        });
     };
 
     this.updateRegisteredCollections = async function(address){
