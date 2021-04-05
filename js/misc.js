@@ -1,5 +1,5 @@
-let network = 'xDai';
-let chain_id = '64';
+let network = 'Rinkeby';
+let chain_id = '4';
 let api_url = 'https://api.unifty.cloud/';
 
 $(document).ready(function(){
