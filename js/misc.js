@@ -1,5 +1,6 @@
-let network = 'Rinkeby';
-let chain_id = '4';
+let network = 'xDai';
+let chain_id = '64';
+let api_url = 'https://api.unifty.cloud/';
 
 $(document).ready(function(){
 
@@ -171,6 +172,33 @@ function getCurrency(){
         return 'CELO';
     }
     return 'ETH';
+}
+
+async function fetchWithTimeout(resource, options) {
+    const { timeout = 8000 } = options;
+
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), timeout);
+
+    const response = await fetch(resource, {
+        ...options,
+        signal: controller.signal
+    });
+    clearTimeout(id);
+
+    return response;
+}
+
+async function fetchUrl(url, timeout) {
+    try {
+        const response = await fetchWithTimeout(url, {
+            timeout: timeout
+        });
+        return await response.text();
+    } catch (error) {
+        console.log("FetchUrl Timeout: ", url);
+        return false;
+    }
 }
 
 function getTimestamp(){

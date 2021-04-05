@@ -158,11 +158,22 @@ function TncLib(){
      */
     this.farmNftCount = async function (farmAddress){
         await sleep(sleep_time);
-        let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
-        let added = await farm.getPastEvents('CardAdded', {
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+
+        let added = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/CardAdded/'+farmAddress, 5000);
+
+        if(added === false){
+
+            let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
+            added = await farm.getPastEvents('CardAdded', {
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else{
+
+            added = JSON.parse(added);
+        }
+
         let check_entries = [];
         for(let i = 0; i < added.length; i++) {
 
@@ -235,11 +246,21 @@ function TncLib(){
 
         await sleep(sleep_time);
 
-        let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
-        let uris = await farm.getPastEvents('FarmUri', {
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        let uris = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmUri/'+farmAddress, 5000);
+
+        if(uris === false){
+
+            let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
+            uris = await farm.getPastEvents('FarmUri', {
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else{
+
+            uris = JSON.parse(uris);
+        }
+
         uris = uris.reverse();
         let uri = '';
         if(uris.length > 0){
@@ -265,16 +286,27 @@ function TncLib(){
         let controller = await farm.methods.controller().call({from:this.account});
         await sleep(sleep_time);
         let token = await farm.methods.token().call({from:this.account});
-
         await sleep(sleep_time);
 
-        let uris = await farm.getPastEvents('FarmUri', {
-            filter: {
-                farm: farmAddress
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        let uris = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmUri/'+farmAddress, 5000);
+
+        console.log("URIS: ", uris, farmAddress);
+
+        if(uris === false){
+
+            uris = await farm.getPastEvents('FarmUri', {
+                filter: {
+                    farm: farmAddress
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else{
+
+            uris = JSON.parse(uris);
+        }
+
         uris = uris.reverse();
         let uri = '';
         if(uris.length > 0){
@@ -1045,14 +1077,23 @@ function TncLib(){
 
         await sleep(sleep_time);
 
-        let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
-        let events = await farm.getPastEvents('FarmUri', {
-            filter: {
-                farm: farmAddress
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        let events = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmUri/'+farmAddress, 5000);
+
+        if(events === false){
+
+            let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
+            events = await farm.getPastEvents('FarmUri', {
+                filter: {
+                    farm: farmAddress
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else{
+
+            events = JSON.parse(events);
+        }
 
         console.log(events);
 
@@ -1170,12 +1211,20 @@ function TncLib(){
 
         await sleep(sleep_time);
 
-        let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
+        let cards = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/CardAdded/'+farmAddress, 5000);
 
-        let cards = await farm.getPastEvents('CardAdded', {
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        if(cards === false){
+
+            let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
+            cards = await farm.getPastEvents('CardAdded', {
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else{
+
+            cards = JSON.parse(cards);
+        }
 
         let check_entries = [];
         cards = cards.reverse();
@@ -1215,28 +1264,48 @@ function TncLib(){
 
         await sleep(sleep_time);
 
-        return await this.farm.getPastEvents('FarmCreated', {
-            filter: {
-                user: userAddress
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        let events = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmCreated/user/'+userAddress, 5000);
+
+        if(events === false){
+
+            events = await this.farm.getPastEvents('FarmCreated', {
+                filter: {
+                    user: userAddress
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else{
+
+            events = JSON.parse(events);
+        }
+
+        return events;
     };
 
     this.isFarm = async function(farmAddress){
 
         await sleep(sleep_time);
 
-        let res = await this.farm.getPastEvents('FarmCreated', {
-            filter: {
-                farm: farmAddress
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        let events = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmCreated/farm/'+farmAddress, 5000);
 
-        return res.length > 0;
+        if(events === false){
+
+            events = await this.farm.getPastEvents('FarmCreated', {
+                filter: {
+                    farm: farmAddress
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else{
+
+            events = JSON.parse(events);
+        }
+
+        return events.length > 0;
     };
 
 
