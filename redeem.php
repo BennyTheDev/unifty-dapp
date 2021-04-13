@@ -232,12 +232,6 @@ if(isset($_POST['UserEmail'])){
               Select chain
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="https://unifty.io/">Ethereum</a>
-              <a class="dropdown-item" href="https://unifty.io/xdai/">xDai</a>
-              <a class="dropdown-item" href="https://unifty.io/bsc/">Binance Smart Chain</a>
-              <a class="dropdown-item" href="https://unifty.io/celo/">Celo</a>
-              <a class="dropdown-item" href="https://unifty.io/matic/">Polygon (Matic)</a>
-              <!--<a class="dropdown-item" href="https://unifty.io/moonbeam-alpha/">Moonbeam (Alpha/Test)</a>-->
               <a class="dropdown-item" href="https://unifty.io/rinkeby/">Rinkeby (Testnet)</a>
             </div>            
           </div>
