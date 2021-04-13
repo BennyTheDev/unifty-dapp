@@ -1,56 +1,14 @@
+let network = 'Rinkeby';
+let chain_id = '4';
+
+function _alert(msg){
+    $('#alertModal .modal-body').html(msg);
+    $('#alertModal').modal('show');
+};
+
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function detectDivScroll(elem, resolver) {
-    let height = $(elem).get(0).scrollHeight - $(elem).height();
-    let scroll = $(elem).scrollTop();
-
-    let isScrolledToEnd = ( scroll + 150 >= height );
-    if (isScrolledToEnd)
-    {
-        resolver('done');
-    }
-}
-
-function waitForDiv(elem, itemCount) {
-    $(elem).off('scroll');
-    return new Promise(
-        function(resolve, reject){
-            detectDivScroll(elem, resolve);
-            $(elem).on('scroll', function(){
-                detectDivScroll(elem, resolve);
-            });
-        }
-    );
-}
-
-function waitForPaging(pageId, itemCount) {
-    $(window).off('scroll');
-    return new Promise(
-        function(resolve, reject){
-            if(itemCount % 8 == 0){
-                let nearToBottom = 450;
-                if ($(window).scrollTop() + $(window).height() >=
-                    $(document).height() - nearToBottom) {
-                    resolve('done');
-                }
-            }
-            else if(itemCount % 8 == 7){
-                $(window).on('scroll', function(){
-                    let nearToBottom = 450;
-                    if ($(window).scrollTop() + $(window).height() >=
-                        $(document).height() - nearToBottom) {
-                        resolve('done');
-                    }
-                });
-            }
-            else{
-
-                resolve('done');
-            }
-        }
-    );
 }
 
 $(document).ready(async function(){

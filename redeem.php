@@ -1,58 +1,31 @@
 <?php
-  session_start();
+if(isset($_POST['UserEmail'])){
 
-  /*
-  if(isset($_SESSION['loggedIN'])) {
-    header('Location: hidden.php');
-    exit();
-  }
-  */
+    if(trim($_POST['UserEmail']) == '' || trim($_POST['address']) == ''){
 
+        exit('Please enter your email address and enable your wallet.');
+    }
 
-  if(isset($_POST['UserEmail'])){
-    $connection = new mysqli('localhost', 'root', '', 'unifty');
+    $dsn = 'mysql:host=localhost;dbname=unifghiu_coindesk;charset=utf8';
+    $usr = 'unifghiu_coindesk';
+    $pwd = 'coindesk';
+    $pdo = new PDO($dsn, $usr, $pwd);
 
-    //Check if connection to db was successful
-    if($connection->connect_error) 
-      die("Connection failed: ". $connection->connect_error);
+    $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`userEmail`) = ? And `address` = ''");
+    $stmt->execute([strtolower($_POST['UserEmail'])]);
+    $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-    $email = $connection->real_escape_string($_POST['UserEmail']);
-    //$email = md5($connection->real_escape_string($_POST['UserEmail']));
+    if(count($result) != 0){
 
-    //$address = $connection->real_escape_string($_POST['UserAddress']);
-    $currentDateTime = date('Y-m-d H:i:s');
+        $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ? Where Lower(`userEmail`) = ?");
+        $stmt->execute([$_POST['address'], strtolower($_POST['UserEmail'])]);
 
+        exit('Verification success!');
+    }
 
-    //Testing if this combor already exists
-    $data = $connection->query("SELECT id FROM coindeskemails WHERE userEmail='$email'");
-
-    if($data->num_rows == 0){
-      
-      $data = $connection->query("INSERT INTO `coindeskemails` (`ID`, `Date`, `UserEmail`) VALUES (NULL, '$currentDateTime', '$email');");
-
-      if($data){
-        echo "New record created successfully! ";
-        $_SESSION['loggedIN'] = '1';
-        $_SESSION['email'] = $email;
-      }
-      else{
-        echo "Error: " . $data . "" . mysqli_error($connection);
-        exit('Eror inserting Data into DB.');
-      }
-
-      exit('Verification success!');
-    } elseif($data->num_rows > 0){
-      exit ('This email seems to be in use.');
-    } 
-    else
-      exit('Please check your inputs');
-
-    exit($email . "=" . $address);
-  }
-
-  
+    exit('Your email address has not been found or you requested your tokens already.');
+}
 ?>
-
 <html lang="en">
 
 <head>
@@ -67,29 +40,20 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
   <script type="text/javascript" src="js/web3.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
-  <script type="text/javascript" src="js/handlebars.js"></script>
-  <script type="text/javascript" src="js/ipfs.js"></script>
-  <script type="text/javascript" src="js/buffer.js"></script>
-  <script type="text/javascript" src="js/misc.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/nifABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/genesisABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/farmABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/farmShopABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/marketABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/swapABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/lib-bridge.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/lib-market.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/collectibles-dapp.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/dapp-init.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/handlebars.js"></script>
+    <script type="text/javascript" src="js/ipfs.js"></script>
+    <script type="text/javascript" src="js/buffer.js"></script>
+    <script type="text/javascript" src="js/nifABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/genesisABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/farmABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/farmShopABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/coindesk-dapp.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/coindesk-init.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -117,6 +81,38 @@
   </style>
   <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
+
+    <script>
+        $(document).ready(function() {
+
+            $("#form-submit").on('click', async function(){
+
+                let email = $("#email").val();
+
+                if(email == "")
+                {
+                    alert("Please enter your email address.");
+                } else{
+                    console.log('calling ajax with address: ', tncLib.account);
+                    $.ajax(
+                        {
+                            url: 'redeem.php',
+                            method: 'POST',
+                            data: {
+                                UserEmail: email,
+                                address : tncLib.account
+                            },
+                            success: function(res){
+                                $('.redeem-modal-content').html(res);
+                                $('#coindeskSignupModal').modal('show');
+                            },
+                            dataType: 'text'
+                        }
+                    )
+                }
+            })
+        });
+    </script>
 
 </head>
 
@@ -150,13 +146,13 @@
                   <p>NFT Market</p>
               </a>
           </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="collectibles.html">
             <i class="material-icons-round">account_balance_wallet</i>
             <p>Your Wallet</p>
           </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="redeem.php">
             <i class="material-icons-round">account_balance_wallet</i>
             <p>Redeem</p>
@@ -295,115 +291,42 @@
       
       <div class="content__welcome-text">
         <p>
-          This is your personal NFT wallet on UNIFTY.
+          Please enable your wallet (Metamask or Torus) and enter your email address to request your tokens.
         </p>
       </div>
 
-      <div style="margin: 0 auto; width: 450px;">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
 
-        <form id="myForm" method="post" action="">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"/>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+
+                        <!--Wallet address: <input type="text" id="address" /><br>-->
+
+                        <button style="font-size: 1.2rem" id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Request Tokens</button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-          <!--Wallet address: <input type="text" id="address" /><br>-->
-
-          <input id="form-submit" type="button" value="Send"/>
-
-
-        </form>
-
-        <p id="response">
-
-        </p>
-
-        <div data-toggle="modal" data-target="#coindeskSignupModal">
-          <button>this</button>
-        </div>
-        
-        <script>
-          $(document).ready(function() {
-            $("#form-submit").on('click', function(){
-              var email = $("#email").val();
-              
-              if(email == "")
-                alert("Don't leave any fields empty");
-              else{
-                $.ajax(
-                {
-                  url: 'redeem.php',
-                  method: 'POST',
-                  data: {
-                    UserEmail: email
-                  },
-                  success: function(res){
-                    $("#response").html(res);
-
-                    if(res.indexOf('success') >= 0)
-                      $('#nftContractModal').modal('show');
-
-                  },
-                  dataType: 'text'
-                }
-              )
-              }              
-              
-            })
-          });
-
-        </script>
-
-        <style>
-          #myForm{
-
-
-            padding: 1.5rem;
-            margin: 0 auto;
-
-            border-radius: 8px;
-
-            border: solid 1px grey;
-          }
-
-          #form-submit{
-            font-size: 1.4rem;
-            border: solid 1px grey;
-            background: #f4f7fb;
-            border-radius: .8rem;
-            width: 60px;
-            padding: 10px;
-            margin: 0;
-            margin-right: 0px;
-          }
-        </style>
-      </div>
-
 
         <div class="modal fade" style="overflow-y: scroll;" id="coindeskSignupModal" tabindex="-1" aria-labelledby="coindeskLabel" aria-hidden="true">
           <div class="modal-dialog modal-lg ">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="coindeskLabel">Congratulations!</h5>
+                <h5 class="modal-title" id="coindeskLabel">Notification</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body modal-non-nft-content">
-
-                <div class="col">
-
-                  <h2>You have now been registered for the distribution of $DESK</h2>
-                  
-
-                </div>
+              <div class="modal-body redeem-modal-content">
               </div>
 
               <div class="modal-footer">
-                <div id="feeCollection" class="footer-description">
-                  If you have any questions please contact <a href="mailto:news@coindesk.com">news@coindesk.com</a>
-                </div>
                 <div class="buttons-container">
                   <button type="button" class="btn btn-secondary modal-cancel" data-dismiss="modal">Close</button>
                 </div>
