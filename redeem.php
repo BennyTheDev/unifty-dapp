@@ -133,98 +133,67 @@ if(isset($_POST['UserEmail'])){
     </div>
 
     <div class="sidebar-wrapper">
-      <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="index.html">
-            <i class="material-icons-round">home</i>
-            <p>Home</p>
-          </a>
-        </li>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="material-icons-round">home</i>
+              <p>Home</p>
+            </a>
+          </li>
           <li class="nav-item" id="marketNavLink">
-              <a class="nav-link" href="market.html">
-                  <i class="material-icons-round">storefront</i>
-                  <p>NFT Market</p>
-              </a>
+            <a class="nav-link" href="market.html">
+              <i class="material-icons-round">storefront</i>
+              <p>NFT Market</p>
+            </a>
           </li>
-        <li class="nav-item">
-          <a class="nav-link" href="collectibles.html">
-            <i class="material-icons-round">account_balance_wallet</i>
-            <p>Your Wallet</p>
-          </a>
-        </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="redeem.php">
-            <i class="material-icons-round">account_balance_wallet</i>
-            <p>Redeem</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="manager.html">
-            <i class="material-icons-round">collections</i>
-            <p>Collection Manager</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="farm-builder.html">
-            <i class="material-icons-round">build</i>
-            <p>Farm Builder</p>
-          </a>
-        </li>
-        <li class="nav-item bridgeNav">
-          <a class="nav-link" href="bridge.html">
-            <i class="material-icons-round">360</i>
-            <p>NFT Bridge</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0);" id="nulsSco">
-            <i class="material-icons-round">monetization_on</i>
-            <p>Get Project Funding</p>
-          </a>
-        </li>
-          <li class="nav-item" id="xdaiFarm">
-              <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
-                  <i class="material-icons">grass</i>
-                  <p>Rares Farm - NIF (xDai)</p>
-              </a>
+          <li class="nav-item">
+            <a class="nav-link" href="collectibles.html">
+              <i class="material-icons-round">account_balance_wallet</i>
+              <p>Your Wallet</p>
+            </a>
           </li>
-
-          <li class="nav-item" id="genesisFarm">
-              <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
-                  <i class="material-icons">grass</i>
-                  <p>Genesis Farm - NIF-LP</p>
-              </a>
+          <li class="nav-item active">
+            <a class="nav-link" href="redeem.php">
+              <i class="material-icons-round">account_balance_wallet</i>
+              <p>Redeem</p>
+            </a>
           </li>
-      </ul>
-
-      <div class="sidebar-divider"></div>
-
-      <div class="sidebar-bottom">
-        <div class="sidebar-text">
-          <div class="sidebar-text icons">
-            <span class="navbar-text">
-              <a href="https://t.me/unifty" target="_blank">
-                <i class="fa fa-telegram"></i>
-              </a>
-              <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
-                <i class="fa fa-discord"></i>
-              </a>
-              <a href="https://twitter.com/unifty_io" target="_blank">
-                <i class="fa fa-twitter"></i>
-              </a>
-            </span>
-          </div>
-
-          <div class="sidebar-text rights">
-            <span>
-              <i class="material-icons">copyright</i>
-              Unifty Development d.o.o.<br/>All rights reserved.
-            </span>
+          <li class="nav-item bridgeNav">
+            <a class="nav-link" href="bridge.html">
+              <i class="material-icons-round">360</i>
+              <p>NFT Bridge</p>
+            </a>
+          </li>
+        </ul>
+  
+        <div class="sidebar-divider"></div>
+  
+        <div class="sidebar-bottom">
+          <div class="sidebar-text">
+            <div class="sidebar-text icons">
+              <span class="navbar-text">
+                <a href="https://t.me/unifty" target="_blank">
+                  <i class="fa fa-telegram"></i>
+                </a>
+                <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
+                  <i class="fa fa-discord"></i>
+                </a>
+                <a href="https://twitter.com/unifty_io" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                </span>
+            </div>
+  
+            <div class="sidebar-text rights">
+              <span>
+                <i class="material-icons">copyright</i>
+                Unifty Development d.o.o.<br/>All rights reserved.
+              </span>
+            </div>
           </div>
         </div>
+  
       </div>
-
-    </div>
   </div>
   <!-- SIDEBAR END -->
 
