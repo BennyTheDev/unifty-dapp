@@ -68,11 +68,11 @@ function TncDapp() {
 
         for(let i = 0; i < collectionAddresses.length; i++){
             let custom = collectionAddresses[i];
+
             if(collections.includes(custom)){
                 continue;
             }
 
-            console.log(custom);
             let nfts = await tncLib.getNftsByAddress(address, custom);
 
             for(let j = 0; j < nfts.length; j++){
@@ -95,8 +95,10 @@ function TncDapp() {
 
         let nft = await window.tncLib.getForeignNft(erc1155, address, id);
 
+        console.log(1);
+
         // new opensea json uri pattern
-        if(nft.uri.includes("api.opensea.io")){
+        if(nft.uri.includes("api.opensea.io") ){
 
             let nftUri = nft.uri;
             nftUri = decodeURI(nftUri).replace("{id}", id);
@@ -107,6 +109,8 @@ function TncDapp() {
             }
         }
 
+        nft.uri  = decodeURI(nft.uri).replace("{id}", id);
+
         let data_image = '';
         let data_animation_url = '';
         let data_audio_url = '';
@@ -115,6 +119,8 @@ function TncDapp() {
         let data_description = '';
         let data_link = '';
         let data_attributes = [];
+
+        console.log(nft.uri);
 
         try {
 
@@ -136,6 +142,8 @@ function TncDapp() {
 
         }catch (e){
 
+            console.log(e);
+
             try {
                 let data = await $.getJSON(nft.uri.toLowerCase().replace('gateway.ipfs.io', 'cloudflare-ipfs.com'));
 
@@ -150,9 +158,13 @@ function TncDapp() {
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
                     data_attributes = typeof data.attributes != 'undefined' && data.attributes ? data.attributes : [];
                 }
-            }catch (e){}
+            }catch (e){
+                console.log(e);
+            }
 
         }
+
+        console.log(3);
 
         let traits_hide = '';
         if(data_attributes.length == 0){
@@ -160,6 +172,8 @@ function TncDapp() {
         }
 
         let meta = await tncLib.getErc1155Meta(erc1155);
+
+        console.log(4);
 
         let srcInfo = [0,0,0];
         let bridgeBack = false;
@@ -172,6 +186,8 @@ function TncDapp() {
             bridgeBack = true;
 
         }
+
+        console.log(5);
 
         if(data_interactive_url != ''){
             data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id;
@@ -204,7 +220,11 @@ function TncDapp() {
             opensea : chain_id == '1' || chain_id == '4' ? 'https://opensea.io/assets/'+erc1155+'/'+id : 'collectible.html?collection=' +  erc1155 + '&id=' + id
         });
 
+        console.log(5);
+
         $('#collectiblesPage').append(tmpl);
+
+        console.log(7);
 
         if(chain_id == '1') {
             $('.marketSellLink').css('display', 'none');

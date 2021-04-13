@@ -50,6 +50,8 @@ function TncDapp() {
             }
         }
 
+        nft.uri  = decodeURI(nft.uri).replace("{id}", id);
+
         let data_image = '';
         let data_animation_url = '';
         let data_audio_url = '';

@@ -481,6 +481,8 @@ function TncLib(){
             }
         }
 
+        nftUri  = decodeURI(nftUri).replace("{id}", nftId);
+
         return nftUri;
     };
 

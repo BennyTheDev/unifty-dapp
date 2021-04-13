@@ -1226,6 +1226,8 @@ function TncLib(){
             cards = JSON.parse(cards);
         }
 
+        console.log("Amount cards: ", cards.length);
+
         let check_entries = [];
         cards = cards.reverse();
         let card_data = [];
@@ -1625,9 +1627,6 @@ function TncLib(){
             }
         }
 
-        console.log(events);
-
-
         return nfts;
     };
 
@@ -1824,6 +1823,8 @@ function TncLib(){
                 nftUri = nftUri.join("/");
             }
         }
+
+        nftUri  = decodeURI(nftUri).replace("{id}", nftId);
 
         return nftUri;
     };

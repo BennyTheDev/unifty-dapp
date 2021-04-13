@@ -302,13 +302,15 @@ function TncDapp() {
             if(nft.uri.includes("api.opensea.io")){
 
                 let nftUri = nft.uri;
-                nftUri = decodeURI(nftUri).replace("{id}", id);
+                nftUri = decodeURI(nftUri).replace("{id}", nfts[i].id);
                 nftUri = nftUri.split("/");
                 if(nftUri.length > 0 && nftUri[ nftUri.length - 1 ].startsWith("0x")){
                     nftUri[ nftUri.length - 1 ] = nftUri[ nftUri.length - 1 ].replace("0x", "");
                     nft.uri = nftUri.join("/");
                 }
             }
+
+            nft.uri  = decodeURI(nft.uri).replace("{id}", nfts[i].id);
 
             let farm_data = await window.tncLib.farmNftData(farmAddress, nfts[i].erc1155, nfts[i].id);
 

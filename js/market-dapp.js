@@ -110,6 +110,8 @@ function TncDapp() {
             }
         }
 
+        nft.uri  = decodeURI(nft.uri).replace("{id}", id);
+
         let data_image = '';
         let data_animation_url = '';
         let data_audio_url = '';
@@ -1242,6 +1244,8 @@ function TncDapp() {
                 nft.uri = nftUri.join("/");
             }
         }
+
+        nft.uri  = decodeURI(nft.uri).replace("{id}", id);
 
         let erc1155Meta = await tncLib.getErc1155Meta(erc1155Address);
         let erc1155Name = erc1155Meta.name;
