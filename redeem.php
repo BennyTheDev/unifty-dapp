@@ -121,10 +121,7 @@ if(isset($_POST['UserEmail'])){
 
 </head>
 
-<body>
-
-  <script src="js/themeDefault.js"></script>
-
+<body class="light-edition">
 
   <!-- SIDEBAR -->
   <div class="sidebar">
@@ -217,22 +214,6 @@ if(isset($_POST['UserEmail'])){
       <!-- HEADER -->
       <div class="custom-header">
         <div class="custom-header__title">Unifty.io</div>
-        <div class="custom-header__dropdowns">
-          
-
-          <div class="theme-toggler">
-            <label for="themeSwitch" class="theme-options">
-              <span class="material-icons-round light-mode">
-                light_mode
-              </span>
-              <span class="material-icons-round dark-mode">
-                dark_mode
-              </span>
-            </label>
-            <input type="checkbox" id="themeSwitch" name="themeSwitch" />
-          </div>
-
-        </div>
       </div>
       <!-- HEADER END -->
       
@@ -305,8 +286,7 @@ if(isset($_POST['UserEmail'])){
   <!-- FOOTER END -->
 
   </div>
-
-  <script src="js/themeSwitch.js"></script>
+  
 </body>
 
 </html>

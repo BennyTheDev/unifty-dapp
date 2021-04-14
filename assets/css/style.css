@@ -1505,7 +1505,8 @@ textarea, input {
   .main-panel .content .custom-header__title {
     color: var(--title-color);
     font-size: 4rem;
-    font-weight: 700; }
+    font-weight: 700;
+    line-height: 0.9; }
 
 .dark-edition .main-panel,
 .light-edition .main-panel {
