@@ -163,12 +163,6 @@ if(isset($_POST['UserEmail'])){
               <p>Redeem</p>
             </a>
           </li>
-          <li class="nav-item bridgeNav">
-            <a class="nav-link" href="bridge.html">
-              <i class="material-icons-round">360</i>
-              <p>NFT Bridge</p>
-            </a>
-          </li>
         </ul>
   
         <div class="sidebar-divider"></div>
