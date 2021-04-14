@@ -1664,15 +1664,18 @@ textarea, input {
   .footer ul {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 1rem 2rem; }
+    .footer ul li {
+      display: flex;
+      flex-direction: row; }
     .footer ul li.nav-item a {
       display: flex;
       align-items: center;
       font-size: 1.2rem;
       color: var(--text-footer);
-      padding: 0; }
+      padding: 0 15px; }
       .footer ul li.nav-item a:hover {
         color: var(--primary-color); }
       .footer ul li.nav-item a span {
