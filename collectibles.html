@@ -16,27 +16,27 @@
   <script type="text/javascript" src="js/handlebars.js"></script>
   <script type="text/javascript" src="js/ipfs.js"></script>
   <script type="text/javascript" src="js/buffer.js"></script>
-  <script type="text/javascript" src="js/misc.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/nifABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/genesisABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/farmABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/farmShopABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/marketABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/swapABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/lib-bridge.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/lib-market.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/collectibles-dapp.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/dapp-init.js?v=1.9.2"></script>
-  <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/misc.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/nifABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/genesisABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/farmABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/farmShopABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/erc20ABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/univ2ABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/marketABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/swapABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/lib.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/lib-bridge.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/lib-market.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/collectibles-dapp.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/dapp-init.js?v=1.9.3"></script>
+  <script type="text/javascript" src="js/cookie.js?v=1.9.3"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -471,6 +471,10 @@
                                         {{/ifNotEquals}}
                                       <a href="javascript:void(0);" class="dropdown-item marketSellLink" data-toggle="modal" data-target="#nftSellModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftSell{{erc1155}}{{id}}">Sell</a>
                                         <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftTransferModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftTransfer{{erc1155}}{{id}}">Transfer</a>
+
+
+                                      <a href="javascript:void(0);" style="display:none;" class="dropdown-item marketRoyaltiesLink" data-toggle="modal" data-target="#royaltiesModal" data-edit="true" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftRoyaltiesModalButton{{erc1155}}{{id}}">Royalties</a>
+
                                     </div>
                                 </div>
                             {{/ifNotEquals}}
@@ -825,6 +829,43 @@
             </div>
           </div>
         </div>
+
+        <!-- Royalties -->
+
+        <div class="modal fade" style="overflow-y: scroll;" id="royaltiesModal" tabindex="-1" role="dialog" aria-labelledby="royaltiesModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="royaltiesModalLabel">Set Royalties</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <p>
+                  If you intend to use royalties, please add them below in percent. 50% max. royalties allowed, only for purchases on the Unifty Market.
+                </p>
+
+                <div class="form-group">
+                  <label for="nftRoyalties">Royalties in percent *</label>
+                  <input value="" type="text" placeholder="Add royalties in percent" class="form-control" id="nftRoyalties">
+                </div>
+
+                <input type="hidden" id="nftRoyaltiesErc1155Address" value="" />
+                <input type="hidden" id="nftRoyaltiesId" value="" />
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="storeRoyaltiesButton">Set Royalties</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
 
         <!-- Interactive -->  
         <div class="modal fade" style="overflow-y: scroll;" id="nftInteractiveModal" tabindex="-1" role="dialog"

@@ -1016,6 +1016,14 @@ function TncDapp() {
                 var o6 = new Option("TETHER", "0x55d398326f99059ff775485246999027b3197955");
                 $(o6).html("TETHER");
                 $("#lookupToken").append(o6);
+
+                var o7 = new Option("BDT (Block Duelers)", "0x286a61a9b193f1b92d3a0fab4fd16028786273f3");
+                $(o7).html("BDT (Block Duelers)");
+                $("#lookupToken").append(o7);
+
+                var o8 = new Option("DC (Duelers Credits)", "0x7990ad6dbe9bce17ed91e72b30899b77a415f6cc");
+                $(o8).html("DC (Duelers Credits)");
+                $("#lookupToken").append(o8);
                 break;
             case '89': // Matic Mainnet
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");
@@ -1453,6 +1461,14 @@ function TncDapp() {
                 var o6 = new Option("TETHER", "0x55d398326f99059ff775485246999027b3197955");
                 $(o6).html("TETHER");
                 $("#nftSellToken2").append(o6);
+
+                var o7 = new Option("BDT (Block Duelers)", "0x286a61a9b193f1b92d3a0fab4fd16028786273f3");
+                $(o7).html("BDT (Block Duelers)");
+                $("#nftSellToken2").append(o7);
+
+                var o8 = new Option("DC (Duelers Credits)", "0x7990ad6dbe9bce17ed91e72b30899b77a415f6cc");
+                $(o8).html("DC (Duelers Credits)");
+                $("#nftSellToken2").append(o8);
                 break;
             case '89': // Matic Mainnet
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");

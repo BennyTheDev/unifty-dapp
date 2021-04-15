@@ -1799,6 +1799,19 @@ function TncLib(){
         return approved;
     };
 
+    this.erc1155Owner = async function(erc1155Address){
+
+        let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155Address, {from:this.account} );
+        let owner = false;
+        try{
+            owner = await erc1155.methods.owner().call({from:this.account});
+            owner = owner.toLowerCase() == this.account.toLowerCase();
+        }catch(e){
+            owner = false;
+        }
+        return owner;
+    };
+
     this.getNftMeta = async function(erc1155ContractAddress, nftId){
 
         let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155ContractAddress, {from:this.account} );
