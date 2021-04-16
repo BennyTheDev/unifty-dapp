@@ -52,7 +52,7 @@ if(isset($_POST['UserEmail'])){
     <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
     <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
     <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/coindesk-dapp.js?v=1.9.2"></script>
+    <script type="text/javascript" src="js/coindesk-dapp.js"></script>
     <script type="text/javascript" src="js/coindesk-init.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
@@ -214,6 +214,11 @@ if(isset($_POST['UserEmail'])){
       <!-- HEADER -->
       <div class="custom-header">
         <div class="custom-header__title">Unifty.io</div>
+        <div id="balance-container">
+          <h3>$DESK Balance</h3>
+          <h2 id="wallet-balance"></h2>
+
+        </div>
       </div>
       <!-- HEADER END -->
       

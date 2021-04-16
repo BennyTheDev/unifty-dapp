@@ -1,3 +1,5 @@
+@import url("https://use.typekit.net/guf7obu.css");
+
 @import "./mixins";
 @import "./variables";
 
@@ -5,6 +7,7 @@
 
 @import "./typography";
 
+@import "./components/wallet-balance";
 @import "./components/custom-cursor";
 @import "./components/dropdown-selector";
 @import "./components/featured-farm-card";

@@ -2,6 +2,19 @@ function TncDapp() {
 
     const _this = this;
 
+    this.displayBalance = function(){
+
+        // use tncLib.account to display the balance
+
+        $(document).ready(async function(){
+            let balance = await web3.eth.getBalance ( tncLib.account );
+            balance = parseFloat(_this.formatNumberString(balance, 18))
+            
+            //Parsing float to remove trailing zeroes.            
+            $('#wallet-balance').text(balance)
+        });
+    }
+
     this.formatNumberString = function (string, decimals) {
 
         let pos = string.length - decimals;
@@ -264,5 +277,6 @@ function run(connected) {
         }
         dapp.startAccountCheck();
         dapp.startChainCheck();
+        dapp.displayBalance();
     });
 }
