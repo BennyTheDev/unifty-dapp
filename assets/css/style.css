@@ -1656,8 +1656,6 @@ textarea, input {
   margin: 0 5rem;
   padding: 0.5rem 0;
   background: var(--light-primary);
-  border-top-left-radius: 0.8rem;
-  border-top-right-radius: 0.8rem;
   box-shadow: var(--shadow-primary); }
   @media only screen and (min-width: 112.5em) {
     .footer {

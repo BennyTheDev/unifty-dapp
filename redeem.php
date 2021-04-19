@@ -40,20 +40,20 @@ if(isset($_POST['UserEmail'])){
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
   <script type="text/javascript" src="js/web3.js"></script>
   <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/handlebars.js"></script>
-    <script type="text/javascript" src="js/ipfs.js"></script>
-    <script type="text/javascript" src="js/buffer.js"></script>
-    <script type="text/javascript" src="js/nifABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/genesisABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/farmABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/farmShopABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/coindesk-dapp.js"></script>
-    <script type="text/javascript" src="js/coindesk-init.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+  <script type="text/javascript" src="js/ipfs.js"></script>
+  <script type="text/javascript" src="js/buffer.js"></script>
+  <script type="text/javascript" src="js/nifABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/genesisABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/farmABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/farmShopABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/coindesk-dapp.js"></script>
+  <script type="text/javascript" src="js/coindesk-init.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -81,10 +81,10 @@ if(isset($_POST['UserEmail'])){
 
     .navbar,
     .navbar-text a{
-      color: #8b92a9;
+      color: #d8d8d8;
     }
   </style>
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet" />
 
     <script>
@@ -126,8 +126,8 @@ if(isset($_POST['UserEmail'])){
   <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="logo">
-      <a href="https://unifty.io" class="simple-text logo-normal">
-        <img src="assets/img/unifty2.png" width="125" border="0" />
+      <a class="simple-text logo-normal">
+        <img src="assets/img/consensus-coindesk.svg" />
         <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
           Binance Smart Chain
         </div>
@@ -139,25 +139,25 @@ if(isset($_POST['UserEmail'])){
           <li class="nav-item">
             <a class="nav-link" href="index.html">
               <i class="material-icons-round">home</i>
-              <p>Home</p>
+              <p>HOME</p>
             </a>
           </li>
           <li class="nav-item" id="marketNavLink">
             <a class="nav-link" href="market.html">
-              <i class="material-icons-round">storefront</i>
-              <p>NFT Market</p>
+              <i class="material-icons-outlined">storefront</i>
+              <p>NFT MARKET (Live May 20)</p>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="collectibles.html">
               <i class="material-icons-round">account_balance_wallet</i>
-              <p>Your Wallet</p>
+              <p>YOUR WALLET</p>
             </a>
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="redeem.php">
               <i class="material-icons-round">account_balance_wallet</i>
-              <p>Redeem</p>
+              <p>CLAIM</p>
             </a>
           </li>
         </ul>
@@ -182,7 +182,6 @@ if(isset($_POST['UserEmail'])){
   
             <div class="sidebar-text rights">
               <span>
-                <i class="material-icons">copyright</i>
                 Unifty Development d.o.o.<br/>All rights reserved.
               </span>
             </div>
@@ -282,11 +281,10 @@ if(isset($_POST['UserEmail'])){
           Torus wallet
         </a>
         <a class="nav-link" href="faq.html">
-          powered by &nbsp<span style="font-size: inherit;" href="www.unifty.io"> Unifty </span><img src="favicon-32x32.png">
+          build with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
       </a>
       </li>
     </ul>
-
   </div>
   <!-- FOOTER END -->
 
