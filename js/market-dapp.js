@@ -8,6 +8,20 @@ function TncDapp() {
     this.prevAccounts = [];
     this.prevChainId = '';
 
+    this.displayBalance = function(){
+
+        // use tncLib.account to display the balance
+
+        $(document).ready(async function(){
+            let balance = await web3.eth.getBalance ( tncLib.account );
+            balance = parseFloat(_this.formatNumberString(balance, 18))
+            
+            //Parsing float to remove trailing zeroes.      
+            $('#wallet-balance').text(balance)
+            $('#balance-container').show();    
+        });
+    }
+
     this.getMarketNfts = async function(address, which, category){
 
         let nftCount = 0;
@@ -2322,6 +2336,7 @@ function run(connected) {
 
         dapp.startAccountCheck();
         dapp.startChainCheck();
+        dapp.displayBalance();
         dapp.loadPage(''); // default
     });
 }
