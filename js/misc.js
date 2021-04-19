@@ -1,5 +1,10 @@
-let network = 'Rinkeby';
-let chain_id = '4';
+if (typeof network === 'undefined') {
+    let network = 'Rinkeby';
+}
+if (typeof chain_id === 'undefined') {
+    let chain_id = '4';
+}
+
 let api_url = 'https://api.unifty.cloud/';
 
 $(document).ready(function(){

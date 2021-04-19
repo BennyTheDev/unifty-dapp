@@ -10,8 +10,9 @@ function TncDapp() {
             let balance = await web3.eth.getBalance ( tncLib.account );
             balance = parseFloat(_this.formatNumberString(balance, 18))
             
-            //Parsing float to remove trailing zeroes.            
+            //Parsing float to remove trailing zeroes.      
             $('#wallet-balance').text(balance)
+            $('#balance-container').show();    
         });
     }
 

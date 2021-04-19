@@ -130,18 +130,21 @@ h3 {
   background-color: #19284d;
   text-align: right;
   font-weight: bold !important;
-  font-family: acumin-pro, sans-serif; }
+  font-family: acumin-pro, sans-serif;
+  transition: 0.3s; }
   #balance-container h3 {
     color: #f2f5fa;
     font-weight: inherit;
     margin: 0px;
-    font-family: inherit; }
+    font-family: inherit;
+    transition: inherit; }
   #balance-container #wallet-balance {
     font-size: 3.5rem;
     font-weight: bold;
     color: #7cee00;
     font-weight: inherit;
-    font-family: inherit; }
+    font-family: inherit;
+    transition: inherit; }
 
 textarea, input {
   cursor: var(--cursor-text); }
