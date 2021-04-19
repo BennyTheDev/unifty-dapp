@@ -46,6 +46,7 @@ body.light-edition {
 
 .light-edition {
   --dark-primary: #19284d;
+  --dark-primary-hover: rgba(25, 40, 77, 0.1);
   --dark-secondary: #161f36;
   --light-primary: #f2f5fa;
   --grey-primary: #d8d8d8;
@@ -150,56 +151,64 @@ textarea, input {
 .light-edition #walletActions,
 .light-edition #bridgeActions,
 .light-edition #categoryDropdown,
-.light-edition .dropdown-primary, .dark-edition #chainSelectionDropdown,
+.light-edition .dropdown-primary,
+.dark-edition #chainSelectionDropdown,
 .dark-edition #walletActions,
 .dark-edition #bridgeActions,
 .dark-edition #categoryDropdown,
 .dark-edition .dropdown-primary {
-  background-color: var(--bg-secondary);
-  color: var(--primary-color);
-  border: 0.2rem solid var(--primary-color);
-  border-radius: .8rem;
+  background-color: var(--white);
+  color: var(--dark-primary);
+  border: 0.1rem solid var(--dark-primary);
   box-shadow: none;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-transform: none;
   padding: 1rem 1.8rem;
-  font-weight: 700; }
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 18rem; }
 
-.light-edition .dropdown-item.active, .light-edition .dropdown-item:active, .dark-edition .dropdown-item.active, .dark-edition .dropdown-item:active {
+.light-edition .dropdown-item.active,
+.light-edition .dropdown-item:active,
+.dark-edition .dropdown-item.active,
+.dark-edition .dropdown-item:active {
   color: #ffffff !important;
   background-color: var(--primary-color); }
 
-.light-edition #walletActions,
 .light-edition #bridgeActions,
-.light-edition #categoryDropdown, .dark-edition #walletActions,
-.dark-edition #bridgeActions,
-.dark-edition #categoryDropdown {
+.dark-edition #bridgeActions {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
   font-weight: 400;
-  padding: .8rem 1.2rem; }
-  .light-edition #walletActions span,
+  padding: 0.8rem 1.2rem; }
   .light-edition #bridgeActions span,
-  .light-edition #categoryDropdown span, .dark-edition #walletActions span,
-  .dark-edition #bridgeActions span,
-  .dark-edition #categoryDropdown span {
+  .dark-edition #bridgeActions span {
     font-size: 1.4rem;
-    margin-right: .3rem; }
+    margin-right: 0.3rem; }
 
-.light-edition .dropdown-menu, .dark-edition .dropdown-menu {
-  background-color: var(--bg-secondary); }
-  .light-edition .dropdown-menu a.dropdown-item, .dark-edition .dropdown-menu a.dropdown-item {
-    font-size: 1.4rem; }
+.light-edition .dropdown-menu,
+.dark-edition .dropdown-menu {
+  width: 18rem;
+  background-color: var(--white); }
+  .light-edition .dropdown-menu a.dropdown-item,
+  .dark-edition .dropdown-menu a.dropdown-item {
+    font-size: 1.4rem;
+    font-weight: 700; }
 
-.light-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item, .dark-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item {
-  color: var(--text-primary);
+.light-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item,
+.dark-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item {
+  color: var(--dark-primary);
   padding: 1rem 1.2rem; }
-  .light-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item:hover, .dark-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item:hover {
-    color: var(--text-primary);
+  .light-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item:hover,
+  .dark-edition .dropdown:not(.show-dropdown) .dropdown-menu .dropdown-item:hover {
+    color: var(--dark-primary);
     background: none;
     box-shadow: none;
-    background-color: var(--primary-hover-light); }
+    background-color: var(--dark-primary-hover); }
 
 .dark-edition .card.farm-card,
 .light-edition .card.farm-card {
