@@ -1,21 +1,21 @@
 .main-panel .content {
   &__welcome-text {
     font-size: 1.6rem;
-    color: var(--text-primary);
+    color: var(--dark-secondary);
     padding: 1.6rem 0 0.8rem 0;
     margin-bottom: 2rem;
-    // width: 80%;
-    width: calc(100% - 24em);
+    width: 95%;
   }
 
   .custom-header {
     display: flex;
     justify-content: space-between;
-    // align-items: center;
+    align-items: flex-start;
 
     @include respond(nav-collapse) {
-      margin-top: -3rem;
-      margin-left: 2rem;
+      // see what to do here
+      margin-top: -2rem;
+      margin-left: 1rem;
 
       &__dropdowns {
         z-index: 1050;
@@ -23,7 +23,6 @@
     }
 
     &__title {
-      // font-family: "acumin-pro", sans-serif;
       color: var(--white);
       -webkit-text-stroke: 1px var(--dark-primary);
       font-size: 6rem;

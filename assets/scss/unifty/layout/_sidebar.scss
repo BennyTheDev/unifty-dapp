@@ -2,14 +2,12 @@
 .light-edition .sidebar {
   width: 30rem;
   background-color: var(--bg-secondary);
-  background-color: var(--dark-primary);
   opacity: 1;
   font-size: 1.4rem;
-  // box-shadow: var(--shadow-primary);
 
   &::before {
-    background-color: var(--bg-secondary);
-    font-size: 1.6rem;
+    background-color: var(--dark-primary);
+    font-size: 1.4rem;
   }
 
   @include respond(big-desktop) {
@@ -24,22 +22,22 @@
     height: calc(100vh - 16rem);
     display: flex;
     flex-direction: column;
-    padding-bottom: 2rem;
+    padding-bottom: 3rem;
 
     @include respond(big-desktop) {
-      padding-bottom: 0.7rem;
+      padding-bottom: 0.5rem;
     }
     @include respond(tab-land) {
-      padding-bottom: 2.7rem;
+      padding-bottom: 4.5rem;
     }
     @include respond(nav-collapse) {
-      padding-bottom: 4rem;
+      padding-bottom: 5rem;
     }
     @include respond(tab-port) {
-      padding-bottom: 5.5rem;
+      padding-bottom: 6.5rem;
     }
     @include respond(phone) {
-      padding-bottom: 8rem;
+      padding-bottom: 9rem;
     }
 
     .sidebar-bottom {
@@ -55,7 +53,7 @@
         font-size: 1.4rem;
 
         // a {
-        //   color: $grey-primary;
+        //   color: var(--grey-primary);
         // }
 
         li:nth-child(2) {
@@ -166,7 +164,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: var(--grey-primary);
+  // color: var(--grey-primary);
 
   &.icons {
     margin-bottom: 1rem;
@@ -178,13 +176,12 @@
   &.rights {
     span {
       font-size: 1.4rem;
-      // letter-spacing: 0.24px;
       text-align: center;
     }
   }
 }
 
 .sidebar-divider {
-  border-bottom: 0.1rem solid $color-divider;
+  border-bottom: 0.1rem solid var(--golden-primary);
   margin: 1.5rem 2.4rem;
 }

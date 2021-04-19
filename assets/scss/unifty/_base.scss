@@ -145,11 +145,13 @@ body.light-edition {
 
   --light-primary: #f2f5fa;
 
+  --grey-primary: #d8d8d8;
   --golden-primary: #fcc117;
+  --green-primary: #7cee00;
 
   --white: #fff;
 
-  --grey-primary: #d8d8d8;
+  --shadow-primary: 0 0 4px 0 rgba(0, 0, 0, 0.24);
 
   --primary-color: #202060;
   --primary-hover-light: rgba(32, 32, 96, 0.1);
@@ -175,9 +177,9 @@ body.light-edition {
 
   --traits-bg: #fff;
 
-  --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, 0.56),
-    0 4px 25px 0px rgba(225, 225, 225, 0.12),
-    0 8px 10px -5px rgba(225, 225, 225, 0.2);
+  // --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, 0.56),
+  //   0 4px 25px 0px rgba(225, 225, 225, 0.12),
+  //   0 8px 10px -5px rgba(225, 225, 225, 0.2);
 
   --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;

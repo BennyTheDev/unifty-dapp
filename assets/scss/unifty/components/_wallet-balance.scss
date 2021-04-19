@@ -1,34 +1,37 @@
 #balance-container {
-  width: 24em;
+  // width: 24em;
   padding: 1rem 1.5rem;
-  margin-top: 0.4rem;
 
-  background-color: #19284d;
+  // @include respond(tab-land) {
+  //   width: 22em;
+  // }
+  // @include respond(phone) {
+  //   width: 20em;
+  // }
+
+  background-color: var(--dark-primary);
   text-align: right;
-
   font-weight: bold !important;
-
   font-family: acumin-pro, sans-serif;
   transition: 0.3s;
 
   h3 {
-    color: #f2f5fa;
+    color: var(--light-primary);
     font-weight: inherit;
-    margin: 0px;
-
+    margin: 0;
     font-family: inherit;
-
     transition: inherit;
   }
 
   #wallet-balance {
     font-size: 3.5rem;
     font-weight: bold;
+    margin: 0;
+    line-height: normal;
 
-    color: #7cee00;
+    color: var(--green-primary);
     font-weight: inherit;
     font-family: inherit;
-    
     transition: inherit;
   }
 }

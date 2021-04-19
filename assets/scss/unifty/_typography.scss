@@ -1,9 +1,9 @@
 h1 {
-  font-family: "Poppins", sans-serif;
+  font-family: acumin-pro, sans-serif;
   font-size: 2.4rem;
   font-weight: 700;
   letter-spacing: 0.48px;
-  color: var(--heading-color);
+  color: var(--dark-primary);
 }
 
 h1#nftContractNameTitle,
@@ -18,7 +18,7 @@ h1.nftListingsTitle {
     content: "push_pin";
     display: inline-block;
     font-size: 1.8rem;
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     transform: rotate(-45deg);
   }
 }
@@ -33,12 +33,10 @@ h1.nftListingsTitle {
 }
 
 h3 {
-  font-family: "Poppins", sans-serif;
+  font-family: acumin-pro, sans-serif;
   font-size: 1.6rem;
-  font-weight: 300;
-  letter-spacing: 0.32px;
-  color: var(--text-primary);
-  // color: var(--subheading-color);
+  // letter-spacing: 0.32px;
+  color: var(--dark-secondary);
   margin: 0 0 1rem;
 }
 
