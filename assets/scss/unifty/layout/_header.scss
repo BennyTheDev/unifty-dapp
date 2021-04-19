@@ -2,15 +2,16 @@
   &__welcome-text {
     font-size: 1.6rem;
     color: var(--text-primary);
-    padding: .8rem 0;
+    padding: 1.6rem 0 0.8rem 0;
     margin-bottom: 2rem;
-    width: 80%;
+    // width: 80%;
+    width: calc(100% - 24em);
   }
 
   .custom-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    // align-items: center;
 
     @include respond(nav-collapse) {
       margin-top: -3rem;
@@ -20,11 +21,13 @@
         z-index: 1050;
       }
     }
-  
+
     &__title {
-      color: var(--title-color);
-      font-size: 4rem;
-      font-weight: 700;
+      // font-family: "acumin-pro", sans-serif;
+      color: var(--white);
+      -webkit-text-stroke: 1px var(--dark-primary);
+      font-size: 6rem;
+      font-weight: 500;
       line-height: 0.9;
     }
   }

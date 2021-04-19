@@ -1,36 +1,29 @@
-#balance-container{
-    
-    
-    width: 24em;
-    padding: 1rem 1.5rem;
-    margin-top: .4rem;
+#balance-container {
+  width: 24em;
+  padding: 1rem 1.5rem;
+  margin-top: 0.4rem;
 
-    background-color: #19284d;
-    text-align: right;    
+  background-color: #19284d;
+  text-align: right;
 
-    font-weight: bold !important;
+  font-weight: bold !important;
 
-    font-family: acumin-pro, sans-serif; 
+  font-family: acumin-pro, sans-serif;
 
+  h3 {
+    color: #f2f5fa;
+    font-weight: inherit;
+    margin: 0px;
 
-    h3{
-        color:#f2f5fa;    
-        font-weight: inherit;
-        margin: 0px;
+    font-family: inherit;
+  }
 
-        font-family: inherit;
+  #wallet-balance {
+    font-size: 3.5rem;
+    font-weight: bold;
 
-
-    }
-
-    #wallet-balance{
-        font-size: 3.5rem;
-        font-weight: bold;
-
-        color: #7cee00;
-        font-weight: inherit;
-        font-family: inherit;
-
-
-    }
+    color: #7cee00;
+    font-weight: inherit;
+    font-family: inherit;
+  }
 }
