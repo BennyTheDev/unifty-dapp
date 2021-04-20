@@ -262,9 +262,7 @@ if(isset($_POST['UserEmail'])){
               </div>
 
               <div class="modal-footer">
-                <div class="buttons-container">
                   <button type="button" class="btn btn-secondary modal-cancel" data-dismiss="modal">Close</button>
-                </div>
               </div>
             </div>
           </div>
@@ -287,9 +285,7 @@ if(isset($_POST['UserEmail'])){
           <div class="modal-body modal-non-nft-content">
           </div>
         <div class="modal-footer">
-          <div class="buttons-container">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
         </div>
         </div>
       </div>
