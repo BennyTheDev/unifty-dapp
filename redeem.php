@@ -243,7 +243,7 @@ if(isset($_POST['UserEmail'])){
 
                         <!--Wallet address: <input type="text" id="address" /><br>-->
 
-                        <button style="font-size: 1.2rem" id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Request Tokens</button>
+                        <button id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Request Tokens</button>
                     </form>
                 </div>
             </div>
