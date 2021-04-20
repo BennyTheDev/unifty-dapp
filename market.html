@@ -347,11 +347,11 @@
                         {{/ifNotEquals}}
 
                         {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
                         {{/ifEquals}}
 
                         {{#ifEquals checkOpenSea "Open Details"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
+                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
                         {{/ifEquals}}
 
 
@@ -432,7 +432,7 @@
                                     <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                         Buy
                                     </button>
-                                    <div class="text-muted mb-2" style="font-size: 1.2em">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
+                                    <div class="text-muted mb-2">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                                 {{/ifNotEquals}}
                                 {{#ifEquals batch ""}}
                                     {{#ifEquals onsale "1"}}
@@ -445,21 +445,12 @@
                                             Buy
                                         </button>
                                     {{/ifNotEquals}}
-                                    <div class="text-muted mb-2" style="font-size: 1.2em">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
+                                    <div class="text-muted mb-2">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
                                 {{/ifEquals}}
                             {{/ifNotEquals}}
-
-                            {{#ifNotEquals swap ""}}
-                                {{#ifNotEquals buy ""}}
-                                <span style="font-size: 1.4rem; display: block;">Or</span>
-
-                                {{/ifNotEquals}}
-                                <button id="nftSwap{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-target="#nftSwapModal" data-index="{{index}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                    Swap
-                                </button>
-                                <div> </div>
+                            
                             {{/ifNotEquals}}
-                            {{/ifNotEquals}}
+                            
                             {{#ifEquals onsale "0"}}
                             <button class="btn btn-outline mb-3">SOLD OUT</button>
                             <div> </div>
@@ -517,7 +508,7 @@
                         <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
 
-                        <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                        <a class="opensea text-muted mt-2" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
                         <div class="card-body">
 
                             {{#ifNotEquals animation_url ""}}
