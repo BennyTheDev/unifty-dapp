@@ -212,20 +212,23 @@ if(isset($_POST['UserEmail'])){
 
       <!-- HEADER -->
       <div class="custom-header">
-        <div class="custom-header__title">Unifty.io</div>
+
+        <div class="custom-header__text">
+          <div class="custom-header__title">Unifty.io</div>
+          <div class="content__welcome-text">
+            <p>
+              Please enable your wallet (Metamask or Torus) and enter your email address to request your tokens.
+            </p>
+          </div>
+        </div>
+
         <div id="balance-container" style="display: none;">
           <h3>$DESK Balance</h3>
           <h2 id="wallet-balance"></h2>
-
         </div>
+
       </div>
       <!-- HEADER END -->
-      
-      <div class="content__welcome-text">
-        <p>
-          Please enable your wallet (Metamask or Torus) and enter your email address to request your tokens.
-        </p>
-      </div>
 
         <div class="container-fluid">
             <div class="card">

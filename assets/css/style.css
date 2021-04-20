@@ -1505,6 +1505,8 @@ textarea, input {
       margin-left: 1rem; }
       .main-panel .content .custom-header__dropdowns {
         z-index: 1050; } }
+  .main-panel .content .custom-header__text {
+    flex: 1; }
   .main-panel .content .custom-header__title {
     color: var(--white);
     -webkit-text-stroke: 1px var(--dark-primary);

@@ -1,256 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
-    <title>Farm Builder - Unifty</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="manifest" href="site.webmanifest">
-    <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="js/web3.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/handlebars.js"></script>
-    <script type="text/javascript" src="js/ipfs.js"></script>
-    <script type="text/javascript" src="js/buffer.js"></script>
-    <script type="text/javascript" src="js/misc.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/nifABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/genesisABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/farmABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/farmShopABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/marketABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/swapABI.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/lib-market.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/collectible-dapp.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/dapp-init.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
-    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
-    <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-    <script src="assets/js/plugins/chartist.min.js"></script>
-    <script src="assets/js/plugins/bootstrap-notify.js"></script>
-    <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
-    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            new ClipboardJS('.btn-clipboard');
-        });
-    </script>
-    <link rel="stylesheet" type="text/css"
-          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
-          integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    <style type="text/css">
-        .dark-edition .modal .form-control {
-            color: #8b92a9;
-        }
+  <meta charset="UTF-8">
+  <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
+  <title>Farm Builder - Unifty</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+  <script type="text/javascript" src="js/web3.js"></script>
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/handlebars.js"></script>
+  <script type="text/javascript" src="js/ipfs.js"></script>
+  <script type="text/javascript" src="js/buffer.js"></script>
+  <script type="text/javascript" src="js/misc.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/nifABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/genesisABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/farmABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/farmShopABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/erc20ABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/univ2ABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/marketABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/swapABI.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/lib-market.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/collectible-dapp.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/dapp-init.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <script src="assets/js/plugins/chartist.min.js"></script>
+  <script src="assets/js/plugins/bootstrap-notify.js"></script>
+  <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      new ClipboardJS('.btn-clipboard');
+    });
+  </script>
+  <link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
+    integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
+  <style type="text/css">
+    .dark-edition .modal .form-control {
+      color: #8b92a9;
+    }
 
-        .dark-edition .modal a {
-            color: #8b92a9;
-            font-weight: 700;
-        }
+    .dark-edition .modal a {
+      color: #8b92a9;
+      font-weight: 700;
+    }
 
-        .dark-edition .modal .form-control,
-        .is-focused .dark-edition .modal .form-control {
-            background-color: #eee;
-            padding: 5px;
-        }
+    .dark-edition .modal .form-control,
+    .is-focused .dark-edition .modal .form-control {
+      background-color: #eee;
+      padding: 5px;
+    }
 
-        .dark-edition .modal select {
-            height: 36px !important;
-        }
+    .dark-edition .modal select {
+      height: 36px !important;
+    }
 
-        .nftListing {
-            min-width: 300px;
-        }
+    .nftListing {
+      min-width: 300px;
+    }
 
-        .btn-outline {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            -moz-box-shadow: none !important;
-            -o-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-        }
+    .btn-outline {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      -o-box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+    }
 
-        .btn-clipboard {
-            background-color: transparent !important;
-            box-shadow: none !important;
-            -moz-box-shadow: none !important;
-            -o-box-shadow: none !important;
-            -webkit-box-shadow: none !important;
-            padding: 0 !important;
-        }
+    .btn-clipboard {
+      background-color: transparent !important;
+      box-shadow: none !important;
+      -moz-box-shadow: none !important;
+      -o-box-shadow: none !important;
+      -webkit-box-shadow: none !important;
+      padding: 0 !important;
+    }
 
-        .fa-clipboard,
-        .fa-external-link {
-            font-size: 0.8rem !important;
-        }
+    .fa-clipboard,
+    .fa-external-link {
+      font-size: 0.8rem !important;
+    }
 
-        .traits-collapse ul li {
-            border-bottom: 1px solid #8b92a9;
-        }
+    .traits-collapse ul li {
+      border-bottom: 1px solid #8b92a9;
+    }
 
-        .traits-collapse ul li:last-child {
-            border-bottom: none;
-        }
+    .traits-collapse ul li:last-child {
+      border-bottom: none;
+    }
 
-        .dark-edition .card .card-body .card-description {
-            color: #8b92a9;
-        }
+    .dark-edition .card .card-body .card-description {
+      color: #8b92a9;
+    }
 
-        .description,
-        .card-description,
-        .footer-big p {
-            color: #8b92a9;
-        }
+    .description,
+    .card-description,
+    .footer-big p {
+      color: #8b92a9;
+    }
 
-        .title,
-        .title a,
-        .card-title,
-        .card-title a,
-        .info-title,
-        .info-title a,
-        .footer-brand,
-        .footer-brand a,
-        .footer-big h5,
-        .footer-big h5 a,
-        .footer-big h4,
-        .footer-big h4 a,
-        .media .media-heading,
-        .media .media-heading a {
-            color: #8b92a9;
-        }
+    .title,
+    .title a,
+    .card-title,
+    .card-title a,
+    .info-title,
+    .info-title a,
+    .footer-brand,
+    .footer-brand a,
+    .footer-big h5,
+    .footer-big h5 a,
+    .footer-big h4,
+    .footer-big h4 a,
+    .media .media-heading,
+    .media .media-heading a {
+      color: #8b92a9;
+    }
 
-        body {
-            color: #8b92a9;
-        }
+    body {
+      color: #8b92a9;
+    }
 
-        .navbar,
-        .navbar-text a {
-            color: inherit;
-        }
-    </style>
+    .navbar,
+    .navbar-text a {
+      color: inherit;
+    }
+  </style>
 
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
-    </style>
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
-    <link href="assets/css/style.css" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Round|Material+Icons+Outlined" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet" />
 
 </head>
+
 <body class="light-edition">
 
-<!-- SIDEBAR -->
-<div class="sidebar">
+  <!-- SIDEBAR -->
+  <div class="sidebar">
     <div class="logo">
-        <a class="simple-text logo-normal">
-            <img src="assets/img/consensus-coindesk.svg" />
-            <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
-                Binance Smart Chain
-            </div>
-        </a>
+      <a class="simple-text logo-normal">
+        <img src="assets/img/consensus-coindesk.svg" />
+        <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
+          Binance Smart Chain
+        </div>
+      </a>
     </div>
 
     <div class="sidebar-wrapper">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">
-              <i class="material-icons-round">home</i>
-              <p>HOME</p>
-            </a>
-          </li>
-          <li class="nav-item" id="marketNavLink">
-            <a class="nav-link" href="market.html">
-              <i class="material-icons-outlined">storefront</i>
-              <p>NFT MARKET (Live May 20)</p>
-            </a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="collectibles.html">
-              <i class="material-icons-round">account_balance_wallet</i>
-              <p>YOUR WALLET</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="redeem.php">
-              <i class="material-icons-round">account_balance_wallet</i>
-              <p>CLAIM</p>
-            </a>
-          </li>
-        </ul>
-  
-        <div class="sidebar-divider"></div>
-  
-        <div class="sidebar-bottom">
-          <div class="sidebar-text">
-            <div class="sidebar-text icons">
-              <span class="navbar-text">
-                <a href="https://t.me/unifty" target="_blank">
-                  <i class="fa fa-telegram"></i>
-                </a>
-                <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
-                  <i class="fa fa-discord"></i>
-                </a>
-                <a href="https://twitter.com/unifty_io" target="_blank">
-                  <i class="fa fa-twitter"></i>
-                </a>
-                </span>
-            </div>
-  
-            <div class="sidebar-text rights">
-              <span>
-                Unifty Development d.o.o.<br/>All rights reserved.
-              </span>
-            </div>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="material-icons-round">home</i>
+            <p>HOME</p>
+          </a>
+        </li>
+        <li class="nav-item" id="marketNavLink">
+          <a class="nav-link" href="market.html">
+            <i class="material-icons-outlined">storefront</i>
+            <p>NFT MARKET (Live May 20)</p>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="collectibles.html">
+            <i class="material-icons-round">account_balance_wallet</i>
+            <p>YOUR WALLET</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="redeem.php">
+            <i class="material-icons-round">account_balance_wallet</i>
+            <p>CLAIM</p>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-divider"></div>
+
+      <div class="sidebar-bottom">
+        <div class="sidebar-text">
+          <div class="sidebar-text icons">
+            <span class="navbar-text">
+              <a href="https://t.me/unifty" target="_blank">
+                <i class="fa fa-telegram"></i>
+              </a>
+              <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
+                <i class="fa fa-discord"></i>
+              </a>
+              <a href="https://twitter.com/unifty_io" target="_blank">
+                <i class="fa fa-twitter"></i>
+              </a>
+            </span>
+          </div>
+
+          <div class="sidebar-text rights">
+            <span>
+              Unifty Development d.o.o.<br />All rights reserved.
+            </span>
           </div>
         </div>
-  
       </div>
-</div>
-<!-- SIDEBAR END -->
 
-<div class="main-panel">
+    </div>
+  </div>
+  <!-- SIDEBAR END -->
+
+  <div class="main-panel">
 
     <!-- NAV TOGGLER -->
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
-        <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
-                    aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-                <span class="navbar-toggler-icon icon-bar"></span>
-            </button>
-        </div>
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+          aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+      </div>
     </nav>
     <!-- NAV TOGGLER END -->
 
     <div class="content">
 
-        <!-- HEADER -->
-        <div class="custom-header">
-            <div class="custom-header__title">Unifty.io</div>
-            <div id="balance-container" style="display: none;">
-                <h3>$DESK Balance</h3>
-                <h2 id="wallet-balance"></h2>
-      
-              </div>
+      <!-- HEADER -->
+      <div class="custom-header">
+
+        <div class="custom-header__text">
+          <div class="custom-header__title">Unifty.io</div>
+          <div class="content__welcome-text">
+            <p></p>
+          </div>
         </div>
-        <!-- HEADER END -->
+        
+        <div id="balance-container" style="display: none;">
+          <h3>$DESK Balance</h3>
+          <h2 id="wallet-balance"></h2>
+        </div>
 
-        <div class="container-fluid">
+      </div>
+      <!-- HEADER END -->
 
-            <script id="no-collectible" type="text/x-handlebars-template">
+      <div class="container-fluid">
+
+        <script id="no-collectible" type="text/x-handlebars-template">
                 <div class="container-fluid">
                     <div style="text-align: center" class="justify-content-center content-center">
                         No collectible found.
@@ -258,7 +267,7 @@
                 </div>
             </script>
 
-            <script id="no-offers" type="text/x-handlebars-template">
+        <script id="no-offers" type="text/x-handlebars-template">
                 <div class="container-fluid">
                     <div style="text-align: center" class="justify-content-center content-center">
                         No offers found. Feel free to put your NFTs on sale from within your <a href="collectibles.html">Unifty wallet</a>.
@@ -266,8 +275,8 @@
                 </div>
             </script>
 
-            <!-- Collectible View -->
-            <script id="collectible-template" type="text/x-handlebars-template">
+        <!-- Collectible View -->
+        <script id="collectible-template" type="text/x-handlebars-template">
                 <div class="nftHeader col-md-12 mb-3">
                     <div class="card">
 
@@ -440,10 +449,10 @@
                 </div>
             </script>
 
-            <div class="row" id="collectiblePage" style="display: none;"></div>
+        <div class="row" id="collectiblePage" style="display: none;"></div>
 
-            <!-- Swap Picker View -->
-            <script id="picker-template" type="text/x-handlebars-template">
+        <!-- Swap Picker View -->
+        <script id="picker-template" type="text/x-handlebars-template">
 
                 <div style="{{#ifEquals which "request2"}}margin-bottom: 3rem !important;margin-left: 3rem !important;{{/ifEquals}}cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
                     <div class="card card-profile">
@@ -558,239 +567,256 @@
                 </div>
             </script>
 
-            <!-- Transfer Modal -->
-            <div class="modal fade" style="overflow-y: scroll;" id="nftTransferModal" tabindex="-1" aria-labelledby="nftTransferModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="nftTransferModalLabel">Transfer NFTs</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body modal-non-nft-content">
+        <!-- Transfer Modal -->
+        <div class="modal fade" style="overflow-y: scroll;" id="nftTransferModal" tabindex="-1"
+          aria-labelledby="nftTransferModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftTransferModalLabel">Transfer NFTs</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modal-non-nft-content">
 
-                            <form onsubmit="return false;">
+                <form onsubmit="return false;">
 
-                                <div class="form-group">
-                                    <label for="nftTransferToAddress">To Address</label>
-                                    <input type="text" placeholder="Enter the address of the NFT recipient" class="form-control" id="nftTransferToAddress">
-                                </div>
+                  <div class="form-group">
+                    <label for="nftTransferToAddress">To Address</label>
+                    <input type="text" placeholder="Enter the address of the NFT recipient" class="form-control"
+                      id="nftTransferToAddress">
+                  </div>
 
-                                <div class="form-group">
-                                    <label for="nftTransferAmount">Amount</label>
-                                    <input type="text" placeholder="Enter the amount of NFTs to transfer" class="form-control" id="nftTransferAmount">
-                                </div>
+                  <div class="form-group">
+                    <label for="nftTransferAmount">Amount</label>
+                    <input type="text" placeholder="Enter the amount of NFTs to transfer" class="form-control"
+                      id="nftTransferAmount">
+                  </div>
 
-                                <input type="hidden" name="nftTransferErc1155Address" id="nftTransferErc1155Address" value=""/>
-                                <input type="hidden" name="nftTransferNftId" id="nftTransferNftId" value=""/>
+                  <input type="hidden" name="nftTransferErc1155Address" id="nftTransferErc1155Address" value="" />
+                  <input type="hidden" name="nftTransferNftId" id="nftTransferNftId" value="" />
 
-                            </form>
+                </form>
 
-                        </div>
-                        <div class="modal-footer">
-                            <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" id="nftTransferButton">Send</button>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="nftTransferButton">Send</button>
                 </div>
+              </div>
             </div>
-
-            <!-- Simple Buy Modal -->
-            <div class="modal fade" style="overflow-y: scroll;" id="nftBuyModal" tabindex="-1" aria-labelledby="nftBuyModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="nftBuyModalLabel">Buy NFTs</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body modal-non-nft-content">
-
-                            <h3 id="nftBuyTitle"></h3>
-
-                            <form onsubmit="return false;">
-
-                                <div class="form-group">
-                                    <label for="nftBuyAmount">Amount *</label>
-                                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control" id="nftBuyAmount">
-                                    <button class="btn btn-secondary" type="button" id="buyAddMax">Add Max.</button>
-
-                                </div>
-
-                                <input type="hidden" name="nftBuyErc1155Address" id="nftBuyErc1155Address" value=""/>
-                                <input type="hidden" name="nftBuyNftId" id="nftBuyNftId" value=""/>
-                                <input type="hidden" name="nftBuyIndex" id="nftBuyIndex" value=""/>
-
-                            </form>
-
-                        </div>
-                        <div class="modal-footer">
-                            <h4 id="nftBuyInfo"></h4>
-
-                            <div class="buttons-container">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="nftBuyButton">Buy!</button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Swap Modal -->
-            <div class="modal fade" style="overflow-y: scroll;" id="nftSwapModal" tabindex="-1" aria-labelledby="nftSwapModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="nftSwapModalLabel">Swap NFTs</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-
-                            <h3 id="nftSwapTitle"></h3>
-
-                            <form onsubmit="return false;">
-
-                                <p>Pick one of your existing offers to request a swap.</p>
-
-                                <div class="container" id="nftSwapPicker" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
-
-                                <div class="form-group mt-5">
-                                    <label for="nftSwapNif">Offer additional NIF for the swap (optional)</label>
-                                    <input value="0" type="text" placeholder="Enter the amount of NIF you'd like to offer additionally." class="form-control" id="nftSwapNif">
-                                    <!--<button class="btn btn-secondary" type="button" id="swapAddMax">Add Max.</button>-->
-
-                                </div>
-
-                                <input type="hidden" name="nftSwapErc1155Address" id="nftSwapErc1155Address" value=""/>
-                                <input type="hidden" name="nftSwapNftId" id="nftSwapNftId" value=""/>
-                                <input type="hidden" name="nftIndex0" id="nftIndex0" value=""/>
-                                <input type="hidden" name="nftIndex1" id="nftIndex1" value=""/>
-
-                            </form>
-
-                        </div>
-                        <div class="modal-footer">
-                            <div class="buttons-container">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="nftSwapButton">Swap!</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- NFTs view -->
-
-            <div class="modal fade" style="overflow-y: scroll;" id="nftsView" tabindex="-1" role="dialog" aria-labelledby="nftsViewLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="nftsViewLabel">NFTs In This Offer</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-
-                            <div class="container" id="nftsViewContainer" style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;"></div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interactive -->
-
-            <div class="modal fade" style="overflow-y: scroll;" id="nftInteractiveModal" tabindex="-1" role="dialog" aria-labelledby="nftInteractiveModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="nftInteractiveModalLabel">Run NFT</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body modal-non-nft-content" id="interactiveBody">
-
-                            Click the run button below to start this interactive NFT.<br/><br/>
-                            Only run this if you trust the NFT creator.<br/><br/>
-                            In doubts, please ask the creator of this NFT about potential risks prior running it.<br/><br/>
-                            <button class="btn btn-primary" type="button" id="runNftNewTab">Run NFT</button>
-
-                            <br/><br/>
-                            Inspired by <a href="https://beyondnft.io/" target="_blank">beyondNFT</a>. Check them out!
-                            <input type="hidden" name="nftInteractiveUrl" id="nftInteractiveUrl" value=""/>
-
-                        </div>
-                        <div class="modal-footer">
-                            <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeInteractive">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Interactive END -->
-
-            <!-- ALERT -->
-
-            <div class="modal fade" style="overflow-y: scroll;" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="alertModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="alertModalLabel">Info</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body modal-non-nft-content">
-
-                        </div>
-                        <div class="modal-footer">
-                            <div class="buttons-container">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MODALS END -->
-
-
+          </div>
         </div>
+
+        <!-- Simple Buy Modal -->
+        <div class="modal fade" style="overflow-y: scroll;" id="nftBuyModal" tabindex="-1"
+          aria-labelledby="nftBuyModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftBuyModalLabel">Buy NFTs</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modal-non-nft-content">
+
+                <h3 id="nftBuyTitle"></h3>
+
+                <form onsubmit="return false;">
+
+                  <div class="form-group">
+                    <label for="nftBuyAmount">Amount *</label>
+                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control"
+                      id="nftBuyAmount">
+                    <button class="btn btn-secondary" type="button" id="buyAddMax">Add Max.</button>
+
+                  </div>
+
+                  <input type="hidden" name="nftBuyErc1155Address" id="nftBuyErc1155Address" value="" />
+                  <input type="hidden" name="nftBuyNftId" id="nftBuyNftId" value="" />
+                  <input type="hidden" name="nftBuyIndex" id="nftBuyIndex" value="" />
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <h4 id="nftBuyInfo"></h4>
+
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="nftBuyButton">Buy!</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Swap Modal -->
+        <div class="modal fade" style="overflow-y: scroll;" id="nftSwapModal" tabindex="-1"
+          aria-labelledby="nftSwapModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftSwapModalLabel">Swap NFTs</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <h3 id="nftSwapTitle"></h3>
+
+                <form onsubmit="return false;">
+
+                  <p>Pick one of your existing offers to request a swap.</p>
+
+                  <div class="container" id="nftSwapPicker"
+                    style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;">
+                  </div>
+
+                  <div class="form-group mt-5">
+                    <label for="nftSwapNif">Offer additional NIF for the swap (optional)</label>
+                    <input value="0" type="text" placeholder="Enter the amount of NIF you'd like to offer additionally."
+                      class="form-control" id="nftSwapNif">
+                    <!--<button class="btn btn-secondary" type="button" id="swapAddMax">Add Max.</button>-->
+
+                  </div>
+
+                  <input type="hidden" name="nftSwapErc1155Address" id="nftSwapErc1155Address" value="" />
+                  <input type="hidden" name="nftSwapNftId" id="nftSwapNftId" value="" />
+                  <input type="hidden" name="nftIndex0" id="nftIndex0" value="" />
+                  <input type="hidden" name="nftIndex1" id="nftIndex1" value="" />
+
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" id="nftSwapButton">Swap!</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NFTs view -->
+
+        <div class="modal fade" style="overflow-y: scroll;" id="nftsView" tabindex="-1" role="dialog"
+          aria-labelledby="nftsViewLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftsViewLabel">NFTs In This Offer</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+                <div class="container" id="nftsViewContainer"
+                  style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;">
+                </div>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive -->
+
+        <div class="modal fade" style="overflow-y: scroll;" id="nftInteractiveModal" tabindex="-1" role="dialog"
+          aria-labelledby="nftInteractiveModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="nftInteractiveModalLabel">Run NFT</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modal-non-nft-content" id="interactiveBody">
+
+                Click the run button below to start this interactive NFT.<br /><br />
+                Only run this if you trust the NFT creator.<br /><br />
+                In doubts, please ask the creator of this NFT about potential risks prior running it.<br /><br />
+                <button class="btn btn-primary" type="button" id="runNftNewTab">Run NFT</button>
+
+                <br /><br />
+                Inspired by <a href="https://beyondnft.io/" target="_blank">beyondNFT</a>. Check them out!
+                <input type="hidden" name="nftInteractiveUrl" id="nftInteractiveUrl" value="" />
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                    id="closeInteractive">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive END -->
+
+        <!-- ALERT -->
+
+        <div class="modal fade" style="overflow-y: scroll;" id="alertModal" tabindex="-1" role="dialog"
+          aria-labelledby="alertModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="alertModalLabel">Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body modal-non-nft-content">
+
+              </div>
+              <div class="modal-footer">
+                <div class="buttons-container">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODALS END -->
+
+
+      </div>
     </div>
 
     <!-- FOOTER -->
     <div class="footer">
-        <ul>
-            <li class="nav-item"id="torus">
-            <a class="nav-link" href="javascript:enableTorus();">
-                        <span class="material-icons-round">
-                            account_balance_wallet
-                        </span>
-                Torus wallet
-            </a>
-            <a class="nav-link" href="faq.html">
-                build with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
-            </a>
-            </li>
-        </ul>
+      <ul>
+        <li class="nav-item" id="torus">
+          <a class="nav-link" href="javascript:enableTorus();">
+            <span class="material-icons-round">
+              account_balance_wallet
+            </span>
+            Torus wallet
+          </a>
+          <a class="nav-link" href="faq.html">
+            build with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty
+            </span>
+          </a>
+        </li>
+      </ul>
     </div>
     <!-- FOOTER END -->
 
-</div>
+  </div>
 
 </body>
+
 </html>
