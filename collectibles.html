@@ -333,25 +333,21 @@
                         {{/ifNotEquals}}
 
                         {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
                         {{/ifEquals}}
 
                         {{#ifEquals checkOpenSea "Open Details"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
+                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
                         {{/ifEquals}}
                     
                         <div class="card-body">
-                          <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-                          <div class="collection-name">
-                            {{{collectionName}}}
-                          </div>
 
-                            {{#ifNotEquals animation_url ""}}
+                          {{#ifNotEquals animation_url ""}}
                             <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
                               <span class="material-icons">
                                 play_circle
                               </span>
-                              Play video
+                              Play Video
                             </a>
                             <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
                                 <ul class="list-group">
@@ -380,9 +376,14 @@
                             </a>
                             {{/ifNotEquals}}
 
-                            <div class="mb-3">
-                                <span class="badge badge-info">{{owns}}: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
-                            </div>
+                          <div class="mb-3">
+                            <span class="badge badge-info">{{owns}}: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
+                          </div>
+                          
+                          <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                          <div class="collection-name">
+                            {{{collectionName}}}
+                          </div>
 
                           {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">

@@ -978,64 +978,14 @@ textarea, input {
           .nftHeader .card-profile .header-left .dropdown a span,
           .nftHeader .header-profile .card-body .dropdown a span,
           .nftHeader .header-profile .header-left .dropdown a span {
-            color: var(--text-primary);
+            color: var(--dark-primary);
             font-size: 1.8rem; }
-          .nftListing .card-profile .card-body .dropdown a:hover span, .nftListing .card-profile .card-body .dropdown a:active span,
-          .nftListing .card-profile .header-left .dropdown a:hover span,
-          .nftListing .card-profile .header-left .dropdown a:active span,
-          .nftListing .header-profile .card-body .dropdown a:hover span,
-          .nftListing .header-profile .card-body .dropdown a:active span,
-          .nftListing .header-profile .header-left .dropdown a:hover span,
-          .nftListing .header-profile .header-left .dropdown a:active span,
-          .farmListing .card-profile .card-body .dropdown a:hover span,
-          .farmListing .card-profile .card-body .dropdown a:active span,
-          .farmListing .card-profile .header-left .dropdown a:hover span,
-          .farmListing .card-profile .header-left .dropdown a:active span,
-          .farmListing .header-profile .card-body .dropdown a:hover span,
-          .farmListing .header-profile .card-body .dropdown a:active span,
-          .farmListing .header-profile .header-left .dropdown a:hover span,
-          .farmListing .header-profile .header-left .dropdown a:active span,
-          .nftHeader .card-profile .card-body .dropdown a:hover span,
-          .nftHeader .card-profile .card-body .dropdown a:active span,
-          .nftHeader .card-profile .header-left .dropdown a:hover span,
-          .nftHeader .card-profile .header-left .dropdown a:active span,
-          .nftHeader .header-profile .card-body .dropdown a:hover span,
-          .nftHeader .header-profile .card-body .dropdown a:active span,
-          .nftHeader .header-profile .header-left .dropdown a:hover span,
-          .nftHeader .header-profile .header-left .dropdown a:active span {
-            color: var(--text-primary-light); }
-      .nftListing .card-profile .card-body .dropdown.show a,
-      .nftListing .card-profile .header-left .dropdown.show a,
-      .nftListing .header-profile .card-body .dropdown.show a,
-      .nftListing .header-profile .header-left .dropdown.show a,
-      .farmListing .card-profile .card-body .dropdown.show a,
-      .farmListing .card-profile .header-left .dropdown.show a,
-      .farmListing .header-profile .card-body .dropdown.show a,
-      .farmListing .header-profile .header-left .dropdown.show a,
-      .nftHeader .card-profile .card-body .dropdown.show a,
-      .nftHeader .card-profile .header-left .dropdown.show a,
-      .nftHeader .header-profile .card-body .dropdown.show a,
-      .nftHeader .header-profile .header-left .dropdown.show a {
-        background-color: transparent; }
-        .nftListing .card-profile .card-body .dropdown.show a span,
-        .nftListing .card-profile .header-left .dropdown.show a span,
-        .nftListing .header-profile .card-body .dropdown.show a span,
-        .nftListing .header-profile .header-left .dropdown.show a span,
-        .farmListing .card-profile .card-body .dropdown.show a span,
-        .farmListing .card-profile .header-left .dropdown.show a span,
-        .farmListing .header-profile .card-body .dropdown.show a span,
-        .farmListing .header-profile .header-left .dropdown.show a span,
-        .nftHeader .card-profile .card-body .dropdown.show a span,
-        .nftHeader .card-profile .header-left .dropdown.show a span,
-        .nftHeader .header-profile .card-body .dropdown.show a span,
-        .nftHeader .header-profile .header-left .dropdown.show a span {
-          color: var(--text-primary-light); }
 
 .dark-edition .popover.bs-popover-bottom,
 .dark-edition .popover.bs-popover-top,
 .light-edition .popover.bs-popover-bottom,
 .light-edition .popover.bs-popover-top {
-  background-color: var(--light-primary);
+  background-color: var(--white);
   box-shadow: var(--shadow-primary);
   border-radius: 0; }
   .dark-edition .popover.bs-popover-bottom .arrow,

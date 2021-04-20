@@ -246,26 +246,26 @@
           }
 
           span {
-            color: var(--text-primary);
+            color: var(--dark-primary);
             font-size: 1.8rem;
           }
 
-          &:hover,
-          &:active {
-            span {
-              color: var(--text-primary-light);
-            }
-          }
+          // &:hover,
+          // &:active {
+          //   span {
+          //     color: var(--text-primary-light);
+          //   }
+          // }
         }
       }
 
-      .dropdown.show a {
-        background-color: transparent;
+      // .dropdown.show a {
+      //   background-color: transparent;
 
-        span {
-          color: var(--text-primary-light);
-        }
-      }
+      //   span {
+      //     color: var(--text-primary-light);
+      //   }
+      // }
     }
   }
 }
@@ -274,7 +274,7 @@
 .dark-edition .popover.bs-popover-top,
 .light-edition .popover.bs-popover-bottom,
 .light-edition .popover.bs-popover-top {
-  background-color: var(--light-primary);
+  background-color: var(--white);
   box-shadow: var(--shadow-primary);
   border-radius: 0;
 
