@@ -160,6 +160,12 @@ if(isset($_POST['UserEmail'])){
               <p>CLAIM</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="learn-more.html">
+              <i class="material-icons-round">help_center</i>
+              <p>LEARN MORE</p>
+            </a>
+          </li>
         </ul>
   
         <div class="sidebar-divider"></div>
@@ -307,7 +313,7 @@ if(isset($_POST['UserEmail'])){
           Torus wallet
         </a>
         <a class="nav-link" href="faq.html">
-          build with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
+          built with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
       </a>
       </li>
     </ul>
