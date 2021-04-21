@@ -135,6 +135,13 @@ h3 {
     margin: 0;
     font-family: inherit;
     transition: inherit; }
+  #balance-container .balance-total {
+    display: flex;
+    align-items: center; }
+    #balance-container .balance-total__icon {
+      margin-right: 3rem;
+      margin-top: 0.7rem;
+      width: 3.5rem; }
   #balance-container #wallet-balance {
     font-size: 3.5rem;
     font-weight: bold;
@@ -1896,6 +1903,15 @@ textarea, input {
   .dark-edition .main-panel .container-fluid,
   .light-edition .main-panel .container-fluid {
     padding: 0; }
+    .dark-edition .main-panel .container-fluid .no-offers-container,
+    .light-edition .main-panel .container-fluid .no-offers-container {
+      font-size: 1.8rem;
+      color: var(--dark-secondary);
+      text-align: left; }
+      .dark-edition .main-panel .container-fluid .no-offers-container a,
+      .light-edition .main-panel .container-fluid .no-offers-container a {
+        font-weight: 700;
+        color: var(--dark-primary); }
     .dark-edition .main-panel .container-fluid.featured-farms,
     .light-edition .main-panel .container-fluid.featured-farms {
       display: grid;

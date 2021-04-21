@@ -46,6 +46,17 @@
   .container-fluid {
     padding: 0;
 
+    .no-offers-container {
+      font-size: 1.8rem;
+      color: var(--dark-secondary);
+      text-align: left;
+
+      a {
+        font-weight: 700;
+        color: var(--dark-primary);
+      }
+    }
+
     &.featured-farms {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));

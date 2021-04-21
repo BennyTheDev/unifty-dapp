@@ -251,7 +251,10 @@
         
         <div id="balance-container" style="display: none;">
           <h3>$DESK Balance</h3>
-          <h2 id="wallet-balance"></h2>
+          <div class="balance-total">
+            <img class="balance-total__icon" src="assets/img/deskcoin.svg" />
+            <h2 id="wallet-balance"></h2>
+          </div>
         </div>
 
       </div>
@@ -320,7 +323,7 @@
                                       <div id="amount-div">
                                         {{#ifEquals buy ""}}
                                         {{#ifEquals displayOpensea ""}}
-                                            <a class="text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">Check on OpenSea</a>
+                                            <a class="text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">Check on OpenSea</a>
                                         {{/ifEquals}}
                                         {{/ifEquals}}
 
@@ -447,7 +450,7 @@
         <!-- Swap Picker View -->
         <script id="picker-template" type="text/x-handlebars-template">
 
-                <div style="{{#ifEquals which "request2"}}margin-bottom: 3rem !important;margin-left: 3rem !important;{{/ifEquals}}display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
+                <div style="{{#ifEquals which "request2"}}margin: 1rem !important;{{/ifEquals}}display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
@@ -455,11 +458,11 @@
                         {{/ifNotEquals}}
 
                         {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
                         {{/ifEquals}}
 
                         {{#ifEquals checkOpenSea "Open Details"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
+                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
                         {{/ifEquals}}
                     
                         <div class="card-body">
@@ -664,7 +667,7 @@
               <div class="modal-body">
 
                 <div class="container" id="nftsViewContainer"
-                  style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;">
+                  style="padding-top: 10px; padding-left: 25px; height: 500px; overflow:auto;">
                 </div>
 
               </div>

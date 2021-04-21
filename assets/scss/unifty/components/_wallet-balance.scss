@@ -1,13 +1,5 @@
 #balance-container {
-  // width: 24em;
   padding: 1rem 1.5rem;
-
-  // @include respond(tab-land) {
-  //   width: 22em;
-  // }
-  // @include respond(phone) {
-  //   width: 20em;
-  // }
 
   background-color: var(--dark-primary);
   text-align: right;
@@ -21,6 +13,17 @@
     margin: 0;
     font-family: inherit;
     transition: inherit;
+  }
+
+  .balance-total {
+    display: flex;
+    align-items: center;
+
+    &__icon {
+      margin-right: 3rem;
+      margin-top: 0.7rem;
+      width: 3.5rem;
+    }
   }
 
   #wallet-balance {

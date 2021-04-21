@@ -224,7 +224,10 @@ if(isset($_POST['UserEmail'])){
 
         <div id="balance-container" style="display: none;">
           <h3>$DESK Balance</h3>
-          <h2 id="wallet-balance"></h2>
+          <div class="balance-total">
+            <img class="balance-total__icon" src="assets/img/deskcoin.svg" />
+            <h2 id="wallet-balance"></h2>
+          </div>
         </div>
 
       </div>
@@ -243,7 +246,7 @@ if(isset($_POST['UserEmail'])){
 
                         <!--Wallet address: <input type="text" id="address" /><br>-->
 
-                        <button id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Request Tokens</button>
+                        <button id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Claim $DESK</button>
                     </form>
                 </div>
             </div>
