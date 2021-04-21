@@ -95,10 +95,10 @@
         }
       }
 
-      #amount-div{
+      #amount-div {
         margin-bottom: 3rem;
 
-        span{
+        span {
           padding-left: 0;
         }
       }
@@ -106,7 +106,7 @@
       //title
       .card-title {
         font-family: acumin-pro, sans-serif;
-        font-size: 2.5rem;
+        font-size: 2.4rem;
         margin: 0 0 1rem 0;
         font-weight: bold;
 
@@ -115,9 +115,17 @@
         }
       }
 
-      div.text-truncate, .card-text{ 
-        font-size: 1.7rem; //inline styling applied, this is ignored
+      // farm card tag and description - when clicked open details
+      div.text-truncate,
+      .card-text {
+        font-size: 1.8rem;
         color: var(--dark-secondary);
+      }
+
+      // farm card description - when clicked open details
+      .card-text {
+        font-size: 1.6rem;
+        margin-bottom: 3rem;
       }
 
       .collection-name {
@@ -160,11 +168,10 @@
         position: relative;
 
         &.badge-info {
-          font-size: 1.5rem;
           color: var(--dark-secondary);
           background-color: transparent;
 
-          span{
+          span {
             font-weight: bold;
           }
 
@@ -226,16 +233,15 @@
         // }
       }
 
-      
-      #actions-container{
+      #actions-container {
         width: 30rem;
         text-align: center;
 
-        div:first-child{
+        div:first-child {
           line-height: 66;
         }
 
-        button{
+        button {
           font-size: 1.7rem;
           font-weight: 700;
           border: 0.1rem solid var(--dark-primary);
@@ -244,17 +250,16 @@
           text-transform: uppercase;
           color: var(--light-primary);
           padding: 1rem 0.8rem 1rem 0.8rem;
-          width:100%;
-
+          width: 100%;
         }
-        a.traits{
+        a.traits {
           font-size: 1.7rem;
           padding: 1rem 0.8rem 1rem 0.8rem;
-        }  
+        }
       }
 
-      #more-details{
-        font-size: 1.5rem;
+      #more-details {
+        font-size: 1.4rem;
         line-height: 1.7;
       }
 
@@ -340,7 +345,26 @@
     padding: 1rem;
     max-height: 15rem;
     overflow: auto;
-    color: var(--text-primary);
+  }
+
+  .popover-header {
+    background-color: transparent;
+    border-bottom: 0.1rem solid var(--grey-primary);
+    font-family: acumin-pro, sans-serif;
+    font-size: 1.6rem;
+    color: var(--dark-primary);
+    font-weight: 700;
+
+    &::before {
+      content: none;
+    }
+  }
+
+  .popover-body {
+    font-size: 1.4rem;
+    font-family: acumin-pro, sans-serif;
+    color: var(--dark-secondary);
+    font-weight: 400;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -353,29 +377,9 @@
       background-color: var(--grey-primary);
     }
   }
-
-  .popover-header {
-    background-color: transparent;
-    border-bottom: 0.1rem solid var(--grey-primary);
-    font-family: acumin-pro, sans-serif;
-    font-size: 1.3rem;
-    color: var(--dark-primary);
-    font-weight: 700;
-
-    &::before {
-      content: none;
-    }
-  }
-
-  .popover-body {
-    font-size: 1.2rem;
-    font-family: acumin-pro, sans-serif;
-    color: var(--dark-secondary);
-    font-weight: 400;
-  }
 }
 
-//tooltip when copy to clipboard
+//tooltip when copy to clipboard - i think nowhere used
 .dark-edition .tooltip.bs-tooltip-bottom,
 .dark-edition .tooltip.bs-tooltip-top,
 .light-edition .tooltip.bs-tooltip-bottom,

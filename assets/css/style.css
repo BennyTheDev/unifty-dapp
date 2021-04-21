@@ -450,19 +450,13 @@ textarea, input {
     .light-edition .nftHeader-stakingOptions-container #stakingOptions .third-row a {
       color: var(--primary-color); }
 
-.card-text {
-  font-size: 1.4rem; }
-
-.card-title {
-  font-size: 2rem; }
-
 .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
 .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
   background-color: var(--bg-tertiary);
   flex: 1;
   margin-right: 2rem;
   box-shadow: var(--shadow-primary);
-  border-radius: .8rem; }
+  border-radius: 0.8rem; }
   @media only screen and (max-width: 87.5em) {
     .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
     .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
@@ -478,11 +472,11 @@ textarea, input {
     .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card,
     .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card {
       margin: 0;
-      border-radius: .8rem;
+      border-radius: 0.8rem;
       height: 100%;
       color: var(--text-primary);
       word-wrap: normal;
-      padding: .5rem 2rem;
+      padding: 0.5rem 2rem;
       box-shadow: none; }
       .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content,
       .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content {
@@ -511,7 +505,7 @@ textarea, input {
           display: inline-flex;
           align-items: center;
           margin: 0;
-          padding: .5rem;
+          padding: 0.5rem;
           font-size: 1.2rem;
           color: var(--text-footer); }
           .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:hover, .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:active,
@@ -521,11 +515,11 @@ textarea, input {
           .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a i,
           .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a i {
             font-size: 1.6rem;
-            margin-right: .5rem; }
+            margin-right: 0.5rem; }
         .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links .mt-2,
         .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links .mt-2 {
           font-size: 1.2rem;
-          margin: 1rem 0 1rem .5rem;
+          margin: 1rem 0 1rem 0.5rem;
           color: var(--text-footer); }
 
 .nftListing,
@@ -698,7 +692,7 @@ textarea, input {
       .nftHeader .header-profile .card-body .card-title,
       .nftHeader .header-profile .header-left .card-title {
         font-family: acumin-pro, sans-serif;
-        font-size: 2.7rem;
+        font-size: 2.4rem;
         margin: 0 0 1rem 0;
         font-weight: bold; }
         .nftListing .card-profile .card-body .card-title a,
@@ -714,7 +708,8 @@ textarea, input {
         .nftHeader .header-profile .card-body .card-title a,
         .nftHeader .header-profile .header-left .card-title a {
           color: var(--dark-primary); }
-      .nftListing .card-profile .card-body div.text-truncate, .nftListing .card-profile .card-body .card-text,
+      .nftListing .card-profile .card-body div.text-truncate,
+      .nftListing .card-profile .card-body .card-text,
       .nftListing .card-profile .header-left div.text-truncate,
       .nftListing .card-profile .header-left .card-text,
       .nftListing .header-profile .card-body div.text-truncate,
@@ -737,8 +732,22 @@ textarea, input {
       .nftHeader .header-profile .card-body .card-text,
       .nftHeader .header-profile .header-left div.text-truncate,
       .nftHeader .header-profile .header-left .card-text {
-        font-size: 1.7rem;
+        font-size: 1.8rem;
         color: var(--dark-secondary); }
+      .nftListing .card-profile .card-body .card-text,
+      .nftListing .card-profile .header-left .card-text,
+      .nftListing .header-profile .card-body .card-text,
+      .nftListing .header-profile .header-left .card-text,
+      .farmListing .card-profile .card-body .card-text,
+      .farmListing .card-profile .header-left .card-text,
+      .farmListing .header-profile .card-body .card-text,
+      .farmListing .header-profile .header-left .card-text,
+      .nftHeader .card-profile .card-body .card-text,
+      .nftHeader .card-profile .header-left .card-text,
+      .nftHeader .header-profile .card-body .card-text,
+      .nftHeader .header-profile .header-left .card-text {
+        font-size: 1.6rem;
+        margin-bottom: 3rem; }
       .nftListing .card-profile .card-body .collection-name,
       .nftListing .card-profile .header-left .collection-name,
       .nftListing .header-profile .card-body .collection-name,
@@ -844,7 +853,6 @@ textarea, input {
         .nftHeader .card-profile .header-left .badge.badge-info,
         .nftHeader .header-profile .card-body .badge.badge-info,
         .nftHeader .header-profile .header-left .badge.badge-info {
-          font-size: 1.5rem;
           color: var(--dark-secondary);
           background-color: transparent; }
           .nftListing .card-profile .card-body .badge.badge-info span,
@@ -1029,7 +1037,7 @@ textarea, input {
       .nftHeader .card-profile .header-left #more-details,
       .nftHeader .header-profile .card-body #more-details,
       .nftHeader .header-profile .header-left #more-details {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         line-height: 1.7; }
       .nftListing .card-profile .card-body .popover-description,
       .nftListing .card-profile .header-left .popover-description,
@@ -1149,36 +1157,7 @@ textarea, input {
   .light-edition .popover.bs-popover-top .popover-body {
     padding: 1rem;
     max-height: 15rem;
-    overflow: auto;
-    color: var(--text-primary); }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar,
-    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
-    .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar,
-    .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar,
-    .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar,
-    .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
-    .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar,
-    .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar {
-      width: 0.5rem;
-      height: 0.3rem; }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb,
-    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
-    .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb,
-    .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb,
-    .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb,
-    .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
-    .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb,
-    .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb {
-      background: var(--dark-primary); }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track,
-    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
-    .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track,
-    .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track,
-    .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track,
-    .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
-    .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track,
-    .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track {
-      background-color: var(--grey-primary); }
+    overflow: auto; }
   .dark-edition .popover.bs-popover-bottom .popover-header,
   .dark-edition .popover.bs-popover-top .popover-header,
   .light-edition .popover.bs-popover-bottom .popover-header,
@@ -1186,7 +1165,7 @@ textarea, input {
     background-color: transparent;
     border-bottom: 0.1rem solid var(--grey-primary);
     font-family: acumin-pro, sans-serif;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: var(--dark-primary);
     font-weight: 700; }
     .dark-edition .popover.bs-popover-bottom .popover-header::before,
@@ -1198,10 +1177,26 @@ textarea, input {
   .dark-edition .popover.bs-popover-top .popover-body,
   .light-edition .popover.bs-popover-bottom .popover-body,
   .light-edition .popover.bs-popover-top .popover-body {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-family: acumin-pro, sans-serif;
     color: var(--dark-secondary);
     font-weight: 400; }
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
+    .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar,
+    .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
+    .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar {
+      width: 0.5rem;
+      height: 0.3rem; }
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
+    .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb,
+    .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
+    .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb {
+      background: var(--dark-primary); }
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
+    .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track,
+    .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
+    .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track {
+      background-color: var(--grey-primary); }
 
 .dark-edition .tooltip.bs-tooltip-bottom .tooltip-inner,
 .dark-edition .tooltip.bs-tooltip-top .tooltip-inner,
@@ -1315,6 +1310,11 @@ textarea, input {
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .col {
       padding: 0; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body h3#nftBuyTitle,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body h3#nftBuyTitle {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-primary); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body.modal-non-nft-content button,
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .form-group button,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body.modal-non-nft-content button,
@@ -1334,6 +1334,9 @@ textarea, input {
         border: 0.1rem solid var(--dark-primary);
         color: var(--white);
         cursor: var(--cursor-pointer) !important; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .form-group button,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .form-group button {
+      margin-top: 1rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .form-check .form-check-label,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .form-check .form-check-label {
       font-size: 1.4rem;
@@ -1430,6 +1433,12 @@ textarea, input {
     align-items: flex-start;
     padding: 1.5rem;
     line-height: 1.3; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-footer h4,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-footer h4 {
+      color: #6c757d;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 1rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-footer > :not(:first-child),
     .light-edition .main-panel .modal-dialog .modal-content .modal-footer > :not(:first-child) {
       margin-left: 0; }
@@ -1698,7 +1707,7 @@ textarea, input {
     height: calc(100vh - 16rem);
     display: flex;
     flex-direction: column;
-    padding-bottom: 3rem; }
+    padding-bottom: 1rem; }
     @media only screen and (min-width: 112.5em) {
       .dark-edition .sidebar .sidebar-wrapper,
       .light-edition .sidebar .sidebar-wrapper {
@@ -1706,19 +1715,19 @@ textarea, input {
     @media only screen and (max-width: 75em) {
       .dark-edition .sidebar .sidebar-wrapper,
       .light-edition .sidebar .sidebar-wrapper {
-        padding-bottom: 4.5rem; } }
+        padding-bottom: 1.5rem; } }
     @media only screen and (max-width: 991px) {
       .dark-edition .sidebar .sidebar-wrapper,
       .light-edition .sidebar .sidebar-wrapper {
-        padding-bottom: 5rem; } }
+        padding-bottom: 1.5rem; } }
     @media only screen and (max-width: 56.25em) {
       .dark-edition .sidebar .sidebar-wrapper,
       .light-edition .sidebar .sidebar-wrapper {
-        padding-bottom: 6.5rem; } }
+        padding-bottom: 2rem; } }
     @media only screen and (max-width: 37.5em) {
       .dark-edition .sidebar .sidebar-wrapper,
       .light-edition .sidebar .sidebar-wrapper {
-        padding-bottom: 9rem; } }
+        padding-bottom: 2.5rem; } }
     .dark-edition .sidebar .sidebar-wrapper .sidebar-bottom,
     .light-edition .sidebar .sidebar-wrapper .sidebar-bottom {
       flex: 1;
@@ -1764,13 +1773,16 @@ textarea, input {
 
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
-  padding: 5rem 0; }
+  padding: 4rem 0 5rem 0; }
   .dark-edition .sidebar .logo::after,
   .light-edition .sidebar .logo::after {
     content: none; }
   .dark-edition .sidebar .logo a.simple-text:hover,
   .light-edition .sidebar .logo a.simple-text:hover {
     background-color: transparent; }
+  .dark-edition .sidebar .logo img,
+  .light-edition .sidebar .logo img {
+    width: 16rem; }
 
 .sidebar .nav {
   margin-top: 0; }
@@ -1900,7 +1912,8 @@ textarea, input {
     background: var(--light-primary);
     border-radius: 0;
     z-index: 0;
-    margin: 0; }
+    margin: 0;
+    box-shadow: var(--shadow-primary); }
   .dark-edition .main-panel .nftHeader-stakingOptions-container,
   .light-edition .main-panel .nftHeader-stakingOptions-container {
     display: flex;

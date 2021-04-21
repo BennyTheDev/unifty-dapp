@@ -22,22 +22,22 @@
     height: calc(100vh - 16rem);
     display: flex;
     flex-direction: column;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
 
     @include respond(big-desktop) {
       padding-bottom: 0.5rem;
     }
     @include respond(tab-land) {
-      padding-bottom: 4.5rem;
+      padding-bottom: 1.5rem;
     }
     @include respond(nav-collapse) {
-      padding-bottom: 5rem;
+      padding-bottom: 1.5rem;
     }
     @include respond(tab-port) {
-      padding-bottom: 6.5rem;
+      padding-bottom: 2rem;
     }
     @include respond(phone) {
-      padding-bottom: 9rem;
+      padding-bottom: 2.5rem;
     }
 
     .sidebar-bottom {
@@ -98,7 +98,7 @@
 //logo
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
-  padding: 5rem 0;
+  padding: 4rem 0 5rem 0;
 
   &::after {
     content: none;
@@ -106,6 +106,10 @@
 
   a.simple-text:hover {
     background-color: transparent;
+  }
+
+  img {
+    width: 16rem;
   }
 }
 
