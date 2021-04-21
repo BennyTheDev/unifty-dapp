@@ -23,8 +23,8 @@
 
   .dropdown-item.active,
   .dropdown-item:active {
-    color: #ffffff !important;
-    background-color: var(--primary-color);
+    color: var(--dark-primary) !important;
+    background-color: transparent;
   }
 
   #bridgeActions {

@@ -50,22 +50,33 @@
   .modal-body {
     padding: 1rem 2rem;
     color: var(--dark-secondary);
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 
     .container {
-      border-radius: 0.4rem;
-      background-color: var(--bg-primary);
+      background-color: var(--white);
       margin-bottom: 1rem;
+      padding-bottom: 10px;
+
+      &::-webkit-scrollbar {
+        width: 0.7rem;
+        height: 0.5rem;
+      }
+      &::-webkit-scrollbar-thumb {
+        background: var(--dark-primary);
+      }
+      &::-webkit-scrollbar-track {
+        background-color: var(--grey-primary);
+      }
     }
 
     select {
       background-color: transparent;
       height: auto;
       background-image: none;
-      border: 0.1rem solid $modal-border;
-      border-radius: 0.8rem;
-      font-size: 1.3rem;
-      color: var(--modal-text);
+      border: 0.1rem solid var(--grey-primary);
+      border-radius: 0;
+      font-size: 1.4rem;
+      color: var(--dark-secondary);
       padding: 1rem;
 
       &:hover {
@@ -73,7 +84,6 @@
       }
 
       option {
-        background-color: var(--bg-tertiary);
         padding: 0.5rem 0;
       }
     }
@@ -82,30 +92,36 @@
       padding: 0;
     }
 
-    &.modal-non-nft-content button {
+    &.modal-non-nft-content button,
+    .form-group button {
       min-width: 10rem;
       padding: 0.8rem 0.5rem;
-      font-size: 1.2rem;
-      border: 0.1rem solid var(--primary-color);
-      border-radius: 0.4rem;
-      background-color: transparent;
-      color: var(--primary-color);
+      font-size: 1.4rem;
+      border: 0.1rem solid var(--dark-primary);
+      border-radius: 0;
+      background-color: var(--dark-primary);
+      color: var(--white);
       box-shadow: none;
 
       &:hover {
-        border: 0.1rem solid var(--primary-hover-dark);
-        color: var(--primary-hover-dark);
+        border: 0.1rem solid var(--dark-primary);
+        color: var(--white);
         cursor: var(--cursor-pointer) !important;
       }
+    }
+
+    // radio btn text
+    .form-check .form-check-label {
+      font-size: 1.4rem;
+      color: var(--dark-secondary);
     }
 
     form .form-group label {
       display: flex;
       align-items: center;
-      font-size: 1.3rem;
-      font-weight: 500;
-      letter-spacing: 0.32px;
-      color: var(--modal-text);
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--dark-primary);
 
       &:hover {
         cursor: var(--cursor-pointer);
@@ -135,20 +151,21 @@
       height: auto;
       background-color: transparent !important;
       background-image: none;
-      border: 0.1rem solid var(--modal-border-text);
-      border-radius: 0.8rem;
-      padding: 1rem;
-      font-size: 1.3rem;
-      color: var(--modal-text);
+      border: 0.1rem solid var(--grey-primary);
+      border-radius: 0;
+      padding: 0.8rem 1rem;
+      font-size: 1.4rem;
+      line-height: normal;
+      color: var(--dark-secondary);
       transition: all 0.3s;
 
       &::placeholder {
-        font-size: 1.3rem;
-        color: var(--modal-border-text);
+        font-size: 1.4rem;
+        color: var(--grey-primary);
       }
 
       &:focus {
-        border: 0.1rem solid var(--primary-color);
+        border: 0.1rem solid var(--dark-primary);
       }
     }
 
@@ -230,6 +247,7 @@
     }
 
     .btn.btn-secondary {
+      width: 25rem;
       flex: 1;
       box-shadow: none;
       border-radius: 0;

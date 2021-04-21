@@ -279,9 +279,9 @@
 
       <div class="container-fluid">
 
-        <h1 class="mb-5">NFT Market</h1>
+        <h1 class="mb-3">NFT Market</h1>
 
-        <h3 id="marketProfile" class="mb-5"></h3>
+        <h3 id="marketProfile" class="mb-3"></h3>
 
         <div id="marketOptions" class="row mb-5">
 
@@ -501,14 +501,14 @@
         <!-- Swap Picker View -->
         <script id="picker-template" type="text/x-handlebars-template">
 
-                <div style="{{#ifEquals which "request"}}min-width: 100%;{{/ifEquals}}{{#ifEquals which "request2"}}margin-bottom: 3rem !important;margin-left: 3rem !important;{{/ifEquals}}cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
+                <div style="{{#ifEquals which "request"}}min-width: 100%;{{/ifEquals}}{{#ifEquals which "request2"}}margin: 1rem !important;{{/ifEquals}}cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
                         <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
 
-                        <a class="opensea text-muted mt-2" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                        <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
                         <div class="card-body">
 
                             {{#ifNotEquals animation_url ""}}
@@ -858,7 +858,7 @@
 
                   <small id="lookupInfo" class="form-text text-muted"></small>
 
-                  <div class="form-group">
+                  <div class="form-group" style="margin: 0; padding: 0;">
                     <button type="button" class="btn btn-primary" id="lookupButton">Lookup</button>
                   </div>
 
