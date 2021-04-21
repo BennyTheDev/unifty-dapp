@@ -156,7 +156,7 @@ if(isset($_POST['UserEmail'])){
           </li>
           <li class="nav-item active">
             <a class="nav-link" href="redeem.php">
-              <i class="material-icons-round">account_balance_wallet</i>
+              <i class="material-icons-round">monetization_on</i>
               <p>CLAIM</p>
             </a>
           </li>

@@ -77,7 +77,7 @@ function TncDapp() {
 
         let traits_hide = '';
         if(data_attributes.length == 0){
-            traits_hide = 'style="visibility:hidden;"';
+            traits_hide = 'style="display:none;"';
         }
 
         let meta = await tncLib.getErc1155Meta(erc1155);
@@ -170,7 +170,7 @@ function TncDapp() {
             maxSupply: nft.maxSupply,
             balance: nft.balance,
             traitsHide : traits_hide,
-            collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
+            collectionName : meta.name != 'n/a' ? '<div class="text-truncate">' + meta.name + '</div>' : '<div class="text-truncate">' + erc1155 + '</div>',
             opensea : 'https://opensea.io/assets/'+erc1155+'/'+id
         });
 
@@ -265,7 +265,7 @@ function TncDapp() {
 
         let traits_hide = '';
         if(data_attributes.length == 0){
-            traits_hide = 'style="visibility:hidden;"';
+            traits_hide = 'style="display:none;"';
         }
 
         let meta = await tncLib.getErc1155Meta(erc1155);
@@ -358,7 +358,7 @@ function TncDapp() {
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
-                collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
+                collectionName : meta.name != 'n/a' ? '<div class="text-truncate">' + meta.name + '</div>' : '<div class="text-truncate">' + erc1155 + '</div>',
                 opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id
             });
 
@@ -423,7 +423,7 @@ function TncDapp() {
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
-                collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
+                collectionName : meta.name != 'n/a' ? '<div class="text-truncate">' + meta.name + '</div>' : '<div class="text-truncate">' + erc1155 + '</div>',
                 opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id
             });
 

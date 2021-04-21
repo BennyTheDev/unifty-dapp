@@ -185,7 +185,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="redeem.php">
-            <i class="material-icons-round">account_balance_wallet</i>
+            <i class="material-icons-round">monetization_on</i>
             <p>CLAIM</p>
           </a>
         </li>
@@ -280,7 +280,7 @@
                 <div class="nftHeader col-md-12 mb-3">
                     <div class="card">
 
-                        <div class="container header-profile">
+                        <div class="container header-profile" style="box-shadow: none;">
                             <div class="row">
 
                             <div class="header-left col-md-4 col-xs-12">
@@ -303,7 +303,7 @@
                                 {{/ifNotEquals}}
 
                                 {{#ifNotEquals interactive_url ""}}
-                                <a class="btn btn-outline mb-3 video-btn-link" style="cursor: pointer;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
+                                <a class="btn btn-outline mb-3 video-btn-link" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
                                         <span class="material-icons">
                                           play_circle
                                         </span>
@@ -317,6 +317,7 @@
 
                                     <div class="card-body">
 
+                                      <div id="amount-div">
                                         {{#ifEquals buy ""}}
                                         {{#ifEquals displayOpensea ""}}
                                             <a class="text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">Check on OpenSea</a>
@@ -337,6 +338,7 @@
                                             {{/ifNotEquals}}
                                         </div>
                                         {{/ifNotEquals}}
+                                      </div>
 
                                         <h4 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h4>
 
@@ -361,68 +363,59 @@
                                         {{/ifNotEquals}}
                                         {{/ifNotEquals}}
 
-                                        <a {{{traitsHide}}} style="width: 100px;" class="traits btn btn-outline mb-1" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                                            Traits
-                                        </a>
-
-                                        <div style="text-align: center; width: 100px;" class="collapse traits-collapse mb-5" id="collapse{{erc1155}}{{id}}">
-                                            <ul class="list-group">
-                                                {{#each attributes}}
-                                                <li class="list-group-item">
-                                                    <sub>{{this.trait_type}}</sub><br />
-                                                    <div>{{this.value}}</div>
-                                                </li>
-                                                {{/each}}
-                                            </ul>
-                                        </div>
 
                                         <div style="text-align: center">
-
+                                          <div id="actions-container">                                            
                                             {{#ifNotEquals onsale "0"}}
-                                        {{#ifNotEquals buy ""}}
+                                            {{#ifNotEquals buy ""}}
                                             {{#ifNotEquals batch ""}}
-                                            <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                                Buy
+                                            <button id="nftBatchBuy{{index}}" class="btn btn-outline" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                              Buy
                                             </button>
                                             <div class="text-muted mb-2" style="font-size: 1.4em">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                                             {{/ifNotEquals}}
-                                        {{#ifEquals batch ""}}
+                                            {{#ifEquals batch ""}}
                                             {{#ifEquals onsale "1"}}
-                                            <button class="btn btn-outline" style="cursor: pointer;" id="nftBuyButtonShortcut{{index}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                                Buy
+                                            <button class="btn btn-outline" id="nftBuyButtonShortcut{{index}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                              Buy
                                             </button>
                                             {{/ifEquals}}
-                                        {{#ifNotEquals onsale "1"}}
-                                            <button id="nftBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-toggle="modal" data-price="{{price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                                Buy
+                                            {{#ifNotEquals onsale "1"}}
+                                            <button id="nftBuy{{index}}" class="btn btn-outline" data-toggle="modal" data-price="{{price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                              Buy
                                             </button>
-                                        {{/ifNotEquals}}
-                                        <div class="text-muted mb-2" style="font-size: 1.4em">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
-                                        {{/ifEquals}}
-                                        {{/ifNotEquals}}
-
-                                        {{#ifNotEquals swap ""}}
-                                        {{#ifNotEquals buy ""}}
-                                        <span style="font-size: 1.4rem;">Or</span>
-                                        <br/>
-                                        {{/ifNotEquals}}
-                                        <button id="nftSwap{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-target="#nftSwapModal" data-index="{{index}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                            Swap
-                                        </button>
-                                        <div> </div>
-                                        {{/ifNotEquals}}
+                                            {{/ifNotEquals}}
+                                            <div class="text-muted mb-2" style="font-size: 1.4em">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
+                                            {{/ifEquals}}
                                             {{/ifNotEquals}}
 
-                                            {{#ifNotEquals buy ""}}
+                                            <!--Traits-->
+                                            <a {{{traitsHide}}} class="traits btn btn-outline mb-1" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                                              Traits
+                                            </a>
+                                            
+                                            <div style="text-align: center;" class="collapse traits-collapse mb-5" id="collapse{{erc1155}}{{id}}">
+                                              <ul class="list-group">
+                                                {{#each attributes}}
+                                                <li class="list-group-item">
+                                                  <sub>{{this.trait_type}}</sub><br />
+                                                  <div>{{this.value}}</div>
+                                                </li>
+                                                {{/each}}
+                                              </ul>
+                                            </div>
+                                        {{/ifNotEquals}}
+                                        
+                                        {{#ifNotEquals buy ""}}
                                             {{#ifEquals onsale "0"}}
                                             <button class="btn btn-outline mb-3">SOLD OUT</button>
                                             <div> </div>
                                             {{/ifEquals}}
                                             {{/ifNotEquals}}
+                                            
+                                          </div>
 
-                                        </div>
-
-                                        <div class="text-muted mt-5" style="text-align: center;">
+                                        <div id="more-details" class="text-muted mt-5" style="text-align: left;">
                                             {{#ifNotEquals buy ""}}
                                             Seller: <span id="sellerAddress">{{seller}}</span>
                                             <br/>
@@ -454,7 +447,7 @@
         <!-- Swap Picker View -->
         <script id="picker-template" type="text/x-handlebars-template">
 
-                <div style="{{#ifEquals which "request2"}}margin-bottom: 3rem !important;margin-left: 3rem !important;{{/ifEquals}}cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
+                <div style="{{#ifEquals which "request2"}}margin-bottom: 3rem !important;margin-left: 3rem !important;{{/ifEquals}}display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
@@ -497,7 +490,7 @@
                             {{/ifNotEquals}}
 
                             {{#ifNotEquals interactive_url ""}}
-                            <a class="btn btn-outline mb-3 video-btn-link" style="cursor: pointer;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
+                            <a class="btn btn-outline mb-3 video-btn-link" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
                                     <span class="material-icons">
                                       play_circle
                                     </span>
@@ -655,54 +648,6 @@
           </div>
         </div>
 
-        <!-- Swap Modal -->
-        <div class="modal fade" style="overflow-y: scroll;" id="nftSwapModal" tabindex="-1"
-          aria-labelledby="nftSwapModalLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="nftSwapModalLabel">Swap NFTs</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-
-                <h3 id="nftSwapTitle"></h3>
-
-                <form onsubmit="return false;">
-
-                  <p>Pick one of your existing offers to request a swap.</p>
-
-                  <div class="container" id="nftSwapPicker"
-                    style="padding-top: 10px; background-color: #1a2035; padding-left: 25px; height: 500px; overflow:auto;">
-                  </div>
-
-                  <div class="form-group mt-5">
-                    <label for="nftSwapNif">Offer additional NIF for the swap (optional)</label>
-                    <input value="0" type="text" placeholder="Enter the amount of NIF you'd like to offer additionally."
-                      class="form-control" id="nftSwapNif">
-                    <!--<button class="btn btn-secondary" type="button" id="swapAddMax">Add Max.</button>-->
-
-                  </div>
-
-                  <input type="hidden" name="nftSwapErc1155Address" id="nftSwapErc1155Address" value="" />
-                  <input type="hidden" name="nftSwapNftId" id="nftSwapNftId" value="" />
-                  <input type="hidden" name="nftIndex0" id="nftIndex0" value="" />
-                  <input type="hidden" name="nftIndex1" id="nftIndex1" value="" />
-
-                </form>
-
-              </div>
-              <div class="modal-footer">
-                <div class="buttons-container">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="nftSwapButton">Swap!</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- NFTs view -->
 
