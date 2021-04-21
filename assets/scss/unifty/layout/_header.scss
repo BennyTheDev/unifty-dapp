@@ -5,6 +5,10 @@
     padding: 1.6rem 0 0.8rem 0;
     margin-bottom: 2rem;
     width: 95%;
+
+    @include respond(phone) {
+      margin-bottom: 0;
+    }
   }
 
   .custom-header {
@@ -22,8 +26,18 @@
       }
     }
 
+    @include respond(phone) {
+      flex-direction: column;
+      margin-bottom: 3rem;
+    }
+
     &__text {
       flex: 1;
+      margin-right: 2rem;
+
+      @include respond(phone) {
+        width: 100%;
+      }
     }
 
     &__title {

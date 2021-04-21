@@ -7,6 +7,10 @@
   font-family: acumin-pro, sans-serif;
   transition: 0.3s;
 
+  @include respond(phone) {
+    width: 100%;
+  }
+
   h3 {
     color: var(--light-primary);
     font-weight: inherit;
@@ -18,6 +22,7 @@
   .balance-total {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
 
     &__icon {
       margin-right: 3rem;
