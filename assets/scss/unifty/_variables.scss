@@ -1,15 +1,12 @@
-//colors
+// used in scss files but not on page, should remove in future
 $pink: #f879e2;
-// $pink: #202060;
-
-$pink-hover: rgba(253, 121, 226, .1);
-$pink-title:#ec6fd2;
+$pink-hover: rgba(253, 121, 226, 0.1);
+$pink-title: #ec6fd2;
 $pink-submit-hover: #f047ce;
 
 $dark-primary: #0d141a;
 $dark-secondary: #121a21;
 
-//this is global for both
 $grey-primary: #a3abb2;
 
 $grey-secondary: #c2cad1;
@@ -21,4 +18,3 @@ $modal-border: #3b414c;
 $modal-bg: #3b414c;
 
 $stocks-font: #f4f7fb;
-

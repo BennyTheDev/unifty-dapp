@@ -31,7 +31,7 @@ if(isset($_POST['UserEmail'])){
 <head>
   <meta charset="UTF-8">
   <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
-  <title>Farm Builder - Unifty</title>
+  <title>Claim</title>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -126,7 +126,7 @@ if(isset($_POST['UserEmail'])){
   <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="logo">
-      <a class="simple-text logo-normal">
+      <a class="simple-text logo-normal" href="index.html">
         <img src="assets/img/consensus-coindesk.svg" />
         <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
           Binance Smart Chain
@@ -171,7 +171,8 @@ if(isset($_POST['UserEmail'])){
         <div class="sidebar-divider"></div>
   
         <div class="sidebar-bottom">
-          <div class="sidebar-text">
+          <div class="sidebar-text">   
+
             <div class="sidebar-text icons">
               <span class="navbar-text">
                 <a href="https://t.me/unifty" target="_blank">
@@ -183,7 +184,7 @@ if(isset($_POST['UserEmail'])){
                 <a href="https://twitter.com/unifty_io" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
-                </span>
+              </span>
             </div>
   
             <div class="sidebar-text rights">
@@ -191,10 +192,11 @@ if(isset($_POST['UserEmail'])){
                 Unifty Development d.o.o.<br/>All rights reserved.
               </span>
             </div>
+
           </div>
         </div>
   
-      </div>
+    </div>
   </div>
   <!-- SIDEBAR END -->
 
@@ -220,7 +222,7 @@ if(isset($_POST['UserEmail'])){
       <div class="custom-header">
 
         <div class="custom-header__text">
-          <div class="custom-header__title">Unifty.io</div>
+          <div class="custom-header__title">$DESK</div>
           <div class="content__welcome-text">
             <p>
               Please enable your wallet (Metamask or Torus) and enter your email address to request your tokens.
@@ -312,7 +314,7 @@ if(isset($_POST['UserEmail'])){
                     </span>
           Torus wallet
         </a>
-        <a class="nav-link" href="faq.html">
+        <a class="nav-link" href="https://unifty.io/" target="_blank">
           built with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
       </a>
       </li>

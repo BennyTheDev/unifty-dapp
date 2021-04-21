@@ -30,21 +30,20 @@ html {
 body {
   box-sizing: border-box;
   font-size: 1.4rem;
-  font-family: "Poppins", sans-serif;
   font-family: "acumin-pro", sans-serif;
   font-weight: 400;
 }
 
-body.dark-edition {
-  cursor: var(--cursor-default);
+// body.dark-edition {
+//   cursor: var(--cursor-default);
 
-  a:link,
-  a:hover,
-  a:active,
-  .btn:not(:disabled):not(.disabled) {
-    cursor: var(--cursor-pointer);
-  }
-}
+//   a:link,
+//   a:hover,
+//   a:active,
+//   .btn:not(:disabled):not(.disabled) {
+//     cursor: var(--cursor-pointer);
+//   }
+// }
 
 body.light-edition {
   cursor: var(--cursor-default);
@@ -140,6 +139,7 @@ body.light-edition {
 // }
 
 .light-edition {
+  // ------ used colors --------
   --dark-primary: #19284d;
   --dark-primary-hover: rgba(25, 40, 77, 0.1);
   --dark-secondary: #161f36;
@@ -151,6 +151,7 @@ body.light-edition {
   --green-primary: #7cee00;
 
   --white: #fff;
+  // ----------------------------
 
   --shadow-primary: 0 0 4px 0 rgba(0, 0, 0, 0.24);
   --shadow-secondary: 0 6px 6px 0 rgba(0, 0, 0, 0.16);
@@ -187,7 +188,6 @@ body.light-edition {
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;
   --cursor-text: url(../img/unifty-icons/cursor-text-light-thin.svg), auto;
 
-  //scrollbar bg
   --scrolbar-track: rgba(32, 32, 96, 0.1);
   --scrollbar-track-shadow: #f4f7fb;
   --scrollbar-track-hover: #cdcfd6;

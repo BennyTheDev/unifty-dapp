@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
-  <title>NFT Market - Unifty</title>
+  <title>NFT Market</title>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -37,6 +37,9 @@
   <script type="text/javascript" src="js/lib-market.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/market-dapp.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/dapp-init.js?v=1.9.2"></script>
+
+  <script type="text/javascript" src="js/coindesk-init.js?v=1.9.2"></script>
+  
   <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -159,6 +162,10 @@
       height: unset !important;
       margin-right: -20px !important;
     }
+
+    .btn.btn-info {
+      background-color: black
+    }
   </style>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
@@ -173,7 +180,7 @@
 
   <div class="sidebar">
     <div class="logo">
-      <a class="simple-text logo-normal">
+      <a class="simple-text logo-normal" href="index.html">
         <img src="assets/img/consensus-coindesk.svg" />
         <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
           Binance Smart Chain
@@ -275,13 +282,13 @@
           </div>
         </div>
 
-        <!-- <div id="balance-container" style="display: none;">
+        <div id="balance-container" style="display: none;">
           <h3>$DESK Balance</h3>
           <div class="balance-total">
             <img class="balance-total__icon" src="assets/img/deskcoin.svg" />
             <h2 id="wallet-balance"></h2>
           </div>
-        </div> -->
+        </div>
         
       </div>
       <!-- HEADER END -->
@@ -1016,7 +1023,7 @@
             </span>
             Torus wallet
           </a>
-          <a class="nav-link" href="faq.html">
+          <a class="nav-link" href="https://unifty.io/" target="_blank">
             built with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty
             </span>
           </a>
