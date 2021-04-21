@@ -1760,19 +1760,10 @@ textarea, input {
     height: 0.1rem; }
   .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb,
   .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb {
-    background: var(--scrollbar-thumb);
-    border-radius: 10px; }
-  .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb:hover,
-  .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-thumb-hover); }
+    background: var(--golden-primary); }
   .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track,
   .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track {
-    background: var(--scrolbar-track);
-    border-radius: 10px;
-    box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow); }
-  .dark-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track:hover,
-  .light-edition .sidebar .sidebar-wrapper ul.nav::-webkit-scrollbar-track:hover {
-    background: var(--scrollbar-track-hover); }
+    background-color: var(--dark-secondary); }
 
 .dark-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu,
 .light-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu {
