@@ -1,6 +1,7 @@
-let network = 'Rinkeby';
-let chain_id = '4';
-let api_url = 'https://api.unifty.cloud/';
+let network = 'Matic';
+let chain_id = '89';
+//let api_url = 'https://api.unifty.cloud/';
+let api_url = 'http://localhost/knots/rest/public/';
 
 $(document).ready(function(){
 

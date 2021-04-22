@@ -294,6 +294,8 @@ function TncDapp() {
 
         for(let i = offset; i < nfts.length; i++){
 
+            fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/URI/erc1155Address/'+nfts[i].erc1155+'/id/0', 5000);
+
             currentIndex = i;
 
             let nft = await window.tncLib.getNft(nfts[i].erc1155, nfts[i].id);

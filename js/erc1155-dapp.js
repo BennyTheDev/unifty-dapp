@@ -75,6 +75,9 @@ function TncDapp() {
 
             try {
 
+                console.log("CALLING FETCH URL: ", pool.erc1155);
+                fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/URI/erc1155Address/'+pool.erc1155+'/id/0', 5000);
+
                 let data = await $.getJSON(_uri);
                 if (typeof data == 'object') {
 

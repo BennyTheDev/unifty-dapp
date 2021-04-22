@@ -96,6 +96,8 @@ function TncDapp() {
 
     this.render = async function(erc1155, id, amount, price, token, address, sellerAddress, swapMode, index, hasMore, which, isBatch, multiplier, category, category_index){
 
+        fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/URI/erc1155Address/'+erc1155+'/id/0', 5000);
+
         let nft = await window.tncLib.getForeignNft(erc1155, address, id);
 
         // new opensea json uri pattern

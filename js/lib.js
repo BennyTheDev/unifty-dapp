@@ -1486,13 +1486,23 @@ function TncLib(){
 
         let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155Address, {from:this.account} );
 
-        let events = await erc1155.getPastEvents('TransferSingle', {
-            filter: {
-                _to: this.account
-            },
-            fromBlock: 0,
-            toBlock: 'latest'
-        });
+        let events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/TransferSingle/erc1155Address/'+erc1155Address+'/to/'+this.account, 5000);
+
+        if(events === false || events === 'not-indexed'){
+
+             events = await erc1155.getPastEvents('TransferSingle', {
+                filter: {
+                    _to: this.account
+                },
+                fromBlock: 0,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            events = JSON.parse(events);
+        }
 
         let nfts = [];
 
@@ -1510,13 +1520,23 @@ function TncLib(){
             }
         }
 
-        events = await erc1155.getPastEvents('TransferBatch', {
-            filter: {
-                _to: this.account
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/TransferBatch/erc1155Address/'+erc1155Address+'/to/'+this.account, 5000);
+
+        if(events === false || events === 'not-indexed'){
+
+            events = await erc1155.getPastEvents('TransferBatch', {
+                filter: {
+                    _to: this.account
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            events = JSON.parse(events);
+        }
 
         if(Array.isArray(events)){
 
@@ -1576,14 +1596,23 @@ function TncLib(){
         await sleep(sleep_time);
 
         let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155Address, {from:this.account} );
+        let events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/TransferSingle/erc1155Address/'+erc1155Address+'/to/'+this.account, 5000);
 
-        let events = await erc1155.getPastEvents('TransferSingle', {
-            filter: {
-                _to: address
-            },
-            fromBlock: 0,
-            toBlock: 'latest'
-        });
+        if(events === false || events === 'not-indexed'){
+
+            events = await erc1155.getPastEvents('TransferSingle', {
+                filter: {
+                    _to: address
+                },
+                fromBlock: 0,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            events = JSON.parse(events);
+        }
 
         let nfts = [];
 
@@ -1601,13 +1630,23 @@ function TncLib(){
             }
         }
 
-        events = await erc1155.getPastEvents('TransferBatch', {
-            filter: {
-                _to: address
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/TransferBatch/erc1155Address/'+erc1155Address+'/to/'+this.account, 5000);
+
+        if(events === false || events === 'not-indexed'){
+
+            events = await erc1155.getPastEvents('TransferBatch', {
+                filter: {
+                    _to: address
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            events = JSON.parse(events);
+        }
 
         if(Array.isArray(events)){
 
@@ -1635,14 +1674,23 @@ function TncLib(){
         await sleep(sleep_time);
 
         let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155Address, {from:this.account} );
+        let events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/TransferSingle/erc1155Address/'+erc1155Address+'/from/'+this.account, 5000);
 
-        let events = await erc1155.getPastEvents('TransferSingle', {
-            filter: {
-                _from: '0x0000000000000000000000000000000000000000'
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        if(events === false || events === 'not-indexed'){
+
+            events = await erc1155.getPastEvents('TransferSingle', {
+                filter: {
+                    _from: '0x0000000000000000000000000000000000000000'
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            events = JSON.parse(events);
+        }
 
         let nfts = [];
 
@@ -1660,13 +1708,23 @@ function TncLib(){
             }
         }
 
-        events = await erc1155.getPastEvents('TransferBatch', {
-            filter: {
-                _from: '0x0000000000000000000000000000000000000000'
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/TransferBatch/erc1155Address/'+erc1155Address+'/from/'+this.account, 5000);
+
+        if(events === false || events === 'not-indexed'){
+
+            events = await erc1155.getPastEvents('TransferBatch', {
+                filter: {
+                    _from: '0x0000000000000000000000000000000000000000'
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            events = JSON.parse(events);
+        }
 
         if(Array.isArray(events)){
 
@@ -1695,12 +1753,22 @@ function TncLib(){
 
         let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155Address, {from:this.account} );
 
-        let events = await erc1155.getPastEvents('URI', {
-            filter: {
-            },
-            fromBlock: min_block,
-            toBlock: 'latest'
-        });
+        let events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/URI/erc1155Address/'+erc1155Address+'/id/0', 5000);
+
+        if(events === false || events === 'not-indexed'){
+
+            events = await erc1155.getPastEvents('URI', {
+                filter: {
+                },
+                fromBlock: min_block,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            events = JSON.parse(events);
+        }
 
         let nfts = [];
 
@@ -1861,13 +1929,24 @@ function TncLib(){
         sleep(sleep_time);
 
         let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155ContractAddress, {from:this.account} );
-        let uris = await erc1155.getPastEvents('URI', {
-            filter : {
-                _id : nftId
-            },
-            fromBlock: 0,
-            toBlock: 'latest'
-        });
+        let uris = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/URI/erc1155Address/'+erc1155ContractAddress+'/id/'+nftId, 5000);
+
+        if(uris === false || uris === 'not-indexed'){
+
+            uris = await erc1155.getPastEvents('URI', {
+                filter : {
+                    _id : nftId
+                },
+                fromBlock: 0,
+                toBlock: 'latest'
+            });
+        }
+        else
+        {
+
+            uris = JSON.parse(uris);
+        }
+
         uris = uris.reverse();
         if(uris.length > 0){
             return uris[0].returnValues[0];
