@@ -54,6 +54,7 @@ if(isset($_POST['UserEmail'])){
   <script type="text/javascript" src="js/lib.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/coindesk-dapp.js"></script>
   <script type="text/javascript" src="js/coindesk-init.js?v=1.9.2"></script>
+  <script type="text/javascript" src="js/mobile-detection.js"></script>
   <script type="text/javascript" src="js/cookie.js?v=1.9.2"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -300,6 +301,23 @@ if(isset($_POST['UserEmail'])){
         </div>
         </div>
       </div>
+    </div>
+
+    <!--Mobile warning popup-->
+    <div  id="mobileDetectContainer" style="display: none;">
+      <div id="mobileHeader">
+        <img src="./assets/img/consensus-small-logo.svg" alt="consensus-coindesk">
+        <span id="mobile-close" class="material-icons-outlined">
+          close
+        </span>
+      </div>
+
+      <div id="mobile-content">
+        <img src="./assets/img/desktop-warning-icon.svg" alt="desktop-warning-icon">
+        <p>
+          The site is not optimized for mobile and is best to re-enter the site on desktop instead
+        </p>
+      </div>      
     </div>
 
             <!-- MODALS END -->
