@@ -66,10 +66,11 @@ $(document).ready(async function(){
 
             window.web3 = new Web3(ethereum);
 
+            /*
             if(window.ethereum.isTrust){
                 _alert('Trust Wallet not supported due to insufficient Web3 support. Please use Metamask or a wallet that fully supports Web3.');
                 return;
-            }
+            }*/
 
             try {
 

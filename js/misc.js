@@ -1,7 +1,7 @@
-let network = 'Matic';
+let network = 'Polygon';
 let chain_id = '89';
-//let api_url = 'https://api.unifty.cloud/';
-let api_url = 'http://localhost/knots/rest/public/';
+let api_url = 'https://api.unifty.cloud/';
+//let api_url = 'http://localhost/knots/rest/public/';
 
 $(document).ready(function(){
 
@@ -171,6 +171,9 @@ function getCurrency(){
     }
     if(chain_id == 'a4ec') {
         return 'CELO';
+    }
+    if(chain_id == 'a86a') {
+        return 'AVAX';
     }
     return 'ETH';
 }
