@@ -13,9 +13,10 @@ function TncDapp() {
 
         $(document).ready(async function(){
             let balance = await web3.eth.getBalance ( tncLib.account );
-            balance = parseInt(_this.formatNumberString(balance, 18))
-            
-            //Parsing float to remove trailing zeroes.      
+
+            //toLocaleString to add commas to thousands in number
+            balance = parseInt(_this.formatNumberString(balance, 18)).toLocaleString()
+              
             $('#wallet-balance').text(balance)
             $('#balance-container').show();    
         });

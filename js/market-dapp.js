@@ -14,9 +14,10 @@ function TncDapp() {
 
         $(document).ready(async function(){
             let balance = await web3.eth.getBalance ( tncLib.account );
-            balance = parseInt(_this.formatNumberString(balance, 18))
-            
-            //Parsing float to remove trailing zeroes.      
+
+            //toLocaleString to add commas to thousands in number
+            balance = parseInt(_this.formatNumberString(balance, 18)).toLocaleString()
+              
             $('#wallet-balance').text(balance)
             $('#balance-container').show();    
         });
@@ -188,12 +189,17 @@ function TncDapp() {
         }
 
         let decimals = await tncLib.tokenDecimalsErc20(token);
-        price = _this.formatNumberString(price, decimals);
+        price = parseInt(_this.formatNumberString(price, decimals));
 
+        /* All prices are full integers
         if(decimals > 2) {
 
             price = price.substring(0, price.length - 10);
         }
+        */
+
+        //Add commas to number greater than 1000 (50000 -> 50,000)
+        price = price.toLocaleString();
 
         let explorer = 'https://etherscan.io/token/';
         switch(chain_id){
