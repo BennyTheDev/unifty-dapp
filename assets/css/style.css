@@ -149,7 +149,7 @@ h3 {
       color: #19284d; }
 
 #balance-container {
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
   background-color: var(--dark-primary);
   text-align: right;
   font-weight: bold !important;
@@ -171,9 +171,9 @@ h3 {
     #balance-container .balance-total__icon {
       margin-right: 3rem;
       margin-top: 0.7rem;
-      width: 3.5rem; }
+      width: 3rem; }
   #balance-container #wallet-balance {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: bold;
     margin: 0;
     line-height: normal;

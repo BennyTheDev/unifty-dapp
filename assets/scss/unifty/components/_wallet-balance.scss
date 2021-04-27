@@ -1,5 +1,5 @@
 #balance-container {
-  padding: 1rem 1.5rem;
+  padding: 1rem 2rem;
 
   background-color: var(--dark-primary);
   text-align: right;
@@ -27,12 +27,12 @@
     &__icon {
       margin-right: 3rem;
       margin-top: 0.7rem;
-      width: 3.5rem;
+      width: 3rem;
     }
   }
 
   #wallet-balance {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: bold;
     margin: 0;
     line-height: normal;
