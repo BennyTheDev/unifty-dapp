@@ -89,7 +89,7 @@
 //logo
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
-  padding: 4rem 0 5rem 0;
+  padding: 9.5rem 0 10.4rem 0;
 
   &::after {
     content: none;
@@ -100,7 +100,8 @@
   }
 
   img {
-    width: 16rem;
+    width: 18rem;
+    height: 4.7rem;
   }
 }
 

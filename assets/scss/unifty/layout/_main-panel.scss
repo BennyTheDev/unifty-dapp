@@ -121,11 +121,18 @@
     #collectiblesPage.row,
     #offersPage.row,
     #myPoolsPage.row,
-    #bridgedPage.row {
+    #bridgedPage.row,
+    #iconLinks.row {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
       grid-gap: 2rem;
     }
+
+    // #iconLinks.row {
+    //   display: grid;
+    //   grid-template-columns: repeat(auto-fill, minmax(32.8rem, 1fr));
+    //   grid-gap: 2rem;
+    // }
 
     .col-xl-12,
     .col-lg-12 {

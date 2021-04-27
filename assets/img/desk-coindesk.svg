@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="112" height="112" viewBox="0 0 112 112">
+    <defs>
+        <style>
+            .cls-1{fill:#19284d}
+        </style>
+    </defs>
+    <g id="desk" transform="translate(-199 -267)">
+        <g id="Group_72" transform="translate(199 267)">
+            <path id="Path_93" d="M78.769 40a38.769 38.769 0 1 0 38.769 38.769A38.769 38.769 0 0 0 78.769 40zm3.877 62.031H63.262l4.524-27.138h7.754l-3.234 19.384h10.34a12.794 12.794 0 0 0 11.631-11.631c0-4.024-1.621-11.631-7.754-11.631H63.262v-7.753h6.463l1.291-7.754h7.754l-1.291 7.754h3.877l1.291-7.754H90.4L89.066 63.5c8.514 1.489 12.964 10.351 12.964 19.144a20.42 20.42 0 0 1-19.384 19.387z" class="cls-1" transform="translate(-22.769 -22.769)"/>
+            <circle id="Ellipse_62" cx="12.923" cy="12.923" r="12.923" fill="#fcc117" transform="translate(17.231 68.923)"/>
+            <path id="Rectangle_316" fill="none" d="M0 0H112V112H0z"/>
+            <path id="Path_153" d="M67.785 179.054H62.73V174h-3.676v5.054H54v3.676h5.054v5.054h3.676v-5.054h5.054z" class="cls-1" transform="translate(-30.738 -99.046)"/>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,21 @@
+.icon-card {
+  height: 27.6rem;
+  background-color: var(--light-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  // &__img {
+  //   margin: 32px 0;
+  // }
+
+  &__title {
+    max-width: 11.6rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--dark-primary);
+    line-height: 1.42;
+  }
+}

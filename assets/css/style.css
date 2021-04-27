@@ -1720,6 +1720,21 @@ textarea, input {
     border: 1px solid var(--dark-primary);
     background-color: var(--dark-primary); }
 
+.icon-card {
+  height: 27.6rem;
+  background-color: var(--light-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .icon-card__title {
+    max-width: 11.6rem;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--dark-primary);
+    line-height: 1.42; }
+
 .dark-edition .sidebar,
 .light-edition .sidebar {
   width: 30rem;
@@ -1801,7 +1816,7 @@ textarea, input {
 
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
-  padding: 4rem 0 5rem 0; }
+  padding: 9.5rem 0 10.4rem 0; }
   .dark-edition .sidebar .logo::after,
   .light-edition .sidebar .logo::after {
     content: none; }
@@ -1810,7 +1825,8 @@ textarea, input {
     background-color: transparent; }
   .dark-edition .sidebar .logo img,
   .light-edition .sidebar .logo img {
-    width: 16rem; }
+    width: 18rem;
+    height: 4.7rem; }
 
 .sidebar .nav {
   margin-top: 0; }
@@ -1990,11 +2006,13 @@ textarea, input {
   .dark-edition .main-panel .content .container-fluid #offersPage.row,
   .dark-edition .main-panel .content .container-fluid #myPoolsPage.row,
   .dark-edition .main-panel .content .container-fluid #bridgedPage.row,
+  .dark-edition .main-panel .content .container-fluid #iconLinks.row,
   .light-edition .main-panel .content .container-fluid #farmPage.row,
   .light-edition .main-panel .content .container-fluid #collectiblesPage.row,
   .light-edition .main-panel .content .container-fluid #offersPage.row,
   .light-edition .main-panel .content .container-fluid #myPoolsPage.row,
-  .light-edition .main-panel .content .container-fluid #bridgedPage.row {
+  .light-edition .main-panel .content .container-fluid #bridgedPage.row,
+  .light-edition .main-panel .content .container-fluid #iconLinks.row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem; }
