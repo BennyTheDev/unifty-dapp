@@ -228,7 +228,7 @@ if(isset($_POST['UserEmail'])){
           </div>
           <div class="content__welcome-text">
             <p>
-              Please enable your wallet (Metamask or Torus) and enter your email address to request your tokens.
+              Please enable your wallet (MetaMask or Torus) and enter your email address to request your tokens.
             </p>
           </div>
         </div>
@@ -246,7 +246,7 @@ if(isset($_POST['UserEmail'])){
 
         <div class="container-fluid">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body claim-form">
                     <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
 
                         <div class="form-group">
@@ -261,6 +261,8 @@ if(isset($_POST['UserEmail'])){
                     </form>
                 </div>
             </div>
+
+            <!-- <hr /> -->
         </div>
 
         <div class="modal fade" style="overflow-y: scroll;" id="coindeskSignupModal" tabindex="-1" aria-labelledby="coindeskLabel" aria-hidden="true">

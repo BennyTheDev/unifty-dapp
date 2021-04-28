@@ -3,62 +3,74 @@
   .content
   .container-fluid
   .card
-  .card-body
+  .card-body.claim-form {
+  padding: 3.2rem 2.4rem 4.8rem;
+
   #redemptionForm {
-  .form-group label.form-label {
-    display: flex;
-    align-items: center;
-    font-size: 1.6rem;
-    font-weight: 600;
-    color: var(--dark-primary);
-
-    &:hover {
-      cursor: var(--cursor-pointer);
-    }
-  }
-
-  .form-group input {
-    height: auto;
-    background-color: transparent !important;
-    background-image: none;
-    border: 0.1rem solid var(--grey-primary);
-    border-radius: 0;
-    padding: 0.8rem 1rem;
-    line-height: normal;
-    font-size: 1.4rem;
-    color: var(--dark-secondary);
-    transition: all 0.3s;
-
-    &::placeholder {
-      font-size: 1.3rem;
-      color: var(--grey-primary);
+    .form-group {
+      margin: 0;
+      padding: 0;
     }
 
-    &:focus {
-      border: 0.1rem solid var(--dark-primary);
+    .form-group label.form-label {
+      display: flex;
+      align-items: center;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--dark-primary);
+      margin: 0;
+
+      &:hover {
+        cursor: var(--cursor-pointer);
+      }
     }
-  }
 
-  .form-group .form-text {
-    font-size: 1.2rem;
-    color: var(--dark-secondary);
-  }
+    .form-group input {
+      height: auto;
+      background-color: transparent !important;
+      background-image: none;
+      border: 0.1rem solid var(--grey-primary);
+      border-radius: 0;
+      padding: 0.8rem 1rem;
+      line-height: normal;
+      font-size: 1.6rem;
+      color: var(--dark-secondary);
+      transition: all 0.3s;
+      margin: 2.4rem 0;
 
-  button#form-submit {
-    box-shadow: none;
-    border-radius: 0;
-    border: 1px solid var(--dark-primary);
-    background-color: var(--dark-primary);
-    color: var(--white);
-    font-size: 1.6rem;
-    font-weight: 700;
+      &::placeholder {
+        font-size: 1.6rem;
+        color: var(--grey-primary);
+      }
 
-    &:hover,
-    &:focus,
-    &:active {
+      &:focus {
+        border: 0.1rem solid var(--dark-primary);
+      }
+    }
+
+    .form-group .form-text {
+      font-size: 1.6rem;
+      color: var(--dark-secondary);
+      margin: 0 0 3.2rem 0;
+    }
+
+    button#form-submit {
+      width: 24.8rem;
       box-shadow: none;
+      border-radius: 0;
       border: 1px solid var(--dark-primary);
       background-color: var(--dark-primary);
+      color: var(--white);
+      font-size: 1.6rem;
+      font-weight: 700;
+
+      &:hover,
+      &:focus,
+      &:active {
+        box-shadow: none;
+        border: 1px solid var(--dark-primary);
+        background-color: var(--dark-primary);
+      }
     }
   }
 }
