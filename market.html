@@ -368,9 +368,9 @@
                             <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
                         {{/ifEquals}}
 
-                        {{#ifEquals checkOpenSea "Open Details"}}
+                        <!-- {{#ifEquals checkOpenSea "Open Details"}}
                             <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
+                        {{/ifEquals}} -->
 
 
                         <div class="card-body">
@@ -412,7 +412,7 @@
 
                             <div class="mb-3">
                                 {{#ifEquals batch ""}}
-                                    <span class="badge badge-info">In Stock: <span id="marketAmountInfo{{erc1155}}{{id}}">{{onsale}}</span></span>
+                                    <span class="badge badge-info">In Stock: <span id="marketAmountInfo{{erc1155}}{{id}}">{{onsale}} <span style="font-weight: 400;">of</span> {{supply}}</span></span>
                                 {{/ifEquals}}
                                 {{#ifNotEquals batch ""}}
                                 <span class="badge badge-info"><a href="javascript:void(0);" data-index="{{index}}" data-toggle="modal" data-target="#nftsView">This + {{multiplier}} more NFTs</a></span>
@@ -423,13 +423,13 @@
 
                             <div class="collection-name">{{{collectionName}}}</div>
 
-                            {{#ifNotEquals description ""}}
+                            <!-- {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
                               <span class="material-icons-round">
                                 info
                               </span>
                             </button>
-                            {{/ifNotEquals}}
+                            {{/ifNotEquals}} -->
 
                             {{#ifNotEquals options ""}}
                                 <div class="dropdown">
@@ -447,23 +447,23 @@
                             {{#ifNotEquals onsale "0"}}
                             {{#ifNotEquals buy ""}}
                                 {{#ifNotEquals batch ""}}
-                                    <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                    <button id="nftBatchBuy{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                         Buy
                                     </button>
-                                    <div class="text-muted mb-2">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
+                                    <div class="text-muted mb-3">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                                 {{/ifNotEquals}}
                                 {{#ifEquals batch ""}}
                                     {{#ifEquals onsale "1"}}
-                                        <button class="btn btn-outline" style="cursor: pointer;" id="nftBuyButtonShortcut{{index}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                        <button class="btn btn-outline mb-3" style="cursor: pointer;" id="nftBuyButtonShortcut{{index}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                             Buy
                                         </button>
                                     {{/ifEquals}}
                                     {{#ifNotEquals onsale "1"}}
-                                        <button id="nftBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-toggle="modal" data-price="{{price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                        <button id="nftBuy{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-price="{{price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                             Buy
                                         </button>
                                     {{/ifNotEquals}}
-                                    <div class="text-muted mb-2">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
+                                    <div class="text-muted mb-3">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
                                 {{/ifEquals}}
                             {{/ifNotEquals}}
                             
@@ -473,12 +473,19 @@
                             <button class="btn btn-outline mb-3">SOLD OUT</button>
                             <div> </div>
                             {{/ifEquals}}
+                            
 
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                            {{#ifEquals checkOpenSea "Open Details"}}
+                            <button class="btn btn-outline show-details mb-2">
+                              <a href="{{opensea}}">{{checkOpenSea}}</a>
+                            </button>
+                            {{/ifEquals}}
+
+                            <!-- <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
                                 Traits
-                            </a>
+                            </a> -->
 
-                            <div class="collapse traits-collapse" id="collapse2{{index}}">
+                            <!-- <div class="collapse traits-collapse" id="collapse2{{index}}">
                                 <ul class="list-group">
 
                                     {{#ifNotEquals bridgeOnBack ""}}
@@ -508,7 +515,7 @@
                                         </li>
                                     {{/each}}
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

@@ -38,8 +38,10 @@
     margin-top: 0;
     box-shadow: var(--shadow-secondary);
 
+    // nft price
     .text-muted {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
+      font-weight: 700;
       color: var(--dark-secondary) !important;
     }
 
@@ -252,6 +254,7 @@
           padding: 1rem 0.8rem 1rem 0.8rem;
           width: 100%;
         }
+
         a.traits {
           font-size: 1.7rem;
           padding: 1rem 0.8rem 1rem 0.8rem;

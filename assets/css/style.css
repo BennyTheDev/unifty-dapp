@@ -605,7 +605,8 @@ textarea, input {
     .farmListing .header-profile .text-muted,
     .nftHeader .card-profile .text-muted,
     .nftHeader .header-profile .text-muted {
-      font-size: 1.2rem;
+      font-size: 1.8rem;
+      font-weight: 700;
       color: var(--dark-secondary) !important; }
     .nftListing .card-profile .opensea.text-muted,
     .nftListing .header-profile .opensea.text-muted,
@@ -1269,6 +1270,45 @@ textarea, input {
   font-weight: 700;
   padding: 0.5rem 0.8rem 0.7rem 0.8rem;
   width: 100%; }
+
+.dark-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline.show-details,
+.light-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline.show-details {
+  background-color: var(--white) !important;
+  color: var(--dark-primary); }
+  .dark-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline.show-details a,
+  .light-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline.show-details a {
+    display: inline-block;
+    width: 100%;
+    color: inherit;
+    font-size: 1.4rem; }
 
 .dark-edition .main-panel .modal-dialog .modal-content,
 .light-edition .main-panel .modal-dialog .modal-content {
