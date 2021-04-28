@@ -40,12 +40,8 @@
       }
     }
 
-    &__title {
-      color: var(--white);
-      -webkit-text-stroke: 1px var(--dark-primary);
-      font-size: 6rem;
-      font-weight: 500;
-      line-height: 0.9;
+    &__title img {
+      width: 23rem;
     }
   }
 }

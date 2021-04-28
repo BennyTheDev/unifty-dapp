@@ -152,7 +152,7 @@ if(isset($_POST['UserEmail'])){
           <li class="nav-item">
             <a class="nav-link" href="collectibles.html">
               <i class="material-icons-round">account_balance_wallet</i>
-              <p>YOUR WALLET</p>
+              <p>My NFTs</p>
             </a>
           </li>
           <li class="nav-item active">
@@ -223,7 +223,9 @@ if(isset($_POST['UserEmail'])){
       <div class="custom-header">
 
         <div class="custom-header__text">
-          <div class="custom-header__title">$DESK</div>
+          <div class="custom-header__title">
+            <img src="assets/img/desk-logo-title.svg" />
+          </div>
           <div class="content__welcome-text">
             <p>
               Please enable your wallet (Metamask or Torus) and enter your email address to request your tokens.

@@ -89,7 +89,9 @@
 //logo
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
-  padding: 9.5rem 0 10.4rem 0;
+  padding: 4rem 0 5rem 0;
+  // padding for desk logo
+  // padding: 9.5rem 0 10.4rem 0;
 
   &::after {
     content: none;
@@ -100,8 +102,10 @@
   }
 
   img {
-    width: 18rem;
-    height: 4.7rem;
+    width: 16rem;
+    // width for desk logo
+    // width: 18rem;
+    // height: 4.7rem;
   }
 }
 
