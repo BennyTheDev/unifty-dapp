@@ -1,29 +1,37 @@
 <?php
-if(isset($_POST['UserEmail'])){
+if(isset($_POST['Code'])){
 
-    if(trim($_POST['UserEmail']) == '' || trim($_POST['address']) == ''){
+    if(trim($_POST['Code']) == '' || trim($_POST['address']) == ''){
 
-        exit('Please enter your email address and enable your wallet.');
+        exit('Please enter your Consensus code address and enable your wallet.');
     }
 
-    $dsn = 'mysql:host=localhost;dbname=unifghiu_coindesk;charset=utf8';
-    $usr = 'unifghiu_coindesk';
-    $pwd = 'coindesk';
+    $dsn = 'mysql:host=localhost;dbname=unifty;charset=utf8';
+    $usr = 'root';
+    $pwd = '';
     $pdo = new PDO($dsn, $usr, $pwd);
 
-    $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`userEmail`) = ? And `address` = ''");
-    $stmt->execute([strtolower($_POST['UserEmail'])]);
+    $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`Code`) = ? And `address` = ''");
+    $stmt->execute([strtolower($_POST['Code'])]);
     $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
     if(count($result) != 0){
 
-        $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ? Where Lower(`userEmail`) = ?");
-        $stmt->execute([$_POST['address'], strtolower($_POST['UserEmail'])]);
+      //Checking if the wallet address is being used
+      $stmt = $pdo->prepare("SELECT TOP 1 1 FROM `coindeskemails` WHERE `address` = 'address'");
+      $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-        exit('Verification success!');
+      if(count($result) != 0){
+        $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ? Where Lower(`Code`) = ?");
+        $stmt->execute([$_POST['address'], strtolower($_POST['Code'])]);
+
+        exit('Verification success!');   
+      }
+
+      exit('This wallet address has already received $DESK');
     }
 
-    exit('Your email address has not been found or you requested your tokens already.');
+    exit('Your code has not been found or you requested your tokens already.');
 }
 ?>
 <html lang="en">
@@ -93,11 +101,11 @@ if(isset($_POST['UserEmail'])){
 
             $("#form-submit").on('click', async function(){
 
-                let email = $("#email").val();
+                let code = $("#code").val();
 
-                if(email == "")
+                if(code == "")
                 {
-                    alert("Please enter your email address.");
+                    alert("Please enter your Concensus code.");
                 } else{
                     console.log('calling ajax with address: ', tncLib.account);
                     $.ajax(
@@ -105,7 +113,7 @@ if(isset($_POST['UserEmail'])){
                             url: 'redeem.php',
                             method: 'POST',
                             data: {
-                                UserEmail: email,
+                                Code: code,
                                 address : tncLib.account
                             },
                             success: function(res){
@@ -250,9 +258,9 @@ if(isset($_POST['UserEmail'])){
                     <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
 
                         <div class="form-group">
-                            <label for="email" class="form-label">Email address</label>
-                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"/>
-                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                            <label for="code" class="form-label">Consensus code</label>
+                            <input type="code" class="form-control" id="code" aria-describedby="codeHelp"/>
+                            <div id="codeHelp" class="form-text">Code is redeemable only once.</div>
                         </div>
 
                         <!--Wallet address: <input type="text" id="address" /><br>-->
