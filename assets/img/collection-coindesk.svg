@@ -4,17 +4,13 @@
             .cls-1{fill:#19284d}
         </style>
     </defs>
-    <g id="collection" transform="translate(-840)">
-        <g id="Group_78" transform="translate(840)">
-            <g id="Group_77" transform="translate(18.454 18.778)">
-                <path id="Path_161" d="M895.646 52.93a5.205 5.205 0 0 1 5.2-5.2h26.3v-1.525a2.614 2.614 0 0 0-2.614-2.614h-39.078a2.614 2.614 0 0 0-2.614 2.614v55.768a2.614 2.614 0 0 0 2.614 2.614h10.192z" class="cls-1" transform="translate(-882.84 -43.591)"/>
-                <path id="Path_162" d="M956.912 74.81a2.617 2.617 0 0 0-2.614 2.614v44.934h10.914a2.614 2.614 0 0 0 2.614-2.614V74.81z" class="cls-1" transform="translate(-923.516 -61.362)"/>
-            </g>
-            <path id="Path_163" d="M931.375 68.538a5.2 5.2 0 0 1 5.2-5.2h26.3v-1.524a2.615 2.615 0 0 0-2.614-2.614h-39.078a2.615 2.615 0 0 0-2.614 2.614v55.768a2.615 2.615 0 0 0 2.614 2.614h10.192z" class="cls-1" transform="translate(-884.724 -33.698)"/>
-            <rect id="Rectangle_320" width="44.31" height="60.997" class="cls-1" rx="6.069" transform="translate(49.236 32.226)"/>
-            <path id="Rectangle_321" fill="none" d="M0 0H112V112H0z"/>
+    <g id="collect" transform="translate(-840)">
+        <g id="Group_69" transform="translate(858.454 18.778)">
+            <path id="Path_148" d="M895.646 52.93a5.205 5.205 0 0 1 5.2-5.2h26.3v-1.525a2.614 2.614 0 0 0-2.614-2.614h-39.078a2.614 2.614 0 0 0-2.614 2.614v55.768a2.614 2.614 0 0 0 2.614 2.614h10.192z" class="cls-1" transform="translate(-882.84 -43.591)"/>
+            <path id="Path_149" d="M956.912 74.81a2.617 2.617 0 0 0-2.614 2.614v44.934h10.914a2.614 2.614 0 0 0 2.614-2.614V74.81z" class="cls-1" transform="translate(-923.516 -61.362)"/>
         </g>
-        <circle id="Ellipse_65" cx="12.923" cy="12.923" r="12.923" fill="#fcc117" transform="translate(855.507 70.647)"/>
-        <path id="Path_164" d="M902.939 182.4l-6.015 6.015-2.884-2.884-1.99 1.99 2.884 2.884 1.99 1.99 1.99-1.99 6.015-6.015z" class="cls-1" transform="translate(-29.629 -103.829)"/>
+        <path id="Path_150" d="M931.375 68.538a5.2 5.2 0 0 1 5.2-5.2h26.3v-1.524a2.615 2.615 0 0 0-2.614-2.614h-39.078a2.615 2.615 0 0 0-2.614 2.614v55.768a2.615 2.615 0 0 0 2.614 2.614h10.192z" class="cls-1" transform="translate(-44.724 -33.698)"/>
+        <rect id="Rectangle_313" width="44.31" height="60.997" class="cls-1" rx="6.069" transform="translate(889.236 32.226)"/>
+        <path id="Rectangle_314" fill="none" d="M0 0H112V112H0z" transform="translate(840)"/>
     </g>
 </svg>

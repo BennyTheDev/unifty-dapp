@@ -1,21 +1,26 @@
-.icon-card {
-  height: 27.6rem;
-  background-color: var(--light-primary);
+.link-card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: var(--white);
 
-  // &__img {
-  //   margin: 32px 0;
-  // }
+  &__icon {
+    height: 17.6rem;
+    background-color: var(--light-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+  }
 
-  &__title {
-    max-width: 11.6rem;
-    font-size: 2.4rem;
+  &__btn {
+    height: 9.2rem;
+    background-color: var(--dark-primary);
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 2rem;
     font-weight: 700;
-    text-align: center;
-    color: var(--dark-primary);
-    line-height: 1.42;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
