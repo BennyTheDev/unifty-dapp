@@ -278,8 +278,7 @@
           </div>
           <div class="content__welcome-text">
             <p>
-              The UNIFTY NFT Market is a fully decentralized marketplace to buy, sell and swap NFTs. Use $NIF on swap
-              offers to balance the values between NFTs.
+              The NFT Marketplace is where you can acquire & redeem Non-Fungible Tokens with the $DESK you’ve collected at Consensus 2021. Browse experiences, swag and sponsor perks, and collect ‘em all!
             </p>
           </div>
         </div>
@@ -431,7 +430,7 @@
                             </button>
                             {{/ifNotEquals}} -->
 
-                            {{#ifNotEquals options ""}}
+                            <!-- {{#ifNotEquals options ""}}
                                 <div class="dropdown">
                                     <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="walletNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         <span class="material-icons">
@@ -442,7 +441,7 @@
                                         <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftCancelModal" data-index="{{index}}" id="nftCancel{{index}}">Cancel</a>
                                     </div>
                                 </div>
-                            {{/ifNotEquals}}
+                            {{/ifNotEquals}} -->
 
                             {{#ifNotEquals onsale "0"}}
                             {{#ifNotEquals buy ""}}
@@ -526,14 +525,15 @@
         <!-- Swap Picker View -->
         <script id="picker-template" type="text/x-handlebars-template">
 
-                <div style="{{#ifEquals which "request"}}min-width: 100%;{{/ifEquals}}{{#ifEquals which "request2"}}margin: 1rem !important;{{/ifEquals}}cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
+                <div style="{{#ifEquals which "request"}}min-width: 100%;{{/ifEquals}}{{#ifEquals which "request2"}}margin: 1rem !important;{{/ifEquals}}display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
                         <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
 
-                        <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                        <!-- <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a> -->
+
                         <div class="card-body">
 
                             {{#ifNotEquals animation_url ""}}
@@ -573,7 +573,7 @@
 
                             <div class="mb-3">
                                 {{#ifEquals batch ""}}
-                                <span class="badge badge-info">In Stock: <span id="marketAmountInfo2{{erc1155}}{{id}}">{{onsale}}</span></span>
+                                <span class="badge badge-info">In Stock: <span id="marketAmountInfo2{{erc1155}}{{id}}">{{onsale}} <span style="font-weight: 400;">of</span> {{supply}}</span></span>
                                 {{/ifEquals}}
                                 {{#ifNotEquals batch ""}}
                                 <span class="badge badge-info"><a href="javascript:void(0);" data-index="{{index}}" data-toggle="modal" data-target="#nftsView">This + {{multiplier}} more NFTs</a></span>
@@ -584,19 +584,25 @@
 
                             <div class="collection-name">{{{collectionName}}}</div>
 
-                            {{#ifNotEquals description ""}}
+                            {{#ifEquals checkOpenSea "Open Details"}}
+                            <button class="btn btn-outline show-details mb-2">
+                              <a href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                            </button>
+                            {{/ifEquals}}
+
+                            <!-- {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
                               <span class="material-icons-round">
                                 info
                               </span>
                             </button>
-                            {{/ifNotEquals}}
+                            {{/ifNotEquals}} -->
 
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                            <!-- <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
                                 Traits
-                            </a>
+                            </a> -->
 
-                            <div class="collapse traits-collapse" id="collapse{{index}}">
+                            <!-- <div class="collapse traits-collapse" id="collapse{{index}}">
                                 <ul class="list-group">
 
                                     {{#ifNotEquals bridgeOnBack ""}}
@@ -626,7 +632,8 @@
                                     </li>
                                     {{/each}}
                                 </ul>
-                            </div>
+                            </div> -->
+
                         </div>
                     </div>
                 </div>

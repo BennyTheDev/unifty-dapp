@@ -1,4 +1,4 @@
-.dark-edition
+.light-edition
   .main-panel
   .content
   .container-fluid
@@ -6,6 +6,21 @@
   .nftListing
   .card.card-profile
   .card-body,
+.modal-body #nftsViewContainer {
+  // open details button
+  button.btn-outline.show-details {
+    background-color: var(--white) !important;
+    color: var(--dark-primary);
+
+    a {
+      display: inline-block;
+      width: 100%;
+      color: inherit;
+      font-size: 1.4rem;
+    }
+  }
+}
+
 .light-edition
   .main-panel
   .content
@@ -24,18 +39,5 @@
     font-weight: 700;
     padding: 0.5rem 0.8rem 0.7rem 0.8rem;
     width: 100%;
-  }
-
-  // open details button
-  button.btn-outline.show-details {
-    background-color: var(--white) !important;
-    color: var(--dark-primary);
-
-    a {
-      display: inline-block;
-      width: 100%;
-      color: inherit;
-      font-size: 1.4rem;
-    }
   }
 }
