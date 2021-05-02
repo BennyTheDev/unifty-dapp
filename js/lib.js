@@ -125,6 +125,7 @@ function TncLib(){
 
         // assuming ethereum mainnet if nothing else specified
 
+        // FANTOM
     } else{
 
         this.nif = new web3.eth.Contract( nifABI, '0x7e291890B01E5181f7ecC98D79ffBe12Ad23df9e', {from:this.account} );
@@ -161,7 +162,7 @@ function TncLib(){
 
         let added = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/CardAdded/'+farmAddress, 5000);
 
-        if(added === false){
+        if(added === false || added === 'unsupported-chainid'){
 
             let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
             added = await farm.getPastEvents('CardAdded', {
@@ -248,7 +249,7 @@ function TncLib(){
 
         let uris = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmUri/'+farmAddress, 5000);
 
-        if(uris === false){
+        if(uris === false || uris === 'unsupported-chainid'){
 
             let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
             uris = await farm.getPastEvents('FarmUri', {
@@ -292,7 +293,7 @@ function TncLib(){
 
         console.log("URIS: ", uris, farmAddress);
 
-        if(uris === false){
+        if(uris === false || uris === 'unsupported-chainid'){
 
             uris = await farm.getPastEvents('FarmUri', {
                 filter: {
@@ -1079,7 +1080,7 @@ function TncLib(){
 
         let events = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmUri/'+farmAddress, 5000);
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
             events = await farm.getPastEvents('FarmUri', {
@@ -1213,7 +1214,7 @@ function TncLib(){
 
         let cards = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/CardAdded/'+farmAddress, 5000);
 
-        if(cards === false){
+        if(cards === false || cards === 'unsupported-chainid'){
 
             let farm = new web3.eth.Contract( farmABI, farmAddress, {from:this.account} );
             cards = await farm.getPastEvents('CardAdded', {
@@ -1268,7 +1269,7 @@ function TncLib(){
 
         let events = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmCreated/user/'+userAddress, 5000);
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await this.farm.getPastEvents('FarmCreated', {
                 filter: {
@@ -1292,7 +1293,7 @@ function TncLib(){
 
         let events = await fetchUrl(api_url + '1.0/'+chain_id+'/farms/events/FarmCreated/farm/'+farmAddress, 5000);
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await this.farm.getPastEvents('FarmCreated', {
                 filter: {
@@ -1492,7 +1493,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
              events = await erc1155.getPastEvents('TransferSingle', {
                 filter: {
@@ -1530,7 +1531,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await erc1155.getPastEvents('TransferBatch', {
                 filter: {
@@ -1579,7 +1580,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await erc1155.getPastEvents('URI', {
                 filter: {
@@ -1624,7 +1625,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await erc1155.getPastEvents('TransferSingle', {
                 filter: {
@@ -1662,7 +1663,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await erc1155.getPastEvents('TransferBatch', {
                 filter: {
@@ -1710,7 +1711,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await erc1155.getPastEvents('TransferSingle', {
                 filter: {
@@ -1748,7 +1749,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await erc1155.getPastEvents('TransferBatch', {
                 filter: {
@@ -1797,7 +1798,7 @@ function TncLib(){
             events = '[]';
         }
 
-        if(events === false){
+        if(events === false || events === 'unsupported-chainid'){
 
             events = await erc1155.getPastEvents('URI', {
                 filter: {
@@ -1977,7 +1978,7 @@ function TncLib(){
             uris = '[]';
         }
 
-        if(uris === false){
+        if(uris === false || uris === 'unsupported-chainid'){
 
             uris = await erc1155.getPastEvents('URI', {
                 filter : {

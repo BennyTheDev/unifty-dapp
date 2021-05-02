@@ -114,7 +114,7 @@ $(document).ready(async function(){
                     }else if(chain_id == '38'){
 
                         chainName = 'Binance Smart Chain';
-                        rpcUrl = 'https://bsc1-rpc.unifty.cloud/';
+                        rpcUrl = 'https://bsc-dataseed.binance.org/';
                         currencyName = 'BNB';
                         currencySymbol = 'BNB';
                         currencyDecimals = 18;
@@ -222,7 +222,7 @@ $(document).ready(async function(){
                     }else if(chain_id == '89'){
 
                         chainName = 'Polygon (Matic)';
-                        rpcUrl = 'https://holy-weathered-glade.matic.quiknode.pro/9c7e1575f6d450d4fceeffde6b2e5ed69a3eed13/';
+                        rpcUrl = 'https://rpc-mainnet.maticvigil.com/';
                         currencyName = 'MATIC';
                         currencySymbol = 'MATIC';
                         currencyDecimals = 18;
@@ -379,7 +379,7 @@ function enableTorus(){
                 networkName = 'Polygon';
                 break;
             case '38':
-                chain = 'https://bsc1-rpc.unifty.cloud';
+                chain = 'https://bsc-dataseed.binance.org/';
                 networkName = 'Binance Smart Chain';
                 break;
             case 'a86a':
@@ -439,10 +439,10 @@ function runReadableOnly(){
                 rpcUrl = 'https://forno.celo.org/';
                 break;
             case '89':
-                rpcUrl = 'https://holy-weathered-glade.matic.quiknode.pro/9c7e1575f6d450d4fceeffde6b2e5ed69a3eed13/';
+                rpcUrl = 'https://rpc-mainnet.maticvigil.com/';
                 break;
             case '38':
-                rpcUrl = 'https://bsc1-rpc.unifty.cloud/';
+                rpcUrl = 'https://bsc-dataseed.binance.org/';
                 break;
             case '64':
                 rpcUrl = 'https://xdai1-rpc.unifty.cloud/';
