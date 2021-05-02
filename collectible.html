@@ -40,6 +40,7 @@
     <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@ramp-network/ramp-instant-sdk@2.3.0/dist/ramp-instant-sdk.umd.js" integrity="sha256-heFylj/fcCZffQpQuqUmrk1e08vdaGcpw0w9mWGnbz4=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function(){
             new ClipboardJS('.btn-clipboard');
@@ -857,6 +858,15 @@
                 </a>
             </li>
 
+            <li class="nav-item" id="ramp-btn">
+                <a class="nav-link">
+                            <span class="material-icons-round">
+                              attach_money
+                            </span>
+                  Buy crypto with RAMP
+                </a>
+              </li>
+              
             <li class="nav-item shop" id="shopEthereum" style="display:none;">
                 <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
                     <span class="material-icons-round">
@@ -935,7 +945,7 @@
     <!-- FOOTER END -->
 
 </div>
-
+<script src="js/ramp-init.js"></script>
 <script src="js/themeSwitch.js"></script>
 </body>
 </html>
