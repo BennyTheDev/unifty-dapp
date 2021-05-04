@@ -236,7 +236,7 @@ if(isset($_POST['Code'])){
           </div>
           <div class="content__welcome-text">
             <p>
-              Please enable your wallet (MetaMask or Torus) and enter your email address to request your tokens.
+              Enter your custom code from your email to claim your $DESK. 
             </p>
           </div>
         </div>
@@ -258,9 +258,9 @@ if(isset($_POST['Code'])){
                     <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
 
                         <div class="form-group">
-                            <label for="code" class="form-label">Consensus code</label>
+                            <label for="code" class="form-label">Enter code:</label>
                             <input type="code" class="form-control" id="code" aria-describedby="codeHelp"/>
-                            <div id="codeHelp" class="form-text">Code is redeemable only once.</div>
+                            <!-- <div id="codeHelp" class="form-text">Code is redeemable only once.</div> -->
                         </div>
 
                         <!--Wallet address: <input type="text" id="address" /><br>-->

@@ -488,77 +488,16 @@ textarea, input {
     .light-edition .nftHeader-stakingOptions-container #stakingOptions .third-row a {
       color: var(--primary-color); }
 
-.dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
-.light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-  background-color: var(--bg-tertiary);
+.light-edition .main-panel .container-fluid .row .nftHeader__image {
   flex: 1;
-  margin-right: 2rem;
+  background-color: var(--light-primary);
   box-shadow: var(--shadow-primary);
-  border-radius: 0.8rem; }
-  @media only screen and (max-width: 87.5em) {
-    .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
-    .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-      margin-right: 0;
-      margin-bottom: 3rem; } }
-  .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader.col-md-12.mb-4,
-  .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader.col-md-12.mb-4 {
-    padding: 0 !important;
-    margin: 0 !important; }
-  .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader,
-  .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader {
-    margin: 0 !important; }
-    .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card,
-    .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card {
-      margin: 0;
-      border-radius: 0.8rem;
-      height: 100%;
-      color: var(--text-primary);
-      word-wrap: normal;
-      padding: 0.5rem 2rem;
-      box-shadow: none; }
-      .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content,
-      .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content {
-        display: flex; }
-        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3,
-        .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3 {
-          min-width: 10rem;
-          max-width: 20rem; }
-          .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3 img,
-          .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-3 img {
-            margin: 2rem 0; }
-        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9,
-        .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 {
-          padding: 0; }
-          .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body,
-          .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body {
-            padding: 2rem 0; }
-            .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body p,
-            .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content .col-9 .card-body p {
-              font-size: 1.6rem; }
-      .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links,
-      .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links {
-        padding: 0 1rem; }
-        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a,
-        .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a {
-          display: inline-flex;
-          align-items: center;
-          margin: 0;
-          padding: 0.5rem;
-          font-size: 1.2rem;
-          color: var(--text-footer); }
-          .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:hover, .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:active,
-          .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:hover,
-          .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a:active {
-            color: var(--heading-color); }
-          .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a i,
-          .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links a i {
-            font-size: 1.6rem;
-            margin-right: 0.5rem; }
-        .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links .mt-2,
-        .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-links .mt-2 {
-          font-size: 1.2rem;
-          margin: 1rem 0 1rem 0.5rem;
-          color: var(--text-footer); }
+  padding: 6rem; }
+
+.light-edition .main-panel .container-fluid .row .nftHeader__details {
+  flex: 1;
+  display: flex;
+  flex-direction: column; }
 
 .nftListing,
 .farmListing,
@@ -1771,6 +1710,87 @@ hr {
   margin-top: 3.2rem;
   margin-bottom: 4.8rem;
   border-color: var(--grey-primary); }
+
+.btn.btn-primary.collapsible {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--dark-primary);
+  font-size: 1.8rem;
+  background-color: var(--light-primary) !important;
+  box-shadow: none;
+  border-radius: 0; }
+  .btn.btn-primary.collapsible[aria-expanded="false"]::after {
+    font-family: "Material Icons";
+    content: "\e313";
+    font-size: 1.8rem; }
+  .btn.btn-primary.collapsible[aria-expanded="true"]::after {
+    font-family: "Material Icons";
+    content: "\e316";
+    font-size: 1.8rem; }
+
+.btn.btn-primary.collapsible:not(:disabled):not(.disabled):active {
+  color: var(--dark-primary); }
+
+.collapse .collectible-collapse-open {
+  background-color: var(--white);
+  border: 0.1rem solid var(--light-primary);
+  font-size: 1.8rem;
+  color: var(--dark-secondary);
+  padding: 3.6rem 6rem;
+  text-align: left; }
+
+#collectiblePage .collectible-wrapper {
+  display: flex; }
+
+#collectiblePage .collectible-wrapper .image-container {
+  flex: 3;
+  background-color: var(--light-primary);
+  margin-right: 3rem; }
+
+#collectiblePage .collectible-wrapper .details-container {
+  flex: 4;
+  display: flex;
+  flex-direction: column; }
+  #collectiblePage .collectible-wrapper .details-container__upper {
+    background-color: var(--light-primary);
+    padding: 6rem 6rem 4.8rem 6rem; }
+    #collectiblePage .collectible-wrapper .details-container__upper .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+      #collectiblePage .collectible-wrapper .details-container__upper .header .title h4 {
+        font-family: acumin-pro, sans-serif;
+        font-size: 3.6rem;
+        color: var(--dark-primary);
+        font-weight: 700;
+        margin: 0; }
+        #collectiblePage .collectible-wrapper .details-container__upper .header .title h4 a {
+          color: inherit; }
+      #collectiblePage .collectible-wrapper .details-container__upper .header #amount-div span.bagde.badge-info {
+        background-color: unset;
+        color: var(--dark-secondary);
+        font-size: 1.4rem; }
+    #collectiblePage .collectible-wrapper .details-container__upper .collection-name {
+      font-size: 1.8rem;
+      color: var(--dark-secondary); }
+    #collectiblePage .collectible-wrapper .details-container__upper #actions-container .nft-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-secondary); }
+    #collectiblePage .collectible-wrapper .details-container__upper #actions-container a {
+      color: inherit; }
+    #collectiblePage .collectible-wrapper .details-container__upper #actions-container .btn.btn-outline {
+      width: 50%;
+      min-width: 33.8rem;
+      box-shadow: none;
+      border-radius: 0;
+      border: 1px solid var(--dark-primary);
+      background-color: var(--dark-primary) !important;
+      color: var(--white);
+      font-size: 2.4rem;
+      font-weight: 700; }
 
 .dark-edition .sidebar,
 .light-edition .sidebar {

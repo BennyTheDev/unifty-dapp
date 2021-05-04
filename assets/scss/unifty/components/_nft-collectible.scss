@@ -1,0 +1,79 @@
+#collectiblePage .collectible-wrapper {
+  display: flex;
+}
+
+#collectiblePage .collectible-wrapper .image-container {
+  flex: 3;
+  background-color: var(--light-primary);
+  margin-right: 3rem;
+}
+
+#collectiblePage .collectible-wrapper .details-container {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+
+  &__upper {
+    background-color: var(--light-primary);
+    padding: 6rem 6rem 4.8rem 6rem;
+
+    //title and stocks
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .title h4 {
+        font-family: acumin-pro, sans-serif;
+        font-size: 3.6rem;
+        color: var(--dark-primary);
+        font-weight: 700;
+        margin: 0;
+        a {
+          color: inherit;
+        }
+      }
+
+      #amount-div {
+        span.bagde.badge-info {
+          background-color: unset;
+          color: var(--dark-secondary);
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+    //collection name
+    .collection-name {
+      font-size: 1.8rem;
+      color: var(--dark-secondary);
+    }
+
+    //buy button and price
+    #actions-container {
+      .nft-price {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--dark-secondary);
+      }
+      a {
+        color: inherit;
+      }
+
+      .btn.btn-outline {
+        width: 50%;
+        min-width: 33.8rem;
+        box-shadow: none;
+        border-radius: 0;
+        border: 1px solid var(--dark-primary);
+        background-color: var(--dark-primary) !important;
+        color: var(--white);
+        font-size: 2.4rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  &__lower {
+  }
+}

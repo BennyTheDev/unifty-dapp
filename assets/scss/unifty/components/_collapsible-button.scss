@@ -1,0 +1,54 @@
+.btn.btn-primary.collapsible {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: var(--dark-primary);
+  font-size: 1.8rem;
+  background-color: var(--light-primary) !important;
+  box-shadow: none;
+  border-radius: 0;
+
+  &[aria-expanded="false"] {
+    &::after {
+      font-family: "Material Icons";
+      content: "\e313";
+      font-size: 1.8rem;
+    }
+  }
+  &[aria-expanded="true"] {
+    &::after {
+      font-family: "Material Icons";
+      content: "\e316";
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.btn.btn-primary.collapsible:not(:disabled):not(.disabled):active {
+  color: var(--dark-primary);
+}
+
+// opened collapsed info
+.collapse {
+  .collectible-collapse-open {
+    background-color: var(--white);
+    border: 0.1rem solid var(--light-primary);
+    font-size: 1.8rem;
+    color: var(--dark-secondary);
+    padding: 3.6rem 6rem;
+    text-align: left;
+  }
+}
+
+// #blabla .collapse.show {
+//   border: 0.1rem solid black;
+//   background-color: var(--white);
+//   padding: 3rem;
+// }
+
+// #blabla .collapsing,
+// #blabla .collapse {
+//   padding: 3rem;
+//   height: unset;
+// }
