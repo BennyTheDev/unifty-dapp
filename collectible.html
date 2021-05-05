@@ -291,11 +291,38 @@
         <!-- Collectible View -->
         <script id="collectible-template" type="text/x-handlebars-template">
           <div class="collectible-wrapper">
-            <div class="image-container">img</div>
+            <div class="image-container">
+              {{#ifNotEquals image ""}}
+                  {{#ifEquals animation_url ""}}
+                      <img class="card-img" loading="lazy" src="{{image}}" alt="{{name}}">
+                  {{/ifEquals}}
+              {{/ifNotEquals}}
+              {{#ifNotEquals animation_url ""}}
+                  <video style="width: 100%;" src="{{animation_url}}" autoplay="autoplay" preload="auto" muted="muted" controls="controls" loop="loop" poster="{{image}}">
+                      Your browser does not support the video tag.
+                  </video>
+              {{/ifNotEquals}}
+
+              {{#ifNotEquals audio_url ""}}
+                  <audio class="mt-3" style="width: 350px;" controls="controls" preload="auto" loop="loop">
+                      <source src="{{audio_url}}" type="audio/mp3">
+                      Your browser does not support the audio tag.
+                  </audio>
+              {{/ifNotEquals}}
+
+              {{#ifNotEquals interactive_url ""}}
+              <a class="btn btn-outline mt-3 video-btn-link" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
+                      <span class="material-icons">
+                        play_circle
+                      </span>
+                  RUN NFT
+              </a>
+              {{/ifNotEquals}}
+            </div>
 
             <div class="details-container">
 
-              <div class="details-container__upper">
+              <div class="details-container__upper mb-5">
                 <div class="header">
                   <div class="title">
                     <h4 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h4>
@@ -308,13 +335,13 @@
                     {{/ifEquals}}
   
                     <div class="mb-3">
-                        <span class="badge badge-info">You Own: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
+                        <span class="badge badge-info">You Own: <span id="farmOwnInfo{{erc1155}}{{id}}" style="font-weight: 700;">{{balance}}</span></span>
                     </div>
   
                     {{#ifNotEquals buy ""}}
                     <div class="mb-3">
                         {{#ifEquals batch ""}}
-                        <span class="badge badge-info">In Stock: <span id="marketAmountInfo{{erc1155}}{{id}}">{{onsale}}</span></span>
+                        <span class="badge badge-info">In Stock: <span id="marketAmountInfo{{erc1155}}{{id}}" style="font-weight: 700;">{{onsale}}</span></span>
                         {{/ifEquals}}
                         {{#ifNotEquals batch ""}}
                         <span class="badge badge-info"><a href="javascript:void(0);" data-index="{{index}}" data-toggle="modal" data-target="#nftsView">This + {{multiplier}} more NFTs</a></span>
@@ -366,7 +393,49 @@
                     
               </div>
 
-              <div class="details-container__lower">details</div>
+              <div class="details-container__lower">
+                <!-- DESCRIPTION COLLAPSIBLE -->
+                {{#ifNotEquals description ""}}
+                  <button class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-description" aria-expanded="false" aria-controls="collapse-nft-description">Description</button>
+                  <div class="collapse" id="collapse-nft-description">
+                        {{breaklines description}}
+                  </div>
+                {{/ifNotEquals}}
+
+                <!-- TRAITS COLLAPSIBLE -->
+                <button {{{traitsHide}}} class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-traits" aria-expanded="false" aria-controls="collapse-nft-traits">Traits</button>
+                <div class="collapse" id="collapse-nft-traits">
+                  <ul class="list-group">
+                    {{#each attributes}}
+                    <li class="list-group-item">
+                      <sub>{{this.trait_type}}</sub><br />
+                      <div>{{this.value}}</div>
+                    </li>
+                    {{/each}}
+                  </ul>
+                </div>
+
+                <!-- DETAILS COLLAPSIBLE -->
+                <button class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-details" aria-expanded="true" aria-controls="collapse-nft-details">Details</button>
+                <div class="collapse" id="collapse-nft-details">
+                  {{#ifNotEquals buy ""}}
+                  Seller: <span id="sellerAddress">{{seller}}</span>
+                  <br/>
+                  Royalties: <span id="royalties">{{royalties}} %</span>
+                  <br/>
+                  {{/ifNotEquals}}
+                  {{#ifEquals buy ""}}
+                  {{#ifNotEquals swap ""}}
+                  Swapper: <span id="swapperAddress">{{seller}}</span>
+                  <br/>
+                  {{/ifNotEquals}}
+                  {{/ifEquals}}
+                  Collection Address: <span id="collectionAddress">{{erc1155}}</span>
+                  <br/>
+                  NFT ID: <span id="collectionId">{{id}}</span>
+                </div>
+
+              </div>
 
             </div>
 
