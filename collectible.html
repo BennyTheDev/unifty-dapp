@@ -405,34 +405,44 @@
                 <!-- TRAITS COLLAPSIBLE -->
                 <button {{{traitsHide}}} class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-traits" aria-expanded="false" aria-controls="collapse-nft-traits">Traits</button>
                 <div class="collapse" id="collapse-nft-traits">
-                  <ul class="list-group">
-                    {{#each attributes}}
-                    <li class="list-group-item">
-                      <sub>{{this.trait_type}}</sub><br />
-                      <div>{{this.value}}</div>
-                    </li>
-                    {{/each}}
-                  </ul>
+                  {{#each attributes}}
+                  <div>
+                    <span>{{this.trait_type}}</span>
+                    <span>{{this.value}}</span>
+                  </div>
+                  {{/each}}
                 </div>
 
                 <!-- DETAILS COLLAPSIBLE -->
-                <button class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-details" aria-expanded="true" aria-controls="collapse-nft-details">Details</button>
+                <button class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-details" aria-expanded="false" aria-controls="collapse-nft-details">Details</button>
                 <div class="collapse" id="collapse-nft-details">
                   {{#ifNotEquals buy ""}}
-                  Seller: <span id="sellerAddress">{{seller}}</span>
-                  <br/>
-                  Royalties: <span id="royalties">{{royalties}} %</span>
-                  <br/>
+                  <div>
+                    <span>Seller</span><span id="sellerAddress">{{seller}}</span>
+                  </div>
+                  <div>
+                    <span>Royalties</span><span id="royalties">{{royalties}} %</span>
+                  </div>
                   {{/ifNotEquals}}
+
                   {{#ifEquals buy ""}}
                   {{#ifNotEquals swap ""}}
-                  Swapper: <span id="swapperAddress">{{seller}}</span>
-                  <br/>
+                  <div>
+                    <span>Swapper</span>
+                    <span id="swapperAddress">{{seller}}</span>
+                  </div>
                   {{/ifNotEquals}}
                   {{/ifEquals}}
-                  Collection Address: <span id="collectionAddress">{{erc1155}}</span>
-                  <br/>
-                  NFT ID: <span id="collectionId">{{id}}</span>
+
+                  <div>
+                    <span>Collection Address</span>
+                    <span id="collectionAddress">{{erc1155}}</span>
+                  </div>
+
+                  <div>
+                    <span>NFT ID</span>
+                    <span id="collectionId">{{id}}</span>
+                  </div>
                 </div>
 
               </div>

@@ -3,7 +3,7 @@
 }
 
 #collectiblePage .collectible-wrapper .image-container {
-  flex: 3;
+  flex: 2;
   background-color: var(--light-primary);
   margin-right: 3rem;
   padding: 6rem;
@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   align-self: flex-start;
+  box-shadow: var(--shadow-primary);
 
   .btn.btn-outline.video-btn-link {
     border: 1px solid var(--dark-primary);
@@ -37,6 +38,7 @@
   &__upper {
     background-color: var(--light-primary);
     padding: 6rem 6rem 4.8rem 6rem;
+    box-shadow: var(--shadow-primary);
 
     //title and stocks
     .header {
@@ -96,5 +98,59 @@
   }
 
   &__lower {
+    #collapse-nft-description.collapse.show,
+    #collapse-nft-description.collapsing,
+    #collapse-nft-description.collapse {
+      font-size: 1.8rem;
+      color: var(--dark-secondary);
+      border: 1px solid var(--light-primary);
+      padding: 0 4.5rem;
+    }
+
+    #collapse-nft-details.collapse.show,
+    #collapse-nft-details.collapsing,
+    #collapse-nft-details.collapse {
+      font-size: 1.4rem;
+      color: var(--dark-primary);
+      border: 1px solid var(--light-primary);
+      padding: 0 4.5rem;
+
+      div:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      div > span:first-child {
+        display: inline-block;
+        width: 20rem;
+        text-transform: uppercase;
+      }
+      div > :nth-child(2n) {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+    }
+
+    #collapse-nft-traits.collapse.show,
+    #collapse-nft-traits.collapsing,
+    #collapse-nft-traits.collapse {
+      font-size: 1.4rem;
+      color: var(--dark-primary);
+      border: 1px solid var(--light-primary);
+      padding: 0 4.5rem;
+
+      div:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      div > span:first-child {
+        display: inline-block;
+        width: 20rem;
+        text-transform: uppercase;
+      }
+      div > :nth-child(2n) {
+        font-size: 1.8rem;
+        font-weight: 700;
+      }
+    }
   }
 }

@@ -8,6 +8,7 @@
   background-color: var(--light-primary) !important;
   box-shadow: none;
   border-radius: 0;
+  box-shadow: var(--shadow-primary);
 
   &[aria-expanded="false"] {
     &::after {
@@ -37,6 +38,7 @@
     font-size: 1.8rem;
     color: var(--dark-secondary);
     padding: 3.6rem 6rem;
+
     text-align: left;
   }
 }

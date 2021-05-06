@@ -1720,7 +1720,8 @@ hr {
   font-size: 1.8rem;
   background-color: var(--light-primary) !important;
   box-shadow: none;
-  border-radius: 0; }
+  border-radius: 0;
+  box-shadow: var(--shadow-primary); }
   .btn.btn-primary.collapsible[aria-expanded="false"]::after {
     font-family: "Material Icons";
     content: "\e313";
@@ -1745,7 +1746,7 @@ hr {
   display: flex; }
 
 #collectiblePage .collectible-wrapper .image-container {
-  flex: 3;
+  flex: 2;
   background-color: var(--light-primary);
   margin-right: 3rem;
   padding: 6rem;
@@ -1753,7 +1754,8 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-self: flex-start; }
+  align-self: flex-start;
+  box-shadow: var(--shadow-primary); }
   #collectiblePage .collectible-wrapper .image-container .btn.btn-outline.video-btn-link {
     border: 1px solid var(--dark-primary);
     background-color: var(--white) !important;
@@ -1772,7 +1774,8 @@ hr {
   flex-direction: column; }
   #collectiblePage .collectible-wrapper .details-container__upper {
     background-color: var(--light-primary);
-    padding: 6rem 6rem 4.8rem 6rem; }
+    padding: 6rem 6rem 4.8rem 6rem;
+    box-shadow: var(--shadow-primary); }
     #collectiblePage .collectible-wrapper .details-container__upper .header {
       display: flex;
       justify-content: space-between;
@@ -1807,6 +1810,57 @@ hr {
       background-color: var(--dark-primary) !important;
       color: var(--white);
       font-size: 2.4rem;
+      font-weight: 700; }
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse.show,
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapsing,
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse {
+    font-size: 1.8rem;
+    color: var(--dark-secondary);
+    border: 1px solid var(--light-primary);
+    padding: 0 4.5rem; }
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse.show,
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapsing,
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse {
+    font-size: 1.4rem;
+    color: var(--dark-primary);
+    border: 1px solid var(--light-primary);
+    padding: 0 4.5rem; }
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse.show div:not(:last-child),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapsing div:not(:last-child),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse div:not(:last-child) {
+      margin-bottom: 1rem; }
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse.show div > span:first-child,
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapsing div > span:first-child,
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse div > span:first-child {
+      display: inline-block;
+      width: 20rem;
+      text-transform: uppercase; }
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse.show div > :nth-child(2n),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapsing div > :nth-child(2n),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse div > :nth-child(2n) {
+      font-size: 1.8rem;
+      font-weight: 700; }
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse.show,
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapsing,
+  #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse {
+    font-size: 1.4rem;
+    color: var(--dark-primary);
+    border: 1px solid var(--light-primary);
+    padding: 0 4.5rem; }
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse.show div:not(:last-child),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapsing div:not(:last-child),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse div:not(:last-child) {
+      margin-bottom: 1rem; }
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse.show div > span:first-child,
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapsing div > span:first-child,
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse div > span:first-child {
+      display: inline-block;
+      width: 20rem;
+      text-transform: uppercase; }
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse.show div > :nth-child(2n),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapsing div > :nth-child(2n),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse div > :nth-child(2n) {
+      font-size: 1.8rem;
       font-weight: 700; }
 
 .dark-edition .sidebar,
