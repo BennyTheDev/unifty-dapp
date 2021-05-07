@@ -1993,7 +1993,8 @@ hr {
       margin: 0 4rem; }
   .sidebar-text.rights span {
     font-size: 1.4rem;
-    text-align: center; }
+    text-align: center;
+    text-transform: uppercase; }
 
 .sidebar-divider {
   border-bottom: 0.1rem solid var(--golden-primary);

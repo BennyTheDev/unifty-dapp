@@ -184,7 +184,16 @@ if(isset($_POST['Code'])){
 
             <div class="sidebar-text icons">
               <span class="navbar-text">
-                <a href="https://t.me/unifty" target="_blank">
+                <a href="#" target="_blank">
+                  <i class="fa fa-telegram"></i>
+                </a>
+                <a href="#" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank">
+                  <i class="fa fa-envelope"></i>
+                </a>
+                <!-- <a href="https://t.me/unifty" target="_blank">
                   <i class="fa fa-telegram"></i>
                 </a>
                 <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
@@ -192,13 +201,13 @@ if(isset($_POST['Code'])){
                 </a>
                 <a href="https://twitter.com/unifty_io" target="_blank">
                   <i class="fa fa-twitter"></i>
-                </a>
+                </a> -->
               </span>
             </div>
   
             <div class="sidebar-text rights">
               <span>
-                Unifty Development d.o.o.<br/>All rights reserved.
+                Get in touch with Coindesk
               </span>
             </div>
 
