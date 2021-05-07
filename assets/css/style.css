@@ -77,7 +77,7 @@ body.light-edition {
 
 h1 {
   font-family: acumin-pro, sans-serif;
-  font-size: 2.4rem;
+  font-size: 3rem;
   font-weight: 700;
   letter-spacing: 0.48px;
   color: var(--dark-primary); }
@@ -1616,7 +1616,7 @@ textarea, input {
 .card
 .card-body.claim-form #redemptionForm .form-group input {
     height: auto;
-    background-color: transparent !important;
+    background-color: var(--white) !important;
     background-image: none;
     border: 0.1rem solid var(--grey-primary);
     border-radius: 0;
@@ -2227,3 +2227,50 @@ hr {
         margin-right: 0.5rem; }
       .footer ul li.nav-item a img {
         margin: 0 0.8rem; }
+
+@media only screen and (max-width: 37.5em) {
+  .row.learn-more {
+    flex-direction: column; }
+    .row.learn-more.col {
+      flex-basis: auto;
+      padding: 0; } }
+
+.row.learn-more .col:first-child {
+  padding-left: 0;
+  padding-right: 3rem; }
+  @media only screen and (max-width: 37.5em) {
+    .row.learn-more .col:first-child {
+      flex-basis: auto;
+      padding: 0; } }
+
+.row.learn-more .col:last-child {
+  padding-left: 3rem;
+  padding-right: 0; }
+  @media only screen and (max-width: 37.5em) {
+    .row.learn-more .col:last-child {
+      flex-basis: auto;
+      padding: 0; } }
+
+.row.learn-more h2 {
+  font-family: acumin-pro, sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--dark-primary); }
+
+.row.learn-more p {
+  font-size: 1.6rem;
+  color: var(--dark-primary); }
+
+.row.learn-more button.btn.btn-primary {
+  width: 24.8rem;
+  box-shadow: none;
+  border-radius: 0;
+  border: 1px solid var(--dark-primary);
+  background-color: var(--dark-primary);
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 700; }
+  .row.learn-more button.btn.btn-primary:hover, .row.learn-more button.btn.btn-primary:focus, .row.learn-more button.btn.btn-primary:active {
+    box-shadow: none;
+    border: 1px solid var(--dark-primary);
+    background-color: var(--dark-primary); }
