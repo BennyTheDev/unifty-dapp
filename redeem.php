@@ -1,10 +1,16 @@
 <?php
-if(isset($_POST['Code'])){
+if(isset($_REQUEST['Code'])){
 
-    if(trim($_POST['Code']) == '' || trim($_POST['address']) == ''){
+    if(trim($_REQUEST['Code']) == '' || trim($_REQUEST['address']) == ''){
 
         exit('Please enter your Consensus code address and enable your wallet.');
     }
+
+    /**
+    * $dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
+    * $usr = 'unifghiu_coindesk';
+    * $pwd = 'vollgeschissen123';
+     */
 
     $dsn = 'mysql:host=localhost;dbname=unifty;charset=utf8';
     $usr = 'root';
@@ -12,26 +18,31 @@ if(isset($_POST['Code'])){
     $pdo = new PDO($dsn, $usr, $pwd);
 
     $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`Code`) = ? And `address` = ''");
-    $stmt->execute([strtolower($_POST['Code'])]);
+    $stmt->execute([strtolower($_REQUEST['Code'])]);
     $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
     if(count($result) != 0){
 
-      //Checking if the wallet address is being used
-      $stmt = $pdo->prepare("SELECT TOP 1 1 FROM `coindeskemails` WHERE `address` = 'address'");
-      $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+        $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ?, `signature` = ? Where Lower(`Code`) = ?");
+        $stmt->execute([$_REQUEST['address'], strtolower($_REQUEST['signature']), $_REQUEST['Code']]);
 
-      if(count($result) != 0){
-        $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ? Where Lower(`Code`) = ?");
-        $stmt->execute([$_POST['address'], strtolower($_POST['Code'])]);
+        exit('You successfully claimed your tokens!');
 
-        exit('Verification success!');   
-      }
+    }else{
 
-      exit('This wallet address has already received $DESK');
+        $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`address`) = ?");
+        $stmt->execute([strtolower($_REQUEST['address'])]);
+        $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        if(count($result) != 0){
+
+            exit('This wallet address has already claimed $DESK');
+        }
+        else{
+
+            exit('Your code has not been found in our database. Please make sure to enable your wallet and try again.');
+        }
     }
-
-    exit('Your code has not been found or you requested your tokens already.');
 }
 ?>
 <html lang="en">
@@ -108,13 +119,17 @@ if(isset($_POST['Code'])){
                     alert("Please enter your Concensus code.");
                 } else{
                     console.log('calling ajax with address: ', tncLib.account);
+
+                    let signature = await web3.eth.personal.sign("Code: " + code, tncLib.account, "")
+
                     $.ajax(
                         {
                             url: 'redeem.php',
                             method: 'POST',
                             data: {
                                 Code: code,
-                                address : tncLib.account
+                                address : tncLib.account,
+                                signature: signature
                             },
                             success: function(res){
                                 $('.redeem-modal-content').html(res);
@@ -245,7 +260,7 @@ if(isset($_POST['Code'])){
           </div>
           <div class="content__welcome-text">
             <p>
-              Enter your custom code from your email to claim your $DESK. 
+              Please enable your wallet (MetaMask or Torus) and enter your email address to request your tokens.
             </p>
           </div>
         </div>
@@ -267,9 +282,9 @@ if(isset($_POST['Code'])){
                     <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
 
                         <div class="form-group">
-                            <label for="code" class="form-label">Enter code:</label>
+                            <label for="code" class="form-label">Consensus code</label>
                             <input type="code" class="form-control" id="code" aria-describedby="codeHelp"/>
-                            <!-- <div id="codeHelp" class="form-text">Code is redeemable only once.</div> -->
+                            <div id="codeHelp" class="form-text">Code is redeemable only once.</div>
                         </div>
 
                         <!--Wallet address: <input type="text" id="address" /><br>-->
