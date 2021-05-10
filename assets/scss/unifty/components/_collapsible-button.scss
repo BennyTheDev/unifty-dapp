@@ -8,7 +8,8 @@
   background-color: var(--light-primary) !important;
   box-shadow: none;
   border-radius: 0;
-  // box-shadow: var(--shadow-primary);
+  box-shadow: var(--shadow-primary);
+  margin-bottom: 0.8rem;
 
   &[aria-expanded="false"] {
     &::after {

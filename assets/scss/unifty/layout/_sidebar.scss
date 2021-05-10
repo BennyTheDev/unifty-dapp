@@ -90,8 +90,6 @@
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
   padding: 4rem 0 5rem 0;
-  // padding for desk logo
-  // padding: 9.5rem 0 10.4rem 0;
 
   &::after {
     content: none;
@@ -103,9 +101,6 @@
 
   img {
     width: 16rem;
-    // width for desk logo
-    // width: 18rem;
-    // height: 4.7rem;
   }
 }
 
@@ -123,7 +118,6 @@
   p {
     font-size: 1.4rem;
     font-weight: 700;
-    // letter-spacing: 0.32px;
     color: $grey-primary;
     color: var(--white);
   }
@@ -136,29 +130,26 @@
   }
 
   li.active > a {
-    // background-color: var(--primary-color);
     background-color: var(--golden-primary);
   }
 
   li.active a i,
   li.active a p {
-    // color: var(--bg-secondary);
     color: var(--dark-primary);
   }
 
   .nav-item:not(.nav-item.active) a:hover {
-    // background-color: var(--primary-hover-light);
     background-color: var(--dark-secondary);
   }
 
   li a,
   li .dropdown-menu a {
     padding: 0.5rem;
-    // border-radius: 0.8rem;
     border-radius: 0;
   }
 
   //While market is innactive
+  #marketNavLink,
   #marketNavLink:hover {
     i,
     p {

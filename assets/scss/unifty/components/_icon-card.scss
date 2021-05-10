@@ -2,9 +2,6 @@
   display: flex;
   flex-direction: column;
   background-color: var(--white);
-  box-shadow: var(--shadow-primary);
-  //box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.24);
-
 
   &__icon {
     height: 17.6rem;
@@ -13,6 +10,7 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 0.8rem;
+    box-shadow: var(--shadow-primary);
   }
 
   &__btn {

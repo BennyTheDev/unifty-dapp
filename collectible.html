@@ -398,24 +398,30 @@
                 {{#ifNotEquals description ""}}
                   <button class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-description" aria-expanded="false" aria-controls="collapse-nft-description">Description</button>
                   <div class="collapse" id="collapse-nft-description">
-                        {{breaklines description}}
+                    <div class="utils-vertical"></div>
+                    {{breaklines description}}
+                    <div class="utils-vertical"></div>
                   </div>
                 {{/ifNotEquals}}
 
                 <!-- TRAITS COLLAPSIBLE -->
                 <button {{{traitsHide}}} class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-traits" aria-expanded="false" aria-controls="collapse-nft-traits">Traits</button>
                 <div class="collapse" id="collapse-nft-traits">
+                  <div class="utils-vertical"></div>
                   {{#each attributes}}
                   <div>
                     <span>{{this.trait_type}}</span>
                     <span>{{this.value}}</span>
                   </div>
                   {{/each}}
+                  <div class="utils-vertical"></div>
                 </div>
 
                 <!-- DETAILS COLLAPSIBLE -->
                 <button class="btn btn-primary collapsible" type="button" data-toggle="collapse" data-target="#collapse-nft-details" aria-expanded="false" aria-controls="collapse-nft-details">Details</button>
                 <div class="collapse" id="collapse-nft-details">
+                  <div class="utils-vertical"></div>
+
                   {{#ifNotEquals buy ""}}
                   <div>
                     <span>Seller</span><span id="sellerAddress">{{seller}}</span>
@@ -443,6 +449,8 @@
                     <span>NFT ID</span>
                     <span id="collectionId">{{id}}</span>
                   </div>
+
+                  <div class="utils-vertical"></div>
                 </div>
 
               </div>
