@@ -157,6 +157,14 @@
     // border-radius: 0.8rem;
     border-radius: 0;
   }
+
+  //While market is innactive
+  #marketNavLink:hover {
+    i,
+    p {
+      opacity: 0.5;
+    }
+  }
 }
 
 //icons and rights

@@ -22,13 +22,24 @@ if(isset($_REQUEST['Code'])){
     $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
     if(count($result) != 0){
+      //If the code has NOT been used
 
+      $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`address`) = ? LIMIT 11");
+      $stmt->execute([strtolower($_REQUEST['address'])]);
+      $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+      if(count($result) < 10){
         $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ?, `signature` = ? Where Lower(`Code`) = ?");
         $stmt->execute([$_REQUEST['address'], strtolower($_REQUEST['signature']), $_REQUEST['Code']]);
 
         exit('You successfully claimed your tokens!');
+      }else{
+        exit('Only 10 codes can be redeemed with the same wallet address.');
+      }
 
     }else{
+      //Enters if the code HAS been used
+      
 
         $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`address`) = ?");
         $stmt->execute([strtolower($_REQUEST['address'])]);
@@ -43,8 +54,9 @@ if(isset($_REQUEST['Code'])){
             exit('Your code has not been found in our database. Please make sure to enable your wallet and try again.');
         }
     }
-}
-?>
+
+  }
+  ?>
 <html lang="en">
 
 <head>
@@ -205,7 +217,7 @@ if(isset($_REQUEST['Code'])){
                 <a href="#" target="_blank">
                   <i class="fa fa-twitter"></i>
                 </a>
-                <a href="#" target="_blank">
+                <a href="mailto:desk@coindesk.com" target="_blank">
                   <i class="fa fa-envelope"></i>
                 </a>
               </span>

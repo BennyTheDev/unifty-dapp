@@ -251,24 +251,36 @@ textarea, input {
     box-shadow: none;
     background-color: var(--dark-primary-hover); }
 
-.dark-edition .card.farm-card,
-.light-edition .card.farm-card {
+.dark-edition .card.farm-card, .dark-edition .main-panel .farm-card#comingSoonBanner, .light-edition .main-panel .dark-edition .farm-card#comingSoonBanner,
+.light-edition .card.farm-card,
+.dark-edition .main-panel .light-edition .farm-card#comingSoonBanner,
+.light-edition .main-panel .farm-card#comingSoonBanner {
   margin: 0; }
-  .dark-edition .card.farm-card .card-body,
-  .light-edition .card.farm-card .card-body {
+  .dark-edition .card.farm-card .card-body, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body, .light-edition .main-panel .dark-edition .farm-card#comingSoonBanner .card-body,
+  .light-edition .card.farm-card .card-body,
+  .dark-edition .main-panel .light-edition .farm-card#comingSoonBanner .card-body,
+  .light-edition .main-panel .farm-card#comingSoonBanner .card-body {
     box-shadow: var(--shadow-primary); }
-    .dark-edition .card.farm-card .card-body a,
-    .light-edition .card.farm-card .card-body a {
+    .dark-edition .card.farm-card .card-body a, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body a, .light-edition .main-panel .dark-edition .farm-card#comingSoonBanner .card-body a,
+    .light-edition .card.farm-card .card-body a,
+    .dark-edition .main-panel .light-edition .farm-card#comingSoonBanner .card-body a,
+    .light-edition .main-panel .farm-card#comingSoonBanner .card-body a {
       font-size: 1.4rem;
       color: var(--dark-secondary); }
-      .dark-edition .card.farm-card .card-body a:active,
-      .light-edition .card.farm-card .card-body a:active {
+      .dark-edition .card.farm-card .card-body a:active, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body a:active, .light-edition .main-panel .dark-edition .farm-card#comingSoonBanner .card-body a:active,
+      .light-edition .card.farm-card .card-body a:active,
+      .dark-edition .main-panel .light-edition .farm-card#comingSoonBanner .card-body a:active,
+      .light-edition .main-panel .farm-card#comingSoonBanner .card-body a:active {
         color: var(--dark-secondary); }
-      .dark-edition .card.farm-card .card-body a i,
-      .light-edition .card.farm-card .card-body a i {
+      .dark-edition .card.farm-card .card-body a i, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body a i, .light-edition .main-panel .dark-edition .farm-card#comingSoonBanner .card-body a i,
+      .light-edition .card.farm-card .card-body a i,
+      .dark-edition .main-panel .light-edition .farm-card#comingSoonBanner .card-body a i,
+      .light-edition .main-panel .farm-card#comingSoonBanner .card-body a i {
         margin-right: 0.5rem; }
-    .dark-edition .card.farm-card .card-body .card-title,
-    .light-edition .card.farm-card .card-body .card-title {
+    .dark-edition .card.farm-card .card-body .card-title, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body .card-title, .light-edition .main-panel .dark-edition .farm-card#comingSoonBanner .card-body .card-title,
+    .light-edition .card.farm-card .card-body .card-title,
+    .dark-edition .main-panel .light-edition .farm-card#comingSoonBanner .card-body .card-title,
+    .light-edition .main-panel .farm-card#comingSoonBanner .card-body .card-title {
       font-size: 1.6rem;
       font-weight: 700;
       letter-spacing: 0.32px;
@@ -277,22 +289,25 @@ textarea, input {
       display: flex;
       width: calc(100% - 10rem);
       height: 6rem; }
-    .dark-edition .card.farm-card .card-body .card-description,
-    .light-edition .card.farm-card .card-body .card-description {
+    .dark-edition .card.farm-card .card-body .card-description, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body .card-description, .light-edition .main-panel .dark-edition .farm-card#comingSoonBanner .card-body .card-description,
+    .light-edition .card.farm-card .card-body .card-description,
+    .dark-edition .main-panel .light-edition .farm-card#comingSoonBanner .card-body .card-description,
+    .light-edition .main-panel .farm-card#comingSoonBanner .card-body .card-description {
       font-size: 1.4rem;
       font-weight: 300;
       color: var(--dark-secondary); }
 
-.card.card.farm-card {
+.card.card.farm-card, .dark-edition .main-panel .farm-card#comingSoonBanner,
+.light-edition .main-panel .farm-card#comingSoonBanner {
   display: flex;
   flex-direction: row-reverse;
   border-radius: 1rem; }
-  .card.card.farm-card [class*="card-header-"] {
+  .card.card.farm-card [class*="card-header-"], .dark-edition .main-panel .farm-card#comingSoonBanner [class*="card-header-"], .light-edition .main-panel .farm-card#comingSoonBanner [class*="card-header-"] {
     margin: 0;
     background-color: none; }
-  .card.card.farm-card .card-header.card-header-info.card-header-icon {
+  .card.card.farm-card .card-header.card-header-info.card-header-icon, .dark-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon, .light-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon {
     box-shadow: none; }
-    .card.card.farm-card .card-header.card-header-info.card-header-icon .card-icon {
+    .card.card.farm-card .card-header.card-header-info.card-header-icon .card-icon, .dark-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon .card-icon, .light-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon .card-icon {
       position: absolute;
       right: 0;
       top: 0;
@@ -304,21 +319,21 @@ textarea, input {
       background-color: none;
       background: none;
       box-shadow: none; }
-      .card.card.farm-card .card-header.card-header-info.card-header-icon .card-icon a {
+      .card.card.farm-card .card-header.card-header-info.card-header-icon .card-icon a, .dark-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon .card-icon a, .light-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon .card-icon a {
         width: 100%;
         height: 100%; }
-      .card.card.farm-card .card-header.card-header-info.card-header-icon .card-icon img {
+      .card.card.farm-card .card-header.card-header-info.card-header-icon .card-icon img, .dark-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon .card-icon img, .light-edition .main-panel .farm-card#comingSoonBanner .card-header.card-header-info.card-header-icon .card-icon img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         border-radius: 0.3rem; }
-  .card.card.farm-card .card-body {
+  .card.card.farm-card .card-body, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body, .light-edition .main-panel .farm-card#comingSoonBanner .card-body {
     flex: 1;
     padding: 1rem;
     display: flex;
     flex-direction: column;
     border-radius: 0.8rem; }
-    .card.card.farm-card .card-body .btn.btn-primary.card-toggler {
+    .card.card.farm-card .card-body .btn.btn-primary.card-toggler, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body .btn.btn-primary.card-toggler, .light-edition .main-panel .farm-card#comingSoonBanner .card-body .btn.btn-primary.card-toggler {
       display: flex;
       align-items: center;
       text-transform: none;
@@ -328,29 +343,36 @@ textarea, input {
       margin: 0;
       text-align: left;
       width: calc(100% - 10rem); }
-      .card.card.farm-card .card-body .btn.btn-primary.card-toggler[aria-expanded="false"]::after {
+      .card.card.farm-card .card-body .btn.btn-primary.card-toggler[aria-expanded="false"]::after, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body .btn.btn-primary.card-toggler[aria-expanded="false"]::after, .light-edition .main-panel .farm-card#comingSoonBanner .card-body .btn.btn-primary.card-toggler[aria-expanded="false"]::after {
         font-family: "Material Icons Round";
         content: "keyboard_arrow_down";
         font-size: 1.8rem; }
-      .card.card.farm-card .card-body .btn.btn-primary.card-toggler[aria-expanded="true"]::after {
+      .card.card.farm-card .card-body .btn.btn-primary.card-toggler[aria-expanded="true"]::after, .dark-edition .main-panel .farm-card#comingSoonBanner .card-body .btn.btn-primary.card-toggler[aria-expanded="true"]::after, .light-edition .main-panel .farm-card#comingSoonBanner .card-body .btn.btn-primary.card-toggler[aria-expanded="true"]::after {
         font-family: "Material Icons Round";
         content: "keyboard_arrow_up";
         font-size: 1.8rem; }
 
 @media only screen and (max-width: 990px) {
-  .card.card.farm-card {
+  .card.card.farm-card, .dark-edition .main-panel .farm-card#comingSoonBanner,
+  .light-edition .main-panel .farm-card#comingSoonBanner {
     width: 671px; } }
 
-.dark-edition .card.roadmap,
-.light-edition .card.roadmap {
+.dark-edition .card.roadmap, .dark-edition .main-panel .roadmap#comingSoonBanner, .light-edition .main-panel .dark-edition .roadmap#comingSoonBanner,
+.light-edition .card.roadmap,
+.dark-edition .main-panel .light-edition .roadmap#comingSoonBanner,
+.light-edition .main-panel .roadmap#comingSoonBanner {
   margin-top: 1rem;
   margin-bottom: 3rem;
   box-shadow: var(--shadow-primary); }
-  .dark-edition .card.roadmap .card-body,
-  .light-edition .card.roadmap .card-body {
+  .dark-edition .card.roadmap .card-body, .dark-edition .main-panel .roadmap#comingSoonBanner .card-body, .light-edition .main-panel .dark-edition .roadmap#comingSoonBanner .card-body,
+  .light-edition .card.roadmap .card-body,
+  .dark-edition .main-panel .light-edition .roadmap#comingSoonBanner .card-body,
+  .light-edition .main-panel .roadmap#comingSoonBanner .card-body {
     padding: 3rem 2rem; }
-    .dark-edition .card.roadmap .card-body .main-timeline::before,
-    .light-edition .card.roadmap .card-body .main-timeline::before {
+    .dark-edition .card.roadmap .card-body .main-timeline::before, .dark-edition .main-panel .roadmap#comingSoonBanner .card-body .main-timeline::before, .light-edition .main-panel .dark-edition .roadmap#comingSoonBanner .card-body .main-timeline::before,
+    .light-edition .card.roadmap .card-body .main-timeline::before,
+    .dark-edition .main-panel .light-edition .roadmap#comingSoonBanner .card-body .main-timeline::before,
+    .light-edition .main-panel .roadmap#comingSoonBanner .card-body .main-timeline::before {
       background: var(--primary-color); }
 
 .main-timeline .year,
@@ -378,36 +400,50 @@ textarea, input {
 .main-timeline .date-content:before {
   background: var(--primary-color); }
 
-.dark-edition .card.faq,
-.light-edition .card.faq {
+.dark-edition .card.faq, .dark-edition .main-panel .faq#comingSoonBanner, .light-edition .main-panel .dark-edition .faq#comingSoonBanner,
+.light-edition .card.faq,
+.dark-edition .main-panel .light-edition .faq#comingSoonBanner,
+.light-edition .main-panel .faq#comingSoonBanner {
   margin-top: 1rem;
   margin-bottom: 3rem;
   box-shadow: var(--shadow-primary); }
-  .dark-edition .card.faq .card-body,
-  .light-edition .card.faq .card-body {
+  .dark-edition .card.faq .card-body, .dark-edition .main-panel .faq#comingSoonBanner .card-body, .light-edition .main-panel .dark-edition .faq#comingSoonBanner .card-body,
+  .light-edition .card.faq .card-body,
+  .dark-edition .main-panel .light-edition .faq#comingSoonBanner .card-body,
+  .light-edition .main-panel .faq#comingSoonBanner .card-body {
     padding: 2rem; }
-    .dark-edition .card.faq .card-body .card-description,
-    .light-edition .card.faq .card-body .card-description {
+    .dark-edition .card.faq .card-body .card-description, .dark-edition .main-panel .faq#comingSoonBanner .card-body .card-description, .light-edition .main-panel .dark-edition .faq#comingSoonBanner .card-body .card-description,
+    .light-edition .card.faq .card-body .card-description,
+    .dark-edition .main-panel .light-edition .faq#comingSoonBanner .card-body .card-description,
+    .light-edition .main-panel .faq#comingSoonBanner .card-body .card-description {
       font-size: 1.6rem;
       color: var(--text-primary);
       font-weight: 300; }
-      .dark-edition .card.faq .card-body .card-description a,
-      .light-edition .card.faq .card-body .card-description a {
+      .dark-edition .card.faq .card-body .card-description a, .dark-edition .main-panel .faq#comingSoonBanner .card-body .card-description a, .light-edition .main-panel .dark-edition .faq#comingSoonBanner .card-body .card-description a,
+      .light-edition .card.faq .card-body .card-description a,
+      .dark-edition .main-panel .light-edition .faq#comingSoonBanner .card-body .card-description a,
+      .light-edition .main-panel .faq#comingSoonBanner .card-body .card-description a {
         font-weight: 400;
         color: var(--primary-color); }
-        .dark-edition .card.faq .card-body .card-description a:hover,
-        .light-edition .card.faq .card-body .card-description a:hover {
+        .dark-edition .card.faq .card-body .card-description a:hover, .dark-edition .main-panel .faq#comingSoonBanner .card-body .card-description a:hover, .light-edition .main-panel .dark-edition .faq#comingSoonBanner .card-body .card-description a:hover,
+        .light-edition .card.faq .card-body .card-description a:hover,
+        .dark-edition .main-panel .light-edition .faq#comingSoonBanner .card-body .card-description a:hover,
+        .light-edition .main-panel .faq#comingSoonBanner .card-body .card-description a:hover {
           color: var(--primary-hover-dark); }
-      .dark-edition .card.faq .card-body .card-description h5,
-      .light-edition .card.faq .card-body .card-description h5 {
+      .dark-edition .card.faq .card-body .card-description h5, .dark-edition .main-panel .faq#comingSoonBanner .card-body .card-description h5, .light-edition .main-panel .dark-edition .faq#comingSoonBanner .card-body .card-description h5,
+      .light-edition .card.faq .card-body .card-description h5,
+      .dark-edition .main-panel .light-edition .faq#comingSoonBanner .card-body .card-description h5,
+      .light-edition .main-panel .faq#comingSoonBanner .card-body .card-description h5 {
         font-family: "Poppins", sans-serif;
         font-size: 1.7rem;
         font-weight: 700;
         letter-spacing: 0.32px;
         color: var(--heading-color);
         margin: 2rem 0 .5rem !important; }
-        .dark-edition .card.faq .card-body .card-description h5:nth-of-type(1),
-        .light-edition .card.faq .card-body .card-description h5:nth-of-type(1) {
+        .dark-edition .card.faq .card-body .card-description h5:nth-of-type(1), .dark-edition .main-panel .faq#comingSoonBanner .card-body .card-description h5:nth-of-type(1), .light-edition .main-panel .dark-edition .faq#comingSoonBanner .card-body .card-description h5:nth-of-type(1),
+        .light-edition .card.faq .card-body .card-description h5:nth-of-type(1),
+        .dark-edition .main-panel .light-edition .faq#comingSoonBanner .card-body .card-description h5:nth-of-type(1),
+        .light-edition .main-panel .faq#comingSoonBanner .card-body .card-description h5:nth-of-type(1) {
           margin-top: 0 !important; }
 
 .dark-edition .nftHeader-stakingOptions-container #stakingOptions,
@@ -511,24 +547,56 @@ textarea, input {
   .farmListing .btn,
   .nftHeader .btn {
     font-size: 1.2rem; }
-  .nftListing .card .traits-collapse li.list-group-item,
+  .nftListing .card .traits-collapse li.list-group-item, .nftListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item, .dark-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item, .nftListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item, .light-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item,
   .farmListing .card .traits-collapse li.list-group-item,
-  .nftHeader .card .traits-collapse li.list-group-item {
+  .farmListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item,
+  .dark-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item,
+  .farmListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item,
+  .light-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item,
+  .nftHeader .card .traits-collapse li.list-group-item,
+  .nftHeader .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item,
+  .dark-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item,
+  .nftHeader .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item,
+  .light-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item {
     border-bottom: 1px solid var(--dark-primary); }
-    .nftListing .card .traits-collapse li.list-group-item sub,
+    .nftListing .card .traits-collapse li.list-group-item sub, .nftListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item sub, .dark-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item sub, .nftListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item sub, .light-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item sub,
     .farmListing .card .traits-collapse li.list-group-item sub,
-    .nftHeader .card .traits-collapse li.list-group-item sub {
+    .farmListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item sub,
+    .dark-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item sub,
+    .farmListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item sub,
+    .light-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item sub,
+    .nftHeader .card .traits-collapse li.list-group-item sub,
+    .nftHeader .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item sub,
+    .dark-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item sub,
+    .nftHeader .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item sub,
+    .light-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item sub {
       font-size: 1.2rem;
       color: var(--dark-secondary); }
-    .nftListing .card .traits-collapse li.list-group-item div,
+    .nftListing .card .traits-collapse li.list-group-item div, .nftListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item div, .dark-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item div, .nftListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item div, .light-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item div,
     .farmListing .card .traits-collapse li.list-group-item div,
-    .nftHeader .card .traits-collapse li.list-group-item div {
+    .farmListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item div,
+    .dark-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item div,
+    .farmListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item div,
+    .light-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item div,
+    .nftHeader .card .traits-collapse li.list-group-item div,
+    .nftHeader .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item div,
+    .dark-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item div,
+    .nftHeader .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item div,
+    .light-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item div {
       font-size: 1.6rem;
       font-weight: 700;
       color: var(--dark-primary); }
-  .nftListing .card .traits-collapse li.list-group-item:last-child,
+  .nftListing .card .traits-collapse li.list-group-item:last-child, .nftListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item:last-child, .dark-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item:last-child, .nftListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item:last-child, .light-edition .main-panel .nftListing #comingSoonBanner .traits-collapse li.list-group-item:last-child,
   .farmListing .card .traits-collapse li.list-group-item:last-child,
-  .nftHeader .card .traits-collapse li.list-group-item:last-child {
+  .farmListing .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item:last-child,
+  .dark-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item:last-child,
+  .farmListing .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item:last-child,
+  .light-edition .main-panel .farmListing #comingSoonBanner .traits-collapse li.list-group-item:last-child,
+  .nftHeader .card .traits-collapse li.list-group-item:last-child,
+  .nftHeader .dark-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item:last-child,
+  .dark-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item:last-child,
+  .nftHeader .light-edition .main-panel #comingSoonBanner .traits-collapse li.list-group-item:last-child,
+  .light-edition .main-panel .nftHeader #comingSoonBanner .traits-collapse li.list-group-item:last-child {
     border-bottom: none; }
   .nftListing .card-profile,
   .nftListing .header-profile,
@@ -1186,39 +1254,18 @@ textarea, input {
 .nftHeader {
   width: 100%; }
 
-.light-edition
-.main-panel
-.content
-.container-fluid
-#offersPage.row
-.nftListing
-.card.card-profile
-.card-body button.btn-outline.show-details,
+.light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline.show-details, .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
 .modal-body #nftsViewContainer button.btn-outline.show-details {
   background-color: var(--white) !important;
   color: var(--dark-primary); }
-  .light-edition
-.main-panel
-.content
-.container-fluid
-#offersPage.row
-.nftListing
-.card.card-profile
-.card-body button.btn-outline.show-details a,
+  .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline.show-details a, .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details a,
   .modal-body #nftsViewContainer button.btn-outline.show-details a {
     display: inline-block;
     width: 100%;
     color: inherit;
     font-size: 1.4rem; }
 
-.light-edition
-.main-panel
-.content
-.container-fluid
-#offersPage.row
-.nftListing
-.card.card-profile
-.card-body button.btn-outline {
+.light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline, .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline {
   background: var(--dark-primary) !important;
   border-radius: 0;
   border: 0.1rem solid var(--dark-primary);
@@ -1576,46 +1623,21 @@ textarea, input {
     .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span.dark-mode.active {
       background-color: var(--primary-color); }
 
-.light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form {
+.light-edition .main-panel .content .container-fluid .card .card-body.claim-form, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form {
   padding: 3.2rem 2.4rem 4.8rem; }
-  .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm .form-group {
+  .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .form-group, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .form-group {
     margin: 0;
     padding: 0; }
-  .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm .form-group label.form-label {
+  .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .form-group label.form-label, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .form-group label.form-label {
     display: flex;
     align-items: center;
     font-size: 1.6rem;
     font-weight: 600;
     color: var(--dark-primary);
     margin: 0; }
-    .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm .form-group label.form-label:hover {
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .form-group label.form-label:hover, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .form-group label.form-label:hover {
       cursor: var(--cursor-pointer); }
-  .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm .form-group input {
+  .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .form-group input, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .form-group input {
     height: auto;
     background-color: var(--white) !important;
     background-image: none;
@@ -1627,36 +1649,16 @@ textarea, input {
     color: var(--dark-secondary);
     transition: all 0.3s;
     margin: 2.4rem 0; }
-    .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm .form-group input::placeholder {
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .form-group input::placeholder, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .form-group input::placeholder {
       font-size: 1.6rem;
       color: var(--grey-primary); }
-    .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm .form-group input:focus {
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .form-group input:focus, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .form-group input:focus {
       border: 0.1rem solid var(--dark-primary); }
-  .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm .form-group .form-text {
+  .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .form-group .form-text, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .form-group .form-text {
     font-size: 1.6rem;
     color: var(--dark-secondary);
     margin: 0 0 3.2rem 0; }
-  .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm button#form-submit {
+  .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit {
     width: 24.8rem;
     box-shadow: none;
     border-radius: 0;
@@ -1665,22 +1667,7 @@ textarea, input {
     color: var(--white);
     font-size: 1.6rem;
     font-weight: 700; }
-    .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm button#form-submit:hover, .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm button#form-submit:focus, .light-edition
-.main-panel
-.content
-.container-fluid
-.card
-.card-body.claim-form #redemptionForm button#form-submit:active {
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit:hover, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit:hover, .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit:focus, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit:focus, .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit:active, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit:active {
       box-shadow: none;
       border: 1px solid var(--dark-primary);
       background-color: var(--dark-primary); }
@@ -1688,7 +1675,8 @@ textarea, input {
 .link-card {
   display: flex;
   flex-direction: column;
-  background-color: var(--white); }
+  background-color: var(--white);
+  box-shadow: var(--shadow-primary); }
   .link-card__icon {
     height: 17.6rem;
     background-color: var(--light-primary);
@@ -1706,6 +1694,12 @@ textarea, input {
     display: flex;
     justify-content: center;
     align-items: center; }
+
+.disabled-card img {
+  opacity: 0.5; }
+
+.disabled-card div {
+  color: rgba(255, 255, 255, 0.5) !important; }
 
 hr {
   margin-top: 3.2rem;
@@ -1980,6 +1974,9 @@ hr {
   .sidebar .nav li .dropdown-menu a {
     padding: 0.5rem;
     border-radius: 0; }
+  .sidebar .nav #marketNavLink:hover i,
+  .sidebar .nav #marketNavLink:hover p {
+    opacity: 0.5; }
 
 .sidebar-text {
   display: flex;
@@ -2097,16 +2094,34 @@ hr {
       align-items: flex-start;
       margin-top: 2rem; }
       @media only screen and (max-width: 990px) {
-        .dark-edition .main-panel .container-fluid.featured-farms .card.card.farm-card,
-        .light-edition .main-panel .container-fluid.featured-farms .card.card.farm-card {
+        .dark-edition .main-panel .container-fluid.featured-farms .card.card.farm-card, .dark-edition .main-panel .container-fluid.featured-farms .farm-card#comingSoonBanner,
+        .light-edition .main-panel .container-fluid.featured-farms .card.card.farm-card,
+        .light-edition .main-panel .container-fluid.featured-farms .farm-card#comingSoonBanner {
           width: unset; } }
-  .dark-edition .main-panel .card,
-  .light-edition .main-panel .card {
+  .dark-edition .main-panel .card, .dark-edition .main-panel #comingSoonBanner,
+  .light-edition .main-panel .card,
+  .light-edition .main-panel #comingSoonBanner {
     background: var(--light-primary);
     border-radius: 0;
     z-index: 0;
     margin: 0;
     box-shadow: var(--shadow-primary); }
+  .dark-edition .main-panel #comingSoonBanner,
+  .light-edition .main-panel #comingSoonBanner {
+    display: flex;
+    flex-direction: row; }
+    .dark-edition .main-panel #comingSoonBanner img,
+    .light-edition .main-panel #comingSoonBanner img {
+      width: 200px;
+      height: 200px; }
+    .dark-edition .main-panel #comingSoonBanner div,
+    .light-edition .main-panel #comingSoonBanner div {
+      margin: auto 0; }
+      .dark-edition .main-panel #comingSoonBanner div h2, .dark-edition .main-panel #comingSoonBanner div h3,
+      .light-edition .main-panel #comingSoonBanner div h2,
+      .light-edition .main-panel #comingSoonBanner div h3 {
+        color: #19284d;
+        font-weight: bold; }
   .dark-edition .main-panel .nftHeader-stakingOptions-container,
   .light-edition .main-panel .nftHeader-stakingOptions-container {
     display: flex;

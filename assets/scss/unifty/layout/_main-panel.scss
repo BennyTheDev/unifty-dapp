@@ -79,8 +79,27 @@
     z-index: 0;
     margin: 0;
     box-shadow: var(--shadow-primary);
-  }
 
+  }
+  
+  #comingSoonBanner{
+    @extend .card;
+    display: flex;
+    flex-direction: row;
+    img{
+      width: 200px;
+      height: 200px;
+    }
+
+    div{
+      margin: auto 0;
+
+      h2,h3{
+        color: #19284d;
+        font-weight: bold;
+      }
+    }
+  }
   //nft header + staking options
   .nftHeader-stakingOptions-container {
     display: flex;
