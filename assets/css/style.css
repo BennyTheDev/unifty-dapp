@@ -37,6 +37,7 @@ body.light-edition {
 
 .light-edition {
   --dark-primary: #19284d;
+  --dark-primary-light: rgba(25, 40, 77, 0.5);
   --dark-primary-hover: rgba(25, 40, 77, 0.1);
   --dark-secondary: #161f36;
   --light-primary: #f2f5fa;
@@ -1720,8 +1721,7 @@ hr {
   font-size: 1.8rem;
   background-color: var(--light-primary) !important;
   box-shadow: none;
-  border-radius: 0;
-  box-shadow: var(--shadow-primary); }
+  border-radius: 0; }
   .btn.btn-primary.collapsible[aria-expanded="false"]::after {
     font-family: "Material Icons";
     content: "\e313";
@@ -1754,8 +1754,7 @@ hr {
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-self: flex-start;
-  box-shadow: var(--shadow-primary); }
+  align-self: flex-start; }
   #collectiblePage .collectible-wrapper .image-container .btn.btn-outline.video-btn-link {
     border: 1px solid var(--dark-primary);
     background-color: var(--white) !important;
@@ -1774,8 +1773,7 @@ hr {
   flex-direction: column; }
   #collectiblePage .collectible-wrapper .details-container__upper {
     background-color: var(--light-primary);
-    padding: 6rem 6rem 4.8rem 6rem;
-    box-shadow: var(--shadow-primary); }
+    padding: 6rem 6rem 4.8rem 6rem; }
     #collectiblePage .collectible-wrapper .details-container__upper .header {
       display: flex;
       justify-content: space-between;
@@ -2194,7 +2192,7 @@ hr {
   left: 30rem;
   width: calc(100% - 40rem);
   margin: 0 5rem;
-  padding: 0.5rem 0;
+  padding: 0.8rem 0;
   background: var(--light-primary);
   box-shadow: var(--shadow-primary); }
   @media only screen and (min-width: 112.5em) {
@@ -2210,12 +2208,33 @@ hr {
   .footer ul {
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    padding: 0.5rem 2rem; }
-    .footer ul li {
+    padding: 0 2rem; }
+    .footer ul .unifty-contacts {
       display: flex;
-      flex-direction: row; }
+      flex-direction: column;
+      color: var(--dark-primary-light); }
+      .footer ul .unifty-contacts__icons {
+        display: flex; }
+        .footer ul .unifty-contacts__icons a {
+          padding: 0 2.6rem; }
+          .footer ul .unifty-contacts__icons a i {
+            font-size: 1.4rem; }
+          .footer ul .unifty-contacts__icons a:first-child {
+            padding-left: 0; }
+      .footer ul .unifty-contacts__text {
+        font-size: 1.2rem; }
+    .footer ul li.nav-item#torus {
+      position: relative;
+      min-width: 10rem; }
+      .footer ul li.nav-item#torus a {
+        padding: 0;
+        position: absolute;
+        right: 0;
+        bottom: -10px; }
+        .footer ul li.nav-item#torus a img {
+          width: 6.5rem; }
     .footer ul li.nav-item a {
       display: flex;
       align-items: center;

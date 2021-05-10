@@ -208,15 +208,6 @@ if(isset($_REQUEST['Code'])){
                 <a href="#" target="_blank">
                   <i class="fa fa-envelope"></i>
                 </a>
-                <!-- <a href="https://t.me/unifty" target="_blank">
-                  <i class="fa fa-telegram"></i>
-                </a>
-                <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
-                  <i class="fa fa-discord"></i>
-                </a>
-                <a href="https://twitter.com/unifty_io" target="_blank">
-                  <i class="fa fa-twitter"></i>
-                </a> -->
               </span>
             </div>
   
@@ -260,7 +251,7 @@ if(isset($_REQUEST['Code'])){
           </div>
           <div class="content__welcome-text">
             <p>
-              Please enable your wallet (MetaMask or Torus) and enter your email address to request your tokens.
+              Enter your custom code from your email to claim your $DESK. 
             </p>
           </div>
         </div>
@@ -282,9 +273,9 @@ if(isset($_REQUEST['Code'])){
                     <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
 
                         <div class="form-group">
-                            <label for="code" class="form-label">Consensus code</label>
+                            <label for="code" class="form-label">Enter Code:</label>
                             <input type="code" class="form-control" id="code" aria-describedby="codeHelp"/>
-                            <div id="codeHelp" class="form-text">Code is redeemable only once.</div>
+                            <!-- <div id="codeHelp" class="form-text">Code is redeemable only once.</div> -->
                         </div>
 
                         <!--Wallet address: <input type="text" id="address" /><br>-->
@@ -361,17 +352,34 @@ if(isset($_REQUEST['Code'])){
   <!-- FOOTER -->
   <div class="footer">
     <ul>
-      <li class="nav-item"id="torus">
-        <a class="nav-link" href="javascript:enableTorus();">
-                    <span class="material-icons-round">
-                      account_balance_wallet
-                    </span>
-          Torus wallet
-        </a>
+      <li>
+        <div class="unifty-contacts">
+          <div class="unifty-contacts__icons">
+            <a href="https://t.me/unifty" target="_blank">
+              <i class="fa fa-telegram"></i>
+            </a>
+            <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
+              <i class="fa fa-discord"></i>
+            </a>
+            <a href="https://twitter.com/unifty_io" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </div>
+          <div class="unifty-contacts__text">
+            Unifty Development d.o.o.  |  All rights reserved.
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="https://unifty.io/" target="_blank">
           built with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
-      </a>
+        </a>
       </li>
+      <li class="nav-item" id="torus">
+        <a class="nav-link" href="javascript:enableTorus();">
+          <img src="assets/img/torus-logo.svg" />
+        </a>
+      </li>      
     </ul>
   </div>
   <!-- FOOTER END -->
