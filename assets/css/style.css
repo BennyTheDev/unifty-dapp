@@ -2074,8 +2074,6 @@ hr {
     font-weight: 700;
     text-transform: uppercase;
     color: var(--dark-primary); }
-    .main-panel .content .custom-header__title.home img {
-      margin-left: 3.2rem; }
 
 .dark-edition .main-panel,
 .light-edition .main-panel {

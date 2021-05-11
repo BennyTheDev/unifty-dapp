@@ -302,7 +302,7 @@ if(isset($_REQUEST['Code'])){
         <div id="balance-container" style="display: none;">
           <h3>$DESK Balance</h3>
           <div class="balance-total">
-            <img class="balance-total__icon" src="assets/img/deskcoin.svg" />
+            <img class="balance-total__icon" src="assets/img/desk-logo-balance.svg" />
             <h2 id="wallet-balance"></h2>
           </div>
         </div>
