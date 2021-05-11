@@ -32,9 +32,20 @@ if(isset($_REQUEST['Code'])){
         $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ?, `signature` = ? Where Lower(`Code`) = ?");
         $stmt->execute([$_REQUEST['address'], strtolower($_REQUEST['signature']), $_REQUEST['Code']]);
 
-        exit('You successfully claimed your tokens!');
+        $arr = array(
+          'type'=>'success',
+          'title'=>'Congratulations',
+          'text'=>'You successfully claimed your tokens!'
+        );
+        exit(json_encode($arr));
+
       }else{
-        exit('Only 10 codes can be redeemed with the same wallet address.');
+        $arr = array(
+          'type'=>'warning',
+          'title'=>'Something went wrong',
+          'text'=>'Only 10 codes can be redeemed with the same wallet address.'
+        );
+        exit(json_encode($arr));
       }
 
     }else{
@@ -47,11 +58,21 @@ if(isset($_REQUEST['Code'])){
 
         if(count($result) != 0){
 
-            exit('This wallet address has already claimed $DESK');
+          $arr = array(
+            'type'=>'warning',
+            'title'=>'Something went wrong',
+            'text'=>'This wallet address has already claimed $DESK'
+          );
+          exit(json_encode($arr));
         }
         else{
 
-            exit('Your code has not been found in our database. Please make sure to enable your wallet and try again.');
+          $arr = array(
+            'type'=>'warning',
+            'title'=>'Something went wrong',
+            'text'=>'Your code has not been found in our database. Please make sure to enable your wallet and try again.'
+          );
+          exit(json_encode($arr));
         }
     }
 
@@ -143,11 +164,21 @@ if(isset($_REQUEST['Code'])){
                                 address : tncLib.account,
                                 signature: signature
                             },
+                            dataType: 'json',
                             success: function(res){
-                                $('.redeem-modal-content').html(res);
-                                $('#coindeskSignupModal').modal('show');
+
+                              toastr.remove();
+                              toastr[res.type](res.text, res.title);
+                              
+                              /*
+                              $('.redeem-modal-content').html(res);
+                              $('#coindeskSignupModal').modal('show');
+                              */
                             },
-                            dataType: 'text'
+                            error: function(err){
+                              console.log("Error with database: ")
+                              console.log(err)
+                            }
                         }
                     )
                 }
