@@ -5,7 +5,7 @@ if(isset($_REQUEST['Code'])){
 
         exit('Please enter your Consensus code address and enable your wallet.');
     }
-
+    
     /**
     * $dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
     * $usr = 'unifghiu_coindesk';

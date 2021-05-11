@@ -138,6 +138,18 @@ body.light-edition {
 //   --scrollbar-thumb-hover: linear-gradient(13deg, #b8b8c5 14%, #202060 64%);
 // }
 
+.toast-warning {
+  background-color: #dc3545;
+}
+
+.toast-success {
+  background-color: #28a745;
+}
+
+.toast-info {
+  background-color: #007bff;
+}
+
 .light-edition {
   // ------ used colors --------
   --dark-primary: #19284d;

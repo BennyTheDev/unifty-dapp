@@ -35,6 +35,15 @@ body.light-edition {
   body.light-edition .btn:not(:disabled):not(.disabled) {
     cursor: var(--cursor-pointer); }
 
+.toast-warning {
+  background-color: #dc3545; }
+
+.toast-success {
+  background-color: #28a745; }
+
+.toast-info {
+  background-color: #007bff; }
+
 .light-edition {
   --dark-primary: #19284d;
   --dark-primary-light: rgba(25, 40, 77, 0.5);
