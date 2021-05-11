@@ -626,6 +626,17 @@ textarea, input {
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--dark-primary) !important; }
+    .nftListing .card-profile .opensea.text-muted.my-nft,
+    .nftListing .header-profile .opensea.text-muted.my-nft,
+    .farmListing .card-profile .opensea.text-muted.my-nft,
+    .farmListing .header-profile .opensea.text-muted.my-nft,
+    .nftHeader .card-profile .opensea.text-muted.my-nft,
+    .nftHeader .header-profile .opensea.text-muted.my-nft {
+      display: inline-block;
+      width: 100%;
+      background-color: var(--white);
+      padding: 0.7rem;
+      border: 0.1rem solid var(--dark-primary); }
     .nftListing .card-profile .card-avatar,
     .nftListing .header-profile .card-avatar,
     .farmListing .card-profile .card-avatar,

@@ -53,6 +53,15 @@
       color: var(--dark-primary) !important;
     }
 
+    // opensea button open details from my nfts
+    .opensea.text-muted.my-nft {
+      display: inline-block;
+      width: 100%;
+      background-color: var(--white);
+      padding: 0.7rem;
+      border: 0.1rem solid var(--dark-primary);
+    }
+
     //image
     .card-avatar {
       min-width: 15.6rem;
@@ -229,10 +238,6 @@
         color: var(--dark-secondary);
         padding: 0.5rem 0.8rem 0.7rem 0.8rem;
         width: 100%;
-
-        // &:hover {
-        //   background-color: var(--light-primary) !important;
-        // }
       }
 
       #actions-container {
@@ -280,13 +285,6 @@
         span {
           font-size: 1.8rem;
         }
-
-        // &:hover,
-        // &:active {
-        //   span {
-        //     color: var(--dark-secondary);
-        //   }
-        // }
       }
 
       //options
@@ -309,23 +307,8 @@
             color: var(--dark-primary);
             font-size: 1.8rem;
           }
-
-          // &:hover,
-          // &:active {
-          //   span {
-          //     color: var(--text-primary-light);
-          //   }
-          // }
         }
       }
-
-      // .dropdown.show a {
-      //   background-color: transparent;
-
-      //   span {
-      //     color: var(--text-primary-light);
-      //   }
-      // }
     }
   }
 }

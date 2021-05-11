@@ -329,14 +329,6 @@
                         {{#ifNotEquals image ""}}
                             <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
-
-                        {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
-
-                        {{#ifEquals checkOpenSea "Open Details"}}
-                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
                     
                         <div class="card-body">
 
@@ -359,7 +351,7 @@
                             {{/ifNotEquals}}
 
                             {{#ifNotEquals audio_url ""}}
-                                <audio class="mb-3" style="width: 90%;" controls="controls" preload="auto" loop="loop">
+                                <audio class="mb-3" style="width: 100%;" controls="controls" preload="auto" loop="loop">
                                     <source src="{{audio_url}}" type="audio/mp3">
                                     Your browser does not support the audio tag.
                                 </audio>
@@ -411,11 +403,19 @@
                                 </div>
                             {{/ifNotEquals}}
 
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                                Traits
-                            </a>
+                            {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                              <a class="opensea my-nft text-muted mb-3" style="margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                            {{/ifEquals}}
 
-                            <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
+                            {{#ifEquals checkOpenSea "Open Details"}}
+                              <a class="opensea my-nft text-muted mb-3" style="margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
+                            {{/ifEquals}}
+
+                            <!-- <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                                Traits
+                            </a> -->
+
+                            <!-- <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
                                 <ul class="list-group">
 
                                     {{#ifNotEquals bridgeOnBack ""}}
@@ -445,7 +445,7 @@
                                         </li>
                                     {{/each}}
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
