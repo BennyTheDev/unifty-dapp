@@ -345,7 +345,9 @@ $(document).ready(async function () {
         }
       } catch (error) {
         console.log(error);
-        _alert("You refused to use this dapp.");
+        _alert(
+          "Please sign in to your wallet <a href='javascript:enableTorus();'>here</a> to continue"
+        );
       }
     }, 500);
   }
