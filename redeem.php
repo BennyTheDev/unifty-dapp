@@ -279,7 +279,7 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
   
             <div class="sidebar-text rights">
               <span>
-                Get in touch with Coindesk
+                Get in touch
               </span>
             </div>
 

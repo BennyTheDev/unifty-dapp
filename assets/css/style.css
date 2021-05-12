@@ -27,14 +27,6 @@ body {
   font-family: "acumin-pro", sans-serif;
   font-weight: 400; }
 
-body.light-edition {
-  cursor: var(--cursor-default); }
-  body.light-edition a:link,
-  body.light-edition a:hover,
-  body.light-edition a:active,
-  body.light-edition .btn:not(:disabled):not(.disabled) {
-    cursor: var(--cursor-pointer); }
-
 .toast-warning {
   background-color: #dc3545; }
 
@@ -72,9 +64,6 @@ body.light-edition {
   --modal-text: #202040;
   --image-padding: #e2e3e8;
   --traits-bg: #fff;
-  --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
-  --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;
-  --cursor-text: url(../img/unifty-icons/cursor-text-light-thin.svg), auto;
   --scrolbar-track: rgba(32, 32, 96, 0.1);
   --scrollbar-track-shadow: #f4f7fb;
   --scrollbar-track-hover: #cdcfd6;
@@ -2271,7 +2260,7 @@ hr {
       flex-direction: column;
       color: var(--dark-primary-light); }
       .footer ul .unifty-contacts__icons {
-        display: flex; }
+        display: none; }
         .footer ul .unifty-contacts__icons a {
           padding: 0 2.6rem; }
           .footer ul .unifty-contacts__icons a i {

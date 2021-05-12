@@ -33,7 +33,8 @@
       color: var(--dark-primary-light);
 
       &__icons {
-        display: flex;
+        display: none;
+        //display: flex;
 
         a {
           padding: 0 2.6rem;
