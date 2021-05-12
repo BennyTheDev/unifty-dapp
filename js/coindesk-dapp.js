@@ -7,13 +7,19 @@ function TncDapp() {
         // use tncLib.account to display the balance
 
         $(document).ready(async function(){
-            let balance = await web3.eth.getBalance ( tncLib.account );
+            setInterval(async function(){
 
-            //toLocaleString to add commas to thousands in number
-            balance = parseInt(_this.formatNumberString(balance, 18)).toLocaleString()
-              
-            $('#wallet-balance').text(balance)
-            $('#balance-container').show();    
+                let balance = await tncLib.balanceOfErc20Raw('0xa7814452481532987BEFa93cE55EE7CC60aAb916', tncLib.account);
+
+                console.log(balance);
+
+                //toLocaleString to add commas to thousands in number
+                balance = parseInt(_this.formatNumberString(balance, 18)).toLocaleString()
+
+                $('#wallet-balance').text(balance)
+                $('#balance-container').show();
+
+            }, 5000);
         });
     }
 

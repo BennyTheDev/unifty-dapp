@@ -1,5 +1,12 @@
 <?php
-if(isset($_REQUEST['Code'])){
+$direct = false;
+
+if(isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
+
+    $direct = true;
+}
+
+if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
 
     if(trim($_REQUEST['Code']) == '' || trim($_REQUEST['address']) == ''){
 
@@ -70,7 +77,7 @@ if(isset($_REQUEST['Code'])){
           $arr = array(
             'type'=>'warning',
             'title'=>'Something went wrong',
-            'text'=>'Your code has not been found in our database. Please make sure to enable your wallet and try again.'
+            'text'=>'Your code has not been found in our database or has been claimed already by someone else. Also make sure to enable your wallet and try again.'
           );
           exit(json_encode($arr));
         }
@@ -145,7 +152,7 @@ if(isset($_REQUEST['Code'])){
 
             $("#form-submit").on('click', async function(){
 
-                let code = $("#code").val();
+                let code = <?php echo $direct ? json_encode($_REQUEST['Code']) : '$("#code").val()'  ?>;
 
                 if(code == "")
                 {
@@ -182,7 +189,23 @@ if(isset($_REQUEST['Code'])){
                         }
                     )
                 }
-            })
+            });
+            <?php
+            if($direct){
+            ?>
+            let waitForAccount = setInterval(
+                function(){
+                    if(typeof tncLib != 'undefined'){
+                        clearInterval(waitForAccount);
+                        $('#direct-thank-you').css('display', 'flex');
+                        $("#form-submit").click();
+                    }
+                },
+                100
+            );
+            <?php
+            }
+            ?>
         });
     </script>
 
@@ -310,7 +333,7 @@ if(isset($_REQUEST['Code'])){
       </div>
       <!-- HEADER END -->
 
-        <div class="container-fluid">
+        <div class="container-fluid"<?php echo $direct ? ' style="display:none;"' : '';?>>
             <div class="card">
                 <div class="card-body claim-form">
                     <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
@@ -325,6 +348,18 @@ if(isset($_REQUEST['Code'])){
 
                         <button id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Claim $DESK</button>
                     </form>
+                </div>
+            </div>
+
+            <!-- <hr /> -->
+        </div>
+
+        <div class="container-fluid" id="direct-thank-you" style="display: none;">
+            <div class="card">
+                <div class="card-body claim-form">
+                    <span style="font-size: 1.4rem;">
+                        Please follow your wallet's instructions and wait for the notification of your claim request.
+                    </span>
                 </div>
             </div>
 
