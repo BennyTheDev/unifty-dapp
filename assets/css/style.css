@@ -2146,7 +2146,8 @@ hr {
     .dark-edition .main-panel #comingSoonBanner div,
     .light-edition .main-panel #comingSoonBanner div {
       margin: auto 0; }
-      .dark-edition .main-panel #comingSoonBanner div h2, .dark-edition .main-panel #comingSoonBanner div h3,
+      .dark-edition .main-panel #comingSoonBanner div h2,
+      .dark-edition .main-panel #comingSoonBanner div h3,
       .light-edition .main-panel #comingSoonBanner div h2,
       .light-edition .main-panel #comingSoonBanner div h3 {
         color: #19284d;
@@ -2189,6 +2190,14 @@ hr {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem; }
+  .dark-edition .main-panel .content .container-fluid #iconLinks.row,
+  .light-edition .main-panel .content .container-fluid #iconLinks.row {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(1rem, 1fr));
+    grid-gap: 2rem; }
+    .dark-edition .main-panel .content .container-fluid #iconLinks.row .link-card,
+    .light-edition .main-panel .content .container-fluid #iconLinks.row .link-card {
+      text-align: center; }
   .dark-edition .main-panel .content .container-fluid .col-xl-12,
   .dark-edition .main-panel .content .container-fluid .col-lg-12,
   .light-edition .main-panel .content .container-fluid .col-xl-12,

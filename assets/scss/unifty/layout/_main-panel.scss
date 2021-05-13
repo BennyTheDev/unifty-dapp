@@ -79,22 +79,22 @@
     z-index: 0;
     margin: 0;
     box-shadow: var(--shadow-primary);
-
   }
-  
-  #comingSoonBanner{
+
+  #comingSoonBanner {
     @extend .card;
     display: flex;
     flex-direction: row;
-    img{
+    img {
       width: 200px;
       height: 200px;
     }
 
-    div{
+    div {
       margin: auto 0;
 
-      h2,h3{
+      h2,
+      h3 {
         color: #19284d;
         font-weight: bold;
       }
@@ -147,11 +147,15 @@
       grid-gap: 2rem;
     }
 
-    // #iconLinks.row {
-    //   display: grid;
-    //   grid-template-columns: repeat(auto-fill, minmax(32.8rem, 1fr));
-    //   grid-gap: 2rem;
-    // }
+    #iconLinks.row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(1rem, 1fr));
+      grid-gap: 2rem;
+
+      .link-card {
+        text-align: center;
+      }
+    }
 
     .col-xl-12,
     .col-lg-12 {
