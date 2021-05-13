@@ -325,6 +325,9 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
             <p>
               Enter your custom code from your email to claim your $DESK. 
             </p>
+            <h5>
+            <strong>Note: </strong>The $DESK token acts as a reward to incentivize use of CoinDesk products and services. It is not intended to have, nor should be construed as having, any direct monetary value.
+            </h5>
           </div>
         </div>
 
