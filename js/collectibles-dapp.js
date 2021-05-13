@@ -1020,7 +1020,7 @@ function TncDapp() {
                 }
 
                 if(address.toLowerCase() == tncLib.account.toLowerCase()){
-                    $('#walletOptions').css('display', 'flex');
+                    //$('#walletOptions').css('display', 'flex');
                 }else{
                     $('#foreignWalletInfo').css('display', 'flex');
                     $('#walletAddress').text(address);

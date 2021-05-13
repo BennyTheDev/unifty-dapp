@@ -68,7 +68,7 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
           $arr = array(
             'type'=>'warning',
             'title'=>'Something went wrong',
-            'text'=>'This wallet address has already claimed $DESK'
+            'text'=>'This unique code has already been used to claim $DESK. Please try again.'
           );
           exit(json_encode($arr));
         }
@@ -176,6 +176,12 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
 
                               toastr.remove();
                               toastr[res.type](res.text, res.title);
+
+                              $("#code").val('');
+
+                              if(res.type == 'success'){
+                                tncLib.displayBalance;
+                              }
                               
                               /*
                               $('.redeem-modal-content').html(res);
