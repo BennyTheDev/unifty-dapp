@@ -611,7 +611,7 @@ textarea, input {
     .farmListing .header-profile .text-muted,
     .nftHeader .card-profile .text-muted,
     .nftHeader .header-profile .text-muted {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 700;
       color: var(--dark-secondary) !important; }
     .nftListing .card-profile .opensea.text-muted,
@@ -748,7 +748,7 @@ textarea, input {
       .nftHeader .header-profile .card-body .card-title,
       .nftHeader .header-profile .header-left .card-title {
         font-family: acumin-pro, sans-serif;
-        font-size: 2.4rem;
+        font-size: 2.2rem;
         margin: 0 0 1rem 0;
         font-weight: bold; }
         .nftListing .card-profile .card-body .card-title a,
@@ -1695,15 +1695,17 @@ textarea, input {
     margin-bottom: 0.8rem;
     box-shadow: var(--shadow-primary); }
   .link-card__btn {
-    height: 9.2rem;
+    height: 7.8rem;
     background-color: var(--dark-primary);
     color: var(--white);
     text-transform: uppercase;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
+    line-height: 2.6rem;
     display: flex;
     justify-content: center;
-    align-items: center; }
+    align-items: center;
+    padding: 2rem; }
 
 .disabled-card img {
   opacity: 0.5; }
@@ -1722,7 +1724,7 @@ hr {
   align-items: center;
   width: 100%;
   color: var(--dark-primary);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   background-color: var(--light-primary) !important;
   box-shadow: none;
   border-radius: 0;
@@ -1755,7 +1757,7 @@ hr {
   flex: 2;
   background-color: var(--light-primary);
   margin-right: 3rem;
-  padding: 6rem;
+  padding: 5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -1780,7 +1782,7 @@ hr {
   flex-direction: column; }
   #collectiblePage .collectible-wrapper .details-container__upper {
     background-color: var(--light-primary);
-    padding: 6rem 6rem 4.8rem 6rem;
+    padding: 5rem;
     box-shadow: var(--shadow-primary); }
     #collectiblePage .collectible-wrapper .details-container__upper .header {
       display: flex;
@@ -1788,7 +1790,7 @@ hr {
       align-items: center; }
       #collectiblePage .collectible-wrapper .details-container__upper .header .title h4 {
         font-family: acumin-pro, sans-serif;
-        font-size: 3.6rem;
+        font-size: 4rem;
         color: var(--dark-primary);
         font-weight: 700;
         margin: 0; }
@@ -1799,7 +1801,7 @@ hr {
         color: var(--dark-secondary);
         font-size: 1.4rem; }
     #collectiblePage .collectible-wrapper .details-container__upper .collection-name {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--dark-secondary); }
     #collectiblePage .collectible-wrapper .details-container__upper #actions-container .nft-price {
       font-size: 1.8rem;
@@ -1815,12 +1817,12 @@ hr {
       border: 1px solid var(--dark-primary);
       background-color: var(--dark-primary) !important;
       color: var(--white);
-      font-size: 2.4rem;
+      font-size: 2rem;
       font-weight: 700; }
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse.show,
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapsing,
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--dark-secondary);
     border: 1px solid var(--light-primary);
     padding: 0 4.5rem;
@@ -1854,7 +1856,7 @@ hr {
     #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse.show div > :nth-child(2n),
     #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapsing div > :nth-child(2n),
     #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse div > :nth-child(2n) {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       font-weight: 700; }
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse.show,
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapsing,

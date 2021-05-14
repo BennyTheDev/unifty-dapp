@@ -6,7 +6,7 @@
   flex: 2;
   background-color: var(--light-primary);
   margin-right: 3rem;
-  padding: 6rem;
+  padding: 5rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
 
   &__upper {
     background-color: var(--light-primary);
-    padding: 6rem 6rem 4.8rem 6rem;
+    padding: 5rem;
     box-shadow: var(--shadow-primary);
 
     //title and stocks
@@ -48,7 +48,7 @@
 
       .title h4 {
         font-family: acumin-pro, sans-serif;
-        font-size: 3.6rem;
+        font-size: 4rem;
         color: var(--dark-primary);
         font-weight: 700;
         margin: 0;
@@ -68,7 +68,7 @@
 
     //collection name
     .collection-name {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--dark-secondary);
     }
 
@@ -91,7 +91,7 @@
         border: 1px solid var(--dark-primary);
         background-color: var(--dark-primary) !important;
         color: var(--white);
-        font-size: 2.4rem;
+        font-size: 2rem;
         font-weight: 700;
       }
     }
@@ -101,7 +101,7 @@
     #collapse-nft-description.collapse.show,
     #collapse-nft-description.collapsing,
     #collapse-nft-description.collapse {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
       color: var(--dark-secondary);
       border: 1px solid var(--light-primary);
       padding: 0 4.5rem;
@@ -135,7 +135,7 @@
         text-transform: uppercase;
       }
       div > :nth-child(2n) {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         font-weight: 700;
       }
     }
