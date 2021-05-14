@@ -2208,53 +2208,27 @@ function TncDapp() {
 
     this.startAccountCheck = function(){
 
-        if(window.ethereum){
-
-            window.ethereum.on('accountsChanged', function(accounts){
+        setInterval( function() {
+            web3.eth.getAccounts(function(err, accounts){
                 const _that = _this;
-                if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
+                if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
                     _that.accountChangeAlert();
                     _that.prevAccounts = accounts;
                 }
             });
-
-        }else if(window.web3){
-
-            setInterval( function() {
-                web3.eth.getAccounts(function(err, accounts){
-                    const _that = _this;
-                    if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
-                        _that.accountChangeAlert();
-                        _that.prevAccounts = accounts;
-                    }
-                });
-            }, 1000);
-        }
+        }, 1000);
     };
 
     this.startChainCheck = function(){
 
-        if(window.ethereum) {
-            window.ethereum.on('chainChanged', async function (chain) {
-                let actualChainId = chain.toString(16);
-                console.log('chain check: ', actualChainId + " != " + _this.prevChainId);
-                if (actualChainId != _this.prevChainId) {
-                    _this.prevChainId = actualChainId;
-                    _this.chainChangeAlert();
-                }
-            });
+        setInterval( async function() {
 
-        }else if(window.web3){
+            if(await web3.eth.net.getId() != _this.prevChainId){
+                _this.prevChainId = await web3.eth.net.getId();
+                _this.chainChangeAlert();
+            }
 
-            setInterval( async function() {
-
-                if(await web3.eth.net.getId() != _this.prevChainId){
-                    _this.prevChainId = await web3.eth.net.getId();
-                    _this.chainChangeAlert();
-                }
-
-            }, 1000);
-        }
+        }, 1000);
     };
 
     $(document).ready(async function(){

@@ -9,6 +9,27 @@ function TncDapp() {
     this.prevAccounts = [];
     this.prevChainId = '';
 
+    this.displayBalance = function(){
+
+        // use tncLib.account to display the balance
+
+        $(document).ready(async function(){
+            setInterval(async function(){
+
+                let balance = await tncLib.balanceOfErc20Raw('0xa7814452481532987BEFa93cE55EE7CC60aAb916', tncLib.account);
+
+                console.log(balance);
+
+                //toLocaleString to add commas to thousands in number
+                balance = parseInt(_this.formatNumberString(balance, 18)).toLocaleString()
+
+                $('#wallet-balance').text(balance)
+                $('#balance-container').show();
+
+            }, 5000);
+        });
+    }
+
     this.render = async function(erc1155, id, index, category){
 
         let nft = await window.tncLib.getNft(erc1155, id);
@@ -1245,53 +1266,27 @@ function TncDapp() {
 
     this.startAccountCheck = function(){
 
-        if(window.ethereum){
-
-            window.ethereum.on('accountsChanged', function(accounts){
+        setInterval( function() {
+            web3.eth.getAccounts(function(err, accounts){
                 const _that = _this;
-                if (accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase()) {
+                if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
                     _that.accountChangeAlert();
                     _that.prevAccounts = accounts;
                 }
             });
-
-        }else if(window.web3){
-
-            setInterval( function() {
-                web3.eth.getAccounts(function(err, accounts){
-                    const _that = _this;
-                    if (accounts.length != 0 && ( accounts.length != _that.prevAccounts.length || accounts[0].toUpperCase() != _that.prevAccounts[0].toUpperCase())) {
-                        _that.accountChangeAlert();
-                        _that.prevAccounts = accounts;
-                    }
-                });
-            }, 1000);
-        }
+        }, 1000);
     };
 
     this.startChainCheck = function(){
 
-        if(window.ethereum) {
-            window.ethereum.on('chainChanged', async function (chain) {
-                let actualChainId = chain.toString(16);
-                console.log('chain check: ', actualChainId + " != " + _this.prevChainId);
-                if (actualChainId != _this.prevChainId) {
-                    _this.prevChainId = actualChainId;
-                    _this.chainChangeAlert();
-                }
-            });
+        setInterval( async function() {
 
-        }else if(window.web3){
+            if(await web3.eth.net.getId() != _this.prevChainId){
+                _this.prevChainId = await web3.eth.net.getId();
+                _this.chainChangeAlert();
+            }
 
-            setInterval( async function() {
-
-                if(await web3.eth.net.getId() != _this.prevChainId){
-                    _this.prevChainId = await web3.eth.net.getId();
-                    _this.chainChangeAlert();
-                }
-
-            }, 1000);
-        }
+        }, 1000);
     };
 
     $(document).ready(async function(){
@@ -1380,6 +1375,7 @@ function run(connected) {
         }
         dapp.startAccountCheck();
         dapp.startChainCheck();
+        dapp.displayBalance();
         dapp.loadPage(''); // default
     });
 }
