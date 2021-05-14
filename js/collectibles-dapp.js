@@ -33,52 +33,8 @@ function TncDapp() {
         let nftCount = 0;
         let collections = [];
 
-        // uniftyverse
-        if(chain_id == '1') {
-            let verse = tncLibBridgeIn.uniftyverse.options.address;
-            collections.push(verse);
-            let nfts = await tncLib.getNftsByAddress(address, verse);
-            for (let i = 0; i < nfts.length; i++) {
-                if (await tncLib.balanceof(verse, address, nfts[i]) > 0) {
-                    _this.render(verse, nfts[i], address);
-                    await sleep(300);
-                    nftCount++;
-                    await waitForPaging('collectiblesPage', nftCount);
-                }
-            }
-        }
-
-        // my unifty collections
-        let length = await tncLib.getErc1155Length(address);
-
-        for(let i = length - 1; i >= 0; i--){
-            let myCollection = await tncLib.getErc1155(address, i);
-            collections.push(myCollection.erc1155);
-            let nfts = await tncLib.getNftsByAddress(address, myCollection.erc1155);
-            for(let j = 0; j < nfts.length; j++){
-                if(await tncLib.balanceof(myCollection.erc1155, address, nfts[j]) > 0) {
-                    _this.render(myCollection.erc1155, nfts[j], address);
-                    await sleep(300);
-                    nftCount++;
-                    await waitForPaging('collectiblesPage', nftCount);
-                }
-            }
-        }
-
-        // rarible collection
-        if(chain_id == '1') {
-            let rarible = '0xd07dc4262BCDbf85190C01c996b4C06a461d2430';
-            collections.push(rarible);
-            let nfts = await tncLib.getNftsByAddress(address, rarible);
-            for (let i = 0; i < nfts.length; i++) {
-                if (await tncLib.balanceof(rarible, address, nfts[i]) > 0) {
-                    _this.render(rarible, nfts[i], address);
-                    await sleep(300);
-                    nftCount++;
-                    await waitForPaging('collectiblesPage', nftCount);
-                }
-            }
-        }
+        // coindesk main collection
+        collections.push('0x5857dd9383C11b672163168E7d99872dd9d5AeC3');
 
         // given custom collections
         let collectionAddresses = [];

@@ -149,6 +149,7 @@ function TncDapp() {
 
     this.startAccountCheck = function(){
 
+        /*
         if(window.ethereum){
 
             window.ethereum.on('accountsChanged', function(accounts){
@@ -158,8 +159,8 @@ function TncDapp() {
                     _that.prevAccounts = accounts;
                 }
             });
-
-        }else if(window.web3){
+*/
+        //}else if(window.web3){
 
             setInterval( function() {
                 web3.eth.getAccounts(function(err, accounts){
@@ -170,11 +171,12 @@ function TncDapp() {
                     }
                 });
             }, 1000);
-        }
+        //}
     };
 
     this.startChainCheck = function(){
 
+        /*
         if(window.ethereum) {
             window.ethereum.on('chainChanged', async function (chain) {
                 let actualChainId = chain.toString(16);
@@ -184,8 +186,8 @@ function TncDapp() {
                     _this.chainChangeAlert();
                 }
             });
-
-        }else if(window.web3){
+        */
+        //}else if(window.web3){
 
             setInterval( async function() {
 
@@ -195,7 +197,7 @@ function TncDapp() {
                 }
 
             }, 1000);
-        }
+        //}
     };
 
     $(document).ready(async function(){

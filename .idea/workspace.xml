@@ -21,8 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/claim_worker.php" beforeDir="false" afterPath="$PROJECT_DIR$/claim_worker.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/coindesk-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/coindesk-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/redeem.php" beforeDir="false" afterPath="$PROJECT_DIR$/redeem.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +45,15 @@
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="origin/optimization_style" />
   </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="coindeskPartner" />
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="NamedScopeManager">
