@@ -834,8 +834,8 @@ function TncDapp() {
                 $("#farmTokenAddress").append(o);
                 break;
             case '4': // ETHEREUM TESTNET
-                var o = new Option("NIF (Unifty)", "0xb93370d549a4351fa52b3f99eb5c252506e5a21e");
-                $(o).html("NIF (Unifty)");
+                var o = new Option("$DESK", "0xa7814452481532987befa93ce55ee7cc60aab916");
+                $(o).html("$DESK");
                 $("#farmTokenAddress").append(o);
                 break;
             default: // ETHEREUM MAINNET

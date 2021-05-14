@@ -476,8 +476,8 @@ function TncDapp() {
                 $("#nftSellToken").append(o);
                 break;
             case '4': // ETHEREUM TESTNET
-                var o = new Option("NIF (Unifty)", "0xb93370d549a4351fa52b3f99eb5c252506e5a21e");
-                $(o).html("NIF (Unifty)");
+                var o = new Option("$DESK", "0xa7814452481532987befa93ce55ee7cc60aab916");
+                $(o).html("$DESK");
                 $("#nftSellToken").append(o);
                 break;
             default: // ETHEREUM MAINNET
@@ -900,7 +900,7 @@ function TncDapp() {
                 [itemAmount],
                 sellToken,
                 finalPrice,
-                $('input[name="nftMode"]:checked').val(),
+                0,
                 category,
                 function () {
                     toastr["info"]('Please wait for the transaction to finish.', "Selling NFTs....");
@@ -1020,7 +1020,7 @@ function TncDapp() {
                 }
 
                 if(address.toLowerCase() == tncLib.account.toLowerCase()){
-                    //$('#walletOptions').css('display', 'flex');
+                    $('#walletOptions').css('display', 'flex');
                 }else{
                     $('#foreignWalletInfo').css('display', 'flex');
                     $('#walletAddress').text(address);
