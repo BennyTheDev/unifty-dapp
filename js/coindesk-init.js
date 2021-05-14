@@ -15,6 +15,7 @@ $(document).ready(async function () {
     window.ethereum = window.celo;
   }
 
+  /*
   if (window.ethereum) {
     setTimeout(async function () {
       window.web3 = new Web3(ethereum);
@@ -306,9 +307,7 @@ $(document).ready(async function () {
         }
       } catch (error) {
         console.log(error);
-        _alert(
-          "Please sign in to your wallet <a href='javascript:enableTorus();'>here</a> to continue"
-        );
+        _alert("You refused to use this dapp.");
       }
     }, 500);
   }
@@ -327,16 +326,11 @@ $(document).ready(async function () {
     }
 
     run(true);
-  }
+  }*/
   // Non-dapp browsers...
-  else {
-    if (localStorage.getItem("torusLoaded") != "true") {
-      $("#torus").css("display", "inline-block");
-      runReadableOnly();
-    } else {
-      enableTorus();
-    }
-  }
+  //else {
+  enableTorus();
+  //}
 });
 
 function enableTorus() {

@@ -9,9 +9,9 @@ function TncLibMarket(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.market = new web3.eth.Contract(marketABI, '0xDAeB07548CA0522E36D8469B66E2E4b8E586047f', {from: this.account});
-        this.swap = new web3.eth.Contract(swapABI, '0x2B9569E5047BCc7FF2C39aA8A2C5e312daFD5eef', {from: this.account});
-        this.wrap = new web3.eth.Contract(marketWrapABI, '0xfc4d44f3Ce9683273DD56dD133aA797Ce39b3CFA', {from: this.account});
+        this.market = new web3.eth.Contract(marketABI, '0xB333367ce2CF98fA9De8013f297Fade1e19509da', {from: this.account});
+        this.swap = new web3.eth.Contract(swapABI, '0x4595EC1fcDE4ebd28a8680aF6eB3E9d2C2f3352C', {from: this.account});
+        this.wrap = new web3.eth.Contract(marketWrapABI, '0xb257d1bA7D42cC5A1771662a8F15E817E2796d4c', {from: this.account});
         this.account = '';
 
         // xDAI MAINNET

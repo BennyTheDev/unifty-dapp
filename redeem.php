@@ -1,41 +1,163 @@
 <?php
-$direct = false;
+/*
+echo '[';
 
-if(isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
+for($i = 0; $i < 200; $i++){
 
-    $direct = true;
+    echo '"'.mt_rand().'"'."\n";
+
+    if($i + 1 < 200){
+        echo ',';
+    }
 }
 
-if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
+echo ']';
+
+exit;
+*/
+
+
+ $dsn = 'mysql:host=localhost;dbname=unifty;charset=utf8';
+ $usr = 'root';
+ $pwd = '';
+ 
+/*
+$dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
+$usr = 'unifghiu_coindesk';
+$pwd = 'vollgeschissen123';
+*/
+$pdo = new PDO($dsn, $usr, $pwd);
+
+$session = false;
+$session_msg = '';
+
+if(isset($_REQUEST['session']) && isset($_REQUEST['address'])){
+
+    // we first check if the given session is valid from the json file
+
+    $session = true;
+    $session_links = json_decode(file_get_contents(__DIR__.'/linkomat.json'));
+
+    if( !in_array($_REQUEST['session'], $session_links) ){
+
+        $session_msg = 'Invalid session link!';
+
+    } else {
+
+        // if valid, we check if the wallet has been claime desk that are NOT from the sessions
+
+        $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`address`) = ? And `signature` <> '' And processed = 1 And `Code` Not Like 'sess%'");
+        $stmt->execute([strtolower($_REQUEST['address'])]);
+        $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+        // if he did, he is allowed to claim for the given session
+        if (count($result) != 0) {
+
+            $desk = 0;
+            $maxdesk = 0;
+
+            // now we check the parameters for the session because each session may have different $DESK and max. desks per session
+
+            $row = 1;
+            if (($handle = fopen(__DIR__."/linkomat.csv", "r")) !== FALSE) {
+                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    $num = count($data);
+                    if($num == 3 && $data[0] == $_REQUEST['session']){
+                        $desk = $data[1];
+                        $maxdesk = $data[2];
+                        break;
+                    }
+                }
+                fclose($handle);
+            }
+
+            // if parameters have been found, continue
+            if($desk > 0 && $maxdesk > 0) {
+
+                // now we check if that wallet received desk already for the session
+
+                $stmt = $pdo->prepare("SELECT `\$DESK Value` FROM `coindeskemails` WHERE `Recipient` = ? And `address` = ?");
+                $stmt->execute(['Session' . $_REQUEST['session'],strtolower($_REQUEST['address'])]);
+                $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+                // if the wallet received desk already, show an error
+                if(count($result) != 0){
+
+                    $session_msg = 'You already claimed $DESK for this session.';
+
+                }else {
+
+                    // if not check first if all max. desk have been claimed or not
+
+                    $stmt = $pdo->prepare("SELECT `\$DESK Value` FROM `coindeskemails` WHERE `Recipient` = ?");
+                    $stmt->execute(['Session' . $_REQUEST['session']]);
+                    $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
+                    $claimed_amount = count($result);
+
+                    $claimed_for_session = 0;
+                    for ($i = 0; $i < $claimed_amount; $i++) {
+                        $claimed_for_session += $result[$i];
+                    }
+
+                    // if they didn't get claimed yet, create a new code on the fly, just for this wallet
+                    // such that it can be picked up by the js program to actually send the desk and test-eth
+                    if (intval($claimed_for_session) < intval($maxdesk)) {
+
+                        $code = 'sess' . uniqid();
+
+                        $stmt = $pdo->prepare("Insert Into `coindeskemails` (`Code`,`\$DESK Value`,`Recipient`,`signature`) Values (?,?,?,'')");
+                        $stmt->execute([$code, $desk, 'Session' . $_REQUEST['session']]);
+
+                        $_REQUEST['Code'] = $code;
+
+                    } else {
+
+                        // if not show an error
+
+                        $session_msg = 'The amount of $DESK for this session has been depleted.';
+                    }
+                }
+
+            }else{
+
+                // if not show an error
+
+                $session_msg = 'Invalid session id.';
+            }
+
+        } else {
+
+            // if not show an error
+
+            $session_msg = "You didn't claim any \$DESK before the sessions started.";
+        }
+    }
+}
+
+// from here, the regular operation may continue
+
+if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
 
     if(trim($_REQUEST['Code']) == '' || trim($_REQUEST['address']) == ''){
 
         exit('Please enter your Consensus code address and enable your wallet.');
     }
-    
-    /**
-    * $dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
-    * $usr = 'unifghiu_coindesk';
-    * $pwd = 'vollgeschissen123';
-     */
-
-    $dsn = 'mysql:host=localhost;dbname=unifty;charset=utf8';
-    $usr = 'root';
-    $pwd = '';
-    $pdo = new PDO($dsn, $usr, $pwd);
 
     $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`Code`) = ? And `address` = ''");
     $stmt->execute([strtolower($_REQUEST['Code'])]);
     $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
     if(count($result) != 0){
-      //If the code has NOT been used
 
-      $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`address`) = ? LIMIT 11");
+       //If the code has NOT been used
+       // ...additionally if the code as NOT been used only for non-session entries
+
+      $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`address`) = ? And `Code` Not Like 'sess%' LIMIT 11");
       $stmt->execute([strtolower($_REQUEST['address'])]);
       $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-      if(count($result) < 10){
+      if(count($result) < 11){
+
         $stmt = $pdo->prepare("Update `coindeskemails` Set `address` = ?, `signature` = ? Where Lower(`Code`) = ?");
         $stmt->execute([$_REQUEST['address'], strtolower($_REQUEST['signature']), $_REQUEST['Code']]);
 
@@ -57,7 +179,7 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
 
     }else{
       //Enters if the code HAS been used
-      
+
 
         $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`address`) = ?");
         $stmt->execute([strtolower($_REQUEST['address'])]);
@@ -133,8 +255,8 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.1.7/css/fork-awesome.min.css"
     integrity="sha256-gsmEoJAws/Kd3CjuOQzLie5Q3yshhvmo7YNtBG7aaEY=" crossorigin="anonymous">
-    
-  
+
+
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
@@ -152,12 +274,17 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
 
             $("#form-submit").on('click', async function(){
 
-                let code = <?php echo $direct ? json_encode($_REQUEST['Code']) : '$("#code").val()'  ?>;
+                let code = <?php echo $session && isset($_REQUEST['Code']) ? json_encode($_REQUEST['Code']) : '$("#code").val()'  ?>;
 
                 if(code == "")
                 {
                     alert("Please enter your Concensus code.");
-                } else{
+
+                } else {
+                  if (typeof tncLib === 'undefined') {
+                      toastr.remove();
+                      toastr["warning"]("There seems to be an issue with Torus. Make sure it is enabled, you are logged in and then refresh.", "Torus error");
+                    }
                     console.log('calling ajax with address: ', tncLib.account);
 
                     let signature = await web3.eth.personal.sign("Code: " + code, tncLib.account, "")
@@ -178,11 +305,6 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
                               toastr[res.type](res.text, res.title);
 
                               $("#code").val('');
-
-                              if(res.type == 'success'){
-                                tncLib.displayBalance;
-                              }
-                              
                               /*
                               $('.redeem-modal-content').html(res);
                               $('#coindeskSignupModal').modal('show');
@@ -197,14 +319,27 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
                 }
             });
             <?php
-            if($direct){
+            if($session || isset($_REQUEST['session'])){
             ?>
             let waitForAccount = setInterval(
                 function(){
                     if(typeof tncLib != 'undefined'){
                         clearInterval(waitForAccount);
-                        $('#direct-thank-you').css('display', 'flex');
-                        $("#form-submit").click();
+                        <?php
+                        if(isset($_REQUEST['session']) && !isset($_REQUEST['address'])) {
+                            echo 'location.href = "redeem.php?session="+'.json_encode($_REQUEST['session']).'+"&address="+tncLib.account;';
+                        }else{
+                        ?>
+                        if(<?php echo json_encode($session_msg); ?> == ''){
+                            $("#form-submit").click();
+                        }
+                        else{
+                            $('#thank-you-message').html(<?php echo json_encode($session_msg); ?>);
+                        }
+                        $('#session-thank-you').css('display', 'flex');
+                        <?php
+                        }
+                        ?>
                     }
                 },
                 100
@@ -263,11 +398,11 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
             </a>
           </li>
         </ul>
-  
+
         <div class="sidebar-divider"></div>
-  
+
         <div class="sidebar-bottom">
-          <div class="sidebar-text">   
+          <div class="sidebar-text">
 
             <div class="sidebar-text icons">
               <span class="navbar-text">
@@ -282,7 +417,7 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
                 </a>
               </span>
             </div>
-  
+
             <div class="sidebar-text rights">
               <span>
                 Get in touch
@@ -342,7 +477,7 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
       </div>
       <!-- HEADER END -->
 
-        <div class="container-fluid"<?php echo $direct ? ' style="display:none;"' : '';?>>
+        <div class="container-fluid"<?php echo $session ? ' style="display:none;"' : '';?>>
             <div class="card">
                 <div class="card-body claim-form">
                     <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
@@ -363,10 +498,10 @@ if(!isset($_REQUEST['direct']) && isset($_REQUEST['Code'])){
             <!-- <hr /> -->
         </div>
 
-        <div class="container-fluid" id="direct-thank-you" style="display: none;">
+        <div class="container-fluid" id="session-thank-you" style="display: none;">
             <div class="card">
                 <div class="card-body claim-form">
-                    <span style="font-size: 1.4rem;">
+                    <span id="thank-you-message" style="font-size: 1.4rem;">
                         Please follow your wallet's instructions and wait for the notification of your claim request.
                     </span>
                 </div>
