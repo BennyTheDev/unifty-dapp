@@ -1668,6 +1668,34 @@ textarea, input {
     font-size: 1.6rem;
     color: var(--dark-secondary);
     margin: 0 0 3.2rem 0; }
+  .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox input, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox input {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute; }
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox label, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox label {
+      height: max-content;
+      margin: 0;
+      font-family: AcuminPro;
+      font-size: 1.6rem;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.44;
+      letter-spacing: normal;
+      text-align: left;
+      color: #19284d; }
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox .check, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox .check {
+      width: 25px;
+      height: 25px;
+      background-image: url("../img/check_box.svg");
+      margin-right: 10px;
+      cursor: pointer; }
+    .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox input:checked ~ .check, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox input:checked ~ .check {
+      background-image: url("../img/check_box_ticked.svg"); }
   .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit {
     width: 24.8rem;
     box-shadow: none;
@@ -1676,7 +1704,9 @@ textarea, input {
     background-color: var(--dark-primary);
     color: var(--white);
     font-size: 1.6rem;
-    font-weight: 700; }
+    font-weight: 700;
+    opacity: 0.5;
+    cursor: not-allowed; }
     .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit:hover, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit:hover, .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit:focus, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit:focus, .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm button#form-submit:active, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm button#form-submit:active {
       box-shadow: none;
       border: 1px solid var(--dark-primary);

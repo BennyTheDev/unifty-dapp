@@ -54,6 +54,46 @@
       margin: 0 0 3.2rem 0;
     }
 
+    .checkbox {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      //Hide default checkbox
+      input {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+      }
+
+      label {
+        height: max-content;
+        margin: 0;
+
+        font-family: AcuminPro;
+        font-size: 1.6rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.44;
+        letter-spacing: normal;
+        text-align: left;
+        color: #19284d;
+      }
+
+      .check {
+        width: 25px;
+        height: 25px;
+        background-image: url("../img/check_box.svg");
+
+        margin-right: 10px;
+        cursor: pointer;
+      }
+
+      input:checked ~ .check {
+        background-image: url("../img/check_box_ticked.svg");
+      }
+    }
+
     button#form-submit {
       width: 24.8rem;
       box-shadow: none;
@@ -63,6 +103,9 @@
       color: var(--white);
       font-size: 1.6rem;
       font-weight: 700;
+
+      opacity: 0.5;
+      cursor: not-allowed;
 
       &:hover,
       &:focus,

@@ -16,15 +16,16 @@ echo ']';
 exit;
 */
 
+//For live version
+$dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
+$usr = 'unifghiu_coindesk';
+$pwd = 'vollgeschissen123';
 
-$dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
-$usr = 'unifghiu_coindesk';
-$pwd = 'vollgeschissen123';
-/*
-$dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
-$usr = 'unifghiu_coindesk';
-$pwd = 'vollgeschissen123';
-*/
+//For local testing
+// $dsn = 'mysql:host=localhost;dbname=unifty;charset=utf8';
+// $usr = 'root';
+// $pwd = '';
+
 $pdo = new PDO($dsn, $usr, $pwd);
 
 $session = false;
@@ -271,7 +272,25 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
     <script>
         $(document).ready(function() {
 
+          $("#termsConditions").prop('checked',false).on("click", () => submitBtn());
+          $("#privacyPolicy").prop('checked',false).on("click", () => submitBtn());
+
+          function submitBtn(){
+            if($("#termsConditions").is(":checked") && $("#privacyPolicy").is(":checked")){
+              $("#form-submit").css("opacity", "1");
+              $("#form-submit").css("cursor", "pointer");
+            }
+            else{
+              $("#form-submit").css("opacity", "0.5");
+              $("#form-submit").css("cursor", "not-allowed");
+            }
+          }      
+
             $("#form-submit").on('click', async function(){
+
+              if(!$("#termsConditions").is(":checked") || !$("#privacyPolicy").is(":checked")){
+                return;
+              }
 
                 let code = <?php echo $session && isset($_REQUEST['Code']) ? json_encode($_REQUEST['Code']) : '$("#code").val()'  ?>;
 
@@ -304,10 +323,6 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
                               toastr[res.type](res.text, res.title);
 
                               $("#code").val('');
-                              /*
-                              $('.redeem-modal-content').html(res);
-                              $('#coindeskSignupModal').modal('show');
-                              */
                             },
                             error: function(err){
                               console.log("Error with database: ")
@@ -484,10 +499,20 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
                         <div class="form-group">
                             <label for="code" class="form-label">Enter Code:</label>
                             <input type="code" class="form-control" id="code" aria-describedby="codeHelp"/>
-                            <!-- <div id="codeHelp" class="form-text">Code is redeemable only once.</div> -->
                         </div>
 
-                        <!--Wallet address: <input type="text" id="address" /><br>-->
+                        <label class="checkbox" for="termsConditions">
+                          <input type="checkbox" id="termsConditions" name="terms" unchecked>
+                          <div class="check" ></div>
+                          <label>I have read and accept the <a href="" target="_blank">Terms and Conditions</a>.</label>
+                        </label>
+
+                        <label class="checkbox" for="privacyPolicy">
+                          <input type="checkbox" id="privacyPolicy" name="privacy" unchecked>
+                          <div class="check" ></div>
+                          <label>I have read and accept the <a href="" target="_blank">Privacy Policy</a>.</label>
+                        </label>
+
 
                         <button id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Claim $DESK</button>
                     </form>
