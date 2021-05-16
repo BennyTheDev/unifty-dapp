@@ -501,7 +501,7 @@ function TncDapp() {
           price = price.substring(0, price.length - 10) + " " + getCurrency();
           buy = "Buyout ";
           if (runMode == 2) {
-            buy = "Buy";
+            buy = "Acquire";
           }
         }
       }
@@ -619,7 +619,7 @@ function TncDapp() {
             );
             if (farmBalance < amount) {
               _alert(
-                "Your amount exceeds the current stock. You can buy max. " +
+                "Your amount exceeds the current stock. You can acquire max. " +
                   farmBalance +
                   " of this NFT."
               );
@@ -651,7 +651,7 @@ function TncDapp() {
               function () {
                 toastr["info"](
                   "Please wait for the transaction to finish.",
-                  "Buying...."
+                  "Acquiring...."
                 );
               },
               function (receipt) {
@@ -659,18 +659,18 @@ function TncDapp() {
                 toastr.remove();
                 toastr["success"]("Transaction has been finished.", "Success");
                 $("#buyButton").prop("disabled", false);
-                $("#buyButton").html("Buy");
+                $("#buyButton").html("Acquire");
                 $("#farmBuyModal").modal("hide");
                 _alert("Thank you for your purchase!");
               },
               function (err) {
                 toastr.remove();
                 toastr["error"](
-                  "An error occurred with your Buy transaction.",
+                  "An error occurred with your Acquire transaction.",
                   "Error"
                 );
                 $("#buyButton").prop("disabled", false);
-                $("#buyButton").html("Buy");
+                $("#buyButton").html("Acquire");
               }
             );
           });

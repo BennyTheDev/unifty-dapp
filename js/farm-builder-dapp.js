@@ -363,7 +363,7 @@ function TncDapp() {
                 toastr["success"]('Transaction has been finished.', "Success");
 
                 $('#farmShopAddonBuyButton').prop('disabled', false);
-                $('#farmShopAddonBuyButton').html('Buy');
+                $('#farmShopAddonBuyButton').html('Acquire');
 
                 $('#shopAddonModal').modal('hide');
                 $('#shopAddonWhitelistAdminModal').modal('show');
@@ -379,7 +379,7 @@ function TncDapp() {
                 let errMsg = 'An error occurred with your New Farm Shop Addon transaction. Do you have sufficient funds?';
                 _alert(errMsg);
                 $('#farmShopAddonBuyButton').prop('disabled', false);
-                $('#farmShopAddonBuyButton').html('Buy');
+                $('#farmShopAddonBuyButton').html('Acquire');
 
                 toastr["error"](errMsg, "Error");
             }

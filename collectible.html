@@ -365,21 +365,21 @@
                   {{#ifNotEquals batch ""}}
                   <div class="nft-price mb-5">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                   <button id="nftBatchBuy{{index}}" class="btn btn-outline" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                    Buy
+                    Acquire
                   </button>
                   {{/ifNotEquals}}
   
                   {{#ifEquals batch ""}}
                   {{#ifEquals onsale "1"}}
                   <button class="btn btn-outline" id="nftBuyButtonShortcut{{index}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                    Buy
+                    Acquire
                   </button>
                   {{/ifEquals}}
   
                   {{#ifNotEquals onsale "1"}}
                   <div class="nft-price mb-5">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
                   <button id="nftBuy{{index}}" class="btn btn-outline" data-toggle="modal" data-price="{{price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                    Buy
+                    Acquire
                   </button>
                   {{/ifNotEquals}}
   
@@ -631,7 +631,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="nftBuyModalLabel">Buy NFTs</h5>
+                <h5 class="modal-title" id="nftBuyModalLabel">Acquire NFTs</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -644,7 +644,7 @@
 
                   <div class="form-group">
                     <label for="nftBuyAmount">Amount *</label>
-                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control"
+                    <input value="1" type="text" placeholder="Enter the amount of NFTs to acquire" class="form-control"
                       id="nftBuyAmount">
                     <button class="btn btn-secondary" type="button" id="buyAddMax">Add Max.</button>
 
@@ -662,7 +662,7 @@
 
                 <div class="buttons-container">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="nftBuyButton">Buy!</button>
+                  <button type="button" class="btn btn-primary" id="nftBuyButton">Acquire!</button>
                 </div>
 
               </div>

@@ -450,19 +450,19 @@
                             {{#ifNotEquals buy ""}}
                                 {{#ifNotEquals batch ""}}
                                     <button id="nftBatchBuy{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                        Buy
+                                      Acquire
                                     </button>
                                     <div class="text-muted mb-3">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                                 {{/ifNotEquals}}
                                 {{#ifEquals batch ""}}
                                     {{#ifEquals onsale "1"}}
                                         <button class="btn btn-outline mb-3" style="cursor: pointer;" id="nftBuyButtonShortcut{{index}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                            Buy
+                                          Acquire
                                         </button>
                                     {{/ifEquals}}
                                     {{#ifNotEquals onsale "1"}}
                                         <button id="nftBuy{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-price="{{price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
-                                            Buy
+                                          Acquire
                                         </button>
                                     {{/ifNotEquals}}
                                     <div class="text-muted mb-3">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
@@ -648,7 +648,7 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="nftBuyModalLabel">Buy NFTs</h5>
+                <h5 class="modal-title" id="nftBuyModalLabel">Acquire NFTs</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -661,7 +661,7 @@
 
                   <div class="form-group">
                     <label for="nftBuyAmount">Amount<span class="required">*</span></label>
-                    <input value="1" type="text" placeholder="Enter the amount of NFTs to buy" class="form-control"
+                    <input value="1" type="text" placeholder="Enter the amount of NFTs to acquire" class="form-control"
                       id="nftBuyAmount">
                   </div>
 
@@ -681,7 +681,7 @@
 
                 <div class="buttons-container">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="nftBuyButton">Buy!</button>
+                  <button type="button" class="btn btn-primary" id="nftBuyButton">Acquire!</button>
                 </div>
 
               </div>
@@ -751,13 +751,13 @@
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="nftMode" id="nftMode1" value="0" checked>
                     <label class="form-check-label" for="nftMode1">
-                      Allow buying, only
+                      Allow aquiring, only
                     </label>
                   </div>
                   <div class="form-check">
                     <input class="form-check-input" type="radio" name="nftMode" id="nftMode2" value="1">
                     <label class="form-check-label" for="nftMode2">
-                      Allow buying &amp; swapping
+                      Allow aquiring &amp; swapping
                     </label>
                   </div>
                   <div class="form-check disabled">
