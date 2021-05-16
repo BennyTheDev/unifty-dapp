@@ -504,13 +504,13 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
                         <label class="checkbox" for="termsConditions">
                           <input type="checkbox" id="termsConditions" name="terms" unchecked>
                           <div class="check" ></div>
-                          <label>I have read and accept the <a href="" target="_blank">Terms and Conditions</a>.</label>
+                          <label>I have read and accept the <a href="https://www.coindesk.com/desk-terms" target="_blank">Terms and Conditions</a>.</label>
                         </label>
 
                         <label class="checkbox" for="privacyPolicy">
                           <input type="checkbox" id="privacyPolicy" name="privacy" unchecked>
                           <div class="check" ></div>
-                          <label>I have read and accept the <a href="" target="_blank">Privacy Policy</a>.</label>
+                          <label>I have read and accept the <a href="https://www.coindesk.com/desk-privacy-policy" target="_blank">Privacy Policy</a>.</label>
                         </label>
 
 
