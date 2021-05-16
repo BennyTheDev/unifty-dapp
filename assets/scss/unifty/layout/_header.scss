@@ -6,6 +6,11 @@
     margin-bottom: 2rem;
     width: 95%;
 
+    a {
+      color: inherit;
+      font-weight: 700;
+    }
+
     @include respond(phone) {
       margin-bottom: 0;
     }

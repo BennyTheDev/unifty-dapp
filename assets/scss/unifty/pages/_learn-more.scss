@@ -37,6 +37,11 @@
   p {
     font-size: 1.6rem;
     color: var(--dark-primary);
+
+    a {
+      color: inherit;
+      font-weight: 700;
+    }
   }
 
   button.btn.btn-primary {

@@ -1679,7 +1679,7 @@ textarea, input {
     .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox label, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox label {
       height: max-content;
       margin: 0;
-      font-family: AcuminPro;
+      font-family: acumin-pro, sans-serif;
       font-size: 1.6rem;
       font-weight: normal;
       font-stretch: normal;
@@ -1687,7 +1687,10 @@ textarea, input {
       line-height: 1.44;
       letter-spacing: normal;
       text-align: left;
-      color: #19284d; }
+      color: var(--dark-primary); }
+      .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox label a, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox label a {
+        color: inherit;
+        font-weight: 700; }
     .light-edition .main-panel .content .container-fluid .card .card-body.claim-form #redemptionForm .checkbox .check, .light-edition .main-panel .content .container-fluid #comingSoonBanner .card-body.claim-form #redemptionForm .checkbox .check {
       width: 25px;
       height: 25px;
@@ -2064,6 +2067,9 @@ hr {
   padding: 1.6rem 0 0.8rem 0;
   margin-bottom: 2rem;
   width: 95%; }
+  .main-panel .content__welcome-text a {
+    color: inherit;
+    font-weight: 700; }
   @media only screen and (max-width: 37.5em) {
     .main-panel .content__welcome-text {
       margin-bottom: 0; } }
@@ -2317,7 +2323,8 @@ hr {
         padding: 0;
         position: absolute;
         right: 0;
-        bottom: -10px; }
+        bottom: -10px;
+        display: none; }
         .footer ul li.nav-item#torus a img {
           width: 6.5rem; }
     .footer ul li.nav-item a {
@@ -2365,6 +2372,9 @@ hr {
 .row.learn-more p {
   font-size: 1.6rem;
   color: var(--dark-primary); }
+  .row.learn-more p a {
+    color: inherit;
+    font-weight: 700; }
 
 .row.learn-more button.btn.btn-primary {
   width: 24.8rem;
