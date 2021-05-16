@@ -6,7 +6,8 @@
   .nftListing
   .card.card-profile
   .card-body,
-.modal-body #nftsViewContainer {
+.modal-body #nftsViewContainer,
+#comingSoon.row .nftListing .card.card-profile .card-body {
   // open details button
   button.btn-outline.show-details {
     background-color: var(--white) !important;
@@ -28,7 +29,8 @@
   #offersPage.row
   .nftListing
   .card.card-profile
-  .card-body {
+  .card-body,
+#comingSoon.row .nftListing .card.card-profile .card-body {
   // buy button
   button.btn-outline {
     background: var(--dark-primary) !important;
@@ -39,5 +41,16 @@
     font-weight: 700;
     padding: 0.5rem 0.8rem 0.7rem 0.8rem;
     width: 100%;
+  }
+}
+
+// for preview of nfts on homepage
+#comingSoon.row .nftListing .card.card-profile .card-body {
+  button.btn-outline.show-details {
+    box-shadow: none;
+  }
+
+  button.btn-outline {
+    box-shadow: none;
   }
 }

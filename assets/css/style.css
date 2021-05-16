@@ -103,6 +103,12 @@ h1.nftListingsTitle {
   justify-content: flex-start;
   margin-bottom: 1rem; }
 
+h2 {
+  font-family: acumin-pro, sans-serif;
+  font-size: 2.2rem;
+  color: var(--dark-primary);
+  font-weight: 700; }
+
 h3 {
   font-family: acumin-pro, sans-serif;
   font-size: 1.6rem;
@@ -1264,17 +1270,32 @@ textarea, input {
   width: 100%; }
 
 .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline.show-details, .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
-.modal-body #nftsViewContainer button.btn-outline.show-details {
+.modal-body #nftsViewContainer button.btn-outline.show-details,
+#comingSoon.row .nftListing .card.card-profile .card-body button.btn-outline.show-details,
+#comingSoon.row .nftListing .dark-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
+.dark-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
+#comingSoon.row .nftListing .light-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
+.light-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details {
   background-color: var(--white) !important;
   color: var(--dark-primary); }
   .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline.show-details a, .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details a,
-  .modal-body #nftsViewContainer button.btn-outline.show-details a {
+  .modal-body #nftsViewContainer button.btn-outline.show-details a,
+  #comingSoon.row .nftListing .card.card-profile .card-body button.btn-outline.show-details a,
+  #comingSoon.row .nftListing .dark-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline.show-details a,
+  .dark-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details a,
+  #comingSoon.row .nftListing .light-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline.show-details a,
+  .light-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details a {
     display: inline-block;
     width: 100%;
     color: inherit;
     font-size: 1.4rem; }
 
-.light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline, .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline {
+.light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline, .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline,
+#comingSoon.row .nftListing .card.card-profile .card-body button.btn-outline,
+#comingSoon.row .nftListing .dark-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline,
+.dark-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline,
+#comingSoon.row .nftListing .light-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline,
+.light-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline {
   background: var(--dark-primary) !important;
   border-radius: 0;
   border: 0.1rem solid var(--dark-primary);
@@ -1283,6 +1304,22 @@ textarea, input {
   font-weight: 700;
   padding: 0.5rem 0.8rem 0.7rem 0.8rem;
   width: 100%; }
+
+
+#comingSoon.row .nftListing .card.card-profile .card-body button.btn-outline.show-details,
+#comingSoon.row .nftListing .dark-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
+.dark-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
+#comingSoon.row .nftListing .light-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline.show-details,
+.light-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline.show-details {
+  box-shadow: none; }
+
+
+#comingSoon.row .nftListing .card.card-profile .card-body button.btn-outline,
+#comingSoon.row .nftListing .dark-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline,
+.dark-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline,
+#comingSoon.row .nftListing .light-edition .main-panel .card-profile#comingSoonBanner .card-body button.btn-outline,
+.light-edition .main-panel #comingSoon.row .nftListing .card-profile#comingSoonBanner .card-body button.btn-outline {
+  box-shadow: none; }
 
 .dark-edition .main-panel .modal-dialog .modal-content,
 .light-edition .main-panel .modal-dialog .modal-content {
@@ -2218,13 +2255,13 @@ hr {
   .dark-edition .main-panel .content .container-fluid #offersPage.row,
   .dark-edition .main-panel .content .container-fluid #myPoolsPage.row,
   .dark-edition .main-panel .content .container-fluid #bridgedPage.row,
-  .dark-edition .main-panel .content .container-fluid #iconLinks.row,
+  .dark-edition .main-panel .content .container-fluid #comingSoon.row,
   .light-edition .main-panel .content .container-fluid #farmPage.row,
   .light-edition .main-panel .content .container-fluid #collectiblesPage.row,
   .light-edition .main-panel .content .container-fluid #offersPage.row,
   .light-edition .main-panel .content .container-fluid #myPoolsPage.row,
   .light-edition .main-panel .content .container-fluid #bridgedPage.row,
-  .light-edition .main-panel .content .container-fluid #iconLinks.row {
+  .light-edition .main-panel .content .container-fluid #comingSoon.row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem; }
