@@ -333,9 +333,12 @@
                   </div>
                   <div id="amount-div">
                     {{#ifEquals buy ""}}
-                    {{#ifEquals displayOpensea ""}}
-                        <a class="text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">Check on OpenSea</a>
-                    {{/ifEquals}}
+                    <!--
+
+                      {{#ifEquals displayOpensea ""}}
+                      <a class="text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">Check on OpenSea</a>
+                      {{/ifEquals}}
+                    -->
                     {{/ifEquals}}
   
                     <div class="mb-3">
@@ -476,13 +479,15 @@
                         <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
 
-                        {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
-
-                        {{#ifEquals checkOpenSea "Open Details"}}
+                        <!--
+                          {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                          <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                          {{/ifEquals}}
+                        -->
+                          
+                          {{#ifEquals checkOpenSea "Open Details"}}
                             <a class="opensea text-muted mt-5" style="width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
+                          {{/ifEquals}}
                     
                         <div class="card-body">
 
