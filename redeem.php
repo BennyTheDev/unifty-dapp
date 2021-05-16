@@ -164,7 +164,7 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
         $arr = array(
           'type'=>'success',
           'title'=>'Congratulations',
-          'text'=>'You successfully claimed your tokens!'
+          'text'=>'You successfully claimed your tokens! Your balance will updated in a few seconds.'
         );
         exit(json_encode($arr));
 
