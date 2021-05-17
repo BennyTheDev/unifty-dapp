@@ -389,7 +389,7 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
           </li>
           <li class="nav-item" id="marketNavLink">
             <a class="nav-link" href="market.html">
-              <i class="material-icons-outlined">storefront</i>
+              <i class="material-icons-round">storefront</i>
               <p>NFT MARKET (Live May 20)</p>
             </a>
           </li>
@@ -618,7 +618,7 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
       </li>
       <li class="nav-item">
         <a class="nav-link" href="https://unifty.io/" target="_blank">
-          built with <img src="favicon-32x32.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
+          built with <img src="favicon-32x32-unifty.png"><span style="font-size: inherit;" href="www.unifty.io"> Unifty </span>
         </a>
       </li>
       <li class="nav-item" id="torus">
