@@ -219,6 +219,8 @@ function TncDapp() {
         price = price.substring(0, price.length - 10);
       }
 
+      price = parseInt(price).toLocaleString();
+
       swapMode = ask.swapMode;
       isBatch = ask.erc1155Address.length > 1 ? true : false;
       onsale = ask.amount[0];

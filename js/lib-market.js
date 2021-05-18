@@ -9,17 +9,17 @@ function TncLibMarket() {
   if (chain_id === "4") {
     this.market = new web3.eth.Contract(
       marketABI,
-      "0xB333367ce2CF98fA9De8013f297Fade1e19509da",
+      "0xF708cAfde9f9e2d3BdcBe48c926D5EE437355daB",
       { from: this.account }
     );
     this.swap = new web3.eth.Contract(
       swapABI,
-      "0x4595EC1fcDE4ebd28a8680aF6eB3E9d2C2f3352C",
+      "0x1c7A33A47615FF6Bcd3a8E545710a3445CF396BA",
       { from: this.account }
     );
     this.wrap = new web3.eth.Contract(
       marketWrapABI,
-      "0xb257d1bA7D42cC5A1771662a8F15E817E2796d4c",
+      "0xdEA44cDcb741862E88685836F32eDc0198647DBF",
       { from: this.account }
     );
     this.account = "";

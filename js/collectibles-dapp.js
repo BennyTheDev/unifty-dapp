@@ -34,15 +34,15 @@ function TncDapp() {
         let nftCount = 0;
         let collections = [];
 
-        // coindesk main collection
-        collections.push('0x5857dd9383C11b672163168E7d99872dd9d5AeC3');
-
         // given custom collections
         let collectionAddresses = [];
 
         if(localStorage.getItem('collectionAddresses'+chain_id)){
             collectionAddresses = JSON.parse(localStorage.getItem('collectionAddresses'+chain_id));
         }
+
+        // coindesk main collection
+        collectionAddresses.push('0x5857dd9383C11b672163168E7d99872dd9d5AeC3');
 
         for(let i = 0; i < collectionAddresses.length; i++){
             let custom = collectionAddresses[i];

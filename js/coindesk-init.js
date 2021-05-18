@@ -376,33 +376,41 @@ function enableTorus() {
           ).css("display", "flex")
         );
 
-        const torus = new Torus({
-          buttonPosition: "bottom-right", // default: bottom-left
-        });
+        try {
 
-        await torus.init({
-          buildEnv: "production", // default: production
-          enableLogging: true, // default: false
-          network: {
-            host: chain, // default: mainnet
-            chainId: chain_id, // default: 1
-            networkName: networkName, // default: Main Ethereum Network
-          },
-          showTorusButton: true, // default: true
-        });
+          const torus = new Torus({
+            buttonPosition: "bottom-right", // default: bottom-left
+          });
 
-        $("#torus a").css("display", "none");
-        localStorage.setItem("torusLoaded", "true");
+          await torus.init({
+            buildEnv: "production", // default: production
+            enableLogging: true, // default: false
+            network: {
+              host: chain, // default: mainnet
+              chainId: chain_id, // default: 1
+              networkName: networkName, // default: Main Ethereum Network
+            },
+            showTorusButton: true, // default: true
+          });
 
-        await torus.login(); // await torus.ethereum.enable()
+          $("#torus a").css("display", "none");
+          localStorage.setItem("torusLoaded", "true");
 
-        window.web3 = new Web3(torus.provider);
-        window.torus = torus;
+          await torus.login(); // await torus.ethereum.enable()
+
+          window.web3 = new Web3(torus.provider);
+          window.torus = torus;
+
+        }catch(e){
+
+          console.log(e);
+        }
 
         // release block of screen
         $("#uxOverlay").css("display", "none");
 
         run(true);
+
       } else {
         runReadableOnly();
       }
