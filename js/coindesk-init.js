@@ -369,9 +369,12 @@ function enableTorus() {
       }
 
       if (chain != "0") {
-
         // block the screen
-        $('<div id="uxOverlay" style="display:none;"></div>').css('display', 'block');
+        $("body").append(
+          $(
+            '<div id="uxOverlay" style="display:none;"><div><img src="assets/img/cd-loader-80px.gif"></div></div>'
+          ).css("display", "flex")
+        );
 
         const torus = new Torus({
           buttonPosition: "bottom-right", // default: bottom-left
@@ -397,10 +400,9 @@ function enableTorus() {
         window.torus = torus;
 
         // release block of screen
-        $('#uxOverlay').css('display','none');
+        $("#uxOverlay").css("display", "none");
 
         run(true);
-
       } else {
         runReadableOnly();
       }

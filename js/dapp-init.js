@@ -85,6 +85,13 @@ function enableTorus() {
       }
 
       if (chain != "0") {
+        // block the screen
+        $("body").append(
+          $(
+            '<div id="uxOverlay" style="display:none;"><div><img src="assets/img/cd-loader-80px.gif"></div></div>'
+          ).css("display", "flex")
+        );
+
         const torus = new Torus({
           buttonPosition: "bottom-right", // default: bottom-left
         });
@@ -107,6 +114,8 @@ function enableTorus() {
         window.web3 = new Web3(torus.provider);
         window.torus = torus;
 
+        // release block of screen
+        $("#uxOverlay").css("display", "none");
         run(true);
       } else {
         runReadableOnly();
