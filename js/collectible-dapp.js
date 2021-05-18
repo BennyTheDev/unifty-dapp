@@ -28,6 +28,7 @@ function TncDapp() {
         ).toLocaleString();
 
         $("#wallet-balance").text(balance);
+        document.getElementById("wallet-balance").title = balance;
         $("#balance-container").show();
       }, 5000);
     });

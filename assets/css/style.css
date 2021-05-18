@@ -194,6 +194,7 @@ h3 {
       margin-top: 0.7rem;
       width: 3rem; }
   #balance-container #wallet-balance {
+    max-width: 400px;
     font-size: 3rem;
     font-weight: bold;
     margin: 0;
@@ -201,7 +202,16 @@ h3 {
     color: var(--green-primary);
     font-weight: inherit;
     font-family: inherit;
-    transition: inherit; }
+    transition: inherit;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+    @media only screen and (max-width: 87.5em) {
+      #balance-container #wallet-balance {
+        max-width: 250px; } }
+    @media only screen and (max-width: 56.25em) {
+      #balance-container #wallet-balance {
+        max-width: 200px; } }
 
 textarea, input {
   cursor: var(--cursor-text); }

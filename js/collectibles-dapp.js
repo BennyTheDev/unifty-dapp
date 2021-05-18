@@ -21,7 +21,8 @@ function TncDapp() {
                 //toLocaleString to add commas to thousands in number
                 balance = parseInt(_this.formatNumberString(balance, 18)).toLocaleString()
 
-                $('#wallet-balance').text(balance)
+                $('#wallet-balance').text(balance);
+                document.getElementById("wallet-balance").title = balance;
                 $('#balance-container').show();
 
             }, 5000);

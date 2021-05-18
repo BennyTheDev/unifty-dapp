@@ -33,6 +33,14 @@
   }
 
   #wallet-balance {
+    max-width: 400px;
+    @include respond(bootstrap-xxl) {
+      max-width: 250px;
+    }
+    @include respond(tab-port) {
+      max-width: 200px;
+    }
+    
     font-size: 3rem;
     font-weight: bold;
     margin: 0;
@@ -42,5 +50,9 @@
     font-weight: inherit;
     font-family: inherit;
     transition: inherit;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
