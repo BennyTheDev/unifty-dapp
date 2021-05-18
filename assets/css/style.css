@@ -238,7 +238,7 @@ textarea, input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 18rem;
+  width: 24rem;
   border-radius: 0; }
 
 .light-edition .dropdown-item.active,
@@ -262,7 +262,7 @@ textarea, input {
 
 .light-edition .dropdown-menu,
 .dark-edition .dropdown-menu {
-  width: 18rem;
+  width: 24rem;
   background-color: var(--white); }
   .light-edition .dropdown-menu a.dropdown-item,
   .dark-edition .dropdown-menu a.dropdown-item {
