@@ -17,14 +17,14 @@ exit;
 */
 
 //For live version
-// $dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
-// $usr = 'unifghiu_coindesk';
-// $pwd = 'vollgeschissen123';
+$dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
+$usr = 'unifghiu_coindesk';
+$pwd = 'vollgeschissen123';
 
 //For local testing
-$dsn = 'mysql:host=localhost;dbname=unifty;charset=utf8';
-$usr = 'root';
-$pwd = '';
+//$dsn = 'mysql:host=localhost;dbname=coindesk;charset=utf8';
+//$usr = 'root';
+//$pwd = 'root';
 
 $pdo = new PDO($dsn, $usr, $pwd);
 
