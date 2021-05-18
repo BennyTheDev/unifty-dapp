@@ -329,9 +329,11 @@ $(document).ready(async function () {
   }*/
   // Non-dapp browsers...
   //else {
-  enableTorus();
+
   //}
 });
+
+enableTorus();
 
 function enableTorus() {
   $.getScript("https://unpkg.com/@toruslabs/torus-embed").done(
@@ -367,9 +369,14 @@ function enableTorus() {
       }
 
       if (chain != "0") {
+
+        // block the screen
+        $('<div id="uxOverlay" style="display:none;"></div>').css('display', 'block');
+
         const torus = new Torus({
           buttonPosition: "bottom-right", // default: bottom-left
         });
+
         await torus.init({
           buildEnv: "production", // default: production
           enableLogging: true, // default: false
@@ -380,14 +387,20 @@ function enableTorus() {
           },
           showTorusButton: true, // default: true
         });
+
         $("#torus a").css("display", "none");
         localStorage.setItem("torusLoaded", "true");
 
         await torus.login(); // await torus.ethereum.enable()
+
         window.web3 = new Web3(torus.provider);
         window.torus = torus;
 
+        // release block of screen
+        $('#uxOverlay').css('display','none');
+
         run(true);
+
       } else {
         runReadableOnly();
       }

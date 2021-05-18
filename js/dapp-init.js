@@ -49,11 +49,7 @@ function waitForPaging(pageId, itemCount) {
   });
 }
 
-$(document).ready(async function () {
-
-  enableTorus();
-
-});
+enableTorus();
 
 function enableTorus() {
   $.getScript("https://unpkg.com/@toruslabs/torus-embed").done(
@@ -92,6 +88,7 @@ function enableTorus() {
         const torus = new Torus({
           buttonPosition: "bottom-right", // default: bottom-left
         });
+
         await torus.init({
           buildEnv: "production", // default: production
           enableLogging: true, // default: false
