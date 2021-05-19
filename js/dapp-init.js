@@ -86,6 +86,11 @@ function enableTorus() {
 
       if (chain != "0") {
         // block the screen
+        if ($("#mobileDetectContainer").is(":visible")) {
+          console.log("Opened from a mobile browser");
+          return;
+        }
+
         $("body").append(
           $(
             '<div id="uxOverlay" style="display:none;"><div><img src="assets/img/cd-loader-80px.gif"></div></div>'
@@ -93,7 +98,6 @@ function enableTorus() {
         );
 
         try {
-
           const torus = new Torus({
             buttonPosition: "bottom-right", // default: bottom-left
           });
@@ -115,8 +119,7 @@ function enableTorus() {
           await torus.login(); // await torus.ethereum.enable()
           window.web3 = new Web3(torus.provider);
           window.torus = torus;
-
-        }catch(e){
+        } catch (e) {
           console.log(e);
         }
 
@@ -124,7 +127,6 @@ function enableTorus() {
         $("#uxOverlay").css("display", "none");
 
         run(true);
-
       } else {
         runReadableOnly();
       }

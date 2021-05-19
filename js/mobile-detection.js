@@ -1,11 +1,10 @@
 $(document).ready(function () {
-  if (isMobile()) {
+  if (!isMobile()) {
     $("#navigation-example").width("50%");
     $("#mobileDetectContainer").show();
     $("#mobile-close").click(function () {
       $("#mobileDetectContainer").fadeOut();
     });
-    window.stop();
   } else {
     $("#mobileDetectContainer").hide();
   }
