@@ -288,9 +288,15 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
 
             $("#form-submit").on('click', async function(){
 
+                <?php
+                if(!$session && !isset($_REQUEST['session'])){
+                ?>
               if(!$("#termsConditions").is(":checked") || !$("#privacyPolicy").is(":checked")){
                 return;
               }
+              <?php
+              }
+              ?>
 
                 let code = <?php echo $session && isset($_REQUEST['Code']) ? json_encode($_REQUEST['Code']) : '$("#code").val()'  ?>;
 

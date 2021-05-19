@@ -37,12 +37,19 @@ function TncDapp() {
         // given custom collections
         let collectionAddresses = [];
 
+        /*
         if(localStorage.getItem('collectionAddresses'+chain_id)){
             collectionAddresses = JSON.parse(localStorage.getItem('collectionAddresses'+chain_id));
-        }
+        }*/
 
         // coindesk main collection
-        collectionAddresses.push('0x5857dd9383C11b672163168E7d99872dd9d5AeC3');
+        collectionAddresses.push('0x2855833345e739f187D00B9Cdf2725dCa56ee548');
+        collectionAddresses.push('0xfdA0288852e4917854DbEE477Ba4af720e1a88C5');
+        collectionAddresses.push('0x683b46dAeC07551655d7E868e5A2DcC3fa50b642');
+        collectionAddresses.push('0x9cbBba774c1421EAb3709d9798353e3B5342b3A3');
+        collectionAddresses.push('0x456145828877D5467b46d899DC8F1b6AcA1e654e');
+        collectionAddresses.push('0xdb9dBEDE732ac59E736383fD41F188943E1faD50');
+        collectionAddresses.push('0xc1817c818180b5D5DD163E703B54291Fabc356F9');
 
         for(let i = 0; i < collectionAddresses.length; i++){
             let custom = collectionAddresses[i];
