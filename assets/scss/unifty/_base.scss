@@ -161,6 +161,8 @@ body {
 
   justify-content: center;
   align-items: center;
+
+  flex-direction: column;
   div {
     width: 100px;
     height: 100px;
@@ -168,6 +170,14 @@ body {
     background-color: white;
     border-radius: 8px;
     padding: 10px;
+  }
+
+  h3 {
+    text-align: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px;
   }
 }
 

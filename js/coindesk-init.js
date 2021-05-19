@@ -405,7 +405,12 @@ function enableTorus() {
           window.web3 = new Web3(torus.provider);
           window.torus = torus;
         } catch (e) {
+          $("#uxOverlay").append(
+            "<h3>Oops, something went wrong. If you closed the login, please reload.<br>Also make sure to have a working internet connection and disable adblockers for this site.</h3>"
+          );
+
           console.log(e);
+          return;
         }
 
         // release block of screen
