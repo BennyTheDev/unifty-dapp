@@ -28,6 +28,7 @@ function TncDapp() {
         ).toLocaleString();
 
         $("#wallet-balance").text(balance);
+        document.getElementById("wallet-balance").title = balance;
         $("#balance-container").show();
       }, 5000);
     });
@@ -217,6 +218,8 @@ function TncDapp() {
       if (decimals > 2) {
         price = price.substring(0, price.length - 10);
       }
+
+      price = parseInt(price).toLocaleString();
 
       swapMode = ask.swapMode;
       isBatch = ask.erc1155Address.length > 1 ? true : false;

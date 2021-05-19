@@ -21,7 +21,8 @@ function TncDapp() {
                 //toLocaleString to add commas to thousands in number
                 balance = parseInt(_this.formatNumberString(balance, 18)).toLocaleString()
 
-                $('#wallet-balance').text(balance)
+                $('#wallet-balance').text(balance);
+                document.getElementById("wallet-balance").title = balance;
                 $('#balance-container').show();
 
             }, 5000);
@@ -33,15 +34,15 @@ function TncDapp() {
         let nftCount = 0;
         let collections = [];
 
-        // coindesk main collection
-        collections.push('0x5857dd9383C11b672163168E7d99872dd9d5AeC3');
-
         // given custom collections
         let collectionAddresses = [];
 
         if(localStorage.getItem('collectionAddresses'+chain_id)){
             collectionAddresses = JSON.parse(localStorage.getItem('collectionAddresses'+chain_id));
         }
+
+        // coindesk main collection
+        collectionAddresses.push('0x5857dd9383C11b672163168E7d99872dd9d5AeC3');
 
         for(let i = 0; i < collectionAddresses.length; i++){
             let custom = collectionAddresses[i];

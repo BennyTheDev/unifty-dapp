@@ -296,7 +296,7 @@
 
         <h1 class="mb-5">Wallet</h1>
           
-        <div id="walletOptions" style="display:none;" class="row mb-5">
+        <!-- <div id="walletOptions" style="display:none;" class="row mb-5">
           <div class="dropdown">
             <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle" id="walletActions"
               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -309,12 +309,12 @@
                 data-target="#cancelBridgeModal" id="cancelBridgeModalButton">Cancel Bridge Job</a>
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- SHOULD THIS GO BELOW H1 ? -->
-        <div id="foreignWalletInfo" style="display:none;" class="row">
+        <!-- <div id="foreignWalletInfo" style="display:none;" class="row">
           <h3 id="walletAddress"></h3>
-        </div>
+        </div> -->
 
         <script id="no-collectibles" type="text/x-handlebars-template">
           <div class="container-fluid">
@@ -378,13 +378,13 @@
                             {{{collectionName}}}
                           </div>
 
-                          {{#ifNotEquals description ""}}
+                          <!-- {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
                               <span class="material-icons-round">
                                 info
                               </span>
                             </button>
-                          {{/ifNotEquals}}
+                          {{/ifNotEquals}} -->
 
                             {{#ifNotEquals options ""}}
                                 <div class="dropdown">
@@ -406,9 +406,9 @@
                                 </div>
                             {{/ifNotEquals}}
 
-                            {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                            <!-- {{#ifEquals checkOpenSea "Check on OpenSea"}}
                               <a class="opensea my-nft text-muted mb-3" style="margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                            {{/ifEquals}}
+                            {{/ifEquals}} -->
 
                             {{#ifEquals checkOpenSea "Open Details"}}
                               <a class="opensea my-nft text-muted mb-3" style="margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
@@ -499,14 +499,13 @@
                   <div class="form-group">
                     <label for="nftSellCategory">Category *</label>
                     <select class="form-control" id="nftSellCategory">
-                      <option value="1">Art</option>
-                      <option value="2">Music</option>
-                      <option value="3">Interactive</option>
-                      <option value="4">Memes</option>
-                      <option value="5">Utility</option>
-                      <option value="6">Sports</option>
-                      <option value="7">Misc.</option>
-                      <option value="8">NSFW</option>
+                      <option value="1">Ethereum Experiments</option>
+                      <option value="2">Companies</option>
+                      <option value="3">The Hype Cycle</option>
+                      <option value="4">People</option>
+                      <option value="5">Coindesk Personalities</option>
+                      <option value="6">Swag</option>
+                      <option value="7">Experiences</option>
                     </select>
                   </div>
 

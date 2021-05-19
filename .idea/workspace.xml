@@ -22,7 +22,10 @@
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/coindesk-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/coindesk-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectible-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lib-market.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-market.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +105,7 @@
       <workItem from="1617651009171" duration="8615000" />
       <workItem from="1621195784000" duration="629000" />
       <workItem from="1621259785581" duration="4025000" />
-      <workItem from="1621351741005" duration="2315000" />
+      <workItem from="1621351741005" duration="9642000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -202,7 +205,21 @@
       <option name="project" value="LOCAL" />
       <updated>1621266249591</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="+ added initial ux blocking element">
+      <created>1621354455527</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1621354455527</updated>
+    </task>
+    <task id="LOCAL-00016" summary="# changed category names to coindesk ones">
+      <created>1621365363246</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1621365363246</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,13 +251,19 @@
     <MESSAGE value="# removed apple / chrome related code that could cause issues&#10;# re-enabled some code not properly being merged&#10;# added coindesk collection into wallet&#10;# removed all other auto collections in wallet" />
     <MESSAGE value="# removed ethereum.on() usage as it seems to cause errors on chrome for mac" />
     <MESSAGE value="# updated session ids&#10;- removed market options" />
-    <option name="LAST_COMMIT_MESSAGE" value="# updated session ids&#10;- removed market options" />
+    <MESSAGE value="+ added initial ux blocking element" />
+    <MESSAGE value="# changed category names to coindesk ones" />
+    <option name="LAST_COMMIT_MESSAGE" value="# changed category names to coindesk ones" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1621266249114">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1621365362846">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1621266249114" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1621365362846" />
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1621361223879">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1621361223879" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -269,14 +292,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1621266273130">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1621365430096">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621266273130" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1621281709641">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621365430095" />
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1621376360036">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1621281709641" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1621376360036" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1616744467956">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
