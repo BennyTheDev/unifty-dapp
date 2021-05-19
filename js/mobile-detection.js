@@ -5,6 +5,7 @@ $(document).ready(function () {
     $("#mobile-close").click(function () {
       $("#mobileDetectContainer").fadeOut();
     });
+    window.stop();
   } else {
     $("#mobileDetectContainer").hide();
   }
