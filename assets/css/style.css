@@ -2107,11 +2107,6 @@ hr {
   .sidebar .nav li .dropdown-menu a {
     padding: 0.5rem;
     border-radius: 0; }
-  .sidebar .nav #marketNavLink i,
-  .sidebar .nav #marketNavLink p,
-  .sidebar .nav #marketNavLink:hover i,
-  .sidebar .nav #marketNavLink:hover p {
-    opacity: 0.5; }
 
 .sidebar-text {
   display: flex;
