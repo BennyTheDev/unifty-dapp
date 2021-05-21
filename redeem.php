@@ -396,7 +396,7 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
           <li class="nav-item" id="marketNavLink">
             <a class="nav-link" href="market.html">
               <i class="material-icons-round">storefront</i>
-              <p>NFT MARKET (Live May 20)</p>
+              <p>NFT MARKET</p>
             </a>
           </li>
           <li class="nav-item">
