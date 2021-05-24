@@ -129,7 +129,7 @@ if(isset($_REQUEST['session']) && isset($_REQUEST['address'])){
 
             // if not show an error
 
-            $session_msg = "You didn't claim any \$DESK before the sessions started.";
+            $session_msg = "You haven't set up your wallet using a claim code yet, Check your email for your \$DESK access code.";
         }
     }
 }
