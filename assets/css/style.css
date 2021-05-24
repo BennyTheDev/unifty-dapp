@@ -721,32 +721,45 @@ textarea, input {
     .nftHeader .header-profile .card-body,
     .nftHeader .header-profile .header-left {
       position: static; }
-      .nftListing .card-profile .card-body .text-truncate a,
-      .nftListing .card-profile .header-left .text-truncate a,
-      .nftListing .header-profile .card-body .text-truncate a,
-      .nftListing .header-profile .header-left .text-truncate a,
-      .farmListing .card-profile .card-body .text-truncate a,
-      .farmListing .card-profile .header-left .text-truncate a,
-      .farmListing .header-profile .card-body .text-truncate a,
-      .farmListing .header-profile .header-left .text-truncate a,
-      .nftHeader .card-profile .card-body .text-truncate a,
-      .nftHeader .card-profile .header-left .text-truncate a,
-      .nftHeader .header-profile .card-body .text-truncate a,
-      .nftHeader .header-profile .header-left .text-truncate a {
-        color: var(--heading-color); }
-      .nftListing .card-profile .card-body .text-truncate button,
-      .nftListing .card-profile .header-left .text-truncate button,
-      .nftListing .header-profile .card-body .text-truncate button,
-      .nftListing .header-profile .header-left .text-truncate button,
-      .farmListing .card-profile .card-body .text-truncate button,
-      .farmListing .card-profile .header-left .text-truncate button,
-      .farmListing .header-profile .card-body .text-truncate button,
-      .farmListing .header-profile .header-left .text-truncate button,
-      .nftHeader .card-profile .card-body .text-truncate button,
-      .nftHeader .card-profile .header-left .text-truncate button,
-      .nftHeader .header-profile .card-body .text-truncate button,
-      .nftHeader .header-profile .header-left .text-truncate button {
-        color: var(--heading-color); }
+      .nftListing .card-profile .card-body .text-truncate,
+      .nftListing .card-profile .header-left .text-truncate,
+      .nftListing .header-profile .card-body .text-truncate,
+      .nftListing .header-profile .header-left .text-truncate,
+      .farmListing .card-profile .card-body .text-truncate,
+      .farmListing .card-profile .header-left .text-truncate,
+      .farmListing .header-profile .card-body .text-truncate,
+      .farmListing .header-profile .header-left .text-truncate,
+      .nftHeader .card-profile .card-body .text-truncate,
+      .nftHeader .card-profile .header-left .text-truncate,
+      .nftHeader .header-profile .card-body .text-truncate,
+      .nftHeader .header-profile .header-left .text-truncate {
+        white-space: break-spaces; }
+        .nftListing .card-profile .card-body .text-truncate a,
+        .nftListing .card-profile .header-left .text-truncate a,
+        .nftListing .header-profile .card-body .text-truncate a,
+        .nftListing .header-profile .header-left .text-truncate a,
+        .farmListing .card-profile .card-body .text-truncate a,
+        .farmListing .card-profile .header-left .text-truncate a,
+        .farmListing .header-profile .card-body .text-truncate a,
+        .farmListing .header-profile .header-left .text-truncate a,
+        .nftHeader .card-profile .card-body .text-truncate a,
+        .nftHeader .card-profile .header-left .text-truncate a,
+        .nftHeader .header-profile .card-body .text-truncate a,
+        .nftHeader .header-profile .header-left .text-truncate a {
+          color: var(--heading-color); }
+        .nftListing .card-profile .card-body .text-truncate button,
+        .nftListing .card-profile .header-left .text-truncate button,
+        .nftListing .header-profile .card-body .text-truncate button,
+        .nftListing .header-profile .header-left .text-truncate button,
+        .farmListing .card-profile .card-body .text-truncate button,
+        .farmListing .card-profile .header-left .text-truncate button,
+        .farmListing .header-profile .card-body .text-truncate button,
+        .farmListing .header-profile .header-left .text-truncate button,
+        .nftHeader .card-profile .card-body .text-truncate button,
+        .nftHeader .card-profile .header-left .text-truncate button,
+        .nftHeader .header-profile .card-body .text-truncate button,
+        .nftHeader .header-profile .header-left .text-truncate button {
+          color: var(--heading-color); }
       .nftListing .card-profile .card-body #amount-div,
       .nftListing .card-profile .header-left #amount-div,
       .nftListing .header-profile .card-body #amount-div,
@@ -786,7 +799,7 @@ textarea, input {
       .nftHeader .header-profile .card-body .card-title,
       .nftHeader .header-profile .header-left .card-title {
         font-family: acumin-pro, sans-serif;
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         margin: 0 0 1rem 0;
         font-weight: bold; }
         .nftListing .card-profile .card-body .card-title a,
@@ -1331,7 +1344,7 @@ textarea, input {
   background: var(--dark-primary) !important;
   border-radius: 0;
   border: 0.1rem solid var(--dark-primary);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: var(--light-primary);
   font-weight: 700;
   padding: 0.5rem 0.8rem 0.7rem 0.8rem;
@@ -1892,7 +1905,7 @@ hr {
       align-items: center; }
       #collectiblePage .collectible-wrapper .details-container__upper .header .title h4 {
         font-family: acumin-pro, sans-serif;
-        font-size: 4rem;
+        font-size: 3.2rem;
         color: var(--dark-primary);
         font-weight: 700;
         margin: 0; }

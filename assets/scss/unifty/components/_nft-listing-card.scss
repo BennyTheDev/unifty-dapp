@@ -97,6 +97,8 @@
 
       //copy address
       .text-truncate {
+        white-space: break-spaces;
+
         a {
           color: var(--heading-color);
         }
@@ -117,7 +119,7 @@
       //title
       .card-title {
         font-family: acumin-pro, sans-serif;
-        font-size: 2.2rem;
+        font-size: 1.8rem;
         margin: 0 0 1rem 0;
         font-weight: bold;
 
