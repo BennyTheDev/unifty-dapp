@@ -20,9 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/collectibles_aaron.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/New Desk Full.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/newdesk.mp4" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn-more.html" beforeDir="false" afterPath="$PROJECT_DIR$/learn-more.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +107,7 @@
       <workItem from="1621518181717" duration="1193000" />
       <workItem from="1621603281195" duration="5970000" />
       <workItem from="1621628258347" duration="2581000" />
-      <workItem from="1621865312338" duration="8147000" />
+      <workItem from="1621865312338" duration="10630000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -249,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621883503821</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="# fixed video name and video link">
+      <created>1621958464075</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1621958464075</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,13 +294,14 @@
     <MESSAGE value="# fixed session claiming not working due to checkbox verification" />
     <MESSAGE value="# changed some market categoriy ids to wipe the previous ones" />
     <MESSAGE value="# added new session ids" />
-    <option name="LAST_COMMIT_MESSAGE" value="# added new session ids" />
+    <MESSAGE value="# fixed video name and video link" />
+    <option name="LAST_COMMIT_MESSAGE" value="# fixed video name and video link" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1621883503193">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1621958463564">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1621883503193" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1621958463564" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1621361223879">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
