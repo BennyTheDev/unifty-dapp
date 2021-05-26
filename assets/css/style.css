@@ -58,6 +58,17 @@ body {
     border-radius: 8px;
     margin: 10px; }
 
+.alignChildren {
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  align-items: center; }
+
+.green-tick {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 5px; }
+
 .light-edition {
   --dark-primary: #19284d;
   --dark-primary-light: rgba(25, 40, 77, 0.5);

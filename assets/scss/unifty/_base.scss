@@ -181,6 +181,19 @@ body {
   }
 }
 
+.alignChildren {
+  flex-direction: column;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.green-tick {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 5px;
+}
+
 .light-edition {
   // ------ used colors --------
   --dark-primary: #19284d;

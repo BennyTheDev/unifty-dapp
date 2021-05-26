@@ -771,7 +771,10 @@ function TncDapp() {
         console.log("ACCOUNT: ", tncLib.account);
 
         if (allowance.lt(fullPrice)) {
-          _alert("Please approve first, then click the acquire button again.");
+          //Adding the green tick to the top of the alert
+          _alert(
+            "<div class='alignChildren'><img class='green-tick' src='assets/img/green_tick.svg'>Please approve first, then click the acquire button again.</div>"
+          );
 
           $(this).prop("disabled", true);
           $(this).html("Approve first!");
