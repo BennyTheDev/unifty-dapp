@@ -338,6 +338,26 @@ textarea, input {
 .main-timeline .date-content:before {
   background: var(--primary-color); }
 
+.projectFunding p {
+  font-weight: 100;
+  font-size: 1.3rem;
+  color: #202060 !important;
+  line-height: 1.78; }
+  .projectFunding p a {
+    font-weight: bold; }
+
+.projectFunding .outline-btn {
+  display: flex;
+  width: max-content;
+  padding: 10px;
+  border: solid 1px #202060;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #202060 !important;
+  font-size: 1.2rem; }
+  .projectFunding .outline-btn img {
+    margin-right: 5px; }
+
 .dark-edition .card.faq,
 .light-edition .card.faq {
   margin-top: 1rem;
@@ -1028,19 +1048,61 @@ textarea, input {
 .nftHeader {
   width: 100%; }
 
-.dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline,
-.light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline {
+.dark-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline,
+.light-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline {
   background: var(--primary-color) !important;
-  border-radius: .6rem;
+  border-radius: 0.6rem;
   border: 0.1rem solid var(--bg-primary);
   font-size: 1.6rem;
   color: var(--bg-secondary);
   font-weight: 700;
-  padding: .3rem .8rem;
+  padding: 0.3rem 0.8rem;
   width: 90%; }
-  .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover, .dark-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active,
-  .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:hover,
-  .light-edition .main-panel .content .container-fluid #offersPage.row .nftListing .card.card-profile .card-body button.btn-outline:active {
+  .dark-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline:hover, .dark-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline:active,
+  .light-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline:hover,
+  .light-edition
+.main-panel
+.content
+.container-fluid
+#offersPage.row
+.nftListing
+.card.card-profile
+.card-body button.btn-outline:active {
     background-color: var(--primary-hover-dark) !important; }
 
 .dark-edition .main-panel .modal-dialog .modal-content,
