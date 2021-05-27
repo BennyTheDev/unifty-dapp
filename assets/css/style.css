@@ -1046,7 +1046,7 @@ textarea, input {
 .dark-edition .main-panel .modal-dialog .modal-content,
 .light-edition .main-panel .modal-dialog .modal-content {
   border: 0.1rem solid var(--modal-border-text);
-  background-color: var(--bg-tertiary); }
+  background-color: white; }
   .dark-edition .main-panel .modal-dialog .modal-content .close:not(:disabled):not(.disabled),
   .light-edition .main-panel .modal-dialog .modal-content .close:not(:disabled):not(.disabled) {
     cursor: var(--cursor-pointer); }
@@ -1064,13 +1064,14 @@ textarea, input {
     align-items: center;
     padding: 1.5rem;
     color: var(--modal-text);
-    border-bottom: 0.1rem solid var(--modal-border-text); }
+    border-bottom: 0.1rem solid var(--modal-border-text);
+    background-color: var(--bg-tertiary); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-header h5.modal-title,
     .light-edition .main-panel .modal-dialog .modal-content .modal-header h5.modal-title {
       font-family: "Poppins", sans-serif;
       font-size: 2rem;
       font-weight: 700;
-      letter-spacing: .48px; }
+      letter-spacing: 0.48px; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-header .close,
     .light-edition .main-panel .modal-dialog .modal-content .modal-header .close {
       color: var(--modal-text);
@@ -1089,7 +1090,7 @@ textarea, input {
     font-size: 1.3rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .container,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .container {
-      border-radius: .4rem;
+      border-radius: 0.4rem;
       background-color: var(--bg-primary);
       margin-bottom: 1rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body select,
@@ -1098,7 +1099,7 @@ textarea, input {
       height: auto;
       background-image: none;
       border: 0.1rem solid #3b414c;
-      border-radius: .8rem;
+      border-radius: 0.8rem;
       font-size: 1.3rem;
       color: var(--modal-text);
       padding: 1rem; }
@@ -1108,17 +1109,17 @@ textarea, input {
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body select option,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body select option {
         background-color: var(--bg-tertiary);
-        padding: .5rem 0; }
+        padding: 0.5rem 0; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .col {
       padding: 0; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body.modal-non-nft-content button,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body.modal-non-nft-content button {
       min-width: 10rem;
-      padding: .8rem .5rem;
+      padding: 0.8rem 0.5rem;
       font-size: 1.2rem;
       border: 0.1rem solid var(--primary-color);
-      border-radius: .4rem;
+      border-radius: 0.4rem;
       background-color: transparent;
       color: var(--primary-color);
       box-shadow: none; }
@@ -1133,7 +1134,7 @@ textarea, input {
       align-items: center;
       font-size: 1.3rem;
       font-weight: 500;
-      letter-spacing: .32px;
+      letter-spacing: 0.32px;
       color: var(--modal-text); }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label:hover,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label:hover {
@@ -1141,12 +1142,12 @@ textarea, input {
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.required,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.required {
         color: var(--primary-color);
-        margin-left: .3rem; }
+        margin-left: 0.3rem; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round {
         font-size: 2.2rem;
         color: var(--modal-border-text);
-        margin-left: .5rem; }
+        margin-left: 0.5rem; }
         .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round:hover,
         .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label span.material-icons-round:hover {
           color: var(--primary-color);
@@ -1159,11 +1160,11 @@ textarea, input {
       background-color: transparent !important;
       background-image: none;
       border: 0.1rem solid var(--modal-border-text);
-      border-radius: .8rem;
+      border-radius: 0.8rem;
       padding: 1rem;
       font-size: 1.3rem;
       color: var(--modal-text);
-      transition: all .3s; }
+      transition: all 0.3s; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input::placeholder,
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input::placeholder,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input::placeholder,
@@ -1177,18 +1178,18 @@ textarea, input {
         border: 0.1rem solid var(--primary-color); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input {
-      padding: .5rem 1rem; }
+      padding: 0.5rem 1rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea {
       height: auto;
       background-color: transparent;
       background-image: none;
       border: 0.1rem solid var(--modal-border-text);
-      border-radius: .8rem;
+      border-radius: 0.8rem;
       padding: 1rem;
       font-size: 1.3rem;
       color: var(--modal-text);
-      transition: all .3s; }
+      transition: all 0.3s; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea:focus,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea:focus {
         border: 0.1rem solid var(--primary-color); }
@@ -1205,7 +1206,8 @@ textarea, input {
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-row,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-row {
         margin: 0; }
-      .dark-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group input, .dark-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group select,
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group input,
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group select,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group input,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group select {
         height: auto;
@@ -1237,7 +1239,7 @@ textarea, input {
       box-shadow: none;
       font-size: 1.4rem;
       flex: 1;
-      border-radius: .8rem;
+      border-radius: 0.8rem;
       margin: 0; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-secondary,
     .light-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-secondary {
