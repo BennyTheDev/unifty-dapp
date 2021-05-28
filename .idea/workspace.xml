@@ -22,11 +22,13 @@
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/erc1155-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/erc1155-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/farm-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-builder-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/farm-dapp-legacy.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp-legacy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/farm-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +123,7 @@
       <workItem from="1621443083668" duration="5316000" />
       <workItem from="1621620899897" duration="627000" />
       <workItem from="1621770798455" duration="196000" />
-      <workItem from="1621966623978" duration="9313000" />
+      <workItem from="1621966623978" duration="15429000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -270,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620140721873</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="+ added bsc collection block list">
+      <created>1622231696605</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1622231696605</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,13 +313,14 @@
     <MESSAGE value="+ added a new farm to featured" />
     <MESSAGE value="+ added collection optimization through api.unifty.cloud" />
     <MESSAGE value="+ added another featured farm" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ added another featured farm" />
+    <MESSAGE value="+ added bsc collection block list" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added bsc collection block list" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1620140721443">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1622231695496">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1620140721443" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622231695496" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -335,6 +345,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1615624549993" />
+    <state x="147" y="64" key="MergeDialog" timestamp="1622231791486">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1622231791486" />
+    <state x="407" y="173" key="MultipleFileMergeDialog" timestamp="1622231792904">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="407" y="173" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1622231792904" />
     <state x="279" y="58" key="SettingsEditor" timestamp="1617490988866">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -347,10 +365,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1617739666916" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1619557100673">
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1622235950103">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1619557100673" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1622235950103" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1616744467956">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

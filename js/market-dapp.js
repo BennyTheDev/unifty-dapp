@@ -79,10 +79,11 @@ function TncDapp() {
                     shadowed
                 );
 
+                nftCount++;
             }
 
-            await sleep(300);
-            nftCount++;
+            await sleep(100);
+
 
             if (which == '') {
 
@@ -1045,6 +1046,10 @@ function TncDapp() {
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");
                 $(o).html("Matic (Wrapped)");
                 $("#lookupToken").append(o);
+
+                var o2 = new Option("Matic Token", "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0");
+                $(o2).html("Matic Token");
+                $("#lookupToken").append(o2);
                 break;
             case '61': // BSC TESTNET
                 var o = new Option("NIF (Unifty)", "0xaC636E43b2a3e8654c993c4c5A72a2cDc41Db0FF");
@@ -1490,6 +1495,10 @@ function TncDapp() {
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");
                 $(o).html("Matic (Wrapped)");
                 $("#nftSellToken2").append(o);
+
+                var o2 = new Option("Matic Token", "0x7d1afa7b718fb893db30a3abc0cfc608aacfebb0");
+                $(o2).html("Matic Token");
+                $("#nftSellToken2").append(o2);
                 break;
             case '61': // BSC TESTNET
                 var o = new Option("NIF (Unifty)", "0xaC636E43b2a3e8654c993c4c5A72a2cDc41Db0FF");
