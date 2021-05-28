@@ -20,15 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bridge.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridge.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectible.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/faq.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-builder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guides-faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/guides-faq.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-builder-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-dapp-legacy.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp-legacy.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/project-funding.html" beforeDir="false" afterPath="$PROJECT_DIR$/project-funding.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/roadmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/roadmap.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +127,7 @@
       <workItem from="1621443083668" duration="5316000" />
       <workItem from="1621620899897" duration="627000" />
       <workItem from="1621770798455" duration="196000" />
-      <workItem from="1621966623978" duration="15429000" />
+      <workItem from="1621966623978" duration="15637000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -279,7 +283,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622231696605</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="- removed several adult farms from featured&#10;+ added adult filters for genesis and rares farms&#10;+ optimized scroll load for marketplace and wallet&#10;+ added Matic Token support in Marketplace">
+      <created>1622238965708</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1622238965708</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,13 +325,14 @@
     <MESSAGE value="+ added collection optimization through api.unifty.cloud" />
     <MESSAGE value="+ added another featured farm" />
     <MESSAGE value="+ added bsc collection block list" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ added bsc collection block list" />
+    <MESSAGE value="- removed several adult farms from featured&#10;+ added adult filters for genesis and rares farms&#10;+ optimized scroll load for marketplace and wallet&#10;+ added Matic Token support in Marketplace" />
+    <option name="LAST_COMMIT_MESSAGE" value="- removed several adult farms from featured&#10;+ added adult filters for genesis and rares farms&#10;+ optimized scroll load for marketplace and wallet&#10;+ added Matic Token support in Marketplace" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1622231695496">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1622238965275">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622231695496" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622238965275" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -357,18 +369,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1620140823028">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1622238972618">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1620140823028" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622238972618" />
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617739666916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1617739666916" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1622235950103">
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1622239014075">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1622235950103" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1622239014075" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1616744467956">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
