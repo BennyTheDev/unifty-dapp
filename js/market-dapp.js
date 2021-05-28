@@ -44,35 +44,47 @@ function TncDapp() {
 
             let ask = ret.ask;
 
+            let shadowed = 'true';
+
+            if( !blocked_collections.includes(ask.erc1155Address[0].toLowerCase()) ) {
+
+                shadowed = 'false';
+            }
+
             let hasMore = 0;
 
-            if( ask.erc1155Address.length > 1){
+            if (ask.erc1155Address.length > 1) {
 
                 hasMore = ask.erc1155Address.length - 1;
             }
 
-            _this.render(
-                ask.erc1155Address[0],
-                ask.id[0],
-                ask.amount[0],
-                ask.erc1155Address.length == 1 ? ask.pricePerItem[0] : ask.price,
-                ask.tokenAddress,
-                address == '' ? tncLib.account : address,
-                ask.seller,
-                ask.swapMode,
-                ret.index,
-                hasMore,
-                which,
-                ask.erc1155Address.length > 1 ? true : false,
-                ask.erc1155Address.length - 1,
-                category,
-                i
-            );
+            if('false' == shadowed || ( address != '' && tncLib.account.toLowerCase() == address.toLowerCase() ) ) {
+
+                _this.render(
+                    ask.erc1155Address[0],
+                    ask.id[0],
+                    ask.amount[0],
+                    ask.erc1155Address.length == 1 ? ask.pricePerItem[0] : ask.price,
+                    ask.tokenAddress,
+                    address == '' ? tncLib.account : address,
+                    ask.seller,
+                    ask.swapMode,
+                    ret.index,
+                    hasMore,
+                    which,
+                    ask.erc1155Address.length > 1 ? true : false,
+                    ask.erc1155Address.length - 1,
+                    category,
+                    i,
+                    shadowed
+                );
+
+            }
 
             await sleep(300);
             nftCount++;
 
-            if(which == '') {
+            if (which == '') {
 
                 await waitForPaging('offersPage', nftCount);
             }
@@ -94,7 +106,7 @@ function TncDapp() {
         }
     };
 
-    this.render = async function(erc1155, id, amount, price, token, address, sellerAddress, swapMode, index, hasMore, which, isBatch, multiplier, category, category_index){
+    this.render = async function(erc1155, id, amount, price, token, address, sellerAddress, swapMode, index, hasMore, which, isBatch, multiplier, category, category_index, shadowed){
 
         fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/URI/erc1155Address/'+erc1155+'/id/0', 5000);
 
@@ -251,6 +263,7 @@ function TncDapp() {
                 ticker: await tncLib.tokenSymbolErc20(token),
                 index: index,
                 price: price,
+                shadowed: shadowed,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
@@ -335,6 +348,7 @@ function TncDapp() {
                 ticker: await tncLib.tokenSymbolErc20(token),
                 index: index,
                 price: price,
+                shadowed: shadowed,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',

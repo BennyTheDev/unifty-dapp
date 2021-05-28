@@ -22,6 +22,11 @@
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/erc1155-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/erc1155-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +111,17 @@
       <workItem from="1619026586060" duration="33725000" />
       <workItem from="1619879269898" duration="7789000" />
       <workItem from="1620126836594" duration="2000" />
-      <workItem from="1620126912346" duration="3114000" />
+      <workItem from="1620126912346" duration="4050000" />
+      <workItem from="1620315031959" duration="1031000" />
+      <workItem from="1620589328704" duration="6669000" />
+      <workItem from="1620679175638" duration="1539000" />
+      <workItem from="1621009305851" duration="1078000" />
+      <workItem from="1621025758991" duration="1817000" />
+      <workItem from="1621286875202" duration="609000" />
+      <workItem from="1621443083668" duration="5316000" />
+      <workItem from="1621620899897" duration="627000" />
+      <workItem from="1621770798455" duration="196000" />
+      <workItem from="1621966623978" duration="9313000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -248,7 +263,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619999545777</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="+ added another featured farm">
+      <created>1620140721873</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1620140721873</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,13 +303,14 @@
     <MESSAGE value="+ added royalties support to be configurable in wallets&#10;+ added a new farm in index.html" />
     <MESSAGE value="+ added a new farm to featured" />
     <MESSAGE value="+ added collection optimization through api.unifty.cloud" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ added collection optimization through api.unifty.cloud" />
+    <MESSAGE value="+ added another featured farm" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added another featured farm" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1619999545287">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1620140721443">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1619999545287" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1620140721443" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -316,10 +339,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1619999580924">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1620140823028">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619999580924" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1620140823028" />
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617739666916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

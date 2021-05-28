@@ -396,7 +396,12 @@
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
-                            <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                            {{#ifEquals shadowed "false"}}
+                                <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                            {{/ifEquals}}
+                            {{#ifEquals shadowed "true"}}
+                            <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">
+                            {{/ifEquals}}
                         {{/ifNotEquals}}
 
                         {{#ifEquals checkOpenSea "Check on OpenSea"}}
