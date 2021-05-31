@@ -1226,7 +1226,7 @@ textarea, input {
 .dark-edition .main-panel .modal-dialog .modal-content,
 .light-edition .main-panel .modal-dialog .modal-content {
   border: 0.1rem solid var(--modal-border-text);
-  background-color: white; }
+  background-color: var(--bg-secondary); }
   .dark-edition .main-panel .modal-dialog .modal-content .close:not(:disabled):not(.disabled),
   .light-edition .main-panel .modal-dialog .modal-content .close:not(:disabled):not(.disabled) {
     cursor: var(--cursor-pointer); }
