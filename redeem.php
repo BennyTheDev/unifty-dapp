@@ -17,14 +17,14 @@ exit;
 */
 
 //For live version
-$dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
-$usr = 'unifghiu_coindesk';
-$pwd = 'vollgeschissen123';
+// $dsn = 'mysql:host=premium163.web-hosting.com;dbname=unifghiu_coindesk;charset=utf8';
+// $usr = 'unifghiu_coindesk';
+// $pwd = 'vollgeschissen123';
 
 //For local testing
-//$dsn = 'mysql:host=localhost;dbname=coindesk;charset=utf8';
-//$usr = 'root';
-//$pwd = 'root';
+$dsn = 'mysql:host=localhost;dbname=unifty;charset=utf8';
+$usr = 'root';
+$pwd = '';
 
 $pdo = new PDO($dsn, $usr, $pwd);
 
@@ -142,6 +142,8 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
 
         exit('Please enter your Consensus code address and enable your wallet.');
     }
+
+    exit('Code redemption no longer available. Consensus has ended May 27th.');
 
     $stmt = $pdo->prepare("SELECT `id` FROM `coindeskemails` WHERE Lower(`Code`) = ? And `address` = ''");
     $stmt->execute([strtolower($_REQUEST['Code'])]);
@@ -500,7 +502,7 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
         <div class="container-fluid"<?php echo $session ? ' style="display:none;"' : '';?>>
             <div class="card">
                 <div class="card-body claim-form">
-                    <form id="redemptionForm" method="post" action="redeem.php" onsubmit="return false;">
+                    <form id="redemptionForm" method="" action="" onsubmit="return false;">
 
                         <div class="form-group">
                             <label for="code" class="form-label">Enter Code:</label>
@@ -520,7 +522,7 @@ if(!isset($_REQUEST['session']) && isset($_REQUEST['Code'])){
                         </label>
 
 
-                        <button id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal">Claim $DESK</button>
+                        <button id="form-submit" type="button" class="btn btn-primary" data-dismiss="modal" disabled="disabled">Claim $DESK</button>
                     </form>
                 </div>
             </div>
