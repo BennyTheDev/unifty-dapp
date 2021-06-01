@@ -1728,27 +1728,29 @@ textarea, input {
       width: 100%; } }
   .dark-edition .main-panel .content,
   .light-edition .main-panel .content {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     padding: 3rem 5rem 7rem;
-    min-height: calc(100vh - .5rem); }
+    min-height: calc(100vh - 0.5rem); }
   .dark-edition .main-panel .content .add-new-card-container,
   .light-edition .main-panel .content .add-new-card-container {
+    width: max-content;
     display: flex;
     align-items: center;
-    font-size: 1.4rem;
-    color: var(--text-primary);
+    font-size: 1.6rem;
+    color: var(--bg-primary);
     margin: 2rem 0 3rem 0;
-    transition: all 1s; }
-    .dark-edition .main-panel .content .add-new-card-container span,
-    .light-edition .main-panel .content .add-new-card-container span {
-      margin-left: .5rem;
-      font-size: 1.8rem; }
+    padding: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 8px;
+    background-color: var(--primary-color); }
     .dark-edition .main-panel .content .add-new-card-container:hover,
     .light-edition .main-panel .content .add-new-card-container:hover {
       cursor: var(--cursor-pointer); }
-      .dark-edition .main-panel .content .add-new-card-container:hover span,
-      .light-edition .main-panel .content .add-new-card-container:hover span {
-        transform: scale(1.1); }
+    .dark-edition .main-panel .content .add-new-card-container span,
+    .light-edition .main-panel .content .add-new-card-container span {
+      margin-right: 1rem;
+      font-size: 24px; }
   .dark-edition .main-panel .navbar.navbar-absolute,
   .light-edition .main-panel .navbar.navbar-absolute {
     padding-top: 2rem; }
@@ -1769,7 +1771,7 @@ textarea, input {
   .dark-edition .main-panel .card,
   .light-edition .main-panel .card {
     background: var(--bg-tertiary);
-    border-radius: .8rem;
+    border-radius: 0.8rem;
     z-index: 0;
     margin: 0; }
   .dark-edition .main-panel .nftHeader-stakingOptions-container,
@@ -1825,24 +1827,26 @@ textarea, input {
     .light-edition .main-panel .content .container-fluid .wallet-container .row .container-fluid,
     .light-edition .main-panel .content .container-fluid .bridge-container .row .container-fluid {
       font-size: 1.4rem; }
-  .dark-edition .main-panel .content .container-fluid .wallet-container, .dark-edition .main-panel .content .container-fluid .bridge-container,
+  .dark-edition .main-panel .content .container-fluid .wallet-container,
+  .dark-edition .main-panel .content .container-fluid .bridge-container,
   .light-edition .main-panel .content .container-fluid .wallet-container,
   .light-edition .main-panel .content .container-fluid .bridge-container {
     padding: 2rem;
     background-color: var(--bg-tertiary);
     box-shadow: var(--shadow-primary);
-    border-radius: .8rem; }
-    .dark-edition .main-panel .content .container-fluid .wallet-container #stakingOptions a.btn-secondary, .dark-edition .main-panel .content .container-fluid .bridge-container #stakingOptions a.btn-secondary,
+    border-radius: 0.8rem; }
+    .dark-edition .main-panel .content .container-fluid .wallet-container #stakingOptions a.btn-secondary,
+    .dark-edition .main-panel .content .container-fluid .bridge-container #stakingOptions a.btn-secondary,
     .light-edition .main-panel .content .container-fluid .wallet-container #stakingOptions a.btn-secondary,
     .light-edition .main-panel .content .container-fluid .bridge-container #stakingOptions a.btn-secondary {
       border: 0.2rem solid var(--subheading-color);
-      border-radius: .8rem;
+      border-radius: 0.8rem;
       background-color: var(--bg-tertiary);
       box-shadow: none;
       color: var(--heading-color);
       font-size: 1.2rem;
-      letter-spacing: .32px;
-      padding: .8rem 1.2rem; }
+      letter-spacing: 0.32px;
+      padding: 0.8rem 1.2rem; }
   .dark-edition .main-panel .footer,
   .light-edition .main-panel .footer {
     border-top: none; }
