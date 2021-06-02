@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-builder-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
     </list>
@@ -120,7 +118,9 @@
       <workItem from="1621443083668" duration="5316000" />
       <workItem from="1621620899897" duration="627000" />
       <workItem from="1621770798455" duration="196000" />
-      <workItem from="1621966623978" duration="21834000" />
+      <workItem from="1621966623978" duration="23778000" />
+      <workItem from="1622529834626" duration="3902000" />
+      <workItem from="1622645222745" duration="548000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -290,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622239036904</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="# removed Matic Token again as it is only for mainnet">
+      <created>1622281840964</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1622281840964</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,13 +334,14 @@
     <MESSAGE value="+ added bsc collection block list" />
     <MESSAGE value="- removed several adult farms from featured&#10;+ added adult filters for genesis and rares farms&#10;+ optimized scroll load for marketplace and wallet&#10;+ added Matic Token support in Marketplace" />
     <MESSAGE value="# changed script versions to 1.9.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="# changed script versions to 1.9.6" />
+    <MESSAGE value="# removed Matic Token again as it is only for mainnet" />
+    <option name="LAST_COMMIT_MESSAGE" value="# removed Matic Token again as it is only for mainnet" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1622239036475">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1622281840535">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622239036475" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622281840535" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -370,18 +378,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1622239042480">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1622281848469">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622239042480" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622281848469" />
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617739666916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1617739666916" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1622280709693">
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1622547354859">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1622280709693" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1622547354859" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1616744467956">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

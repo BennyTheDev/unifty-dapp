@@ -27,7 +27,7 @@ switch(chain_id){
             "0xc7921109FB1Bea0c19fCfB5288E700D606AE6B59".toLowerCase(), // animated art
             "0x3C6C221EeF17bEa444d4B531A878b4373D3edeFC".toLowerCase(), // haremtoken
             "0xD8A6d085DfDB9498a263563f91Cc26bE57EFE4b6".toLowerCase(), // Blackie
-            "0x11F5780B54FCfF12fe791eafa34A60F770442d98".toLowerCase(), // anime token
+            //"0x11F5780B54FCfF12fe791eafa34A60F770442d98".toLowerCase(), // anime token
             "0x48d76436F7596DDE45bDD384C375B71Cde3F0208".toLowerCase(), // oppai
             "0x306d4e3Add799686c48FF51DE01DC4f6F122EfF5".toLowerCase(), // appai 2
             "0x59a713632989883b29D544B98Ef3D090A1Ea540B".toLowerCase(),  // rylieeeeb
@@ -38,7 +38,9 @@ switch(chain_id){
             "0x1040c4B3BB1Be9d7024499F6AFd0E9aba9d4dab0".toLowerCase(), // eden kain 3
             "0x082ccbFB8446Bc536eF43a1a1a456DEC5f79800C".toLowerCase(), // sophie's feet
             "0x53617d52F6c38235E485D40d053BE024E32aFbc4".toLowerCase(), // awesome colletion
-            "0x8D7d1ec378F5FfE9CC3AEB20916e3bEc75B4727B".toLowerCase() // defi hefi
+            "0x8D7d1ec378F5FfE9CC3AEB20916e3bEc75B4727B".toLowerCase(), // defi hefi
+            "0xb6Df30c5676C0C617F23c5299D168a4c456cc59A".toLowerCase(), // peekaboo
+            "0x513C78ab6f5B0b1D5946478fc0cfA9a5C342E103".toLowerCase() // waterpark
         ];
         break;
     // add further chain specific as desired...
