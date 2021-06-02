@@ -166,7 +166,8 @@ $(document).ready(function(){
         $('#shopXdai').css('display', 'none');
     }
 
-    $('#nulsSco').on('click', displayNulsScoInfo);
+    //Button to display project funding
+    // $('#nulsSco').on('click', displayNulsScoInfo);
 });
 
 if(typeof marked != 'undefined') {
