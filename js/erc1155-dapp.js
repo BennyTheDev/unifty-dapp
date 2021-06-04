@@ -826,7 +826,7 @@ function TncDapp() {
     this.storeIpfsImage = function(fileElement, urlStorageElement){
 
         $('.submitNewUpdate').prop('disabled', true);
-        let tmp = $('.submitNewUpdate').html();
+        let tmp = $('.submitNewUpdate:visible').html();
         $('.submitNewUpdate').html('Uploading Image...');
 
         let reader = new FileReader();
@@ -856,7 +856,7 @@ function TncDapp() {
     this.storeIpfsVideo = function(fileElement, urlStorageElement){
 
         $('.submitNewUpdate').prop('disabled', true);
-        let tmp = $('.submitNewUpdate').html();
+        let tmp = $('.submitNewUpdate:visible').html();
         $('.submitNewUpdate').html('Uploading Video...');
 
         let reader = new FileReader();
@@ -892,7 +892,7 @@ function TncDapp() {
     this.storeIpfsAudio = function(fileElement, urlStorageElement){
 
         $('.submitNewUpdate').prop('disabled', true);
-        let tmp = $('.submitNewUpdate').html();
+        let tmp = $('.submitNewUpdate:visible').html();
         $('.submitNewUpdate').html('Uploading Audio File...');
 
         let reader = new FileReader();
@@ -928,7 +928,7 @@ function TncDapp() {
     this.storeIpfsInteractive = function(fileElement, urlStorageElement){
 
         $('.submitNewUpdate').prop('disabled', true);
-        let tmp = $('.submitNewUpdate').html();
+        let tmp = $('.submitNewUpdate:visible').html();
         $('.submitNewUpdate').html('Uploading Interactive File...');
 
         let reader = new FileReader();
