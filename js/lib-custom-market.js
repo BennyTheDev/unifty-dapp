@@ -9,7 +9,7 @@ function TncLibCustomMarket(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0x49E0a16C9E9C2cD1C644915bDD4edd529d418F2F', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0x292f665BA26b48b3449896c4B747D06b457b3F53', {from: this.account});
         this.account = '';
 
         // xDAI MAINNET
@@ -136,6 +136,359 @@ function TncLibCustomMarket(){
         return out;
     };
 
+    this.getMarketContractAddresses = async function(wrapperAddress){
+
+        await sleep(sleep_time);
+        let index = parseInt(await this.genesis.methods.wrapperIndex(wrapperAddress).call({from:this.account}));
+        let marketAddress = await this.genesis.methods.markets(index+1).call({from:this.account});
+        let swapAddress = await this.genesis.methods.markets(index+2).call({from:this.account});
+
+        return {market: marketAddress, swap: swapAddress};
+    };
+
+    this.getMarketUri = async function(wrapperAddress){
+
+        await sleep(sleep_time);
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+        return await wrap.methods.marketUri().call({from:this.account});
+    };
+
+    this.setAllowedWallets = async function(address, status, wrapperAddress, preCallback, postCallback, errCallback){
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await wrap.methods.setAllowedWallets(address, status).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.setAllowedWallets(address, status)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.setAllowedNfts = async function(erc1155Address, id, status, wrapperAddress, preCallback, postCallback, errCallback){
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await wrap.methods.setAllowedNfts(erc1155Address, id, status).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.setAllowedNfts(erc1155Address, id, status)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.setAllowedCollection = async function(erc1155Address, status, wrapperAddress, preCallback, postCallback, errCallback){
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await wrap.methods.setAllowedCollection(erc1155Address, status).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.setAllowedCollection(erc1155Address, status)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.setCollectionBlockStatus = async function(erc1155Address, status, wrapperAddress, preCallback, postCallback, errCallback){
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await wrap.methods.setCollectionBlockStatus(erc1155Address, status).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.setCollectionBlockStatus(erc1155Address, status)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.setNftBlockStatus = async function(erc1155Address, id, status, wrapperAddress, preCallback, postCallback, errCallback){
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await wrap.methods.setNftBlockStatus(erc1155Address, id, status).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.setNftBlockStatus(erc1155Address, id, status)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.setWalletBlockStatus = async function(address, status, wrapperAddress, preCallback, postCallback, errCallback){
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await wrap.methods.setWalletBlockStatus(address, status).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.setWalletBlockStatus(address, status)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.setMarketUri = async function(wrapperAddress, uri, preCallback, postCallback, errCallback){
+
+        let wrap = _self.contractInstancesCache(wrapperAddress, 'wrap');
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await wrap.methods.setMarketUri(uri).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.setMarketUri(uri)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.stake = async function(tier, wrapperAddress, preCallback, postCallback, errCallback){
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await this.genesis.methods.stake(tier, wrapperAddress).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        this.genesis.methods.stake(tier, wrapperAddress)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.unstake = async function(wrapperAddress, preCallback, postCallback, errCallback){
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await this.genesis.methods.unstake(wrapperAddress).estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log('Error at gas estimation: ', e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        this.genesis.methods.unstake(wrapperAddress)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                console.log(e);
+                errCallback('');
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.getCurrentTier = async function(address, wrapperAddress){
+
+        await sleep(sleep_time);
+        return await this.genesis.methods.userTier(address, wrapperAddress).call({from:this.account})
+    };
+
     this.getStakingAmounts = async function(){
 
         await sleep(sleep_time);
@@ -146,6 +499,12 @@ function TncLibCustomMarket(){
         let nifStakeTier3 = web3.utils.toBN(await this.genesis.methods.nifStakeTier3().call({from:this.account}));
 
         return {tier1: nifStakeTier1, tier2: nifStakeTier2, tier3: nifStakeTier3};
+    };
+
+    this.userNoStakes = async function(address, wrapperAddress){
+
+        await sleep(sleep_time);
+        return await this.genesis.methods.userNoStakes(address, wrapperAddress).call({from:this.account});
     };
 
     this.isStakingEnabled = async function(){
@@ -358,6 +717,14 @@ function TncLibCustomMarket(){
         return await market.methods.funds(owner, token).call({from: this.account});
     }
 
+    this.getFees = async function(token, marketAddress){
+
+        await sleep(sleep_time);
+
+        let market = _self.contractInstancesCache(marketAddress, 'market');
+        return await market.methods.controllerFunds(token).call({from: this.account});
+    }
+
     this.getRoyalties = async function(erc1155Address, id, marketAddress){
 
         await sleep(sleep_time);
@@ -550,6 +917,45 @@ function TncLibCustomMarket(){
         const price = await web3.eth.getGasPrice();
 
         market.methods.withdrawBalance(token)
+            .send({
+                from: this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                errCallback();
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.withdrawFee = async function(token, marketAddress, preCallback, postCallback, errCallback){
+
+        await sleep(sleep_time);
+
+        let market = _self.contractInstancesCache(marketAddress, 'market');
+
+        let gas = 0;
+
+        try{
+
+            gas = await market.methods.withdrawFee(token).estimateGas({
+                from: this.account
+            });
+
+        }catch(e){
+            console.log(e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        market.methods.withdrawFee(token)
             .send({
                 from: this.account,
                 gas: gas + Math.floor( gas * 0.1 ),

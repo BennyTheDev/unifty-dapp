@@ -26,6 +26,7 @@
     <script type="text/javascript" src="js/farmShopABI.js?v=1.9.6"></script>
     <script type="text/javascript" src="js/customMarketGenesisABI.js?v=1.9.6"></script>
     <script type="text/javascript" src="js/customWrapABI.js?v=1.9.6"></script>
+    <script type="text/javascript" src="js/customMarketABI.js?v=1.9.6"></script>
     <script type="text/javascript" src="js/erc20ABI.js?v=1.9.6"></script>
     <script type="text/javascript" src="js/univ2ABI.js?v=1.9.6"></script>
     <script type="text/javascript" src="js/lib.js?v=1.9.6"></script>
@@ -377,12 +378,9 @@
                             <a href="{{url}}">{{name}} <i class="fa fa-external-link"></i></a>
                         </h5>
 
-                        <!--
-                        <div class="mb-3">
-                            <span class="badge badge-info">NFT Count: {{nftcount}}</span>
-                            <span class="badge badge-info">Controller Funds: {{controllerFunds}} {{currency}}</span>
-                            <span class="badge badge-info">Total Fees: {{totalFees}} {{currency}}</span>
-                        </div>-->
+                        <div class="mb-3" {{{hideTier}}}>
+                            <span class="badge badge-info">Tier: {{currentTier}}</span>
+                        </div>
 
 
                         {{#ifNotEquals description ""}}
@@ -400,7 +398,19 @@
                                   </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="marketActions{{address}}">
+                                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#withdrawFundsModal" data-contract-address="{{address}}" id="marketWithdrawFees{{address}}" class="marketWithdrawFees">Withdraw Fees</a>
                                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#marketInfoModal" data-contract-address="{{address}}" id="marketEditInfo{{address}}" class="marketEditInfo">Edit Market Info</a>
+
+                                <a href="javascript:void(0);" {{{displayTier3Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setAllowedWallets" data-contract-address="{{address}}" id="marketSetAllowedWallets{{address}}" class="setAllowedWallets">Whitelist Wallet</a>
+                                <a href="javascript:void(0);" {{{displayTier2Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setAllowedNfts" data-contract-address="{{address}}" id="marketSetAllowedNfts{{address}}" class="setAllowedNfts">Whitelist NFT</a>
+                                <a href="javascript:void(0);" {{{displayTier1Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setAllowedCollections" data-contract-address="{{address}}" id="marketSetAllowedCollections{{address}}" class="setAllowedCollections">Whitelist Collection</a>
+
+                                <a href="javascript:void(0);" {{{displayTier3Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setDisallowedWallets" data-contract-address="{{address}}" id="marketSetDisallowedWallets{{address}}" class="setDisallowedWallets">Blacklist Wallet</a>
+                                <a href="javascript:void(0);" {{{displayTier2Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setDisallowedNfts" data-contract-address="{{address}}" id="marketSetDisallowedNfts{{address}}" class="setDisallowedNfts">Blacklist NFT</a>
+                                <a href="javascript:void(0);" {{{displayTier1Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setDisallowedCollections" data-contract-address="{{address}}" id="marketSetDisallowedCollections{{address}}" class="setDisallowedCollections">Blacklist Collection</a>
+
+                                <a href="javascript:void(0);" class="dropdown-item" {{{hideIfTierNot0}}} data-toggle="modal" data-target="#marketStakeModal" data-contract-address="{{address}}" id="marketStake{{address}}" class="marketStake">Stake</a>
+                                <a href="javascript:void(0);" class="dropdown-item" {{{hideIfTier0}}} data-toggle="modal" data-target="#marketUnstakeModal" data-contract-address="{{address}}" id="marketUnstake{{address}}" class="marketUnstake">Unstake</a>
                             </div>
                         </div>
                     </div>
@@ -559,6 +569,276 @@
                         <div class="buttons-container">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary submitNewUpdate" id="marketSubmit">Create Market</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Edit Market Info Modal -->
+        <div class="modal fade" style="overflow-y: scroll;" id="marketInfoModal" tabindex="-1"
+             aria-labelledby="marketInfoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="marketInfoModalLabel">Edit Market Info</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+
+                        <form id="marketInfoForm" onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="marketInfoName">Name<span class="required">*</span></label>
+                                <input type="text" placeholder="Enter a name for your market" class="form-control" id="marketInfoName">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="marketInfoDescription">Description</label>
+                                <textarea class="form-control" id="marketInfoDescription" rows="3"></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="marketInfoImageFile">Click to Choose Image....</label>
+                                <input type="file" class="form-control-file imageFile" id="marketInfoImageFile" accept="image/*">
+                                <div class="imageFileDisplay mt-3"></div>
+                                <input type="hidden" id="marketInfoImageUrl" value="" />
+                            </div>
+
+                            <fieldset class="form-group">
+                                <legend>Social (optional)</legend>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="text" class="form-control mb-3" placeholder="Twitter Url" id="marketInfoTwitter">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Discord Url" id="marketInfoDiscord">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Telegram Url" id="marketInfoTelegram">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="text" class="form-control mb-3" placeholder="Medium Url" id="marketInfoMedium">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Instagram Url" id="marketInfoInstagram">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Youtube Url" id="marketInfoYoutube">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <input type="text" class="form-control mb-3" placeholder="Website Url" id="marketInfoWeb">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Email address" id="marketInfoEmail">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="Phone" id="marketInfoPhone">
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col">
+                                        <label for="marketInfoCustomLink">Custom Link</label>
+                                        <input type="text" class="form-control" placeholder="Enter a link to a custom url"
+                                               id="marketInfoCustomLink">
+                                    </div>
+                                    <div class="col">
+                                        <label for="marketInfoCustomLinkText">Custom Link Text</label>
+                                        <input type="text" class="form-control" placeholder="Enter a link text for your custom url"
+                                               id="marketInfoCustomLinkText">
+                                    </div>
+                                </div>
+
+                            </fieldset>
+
+                            <input type="hidden" value="" id="marketInfoMarketAddress" name="marketInfoMarketAddress" />
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="marketInfoButton">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Allow/Disallow Modal -->
+        <div class="modal fade" style="overflow-y: scroll;" id="marketAllowDisallowModal" tabindex="-1" role="dialog"
+             aria-labelledby="marketAllowDisallowModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="marketAllowDisallowModalLabel"></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+
+                        <form onsubmit="return false;">
+
+                            <div class="form-group">
+
+                                <div class="form-group">
+                                    <label for="marketAllowedDisallowedStatusAddress" id="marketAllowedDisallowedStatusAddressId"><span class="required">*</span></label>
+                                    <input type="text" placeholder="Enter an address" class="form-control" id="marketAllowedDisallowedStatusAddress">
+                                </div>
+
+                                <div class="form-group" id="marketAllowedDisallowedStatusIdGroup" style="display:none;">
+                                    <label for="marketAllowedDisallowedStatusId" id="marketAllowedDisallowedStatusIdId"><span class="required">*</span></label>
+                                    <input type="text" placeholder="Enter an NFT ID" class="form-control" id="marketAllowedDisallowedStatusId">
+                                </div>
+
+                                <label class="form-check-label" for="marketAllowedDisallowedStatus0" id="marketAllowedDisallowedStatus0Label"></label>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="marketAllowedDisallowedStatus" id="marketAllowedDisallowedStatus0"
+                                           class="farmShopRunMode" value="1">
+                                    <label class="form-check-label" for="marketAllowedDisallowedStatus0">Yes</label>
+                                </div>
+
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="marketAllowedDisallowedStatus" id="marketAllowedDisallowedStatus1"
+                                           class="farmShopRunMode" value="0">
+                                    <label class="form-check-label" for="marketAllowedDisallowedStatus1">No</label>
+                                </div>
+
+                            </div>
+
+                            <input type="hidden" value="" id="marketAllowDisallowType" name="marketAllowDisallowType" />
+                            <input type="hidden" value="" id="marketAllowDisallowWrapperAddress" name="marketAllowDisallowWrapperAddress" />
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" style="margin-right: 0;" id="marketAllowedDisallowedButton">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stake -->
+        <div class="modal fade" style="overflow-y: scroll;" id="marketStakeModal" tabindex="-1" role="dialog"
+             aria-labelledby="marketStakeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="marketStakeModalLabel">Stake</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+                        <form onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="marketTier">Select Tier<span class="required">*</span></label>
+                                <select class="form-control" id="marketStakeTier">
+                                    <option value="1">Tier 1</option>
+                                    <option value="2">Tier 2</option>
+                                    <option value="3">Tier 3</option>
+                                </select>
+                            </div>
+
+                            <input type="hidden" value="" id="marketStakeWrapperAddress" name="marketStakeWrapperAddress" />
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" style="margin-right: 0;" id="marketStakeButton">Stake</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Unstake -->
+        <div class="modal fade" style="overflow-y: scroll;" id="marketUnstakeModal" tabindex="-1" role="dialog"
+             aria-labelledby="marketUnstakeModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="marketUnstakeModalLabel">Unstake</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+                        You are currently on Tier <span id="marketCurrentTier"></span>.<br/><br/>
+                        In order to unstake, please click on the button below.<br/><br/>
+                        Please be aware that unstaking will disable new offers. Users can still sell their NFTs and you can still withdraw fees.<br/><br/>
+                        You can pick a new tier at any time and resume all features.
+                        <form onsubmit="return false;">
+                            <input type="hidden" value="" id="marketUnstakeWrapperAddress" name="marketUnstakeWrapperAddress" />
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" style="margin-right: 0;" id="marketUnstakeButton">Unstake</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Withdraw Fees -->
+
+        <div class="modal fade" style="overflow-y: scroll;" id="withdrawFundsModal" tabindex="-1" role="dialog" aria-labelledby="withdrawFundsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="withdrawFundsModalLabel">Withdraw Fees</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+
+                        <p>Here you can lookup and withdraw collected fees.</p>
+
+                        <form onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="lookupToken">Token to lookup</label>
+                                <select class="form-control" id="lookupToken">
+                                </select>
+                            </div>
+
+                            <div id="lookupTokenWrapper" class="form-group" style="display:none;">
+                                <label for="lookupTokenAddress">Custom <span class="networkStd"></span> Token Address *</label>
+                                <input type="text" placeholder="Enter a token address to lookup your current balance" class="form-control" id="lookupTokenAddress">
+                            </div>
+
+                            <small id="lookupInfo" class="form-text text-muted"></small>
+
+                            <div class="form-group">
+                                <button type="button" class="btn btn-primary" id="lookupButton">Lookup</button>
+                            </div>
+
+                            <input type="hidden" value="" id="lookupWrapperAddress" name="lookupWrapperAddress" />
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="withdrawFeesButton" style="display:none;">Withdraw</button>
                         </div>
                     </div>
                 </div>

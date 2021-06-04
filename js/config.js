@@ -4,7 +4,7 @@ let network = 'Rinkeby';
 // the chain id of the network as hex value without leading 0x
 let chain_id = '4';
 
-// set to true to hide the sell button the wallet.
+// set to true to hide the sell button in the wallet.
 // useful if you want to use a custom marketplace and prevent confusion
 // as the sell button is solely meant for the built-in marketplace
 let disable_sell_button = false;
