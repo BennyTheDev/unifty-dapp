@@ -1790,7 +1790,9 @@ textarea, input {
   .dark-edition .main-panel .content .row,
   .light-edition .main-panel .content .row {
     margin: 0 0 1rem 0; }
+  .dark-edition .main-panel .content #marketsPage.row,
   .dark-edition .main-panel .content #farmsPage.row,
+  .light-edition .main-panel .content #marketsPage.row,
   .light-edition .main-panel .content #farmsPage.row {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));

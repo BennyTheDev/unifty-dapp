@@ -214,6 +214,11 @@ function TncDapp() {
 
         $('#collectiblesPage').append(tmpl);
 
+        if(disable_sell_button){
+
+            $('.marketSellLink').css('display','none');
+        }
+
         if(chain_id == '1') {
             $('.marketSellLink').css('display', 'none');
         }
