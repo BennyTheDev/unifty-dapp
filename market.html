@@ -403,22 +403,18 @@
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
+                        <a href="{{opensea}}">
+                        
                             {{#ifEquals shadowed "false"}}
-                                <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                            <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                        
                             {{/ifEquals}}
-                            {{#ifEquals shadowed "true"}}
-                            <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">
+                            {{#ifEquals shadowed "true"}}                        
+                            <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">                        
                             {{/ifEquals}}
+                        
+                        </a>
                         {{/ifNotEquals}}
-
-                        {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
-
-                        {{#ifEquals checkOpenSea "Open Details"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
-
 
                         <div class="card-body">
 
@@ -466,7 +462,7 @@
                                 {{/ifNotEquals}}
                             </div>
 
-                            <h5 class="card-title text-truncate"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
 
                             <div class="collection-name">{{{collectionName}}}</div>
 
@@ -530,7 +526,20 @@
                             <div> </div>
                             {{/ifEquals}}
 
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                            {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                            <a class="traits btn btn-outline" href="{{opensea}}"
+                                target="_blank">{{checkOpenSea}}</a>
+                            {{/ifEquals}}
+                            
+                            {{#ifEquals checkOpenSea "Open Details"}}
+                            <a class="traits btn btn-outline""
+                                href="{{opensea}}">{{checkOpenSea}}</a>
+                            {{/ifEquals}}
+                            
+                            
+                            
+                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button"
+                                aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
                                 Traits
                             </a>
 
@@ -579,7 +588,9 @@
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
-                        <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                        <a href="{{opensea}}">
+                            <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                        </a>
                         {{/ifNotEquals}}
 
                         <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
@@ -629,7 +640,7 @@
                                 {{/ifNotEquals}}
                             </div>
 
-                            <h5 class="card-title text-truncate"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
 
                             <div class="collection-name">{{{collectionName}}}</div>
 

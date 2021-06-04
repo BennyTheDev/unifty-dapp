@@ -470,20 +470,15 @@
             
               <div class="card card-profile">
                   {{#ifNotEquals image ""}}
-                      <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                  <a href="{{opensea}}">
+                    <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                  </a>
                   {{/ifNotEquals}}
                   
-                  {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                      <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                  {{/ifEquals}}
-
-                  {{#ifEquals checkOpenSea "Open Details"}}
-                      <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
-                  {{/ifEquals}}
               
 
                   <div class="card-body">
-                    <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                    <h5 class="card-title"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
                       {{#ifNotEquals animation_url ""}}
                       <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
                         <span class="material-icons">
@@ -556,9 +551,18 @@
                           <br />
                       {{/ifNotEquals}}
 
-                      <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                          Traits
-                      </a>
+                      
+                  {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                  <a class="traits btn btn-outline" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
+                  {{/ifEquals}}
+                  
+                  {{#ifEquals checkOpenSea "Open Details"}}
+                  <a class="traits btn btn-outline" href="{{opensea}}">{{checkOpenSea}}</a>
+                  {{/ifEquals}}
+                  
+                  <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                    Traits
+                  </a>
                       <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
                           <ul class="list-group">
                               {{#each attributes}}
