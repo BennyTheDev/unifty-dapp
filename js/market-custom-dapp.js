@@ -2,6 +2,7 @@ function TncDapp() {
 
     //const ipfs = window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'https' });
     const _this = this;
+    this.marketHeaderTemplate = Handlebars.compile($('#market-header-template').html());
     this.offerTemplate = Handlebars.compile($('#offer-template').html());
     this.pickerTemplate = Handlebars.compile($('#picker-template').html());
     this.noOffersTemplate = Handlebars.compile($('#no-offers').html());
@@ -18,6 +19,78 @@ function TncDapp() {
         let asksLengths = 0;
         let length = 0;
         let stop = 0;
+
+        let market_name = 'NFT Market';
+        let market_description = '';
+        let market_image = '';
+        let custom_link_value = '';
+        let custom_link_name = '';
+        let market_twitter = '';
+        let market_discord = '';
+        let market_instagram = '';
+        let market_youtube = '';
+        let market_web = '';
+        let market_email = '';
+        let market_phone = '';
+        let market_telegram = '';
+        let market_medium = '';
+
+        try {
+
+            let data = await $.getJSON(await tncLibMarket.getMarketUri(_this.wrapperAddress));
+
+            console.log(data);
+
+            if (typeof data == 'object') {
+
+                market_name = typeof data.name != 'undefined' && data.name ? data.name : '';
+                market_description = typeof data.description != 'undefined' && data.description ? data.description : '';
+                market_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://', 'https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                market_twitter = typeof data.twitter != 'undefined' && data.twitter ? data.twitter : '';
+                market_discord = typeof data.discord != 'undefined' && data.discord ? data.discord : '';
+                market_instagram = typeof data.instagram != 'undefined' && data.instagram ? data.instagram : '';
+                market_youtube = typeof data.youtube != 'undefined' && data.youtube ? data.youtube : '';
+                market_web = typeof data.web != 'undefined' && data.web ? data.web : '';
+                market_email = typeof data.email != 'undefined' && data.email ? data.email : '';
+                market_phone = typeof data.phone != 'undefined' && data.phone ? data.phone : '';
+                market_telegram = typeof data.telegram != 'undefined' && data.telegram ? data.telegram : '';
+                market_medium = typeof data.medium != 'undefined' && data.medium ? data.medium : '';
+
+                if (
+                    typeof data.customLink != 'undefined' &&
+                    typeof data.customLink.name != 'undefined' &&
+                    data.customLink.name &&
+                    typeof data.customLink.value != 'undefined' &&
+                    data.customLink.value
+                ) {
+                    custom_link_value = data.customLink.value;
+                    custom_link_name = data.customLink.name;
+                }
+            }
+
+        } catch (e) {
+
+            console.log(e);
+        }
+
+        let tmpl = _this.marketHeaderTemplate({
+            name: market_name,
+            image: market_image,
+            custom_link_value: custom_link_value,
+            custom_link_name: custom_link_name,
+            twitter: market_twitter,
+            discord: market_discord,
+            medium: market_medium,
+            web: market_web,
+            phone: market_phone,
+            instagram: market_instagram,
+            email: market_email,
+            telegram: market_telegram,
+            youtube: market_youtube,
+            description: market_description
+        });
+
+        $('#farmHeader').append(tmpl);
 
         if(category > 0){
 
@@ -272,7 +345,7 @@ function TncDapp() {
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
                 collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
-                opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
+                opensea : 'custom-collectible.html?location='+_this.wrapperAddress+'&collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
             });
 
             if(which == 'picker') {
@@ -357,7 +430,7 @@ function TncDapp() {
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
                 collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
-                opensea : 'collectible.html?collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
+                opensea : 'custom-collectible.html?location='+_this.wrapperAddress+'&collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
             });
 
             $('#offersPage').append(tmpl);
@@ -1337,63 +1410,97 @@ function TncDapp() {
             image = '<img src="' + data_image + '" border="0" style="width: 50px;" />';
         }
 
+        let approved = await tncLib.erc1155IsApprovedForAll(tncLib.account, _this.marketAddress, erc1155Address);
+
+        let displayApprovalLink = 'style="display:none;"';
+        let displayAmountDisabled = '';
+
+        if(!approved){
+
+            displayAmountDisabled = 'disabled="disabled"';
+            displayApprovalLink = '';
+        }
+        else
+        {
+            $('.approveNft'+erc1155Address).css('display','none');
+            $('.amountToAdd'+erc1155Address).prop('disabled', false);
+        }
+
+        let owner = await tncLib.erc1155Owner(erc1155Address);
+
+        let royalties = 0;
+        let displayRoyalties = '';
+        if(!owner){
+            displayRoyalties = 'style="display:none;"';
+        }
+        else{
+            royalties = _this.formatNumberString(await tncLibMarket.getRoyalties(erc1155Address, id, _this.marketAddress), 2);
+        }
+
         let out = '<div class="row mb-5">';
         out += '<div class="col-2">';
         out += image;
         out += '</div>';
-        out += '<div class="col-7">';
+        out += '<div class="col-5">';
         out += erc1155Name + ' / ' + name;
         out += '</div>';
         out += '<div class="col-3">';
-        out += '<input type="text" value="" placeholder="0" style="width: 50px;" data-erc1155address="'+erc1155Address+'" data-id="'+id+'" id="amountToAdd'+erc1155Address+id+'"/>';
+        out += '<input type="text" '+displayAmountDisabled+' class="amountToAdd amountToAdd'+erc1155Address+'" value="" placeholder="0" style="width: 50px;margin-right: 5px;" data-erc1155address="'+erc1155Address+'" data-id="'+id+'" id="amountToAdd'+erc1155Address+id+'"/>';
+        out += '<a '+displayApprovalLink+' class="approveNft approveNft'+erc1155Address+'" id="approveNft'+erc1155Address+id+'" data-erc1155address="'+erc1155Address+'" data-id="'+id+'" href="javascript:void(0);">Approve first!</a>';
         out += '<br/>You own: ' + nft.balance;
+        out += '</div>';
+        out += '<div class="col-2">';
+        out += '<a '+displayRoyalties+' class="amountToAdd royalties" value="" placeholder="0" style="width: 50px;margin-right: 5px;" data-contract-address="'+erc1155Address+'" data-toggle="modal" data-target="#royaltiesModal" data-edit="true" data-nft-id="'+id+'" id="royalties'+erc1155Address+id+'" href="javascript:void(0);">Set Royalties ('+royalties+' %)</a>';
         out += '</div>';
         out += '</div>';
 
         $('#nftSellWallet').append(out);
 
-        $('#amountToAdd'+erc1155Address+id).off('change');
-        $('#amountToAdd'+erc1155Address+id).on('change', async function(e){
+        $('#approveNft'+erc1155Address+id).off('click');
+        $('#approveNft'+erc1155Address+id).on('click', async function(e){
 
             let amount = parseInt($(this).val());
 
-            if(!isNaN(amount) && amount > 0){
-
-                let balance = await tncLib.balanceof($(e.target).data('erc1155address'), tncLib.account, $(e.target).data('id'));
-                if(balance < amount){
-                    _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
-                    return;
-                }
-
-                let approved = await tncLib.erc1155IsApprovedForAll(tncLib.account, _this.marketAddress, $(e.target).data('erc1155address'));
-
-                if(!approved){
-
-                    _alert('Please approve the NFT to be sold.');
-
-                    tncLib.erc1155SetApprovalForAll(
-                        _this.marketAddress,
-                        true,
-                        $(e.target).data('erc1155address'),
-                        function () {
-                            toastr["info"]('Please wait for the transaction to finish.', "Set approval for all....");
-                        },
-                        function (receipt) {
-                            console.log(receipt);
-                            toastr.remove();
-                            toastr["success"]('Transaction has been finished.', "Success");
-                            $('#alertModal').modal('hide');
-                        },
-                        function (err) {
-                            toastr.remove();
-                            let errMsg = 'An error occurred with your set approval for all transaction.';
-                            toastr["error"](errMsg, "Error");
-                            $('#alertModal').modal('hide');
-                            $('#amountToAdd'+erc1155Address+id).val('');
-                        }
-                    );
-                }
+            let balance = await tncLib.balanceof($(e.target).data('erc1155address'), tncLib.account, $(e.target).data('id'));
+            if(balance < amount){
+                _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
+                return;
             }
+
+            let approved = await tncLib.erc1155IsApprovedForAll(tncLib.account, _this.marketAddress, $(e.target).data('erc1155address'));
+
+            if(!approved){
+
+                _alert('Please approve the NFT prior selling.');
+
+                tncLib.erc1155SetApprovalForAll(
+                    _this.marketAddress,
+                    true,
+                    $(e.target).data('erc1155address'),
+                    function () {
+                        toastr["info"]('Please wait for the transaction to finish.', "Set approval for all....");
+                    },
+                    function (receipt) {
+                        console.log(receipt);
+                        toastr.remove();
+                        toastr["success"]('Transaction has been finished.', "Success");
+                        $('#alertModal').modal('hide');
+                        $('#approveNft'+$(e.target).data('erc1155address')+$(e.target).data('id')).css('display','none');
+                        $('#amountToAdd'+$(e.target).data('erc1155address')+$(e.target).data('id')).prop('disabled', false);
+
+                        $('.approveNft'+$(e.target).data('erc1155address')).css('display','none');
+                        $('.amountToAdd'+$(e.target).data('erc1155address')).prop('disabled', false);
+                    },
+                    function (err) {
+                        toastr.remove();
+                        let errMsg = 'An error occurred with your set approval for all transaction.';
+                        toastr["error"](errMsg, "Error");
+                        $('#alertModal').modal('hide');
+                        $('#amountToAdd'+erc1155Address+id).val('');
+                    }
+                );
+            }
+
         });
     }
 
@@ -2037,6 +2144,7 @@ function TncDapp() {
                 $('#nftSellButton').prop('disabled', false);
                 $('#nftSellButton').html('Sell!');
                 toastr["error"]('An error occurred with your sell transaction.', "Error");
+                _alert("We could not put your offer on sale. Please contact the market owner to check back if your wallet, collection or NFT is allowed to be posted.");
             });
     }
 
@@ -2087,6 +2195,94 @@ function TncDapp() {
                     }
                 }, 300);
             });
+        }
+    }
+
+    this.performRoyalties = async function(){
+
+        let perc = parseFloat($('#nftRoyalties').val().trim());
+        let manual = $('#nftRoyaltiesIsManual').val().trim() == 'true' ? true : false;
+
+        if(manual){
+
+            let collectionAddress = $('#nftRoyaltiesManualAddress').val().trim();
+            let nftId = parseInt($('#nftRoyaltiesManualId').val().trim());
+
+            if(!web3.utils.isAddress(collectionAddress)){
+                _alert("Invalid collection address");
+                return;
+            }
+
+            if(isNaN(nftId) || nftId < 0){
+
+                _alert("Please enter a valid NFT ID");
+                return;
+            }
+
+            let owner = await tncLib.erc1155Owner(collectionAddress);
+
+            if(!owner){
+                _alert("You are not the owner of the given collection");
+                return;
+            }
+
+            $('#nftRoyaltiesErc1155Address').val(collectionAddress);
+            $('#nftRoyaltiesId').val(nftId);
+        }
+
+        if(isNaN(perc) || perc < 0){
+
+            _alert('Invalid royalties');
+            return;
+
+        }
+
+        perc = _this.resolveNumberString(""+(perc.toFixed(2)), 2);
+
+        toastr.remove();
+        $('#storeRoyaltiesButton').html('Pending Transaction...');
+        $('#storeRoyaltiesButton').prop('disabled', true);
+
+        window.tncLibMarket.setRoyalties(
+            $('#nftRoyaltiesErc1155Address').val(),
+            $('#nftRoyaltiesId').val(),
+            perc,
+            _this.marketAddress,
+            function (){
+                toastr["info"]('Please wait for the transaction to finish.', "Setting royalties....");
+            },
+            function(receipt){
+                console.log(receipt);
+                toastr.remove();
+                $('#storeRoyaltiesButton').html('Set Royalties');
+                $('#storeRoyaltiesButton').prop('disabled', false);
+                toastr["success"]('Transaction has been finished.', "Success");
+            },
+            function(){
+                toastr.remove();
+                $('#storeRoyaltiesButton').prop('disabled', false);
+                $('#storeRoyaltiesButton').html('Set Royalties');
+                toastr["error"]('An error occurred with your royalties transaction.', "Error");
+            });
+    }
+
+    this.populateRoyalties = async function(e){
+
+        $('#nftRoyaltiesIsManual').val( $(e.relatedTarget).data('type') == 'manual' ? 'true' : 'false' );
+
+        if($(e.relatedTarget).data('type') != 'manual') {
+
+            $('#nftRoyaltiesErc1155Address').val( $(e.relatedTarget).data('contractAddress') );
+            $('#nftRoyaltiesId').val( $(e.relatedTarget).data('nftId') );
+            $('.nftRoyaltiesManual').css('display', 'none');
+            $('#nftRoyalties').val(_this.formatNumberString(await tncLibMarket.getRoyalties($(e.relatedTarget).data('contractAddress'), $(e.relatedTarget).data('nftId'), _this.marketAddress), 2));
+        }
+        else
+        {
+            $('#nftRoyaltiesErc1155Address').val('');
+            $('#nftRoyaltiesId').val('');
+            console.log("Enabling manual entry");
+            $('.nftRoyaltiesManual').css('display', 'block');
         }
     }
 
@@ -2142,6 +2338,12 @@ function TncDapp() {
 
                 $('#nftInteractiveModal').off('show.bs.modal');
                 $('#nftInteractiveModal').on('show.bs.modal', _this.populateInteractive);
+
+                $('#storeRoyaltiesButton').off('click');
+                $('#storeRoyaltiesButton').on('click', _this.performRoyalties);
+
+                $('#royaltiesModal').off('show.bs.modal');
+                $('#royaltiesModal').on('show.bs.modal', _this.populateRoyalties);
 
                 $('#offersPage').css('display', 'grid');
 

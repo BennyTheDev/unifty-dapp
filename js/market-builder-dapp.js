@@ -97,6 +97,48 @@ function TncDapp() {
 
                     $('.currency').html(getCurrency());
 
+                    $('.btn-clipboard' + (i*2)).off('click');
+                    $('.btn-clipboard' + (i*2)).on('click', function () {
+
+                        $(this).tooltip('enable');
+                        let _this2 = this;
+                        setTimeout(function () {
+                            $(_this2).tooltip('show');
+                        }, 100);
+                        setTimeout(function () {
+                            $(_this2).tooltip('hide');
+                        }, 3000);
+
+                    });
+
+                    $('.btn-clipboard' + i).off('click');
+                    $('.btn-clipboard' + i).on('click', function () {
+
+                        $(this).tooltip('enable');
+                        let _this2 = this;
+                        setTimeout(function () {
+                            $(_this2).tooltip('show');
+                        }, 100);
+                        setTimeout(function () {
+                            $(_this2).tooltip('hide');
+                        }, 3000);
+
+                    });
+
+                    $('.btn-clipboard' + (i*2)).off('mouseover');
+                    $('.btn-clipboard' + (i*2)).on('mouseover', function () {
+
+                        $(this).tooltip('disable');
+
+                    });
+
+                    $('.btn-clipboard' + i).off('mouseover');
+                    $('.btn-clipboard' + i).on('mouseover', function () {
+
+                        $(this).tooltip('disable');
+
+                    });
+
                     $(".popover-description").popover({
                         trigger: "manual",
                         html: true,
@@ -929,6 +971,64 @@ function TncDapp() {
         });
     }
 
+    this.populateSwapFunds = async function(e){
+
+        let wrapperAddress = $(e.relatedTarget).data('contractAddress');
+        $('#swapFeesWrapperAddress').val(wrapperAddress);
+        let addresses = await tncLibCustomMarket.getMarketContractAddresses(wrapperAddress);
+        let fees = await tncLibCustomMarket.getSwapFees(tncLib.nif.options.address, addresses.swap);
+
+        let testFunds = web3.utils.toBN(fees);
+        let testZero = web3.utils.toBN("0");
+
+        if(testFunds.gt(testZero)) {
+            $('#withdrawSwapFundsButton').css('display', 'inline-block');
+        }else{
+            $('#withdrawSwapFundsButton').css('display', 'none');
+        }
+
+        $('#withdrawSwapFundsNif').html(
+            _this.formatNumberString(
+            ""+fees,
+            18)
+        );
+
+        $('#withdrawSwapFundsButton').off('click');
+        $('#withdrawSwapFundsButton').on('click', async function(){
+
+            toastr.remove();
+            $(this).html('Pending Transaction...');
+            $(this).prop('disabled', 'disabled');
+
+            let _button = this;
+
+            tncLibCustomMarket.withdrawSwapFunds(
+                tncLib.nif.options.address,
+                addresses.swap,
+                function (){
+                    toastr["info"]('Please wait for the transaction to finish.', "Withdrawing....");
+                },
+                function(receipt){
+                    console.log(receipt);
+                    toastr.remove();
+                    $(_button).html('Withdraw');
+                    $(_button).prop('disabled', false);
+                    toastr["success"]('Transaction has been finished.', "Success");
+                    $('#withdrawSwapFundsModal').modal('hide');
+                    $('#withdrawSwapFundsButton').css('display', 'none');
+                    $('#lookupInfo').text('');
+                    _alert('Withdraw successful!');
+                },
+                function(){
+                    toastr.remove();
+                    $(_button).prop('disabled', false);
+                    $(_button).html('Withdraw');
+                    toastr["error"]('An error occurred with your withdrawal transaction.', "Error");
+                }
+            );
+        });
+    };
+
     this.clearMarketInfo = function(){
         $('#marketInfoMarketAddress').val();
         $("#marketInfoForm")[0].reset();
@@ -1103,6 +1203,9 @@ function TncDapp() {
 
                 $('#withdrawFundsModal').off('show.bs.modal');
                 $('#withdrawFundsModal').on('show.bs.modal', _this.populateTokenLookup);
+
+                $('#withdrawSwapFundsModal').off('show.bs.modal');
+                $('#withdrawSwapFundsModal').on('show.bs.modal', _this.populateSwapFunds);
 
                 $('#marketsPage').css('display', 'grid');
                 await _this.populateMyMarkets();

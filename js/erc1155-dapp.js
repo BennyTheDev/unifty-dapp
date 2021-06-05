@@ -271,7 +271,7 @@ function TncDapp() {
                         }, 300);
                     });
 
-                    if(chain_id == '1') {
+                    if(chain_id == '1' || disable_royalties_button) {
                         $('.marketRoyaltiesLink').css('display', 'none');
                     }
                 }

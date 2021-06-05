@@ -347,7 +347,7 @@
         <h1>Market Builder</h1>
         <p>
 
-            Info -> A market is a place where you can buy and sell NFTs, and show everyone your amazing NFT artwork.
+            Info -> A market is a place where you can buy, sell and swap NFTs and earn fees. Create open or curated markets with just a few clicks!
         </p>
 
         <div href="javascript:void(0);" class="add-new-card-container" data-toggle="modal" data-target="#marketModal"
@@ -376,6 +376,9 @@
                     <div class="card-body">
 
                         <h5 class="card-title">
+                            <button class="btn btn-sm btn-clipboard btn-clipboard{{index2}}" data-clipboard-text="{{url}}" data-toggle="tooltip" data-placement="top" title="Copied">
+                                <i class="fa fa-clipboard"></i>
+                            </button>
                             <a href="{{url}}">{{name}} <i class="fa fa-external-link"></i></a>
                         </h5>
 
@@ -400,6 +403,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="marketActions{{address}}">
                                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#withdrawFundsModal" data-contract-address="{{address}}" id="marketWithdrawFees{{address}}" class="marketWithdrawFees">Withdraw Fees</a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#withdrawSwapFundsModal" data-contract-address="{{address}}" id="marketWithdrawSwapFees{{address}}" class="marketWithdrawSwapFees">Withdraw Swap Fees</a>
                                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#marketInfoModal" data-contract-address="{{address}}" id="marketEditInfo{{address}}" class="marketEditInfo">Edit Market Info</a>
 
                                 <a href="javascript:void(0);" {{{displayTier3Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setAllowedWallets" data-contract-address="{{address}}" id="marketSetAllowedWallets{{address}}" class="setAllowedWallets">Whitelist Wallet</a>
@@ -840,6 +844,37 @@
                         <div class="buttons-container">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary" id="withdrawFundsButton" style="display:none;">Withdraw</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Withdraw Swap Fees -->
+
+        <div class="modal fade" style="overflow-y: scroll;" id="withdrawSwapFundsModal" tabindex="-1" role="dialog" aria-labelledby="withdrawSwapFundsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="withdrawSwapFundsModalLabel">Withdraw Swap Fees</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+
+                        <p>Here you can withdraw collected swap fees in $NIF.</p>
+                        <p>Funds: <span id="withdrawSwapFundsNif"></span> $NIF</p>
+
+                        <form onsubmit="return false;">
+                            <input type="hidden" value="" id="swapFeesWrapperAddress" name="swapFeesWrapperAddress" />
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="withdrawSwapFundsButton" style="display:none;">Withdraw</button>
                         </div>
                     </div>
                 </div>

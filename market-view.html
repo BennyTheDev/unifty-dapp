@@ -345,9 +345,82 @@
 
         <div class="container-fluid">
 
-            <h1 class="mb-5">NFT Market</h1>
+            <script id="market-header-template" type="text/x-handlebars-template">
+                <div class="nftHeader col-md-12 mb-4">
+                    <div class="card">
+                        <!-- <div class="row"> -->
+                        <div>
+                            <div class="card-content">
+                                {{#ifNotEquals image ""}}
+                                <div class="col-3">
+                                    <img class="card-img" loading="lazy" src="{{image}}" alt="{{name}}" style="width: 100%;max-width: 500px;" />
+                                </div>
+                                {{/ifNotEquals}}
 
-            <h3 id="marketProfile" class="mb-5"></h3>
+                                <div class="col-9">
+                                    <div class="card-body">
+                                        <h1>{{name}}</h1>
+                                        {{#ifNotEquals description ""}}
+                                        <p class="card-text">{{markdown description}}</p>
+                                        {{/ifNotEquals}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-links">
+                                {{#ifNotEquals custom_link_value ""}}
+                                <a href="{{custom_link_value}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-external-link"></i> {{custom_link_name}}</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals twitter ""}}
+                                <a href="{{twitter}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-twitter"></i> Twitter</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals telegram ""}}
+                                <a href="{{telegram}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-telegram"></i> Telegram</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals discord ""}}
+                                <a href="{{discord}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-discord"></i> Discord</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals instagram ""}}
+                                <a href="{{instagram}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-instagram"></i> Instagram</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals medium ""}}
+                                <a href="{{medium}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-medium"></i> Medium</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals youtube ""}}
+                                <a href="{{youtube}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-youtube"></i> Youtube</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals web ""}}
+                                <a href="{{web}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-home"></i> Web</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals email ""}}
+                                <a href="mailto:{{email}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-envelope"></i> Email</a>
+                                {{/ifNotEquals}}
+
+                                {{#ifNotEquals phone ""}}
+                                <div class="mt-2" style="white-space: nowrap;">Phone: {{phone}}</div>
+                                {{/ifNotEquals}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </script>
+
+            <div class="nftHeader-stakingOptions-container" style="width: 100% !important;">
+                <h3 id="farmHeader" class="mb-5"></h3>
+            </div>
+
+            <div type="button" class="add-new-card-container" id="sell" data-toggle="modal" data-target="#nftSellModal">
+                    <span class="material-icons">
+                    add_circle
+                  </span>Sell!
+            </div>
 
             <div id="marketOptions" class="row mb-5">
 
@@ -376,14 +449,15 @@
                         <a href="javascript:void(0);" class="dropdown-item" id="myoffers">
                             My Offers
                         </a>
-                        <a href="javascript:void(0);" class="dropdown-item" id="sell" data-toggle="modal" data-target="#nftSellModal">
-                            Bundle Sale
-                        </a>
+
                         <a href="javascript:void(0);" class="dropdown-item" id="swapRequests" data-toggle="modal" data-target="#swapRequestsModal">
                             Swap Requests
                         </a>
                         <a href="javascript:void(0);" class="dropdown-item" id="withdrawFunds" data-toggle="modal" data-target="#withdrawFundsModal">
                             Withdraw Funds
+                        </a>
+                        <a href="javascript:void(0);" class="dropdown-item" id="setRoyalties" data-toggle="modal" data-target="#royaltiesModal" data-type="manual">
+                            Set Royalties
                         </a>
                     </div>
                 </div>
@@ -708,6 +782,7 @@
                                 </div>
 
                                 <input type="hidden" name="nftBuyErc1155Address" id="nftBuyErc1155Address" value=""/>
+
                                 <input type="hidden" name="nftBuyNftId" id="nftBuyNftId" value=""/>
                                 <input type="hidden" name="nftBuyIndex" id="nftBuyIndex" value=""/>
 
@@ -962,6 +1037,53 @@
                         <div class="modal-footer">
                             <div class="buttons-container">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Royalties -->
+
+            <div class="modal fade" style="overflow-y: scroll;" id="royaltiesModal" tabindex="-1" role="dialog" aria-labelledby="royaltiesModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="royaltiesModalLabel">Set Royalties</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+
+                            <p>
+                                If you intend to use royalties, please add them below in percent. 50% max. royalties allowed, only for purchases on the Unifty Market.
+                            </p>
+
+                            <div class="form-group nftRoyaltiesManual" style="display:none;">
+                                <label for="nftRoyaltiesManualAddress">Collection Address<span class="required">*</span></label>
+                                <input type="text" placeholder="Enter a collection address that you own" class="form-control" id="nftRoyaltiesManualAddress">
+                            </div>
+
+                            <div class="form-group nftRoyaltiesManual" style="display:none;">
+                                <label for="nftRoyaltiesManualId">NFT ID<span class="required">*</span></label>
+                                <input type="text" placeholder="Enter an NFT ID from the collection above" class="form-control" id="nftRoyaltiesManualId">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nftRoyalties">Royalties in percent *</label>
+                                <input value="" type="text" placeholder="Add royalties in percent" class="form-control" id="nftRoyalties">
+                            </div>
+
+                            <input type="hidden" id="nftRoyaltiesErc1155Address" value="" />
+                            <input type="hidden" id="nftRoyaltiesId" value="" />
+                            <input type="hidden" id="nftRoyaltiesIsManual" value="false" />
+
+                        </div>
+                        <div class="modal-footer">
+                            <div class="buttons-container">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" id="storeRoyaltiesButton">Set Royalties</button>
                             </div>
                         </div>
                     </div>

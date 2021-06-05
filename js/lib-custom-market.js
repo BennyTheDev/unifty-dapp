@@ -725,6 +725,22 @@ function TncLibCustomMarket(){
         return await market.methods.controllerFunds(token).call({from: this.account});
     }
 
+    this.getSwapFees = async function(token, swapAddress){
+
+        await sleep(sleep_time);
+
+        let market = _self.contractInstancesCache(swapAddress, 'swap');
+        return await market.methods.controllerFunds(token).call({from: this.account});
+    }
+
+    this.getMarketUri = async function(wrapperAddress){
+
+        await sleep(sleep_time);
+
+        let market = _self.contractInstancesCache(wrapperAddress, 'wrap');
+        return await market.methods.marketUri().call({from: this.account});
+    }
+
     this.getRoyalties = async function(erc1155Address, id, marketAddress){
 
         await sleep(sleep_time);
@@ -917,6 +933,45 @@ function TncLibCustomMarket(){
         const price = await web3.eth.getGasPrice();
 
         market.methods.withdrawBalance(token)
+            .send({
+                from: this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                errCallback();
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.withdrawSwapFunds = async function(token, swapAddress, preCallback, postCallback, errCallback){
+
+        await sleep(sleep_time);
+
+        let market = _self.contractInstancesCache(swapAddress, 'swap');
+
+        let gas = 0;
+
+        try{
+
+            gas = await market.methods.withdrawFee(token).estimateGas({
+                from: this.account
+            });
+
+        }catch(e){
+            console.log(e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        market.methods.withdrawFee(token)
             .send({
                 from: this.account,
                 gas: gas + Math.floor( gas * 0.1 ),

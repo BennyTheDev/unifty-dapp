@@ -6,8 +6,13 @@ let chain_id = '4';
 
 // set to true to hide the sell button in the wallet.
 // useful if you want to use a custom marketplace and prevent confusion
-// as the sell button is solely meant for the built-in marketplace
-let disable_sell_button = false;
+// as the sell button is solely meant for the built-in marketplace, not for custom marketplaces
+let disable_sell_button = true;
+
+// set to true to hide the royalties button in the wallet and collection manager.
+// useful if you want to use a custom marketplace and prevent confusion
+// as the royalties button is solely meant for the built-in marketplace, not for custom marketplaces
+let disable_royalties_button = true;
 
 // recommended block lists for adult collections on the marketplace
 // remove the switch below to display all offers from these collections in the public marketplace
