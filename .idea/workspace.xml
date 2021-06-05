@@ -20,12 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/customMarketABI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/customSwapABI.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/market-custom-dapp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/market-view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/lib-custom-market.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-custom-market.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/market-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-builder-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-builder.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,7 +68,7 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
@@ -77,8 +78,8 @@
       <recent name="C:\MAMP\htdocs\knots\dapp_new\js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\MAMP\htdocs\knots\dapp_new" />
       <recent name="C:\MAMP\htdocs\knots\dapp_new\js" />
+      <recent name="C:\MAMP\htdocs\knots\dapp_new" />
       <recent name="C:\MAMP\htdocs\knots\dapp_new\assets\img" />
     </key>
   </component>
@@ -129,7 +130,7 @@
       <workItem from="1621770798455" duration="196000" />
       <workItem from="1621966623978" duration="23778000" />
       <workItem from="1622529834626" duration="3902000" />
-      <workItem from="1622645222745" duration="67867000" />
+      <workItem from="1622645222745" duration="73031000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -320,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622797126810</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="+ added market builder admin options (white/blacklists, withdraw fees, staking, unstaking)">
+      <created>1622850570424</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1622850570424</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,13 +368,14 @@
     <MESSAGE value="# removed Matic Token again as it is only for mainnet" />
     <MESSAGE value="# i forgot what I changed but it was important for sure" />
     <MESSAGE value="+ added config.js and moved configuration items from misc.js&#10;&#10;+ added initial revision for the market builder" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ added config.js and moved configuration items from misc.js&#10;&#10;+ added initial revision for the market builder" />
+    <MESSAGE value="+ added market builder admin options (white/blacklists, withdraw fees, staking, unstaking)" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added market builder admin options (white/blacklists, withdraw fees, staking, unstaking)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1622797125992">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1622850570003">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622797125992" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1622850570003" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -403,10 +412,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1622797135051">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1622850576576">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622797135051" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1622850576576" />
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617739666916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

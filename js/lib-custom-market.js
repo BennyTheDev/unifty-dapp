@@ -678,7 +678,7 @@ function TncLibCustomMarket(){
 
         if(askIndex != 0) {
 
-            return {ask: await this.getAskBase(askIndex), index: askIndex};
+            return {ask: await this.getAskBase(askIndex, marketAddress), index: askIndex};
         }
 
         return null;
@@ -815,7 +815,7 @@ function TncLibCustomMarket(){
             });
     };
 
-    this.buy = async function(seller, amount, ref, index, marketAddress, preCallback, postCallback, errCallback){
+    this.buy = async function(seller, amount, index, marketAddress, preCallback, postCallback, errCallback){
 
         await sleep(sleep_time);
 
@@ -825,7 +825,7 @@ function TncLibCustomMarket(){
 
         try{
 
-            gas = await market.methods.buy(seller, ""+amount, ref, ""+index).estimateGas({
+            gas = await market.methods.buy(seller, ""+amount, ""+index).estimateGas({
                 from: this.account
             });
 
@@ -837,7 +837,7 @@ function TncLibCustomMarket(){
 
         const price = await web3.eth.getGasPrice();
 
-        market.methods.buy(seller, ""+amount, ref, ""+index)
+        market.methods.buy(seller, ""+amount, ""+index)
             .send({
                 from: this.account,
                 gas: gas + Math.floor( gas * 0.1 ),

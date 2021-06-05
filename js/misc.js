@@ -329,3 +329,9 @@ const promisify = (inner) =>
             }
         })
     );
+
+function getUrlParam(param_name) {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    return urlParams.get(param_name);
+}

@@ -80,7 +80,7 @@ function TncDapp() {
                         image: data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'),
                         name: data.name,
                         description: data.description,
-                        url : window.location.origin  + window.location.pathname + "market-view.html?address=" + market.wrapperAddress,
+                        url : window.location.origin + window.location.pathname.replace('market-builder.html', 'market-view.html') + "?location=" + market.wrapperAddress,
                         index: i,
                         index2: i*2,
                         address: market.wrapperAddress,
