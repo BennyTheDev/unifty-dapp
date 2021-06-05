@@ -2306,7 +2306,7 @@ function TncDapp() {
                 $('#nftSwapButton').on('click', _this.performSwapRequest);
 
                 $('#myoffers').on('click', function(){
-                    location.href = 'market.html?address='+tncLib.account;
+                    location.href = 'market-view.html?location='+_this.wrapperAddress+'&address='+tncLib.account;
                 });
 
                 $('#nftInteractiveModal').off('hide.bs.modal');
