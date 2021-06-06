@@ -932,6 +932,7 @@ function TncDapp() {
                     $(_button).prop('disabled', false);
                     $(_button).html('Swap!');
                     toastr["error"]('An error occurred with your swapping transaction.', "Error");
+                    _alert("We could not perform your swap request. Please contact the market owner.");
                 }
             );
         }
@@ -2010,6 +2011,7 @@ function TncDapp() {
                 $(_button).prop('disabled', false);
                 $(_button).html('Accept');
                 toastr["error"]('An error occurred with your swapping transaction.', "Error");
+                _alert("We could not perform your accept request. Please contact the market owner.");
             }
         );
     }

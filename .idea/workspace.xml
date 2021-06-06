@@ -20,7 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/market-custom-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-custom-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/market-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-builder.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +125,7 @@
       <workItem from="1621770798455" duration="196000" />
       <workItem from="1621966623978" duration="23778000" />
       <workItem from="1622529834626" duration="3902000" />
-      <workItem from="1622645222745" duration="92382000" />
+      <workItem from="1622645222745" duration="93278000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -349,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623002119035</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="+ added another nsfw collection to the bsc blocklist&#10;+ added an alert if buy orders cannot be processed">
+      <created>1623003542976</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1623003542976</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -397,10 +406,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="+ added another nsfw collection to the bsc blocklist&#10;+ added an alert if buy orders cannot be processed" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1623002118631">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1623003542589">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1623002118631" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1623003542589" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -437,18 +446,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1623002125393">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1623003549740">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623002125393" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623003549740" />
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617739666916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1617739666916" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1622906852558">
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1623004310917">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1622906852558" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1623004310917" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1622900258120">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
