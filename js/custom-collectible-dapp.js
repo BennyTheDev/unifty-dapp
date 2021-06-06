@@ -678,6 +678,7 @@ function TncDapp() {
                     $('#nftBatchBuy'+index).html('Buy');
                     $(_button).html('Buy!');
                     toastr["error"]('An error occurred with your buying transaction.', "Error");
+                    _alert("We could not perform your buy order. Please contact the market owner.");
                 }
             );
         }
@@ -813,6 +814,7 @@ function TncDapp() {
                             $('#nftBuyButtonShortcut'+index).html('Buy');
                             $(_button).html('Buy!');
                             toastr["error"]('An error occurred with your buying transaction.', "Error");
+                            _alert("We could not perform your buy order. Please contact the market owner.");
                         }
                     );
                 }

@@ -53,7 +53,9 @@ switch(chain_id){
             "0x53617d52F6c38235E485D40d053BE024E32aFbc4".toLowerCase(), // awesome colletion
             "0x8D7d1ec378F5FfE9CC3AEB20916e3bEc75B4727B".toLowerCase(), // defi hefi
             "0xb6Df30c5676C0C617F23c5299D168a4c456cc59A".toLowerCase(), // peekaboo
-            "0x513C78ab6f5B0b1D5946478fc0cfA9a5C342E103".toLowerCase() // waterpark
+            "0x513C78ab6f5B0b1D5946478fc0cfA9a5C342E103".toLowerCase(), // waterpark
+            "0x9180bD8693c27263191b6BB5698b20f2f6C75DdB".toLowerCase(), // KMO Girls
+            "0x6d0E3482C91b3B6FF6caBB39197ED8685ff1780c".toLowerCase() // first tape
         ];
         break;
     // add further chain specific as desired...
