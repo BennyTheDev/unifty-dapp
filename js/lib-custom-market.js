@@ -9,7 +9,7 @@ function TncLibCustomMarket(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0x292f665BA26b48b3449896c4B747D06b457b3F53', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xad1138433d9fAbDaF3e83EC4238136F654F6D232', {from: this.account});
         this.account = '';
 
         // xDAI MAINNET

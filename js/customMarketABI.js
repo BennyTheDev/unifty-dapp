@@ -704,6 +704,21 @@ const customMarketABI = [
         "type": "function"
     },
     {
+        "constant": true,
+        "inputs": [],
+        "name": "noStakes",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "constant": false,
         "inputs": [
             {
