@@ -540,7 +540,7 @@ function TncLib(){
                 from:this.account
             });
         }catch(e){
-            console.log('Error at gas estimation: ', e, 'fee: ', fee, 'minStake: ', minStake, 'maxStake: ', maxStake);
+            console.log('Error at gas estimation: ', e);
             errCallback("");
             return;
         }

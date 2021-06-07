@@ -4,10 +4,15 @@ let network = 'Rinkeby';
 // the chain id of the network as hex value without leading 0x
 let chain_id = '4';
 
-// set to true to hide the sell button the wallet.
+// set to true to hide the sell button in the wallet.
 // useful if you want to use a custom marketplace and prevent confusion
-// as the sell button is solely meant for the built-in marketplace
+// as the sell button is solely meant for the built-in marketplace, not for custom marketplaces
 let disable_sell_button = false;
+
+// set to true to hide the royalties button in the wallet and collection manager.
+// useful if you want to use a custom marketplace and prevent confusion
+// as the royalties button is solely meant for the built-in marketplace, not for custom marketplaces
+let disable_royalties_button = false;
 
 // recommended block lists for adult collections on the marketplace
 // remove the switch below to display all offers from these collections in the public marketplace
@@ -48,7 +53,9 @@ switch(chain_id){
             "0x53617d52F6c38235E485D40d053BE024E32aFbc4".toLowerCase(), // awesome colletion
             "0x8D7d1ec378F5FfE9CC3AEB20916e3bEc75B4727B".toLowerCase(), // defi hefi
             "0xb6Df30c5676C0C617F23c5299D168a4c456cc59A".toLowerCase(), // peekaboo
-            "0x513C78ab6f5B0b1D5946478fc0cfA9a5C342E103".toLowerCase() // waterpark
+            "0x513C78ab6f5B0b1D5946478fc0cfA9a5C342E103".toLowerCase(), // waterpark
+            "0x9180bD8693c27263191b6BB5698b20f2f6C75DdB".toLowerCase(), // KMO Girls
+            "0x6d0E3482C91b3B6FF6caBB39197ED8685ff1780c".toLowerCase() // first tape
         ];
         break;
     // add further chain specific as desired...
