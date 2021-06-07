@@ -105,6 +105,13 @@ body.light-edition {
   --cursor-pointer: pointer !important;
   --cursor-text: auto !important; }
 
+#loadMore {
+  grid-column: 1/-1;
+  margin: 2rem 0; }
+  #loadMore #loadMoreButton {
+    font-size: 1.2rem;
+    font-weight: 500; }
+
 h1 {
   font-family: "Poppins", sans-serif;
   font-size: 2.4rem;
