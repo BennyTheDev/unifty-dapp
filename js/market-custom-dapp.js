@@ -11,6 +11,7 @@ function TncDapp() {
     this.wrapperAddress = null;
     this.marketAddress = null;
     this.swapAddress = null;
+    this.isWrapAdmin = false;
 
     this.getMarketNfts = async function(address, which, category){
 
@@ -343,7 +344,7 @@ function TncDapp() {
                 shadowed: shadowed,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
-                options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
+                options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() || _this.isWrapAdmin ? 'true' : '',
                 collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
                 opensea : 'custom-collectible.html?location='+_this.wrapperAddress+'&collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
             });
@@ -428,7 +429,7 @@ function TncDapp() {
                 shadowed: shadowed,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
-                options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
+                options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() || _this.isWrapAdmin ? 'true' : '',
                 collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
                 opensea : 'custom-collectible.html?location='+_this.wrapperAddress+'&collection=' +  erc1155 + '&id=' + id + '&market_index=' + ( category > 0 ? category_index + "&market_category=" + category : index + "&market_category=0" )
             });
@@ -516,6 +517,7 @@ function TncDapp() {
 
         tncLibMarket.cancel(
             $('#nftBuyIndex').val(),
+            tncLib.account,
             _this.wrapperAddress,
             function (){
                 toastr["info"]('Please wait for the transaction to finish.', "Cancelling....");
@@ -530,10 +532,11 @@ function TncDapp() {
                 _alert('Cancellation successful!');
                 $('#nftCancel'+$('#nftBuyIndex').val()).closest('.nftListing').css('display', 'none');
             },
-            function(){
+            function(e){
                 toastr.remove();
                 $(_button).prop('disabled', false);
                 $(_button).html('Cancel');
+
                 toastr["error"]('An error occurred with your cancellation transaction.', "Error");
             }
         );
@@ -642,14 +645,16 @@ function TncDapp() {
                         $('#nftBatchBuy'+index).closest('.nftListing').css('display', 'none');
                     }
                 },
-                function(){
+                function(e){
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $('#nftBatchBuy'+index).prop('disabled', false);
                     $('#nftBatchBuy'+index).html('Buy');
                     $(_button).html('Buy!');
                     toastr["error"]('An error occurred with your buying transaction.', "Error");
-                    _alert("We could not perform your buy order. Please contact the market owner.");
+                    if(!e.message.includes('denied transaction')) {
+                        _alert("We could not perform your buy order. Please contact the market owner.");
+                    }
                 }
             );
         }
@@ -784,14 +789,16 @@ function TncDapp() {
                                 $('#nftBuyButtonShortcut'+index).closest('.nftListing').css('display', 'none');
                             }
                         },
-                        function(){
+                        function(e){
                             toastr.remove();
                             $(_button).prop('disabled', false);
                             $('#nftBuyButtonShortcut'+index).prop('disabled', false);
                             $('#nftBuyButtonShortcut'+index).html('Buy');
                             $(_button).html('Buy!');
                             toastr["error"]('An error occurred with your buying transaction.', "Error");
-                            _alert("We could not perform your buy order. Please contact the market owner.");
+                            if(!e.message.includes('denied transaction')) {
+                                _alert("We could not perform your buy order. Please contact the market owner.");
+                            }
                         }
                     );
                 }
@@ -927,12 +934,14 @@ function TncDapp() {
                     }
                     _alert('Swap request successful. If your request is getting accepted, the swap will be performed. You can cancel your request at any time.');
                 },
-                function(){
+                function(e){
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Swap!');
                     toastr["error"]('An error occurred with your swapping transaction.', "Error");
-                    _alert("We could not perform your swap request. Please contact the market owner.");
+                    if(!e.message.includes('denied transaction')) {
+                        _alert("We could not perform your swap request. Please contact the market owner.");
+                    }
                 }
             );
         }
@@ -2006,7 +2015,7 @@ function TncDapp() {
                 }
                 _alert('The swap has been successful!');
             },
-            function(){
+            function(e){
                 toastr.remove();
                 $(_button).prop('disabled', false);
                 $(_button).html('Accept');
@@ -2044,7 +2053,7 @@ function TncDapp() {
                 toastr["success"]('Transaction has been finished.', "Success");
                 _alert('The swap cancellation has been successful!');
             },
-            function(){
+            function(e){
                 toastr.remove();
                 $(_button).prop('disabled', false);
                 $(_button).html('Cancel');
@@ -2143,12 +2152,14 @@ function TncDapp() {
                 $('#nftSellButton').prop('disabled', false);
                 toastr["success"]('Transaction has been finished.', "Success");
             },
-            function () {
+            function (e) {
                 toastr.remove();
                 $('#nftSellButton').prop('disabled', false);
                 $('#nftSellButton').html('Sell!');
                 toastr["error"]('An error occurred with your sell transaction.', "Error");
-                _alert("We could not put your offer on sale. Please contact the market owner to check back if your wallet, collection or NFT is allowed to be posted.");
+                if(!e.message.includes('denied transaction')) {
+                    _alert("We could not put your offer on sale. Please contact the market owner to check back if your wallet, collection or NFT is allowed to be posted.");
+                }
             });
     }
 
@@ -2542,6 +2553,7 @@ function run(connected) {
 
         let dapp = new TncDapp();
         dapp.wrapperAddress = getUrlParam('location');
+        dapp.isWrapAdmin = await tncLibMarket.isWrapAdmin(tncLib.account, dapp.wrapperAddress);
         let addresses = await tncLibMarket.getMarketContractAddresses(dapp.wrapperAddress);
         console.log("Addresses: ", addresses);
         dapp.marketAddress = addresses.market;

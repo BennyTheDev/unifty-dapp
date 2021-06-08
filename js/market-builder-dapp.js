@@ -215,11 +215,13 @@ function TncDapp() {
 
         if(name == ''){ _alert('Please enter a farm name'); return; }
         if(controller == ''){ _alert('Please enter a controller address'); return; }
-        if(!await web3.utils.isAddress(controller)){ _alert('Invalid controller address'); return; }
+        if(!await web3.utils.isAddress(controller)){ _alert('Invalid fee address'); return; }
         if(isNaN(parseFloat(marketFee))){ _alert('Please enter a valid sales fee.'); return; }
         if(isNaN(parseFloat(marketSwapFee))){ _alert('Please enter a valid swap fee.'); return; }
         if(parseFloat(marketFee) < 0){ _alert('Please enter a valid sales fee.'); return; }
         if(parseFloat(marketSwapFee) < 0){ _alert('Please enter a valid swap fee.'); return; }
+        if(parseFloat(marketFee) > 50){ _alert('Market fee is too high (max. 50%).'); return; }
+        if(parseFloat(marketSwapFee) > 50){ _alert('Market swap fee is too high (max. 50%).'); return; }
 
         let marketInfo = {
             name : name,
@@ -291,10 +293,10 @@ function TncDapp() {
                 }
             }
 
-            if( stakingEnabled && allowance.lt(nif)  ){
+            $('#marketSubmit').prop('disabled', true);
+            $('#marketSubmit').html('Approve first!');
 
-                $('#marketSubmit').prop('disabled', true);
-                $('#marketSubmit').html('Approve first!');
+            if( stakingEnabled && allowance.lt(nif)  ){
 
                 await window.tncLib.approveErc20(
                     tncLib.nif.options.address,
@@ -334,6 +336,9 @@ function TncDapp() {
                         toastr.remove();
                         toastr["success"]('Transaction has been finished.', "Success");
 
+                        $('#marketSubmit').prop('disabled', false);
+                        $('#marketSubmit').html('Create Market');
+
                         _this.lastIndex = -1;
                         _this.populateMyMarkets();
 
@@ -343,6 +348,8 @@ function TncDapp() {
                         toastr.remove();
                         let errMsg = 'An error occurred with your New Market transaction. Do you have sufficient funds?';
                         toastr["error"](errMsg, "Error");
+                        $('#marketSubmit').prop('disabled', false);
+                        $('#marketSubmit').html('Create Market');
                     }
                 );
             }
@@ -1029,6 +1036,90 @@ function TncDapp() {
         });
     };
 
+    this.populateSetupSwapFundsModal = async function(e){
+
+        let wrapperAddress = $(e.relatedTarget).data('contractAddress');
+        $('#marketSetupSwapFeeAddress').val(await tncLibCustomMarket.getSetupSwapFeeAddress(wrapperAddress));
+        $('#marketSetupSwapFee').val(_this.formatNumberString(await tncLibCustomMarket.getSetupSwapFees(wrapperAddress), 2));
+        $('#setupSwapFeesWrapperAddress').val(wrapperAddress);
+    };
+
+    this.performSetupSwapFunds = async function(){
+
+        let controller = $('#marketSetupSwapFeeAddress').val().trim();
+        let marketFee = $('#marketSetupSwapFee').val().trim();
+
+        if(parseFloat(marketFee) < 0){ _alert('Please enter a valid sales fee.'); return; }
+        if(parseFloat(marketFee) > 50){ _alert('Sales fee is too high (max. 50%).'); return; }
+        if(controller == ''){ _alert('Please enter a valid fee address'); return; }
+        if(!await web3.utils.isAddress(controller)){ _alert('Invalid fee address'); return; }
+
+        marketFee = _this.resolveNumberString(""+(Number(marketFee).toFixed(2)), 2);
+
+        tncLibCustomMarket.swapSetup(
+            marketFee,
+            controller,
+            $('#setupSwapFeesWrapperAddress').val(),
+            function () {
+                toastr["info"]('Please wait for the transaction to finish.', "Swap Fee Setup....");
+            },
+            function (receipt) {
+                console.log(receipt);
+                toastr.remove();
+                toastr["success"]('Transaction has been finished.', "Success");
+
+                $('#setupFundsModal').modal('hide');
+            },
+            function (err) {
+                toastr.remove();
+                let errMsg = 'An error occurred with your swap setup transaction. Do you have sufficient funds?';
+                toastr["error"](errMsg, "Error");
+            }
+        );
+    };
+
+    this.populateSetupFundsModal = async function(e){
+
+        let wrapperAddress = $(e.relatedTarget).data('contractAddress');
+        $('#marketSetupFeeAddress').val(await tncLibCustomMarket.getSetupFeeAddress(wrapperAddress));
+        $('#marketSetupFee').val(_this.formatNumberString(await tncLibCustomMarket.getSetupFees(wrapperAddress), 2));
+        $('#setupFeesWrapperAddress').val(wrapperAddress);
+    };
+
+    this.performSetupFunds = async function(){
+
+        let controller = $('#marketSetupFeeAddress').val().trim();
+        let marketFee = $('#marketSetupFee').val().trim();
+
+        if(parseFloat(marketFee) < 0){ _alert('Please enter a valid sales fee.'); return; }
+        if(parseFloat(marketFee) > 50){ _alert('Sales fee is too high (max. 50%).'); return; }
+        if(controller == ''){ _alert('Please enter a valid fee address'); return; }
+        if(!await web3.utils.isAddress(controller)){ _alert('Invalid fee address'); return; }
+
+        marketFee = _this.resolveNumberString(""+(Number(marketFee).toFixed(2)), 2);
+
+        tncLibCustomMarket.setup(
+            marketFee,
+            controller,
+            $('#setupFeesWrapperAddress').val(),
+            function () {
+                toastr["info"]('Please wait for the transaction to finish.', "Fee Setup....");
+            },
+            function (receipt) {
+                console.log(receipt);
+                toastr.remove();
+                toastr["success"]('Transaction has been finished.', "Success");
+
+                $('#setupFundsModal').modal('hide');
+            },
+            function (err) {
+                toastr.remove();
+                let errMsg = 'An error occurred with your fee setup transaction. Do you have sufficient funds?';
+                toastr["error"](errMsg, "Error");
+            }
+        );
+    };
+
     this.clearMarketInfo = function(){
         $('#marketInfoMarketAddress').val();
         $("#marketInfoForm")[0].reset();
@@ -1168,6 +1259,9 @@ function TncDapp() {
         $('#marketAllowedDisallowedButton').on('click', _this.updateAllowDisallow);
         $('#marketUnstakeButton').on('click', _this.updateUnstake);
         $('#marketStakeButton').on('click', _this.updateStake);
+        $('#marketSetupFeeButton').on('click', _this.performSetupFunds);
+        $('#marketSetupSwapFeeButton').on('click', _this.performSetupSwapFunds);
+
 
         await web3.eth.subscribe("newBlockHeaders", async (error, event) => {
             if (!error) {
@@ -1206,6 +1300,12 @@ function TncDapp() {
 
                 $('#withdrawSwapFundsModal').off('show.bs.modal');
                 $('#withdrawSwapFundsModal').on('show.bs.modal', _this.populateSwapFunds);
+
+                $('#setupFundsModal').off('show.bs.modal');
+                $('#setupFundsModal').on('show.bs.modal', _this.populateSetupFundsModal);
+
+                $('#setupSwapFundsModal').off('show.bs.modal');
+                $('#setupSwapFundsModal').on('show.bs.modal', _this.populateSetupSwapFundsModal);
 
                 $('#marketsPage').css('display', 'grid');
                 await _this.populateMyMarkets();

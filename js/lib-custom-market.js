@@ -9,7 +9,7 @@ function TncLibCustomMarket(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xad1138433d9fAbDaF3e83EC4238136F654F6D232', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xEA721BbaB1a25e3E1731D87CBE298c629Bd31017', {from: this.account});
         this.account = '';
 
         // xDAI MAINNET
@@ -717,6 +717,126 @@ function TncLibCustomMarket(){
         return await market.methods.funds(owner, token).call({from: this.account});
     }
 
+    this.getSetupFeeAddress = async function(wrapperAddress){
+
+        await sleep(sleep_time);
+
+        let addresses = await this.getMarketContractAddresses(wrapperAddress);
+
+        let market = _self.contractInstancesCache(addresses.market, 'market');
+        return await market.methods.feeAddress().call({from: this.account});
+    };
+
+    this.getSetupFees = async function(wrapperAddress){
+
+        await sleep(sleep_time);
+
+        let addresses = await this.getMarketContractAddresses(wrapperAddress);
+
+        let market = _self.contractInstancesCache(addresses.market, 'market');
+        return await market.methods.fee().call({from: this.account});
+    };
+
+    this.getSetupSwapFeeAddress = async function(wrapperAddress){
+
+        await sleep(sleep_time);
+
+        let addresses = await this.getMarketContractAddresses(wrapperAddress);
+
+        let market = _self.contractInstancesCache(addresses.swap, 'swap');
+        return await market.methods.feeAddress().call({from: this.account});
+    };
+
+    this.getSetupSwapFees = async function(wrapperAddress){
+
+        await sleep(sleep_time);
+
+        let addresses = await this.getMarketContractAddresses(wrapperAddress);
+
+        let market = _self.contractInstancesCache(addresses.swap, 'swap');
+        return await market.methods.fee().call({from: this.account});
+    };
+
+    this.setup = async function(marketFee, controller, wrapperAddress, preCallback, postCallback, errCallback){
+
+        await sleep(sleep_time);
+
+        let gas = 0;
+
+        let addresses = await this.getMarketContractAddresses(wrapperAddress);
+        let market = _self.contractInstancesCache(addresses.market, 'market');
+
+        try{
+
+            gas = await market.methods.setup(marketFee, controller).estimateGas({
+                from:this.account,
+            });
+
+        }catch(e){
+            console.log(e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        market.methods.setup(marketFee, controller)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                errCallback();
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.swapSetup = async function(marketFee, controller, wrapperAddress, preCallback, postCallback, errCallback){
+
+        await sleep(sleep_time);
+
+        let gas = 0;
+
+        let addresses = await this.getMarketContractAddresses(wrapperAddress);
+        let swap = _self.contractInstancesCache(addresses.swap, 'swap');
+
+        try{
+
+            gas = await swap.methods.setup(marketFee, controller).estimateGas({
+                from:this.account,
+            });
+
+        }catch(e){
+            console.log(e);
+            errCallback("");
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        swap.methods.setup(marketFee, controller)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                errCallback();
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
     this.getFees = async function(token, marketAddress){
 
         await sleep(sleep_time);
@@ -768,7 +888,7 @@ function TncLibCustomMarket(){
 
         }catch(e){
             console.log(e);
-            errCallback("");
+            errCallback(e);
             return;
         }
 
@@ -781,10 +901,10 @@ function TncLibCustomMarket(){
                 gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
             })
             .on('error', async function(e){
-                errCallback();
+                errCallback(e);
             })
             .on('transactionHash', async function(transactionHash){
-                preCallback();
+                preCallback(transactionHash);
             })
             .on("receipt", function (receipt) {
                 console.log("Sell order placed.");
@@ -847,7 +967,7 @@ function TncLibCustomMarket(){
 
         }catch(e){
             console.log(e);
-            errCallback("");
+            errCallback(e);
             return;
         }
 
@@ -860,10 +980,10 @@ function TncLibCustomMarket(){
                 gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
             })
             .on('error', async function(e){
-                errCallback();
+                errCallback(e);
             })
             .on('transactionHash', async function(transactionHash){
-                preCallback();
+                preCallback(transactionHash);
             })
             .on("receipt", function (receipt) {
                 console.log("Buy order placed.");
@@ -871,7 +991,59 @@ function TncLibCustomMarket(){
             });
     };
 
-    this.cancel = async function(index, wrapAddress, preCallback, postCallback, errCallback){
+    this.isWrapAdmin = async function(address, wrapAddress){
+
+        await sleep(sleep_time);
+
+        let wrap = _self.contractInstancesCache(wrapAddress, 'wrap');
+        return await wrap.methods.isWhitelistAdmin(address).call({from:this.account});
+    };
+
+    this.cancelAdmin = async function(index, wrapAddress, preCallback, postCallback, errCallback){
+
+        await sleep(sleep_time);
+
+        let wrap = _self.contractInstancesCache(wrapAddress, 'wrap');
+
+        let gas = 0;
+
+        try{
+
+            gas = await wrap.methods.cancelAskAdmin(""+index).estimateGas({
+                from: this.account
+            });
+
+        }catch(e){
+            console.log(e);
+            errCallback(e);
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        wrap.methods.cancelAskAdmin(""+index)
+            .send({
+                from: this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                errCallback(e);
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.cancel = async function(index, address, wrapAddress, preCallback, postCallback, errCallback){
+
+        if(await this.isWrapAdmin(address, wrapAddress)){
+            await this.cancelAdmin(index, wrapAddress, preCallback, postCallback, errCallback);
+            return;
+        }
 
         await sleep(sleep_time);
 
@@ -887,7 +1059,7 @@ function TncLibCustomMarket(){
 
         }catch(e){
             console.log(e);
-            errCallback("");
+            errCallback(e);
             return;
         }
 
@@ -900,7 +1072,7 @@ function TncLibCustomMarket(){
                 gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
             })
             .on('error', async function(e){
-                errCallback();
+                errCallback(e);
             })
             .on('transactionHash', async function(transactionHash){
                 preCallback();
@@ -1043,7 +1215,7 @@ function TncLibCustomMarket(){
 
         }catch(e){
             console.log(e);
-            errCallback("");
+            errCallback(e);
             return;
         }
 
@@ -1056,10 +1228,10 @@ function TncLibCustomMarket(){
                 gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
             })
             .on('error', async function(e){
-                errCallback();
+                errCallback(e);
             })
             .on('transactionHash', async function(transactionHash){
-                preCallback();
+                preCallback(transactionHash);
             })
             .on("receipt", function (receipt) {
                 postCallback(receipt);
@@ -1082,7 +1254,7 @@ function TncLibCustomMarket(){
 
         }catch(e){
             console.log(e);
-            errCallback("");
+            errCallback(e);
             return;
         }
 
@@ -1095,10 +1267,10 @@ function TncLibCustomMarket(){
                 gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
             })
             .on('error', async function(e){
-                errCallback();
+                errCallback(e);
             })
             .on('transactionHash', async function(transactionHash){
-                preCallback();
+                preCallback(transactionHash);
             })
             .on("receipt", function (receipt) {
                 postCallback(receipt);
@@ -1121,7 +1293,7 @@ function TncLibCustomMarket(){
 
         }catch(e){
             console.log(e);
-            errCallback("");
+            errCallback(e);
             return;
         }
 
@@ -1134,10 +1306,10 @@ function TncLibCustomMarket(){
                 gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
             })
             .on('error', async function(e){
-                errCallback();
+                errCallback(e);
             })
             .on('transactionHash', async function(transactionHash){
-                preCallback();
+                preCallback(transactionHash);
             })
             .on("receipt", function (receipt) {
                 postCallback(receipt);

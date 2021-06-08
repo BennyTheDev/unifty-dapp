@@ -404,6 +404,10 @@
                             <div class="dropdown-menu" aria-labelledby="marketActions{{address}}">
                                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#withdrawFundsModal" data-contract-address="{{address}}" id="marketWithdrawFees{{address}}" class="marketWithdrawFees">Withdraw Fees</a>
                                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#withdrawSwapFundsModal" data-contract-address="{{address}}" id="marketWithdrawSwapFees{{address}}" class="marketWithdrawSwapFees">Withdraw Swap Fees</a>
+
+                                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#setupFundsModal" data-contract-address="{{address}}" id="marketSetupFees{{address}}" class="marketSetupFees">Setup Fees</a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#setupSwapFundsModal" data-contract-address="{{address}}" id="marketSetupSwapFees{{address}}" class="marketSetupFees">Setup Swap Fees</a>
+
                                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#marketInfoModal" data-contract-address="{{address}}" id="marketEditInfo{{address}}" class="marketEditInfo">Edit Market Info</a>
 
                                 <a href="javascript:void(0);" {{{displayTier3Option}}} class="dropdown-item" data-toggle="modal" data-target="#marketAllowDisallowModal" data-type="setAllowedWallets" data-contract-address="{{address}}" id="marketSetAllowedWallets{{address}}" class="setAllowedWallets">Whitelist Wallet</a>
@@ -461,9 +465,9 @@
                                 <div class="form-group" id="tierGroup">
                                     <label for="marketTier">Select Tier<span class="required">*</span></label>
                                     <select class="form-control" id="marketTier">
-                                        <option value="1">Tier 1</option>
-                                        <option value="2">Tier 2</option>
-                                        <option value="3">Tier 3</option>
+                                        <option value="1">Tier 1 (stake 10 NIF): allow/disallow collections</option>
+                                        <option value="2">Tier 2 (stake 25 NIF): Tier 1 + allow/disallow individual NFTs</option>
+                                        <option value="3">Tier 3 (stake 100 NIF): Tier 1 + Tier2 + allow/disallow wallet addresses</option>
                                     </select>
                                 </div>
 
@@ -560,7 +564,7 @@
                     <div class="modal-footer">
                         <div style="display:none;" id="stakeMarket" class="footer-description">
                             Choose 1 of 3 available tier levels and stake $NIF to create your market.<br/>
-                            All tiers include full functionality plus bonus features:<br/><br/>
+                            All tiers include full functionality plus the following bonus features:<br/><br/>
                             Tier1 (<span id="tier1Nif"></span> NIF): allow/disallow collections<br/>
                             Tier2 (<span id="tier2Nif"></span> NIF): Tier 1 + allow/disallow individual NFTs<br/>
                             Tier3 (<span id="tier3Nif"></span> NIF): Tier 1 + Tier2 + allow/disallow wallet addresses<br/><br/>
@@ -754,9 +758,9 @@
                             <div class="form-group">
                                 <label for="marketTier">Select Tier<span class="required">*</span></label>
                                 <select class="form-control" id="marketStakeTier">
-                                    <option value="1">Tier 1</option>
-                                    <option value="2">Tier 2</option>
-                                    <option value="3">Tier 3</option>
+                                    <option value="1">Tier 1 (stake 10 NIF): allow/disallow collections</option>
+                                    <option value="2">Tier 2 (stake 25 NIF): Tier 1 + Tier2 + allow/disallow wallet addresses</option>
+                                    <option value="3">Tier 3 (stake 100 NIF): Tier 1 + Tier2 + allow/disallow wallet addresses</option>
                                 </select>
                             </div>
 
@@ -875,6 +879,88 @@
                         <div class="buttons-container">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary" id="withdrawSwapFundsButton" style="display:none;">Withdraw</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETUP FEES -->
+        <div class="modal fade" style="overflow-y: scroll;" id="setupFundsModal" tabindex="-1" role="dialog"
+             aria-labelledby="setupFundsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="setupFundsModalLabel">Setup Fees</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+
+                        <form onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="marketSetupFeeAddress">Fee Address<span class="required">*</span></label>
+                                <input type="text"
+                                       placeholder="Used to receive sales fees."
+                                       class="form-control" id="marketSetupFeeAddress">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="marketSetupFee">Sales fee in percent<span class="required">*</span></label>
+                                <input type="text" value="" placeholder="Enter a sales fee in percent for your market" class="form-control" id="marketSetupFee">
+                            </div>
+
+                            <input type="hidden" value="" id="setupFeesWrapperAddress" name="setupFeesWrapperAddress" />
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" style="margin-right: 0;" id="marketSetupFeeButton">Update</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SETUP SWAP FEES -->
+        <div class="modal fade" style="overflow-y: scroll;" id="setupSwapFundsModal" tabindex="-1" role="dialog"
+             aria-labelledby="setupSwapFundsModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="setupSwapFundsModalLabel">Setup Swap Fees</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body modal-non-nft-content">
+
+                        <form onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="marketSetupSwapFeeAddress">Swap Fee Address<span class="required">*</span></label>
+                                <input type="text"
+                                       placeholder="Used to receive swap fees."
+                                       class="form-control" id="marketSetupSwapFeeAddress">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="marketSetupSwapFee">Sales fee in percent<span class="required">*</span></label>
+                                <input type="text" value="" placeholder="Enter a sales fee in percent for your market swaps" class="form-control" id="marketSetupSwapFee">
+                            </div>
+
+                            <input type="hidden" value="" id="setupSwapFeesWrapperAddress" name="setupSwapFeesWrapperAddress" />
+
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <div class="buttons-container">
+                            <button type="button" class="btn btn-secondary" style="margin-right: 0;" id="marketSetupSwapFeeButton">Update</button>
                         </div>
                     </div>
                 </div>
