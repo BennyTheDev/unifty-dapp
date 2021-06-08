@@ -105,6 +105,13 @@ body.light-edition {
   --cursor-pointer: pointer !important;
   --cursor-text: auto !important; }
 
+#loadMore {
+  grid-column: 1/-1;
+  margin: 2rem 0; }
+  #loadMore #loadMoreButton {
+    font-size: 1.2rem;
+    font-weight: 500; }
+
 h1 {
   font-family: "Poppins", sans-serif;
   font-size: 2.4rem;
@@ -144,6 +151,9 @@ h3 {
 
 .text-muted a {
   color: var(--heading-color); }
+
+.about-info {
+  color: var(--text-primary); }
 
 textarea, input {
   cursor: var(--cursor-text); }
@@ -332,6 +342,8 @@ textarea, input {
   font-size: 1.6rem;
   color: var(--text-footer);
   font-weight: 400; }
+  .main-timeline p.description strong {
+    color: var(--heading-color); }
 
 .main-timeline .date-outer:before {
   background: var(--primary-color);
@@ -1792,8 +1804,10 @@ textarea, input {
     margin: 0 0 1rem 0; }
   .dark-edition .main-panel .content #marketsPage.row,
   .dark-edition .main-panel .content #farmsPage.row,
+  .dark-edition .main-panel .content .row.team-list,
   .light-edition .main-panel .content #marketsPage.row,
-  .light-edition .main-panel .content #farmsPage.row {
+  .light-edition .main-panel .content #farmsPage.row,
+  .light-edition .main-panel .content .row.team-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
     grid-gap: 2rem; }
