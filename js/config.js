@@ -55,7 +55,11 @@ switch(chain_id){
             "0xb6Df30c5676C0C617F23c5299D168a4c456cc59A".toLowerCase(), // peekaboo
             "0x513C78ab6f5B0b1D5946478fc0cfA9a5C342E103".toLowerCase(), // waterpark
             "0x9180bD8693c27263191b6BB5698b20f2f6C75DdB".toLowerCase(), // KMO Girls
-            "0x6d0E3482C91b3B6FF6caBB39197ED8685ff1780c".toLowerCase() // first tape
+            "0x6d0E3482C91b3B6FF6caBB39197ED8685ff1780c".toLowerCase(), // first tape
+            "0xE696830c4B9F06F7f4355a515Bef4d10914f0c99".toLowerCase(), // lucky enough
+            "0xb6CD5031AF55d33C6EE25e9391f41E8f1BBEAfb5".toLowerCase(), // xxxnifty
+            "0xFbFf3b578D87a115fe4a53cD2AfbA70ef206310f".toLowerCase(), // NSFW coin
+            "0x3bfB2AA30F34D22749e3232f790D2CCCe811E081".toLowerCase() // started stone kitten
         ];
         break;
     // add further chain specific as desired...
