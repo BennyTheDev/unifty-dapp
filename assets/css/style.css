@@ -1464,6 +1464,14 @@ textarea, input {
       .light-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary:active {
         background-color: var(--primary-hover-dark); }
 
+#marketForm #tierGroup select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 60%), linear-gradient(135deg, var(--primary-color) 40%, transparent 50%) !important;
+  background-position: calc(100% - 29px) 16px, calc(100% - 22px) 16px, 100% 0;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
 .dark-edition .main-panel .content .container-fluid.wallet .title-options-container,
 .light-edition .main-panel .content .container-fluid.wallet .title-options-container {
   display: flex;
