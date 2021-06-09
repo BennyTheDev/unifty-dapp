@@ -1472,6 +1472,9 @@ textarea, input {
   -webkit-appearance: none;
   -moz-appearance: none; }
 
+#nftSellWallet .approveNft {
+  display: block; }
+
 .dark-edition .main-panel .content .container-fluid.wallet .title-options-container,
 .light-edition .main-panel .content .container-fluid.wallet .title-options-container {
   display: flex;

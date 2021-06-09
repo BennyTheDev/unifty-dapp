@@ -1459,7 +1459,7 @@ function TncDapp() {
         out += '<div class="col-3">';
         out += '<input type="text" '+displayAmountDisabled+' class="amountToAdd amountToAdd'+erc1155Address+'" value="" placeholder="0" style="width: 50px;margin-right: 5px;" data-erc1155address="'+erc1155Address+'" data-id="'+id+'" id="amountToAdd'+erc1155Address+id+'"/>';
         out += '<a '+displayApprovalLink+' class="approveNft approveNft'+erc1155Address+'" id="approveNft'+erc1155Address+id+'" data-erc1155address="'+erc1155Address+'" data-id="'+id+'" href="javascript:void(0);">Approve first!</a>';
-        out += '<br/>You own: ' + nft.balance;
+        out += 'You own: ' + nft.balance;
         out += '</div>';
         out += '<div class="col-2">';
         out += '<a '+displayRoyalties+' class="amountToAdd royalties" value="" placeholder="0" style="width: 50px;margin-right: 5px;" data-contract-address="'+erc1155Address+'" data-toggle="modal" data-target="#royaltiesModal" data-edit="true" data-nft-id="'+id+'" id="royalties'+erc1155Address+id+'" href="javascript:void(0);">Set Royalties ('+royalties+' %)</a>';
