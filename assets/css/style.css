@@ -1326,6 +1326,10 @@ textarea, input {
     #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapsing .utils-vertical,
     #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse .utils-vertical {
       height: 0.4rem; }
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse.show div:not(:last-child),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapsing div:not(:last-child),
+    #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse div:not(:last-child) {
+      margin-bottom: 1rem; }
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse.show,
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapsing,
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-details.collapse {
@@ -1358,7 +1362,7 @@ textarea, input {
   #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse {
     font-size: 1.2rem;
     color: var(--text-primary);
-    padding: 0 3rem;
+    padding: 0 4.5rem;
     background-color: var(--bg-secondary);
     border-radius: .4rem; }
     #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-traits.collapse.show .utils-vertical,

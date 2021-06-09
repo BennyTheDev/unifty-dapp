@@ -115,6 +115,10 @@
         .utils-vertical {
           height: 0.4rem;
         }
+
+        div:not(:last-child) {
+          margin-bottom: 1rem;
+        }
       }
   
       #collapse-nft-details.collapse.show,
@@ -150,7 +154,7 @@
       #collapse-nft-traits.collapse {
         font-size: 1.2rem;
         color: var(--text-primary);
-        padding: 0 3rem;
+        padding: 0 4.5rem;
         background-color: var(--bg-secondary);
         border-radius: .4rem;
   
