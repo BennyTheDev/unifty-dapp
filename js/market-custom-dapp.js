@@ -15,6 +15,8 @@ function TncDapp() {
 
     this.getMarketNfts = async function(address, which, category){
 
+        $('#farmHeader').html('');
+
         let nftCount = 0;
 
         let asksLengths = 0;
@@ -1719,7 +1721,7 @@ function TncDapp() {
             let extraNif = '';
             if(nifAmount.gt(zero)){
                 extraNif = _this.formatNumberString(nifAmount.toString(), 18);
-                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-1">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
+                extraNif = '<div style="margin-top: -10px; color: grey; font-size: 2rem;" class="mb-1">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
             }
 
             out += '<div class="col">';
@@ -1926,7 +1928,7 @@ function TncDapp() {
             let extraNif = '';
             if(nifAmount.gt(zero)){
                 extraNif = _this.formatNumberString(nifAmount.toString(), 18);
-                extraNif = '<div style="margin-top: -10px; color: #ffffff; font-size: 2rem;" class="mb-1">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
+                extraNif = '<div style="margin-top: -10px; color: grey; font-size: 2rem;" class="mb-1">+'+extraNif.substring(0, extraNif.length - 10)+' NIF</div>';
             }
 
             out += '<div class="col">';

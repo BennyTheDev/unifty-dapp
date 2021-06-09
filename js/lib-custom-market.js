@@ -9,12 +9,13 @@ function TncLibCustomMarket(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xEA721BbaB1a25e3E1731D87CBE298c629Bd31017', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xbBB89e27Ed8A7657E4d5171Af8E1a38A2F35DE5c', {from: this.account});
         this.account = '';
 
         // xDAI MAINNET
     } else if(chain_id === "64") {
 
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xe3a9110Ef5d8A2291f006a5cb8e778321E902D43', {from: this.account});
         this.account = '';
 
         // xDAI / POA (Sokol) TESTNET
@@ -26,7 +27,7 @@ function TncLibCustomMarket(){
         // Matic
     } else if(chain_id === "89") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xe9E286a9788354E0114E5eB7b4b182027A3d0741', {from: this.account});
         this.account = '';
 
         // BINANCE TESTNET
@@ -38,30 +39,30 @@ function TncLibCustomMarket(){
         // Moonbase Alpha
     } else if(chain_id === "507") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0x6adA7566eC6C3073Cf9180AC9c373C78047D798d', {from: this.account});
         this.account = '';
 
         // CELO
     } else if(chain_id === "a4ec") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xC2bC267EF4EA7Db7bD0F4F924A04A9eaE64D8eE3', {from: this.account});
         this.account = '';
 
         // BSC MAINNET
     } else if(chain_id === "38") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0xAF1df7b55103b1a969FC966840d516EF79E58b9F', {from: this.account});
         this.account = '';
 
         // AVALANCHE
     } else if(chain_id === "a86a") {
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0x3BC1cFFe6e6A16045eE52222f7f9fb89562e50D6', {from: this.account});
         this.account = '';
 
     } else{
 
-        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '', {from: this.account});
+        this.genesis = new web3.eth.Contract(customMarketGenesisABI, '0x5aE7A7059C597F28a451df6e2aF668D6b96ABBd0', {from: this.account});
         this.account = '';
 
     }

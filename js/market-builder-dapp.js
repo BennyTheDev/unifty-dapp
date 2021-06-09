@@ -95,8 +95,6 @@ function TncDapp() {
 
                     $('#marketsPage').append(tmpl);
 
-                    $('.currency').html(getCurrency());
-
                     $('.btn-clipboard' + (i*2)).off('click');
                     $('.btn-clipboard' + (i*2)).on('click', function () {
 
@@ -541,8 +539,8 @@ function TncDapp() {
 
             func(
                 address,
+                id,
                 status == '1' ? true : false,
-                parseInt(id),
                 wrapperAddress,
                 function () {
                     $('#marketAllowedDisallowedButton').prop('disabled', true);
@@ -1280,6 +1278,8 @@ function TncDapp() {
             default:
 
                 _this.clearMarketInfo();
+
+                $('.currency').html(getCurrency());
 
                 _this.lastIndex = -1;
 
