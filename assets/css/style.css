@@ -116,7 +116,7 @@ body.light-edition {
 
 h1 {
   font-family: "Poppins", sans-serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   letter-spacing: 0.48px;
   color: var(--heading-color); }
@@ -145,7 +145,7 @@ h1.nftListingsTitle {
 
 h3 {
   font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 300;
   letter-spacing: 0.32px;
   color: var(--text-primary);
@@ -1743,7 +1743,7 @@ textarea, input {
 
 .dark-edition .sidebar,
 .light-edition .sidebar {
-  width: 30rem;
+  width: 28rem;
   background-color: var(--bg-secondary);
   opacity: 1;
   font-size: 1.6rem;
@@ -1752,10 +1752,6 @@ textarea, input {
   .light-edition .sidebar::before {
     background-color: var(--bg-secondary);
     font-size: 1.6rem; }
-  @media only screen and (min-width: 112.5em) {
-    .dark-edition .sidebar,
-    .light-edition .sidebar {
-      width: 33rem; } }
   @media only screen and (max-width: 991px) {
     .dark-edition .sidebar,
     .light-edition .sidebar {
@@ -1848,10 +1844,10 @@ textarea, input {
     color: var(--primary-color);
     margin-right: 1.3rem; }
   .sidebar .nav p {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: 0.32px;
-    color: #a3abb2; }
+    color: #808080; }
   .sidebar .nav li:first-child > a {
     margin: 0 2.4rem; }
   .sidebar .nav li:not(:first-child) > a {
@@ -1893,8 +1889,9 @@ textarea, input {
   margin: 1.5rem 2.4rem; }
 
 .main-panel .content__welcome-text {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: var(--text-primary);
+  font-weight: 300;
   padding: .8rem 0;
   margin-bottom: 2rem;
   width: 80%; }
@@ -1911,17 +1908,13 @@ textarea, input {
         z-index: 1050; } }
   .main-panel .content .custom-header__title {
     color: var(--title-color);
-    font-size: 4rem;
+    font-size: 3.6rem;
     font-weight: 700; }
 
 .dark-edition .main-panel,
 .light-edition .main-panel {
-  width: calc(100% - 30rem);
+  width: calc(100% - 28rem);
   background-color: var(--bg-primary); }
-  @media only screen and (min-width: 112.5em) {
-    .dark-edition .main-panel,
-    .light-edition .main-panel {
-      width: calc(100% - 33rem); } }
   @media only screen and (max-width: 991px) {
     .dark-edition .main-panel,
     .light-edition .main-panel {
@@ -1936,7 +1929,7 @@ textarea, input {
     width: max-content;
     display: flex;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--bg-primary);
     margin: 2rem 0 3rem 0;
     padding: 12px;
@@ -1950,7 +1943,7 @@ textarea, input {
     .dark-edition .main-panel .content .add-new-card-container span,
     .light-edition .main-panel .content .add-new-card-container span {
       margin-right: 1rem;
-      font-size: 24px; }
+      font-size: 20px; }
   .dark-edition .main-panel .navbar.navbar-absolute,
   .light-edition .main-panel .navbar.navbar-absolute {
     padding-top: 2rem; }
@@ -2058,18 +2051,14 @@ textarea, input {
 .footer {
   position: fixed;
   bottom: 0;
-  left: 30rem;
-  width: calc(100% - 40rem);
+  left: 28rem;
+  width: calc(100% - 38rem);
   margin: 0 5rem;
   padding: .5rem 0;
   background: var(--bg-tertiary);
   border-top-left-radius: .8rem;
   border-top-right-radius: .8rem;
   box-shadow: var(--shadow-primary); }
-  @media only screen and (min-width: 112.5em) {
-    .footer {
-      left: 33rem;
-      width: calc(100% - 43rem); } }
   @media only screen and (max-width: 991px) {
     .footer {
       left: 0;
