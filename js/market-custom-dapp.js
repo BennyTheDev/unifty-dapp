@@ -549,7 +549,7 @@ function TncDapp() {
         let ask = await tncLibMarket.getAskBase(index, _this.marketAddress);
 
         if(ask.seller.toLowerCase() == tncLib.account.toLowerCase()){
-            _alert('You cannot buy your own sale.');
+            errorPopup('You cannot buy your own sale.');
             return;
         }
 
@@ -558,7 +558,7 @@ function TncDapp() {
 
         if(fullPrice.gt(balance)){
 
-            _alert('Insufficient funds: price exceeds your balance.');
+            errorPopup('Insufficient funds: price exceeds your balance.');
             return;
         }
 
@@ -572,7 +572,7 @@ function TncDapp() {
             allowance.lt(fullPrice)
         ){
 
-            _alert('Please approve first, then click the buy button again.');
+            errorPopup('Please approve first, then click the buy button again.');
 
             $(this).prop('disabled', true);
             $(this).html('Approve first!');
@@ -655,7 +655,7 @@ function TncDapp() {
                     $(_button).html('Buy!');
                     toastr["error"]('An error occurred with your buying transaction.', "Error");
                     if(!e.message.includes('denied transaction')) {
-                        _alert("We could not perform your buy order. Please contact the market owner.");
+                        errorPopup("We could not perform your buy order. Please contact the market owner.");
                     }
                 }
             );
@@ -681,12 +681,12 @@ function TncDapp() {
 
                 if(isNaN(amount) || ask.amount[i] < amount){
 
-                    _alert('Requested amount exceeds stock.');
+                    errorPopup('Requested amount exceeds stock.');
                     return;
                 }
 
                 if(ask.seller.toLowerCase() == tncLib.account.toLowerCase()){
-                    _alert('You cannot buy your own sale.');
+                    errorPopup('You cannot buy your own sale.');
                     return;
                 }
 
@@ -697,7 +697,7 @@ function TncDapp() {
 
                 if(fullPrice.gt(balance)){
 
-                    _alert('Insufficient funds: price exceeds your balance.');
+                    errorPopup('Insufficient funds: price exceeds your balance.');
                     return;
                 }
 
@@ -719,7 +719,7 @@ function TncDapp() {
                     allowance.lt(fullPrice)
                 ){
 
-                    _alert('Please approve first, then click the buy button again.');
+                    errorPopup('Please approve first, then click the buy button again.');
 
                     $(this).prop('disabled', true);
                     $(this).html('Approve first!');
@@ -799,7 +799,7 @@ function TncDapp() {
                             $(_button).html('Buy!');
                             toastr["error"]('An error occurred with your buying transaction.', "Error");
                             if(!e.message.includes('denied transaction')) {
-                                _alert("We could not perform your buy order. Please contact the market owner.");
+                                errorPopup("We could not perform your buy order. Please contact the market owner.");
                             }
                         }
                     );
@@ -812,7 +812,7 @@ function TncDapp() {
 
         if(!found){
 
-            _alert('NFT not found.');
+            errorPopup('NFT not found.');
         }
     }
 
@@ -831,7 +831,7 @@ function TncDapp() {
 
         if(index1 == '' || index1 == 0){
 
-            _alert('Please select an offer of yours prior requesting a swap.');
+            errorPopup('Please select an offer of yours prior requesting a swap.');
             return;
         }
 
@@ -839,29 +839,29 @@ function TncDapp() {
         let ask1 = await tncLibMarket.getAskBase(index1, _this.marketAddress);
 
         if(await tncLibMarket.getSwapExists(ask.seller, ask1.seller, index0, _this.swapAddress)){
-            _alert('You already placed a swap request for this offer.');
+            errorPopup('You already placed a swap request for this offer.');
             return;
         }
 
         if(ask.updates != 0){
-            _alert('The opposing offer has changed since it has been released. Swapping is not possible when the conditions changed.');
+            errorPopup('The opposing offer has changed since it has been released. Swapping is not possible when the conditions changed.');
             return;
         }
 
         if(ask1.updates != 0){
-            _alert('Your offer has changed since you have been releasing it. Swapping is not possible when the conditions changed.');
+            errorPopup('Your offer has changed since you have been releasing it. Swapping is not possible when the conditions changed.');
             return;
         }
 
         if(ask.seller == tncLib.account){
 
-            _alert('You cannot swap your own offers.');
+            errorPopup('You cannot swap your own offers.');
             return;
         }
 
         if(ask.swapMode == 0){
 
-            _alert('Swapping not permitted.');
+            errorPopup('Swapping not permitted.');
             return;
         }
 
@@ -869,7 +869,7 @@ function TncDapp() {
 
         if(balance.lt(nif)){
 
-            _alert('Insufficient NIF funds.');
+            errorPopup('Insufficient NIF funds.');
             return;
         }
 
@@ -942,7 +942,7 @@ function TncDapp() {
                     $(_button).html('Swap!');
                     toastr["error"]('An error occurred with your swapping transaction.', "Error");
                     if(!e.message.includes('denied transaction')) {
-                        _alert("We could not perform your swap request. Please contact the market owner.");
+                        errorPopup("We could not perform your swap request. Please contact the market owner.");
                     }
                 }
             );
@@ -1477,7 +1477,7 @@ function TncDapp() {
 
             let balance = await tncLib.balanceof($(e.target).data('erc1155address'), tncLib.account, $(e.target).data('id'));
             if(balance < amount){
-                _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
+                errorPopup('Insufficient balance. You own ' + balance + ' items of this NFT.');
                 return;
             }
 
@@ -1485,7 +1485,7 @@ function TncDapp() {
 
             if(!approved){
 
-                _alert('Please approve the NFT prior selling.');
+                errorPopup('Please approve the NFT prior selling.');
 
                 tncLib.erc1155SetApprovalForAll(
                     _this.marketAddress,
@@ -2022,7 +2022,7 @@ function TncDapp() {
                 $(_button).prop('disabled', false);
                 $(_button).html('Accept');
                 toastr["error"]('An error occurred with your swapping transaction.', "Error");
-                _alert("We could not perform your accept request. Please contact the market owner.");
+                errorPopup("We could not perform your accept request. Please contact the market owner.");
             }
         );
     }
@@ -2072,13 +2072,13 @@ function TncDapp() {
 
         if(isNaN(category) || category < 0){
 
-            _alert('Invalid category');
+            errorPopup('Invalid category');
             return;
         }
 
         if(isNaN(price) || price <= 0){
 
-            _alert('Please enter a valid price');
+            errorPopup('Please enter a valid price');
             return;
         }
 
@@ -2087,13 +2087,13 @@ function TncDapp() {
         try {
             decimals = await tncLib.tokenDecimalsErc20(sellToken);
         }catch(e){
-            _alert('Invalid token! Seems not to support the decimals() information.');
+            errorPopup('Invalid token! Seems not to support the decimals() information.');
             return;
         }
 
         if(decimals >= 118){
 
-            _alert('Invalid token! Too many decimals (117 max.)');
+            errorPopup('Invalid token! Too many decimals (117 max.)');
             return;
         }
 
@@ -2119,13 +2119,13 @@ function TncDapp() {
 
         if(erc1155.length == 0)
         {
-            _alert('Please add the amount of NFTs you want to sell.');
+            errorPopup('Please add the amount of NFTs you want to sell.');
             return;
         }
 
         if(erc1155.length > 25)
         {
-            _alert('You cannot add more than 25 NFTs.');
+            errorPopup('You cannot add more than 25 NFTs.');
             return;
         }
 
@@ -2160,7 +2160,7 @@ function TncDapp() {
                 $('#nftSellButton').html('Sell!');
                 toastr["error"]('An error occurred with your sell transaction.', "Error");
                 if(!e.message.includes('denied transaction')) {
-                    _alert("We could not put your offer on sale. Please contact the market owner to check back if your wallet, collection or NFT is allowed to be posted.");
+                    errorPopup("We could not put your offer on sale. Please contact the market owner to check back if your wallet, collection or NFT is allowed to be posted.");
                 }
             });
     }
@@ -2226,20 +2226,20 @@ function TncDapp() {
             let nftId = parseInt($('#nftRoyaltiesManualId').val().trim());
 
             if(!web3.utils.isAddress(collectionAddress)){
-                _alert("Invalid collection address");
+                errorPopup("Invalid collection address");
                 return;
             }
 
             if(isNaN(nftId) || nftId < 0){
 
-                _alert("Please enter a valid NFT ID");
+                errorPopup("Please enter a valid NFT ID");
                 return;
             }
 
             let owner = await tncLib.erc1155Owner(collectionAddress);
 
             if(!owner){
-                _alert("You are not the owner of the given collection");
+                errorPopup("You are not the owner of the given collection");
                 return;
             }
 
@@ -2249,7 +2249,7 @@ function TncDapp() {
 
         if(isNaN(perc) || perc < 0){
 
-            _alert('Invalid royalties');
+            errorPopup('Invalid royalties');
             return;
 
         }

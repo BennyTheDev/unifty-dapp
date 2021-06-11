@@ -323,12 +323,12 @@ function TncDapp() {
         let address = $('#collectionAddress').val().trim();
 
         if(!web3.utils.isAddress(address)){
-            _alert('Given address is not a valid address.');
+            errorPopup('Given address is not a valid address.');
             return;
         }
 
         if(!await tncLib.isErc1155Supported(address)){
-            _alert('Given address is not a valid collection contract.');
+            errorPopup('Given address is not a valid collection contract.');
             return;
         }
 
@@ -346,7 +346,7 @@ function TncDapp() {
                 location.reload();
             }, 3000);
         }else{
-            _alert('Given address has been registered already.');
+            errorPopup('Given address has been registered already.');
         }
     };
 
@@ -566,18 +566,18 @@ function TncDapp() {
         let amount = parseInt($('#nftTransferAmount').val().trim()) || 0;
 
         if(!web3.utils.isAddress($('#nftTransferToAddress').val().trim())){
-            _alert('Please enter a valid address.');
+            errorPopup('Please enter a valid address.');
             return;
         }
 
         if(amount <= 0){
-            _alert('Please enter a valid amount to transfer.');
+            errorPopup('Please enter a valid amount to transfer.');
             return;
         }
 
         let balance = await tncLib.balanceof(erc1155, tncLib.account, id);
         if(balance < amount){
-            _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
+            errorPopup('Insufficient balance. You own ' + balance + ' items of this NFT.');
             return;
         }
 
@@ -634,7 +634,7 @@ function TncDapp() {
 
         if(jobId == '' || parseInt(jobId) <= 0){
 
-            _alert('Please enter a valid Job ID.');
+            errorPopup('Please enter a valid Job ID.');
             return;
         }
 
@@ -660,7 +660,7 @@ function TncDapp() {
             },
             function(){
                 toastr.remove();
-                _alert('Your job cancellation request failed. Either the NFT has been redeemed already or the 2-hour grace-time did not expire yet.');
+                errorPopup('Your job cancellation request failed. Either the NFT has been redeemed already or the 2-hour grace-time did not expire yet.');
                 $(_button).html('Cancel Error');
                 $(_button).prop('disabled', false);
                 setTimeout(function(){
@@ -679,13 +679,13 @@ function TncDapp() {
 
         if(amount == '' || parseInt(amount) <= 0){
 
-            _alert('Please enter a valid amount of NFTs to bridge.');
+            errorPopup('Please enter a valid amount of NFTs to bridge.');
             return;
         }
 
         if(parseInt(amount) > await tncLib.balanceof(contractAddress, tncLib.account, id)){
 
-            _alert('Not enough NFTs to perform bridging.');
+            errorPopup('Not enough NFTs to perform bridging.');
             return;
         }
 
@@ -762,13 +762,13 @@ function TncDapp() {
 
         if(amount == '' || parseInt(amount) <= 0){
 
-            _alert('Please enter a valid amount of NFTs to bridge.');
+            errorPopup('Please enter a valid amount of NFTs to bridge.');
             return;
         }
 
         if(parseInt(amount) > await tncLib.balanceof(contractAddress, tncLib.account, id)){
 
-            _alert('Not enough NFTs to perform bridging.');
+            errorPopup('Not enough NFTs to perform bridging.');
             return;
         }
 
@@ -846,7 +846,7 @@ function TncDapp() {
 
         if(isNaN(category) || category < 0){
 
-            _alert('Invalid category');
+            errorPopup('Invalid category');
             return;
         }
 
@@ -856,7 +856,7 @@ function TncDapp() {
                 sellToken = $('#nftSellCustomTokenAddress').val().trim();
                 await tncLib.tokenSymbolErc20(sellToken);
             }catch (e){
-                _alert('Invalid token! Please use a proper token address.');
+                errorPopup('Invalid token! Please use a proper token address.');
                 return;
             }
         }
@@ -866,18 +866,18 @@ function TncDapp() {
         try {
             decimals = await tncLib.tokenDecimalsErc20(sellToken);
         }catch(e){
-            _alert('Invalid token! Seems not to support the decimals() information.');
+            errorPopup('Invalid token! Seems not to support the decimals() information.');
             return;
         }
 
         if(decimals >= 118){
 
-            _alert('Invalid token! Too many decimals (117 max.)');
+            errorPopup('Invalid token! Too many decimals (117 max.)');
             return;
         }
 
         if(pricePerItem <= 0){
-            _alert('Please enter a valid price per item.');
+            errorPopup("Please enter a valid price per item.");
             return;
         }
 
@@ -896,13 +896,13 @@ function TncDapp() {
         let finalPrice = itemPrice.mul(itemAmount).toString();
 
         if(amount <= 0){
-            _alert('Please enter a valid amount to sell.');
+            errorPopup('Please enter a valid amount to sell.');
             return;
         }
 
         let balance = await tncLib.balanceof(erc1155, tncLib.account, id);
         if(balance < amount){
-            _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
+            errorPopup('Insufficient balance. You own ' + balance + ' items of this NFT.');
             return;
         }
 
@@ -973,8 +973,8 @@ function TncDapp() {
                     toastr.remove();
                     $('#nftSellButton').prop('disabled', false);
                     $('#nftSellButton').html('Sell!');
-                    let errMsg = 'An error occurred with your set approval for all transaction.';
-                    toastr["error"](errMsg, "Error");
+                    errorPopup('An error occurred with your set approval for all transaction.');
+                    return;
                 }
             );
         }
@@ -1080,7 +1080,7 @@ function TncDapp() {
 
         if(isNaN(perc) || perc < 0){
 
-            _alert('Invalid royalties');
+            errorPopup('Invalid royalties');
             return;
 
         }

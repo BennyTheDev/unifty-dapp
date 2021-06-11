@@ -80,7 +80,7 @@ function TncDapp() {
             if( added == 0 || added < minStakes || added > maxStakes ){
                 let symbol = await tncLib.farmTokenSymbol(farmAddress);
                 let maxStakesLeft = web3.utils.toBN( await tncLib.farmMaxStakeRaw(farmAddress) ).sub( web3.utils.toBN( balance ) );
-                _alert("Please stake with the proper amounts.<br />Left for staking: " + _this.formatNumberString(maxStakesLeft.toString(), decimals) + " " + symbol + "<br /> " + ( minStakes == 0 ? '' : "Minimum Stake: " + ( _this.formatNumberString( minStakes, decimals ) ) + " " + symbol + "<br />" ) + "Maximum Stake: " + ( _this.formatNumberString( maxStakes, decimals ) ) + " " + symbol );
+                errorPopup("Please stake with the proper amounts.<br />Left for staking: " + _this.formatNumberString(maxStakesLeft.toString(), decimals) + " " + symbol + "<br /> " + ( minStakes == 0 ? '' : "Minimum Stake: " + ( _this.formatNumberString( minStakes, decimals ) ) + " " + symbol + "<br />" ) + "Maximum Stake: " + ( _this.formatNumberString( maxStakes, decimals ) ) + " " + symbol );
                 return;
             }
 
@@ -467,14 +467,14 @@ function TncDapp() {
 
                     let amount = parseInt($('#farmBuyAmount').val().trim());
                     if(isNaN(amount) || amount < 0){
-                        _alert('Please enter a valid amount.');
+                        errorPopup('Please enter a valid amount.');
                         return;
                     }
 
                     let farmBalance = await tncLib.balanceof($('#farmBuyAddress').val(), farmAddress, $('#farmBuyId').val());
                     if( farmBalance < amount){
 
-                        _alert('Your amount exceeds the current stock. You can buy max. ' + farmBalance + ' of this NFT.');
+                        errorPopup('Your amount exceeds the current stock. You can buy max. ' + farmBalance + ' of this NFT.');
                         return;
                     }
 
@@ -485,7 +485,7 @@ function TncDapp() {
 
                     let balance = web3.utils.toBN(await web3.eth.getBalance(tncLib.account));
                     if(balance.lt(final)){
-                        _alert('Insufficient funds to perform this purchase.');
+                        errorPopup('Insufficient funds to perform this purchase.');
                         return;
                     }
 
@@ -731,13 +731,13 @@ function TncDapp() {
         let amount = parseInt($('#farmRemoveNftsAmount').val().trim());
 
         if(amount <= 0 || $('#farmRemoveNftsAmount').val().trim() == ''){
-            _alert('Please enter a positive amount to remove');
+            errorPopup('Please enter a positive amount to remove');
             return;
         }
 
         let nftBalance = await tncLib.balanceof($('#farmRemovalAddress').val(), _this.getUrlParam('address'), $('#farmRemovalId').val());
         if(nftBalance < amount){
-            _alert("Balance exceeds desired amount. Farm's NFT balance: " + nftBalance);
+            errorPopup("Balance exceeds desired amount. Farm's NFT balance: " + nftBalance);
             return;
         }
 
@@ -824,10 +824,10 @@ function TncDapp() {
         let controllerFee = $('#farmEditControllerFee').val().trim();
         let artist = $('#farmEditArtistAddress').val().trim();
 
-        if(points == '' || parseFloat(points) <= 0){ _alert("Please enter a positive amount of redemption points."); return }
-        if(mintFee == ''){ _alert("Please enter an artist fee."); return }
-        if(controllerFee == ''){ _alert("Please enter a controller fee."); return }
-        if(parseFloat(mintFee) > 0 && ( !web3.utils.isAddress(artist) || artist == '' ) ){ _alert("Please enter a valid artist address if artist fee is set."); return }
+        if(points == '' || parseFloat(points) <= 0){ errorPopup("Please enter a positive amount of redemption points."); return }
+        if(mintFee == ''){ errorPopup("Please enter an artist fee."); return }
+        if(controllerFee == ''){ errorPopup("Please enter a controller fee."); return }
+        if(parseFloat(mintFee) > 0 && ( !web3.utils.isAddress(artist) || artist == '' ) ){ errorPopup("Please enter a valid artist address if artist fee is set."); return }
 
         toastr.remove();
 
@@ -866,8 +866,8 @@ function TncDapp() {
         let mintFee = $('#farmShopEditArtistPrice').val().trim();
         let controllerFee = $('#farmShopEditControllerPrice').val().trim();
 
-        if(mintFee == ''){ _alert("Please enter an artist price."); return }
-        if(controllerFee == ''){ _alert("Please enter a controller price."); return }
+        if(mintFee == ''){ errorPopup("Please enter an artist price."); return }
+        if(controllerFee == ''){ errorPopup("Please enter a controller price."); return }
 
         toastr.remove();
 
@@ -928,14 +928,14 @@ function TncDapp() {
         let erc1155 = $('#farmSelectedWalletErc1155').val().trim();
         let id = $('#farmSelectedWalletId').val().trim();
 
-        if(erc1155 == '' || id == ''){ _alert("Please select an NFT from your wallet."); return }
-        if(amount == '' ||parseInt(amount) <= 0){ _alert('Please enter a positive amount of NFTs to add.'); return }
+        if(erc1155 == '' || id == ''){ errorPopup("Please select an NFT from your wallet."); return }
+        if(amount == '' ||parseInt(amount) <= 0){ errorPopup('Please enter a positive amount of NFTs to add.'); return }
         let myNfts = await tncLib.getMyNfts(erc1155);
-        if(myNfts.length == 0){ _alert("You don't own enough of this NFT."); return }
-        if(points == '' ||parseFloat(points) <= 0){ _alert("Please enter a positive amount of redemption points."); return }
-        if(mintFee == ''){ _alert("Please enter an artist fee in ETH."); return }
-        if(controllerFee == ''){ _alert("Please enter an controller fee in ETH."); return }
-        if(parseFloat(mintFee) > 0 && ( !web3.utils.isAddress(artist) || artist == '' ) ){ _alert("Please enter a valid artist address if artist fee is set."); return }
+        if(myNfts.length == 0){ errorPopup("You don't own enough of this NFT."); return }
+        if(points == '' ||parseFloat(points) <= 0){ errorPopup("Please enter a positive amount of redemption points."); return }
+        if(mintFee == ''){ errorPopup("Please enter an artist fee in ETH."); return }
+        if(controllerFee == ''){ errorPopup("Please enter an controller fee in ETH."); return }
+        if(parseFloat(mintFee) > 0 && ( !web3.utils.isAddress(artist) || artist == '' ) ){ errorPopup("Please enter a valid artist address if artist fee is set."); return }
 
         points = web3.utils.toBN( _this.resolveNumberString(points, 18) );
         mintFee = web3.utils.toBN( _this.resolveNumberString(mintFee, 18) );
@@ -1352,7 +1352,7 @@ function TncDapp() {
 
                     } catch (error) {
                         console.log(error);
-                        _alert('You rejected to use this dapp.');
+                        errorPopup('You rejected to use this dapp.');
                     }
                 }
                 // Legacy dapp browsers...

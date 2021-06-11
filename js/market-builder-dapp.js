@@ -211,15 +211,15 @@ function TncDapp() {
         let link = $('#marketCustomLink').val().trim();
         let text = $('#marketCustomLinkText').val().trim();
 
-        if(name == ''){ _alert('Please enter a farm name'); return; }
-        if(controller == ''){ _alert('Please enter a controller address'); return; }
-        if(!await web3.utils.isAddress(controller)){ _alert('Invalid fee address'); return; }
-        if(isNaN(parseFloat(marketFee))){ _alert('Please enter a valid sales fee.'); return; }
-        if(isNaN(parseFloat(marketSwapFee))){ _alert('Please enter a valid swap fee.'); return; }
-        if(parseFloat(marketFee) < 0){ _alert('Please enter a valid sales fee.'); return; }
-        if(parseFloat(marketSwapFee) < 0){ _alert('Please enter a valid swap fee.'); return; }
-        if(parseFloat(marketFee) > 50){ _alert('Market fee is too high (max. 50%).'); return; }
-        if(parseFloat(marketSwapFee) > 50){ _alert('Market swap fee is too high (max. 50%).'); return; }
+        if(name == ''){ errorPopup('Please enter a farm name'); return; }
+        if(controller == ''){ errorPopup('Please enter a controller address'); return; }
+        if(!await web3.utils.isAddress(controller)){ errorPopup('Invalid fee address'); return; }
+        if(isNaN(parseFloat(marketFee))){ errorPopup('Please enter a valid sales fee.'); return; }
+        if(isNaN(parseFloat(marketSwapFee))){ errorPopup('Please enter a valid swap fee.'); return; }
+        if(parseFloat(marketFee) < 0){ errorPopup('Please enter a valid sales fee.'); return; }
+        if(parseFloat(marketSwapFee) < 0){ errorPopup('Please enter a valid swap fee.'); return; }
+        if(parseFloat(marketFee) > 50){ errorPopup('Market fee is too high (max. 50%).'); return; }
+        if(parseFloat(marketSwapFee) > 50){ errorPopup('Market swap fee is too high (max. 50%).'); return; }
 
         let marketInfo = {
             name : name,
@@ -286,7 +286,7 @@ function TncDapp() {
 
                 if( balance.lt(stakingAmount) ){
 
-                    _alert('Not enough $NIF available for staking based on your tier level ('+(await web3.utils.fromWei(stakingAmount.toString()+""))+' $NIF required for Tier ' + tier + ')');
+                    errorPopup('Not enough $NIF available for staking based on your tier level ('+(await web3.utils.fromWei(stakingAmount.toString()+""))+' $NIF required for Tier ' + tier + ')');
                     return;
                 }
             }
@@ -371,7 +371,7 @@ function TncDapp() {
         let link = $('#marketInfoCustomLink').val().trim();
         let text = $('#marketInfoCustomLinkText').val().trim();
 
-        if(name == ''){ _alert('Please enter a farm name'); return; }
+        if(name == ''){ errorPopup('Please enter a farm name'); return; }
 
         let farmInfo = {
             name : name,
@@ -475,7 +475,7 @@ function TncDapp() {
         let id = $('#marketAllowedDisallowedStatusId').val().trim();
         let status = $("input[name='marketAllowedDisallowedStatus']:checked").val();
 
-        if(address == '' || !await web3.utils.isAddress(address)){ _alert('Please enter a valid address'); return; }
+        if(address == '' || !await web3.utils.isAddress(address)){ errorPopup('Please enter a valid address'); return; }
 
         let func;
         let funcType = 1;
@@ -485,7 +485,7 @@ function TncDapp() {
                 func = tncLibCustomMarket.setAllowedWallets;
                 break;
             case 'setAllowedNfts':
-                if(isNaN(parseInt(id)) || parseInt(id) < 1){_alert("Please enter a valid NFT ID"); return;}
+                if(isNaN(parseInt(id)) || parseInt(id) < 1){errorPopup("Please enter a valid NFT ID"); return;}
                 func = tncLibCustomMarket.setAllowedNfts;
                 funcType = 2;
                 break;
@@ -496,7 +496,7 @@ function TncDapp() {
                 func = tncLibCustomMarket.setWalletBlockStatus;
                 break;
             case 'setDisallowedNfts':
-                if(isNaN(parseInt(id)) || parseInt(id) < 1){_alert("Please enter a valid NFT ID"); return;}
+                if(isNaN(parseInt(id)) || parseInt(id) < 1){errorPopup("Please enter a valid NFT ID"); return;}
                 func = tncLibCustomMarket.setNftBlockStatus;
                 funcType = 2;
                 break;
@@ -686,7 +686,7 @@ function TncDapp() {
 
         if( balance.lt(stakingAmount) ){
 
-            _alert('Not enough $NIF available for staking based on your tier level ('+(await web3.utils.fromWei(stakingAmount.toString()+""))+' $NIF required for Tier ' + tier + ')');
+            errorPopup('Not enough $NIF available for staking based on your tier level ('+(await web3.utils.fromWei(stakingAmount.toString()+""))+' $NIF required for Tier ' + tier + ')');
             return;
         }
 
@@ -1047,10 +1047,10 @@ function TncDapp() {
         let controller = $('#marketSetupSwapFeeAddress').val().trim();
         let marketFee = $('#marketSetupSwapFee').val().trim();
 
-        if(parseFloat(marketFee) < 0){ _alert('Please enter a valid sales fee.'); return; }
-        if(parseFloat(marketFee) > 50){ _alert('Sales fee is too high (max. 50%).'); return; }
-        if(controller == ''){ _alert('Please enter a valid fee address'); return; }
-        if(!await web3.utils.isAddress(controller)){ _alert('Invalid fee address'); return; }
+        if(parseFloat(marketFee) < 0){ errorPopup('Please enter a valid sales fee.'); return; }
+        if(parseFloat(marketFee) > 50){ errorPopup('Sales fee is too high (max. 50%).'); return; }
+        if(controller == ''){ errorPopup('Please enter a valid fee address'); return; }
+        if(!await web3.utils.isAddress(controller)){ errorPopup('Invalid fee address'); return; }
 
         marketFee = _this.resolveNumberString(""+(Number(marketFee).toFixed(2)), 2);
 
@@ -1089,10 +1089,10 @@ function TncDapp() {
         let controller = $('#marketSetupFeeAddress').val().trim();
         let marketFee = $('#marketSetupFee').val().trim();
 
-        if(parseFloat(marketFee) < 0){ _alert('Please enter a valid sales fee.'); return; }
-        if(parseFloat(marketFee) > 50){ _alert('Sales fee is too high (max. 50%).'); return; }
-        if(controller == ''){ _alert('Please enter a valid fee address'); return; }
-        if(!await web3.utils.isAddress(controller)){ _alert('Invalid fee address'); return; }
+        if(parseFloat(marketFee) < 0){ errorPopup('Please enter a valid sales fee.'); return; }
+        if(parseFloat(marketFee) > 50){ errorPopup('Sales fee is too high (max. 50%).'); return; }
+        if(controller == ''){ errorPopup('Please enter a valid fee address'); return; }
+        if(!await web3.utils.isAddress(controller)){ errorPopup('Invalid fee address'); return; }
 
         marketFee = _this.resolveNumberString(""+(Number(marketFee).toFixed(2)), 2);
 
@@ -1378,7 +1378,7 @@ function TncDapp() {
 
                     } catch (error) {
                         console.log(error);
-                        _alert('You rejected to use this dapp.');
+                        errorPopup('You rejected to use this dapp.');
                     }
                 }
                 // Legacy dapp browsers...
