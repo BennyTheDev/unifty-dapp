@@ -9,8 +9,8 @@ function TncLibConvert721() {
     // ETHEREUM RINKEBY
     if (chain_id === "4") {
 
-        this.conv721 = new web3.eth.Contract(converter721To1155ABI, '0xd6d90E513Bb9c5AF35037Bfae432A10751F379f2', {from: this.account});
-        this.uniftyverse721 = "0xdf72d942E2B1f26Af8dd0336fDc4da74f44a9b2a";
+        this.conv721 = new web3.eth.Contract(converter721To1155ABI, '0x8810A7f954792F2Cf938F9C8e6C87D4df4c8f1Ed', {from: this.account});
+        this.uniftyverse721 = "0x2fA2725bA1A20fE914835893835CBCd472da5E9C";
 
         // xDAI MAINNET
     } else if (chain_id === "64") {
