@@ -20,9 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-builder-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,19 +61,20 @@
     <property name="NewWatcherDialog.advanced.open" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/meta" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\MAMP\htdocs\knots\dapp_new\js" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\knots\dapp_new\meta" />
       <recent name="C:\MAMP\htdocs\knots\dapp_new\js" />
       <recent name="C:\MAMP\htdocs\knots\dapp_new" />
       <recent name="C:\MAMP\htdocs\knots\dapp_new\assets\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\MAMP\htdocs\knots\dapp_new\js" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -126,7 +125,7 @@
       <workItem from="1621966623978" duration="23778000" />
       <workItem from="1622529834626" duration="3902000" />
       <workItem from="1622645222745" duration="104676000" />
-      <workItem from="1623177816825" duration="25837000" />
+      <workItem from="1623177816825" duration="50926000" />
     </task>
     <task id="LOCAL-00001" summary="implemented new design and marketplace">
       <created>1616417086932</created>
@@ -394,7 +393,35 @@
       <option name="project" value="LOCAL" />
       <updated>1623272904140</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="# fixed parameter order in nft block status arguments">
+      <created>1623277783890</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1623277783890</updated>
+    </task>
+    <task id="LOCAL-00040" summary="- removed all NSFW occurences&#10;+ added the eip-721 to eip-1155 converted in the wallet dapp">
+      <created>1623612822452</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1623612822452</updated>
+    </task>
+    <task id="LOCAL-00041" summary="- removed all NSFW occurences&#10;+ added the eip-721 to eip-1155 converted in the wallet dapp">
+      <created>1623613217193</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1623613217193</updated>
+    </task>
+    <task id="LOCAL-00042" summary="# updated js file versions">
+      <created>1623613788101</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1623613788101</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -415,9 +442,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="+ added avalanche chain support" />
-    <MESSAGE value="removed 1hive from featured" />
-    <MESSAGE value="merged from optimizations &#10;# fixed cards for swaps" />
     <MESSAGE value="#minor load optimization in farmbuilder and farms" />
     <MESSAGE value="# move staking/unstaking code in farms before any asset is loaded to prevent the buttons being unresponsive" />
     <MESSAGE value="+ added api support for farm event log queries to speed up the site" />
@@ -440,13 +464,16 @@
     <MESSAGE value="- removed advisors because outdated until it is clear who to add&#10;&#10;- removed investor's information indefinitely" />
     <MESSAGE value="+ added fee setup&#10;+  added admin cancellation for listings" />
     <MESSAGE value="# changed js files version number" />
-    <option name="LAST_COMMIT_MESSAGE" value="# changed js files version number" />
+    <MESSAGE value="# fixed parameter order in nft block status arguments" />
+    <MESSAGE value="- removed all NSFW occurences&#10;+ added the eip-721 to eip-1155 converted in the wallet dapp" />
+    <MESSAGE value="# updated js file versions" />
+    <option name="LAST_COMMIT_MESSAGE" value="# updated js file versions" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1623272903191">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1623613787616">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1623272903191" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1623613787616" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -483,10 +510,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1623272913196">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1623613793561">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623272913196" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623613793561" />
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617739666916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -495,10 +522,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1623178660854" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1623195275239">
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1623613615509">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1623195275239" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1623613615509" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1622900258120">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
