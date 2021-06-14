@@ -339,7 +339,7 @@ function getUrlParam(param_name) {
 function errorPopup(errorMsg, message, err){
   _alert("<div class=\"modalErrorDiv\"><div class=\"imageContainer\"><img src=\"assets/img/icons/report_problem_black_48.svg\"></div><div><h3>Error!</h3><h4>Please clear your browser cache and try again. If that doesn't help, then please follow the steps below.</h4></div></div>" + 
   "<div class=\"modalDivider\"></div>" + 
-  "<div class=\"modalErrorDiv\"><div class=\"imageContainer\"><a id=\"errorCopy\" href=\"javascript:void(0);\"><img src=\"assets/img/icons/content_copy_black_24dp.svg\"></a></div><p>" + errorMsg + "</p><p>" + message + "</p></div>" + 
+  "<div class=\"modalErrorDiv\"><div class=\"imageContainer\"><a id=\"errorCopy\" href=\"javascript:void(0);\"><img src=\"assets/img/icons/content_copy_black_24dp.svg\"></a></div><p>" + errorMsg + "</p><br><p>" + message + "</p></div>" + 
   "<div class=\"modalDivider\"></div>" + 
   "<div style=\"overflow: auto;\"><p>" + err + "</p></div>");
 

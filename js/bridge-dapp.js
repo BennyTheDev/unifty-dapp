@@ -281,10 +281,10 @@ function TncDapp() {
             toastr["error"](
               errMsg,
               "Error"
-            );
+              );
+            errorPopup("Error", errMsg, err.toString());
             $(_button).prop("disabled", false);
             $(_button).html("Redeem");
-            errorPopup("Error", errMsg, err.toString());
           }
         );
       } else {
@@ -471,13 +471,8 @@ function TncDapp() {
           $(_button).html("Restore");
         }, 3000);
 
-        let errMsg = "An Withdraw occurred with your restore cancellation transaction.";
-        
-        toastr["error"](
-          errMsg,
-          "Error"
-        );
-        
+        let errMsg = "An Withdraw occurred with your restore cancellation transaction.";           
+        toastr["error"](errMsg, "Error");
         errorPopup("Error", errMsg, err.toString());
       }
     );
