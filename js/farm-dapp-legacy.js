@@ -184,7 +184,7 @@ function TncDapp() {
                             toastr.remove();
                             let errMsg = 'An error occurred with your redeem transaction.';                    
                             toastr["error"](errMsg, "Error");
-                            errorPopup("Error", errMsg, err.toString());
+                            errorPopup("Error", errMsg, err.stack);
                             $('#nftStakeButton').prop('disabled', false);
                             $('#nftStakeButton').html('Stake!');
                         });
@@ -266,7 +266,7 @@ function TncDapp() {
                         toastr.remove();
                         let errMsg = 'An error occurred with your approval transaction.';                    
                         toastr["error"](errMsg, "Error");
-                        errorPopup("Error", errMsg, err.toString());
+                        errorPopup("Error", errMsg, err.stack);
                         $('#nftStakeButton').prop('disabled', false);
                         $('#nftStakeButton').html('Stake!');
                     });
@@ -303,7 +303,7 @@ function TncDapp() {
                             errMsg = 'Staking amount exceeds limit or general gas error.';
                         }                  
                         toastr["error"](errMsg, "Error");
-                        errorPopup("Error", errMsg, err.toString());
+                        errorPopup("Error", errMsg, err.stack);
                         $('#nftStakeButton').prop('disabled', false);
                         $('#nftStakeButton').html('Stake!');
                     });
@@ -359,7 +359,7 @@ function TncDapp() {
                         errMsg = 'Unstaking amount exceeds balance or general gas error.';
                     }
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
 
                 });
         });

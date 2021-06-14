@@ -282,7 +282,7 @@ function TncDapp() {
               errMsg,
               "Error"
               );
-            errorPopup("Error", errMsg, err.toString());
+            errorPopup("Error", errMsg, err.stack);
             $(_button).prop("disabled", false);
             $(_button).html("Redeem");
           }
@@ -320,7 +320,7 @@ function TncDapp() {
               errMsg,
               "Error"
             );
-            errorPopup("Error", errMsg, err.toString());
+            errorPopup("Error", errMsg, err.stack);
 
           }
         );
@@ -385,7 +385,7 @@ function TncDapp() {
           errMsg,
           "Error"
         );
-        errorPopup("Error", errMsg, err.toString());
+        errorPopup("Error", errMsg, err.stack);
 
       }
     );
@@ -423,7 +423,7 @@ function TncDapp() {
           errMsg,
           "Error"
         );
-        errorPopup("Error", errMsg, err.toString());
+        errorPopup("Error", errMsg, err.stack);
 
       }
     );
@@ -473,7 +473,7 @@ function TncDapp() {
 
         let errMsg = "An Withdraw occurred with your restore cancellation transaction.";           
         toastr["error"](errMsg, "Error");
-        errorPopup("Error", errMsg, err.toString());
+        errorPopup("Error", errMsg, err.stack);
       }
     );
   };

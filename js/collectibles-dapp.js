@@ -607,7 +607,7 @@ function TncDapp() {
 
                 let errMsg = 'An error occurred with your transfer transaction.';
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
 
             });
 
@@ -673,7 +673,7 @@ function TncDapp() {
 
                 let errMsg = 'An occurred with your job cancellation transaction.';
                 toastr["error"](errMsg, "Error");                
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -730,7 +730,7 @@ function TncDapp() {
 
                     let errMsg = 'An error occurred with your bridging transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
 
                 }
             );
@@ -760,7 +760,7 @@ function TncDapp() {
                     $(_button).html('Bridge');
                     let errMsg = 'An error occurred with your set approval for all transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
         }
@@ -816,7 +816,7 @@ function TncDapp() {
 
                     let errMsg = 'An error occurred with your bridging transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
 
@@ -846,7 +846,7 @@ function TncDapp() {
                     
                     let errMsg = 'An error occurred with your set approval for all transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                     
                 }
             );
@@ -965,7 +965,7 @@ function TncDapp() {
                     
                     let errMsg = 'An error occurred with your sell transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 });
 
         }else{
@@ -1133,7 +1133,7 @@ function TncDapp() {
 
                 let errMsg = 'An error occurred with your royalties transaction.';                    
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             });
     }
 

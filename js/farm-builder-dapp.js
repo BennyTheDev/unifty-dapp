@@ -381,7 +381,7 @@ function TncDapp() {
 
                 let errMsg = 'An error occurred with your New Farm Shop Addon transaction. Do you have sufficient funds?';                    
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -424,7 +424,7 @@ function TncDapp() {
                 $('#farmShopAddonStep2Button').html('Allow');
                    
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -465,7 +465,7 @@ function TncDapp() {
                 $('#farmShopAddonStep2Button').html('Allow');
                 
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -499,7 +499,7 @@ function TncDapp() {
                 $('#farmShopEditButton').html('Save');
 
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
 
             }
         );
@@ -595,7 +595,7 @@ function TncDapp() {
                     toastr.remove();
                     let errMsg = 'An error occurred with your New Farm transaction. Do you have sufficient funds?';            
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
 
@@ -627,7 +627,7 @@ function TncDapp() {
                 $('#editRewardRateButton').html('Update');
                 let errMsg = 'An error occurred with your Set Reward Rate transaction.';
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
 
             }
         );
@@ -659,7 +659,7 @@ function TncDapp() {
                 $('#editControllerButton').html('Update');
                 let errMsg = 'An error occurred with your Set Controller transaction.';
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     };
@@ -702,7 +702,7 @@ function TncDapp() {
                 $('#editStakeButton').html('Update');
                 let errMsg = 'An error occurred with your Edit Stakes transaction.';
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     };
@@ -777,7 +777,7 @@ function TncDapp() {
                     $('#farmInfoButton').html('Update');
                     let errMsg = 'An error occurred with your Update Farm Info transaction.';
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
         });

@@ -633,7 +633,7 @@ function TncDapp() {
                     $('#nftBatchBuy'+index).prop('disabled', false);
                     $('#nftBatchBuy'+index).html('Buy');
 
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
 
                 });
         }
@@ -686,7 +686,7 @@ function TncDapp() {
                     let errMsg = 'An error occurred with your buying transaction.';
                     toastr["error"](errMsg, "Error");
 
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
 
                 }
             );
@@ -781,7 +781,7 @@ function TncDapp() {
                             $('#nftBuyButtonShortcut'+index).prop('disabled', false);
                             $('#nftBuyButtonShortcut'+index).html('Buy');
 
-                            errorPopup("Error", errMsg, err.toString());
+                            errorPopup("Error", errMsg, err.stack);
                         });
                 }
                 else{
@@ -828,7 +828,7 @@ function TncDapp() {
                             $(_button).html('Buy!');
                             let errMsg = 'An error occurred with your buying transaction.'
                             toastr["error"](errMsg, "Error");
-                            errorPopup("Error", errMsg, err.toString())
+                            errorPopup("Error", errMsg, err.stack)
                         }
                     );
                 }
@@ -937,7 +937,7 @@ p
                     toastr["error"](errMsg, "Error");
                     $(_button).prop('disabled', false);
                     $(_button).html('Swap!');
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
 
                 });
         }
@@ -975,7 +975,7 @@ p
                     let errMsg = 'An error occurred with your swapping transaction.';
 
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
 
                 }
             );
@@ -1166,7 +1166,7 @@ p
                 let errMsg = 'An error occurred with your transfer transaction.';
 
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
 
             });
 

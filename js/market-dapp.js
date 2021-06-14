@@ -459,7 +459,7 @@ function TncDapp() {
                 $(_button).html('Cancel');
                 let errMsg = 'An error occurred with your cancellation transaction.';                    
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -523,7 +523,7 @@ function TncDapp() {
                     toastr.remove();
                     let errMsg = 'An error occurred with your approval transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                     $(_button).prop('disabled', false);
                     $(_button).html('Buy!');
                     $('#nftBatchBuy'+index).prop('disabled', false);
@@ -577,7 +577,7 @@ function TncDapp() {
                     $(_button).html('Buy!');
                     let errMsg = 'An error occurred with your buying transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
         }
@@ -671,7 +671,7 @@ function TncDapp() {
                             toastr.remove();
                             let errMsg = 'An error occurred with your approval transaction.';                    
                             toastr["error"](errMsg, "Error");
-                            errorPopup("Error", errMsg, err.toString());
+                            errorPopup("Error", errMsg, err.stack);
                             $(_button).prop('disabled', false);
                             $(_button).html('Buy!');
                             $('#nftBuyButtonShortcut'+index).prop('disabled', false);
@@ -722,7 +722,7 @@ function TncDapp() {
                             $(_button).html('Buy!');
                             let errMsg = 'An error occurred with your buying transaction.';                    
                             toastr["error"](errMsg, "Error");
-                            errorPopup("Error", errMsg, err.toString());
+                            errorPopup("Error", errMsg, err.stack);
                         }
                     );
                 }
@@ -828,7 +828,7 @@ function TncDapp() {
                     toastr.remove();
                     let errMsg = 'An error occurred with your approval transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                     $(_button).prop('disabled', false);
                     $(_button).html('Swap!');
                 });
@@ -865,7 +865,7 @@ function TncDapp() {
                     $(_button).html('Swap!');
                     let errMsg = 'An error occurred with your swapping transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
         }
@@ -1165,7 +1165,7 @@ function TncDapp() {
                     $(_button).html('Withdraw');
                     let errMsg = 'An error occurred with your withdrawal transaction.';                    
                     toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.toString());
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
         });
@@ -1398,7 +1398,7 @@ function TncDapp() {
                             toastr.remove();
                             let errMsg = 'An error occurred with your set approval for all transaction.';
                             toastr["error"](errMsg, "Error");
-                            errorPopup("Error", errMsg, err.toString());
+                            errorPopup("Error", errMsg, err.stack);
                             $('#alertModal').modal('hide');
                             $('#amountToAdd'+erc1155Address+id).val('');
                         }
@@ -1912,7 +1912,7 @@ function TncDapp() {
                 $(_button).html('Accept');
                 let errMsg = 'An error occurred with your swapping transaction.';                    
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -1950,7 +1950,7 @@ function TncDapp() {
                 $(_button).html('Cancel');
                 let errMsg = 'An error occurred with your cancelling transaction.';                    
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -2048,7 +2048,7 @@ function TncDapp() {
                 $('#nftSellButton').html('Sell!');
                 let errMsg = 'An error occurred with your sell transaction.';                    
                 toastr["error"](errMsg, "Error");
-                errorPopup("Error", errMsg, err.toString());
+                errorPopup("Error", errMsg, err.stack);
             });
     }
 
