@@ -118,7 +118,7 @@ function TncDapp() {
                 }
 
             }catch(e){
-                errorPopup('Offer not found.');
+                _alert('Offer not found.');
                 return;
             }
 
@@ -573,7 +573,7 @@ function TncDapp() {
         let ask = await tncLibMarket.getAskBase(index);
 
         if(ask.seller.toLowerCase() == tncLib.account.toLowerCase()){
-            errorPopup('You cannot buy your own sale.');
+            _alert('You cannot buy your own sale.');
             return;
         }
 
@@ -582,7 +582,7 @@ function TncDapp() {
 
         if(fullPrice.gt(balance)){
 
-            errorPopup('Insufficient funds: price exceeds your balance.');
+            _alert('Insufficient funds: price exceeds your balance.');
             return;
         }
 
@@ -623,13 +623,18 @@ function TncDapp() {
                     $('#nftBatchBuy'+index).html('Buy');
                     $('#alertModal').modal('hide');
                 },
-                function () {
+                function (err) {
                     toastr.remove();
-                    toastr["error"]('An error occurred with your approval transaction.', "Error");
+                    let errMsg = 'An error occurred with your approval transaction.';
+
+                    toastr["error"](errMsg, "Error");
                     $(_button).prop('disabled', false);
                     $(_button).html('Buy!');
                     $('#nftBatchBuy'+index).prop('disabled', false);
                     $('#nftBatchBuy'+index).html('Buy');
+
+                    errorPopup("Error", errMsg, err.toString());
+
                 });
         }
         else{
@@ -671,13 +676,18 @@ function TncDapp() {
                         $('#nftBatchBuy'+index).closest('.nftListing').css('display', 'none');
                     }
                 },
-                function(){
+                function(err){
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $('#nftBatchBuy'+index).prop('disabled', false);
                     $('#nftBatchBuy'+index).html('Buy');
                     $(_button).html('Buy!');
-                    toastr["error"]('An error occurred with your buying transaction.', "Error");
+
+                    let errMsg = 'An error occurred with your buying transaction.';
+                    toastr["error"](errMsg, "Error");
+
+                    errorPopup("Error", errMsg, err.toString());
+
                 }
             );
         }
@@ -702,12 +712,12 @@ function TncDapp() {
 
                 if(isNaN(amount) || ask.amount[i] < amount){
 
-                    errorPopup('Requested amount exceeds stock.');
+                    _alert('Requested amount exceeds stock.');
                     return;
                 }
 
                 if(ask.seller.toLowerCase() == tncLib.account.toLowerCase()){
-                    errorPopup('You cannot buy your own sale.');
+                    _alert('You cannot buy your own sale.');
                     return;
                 }
 
@@ -718,7 +728,7 @@ function TncDapp() {
 
                 if(fullPrice.gt(balance)){
 
-                    errorPopup('Insufficient funds: price exceeds your balance.');
+                    _alert('Insufficient funds: price exceeds your balance.');
                     return;
                 }
 
@@ -761,13 +771,17 @@ function TncDapp() {
                             $('#nftBuyButtonShortcut'+index).html('Buy');
                             $('#alertModal').modal('hide');
                         },
-                        function () {
+                        function (err) {
                             toastr.remove();
-                            toastr["error"]('An error occurred with your approval transaction.', "Error");
+                            let errMsg = 'An error occurred with your approval transaction.';
+
+                            toastr["error"](errMsg, "Error");
                             $(_button).prop('disabled', false);
                             $(_button).html('Buy!');
                             $('#nftBuyButtonShortcut'+index).prop('disabled', false);
                             $('#nftBuyButtonShortcut'+index).html('Buy');
+
+                            errorPopup("Error", errMsg, err.toString());
                         });
                 }
                 else{
@@ -806,17 +820,19 @@ function TncDapp() {
                                 $('#nftBuyButtonShortcut'+index).closest('.nftListing').css('display', 'none');
                             }
                         },
-                        function(){
+                        function(err){
                             toastr.remove();
                             $(_button).prop('disabled', false);
                             $('#nftBuyButtonShortcut'+index).prop('disabled', false);
                             $('#nftBuyButtonShortcut'+index).html('Buy');
                             $(_button).html('Buy!');
-                            toastr["error"]('An error occurred with your buying transaction.', "Error");
+                            let errMsg = 'An error occurred with your buying transaction.'
+                            toastr["error"](errMsg, "Error");
+                            errorPopup("Error", errMsg, err.toString())
                         }
                     );
                 }
-
+p
                 found = true;
                 break;
             }
@@ -824,7 +840,7 @@ function TncDapp() {
 
         if(!found){
 
-            errorPopup('NFT not found.');
+            _alert('NFT not found.');
         }
     }
 
@@ -843,7 +859,7 @@ function TncDapp() {
 
         if(index1 == '' || index1 == 0){
 
-            errorPopup('Please select an offer of yours prior requesting a swap.');
+            _alert('Please select an offer of yours prior requesting a swap.');
             return;
         }
 
@@ -851,29 +867,29 @@ function TncDapp() {
         let ask1 = await tncLibMarket.getAskBase(index1);
 
         if(await tncLibMarket.getSwapExists(ask.seller, ask1.seller, index0)){
-            errorPopup('You already placed a swap request for this offer.');
+            _alert('You already placed a swap request for this offer.');
             return;
         }
 
         if(ask.updates != 0){
-            errorPopup('The opposing offer has changed since it has been released. Swapping is not possible when the conditions changed.');
+            _alert('The opposing offer has changed since it has been released. Swapping is not possible when the conditions changed.');
             return;
         }
 
         if(ask1.updates != 0){
-            errorPopup('Your offer has changed since you have been releasing it. Swapping is not possible when the conditions changed.');
+            _alert('Your offer has changed since you have been releasing it. Swapping is not possible when the conditions changed.');
             return;
         }
 
         if(ask.seller == tncLib.account){
 
-            errorPopup('You cannot swap your own offers.');
+            _alert('You cannot swap your own offers.');
             return;
         }
 
         if(ask.swapMode == 0){
 
-            errorPopup('Swapping not permitted.');
+            _alert('Swapping not permitted.');
             return;
         }
 
@@ -881,7 +897,7 @@ function TncDapp() {
 
         if(balance.lt(nif)){
 
-            errorPopup('Insufficient NIF funds.');
+            _alert('Insufficient NIF funds.');
             return;
         }
 
@@ -914,11 +930,15 @@ function TncDapp() {
                     $(_button).prop('disabled', false);
                     $(_button).html('Swap!');
                 },
-                function () {
+                function (err) {
                     toastr.remove();
-                    toastr["error"]('An error occurred with your approval transaction.', "Error");
+                    let errMsg = 'An error occurred with your approval transaction.';
+
+                    toastr["error"](errMsg, "Error");
                     $(_button).prop('disabled', false);
                     $(_button).html('Swap!');
+                    errorPopup("Error", errMsg, err.toString());
+
                 });
         }
         else{
@@ -947,11 +967,16 @@ function TncDapp() {
                     }
                     _alert('Swap request successful. If your request is getting accepted, the swap will be performed. You can cancel your request at any time.');
                 },
-                function(){
+                function(err){
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Swap!');
-                    toastr["error"]('An error occurred with your swapping transaction.', "Error");
+
+                    let errMsg = 'An error occurred with your swapping transaction.';
+
+                    toastr["error"](errMsg, "Error");
+                    errorPopup("Error", errMsg, err.toString());
+
                 }
             );
         }
@@ -1099,18 +1124,18 @@ function TncDapp() {
         let amount = parseInt($('#nftTransferAmount').val().trim()) || 0;
 
         if(!web3.utils.isAddress($('#nftTransferToAddress').val().trim())){
-            errorPopup('Please enter a valid address.');
+            _alert('Please enter a valid address.');
             return;
         }
 
         if(amount <= 0){
-            errorPopup('Please enter a valid amount to transfer.');
+            _alert('Please enter a valid amount to transfer.');
             return;
         }
 
         let balance = await tncLib.balanceof(erc1155, tncLib.account, id);
         if(balance < amount){
-            errorPopup('Insufficient balance. You own ' + balance + ' items of this NFT.');
+            _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
             return;
         }
 
@@ -1133,11 +1158,16 @@ function TncDapp() {
                 $('#nftTransferButton').prop('disabled', false);
                 toastr["success"]('Transaction has been finished.', "Success");
             },
-            function(){
+            function(err){
                 toastr.remove();
                 $('#nftTransferButton').prop('disabled', false);
                 $('#nftTransferButton').html('Send');
-                toastr["error"]('An error occurred with your transfer transaction.', "Error");
+
+                let errMsg = 'An error occurred with your transfer transaction.';
+
+                toastr["error"](errMsg, "Error");
+                errorPopup("Error", errMsg, err.toString());
+
             });
 
     };
@@ -1184,12 +1214,12 @@ function TncDapp() {
                 $('#collectiblePage').css('display', 'grid');
 
                 if(!web3.utils.isAddress(_this.getUrlParam('collection'))){
-                    errorPopup('Invalid  Address Provided');
+                    _alert('Invalid  Address Provided');
                     return;
                 }
 
                 if(!await tncLib.isErc1155Supported(_this.getUrlParam('collection'))){
-                    errorPopup('Unsupported collection type.');
+                    _alert('Unsupported collection type.');
                     return;
                 }
 

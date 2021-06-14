@@ -469,12 +469,12 @@ function TncDapp() {
                 }
                 else{
 
-                    errorPopup('Contract meta not valid: ' + contractMeta.contractURI);
+                    _alert('Contract meta not valid: ' + contractMeta.contractURI);
                 }
 
             }catch(e){
 
-                errorPopup('Trouble resolving contract uri: ' + contractMeta.contractURI);
+                _alert('Trouble resolving contract uri: ' + contractMeta.contractURI);
             }
 
             $('#collectionUpdateAddress').val( $(e.relatedTarget).data('contractAddress') );
@@ -566,13 +566,13 @@ function TncDapp() {
                 }
                 else{
 
-                    errorPopup('NFT not a valid json object: ' + nft.uri);
+                    _alert('NFT not a valid json object: ' + nft.uri);
                 }
 
             }catch (e){
 
                 console.log(e.message);
-                errorPopup('Trouble resolving nft uri: ' + nft.uri);
+                _alert('Trouble resolving nft uri: ' + nft.uri);
             }
         }
 
@@ -588,17 +588,17 @@ function TncDapp() {
         let amounts = $('#nftTransferMultiBatchAmounts').val().replace("\r","").split("\n");
 
         if(!web3.utils.isAddress(collection)){
-            errorPopup('Given collection is not a valid address.');
+            _alert('Given collection is not a valid address.');
             return;
         }
 
         if(!await tncLib.isErc1155Supported(collection)){
-            errorPopup('Given address is not a valid collection contract.');
+            _alert('Given address is not a valid collection contract.');
             return;
         }
 
         if(recipients.length == 0){
-            errorPopup('Please add recipient addresses.');
+            _alert('Please add recipient addresses.');
             return;
         }
 
@@ -611,12 +611,12 @@ function TncDapp() {
         }
 
         if(wrong_recipients != ''){
-            errorPopup('The following addresses are invalid:<br/><br/>' + wrong_recipients);
+            _alert('The following addresses are invalid:<br/><br/>' + wrong_recipients);
             return;
         }
 
         if(ids.length != amounts.length){
-            errorPopup('There must be as many NFT IDs as there are amounts.');
+            _alert('There must be as many NFT IDs as there are amounts.');
             return;
         }
 
@@ -695,7 +695,7 @@ function TncDapp() {
 
         if(isNaN(perc) || perc < 0){
 
-            errorPopup('Invalid royalties');
+            _alert('Invalid royalties');
             return;
 
         }
@@ -1037,7 +1037,7 @@ function TncDapp() {
 
                     } catch (error) {
                         console.log(error);
-                        errorPopup('You rejected to use this dapp.');
+                        _alert('You rejected to use this dapp.');
                     }
                 }
                 // Legacy dapp browsers...
@@ -1117,18 +1117,18 @@ function TncDapp() {
         let keys = $('input[name="addedAttributesKeys[]"]');
         for(let i = 0; i < keys.length; i++){
             if($(keys[i]).val().trim() == $('#addAttributeKey').val().trim()){
-                errorPopup("The trait exists already");
+                _alert("The trait exists already");
                 return;
             }
         }
 
         if($('#addAttributeKey').val().trim() === ""){
-            errorPopup("Please enter a trait key");
+            _alert("Please enter a trait key");
             return;
         }
 
         if($('#addAttributeValue').val().trim() === ""){
-            errorPopup("Please enter a trait value");
+            _alert("Please enter a trait value");
             return;
         }
 
@@ -1249,19 +1249,19 @@ function TncDapp() {
             ) ||
             $('#nftName').val().trim() == ''
         ){
-            errorPopup('Please enter all required fields.');
+            _alert('Please enter all required fields.');
             return;
         }
 
         if($('#nftIsEdit').val() == '0' && ( isNaN(parseInt($('#nftSupply').val().trim())) ||
              isNaN(parseInt($('#nftMaxSupply').val().trim()))) ){
-            errorPopup('Supply and Max. Supply must be numeric.');
+            _alert('Supply and Max. Supply must be numeric.');
             return;
         }
 
         if($('#nftIsEdit').val() == '0' &&
             ( parseInt($('#nftSupply').val().trim()) < 0 || parseInt($('#nftMaxSupply').val().trim()) < parseInt($('#nftSupply').val().trim()))){
-            errorPopup('Supply and Max. Supply must be larger or equal to zero and Max. Supply must equal or larger than Supply.');
+            _alert('Supply and Max. Supply must be larger or equal to zero and Max. Supply must equal or larger than Supply.');
             return;
         }
 
@@ -1381,7 +1381,7 @@ function TncDapp() {
             ) ||
             $('#erc1155Name').val().trim() == ''
         ){
-            errorPopup('Please enter all required fields.');
+            _alert('Please enter all required fields.');
             return;
         }
 

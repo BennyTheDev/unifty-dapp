@@ -281,7 +281,7 @@ $(document).ready(async function(){
 
             } catch (error) {
                 console.log(error);
-                errorPopup('You refused to use this dapp.');
+                _alert('You refused to use this dapp.');
             }
 
         }, 500);

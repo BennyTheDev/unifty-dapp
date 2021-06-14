@@ -560,7 +560,7 @@ function TncDapp() {
 
                     } catch (error) {
                         console.log(error);
-                        errorPopup('You rejected to use this dapp.');
+                        _alert('You rejected to use this dapp.');
                     }
                 }
                 // Legacy dapp browsers...

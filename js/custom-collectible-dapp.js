@@ -118,7 +118,7 @@ function TncDapp() {
                 }
 
             }catch(e){
-                errorPopup('Offer not found.');
+                _alert('Offer not found.');
                 return;
             }
 
@@ -573,7 +573,7 @@ function TncDapp() {
         let ask = await tncLibMarket.getAskBase(index, _this.marketAddress);
 
         if(ask.seller.toLowerCase() == tncLib.account.toLowerCase()){
-            errorPopup('You cannot buy your own sale.');
+            _alert('You cannot buy your own sale.');
             return;
         }
 
@@ -582,7 +582,7 @@ function TncDapp() {
 
         if(fullPrice.gt(balance)){
 
-            errorPopup('Insufficient funds: price exceeds your balance.');
+            _alert('Insufficient funds: price exceeds your balance.');
             return;
         }
 
@@ -678,7 +678,7 @@ function TncDapp() {
                     $('#nftBatchBuy'+index).html('Buy');
                     $(_button).html('Buy!');
                     toastr["error"]('An error occurred with your buying transaction.', "Error");
-                    errorPopup("We could not perform your buy order. Please contact the market owner.");
+                    _alert("We could not perform your buy order. Please contact the market owner.");
                 }
             );
         }
@@ -703,12 +703,12 @@ function TncDapp() {
 
                 if(isNaN(amount) || ask.amount[i] < amount){
 
-                    errorPopup('Requested amount exceeds stock.');
+                    _alert('Requested amount exceeds stock.');
                     return;
                 }
 
                 if(ask.seller.toLowerCase() == tncLib.account.toLowerCase()){
-                    errorPopup('You cannot buy your own sale.');
+                    _alert('You cannot buy your own sale.');
                     return;
                 }
 
@@ -719,7 +719,7 @@ function TncDapp() {
 
                 if(fullPrice.gt(balance)){
 
-                    errorPopup('Insufficient funds: price exceeds your balance.');
+                    _alert('Insufficient funds: price exceeds your balance.');
                     return;
                 }
 
@@ -814,7 +814,7 @@ function TncDapp() {
                             $('#nftBuyButtonShortcut'+index).html('Buy');
                             $(_button).html('Buy!');
                             toastr["error"]('An error occurred with your buying transaction.', "Error");
-                            errorPopup("We could not perform your buy order. Please contact the market owner.");
+                            _alert("We could not perform your buy order. Please contact the market owner.");
                         }
                     );
                 }
@@ -826,7 +826,7 @@ function TncDapp() {
 
         if(!found){
 
-            errorPopup('NFT not found.');
+            _alert('NFT not found.');
         }
     }
 
@@ -835,7 +835,7 @@ function TncDapp() {
         let _nif = parseFloat( $('#nftSwapNif').val().trim() );
 
         if(isNaN(_nif) || _nif < 0){
-            errorPopup('Please use a valid NIF amount you would like to add to the swap.');
+            _alert('Please use a valid NIF amount you would like to add to the swap.');
             return;
         }
 
@@ -845,7 +845,7 @@ function TncDapp() {
 
         if(index1 == '' || index1 == 0){
 
-            errorPopup('Please select an offer of yours prior requesting a swap.');
+            _alert('Please select an offer of yours prior requesting a swap.');
             return;
         }
 
@@ -853,29 +853,29 @@ function TncDapp() {
         let ask1 = await tncLibMarket.getAskBase(index1, _this.marketAddress);
 
         if(await tncLibMarket.getSwapExists(ask.seller, ask1.seller, index0, _this.swapAddress)){
-            errorPopup('You already placed a swap request for this offer.');
+            _alert('You already placed a swap request for this offer.');
             return;
         }
 
         if(ask.updates != 0){
-            errorPopup('The opposing offer has changed since it has been released. Swapping is not possible when the conditions changed.');
+            _alert('The opposing offer has changed since it has been released. Swapping is not possible when the conditions changed.');
             return;
         }
 
         if(ask1.updates != 0){
-            errorPopup('Your offer has changed since you have been releasing it. Swapping is not possible when the conditions changed.');
+            _alert('Your offer has changed since you have been releasing it. Swapping is not possible when the conditions changed.');
             return;
         }
 
         if(ask.seller == tncLib.account){
 
-            errorPopup('You cannot swap your own offers.');
+            _alert('You cannot swap your own offers.');
             return;
         }
 
         if(ask.swapMode == 0){
 
-            errorPopup('Swapping not permitted.');
+            _alert('Swapping not permitted.');
             return;
         }
 
@@ -883,7 +883,7 @@ function TncDapp() {
 
         if(balance.lt(nif)){
 
-            errorPopup('Insufficient NIF funds.');
+            _alert('Insufficient NIF funds.');
             return;
         }
 
@@ -1102,18 +1102,18 @@ function TncDapp() {
         let amount = parseInt($('#nftTransferAmount').val().trim()) || 0;
 
         if(!web3.utils.isAddress($('#nftTransferToAddress').val().trim())){
-            errorPopup('Please enter a valid address.');
+            _alert('Please enter a valid address.');
             return;
         }
 
         if(amount <= 0){
-            errorPopup('Please enter a valid amount to transfer.');
+            _alert('Please enter a valid amount to transfer.');
             return;
         }
 
         let balance = await tncLib.balanceof(erc1155, tncLib.account, id);
         if(balance < amount){
-            errorPopup('Insufficient balance. You own ' + balance + ' items of this NFT.');
+            _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
             return;
         }
 
@@ -1187,12 +1187,12 @@ function TncDapp() {
                 $('#collectiblePage').css('display', 'grid');
 
                 if(!web3.utils.isAddress(_this.getUrlParam('collection'))){
-                    errorPopup('Invalid  Address Provided');
+                    _alert('Invalid  Address Provided');
                     return;
                 }
 
                 if(!await tncLib.isErc1155Supported(_this.getUrlParam('collection'))){
-                    errorPopup('Unsupported collection type.');
+                    _alert('Unsupported collection type.');
                     return;
                 }
 

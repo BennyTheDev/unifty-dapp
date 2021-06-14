@@ -323,12 +323,12 @@ function TncDapp() {
         let address = $('#collectionAddress').val().trim();
 
         if(!web3.utils.isAddress(address)){
-            errorPopup('Given address is not a valid address.');
+            _alert('Given address is not a valid address.');
             return;
         }
 
         if(!await tncLib.isErc1155Supported(address)){
-            errorPopup('Given address is not a valid collection contract.');
+            _alert('Given address is not a valid collection contract.');
             return;
         }
 
@@ -346,7 +346,7 @@ function TncDapp() {
                 location.reload();
             }, 3000);
         }else{
-            errorPopup('Given address has been registered already.');
+            _alert('Given address has been registered already.');
         }
     };
 
@@ -566,18 +566,18 @@ function TncDapp() {
         let amount = parseInt($('#nftTransferAmount').val().trim()) || 0;
 
         if(!web3.utils.isAddress($('#nftTransferToAddress').val().trim())){
-            errorPopup('Please enter a valid address.');
+            _alert('Please enter a valid address.');
             return;
         }
 
         if(amount <= 0){
-            errorPopup('Please enter a valid amount to transfer.');
+            _alert('Please enter a valid amount to transfer.');
             return;
         }
 
         let balance = await tncLib.balanceof(erc1155, tncLib.account, id);
         if(balance < amount){
-            errorPopup('Insufficient balance. You own ' + balance + ' items of this NFT.');
+            _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
             return;
         }
 
@@ -600,11 +600,16 @@ function TncDapp() {
                 $('#nftTransferButton').prop('disabled', false);
                 toastr["success"]('Transaction has been finished.', "Success");
             },
-            function(){
+            function(err){
                 toastr.remove();
                 $('#nftTransferButton').prop('disabled', false);
                 $('#nftTransferButton').html('Send');
-                toastr["error"]('An error occurred with your transfer transaction.', "Error");
+
+                let errMsg = 'An error occurred with your transfer transaction.';
+
+                toastr["error"](errMsg, "Error");
+                errorPopup("Error", errMsg, err.toString());
+
             });
 
     };
@@ -634,7 +639,7 @@ function TncDapp() {
 
         if(jobId == '' || parseInt(jobId) <= 0){
 
-            errorPopup('Please enter a valid Job ID.');
+            _alert('Please enter a valid Job ID.');
             return;
         }
 
@@ -658,9 +663,9 @@ function TncDapp() {
                 $('#bridgedPage').html('');
                 _this.loadPage('');
             },
-            function(){
+            function(err){
                 toastr.remove();
-                errorPopup('Your job cancellation request failed. Either the NFT has been redeemed already or the 2-hour grace-time did not expire yet.');
+                _alert('Your job cancellation request failed. Either the NFT has been redeemed already or the 2-hour grace-time did not expire yet.');
                 $(_button).html('Cancel Error');
                 $(_button).prop('disabled', false);
                 setTimeout(function(){
@@ -679,13 +684,13 @@ function TncDapp() {
 
         if(amount == '' || parseInt(amount) <= 0){
 
-            errorPopup('Please enter a valid amount of NFTs to bridge.');
+            _alert('Please enter a valid amount of NFTs to bridge.');
             return;
         }
 
         if(parseInt(amount) > await tncLib.balanceof(contractAddress, tncLib.account, id)){
 
-            errorPopup('Not enough NFTs to perform bridging.');
+            _alert('Not enough NFTs to perform bridging.');
             return;
         }
 
@@ -762,13 +767,13 @@ function TncDapp() {
 
         if(amount == '' || parseInt(amount) <= 0){
 
-            errorPopup('Please enter a valid amount of NFTs to bridge.');
+            _alert('Please enter a valid amount of NFTs to bridge.');
             return;
         }
 
         if(parseInt(amount) > await tncLib.balanceof(contractAddress, tncLib.account, id)){
 
-            errorPopup('Not enough NFTs to perform bridging.');
+            _alert('Not enough NFTs to perform bridging.');
             return;
         }
 
@@ -846,7 +851,7 @@ function TncDapp() {
 
         if(isNaN(category) || category < 0){
 
-            errorPopup('Invalid category');
+            _alert('Invalid category');
             return;
         }
 
@@ -856,7 +861,7 @@ function TncDapp() {
                 sellToken = $('#nftSellCustomTokenAddress').val().trim();
                 await tncLib.tokenSymbolErc20(sellToken);
             }catch (e){
-                errorPopup('Invalid token! Please use a proper token address.');
+                _alert('Invalid token! Please use a proper token address.');
                 return;
             }
         }
@@ -866,18 +871,18 @@ function TncDapp() {
         try {
             decimals = await tncLib.tokenDecimalsErc20(sellToken);
         }catch(e){
-            errorPopup('Invalid token! Seems not to support the decimals() information.');
+            _alert('Invalid token! Seems not to support the decimals() information.');
             return;
         }
 
         if(decimals >= 118){
 
-            errorPopup('Invalid token! Too many decimals (117 max.)');
+            _alert('Invalid token! Too many decimals (117 max.)');
             return;
         }
 
         if(pricePerItem <= 0){
-            errorPopup("Please enter a valid price per item.");
+            _alert("Please enter a valid price per item.");
             return;
         }
 
@@ -896,13 +901,13 @@ function TncDapp() {
         let finalPrice = itemPrice.mul(itemAmount).toString();
 
         if(amount <= 0){
-            errorPopup('Please enter a valid amount to sell.');
+            _alert('Please enter a valid amount to sell.');
             return;
         }
 
         let balance = await tncLib.balanceof(erc1155, tncLib.account, id);
         if(balance < amount){
-            errorPopup('Insufficient balance. You own ' + balance + ' items of this NFT.');
+            _alert('Insufficient balance. You own ' + balance + ' items of this NFT.');
             return;
         }
 
@@ -973,7 +978,7 @@ function TncDapp() {
                     toastr.remove();
                     $('#nftSellButton').prop('disabled', false);
                     $('#nftSellButton').html('Sell!');
-                    errorPopup('An error occurred with your set approval for all transaction.');
+                    _alert('An error occurred with your set approval for all transaction.');
                     return;
                 }
             );
@@ -1080,7 +1085,7 @@ function TncDapp() {
 
         if(isNaN(perc) || perc < 0){
 
-            errorPopup('Invalid royalties');
+            _alert('Invalid royalties');
             return;
 
         }

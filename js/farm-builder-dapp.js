@@ -377,7 +377,7 @@ function TncDapp() {
             function (err) {
                 toastr.remove();
                 let errMsg = 'An error occurred with your New Farm Shop Addon transaction. Do you have sufficient funds?';
-                errorPopup(errMsg);
+                _alert(errMsg);
                 $('#farmShopAddonBuyButton').prop('disabled', false);
                 $('#farmShopAddonBuyButton').html('Buy');
 
@@ -420,7 +420,7 @@ function TncDapp() {
             function (err) {
                 toastr.remove();
                 let errMsg = 'An error occurred with your Farm Shop Addon Step 2 transaction. Do you have sufficient funds?';
-                errorPopup(errMsg);
+                _alert(errMsg);
                 $('#farmShopAddonStep2Button').prop('disabled', false);
                 $('#farmShopAddonStep2Button').html('Allow');
 
@@ -461,7 +461,7 @@ function TncDapp() {
             function (err) {
                 toastr.remove();
                 let errMsg = 'An error occurred with your Farm Shop Addon Step 3 transaction. Do you have sufficient funds?';
-                errorPopup(errMsg);
+                _alert(errMsg);
                 $('#farmShopAddonStep2Button').prop('disabled', false);
                 $('#farmShopAddonStep2Button').html('Allow');
 
@@ -495,7 +495,7 @@ function TncDapp() {
             function (err) {
                 toastr.remove();
                 let errMsg = 'An error occurred with your Shop RunMode transaction. Do you have sufficient funds?';
-                errorPopup(errMsg);
+                _alert(errMsg);
                 $('#farmShopEditButton').prop('disabled', false);
                 $('#farmShopEditButton').html('Save');
 
@@ -528,17 +528,17 @@ function TncDapp() {
         let link = $('#farmCustomLink').val().trim();
         let text = $('#farmCustomLinkText').val().trim();
 
-        if(name == ''){ errorPopup('Please enter a farm name'); return; }
-        if(token == '' || token == 'custom'){ errorPopup('Please choose a staking token or add a custom address'); return; }
-        if(!await web3.utils.isAddress(token)){ errorPopup('Invalid staking token address'); return; }
-        if(minStake == ''){ errorPopup('Please enter a minimum stake'); return; }
-        if(parseFloat(minStake) == NaN){ errorPopup('Please enter a correct minimum stake as number'); return; }
-        if(maxStake == ''){ errorPopup('Please enter a maximum stake'); return; }
-        if(parseFloat(maxStake) == NaN){ errorPopup('Please enter a correct maximum stake as number'); return; }
-        if(parseFloat(minStake) < 0){ errorPopup('Minimum Stake must be larger than zero'); return; }
-        if(parseFloat(maxStake) < parseFloat(minStake) || parseFloat(maxStake) == 0){ errorPopup('Maximum stake must be equal or larger than minimum stake'); return; }
-        if(controller == ''){ errorPopup('Please enter a controller address'); return; }
-        if(!await web3.utils.isAddress(controller)){ errorPopup('Invalid controller address'); return; }
+        if(name == ''){ _alert('Please enter a farm name'); return; }
+        if(token == '' || token == 'custom'){ _alert('Please choose a staking token or add a custom address'); return; }
+        if(!await web3.utils.isAddress(token)){ _alert('Invalid staking token address'); return; }
+        if(minStake == ''){ _alert('Please enter a minimum stake'); return; }
+        if(parseFloat(minStake) == NaN){ _alert('Please enter a correct minimum stake as number'); return; }
+        if(maxStake == ''){ _alert('Please enter a maximum stake'); return; }
+        if(parseFloat(maxStake) == NaN){ _alert('Please enter a correct maximum stake as number'); return; }
+        if(parseFloat(minStake) < 0){ _alert('Minimum Stake must be larger than zero'); return; }
+        if(parseFloat(maxStake) < parseFloat(minStake) || parseFloat(maxStake) == 0){ _alert('Maximum stake must be equal or larger than minimum stake'); return; }
+        if(controller == ''){ _alert('Please enter a controller address'); return; }
+        if(!await web3.utils.isAddress(controller)){ _alert('Invalid controller address'); return; }
 
         let farmInfo = {
             name : name,
@@ -602,7 +602,7 @@ function TncDapp() {
 
     this.updateRewardRate = async function(){
         let rate = $('#farmEditRewardRate').val().trim();
-        if(rate == '' || parseInt(rate) <= 0){ errorPopup('Please enter a valid reward rate in seconds. Default is 86400 (1 day).'); return; }
+        if(rate == '' || parseInt(rate) <= 0){ _alert('Please enter a valid reward rate in seconds. Default is 86400 (1 day).'); return; }
         let farmAddress = $('#editRewardRate').val();
         await tncLib.farmSetRewardRate(
             rate,
@@ -631,8 +631,8 @@ function TncDapp() {
 
     this.updateController = async function(){
         let controller = $('#farmEditControllerAddress').val().trim();
-        if(controller == ''){ errorPopup('Please enter a controller address'); return; }
-        if(!await web3.utils.isAddress(controller)){ errorPopup('Invalid controller address'); return; }
+        if(controller == ''){ _alert('Please enter a controller address'); return; }
+        if(!await web3.utils.isAddress(controller)){ _alert('Invalid controller address'); return; }
         let farmAddress = $('#editControllerFarmAddress').val();
         await tncLib.farmSetController(
             controller,
@@ -663,12 +663,12 @@ function TncDapp() {
 
         let minStake = $('#farmEditMinStake').val().trim();
         let maxStake = $('#farmEditMaxStake').val().trim();
-        if(minStake == ''){ errorPopup('Please enter a minimum stake'); return; }
-        if(parseFloat(minStake) == NaN){ errorPopup('Please enter a correct minimum stake as number'); return; }
-        if(maxStake == ''){ errorPopup('Please enter a maximum stake'); return; }
-        if(parseFloat(maxStake) == NaN){ errorPopup('Please enter a correct maximum stake as number'); return; }
-        if(parseFloat(minStake) < 0){ errorPopup('Minimum Stake must be larger than zero'); return; }
-        if(parseFloat(maxStake) < parseFloat(minStake) || parseFloat(maxStake) == 0){ errorPopup('Maximum stake must be larger than minimum stake'); return; }
+        if(minStake == ''){ _alert('Please enter a minimum stake'); return; }
+        if(parseFloat(minStake) == NaN){ _alert('Please enter a correct minimum stake as number'); return; }
+        if(maxStake == ''){ _alert('Please enter a maximum stake'); return; }
+        if(parseFloat(maxStake) == NaN){ _alert('Please enter a correct maximum stake as number'); return; }
+        if(parseFloat(minStake) < 0){ _alert('Minimum Stake must be larger than zero'); return; }
+        if(parseFloat(maxStake) < parseFloat(minStake) || parseFloat(maxStake) == 0){ _alert('Maximum stake must be larger than minimum stake'); return; }
 
         let farmAddress = $('#editStakesFarmAddress').val();
         let decimals = await tncLib.farmTokenDecimals(farmAddress);
@@ -718,7 +718,7 @@ function TncDapp() {
         let link = $('#farmInfoCustomLink').val().trim();
         let text = $('#farmInfoCustomLinkText').val().trim();
 
-        if(name == ''){ errorPopup('Please enter a farm name'); return; }
+        if(name == ''){ _alert('Please enter a farm name'); return; }
 
         let farmInfo = {
             name : name,
@@ -1069,7 +1069,7 @@ function TncDapp() {
 
                     } catch (error) {
                         console.log(error);
-                        errorPopup('You rejected to use this dapp.');
+                        _alert('You rejected to use this dapp.');
                     }
                 }
                 // Legacy dapp browsers...
