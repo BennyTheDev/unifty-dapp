@@ -195,6 +195,9 @@ function TncDapp() {
 
         if(decimals > 2) {
             price = _this.cleanUpDecimals(price)
+
+            //Adding space every 3 digits
+            price = price.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
             //price = price.substring(0, price.length - 10);
         }
 
