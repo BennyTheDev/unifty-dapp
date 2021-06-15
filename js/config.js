@@ -1,8 +1,8 @@
 // The name of the network/chain the dapps are supported to run on
-let network = 'Rinkeby';
+let network = 'Moonbeam (alpha)';
 
 // the chain id of the network as hex value without leading 0x
-let chain_id = '4';
+let chain_id = '507';
 
 // set to true to hide the sell button in the wallet.
 // useful if you want to use a custom marketplace and prevent confusion
