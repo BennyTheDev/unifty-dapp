@@ -600,11 +600,15 @@ function TncDapp() {
                 $('#nftTransferButton').prop('disabled', false);
                 toastr["success"]('Transaction has been finished.', "Success");
             },
-            function(){
+            function(err){
                 toastr.remove();
                 $('#nftTransferButton').prop('disabled', false);
                 $('#nftTransferButton').html('Send');
-                toastr["error"]('An error occurred with your transfer transaction.', "Error");
+
+                let errMsg = 'An error occurred with your transfer transaction.';
+                toastr["error"](errMsg, "Error");
+                errorPopup("Error", errMsg, err.stack);
+
             });
 
     };
@@ -658,7 +662,7 @@ function TncDapp() {
                 $('#bridgedPage').html('');
                 _this.loadPage('');
             },
-            function(){
+            function(err){
                 toastr.remove();
                 _alert('Your job cancellation request failed. Either the NFT has been redeemed already or the 2-hour grace-time did not expire yet.');
                 $(_button).html('Cancel Error');
@@ -666,7 +670,10 @@ function TncDapp() {
                 setTimeout(function(){
                     $(_button).html('Cancel');
                 }, 3000);
-                toastr["error"]('An occurred with your job cancellation transaction.', "Error");
+
+                let errMsg = 'An occurred with your job cancellation transaction.';
+                toastr["error"](errMsg, "Error");                
+                errorPopup("Error", errMsg, err.stack);
             }
         );
     }
@@ -715,12 +722,16 @@ function TncDapp() {
                     $(_button).prop('disabled', false);
                     toastr["success"]('Transaction has been finished.', "Success");
                 },
-                function (e) {
-                    console.log(e);
+                function (err) {
+                    console.log(err);
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Bridge');
-                    toastr["error"]('An error occurred with your bridging transaction.', "Error");
+
+                    let errMsg = 'An error occurred with your bridging transaction.';                    
+                    toastr["error"](errMsg, "Error");
+                    errorPopup("Error", errMsg, err.stack);
+
                 }
             );
 
@@ -747,8 +758,9 @@ function TncDapp() {
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Bridge');
-                    let errMsg = 'An error occurred with your set approval for all transaction.';
+                    let errMsg = 'An error occurred with your set approval for all transaction.';                    
                     toastr["error"](errMsg, "Error");
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
         }
@@ -797,11 +809,14 @@ function TncDapp() {
                     $(_button).prop('disabled', false);
                     toastr["success"]('Transaction has been finished.', "Success");
                 },
-                function () {
+                function (err) {
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Bridge');
-                    toastr["error"]('An error occurred with your bridging transaction.', "Error");
+
+                    let errMsg = 'An error occurred with your bridging transaction.';                    
+                    toastr["error"](errMsg, "Error");
+                    errorPopup("Error", errMsg, err.stack);
                 }
             );
 
@@ -828,8 +843,11 @@ function TncDapp() {
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Bridge');
-                    let errMsg = 'An error occurred with your set approval for all transaction.';
+                    
+                    let errMsg = 'An error occurred with your set approval for all transaction.';                    
                     toastr["error"](errMsg, "Error");
+                    errorPopup("Error", errMsg, err.stack);
+                    
                 }
             );
         }
@@ -877,7 +895,7 @@ function TncDapp() {
         }
 
         if(pricePerItem <= 0){
-            _alert('Please enter a valid price per item.');
+            _alert("Please enter a valid price per item.");
             return;
         }
 
@@ -940,11 +958,14 @@ function TncDapp() {
                     $('#nftSellButton').prop('disabled', false);
                     toastr["success"]('Transaction has been finished.', "Success");
                 },
-                function () {
+                function (err) {
                     toastr.remove();
                     $('#nftSellButton').prop('disabled', false);
                     $('#nftSellButton').html('Sell!');
-                    toastr["error"]('An error occurred with your sell transaction.', "Error");
+                    
+                    let errMsg = 'An error occurred with your sell transaction.';                    
+                    toastr["error"](errMsg, "Error");
+                    errorPopup("Error", errMsg, err.stack);
                 });
 
         }else{
@@ -973,8 +994,8 @@ function TncDapp() {
                     toastr.remove();
                     $('#nftSellButton').prop('disabled', false);
                     $('#nftSellButton').html('Sell!');
-                    let errMsg = 'An error occurred with your set approval for all transaction.';
-                    toastr["error"](errMsg, "Error");
+                    _alert('An error occurred with your set approval for all transaction.');
+                    return;
                 }
             );
         }
@@ -1105,11 +1126,14 @@ function TncDapp() {
                 $('#storeRoyaltiesButton').prop('disabled', false);
                 toastr["success"]('Transaction has been finished.', "Success");
             },
-            function(){
+            function(err){
                 toastr.remove();
                 $('#storeRoyaltiesButton').prop('disabled', false);
                 $('#storeRoyaltiesButton').html('Set Royalties');
-                toastr["error"]('An error occurred with your royalties transaction.', "Error");
+
+                let errMsg = 'An error occurred with your royalties transaction.';                    
+                toastr["error"](errMsg, "Error");
+                errorPopup("Error", errMsg, err.stack);
             });
     }
 
