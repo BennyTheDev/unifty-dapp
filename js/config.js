@@ -62,7 +62,8 @@ switch(chain_id){
             "0xFbFf3b578D87a115fe4a53cD2AfbA70ef206310f".toLowerCase(), // NSFW coin
             "0x3bfB2AA30F34D22749e3232f790D2CCCe811E081".toLowerCase(), // started stone kitten
             "0x65502D27b7120b2b212fc9852d9B7453a8BF09e4".toLowerCase(), // fun in the wood
-            "0xC319187aa298ADA4c9123647fAC1a8664627f5Fa".toLowerCase() // mycoll
+            "0xC319187aa298ADA4c9123647fAC1a8664627f5Fa".toLowerCase(), // mycoll
+            "0x374B2fb632d7F26cDdE7A1bFC138422C5C9E2148".toLowerCase() // skyhigh
         ];
         break;
     // add further chain specific as desired...
