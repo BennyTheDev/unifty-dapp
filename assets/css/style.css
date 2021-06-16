@@ -1636,7 +1636,6 @@ textarea, input {
       .light-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary:active {
         background-color: var(--primary-hover-dark); }
 
-
 #marketForm #tierGroup select {
   background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 60%), linear-gradient(135deg, var(--primary-color) 40%, transparent 50%) !important;
   background-position: calc(100% - 29px) 16px, calc(100% - 22px) 16px, 100% 0;
@@ -1648,36 +1647,35 @@ textarea, input {
 #nftSellWallet .approveNft {
   display: block; }
 
-.modalErrorDiv {
+#nftSellWallet .modalErrorDiv {
   display: flex;
   align-items: center; }
-  .modalErrorDiv .imageContainer {
+  #nftSellWallet .modalErrorDiv .imageContainer {
     display: flex;
     width: 4.8rem;
     height: 4.8rem;
     margin-right: 2.4rem;
     justify-content: center;
     align-items: center; }
-    .modalErrorDiv .imageContainer img {
+    #nftSellWallet .modalErrorDiv .imageContainer img {
       width: max-content;
       height: max-content; }
-  .modalErrorDiv h3 {
+  #nftSellWallet .modalErrorDiv h3 {
     margin-bottom: 0;
     color: var(--heading-color);
     font-weight: 500; }
-  .modalErrorDiv h4 {
+  #nftSellWallet .modalErrorDiv h4 {
     color: var(--heading-color);
     font-weight: bold; }
-  .modalErrorDiv p {
+  #nftSellWallet .modalErrorDiv p {
     color: var(--text-primary);
     margin: 0; }
 
-.modalDivider {
+#nftSellWallet .modalDivider {
   width: 100%;
   height: 1px;
   background-color: rgba(0, 0, 0, 0.24);
   margin: 1rem 0; }
-
 
 .dark-edition .main-panel .content .container-fluid.wallet .title-options-container,
 .light-edition .main-panel .content .container-fluid.wallet .title-options-container {
@@ -1997,7 +1995,7 @@ textarea, input {
   .light-edition .main-panel .card {
     background: var(--bg-tertiary);
     border-radius: 0.8rem;
-    z-index: 0;
+    z-index: auto;
     margin: 0; }
   .dark-edition .main-panel .nftHeader-stakingOptions-container,
   .light-edition .main-panel .nftHeader-stakingOptions-container {
