@@ -9,6 +9,8 @@ function TncLibBridge(){
     // will be adding more based on chain
     if(chain_id == '64'){
         this.chainIn = new web3.eth.Contract(bridgeInABI, '0x3aD872717917FdAEf4F39AED1029006F1942e24C', {from: this.account});
+    } else if(chain_id == '4'){
+        this.chainIn = new web3.eth.Contract(bridgeInABI, '0x99ca4689BC1cC1A27c04C7646Bb4b8deAa94cCc2', {from: this.account});
     }
 
     //  MAINNET
@@ -21,7 +23,19 @@ function TncLibBridge(){
 
         this.account = '';
 
-        //  MAINNET
+        //  undefined
+    } else if(chain_id === "4") {
+
+        this.ethOut = new web3.eth.Contract(bridgeOutABI, '0x8575b3Fc0b6f5F79B1119bC5BC4380c041085800', {from: this.account});
+
+        //this.ethOut = new web3.eth.Contract(bridgeOutABI, '0x14ABB2372b88e8f40E2231Ab62047f28aEde12AA', {from: this.account});
+
+        this.uniftyverseAddress = '0xB129c80194C7c8F80EFC4313e7019f0baCB1d464';
+        this.uniftyverse = new web3.eth.Contract(uniftyverseABI, this.uniftyverseAddress, {from: this.account});
+
+        this.account = '';
+
+        //  undefined
     } else{
 
         this.ethOut = new web3.eth.Contract(bridgeOutABI, '', {from: this.account});

@@ -202,7 +202,7 @@ function TncDapp() {
             srcChainid : srcInfo[2],
             srcCollection : srcInfo[0],
             srcId : srcInfo[1],
-            bridgeOn : chain_id == '64' ? chain_id : '',
+            bridgeOn : chain_id == '64' || chain_id == '4' ? chain_id : '',
             bridgeOnBack : bridgeBack ? chain_id : '',
             checkOpenSea : chain_id == '1' || chain_id == '4' ? 'Check on OpenSea' : 'Open Details',
             image: data_image,
@@ -1013,6 +1013,7 @@ function TncDapp() {
                 switch(chain_id){
 
                     case '64':
+                    case '4':
                         $('#cancelBridgeModalButton').css('display', 'block');
                         break;
                 }

@@ -16,24 +16,24 @@
   <script type="text/javascript" src="js/handlebars.js"></script>
   <script type="text/javascript" src="js/ipfs.js"></script>
   <script type="text/javascript" src="js/buffer.js"></script>
-  <script type="text/javascript" src="js/config.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/misc.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/nifABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/genesisABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/farmABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/farmShopABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/erc20ABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/univ2ABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/lib.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/lib-bridge.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/bridge-dapp.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/dapp-init.js?v=1.9.9"></script>
-  <script type="text/javascript" src="js/cookie.js?v=1.9.9"></script>
+  <script type="text/javascript" src="js/config.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/misc.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/nifABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/genesisABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/farmABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/farmShopABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/erc20ABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/univ2ABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/lib.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/lib-bridge.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/bridge-dapp.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/dapp-init.js?v=1.9.10"></script>
+  <script type="text/javascript" src="js/cookie.js?v=1.9.10"></script>
   <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
   <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
   <script src="assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
@@ -367,16 +367,17 @@
           </div>
 
           <div class="row">
-            0.50 NIF fees per bridging job. 50% of NIF fees will be burned.
+            0.1 NIF fees per bridging job.<br/>
+            Recommended gas funds: 0.03 - 0.05 ETH.
           </div>
 
           <script id="no-bridged" type="text/x-handlebars-template">
                           <div class="container-fluid">
                               <div>
-                                  No bridged NFTs found. Please add gas funds first, then bridge NFTs from within your preferred chain's NFT wallet.<br/>
+                                  No bridged NFTs found. Please add gas funds first, then bridge your NFTs on xDai or Rinkeby from "Your Wallet" in the menu.<br/>
                                   There are no minimum gas funds. 2x of gas costs for regular NFT minting are recommended to have enough reserves.<br/><br/>
                                   If the bridging fails, you will be able to restore the affected NFT after 2 hours by using its Job ID.<br/>
-                                  Fee per bridging job is 0.50 $NIF. 50% from the fee will be burned.<br/><br/>
+                                  Fee per bridging job is 0.1 $NIF.<br/><br/>
                                   You can check the progress of your bridging jobs in our <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord</a> by looking up the bridge logs channels with your Job ID.
                               </div>
                           </div>

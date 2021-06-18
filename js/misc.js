@@ -10,7 +10,7 @@ let api_url = 'https://api.unifty.cloud/';
 
 $(document).ready(function(){
 
-    if(chain_id != '4' && chain_id != '1'){
+    if(chain_id != '1'){
         $('.bridgeNav').css('display', 'none');
     }
 
