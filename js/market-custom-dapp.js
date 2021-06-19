@@ -2090,7 +2090,7 @@ function TncDapp() {
         let price = parseFloat($('#nftSellPrice').val().trim());
         let sellToken = $('#nftSellToken2').val().trim();
 
-        if($('#nftSellCustomTokenAddress2').val().trim() != ''){
+        if($('#nftSellToken2').val().trim() == 'custom'){
             sellToken = $('#nftSellCustomTokenAddress2').val().trim();
         }
 
