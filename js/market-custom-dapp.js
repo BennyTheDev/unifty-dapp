@@ -2089,6 +2089,11 @@ function TncDapp() {
 
         let price = parseFloat($('#nftSellPrice').val().trim());
         let sellToken = $('#nftSellToken2').val().trim();
+
+        if($('#nftSellCustomTokenAddress2').val().trim() != ''){
+            sellToken = $('#nftSellCustomTokenAddress2').val().trim();
+        }
+
         let category = parseInt($('#nftSellCategory').val().trim());
 
         if(isNaN(category) || category < 0){
@@ -2108,6 +2113,7 @@ function TncDapp() {
         try {
             decimals = await tncLib.tokenDecimalsErc20(sellToken);
         }catch(e){
+            console.log(e);
             _alert('Invalid token! Seems not to support the decimals() information.');
             return;
         }
