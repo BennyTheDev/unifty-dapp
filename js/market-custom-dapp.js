@@ -2142,7 +2142,9 @@ function TncDapp() {
             }
         });
 
-        price = web3.utils.toBN(_this.resolveNumberString(""+ ( price * allAmounts ), decimals));
+        let itemPrice = web3.utils.toBN(_this.resolveNumberString(""+price, decimals));
+        let itemAmount = web3.utils.toBN(allAmounts);
+        let finalPrice = itemPrice.mul(itemAmount).toString();
 
         if(erc1155.length == 0)
         {
@@ -2165,7 +2167,7 @@ function TncDapp() {
             id,
             amount,
             sellToken,
-            price,
+            finalPrice,
             $('input[name="nftMode"]:checked').val(),
             category,
             _this.wrapperAddress,
