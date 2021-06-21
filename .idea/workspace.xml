@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-custom-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-custom-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/erc1155-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/erc1155-dapp.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,14 +129,8 @@
       <workItem from="1622645222745" duration="104676000" />
       <workItem from="1623177816825" duration="55381000" />
       <workItem from="1623711742305" duration="12220000" />
-      <workItem from="1624019659314" duration="21487000" />
-    </task>
-    <task id="LOCAL-00001" summary="implemented new design and marketplace">
-      <created>1616417086932</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1616417086932</updated>
+      <workItem from="1624019659314" duration="28762000" />
+      <workItem from="1624228558524" duration="3252000" />
     </task>
     <task id="LOCAL-00002" summary="# fixed IPFS image display issues&#10;# added Torus wallet support">
       <created>1616662720050</created>
@@ -473,7 +468,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624099870688</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="# used big number lib to add totals upon sale in custom markets instead of native integers">
+      <created>1624114735045</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1624114735046</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -494,7 +496,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="+ added a new farm to featured" />
     <MESSAGE value="+ added collection optimization through api.unifty.cloud" />
     <MESSAGE value="+ added another featured farm" />
     <MESSAGE value="+ added bsc collection block list" />
@@ -519,13 +520,14 @@
     <MESSAGE value="+ blocked another porn collection" />
     <MESSAGE value="+ added bridge support for rinkeby" />
     <MESSAGE value="# fixed an issue where it wouldn't accept custom tokens in bundle sales" />
-    <option name="LAST_COMMIT_MESSAGE" value="# fixed an issue where it wouldn't accept custom tokens in bundle sales" />
+    <MESSAGE value="# used big number lib to add totals upon sale in custom markets instead of native integers" />
+    <option name="LAST_COMMIT_MESSAGE" value="# used big number lib to add totals upon sale in custom markets instead of native integers" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1624099870043">
+    <state x="303" y="0" key="CommitChangelistDialog2" timestamp="1624114734669">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624099870043" />
+    <state x="303" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1624114734669" />
     <state x="438" y="148" width="660" height="676" key="EditFileWatcherDialog" timestamp="1615626530217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -562,10 +564,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="279" y="58" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1617490988866" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1624099876188">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1624114741012">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624099876188" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1624114741012" />
     <state x="94" y="94" width="1349" height="637" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1617739666916">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
