@@ -470,15 +470,25 @@
             
               <div class="card card-profile">
                   {{#ifNotEquals image ""}}
-                  <a href="{{opensea}}">
-                    <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
-                  </a>
-                  {{/ifNotEquals}}
-                  
-              
+                  <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                  {{/ifNotEquals}}                      
 
                   <div class="card-body">
-                    <h5 class="card-title"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
+
+                    {{#ifNotEquals options ""}}
+                      <div class="dropdown mt-3">
+                          <a href="javascript:void(0);" class="dropdown-toggle dropdown-primary mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              OPTIONS
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
+                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmEditDataModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmEditData{{erc1155}}{{id}}" class="farmEditData">Edit Data</a>
+                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmRemoveNftsModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmRemoveNfts{{erc1155}}{{id}}" class="farmRemoveNfts">Remove NFTs</a>
+                              <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmSetShopPriceModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" data-shop-address="{{shop}}" id="farmSetShopPrice{{erc1155}}{{id}}" class="farmSetShopPrice">Set Shop Price</a>
+                          </div>
+                      </div>
+                    {{/ifNotEquals}}
+
+                    <h5 class="card-title mt-5"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
                       {{#ifNotEquals animation_url ""}}
                       <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
                         <span class="material-icons">
@@ -524,21 +534,6 @@
                         </span>
                       </button>
                     {{/ifNotEquals}}
-
-                      {{#ifNotEquals options ""}}
-                      <div class="dropdown">
-                          <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span class="material-icons-round">
-                                create
-                              </span>
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
-                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmEditDataModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmEditData{{erc1155}}{{id}}" class="farmEditData">Edit Data</a>
-                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmRemoveNftsModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmRemoveNfts{{erc1155}}{{id}}" class="farmRemoveNfts">Remove NFTs</a>
-                              <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmSetShopPriceModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" data-shop-address="{{shop}}" id="farmSetShopPrice{{erc1155}}{{id}}" class="farmSetShopPrice">Set Shop Price</a>
-                          </div>
-                      </div>
-                      {{/ifNotEquals}}
 
                       <a class="redeemButton btn btn-primary mb-3" data-erc1155="{{erc1155}}" data-token-id="{{id}}" data-points="{{pointsRaw}}" id="redeemButton{{erc1155}}{{id}}" href="javascript:void(0);" role="button" aria-expanded="false" title="{{pointsRaw}} Points"></a>
                       <br />

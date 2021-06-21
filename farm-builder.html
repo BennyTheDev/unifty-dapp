@@ -342,10 +342,10 @@
       <h1>Farm Builder</h1>
       <p>
       
-        Info -> A farm is a place where you can display your NFTs, and show everyone your amazing NFT artwork.
+        Info &rarr; A farm is a place where you can display your NFTs, and show everyone your amazing NFT artwork.
         <br>
       
-        Create a collection -> create your NFTs -> add them to the farm
+        Create a collection &rarr; create your NFTs &rarr; add them to the farm
       </p>
 
       <div href="javascript:void(0);" class="add-new-card-container" data-toggle="modal" data-target="#farmModal"
@@ -384,12 +384,31 @@
 
         <!-- Farms View -->
         <script id="farm-template" type="text/x-handlebars-template">
-                <div class="farmListing mb-3">
+
+                <div class="farmListing mb-3">                  
                     <div class="card card-profile">
                         {{#ifNotEquals image ""}}
                         <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
+
                         <div class="card-body">
+
+                            <div class="dropdown mt-3">
+                              <a href="javascript:void(0);" class="dropdown-toggle dropdown-primary mb-3" id="farmActions{{farm}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                OPTIONS
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="farmActions{{farm}}">
+                                  <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmInfoModal" data-contract-address="{{farm}}" id="farmEditInfo{{farm}}" class="farmEditInfo">Edit Farm Info</a>
+                                  <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#editStakeModal" data-contract-address="{{farm}}" id="farmEditStakes{{farm}}">Edit Stakes</a>
+                                  <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#editRewardRateModal" data-contract-address="{{farm}}" id="farmEditRewardRate{{farm}}">Edit Reward Rate</a>
+                                  <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#editControllerModal" data-contract-address="{{farm}}" id="farmEditController{{farm}}">Edit Controller</a>
+                                  <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#shopAddonModal" data-contract-address="{{farm}}" id="farmShopAddon{{farm}}">Buy Shop Addon</a>
+                                  <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#shopAddonWhitelistAdminModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}" id="farmShopAddonWhitelistAdmin{{farm}}">Shop Addon Step 2</a>
+                                  <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#shopAddonPauserModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}" id="farmShopAddonPauser{{farm}}">Shop Addon Step 3</a>
+                                  <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmShopEditModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}"  data-shop-runmode="{{runmode}}"  id="farmShopEdit{{farm}}">Edit Shop Addon</a>
+                              </div>
+                            </div>
+
                             <div class="mt-5">
                               <p class="text-truncate">
                                   <button class="btn btn-sm btn-clipboard btn-clipboard{{index}}" data-clipboard-text="{{farm}}" data-toggle="tooltip" data-placement="top" title="Copied">
@@ -400,9 +419,9 @@
                             </div>
 
                             <h5 class="card-title">
-                              <button class="btn btn-sm btn-clipboard btn-clipboard{{index2}}" data-clipboard-text="{{url}}" data-toggle="tooltip" data-placement="top" title="Copied">
+                              <!-- <button class="btn btn-sm btn-clipboard btn-clipboard{{index2}}" data-clipboard-text="{{url}}" data-toggle="tooltip" data-placement="top" title="Copied">
                                   <i class="fa fa-clipboard"></i>
-                              </button>
+                              </button> -->
                               <a href="{{url}}">{{name}} <i class="fa fa-external-link"></i></a>
                             </h5>
 
@@ -419,29 +438,11 @@
                                 info
                               </span>
                             </button>
-                          {{/ifNotEquals}}
-
-                            <div class="dropdown">
-                                <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmActions{{farm}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  <span class="material-icons-round">
-                                    create
-                                  </span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="farmActions{{farm}}">
-                                    <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmInfoModal" data-contract-address="{{farm}}" id="farmEditInfo{{farm}}" class="farmEditInfo">Edit Farm Info</a>
-                                    <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#editStakeModal" data-contract-address="{{farm}}" id="farmEditStakes{{farm}}">Edit Stakes</a>
-                                    <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#editRewardRateModal" data-contract-address="{{farm}}" id="farmEditRewardRate{{farm}}">Edit Reward Rate</a>
-                                    <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#editControllerModal" data-contract-address="{{farm}}" id="farmEditController{{farm}}">Edit Controller</a>
-                                    <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#shopAddonModal" data-contract-address="{{farm}}" id="farmShopAddon{{farm}}">Buy Shop Addon</a>
-                                    <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#shopAddonWhitelistAdminModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}" id="farmShopAddonWhitelistAdmin{{farm}}">Shop Addon Step 2</a>
-                                    <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#shopAddonPauserModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}" id="farmShopAddonPauser{{farm}}">Shop Addon Step 3</a>
-                                    <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmShopEditModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}"  data-shop-runmode="{{runmode}}"  id="farmShopEdit{{farm}}">Edit Shop Addon</a>
-                                </div>
-                            </div>
+                          {{/ifNotEquals}}                            
                         </div>
+
                     </div>
                 </div>
-
 
             </script>
 

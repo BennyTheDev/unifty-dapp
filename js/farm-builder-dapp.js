@@ -786,6 +786,8 @@ function TncDapp() {
     this.updateFarm = async function(){
 
         $("#farmTokenAddress").html('');
+        
+        $("#farmTokenAddress").append($('<optgroup label="MOST USED TOKENS">'));
 
         $('.currency').html(getCurrency());
 
@@ -795,72 +797,72 @@ function TncDapp() {
             case '64': // xDai
                 var o = new Option("NIF (Unifty)", "0x1A186E7268F3Ed5AdFEa6B9e0655f70059941E11");
                 $(o).html("NIF (Unifty)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
 
                 var o2 = new Option("wxDai (Wrapped xDai)", "0xe91D153E0b41518A2Ce8Dd3D7944Fa863463a97d");
                 $(o2).html("wxDai (Wrapped xDai)");
-                $("#farmTokenAddress").append(o2);
+                $("#farmTokenAddress optgroup").append(o2);
                 break;
             case '4d': // xDai (SPOA) Testnet
                 var o = new Option("NIF (Unifty)", "0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7");
                 $(o).html("NIF (Unifty)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 break;
             case '507': // xDai (SPOA) Testnet
                 var o = new Option("NIF (Unifty)", "0x93fEB07f2823600DD3b9EFFd9356de10C387d9d7");
                 $(o).html("NIF (Unifty)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 break;
             case 'a4ec': // xDai (SPOA) Testnet
                 var o = new Option("NIF (Unifty)", "0x3dF39266F1246128C39086E1b542Db0148A30d8c");
                 $(o).html("NIF (Unifty)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 break;
             case 'a86a': // xDai (SPOA) Testnet
                 var o = new Option("WAVAX (Wrapped AVAX)", "0xB31f66AA3C1e785363F0875A1B74E27b85FD66c7");
                 $(o).html("WAVAX (Wrapped AVAX)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 break;
             case '38': // BSC MAINNET
                 var o2 = new Option("bNIF (Unifty)", "0x3aD4eC50f30dAb25C60e0e71755AF6B9690B1297");
                 $(o2).html("bNIF (Unifty)");
-                $("#farmTokenAddress").append(o2);
+                $("#farmTokenAddress optgroup").append(o2);
 
                 var o = new Option("WBNB (Wrapped BNB)", "0xbb4CdB9CBd36B01bD1cBaEBF2De08d9173bc095c");
                 $(o).html("WBNB (Wrapped BNB)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 break;
             case '89': // Matic Mainnet
                 var o = new Option("wMatic (Wrapped Matic)", "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270");
                 $(o).html("Matic (Wrapped)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
 
                 break;
             case '61': // BSC TESTNET
                 var o = new Option("NIF (Unifty)", "0xaC636E43b2a3e8654c993c4c5A72a2cDc41Db0FF");
                 $(o).html("NIF (Unifty)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 break;
             case '4': // ETHEREUM TESTNET
                 var o = new Option("NIF (Unifty)", "0xb93370d549a4351fa52b3f99eb5c252506e5a21e");
                 $(o).html("NIF (Unifty)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 break;
             default: // ETHEREUM MAINNET
                 var o = new Option("NIF (Unifty)", "0x7e291890B01E5181f7ecC98D79ffBe12Ad23df9e");
                 $(o).html("NIF (Unifty)");
-                $("#farmTokenAddress").append(o);
+                $("#farmTokenAddress optgroup").append(o);
                 var o2 = new Option("WETH (Wrapped Ether)", "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2");
                 $(o2).html("WETH (Wrapped Ether)");
-                $("#farmTokenAddress").append(o2);
+                $("#farmTokenAddress optgroup").append(o2);
         }
-
-        var o = new Option("Custom...", "custom");
-        $(o).html("Custom...");
-        $("#farmTokenAddress").append(o);
 
         let fee = await web3.utils.fromWei(await window.tncLib.getFarmFee()+"");
         let nif = await web3.utils.fromWei(await window.tncLib.getFarmMinimumNif());
+
+        var o = new Option("Custom ERC20 Token", "custom");
+        $(o).html("Custom ERC20 Token");
+        $("#farmTokenAddress").append(o);
 
         $('#nifMinFarm').html(nif);
         $('#ethFeeFarm').html(fee);
