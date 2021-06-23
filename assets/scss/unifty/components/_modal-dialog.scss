@@ -23,7 +23,7 @@
     padding: 1.5rem;
     color: var(--modal-text);
     border-bottom: 0.1rem solid var(--modal-border-text);
-    background-color: var(--bg-tertiary);
+    background-color: var(--bg-primary);
 
     h5.modal-title {
       font-family: "Poppins", sans-serif;
@@ -62,20 +62,37 @@
     select {
       background-color: transparent;
       height: auto;
-      background-image: none;
       border: 0.1rem solid $modal-border;
       border-radius: 0.8rem;
       font-size: 1.3rem;
       color: var(--modal-text);
       padding: 1rem;
 
+      background-image: linear-gradient(
+          45deg,
+          transparent 50%,
+          var(--primary-color) 60%
+        ),
+        linear-gradient(135deg, var(--primary-color) 40%, transparent 50%) !important;
+      background-position: calc(100% - 28px) 16px, calc(100% - 22px) 16px,
+        100% 0;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+
       &:hover {
         cursor: var(--cursor-pointer);
       }
 
+      optgroup {
+        background-color: var(--bg-secondary);
+        color: #a3abb2;
+      }
+
       option {
-        background-color: var(--bg-tertiary);
-        padding: 0.5rem 0;
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
       }
     }
 
@@ -97,6 +114,19 @@
         border: 0.1rem solid var(--primary-hover-dark);
         color: var(--primary-hover-dark);
         cursor: var(--cursor-pointer) !important;
+      }
+    }
+
+    form .form-group.img-selector {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        width: max-content;
+        color: var(--modal-text);
+        padding: 1rem;
+        border: 0.1rem solid var(--modal-text);
+        border-radius: 0.8rem
       }
     }
 
@@ -198,6 +228,7 @@
   }
 
   .modal-footer {
+    background-color: var(--bg-primary);
     border-top: 0.1rem solid var(--modal-border-text);
     display: flex;
     flex-direction: column;
@@ -265,24 +296,24 @@
 }
 
 //Market builder
-#marketForm {
-  #tierGroup {
-    select {
-      background-image: linear-gradient(
-          45deg,
-          transparent 50%,
-          var(--primary-color) 60%
-        ),
-        linear-gradient(135deg, var(--primary-color) 40%, transparent 50%) !important;
-      background-position: calc(100% - 29px) 16px, calc(100% - 22px) 16px,
-        100% 0;
-      background-size: 6px 6px, 6px 6px;
-      background-repeat: no-repeat;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    }
-  }
-}
+// #marketForm {
+//   #tierGroup {
+//     select {
+//       background-image: linear-gradient(
+//           45deg,
+//           transparent 50%,
+//           var(--primary-color) 60%
+//         ),
+//         linear-gradient(135deg, var(--primary-color) 40%, transparent 50%) !important;
+//       background-position: calc(100% - 29px) 16px, calc(100% - 22px) 16px,
+//         100% 0;
+//       background-size: 6px 6px, 6px 6px;
+//       background-repeat: no-repeat;
+//       -webkit-appearance: none;
+//       -moz-appearance: none;
+//     }
+//   }
+// }
 
 #nftSellWallet {
   .approveNft {

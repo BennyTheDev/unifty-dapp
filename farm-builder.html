@@ -517,11 +517,14 @@
                       <textarea class="form-control" id="farmDescription" rows="3"></textarea>
                     </div>
 
-                    <div class="form-group">
-                      <label for="farmImageFile">Click to Choose Image....</label>
-                      <input type="file" class="form-control-file imageFile" id="farmImageFile" accept="image/*">
-                      <div class="imageFileDisplay mt-3"></div>
-                      <input type="hidden" id="farmImageUrl" value="" />
+                    <div class="form-group img-selector">
+                        <label for="farmImageFile">
+                          <i class="material-icons-round" style="margin-right: 5px;">image</i>
+                          Click to Choose Image
+                        </label>
+                        <input type="file" class="form-control-file imageFile" id="farmImageFile" accept="image/*">
+                        <div class="imageFileDisplay mt-3"></div>
+                        <input type="hidden" id="farmImageUrl" value="" />
                     </div>
 
                     <div class="form-group">
@@ -633,8 +636,11 @@
                     <textarea class="form-control" id="farmInfoDescription" rows="3"></textarea>
                   </div>
 
-                  <div class="form-group">
-                    <label for="farmInfoImageFile">Click to Choose Image....</label>
+                  <div class="form-group img-selector">
+                    <label for="farmInfoImageFile">
+                      <i class="material-icons-round" style="margin-right: 5px;">image</i>
+                      Click to Choose Image
+                    </label>
                     <input type="file" class="form-control-file imageFile" id="farmInfoImageFile" accept="image/*">
                     <div class="imageFileDisplay mt-3"></div>
                     <input type="hidden" id="farmInfoImageUrl" value="" />
