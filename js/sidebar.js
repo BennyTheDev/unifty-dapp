@@ -13,6 +13,7 @@ $(document).ready(function () {
 
   initElements();
   removeUnecessaryShops();
+  userDefault();
 });
 
 $(window).resize(function () {
@@ -23,6 +24,17 @@ $(window).resize(function () {
     $("#menu-collapse").show();
   }
 });
+
+function userDefault() {
+  if (
+    localStorage.getItem("sidebar") === "expanded" ||
+    localStorage.getItem("sidebar") === null
+  ) {
+    expandSidebar();
+  } else {
+    collapseSidebar();
+  }
+}
 
 function initElements() {
   sb = $(".sidebar");
@@ -55,6 +67,8 @@ function defaultSidebar() {
 }
 
 function expandSidebar() {
+  localStorage.setItem("sidebar", "expanded");
+
   sb.removeClass("collapsed");
   mainPanel.css("width", "calc(100% - 28rem)");
   socialIcons.show();
@@ -68,6 +82,8 @@ function expandSidebar() {
 }
 
 function collapseSidebar() {
+  localStorage.setItem("sidebar", "collapsed");
+
   sb.addClass("collapsed");
   mainPanel.css("width", "calc(100% - 10rem)");
   socialIcons.hide();
@@ -154,30 +170,32 @@ function createSidebarPopover($this, data_content){
         .attr({
           "data-container": "body",
           "data-toggle": "popover",
-          "data-placement": "right",
+          // "data-placement": "right",
           "data-trigger": "click",
           "data-html": "true",
           "data-content": data_content,
         })
         .popover({
-          trigger: "manual",
-          html: true,
-          animation: true
-        })
-        .on("mouseenter", function() {
-          var _this = this;
-          $(this).popover("show");
-          $(".popover").on("mouseleave", function() {
-            $(_this).popover('hide');
-          });
-        }).on("mouseleave", function() {
-          var _this = this;
-          setTimeout(function() {
-            if (!$(".popover:hover").length) {
-              $(_this).popover("hide");
-            }
-          }, 50);
-        });    
+          placement: 'right'
+        });
+        //   {
+        //   trigger: "manual",
+        //   animation: true
+        // })
+        // .on("mouseenter", function() {
+        //   var _this = this;
+        //   $(this).popover("show");
+        //   $(".popover").on("mouseleave", function() {
+        //     $(_this).popover('hide');
+        //   });
+        // }).on("mouseleave", function() {
+        //   var _this = this;
+        //   setTimeout(function() {
+        //     if (!$(".popover:hover").length) {
+        //       $(_this).popover("hide");
+        //     }
+        //   }, 50);
+        // });    
 }
 
 function removingPopopvers() {
