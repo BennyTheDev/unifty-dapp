@@ -590,22 +590,18 @@
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
+                        <a href="{{opensea}}">
+                        
                             {{#ifEquals shadowed "false"}}
-                                <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                            <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                        
                             {{/ifEquals}}
-                            {{#ifEquals shadowed "true"}}
-                            <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">
+                            {{#ifEquals shadowed "true"}}                        
+                            <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">                        
                             {{/ifEquals}}
+                        
+                        </a>
                         {{/ifNotEquals}}
-
-                        {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
-
-                        {{#ifEquals checkOpenSea "Open Details"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
-
 
                         <div class="card-body">
 
@@ -653,7 +649,7 @@
                                 {{/ifNotEquals}}
                             </div>
 
-                            <h5 class="card-title text-truncate"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
 
                             <div class="collection-name">{{{collectionName}}}</div>
 
@@ -684,7 +680,7 @@
                                     <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                         Buy
                                     </button>
-                                    <div class="text-muted mb-2" style="font-size: 1.2em">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
+                                    <div class="text-muted mb-2" style="font-size: 1.5rem">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                                 {{/ifNotEquals}}
                                 {{#ifEquals batch ""}}
                                     {{#ifEquals onsale "1"}}
@@ -697,7 +693,7 @@
                                             Buy
                                         </button>
                                     {{/ifNotEquals}}
-                                    <div class="text-muted mb-2" style="font-size: 1.2em">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
+                                    <div class="text-muted mb-2" style="font-size: 1.5rem">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
                                 {{/ifEquals}}
                             {{/ifNotEquals}}
 
@@ -717,7 +713,20 @@
                             <div> </div>
                             {{/ifEquals}}
 
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                            {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                            <a class="traits btn btn-outline" href="{{opensea}}"
+                                target="_blank">{{checkOpenSea}}</a>
+                            {{/ifEquals}}
+                            
+                            {{#ifEquals checkOpenSea "Open Details"}}
+                            <a class="traits btn btn-outline""
+                                href="{{opensea}}">{{checkOpenSea}}</a>
+                            {{/ifEquals}}
+                            
+                            
+                            
+                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button"
+                                aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
                                 Traits
                             </a>
 
