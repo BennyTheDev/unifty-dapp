@@ -211,7 +211,7 @@
             <p>NFT Bridge</p>
           </a>
         </li>
- 
+
         <li class="nav-item">
           <a class="nav-link" href="guides-faq.html">
             <i class="material-icons-round">help_center</i>
@@ -238,10 +238,10 @@
       <div class="sidebar-bottom">
         <div class="sidebar-text">
           <div class="sidebar-text icons">
-            <span class="navbar-text">              
+            <span class="navbar-text">
               <a href="https://www.facebook.com/unifty.io" target="_blank">
                 <i class="fa fa-facebook"></i>              </a>
-              
+
               <a href="https://www.instagram.com/unifty.io/" target="_blank">
                 <i class="fa fa-instagram"></i>
               </a>
@@ -274,7 +274,7 @@
 
     <!-- NAV TOGGLER -->
     <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
-      <div class="container-fluid">                
+      <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
           aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
           <span class="sr-only">Toggle navigation</span>
@@ -313,7 +313,7 @@
               <a class="dropdown-item" href="https://unifty.io/matic/"><img src="assets/img/network-icons/polygon-logo.svg">Polygon (Matic)</a>
               <a class="dropdown-item" href="https://unifty.io/moonbeam-alpha/"><img src="assets/img/network-icons/rinkeby_logo.svg">Moonbeam (Alpha)</a>
               <a class="dropdown-item" href="https://unifty.io/rinkeby/"><img src="assets/img/network-icons/rinkeby_logo.svg">Rinkeby (Testnet)</a>
-            </div>     
+            </div>
           </div>
 
           <div class="theme-toggler">
@@ -334,17 +334,17 @@
       <div class="content__welcome-text">
         <p>
           Welcome to the administration panel for all of your farms!
-      
-      
+
+
         </p>
       </div>
-      
+
       <h1>Farm Builder</h1>
       <p>
-      
+
         Info &rarr; A farm is a place where you can display your NFTs, and show everyone your amazing NFT artwork.
         <br>
-      
+
         Create a collection &rarr; create your NFTs &rarr; add them to the farm
       </p>
 
@@ -385,7 +385,7 @@
         <!-- Farms View -->
         <script id="farm-template" type="text/x-handlebars-template">
 
-                <div class="farmListing mb-3">                  
+                <div class="farmListing mb-3">
                     <div class="card card-profile">
                         {{#ifNotEquals image ""}}
                         <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
@@ -438,7 +438,7 @@
                                 info
                               </span>
                             </button>
-                          {{/ifNotEquals}}                            
+                          {{/ifNotEquals}}
                         </div>
 
                     </div>
@@ -534,7 +534,29 @@
                         class="form-control" id="farmControllerAddress">
                     </div>
 
-                    <fieldset class="form-group">
+                    <div class="form-group">
+                      <label for="farmSocialMedia">Social Media (optional)</label>
+                      <div class="farmSocialMediaGroupWrapper">
+                        <div class="farmSocialMediaGroup">
+                          <select class="" name="socialMediaName[]">
+                            <option value="smFacebook">Facebook</option>
+                            <option value="smTwitter">Twitter</option>
+                            <option value="smInstagram">Instagram</option>
+                          </select>
+                          <input type="text" name="socialMediaLink[]" value="">
+                        </div>
+                      </div>
+                      <button type="button" name="socialMediaAdd" class="socialMediaAdd">Add More</button>
+                    </div>
+
+                    <script type="text/javascript">
+                      $('button.socialMediaAdd').on('click', function(){
+                        var smClone = $('.farmSocialMediaGroup').first().clone();
+                        $('.farmSocialMediaGroupWrapper').append(smClone);
+                      });
+                    </script>
+
+                    <!--<fieldset class="form-group">
                       <legend>Social (optional)</legend>
 
                       <div class="form-row">
@@ -586,7 +608,7 @@
                         </div>
                       </div>
 
-                    </fieldset>
+                    </fieldset>-->
 
                     <input type="hidden" id="farmUpdateAddress" value="" />
                     <input type="hidden" id="farmIsEdit" value="0" />
@@ -1044,7 +1066,7 @@
           Buy crypto with RAMP
         </a>
       </li>
-      
+
       <li class="nav-item shop" id="shopEthereum" style="display:none;">
         <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
           <span class="material-icons-round">
@@ -1112,7 +1134,7 @@
 
   </div>
   <!-- FOOTER END -->
-    
+
   </div>
   <script src="js/ramp-init.js"></script>
   <script src="js/themeSwitch.js"></script>
