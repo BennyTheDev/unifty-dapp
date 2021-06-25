@@ -6,6 +6,8 @@ let sidebarRights;
 
 let parentCollapsables;
 
+let collapsibleSidebar;
+
 $(document).ready(function () {
   $("#menu-collapse").click(() => {
     toggleSidebar();
@@ -25,14 +27,40 @@ $(window).resize(function () {
   }
 });
 
+function enableHoverSidebar() {
+  sb.hover(
+    function () {
+      expandSidebar();
+    },
+    function () {
+      collapseSidebar();
+    }
+  );
+
+  collapsibleSidebar = true;
+
+  $("#menu-collapse").find("p").html("Expand Menu");
+}
+
+function disableHoverSidebar() {
+  collapsibleSidebar = false;
+  $("#menu-collapse").find("p").html("Collapse Menu");
+
+  sb.unbind("mouseenter mouseleave");
+}
+
 function userDefault() {
   if (
     localStorage.getItem("sidebar") === "expanded" ||
     localStorage.getItem("sidebar") === null
   ) {
+    collapsibleSidebar = false;
     expandSidebar();
+    disableHoverSidebar();
   } else {
+    collapsibleSidebar = true;
     collapseSidebar();
+    enableHoverSidebar();
   }
 }
 
@@ -48,17 +76,18 @@ function initElements() {
 }
 
 function toggleSidebar() {
-  if ($(".sidebar").hasClass("collapsed")) {
+  if (collapsibleSidebar) {
     expandSidebar();
+    disableHoverSidebar();
+    localStorage.setItem("sidebar", "expanded");
   } else {
     collapseSidebar();
+    enableHoverSidebar();
+    localStorage.setItem("sidebar", "collapsed");
   }
 }
 
 function defaultSidebar() {
-  let sb = $(".sidebar");
-  let mainPanel = $(".main-panel");
-
   $("#menu-collapse").hide();
   sb.removeClass("collapsed");
   mainPanel.removeAttr("style");
@@ -67,8 +96,6 @@ function defaultSidebar() {
 }
 
 function expandSidebar() {
-  localStorage.setItem("sidebar", "expanded");
-
   sb.removeClass("collapsed");
   mainPanel.css("width", "calc(100% - 28rem)");
   socialIcons.show();
@@ -78,12 +105,10 @@ function expandSidebar() {
     $(this).find("a").attr("data-toggle", "collapse");
   });
 
-  removingPopopvers();
+  //removingPopopvers();
 }
 
 function collapseSidebar() {
-  localStorage.setItem("sidebar", "collapsed");
-
   sb.addClass("collapsed");
   mainPanel.css("width", "calc(100% - 10rem)");
   socialIcons.hide();
@@ -97,7 +122,7 @@ function collapseSidebar() {
   });
 
   closeOpenDropdowns();
-  addingPopopvers();
+  //addingPopopvers();
 }
 
 //Keeping DOM clean and css working
@@ -116,7 +141,7 @@ function closeOpenDropdowns() {
     $(this).addClass("collapsed");
     $(this).attr("aria-expanded", "false");
   });
-  
+
   $('div[data-parent="#accordion"]').each(function () {
     $(this).removeClass("show");
   });
@@ -127,73 +152,87 @@ function addingPopopvers() {
   let $this;
 
   menuTags.each(function () {
-
     $this = $(this);
 
-    if($this.parent().hasClass("collapsibleParent")){
+    if ($this.parent().hasClass("collapsibleParent")) {
       //To get the submenu items
       let childElements = $this.parent().parent().next().find("li.collapsible");
 
-      let stringElements = ""
-      childElements.each(function(){
+      let stringElements = "";
+      childElements.each(function () {
         let active = "";
-        if($(this).hasClass("active")){
-          active = "active";          
+        if ($(this).hasClass("active")) {
+          active = "active";
         }
 
-        stringElements += "<a class=\"nav-link " + active + "\" href=\"" + $(this).find("a").attr("href") + "\">" +
-        "<i class=\"material-icons\">fiber_manual_record</i><p>" + $(this).find("p").text() + "</p></a>";
-      })      
+        stringElements +=
+          '<a class="nav-link ' +
+          active +
+          '" href="' +
+          $(this).find("a").attr("href") +
+          '">' +
+          '<i class="material-icons">fiber_manual_record</i><p>' +
+          $(this).find("p").text() +
+          "</p></a>";
+      });
 
-      createSidebarPopover($this, "<div class=\"sidebarPopover\">" + stringElements + "</div>")
-    }
-    else{            
+      createSidebarPopover(
+        $this,
+        '<div class="sidebarPopover">' + stringElements + "</div>"
+      );
+    } else {
       //Some elements use JS for their click therefore this is not necessary
-      if($this.attr("href") == undefined){
-        createSidebarPopover($this, 
-          "<div class=\"sidebarPopover\"><a class=\"nav-link\" ><p>" + $this.find("p").text() + "</p></a></div>")  
+      if ($this.attr("href") == undefined) {
+        createSidebarPopover(
+          $this,
+          '<div class="sidebarPopover"><a class="nav-link" ><p>' +
+            $this.find("p").text() +
+            "</p></a></div>"
+        );
+      } else {
+        createSidebarPopover(
+          $this,
+          '<div class="sidebarPopover"><a class="nav-link" href="' +
+            $this.attr("href") +
+            '">' +
+            "<p>" +
+            $this.find("p").text() +
+            "</p></a></div>"
+        );
       }
-      else{
-        createSidebarPopover($this, 
-          "<div class=\"sidebarPopover\"><a class=\"nav-link\" href=\"" 
-        + $this.attr("href") + "\">" + "<p>" + $this.find("p").text() + "</p></a></div>")      
-      }     
-
     }
-
-
   });
 }
 
-function createSidebarPopover($this, data_content){
+function createSidebarPopover($this, data_content) {
   $this
-        .attr({
-          "data-container": "body",
-          "data-toggle": "popover",
-          "data-placement": "right",
-          "data-trigger": "click",
-          "data-html": "true",
-          "data-content": data_content,
-        })
-        .popover(
-          {
-          trigger: "manual",
-          animation: true
-        })
-        .on("mouseenter", function() {
-          var _this = this;
-          $(this).popover("show");
-          $(".popover").on("mouseleave", function() {
-            $(_this).popover('hide');
-          });
-        }).on("mouseleave", function() {
-          var _this = this;
-          setTimeout(function() {
-            if (!$(".popover:hover").length) {
-              $(_this).popover("hide");
-            }
-          }, 50);
-        });    
+    .attr({
+      "data-container": "body",
+      "data-toggle": "popover",
+      "data-placement": "right",
+      "data-trigger": "click",
+      "data-html": "true",
+      "data-content": data_content,
+    })
+    .popover({
+      trigger: "manual",
+      animation: true,
+    })
+    .on("mouseenter", function () {
+      var _this = this;
+      $(this).popover("show");
+      $(".popover").on("mouseleave", function () {
+        $(_this).popover("hide");
+      });
+    })
+    .on("mouseleave", function () {
+      var _this = this;
+      setTimeout(function () {
+        if (!$(".popover:hover").length) {
+          $(_this).popover("hide");
+        }
+      }, 50);
+    });
 }
 
 function removingPopopvers() {
@@ -201,8 +240,8 @@ function removingPopopvers() {
   menuTags.each(function () {
     $(this).removeAttr(
       "data-container data-placement data-trigger data-content data-original-title title"
-      );
-      
+    );
+
     $(this).popover("dispose").off("mouseenter").off("mouseleave");
   });
 }
