@@ -20,7 +20,6 @@ $(document).ready(function () {
 
 $(window).resize(function () {
   // This will execute whenever the window is resized
-  console.log($(window).width())
   if ($(window).width() <= 974) {
     defaultSidebar();
   } else {
