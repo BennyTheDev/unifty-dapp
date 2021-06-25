@@ -35,7 +35,7 @@ function enableHoverSidebar() {
     function () {
       setTimeout(() => {
         collapseSidebar();        
-      }, 500);
+      }, 750);
     }
   );
 
