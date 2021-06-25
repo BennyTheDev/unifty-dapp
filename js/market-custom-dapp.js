@@ -273,8 +273,10 @@ function TncDapp() {
         price = _this.formatNumberString(price, decimals);
 
         if(decimals > 2) {
-
-            price = price.substring(0, price.length - 10);
+            price = _this.cleanUpDecimals(price);
+            //Adding space every 3 digits
+            price = price.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            //price = price.substring(0, price.length - 10);
         }
 
         let explorer = 'https://etherscan.io/token/';
@@ -2457,6 +2459,36 @@ function TncDapp() {
 
         return number;
     };
+
+    this.cleanUpDecimals = function (price) {
+        price = _this.removingDecimals(price);
+  
+        let decimalPoints = 0;
+        if (price.includes(".")) {
+          decimalPoints = price.split(".")[1].length;
+        }
+  
+        //So that we always have at least 2 zeroes after decimal point
+        if (decimalPoints == 0){
+          price = price + "00"
+        }
+        else if(decimalPoints == 1){
+            price = price + "0";
+        }
+      
+        return price
+      };
+  
+      this.removingDecimals = function (string) {
+        while (true) {
+          if (string.slice(-1) == 0) {
+            string = string.substring(0, string.length - 1);
+          } else {
+            return string;
+          }
+        }
+      };
+  
 
     this.getUrlParam = function(param_name) {
         const queryString = window.location.search;
