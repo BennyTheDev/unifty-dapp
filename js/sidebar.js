@@ -20,7 +20,7 @@ $(document).ready(function () {
 
 $(window).resize(function () {
   // This will execute whenever the window is resized
-  if ($(window).width() <= 991) {
+  if ($(window).width() <= 974) {
     defaultSidebar();
   } else {
     $("#menu-collapse").show();
