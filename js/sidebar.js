@@ -33,7 +33,10 @@ function enableHoverSidebar() {
       expandSidebar();
     },
     function () {
-      collapseSidebar();
+      setTimeout(() => {
+        collapseSidebar();
+        
+      }, 500);
     }
   );
 
