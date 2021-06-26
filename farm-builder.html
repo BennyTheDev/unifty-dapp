@@ -535,80 +535,25 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="farmSocialMedia">Social Media (optional)</label>
+                      <label for="farmSocialMediaName">Social Media (optional)</label>
                       <div class="farmSocialMediaGroupWrapper">
-                        <div class="farmSocialMediaGroup">
-                          <select class="" name="socialMediaName[]">
-                            <option value="smFacebook">Facebook</option>
-                            <option value="smTwitter">Twitter</option>
-                            <option value="smInstagram">Instagram</option>
+                        <div class="farmSocialMediaGroup row mb-2">
+                          <select name="socialMediaName[]" class="socialMediaName form-control col-4">
+                            <option value="website" selected>Website</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="discard">Discard</option>
+                            <option value="telegram">Telegram</option>
+                            <option value="medium">Medium</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
                           </select>
-                          <input type="text" name="socialMediaLink[]" value="">
+                          <input type="text" name="socialMediaLink[]" value="" class="form-control col-8" placeholder="Link to your social media account">
                         </div>
                       </div>
-                      <button type="button" name="socialMediaAdd" class="socialMediaAdd">Add More</button>
+                      <button type="button" name="farmSocialMediaAdd" class="farmSocialMediaAdd">Add More</button>
                     </div>
-
-                    <script type="text/javascript">
-                      $('button.socialMediaAdd').on('click', function(){
-                        var smClone = $('.farmSocialMediaGroup').first().clone();
-                        $('.farmSocialMediaGroupWrapper').append(smClone);
-                      });
-                    </script>
-
-                    <!--<fieldset class="form-group">
-                      <legend>Social (optional)</legend>
-
-                      <div class="form-row">
-                        <div class="col">
-                          <input type="text" class="form-control mb-3" placeholder="Twitter Url" id="farmTwitter">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Discord Url" id="farmDiscord">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Telegram Url" id="farmTelegram">
-                        </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="col">
-                          <input type="text" class="form-control mb-3" placeholder="Medium Url" id="farmMedium">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Instagram Url" id="farmInstagram">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Youtube Url" id="farmYoutube">
-                        </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="col">
-                          <input type="text" class="form-control mb-3" placeholder="Website Url" id="farmWeb">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Email address" id="farmEmail">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Phone" id="farmPhone">
-                        </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="col">
-                          <label for="farmCustomLink">Custom Link</label>
-                          <input type="text" class="form-control" placeholder="Enter a link to a custom url"
-                            id="farmCustomLink">
-                        </div>
-                        <div class="col">
-                          <label for="farmCustomLinkText">Custom Link Text</label>
-                          <input type="text" class="form-control" placeholder="Enter a link text for your custom url"
-                            id="farmCustomLinkText">
-                        </div>
-                      </div>
-
-                    </fieldset>-->
 
                     <input type="hidden" id="farmUpdateAddress" value="" />
                     <input type="hidden" id="farmIsEdit" value="0" />

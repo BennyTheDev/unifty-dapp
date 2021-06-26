@@ -379,7 +379,7 @@ function TncDapp() {
                 $('#farmShopAddonBuyButton').prop('disabled', false);
                 $('#farmShopAddonBuyButton').html('Buy');
 
-                let errMsg = 'An error occurred with your New Farm Shop Addon transaction. Do you have sufficient funds?';                    
+                let errMsg = 'An error occurred with your New Farm Shop Addon transaction. Do you have sufficient funds?';
                 toastr["error"](errMsg, "Error");
                 errorPopup("Error", errMsg, err.stack);
             }
@@ -422,7 +422,7 @@ function TncDapp() {
                 let errMsg = 'An error occurred with your Farm Shop Addon Step 2 transaction. Do you have sufficient funds?';
                 $('#farmShopAddonStep2Button').prop('disabled', false);
                 $('#farmShopAddonStep2Button').html('Allow');
-                   
+
                 toastr["error"](errMsg, "Error");
                 errorPopup("Error", errMsg, err.stack);
             }
@@ -463,7 +463,7 @@ function TncDapp() {
                 let errMsg = 'An error occurred with your Farm Shop Addon Step 3 transaction. Do you have sufficient funds?';
                 $('#farmShopAddonStep2Button').prop('disabled', false);
                 $('#farmShopAddonStep2Button').html('Allow');
-                
+
                 toastr["error"](errMsg, "Error");
                 errorPopup("Error", errMsg, err.stack);
             }
@@ -517,17 +517,17 @@ function TncDapp() {
         let description = $('#farmDescription').val().trim();
         let image = $('#farmImageUrl').val().trim();
         let controller = $('#farmControllerAddress').val().trim();
-        let twitter = $('#farmTwitter').val().trim();
-        let discord = $('#farmDiscord').val().trim();
-        let telegram = $('#farmTelegram').val().trim();
-        let medium = $('#farmMedium').val().trim();
-        let instagram = $('#farmInstagram').val().trim();
-        let youtube = $('#farmYoutube').val().trim();
-        let web = $('#farmWeb').val().trim();
-        let email = $('#farmEmail').val().trim();
-        let phone = $('#farmPhone').val().trim();
-        let link = $('#farmCustomLink').val().trim();
-        let text = $('#farmCustomLinkText').val().trim();
+        let socialMedia = {};
+
+        $('select[name="socialMediaName[]"]').each(function(i){
+          let name = $(this).val().trim();
+          let value = $('input[name="socialMediaLink[]"]').eq(i).val().trim();
+
+          socialMedia[i] = {
+            name: name,
+            value: value
+          }
+        });
 
         if(name == ''){ _alert('Please enter a farm name'); return; }
         if(token == '' || token == 'custom'){ _alert('Please choose a staking token or add a custom address'); return; }
@@ -545,16 +545,7 @@ function TncDapp() {
             name : name,
             description : description,
             image : image,
-            twitter : twitter,
-            discord: discord,
-            telegram: telegram,
-            medium: medium,
-            instagram: instagram,
-            youtube : youtube,
-            web : web,
-            email : email,
-            phone : phone,
-            customLink : { name : text, value : link }
+            socialMedia: socialMedia
         };
 
         console.log(JSON.stringify(farmInfo));
@@ -593,7 +584,7 @@ function TncDapp() {
                 },
                 function (err) {
                     toastr.remove();
-                    let errMsg = 'An error occurred with your New Farm transaction. Do you have sufficient funds?';            
+                    let errMsg = 'An error occurred with your New Farm transaction. Do you have sufficient funds?';
                     toastr["error"](errMsg, "Error");
                     errorPopup("Error", errMsg, err.stack);
                 }
@@ -786,7 +777,7 @@ function TncDapp() {
     this.updateFarm = async function(){
 
         $("#farmTokenAddress").html('');
-        
+
         $("#farmTokenAddress").append($('<optgroup label="MOST USED TOKENS">'));
 
         $('.currency').html(getCurrency());
@@ -1205,6 +1196,20 @@ function TncDapp() {
                 $('#farmCustomTokenAddressWrapper').css('display', 'none');
             }
 
+        });
+
+        $('.farmSocialMediaAdd').on('click', async function(){
+          let socialMediaWrapper = $('.farmSocialMediaGroupWrapper');
+          let socialMediaFields = $('.farmSocialMediaGroup').last().clone();
+
+          $('select[name="socialMediaName[]"]').each(function(i){
+            socialMediaFields.find('option[value="'+$(this).val()+'"]').remove();
+          });
+
+          if(socialMediaFields.find('input[type="text"]').val()){
+            socialMediaFields.find('input[type="text"]').val('');
+            socialMediaWrapper.append(socialMediaFields);
+          }
         });
 
         $('#farmSubmit').on('click', async function(){
