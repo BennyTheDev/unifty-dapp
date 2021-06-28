@@ -375,6 +375,7 @@ textarea, input {
   border-radius: 11px;
   color: #f4f7fb;
   font-size: 12px;
+  font-weight: bold;
   background-color: #9c27b0; }
 
 .changelog-tag-improved {
@@ -384,6 +385,7 @@ textarea, input {
   border-radius: 11px;
   color: #f4f7fb;
   font-size: 12px;
+  font-weight: bold;
   background-color: #202060; }
 
 .changelog-tag-fixed {
@@ -393,6 +395,7 @@ textarea, input {
   border-radius: 11px;
   color: #f4f7fb;
   font-size: 12px;
+  font-weight: bold;
   background-color: #6c757d; }
 
 .changelog-text {
