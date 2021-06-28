@@ -357,6 +357,58 @@ textarea, input {
 .main-timeline .date-content:before {
   background: var(--primary-color); }
 
+.changelog-date h3 {
+  font-size: large;
+  font-weight: bold; }
+
+.changelog-grid {
+  display: grid;
+  grid-template-columns: 90px auto;
+  grid-gap: 10px; }
+  .changelog-grid div {
+    padding: 5px 0; }
+
+.changelog-tag-new {
+  padding: 2px 29px;
+  text-align: center;
+  max-width: 84px;
+  border-radius: 11px;
+  color: #f4f7fb;
+  font-size: 12px;
+  background-color: #9c27b0; }
+
+.changelog-tag-improved {
+  padding: 2px 12px;
+  text-align: center;
+  max-width: 84px;
+  border-radius: 11px;
+  color: #f4f7fb;
+  font-size: 12px;
+  background-color: #202060; }
+
+.changelog-tag-fixed {
+  padding: 2px 26px;
+  text-align: center;
+  max-width: 84px;
+  border-radius: 11px;
+  color: #f4f7fb;
+  font-size: 12px;
+  background-color: #6c757d; }
+
+.changelog-text {
+  float: right;
+  width: 80%; }
+
+.changelog-text {
+  color: #4c4c6f;
+  font-size: 18px; }
+  .changelog-text span {
+    margin-bottom: 16px;
+    display: block; }
+  .changelog-text a {
+    font-weight: bolder;
+    text-decoration: none; }
+
 .projectFunding p {
   font-weight: 100;
   font-size: 1.3rem;
