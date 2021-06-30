@@ -73,7 +73,7 @@
   text-align: center;
   max-width: 84px;
   border-radius: 11px;
-  color: #f4f7fb;
+  color: #c6cbd1;
   font-size: 12px;
   font-weight: bold;
 }
@@ -96,7 +96,7 @@
 
 
 .changelog-text{
-  color: #4c4c6f;
+  color: var(--text-primary);
   font-size: 18px;
 
   span{
@@ -106,7 +106,7 @@
   a{
     font-weight: bolder;
     text-decoration: none;
-    color: #4c4c6f;
+    
     
   }
 }
@@ -116,10 +116,11 @@
 .brand-assets-btn{
   padding:12px 24px;
   border-radius: 10px;
-  background-color: #202060;
-  color:white;
+  background-color: var(--primary-color);
+  color:var(--bg-primary);
   font-weight: bold;
   margin-bottom: 2rem;
+  border:0; 
   i{
     padding-right:10px;
   }
@@ -137,13 +138,12 @@
   h3{
     margin-top: 2.5rem ;
     font-weight: bold;
-    color: #202060;
+    color: var(--heading-color);
     font-size: 1.8rem;
   }
   .download-option a{
       padding: 0 20px;
-      color:#4c4c6f;
-
+      color:#4c4c6f;  //it fits perfect for both dark and light setting
   }
   .img-holder{
     width: 20.5rem;

@@ -376,7 +376,7 @@ textarea, input {
   text-align: center;
   max-width: 84px;
   border-radius: 11px;
-  color: #f4f7fb;
+  color: #c6cbd1;
   font-size: 12px;
   font-weight: bold;
   background-color: #9c27b0; }
@@ -386,7 +386,7 @@ textarea, input {
   text-align: center;
   max-width: 84px;
   border-radius: 11px;
-  color: #f4f7fb;
+  color: #c6cbd1;
   font-size: 12px;
   font-weight: bold;
   background-color: #202060; }
@@ -396,21 +396,20 @@ textarea, input {
   text-align: center;
   max-width: 84px;
   border-radius: 11px;
-  color: #f4f7fb;
+  color: #c6cbd1;
   font-size: 12px;
   font-weight: bold;
   background-color: #6c757d; }
 
 .changelog-text {
-  color: #4c4c6f;
+  color: var(--text-primary);
   font-size: 18px; }
   .changelog-text span {
     margin-bottom: 16px;
     display: block; }
   .changelog-text a {
     font-weight: bolder;
-    text-decoration: none;
-    color: #4c4c6f; }
+    text-decoration: none; }
 
 .brand-assets {
   margin: 2.5rem 0; }
@@ -418,10 +417,11 @@ textarea, input {
 .brand-assets-btn {
   padding: 12px 24px;
   border-radius: 10px;
-  background-color: #202060;
-  color: white;
+  background-color: var(--primary-color);
+  color: var(--bg-primary);
   font-weight: bold;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  border: 0; }
   .brand-assets-btn i {
     padding-right: 10px; }
 
@@ -435,7 +435,7 @@ textarea, input {
   .brand-assets-img-element h3 {
     margin-top: 2.5rem;
     font-weight: bold;
-    color: #202060;
+    color: var(--heading-color);
     font-size: 1.8rem; }
   .brand-assets-img-element .download-option a {
     padding: 0 20px;
