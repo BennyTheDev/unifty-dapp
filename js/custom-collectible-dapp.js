@@ -96,6 +96,7 @@ function TncDapp() {
         let onsale = 0;
         let ticker = '';
         let price = 0;
+        let rawPrice = 0;
         let swap = '';
         let options = '';
         let multiplier = 0;
@@ -129,12 +130,19 @@ function TncDapp() {
             let decimals = await tncLib.tokenDecimalsErc20(ask.tokenAddress);
             price = _this.formatNumberString(price, decimals);
 
-            if(decimals > 2) {
-                price = _this.cleanUpDecimals(price);
-                //Adding space every 3 digits
-                price = price.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                //price = price.substring(0, price.length - 10);
+            if(price.length >= 10) {
+
+                price = price.substring(0, price.length - 10);
             }
+
+            rawPrice = price;
+
+            if(decimals > 2) {
+
+                price = _this.cleanUpDecimals(price);
+            }
+
+            price = new Intl.NumberFormat('en-US',{ maximumSignificantDigits: 8 }).format(price).toString();
 
             swapMode = ask.swapMode;
             isBatch = ask.erc1155Address.length > 1 ? true : false;
@@ -156,6 +164,7 @@ function TncDapp() {
             ticker: ticker,
             index: index,
             price: price,
+            _price: rawPrice,
             swap : swap,
             options: options,
             seller: seller,
@@ -292,12 +301,19 @@ function TncDapp() {
         let decimals = await tncLib.tokenDecimalsErc20(token);
         price = _this.formatNumberString(price, decimals);
 
-        if(decimals > 2) {
-            price = _this.cleanUpDecimals(price);
-            //Adding space every 3 digits
-            price = price.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-            //price = price.substring(0, price.length - 10);
+        if(price.length >= 10) {
+
+            price = price.substring(0, price.length - 10);
         }
+
+        let rawPrice = price;
+
+        if(decimals > 2) {
+
+            price = _this.cleanUpDecimals(price);
+        }
+
+        price = new Intl.NumberFormat('en-US',{ maximumSignificantDigits: 8 }).format(price).toString();
 
         let explorer = 'https://etherscan.io/token/';
         switch(chain_id){
@@ -365,6 +381,7 @@ function TncDapp() {
                 ticker: await tncLib.tokenSymbolErc20(token),
                 index: index,
                 price: price,
+                _price: rawPrice,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',
@@ -430,6 +447,7 @@ function TncDapp() {
                 ticker: await tncLib.tokenSymbolErc20(token),
                 index: index,
                 price: price,
+                _price: rawPrice,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
                 options: sellerAddress.toLowerCase() == tncLib.account.toLowerCase() ? 'true' : '',

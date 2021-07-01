@@ -95,6 +95,11 @@
   display: none;
 }
 
+.dark-edition .sidebar .sidebar-wrapper ul.nav:first-child, .light-edition .sidebar .sidebar-wrapper ul.nav:first-child {
+  overflow: auto;
+  
+}
+
 //logo
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {

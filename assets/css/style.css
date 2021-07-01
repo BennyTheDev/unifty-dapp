@@ -1860,6 +1860,9 @@ textarea, input {
 .light-edition .sidebar .sidebar-wrapper ul.nav.navbar-nav.nav-mobile-menu {
   display: none; }
 
+.dark-edition .sidebar .sidebar-wrapper ul.nav:first-child, .light-edition .sidebar .sidebar-wrapper ul.nav:first-child {
+  overflow: auto; }
+
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
   padding: 1.5rem 0; }
