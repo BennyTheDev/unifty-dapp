@@ -458,8 +458,8 @@ textarea, input {
     .brand-assets-img-element .img-holder:hover {
       transform: scale(1.15); }
     .brand-assets-img-element .img-holder img {
-      max-width: 80%;
-      max-height: 80%; }
+      max-width: 90%;
+      max-height: 90%; }
 
 .bold {
   font-weight: bold; }
@@ -470,7 +470,10 @@ textarea, input {
 
 @media (max-width: 720px) {
   .brand-assets-img-element .download-option a {
-    padding: 0 10px; } }
+    padding: 0 10px; }
+  .brand-assets-img-element .img-holder img {
+    max-width: 80%;
+    max-height: 80%; } }
 
 @media (max-width: 490px) {
   .brand-assets-grid {
