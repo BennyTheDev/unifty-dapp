@@ -154,13 +154,14 @@
   }
   
   .img-holder{
-    width: 20.5rem;
-    height: 20.5rem;
-    margin:1.5rem auto 1.5rem;
+
+    height: 27.5rem;
+    margin: auto;
     display:flex ;
     justify-content: center;
     align-items: center;
-    background-color:var(--image-padding);
+    background-color:rgba(128, 128, 128,0.4);
+
     border-radius: .6rem;
     box-shadow: var(--shadow-primary);
     transition: all .2s ease-in-out;
@@ -168,8 +169,8 @@
       transform: scale(1.15);
     }
     img{
-      max-width: 90%;
-      max-height: 90%;
+      max-width: 80%;
+      max-height: 80%;
     }
   }
 }
@@ -196,12 +197,20 @@
   }
   .brand-assets-img-element{
     .img-holder{
-      width: 16rem;
-      height: 16rem;
+      
+      height: 20rem;
 
     }
   }  
   
+}
+@media (max-width:335px) {
+  .download-option{
+    a{
+      padding: 0;
+    }
+    i{display: none;}
+}
 }
 
 
