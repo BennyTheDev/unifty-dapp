@@ -121,10 +121,17 @@
   font-weight: bold;
   margin-bottom: 2rem;
   border:0; 
+
   i{
     padding-right:10px;
   }
 
+  &:hover {
+    cursor: var(--cursor-pointer);
+  }
+}
+.brand-spacing{
+  padding: 10px;
 }
 .brand-assets-grid{
   display:grid;
