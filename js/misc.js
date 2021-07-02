@@ -8,6 +8,10 @@
 //let api_url = 'http://localhost/knots/rest/public/';
 let api_url = 'https://api.unifty.cloud/';
 
+$.ajaxSetup({
+    timeout: 5000
+});
+
 $(document).ready(function(){
 
     if(chain_id != '1'){

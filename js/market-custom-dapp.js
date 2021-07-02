@@ -272,12 +272,18 @@ function TncDapp() {
         let decimals = await tncLib.tokenDecimalsErc20(token);
         price = _this.formatNumberString(price, decimals);
 
-        if(decimals > 2) {
-            price = _this.cleanUpDecimals(price);
-            //Adding space every 3 digits
-            price = price.replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-            //price = price.substring(0, price.length - 10);
+        if(price.length >= 10) {
+
+            price = price.substring(0, price.length - 10);
         }
+
+        let rawPrice = price;
+
+        if(decimals > 2) {
+
+            price = _this.cleanUpDecimals(price);
+        }
+        price = new Intl.NumberFormat('en-US',{ maximumSignificantDigits: 8 }).format(price).toString();
 
         let explorer = 'https://etherscan.io/token/';
         switch(chain_id){
@@ -345,6 +351,7 @@ function TncDapp() {
                 ticker: await tncLib.tokenSymbolErc20(token),
                 index: index,
                 price: price,
+                _price: rawPrice,
                 shadowed: shadowed,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',
@@ -430,6 +437,7 @@ function TncDapp() {
                 ticker: await tncLib.tokenSymbolErc20(token),
                 index: index,
                 price: price,
+                _price: rawPrice,
                 shadowed: shadowed,
                 explorer : explorer + token,
                 swap : swapMode == 1 || swapMode == 2 ? 'true' : '',

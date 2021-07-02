@@ -16,28 +16,28 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script type="text/javascript" src="js/ipfs.js"></script>
     <script type="text/javascript" src="js/buffer.js"></script>
-    <script type="text/javascript" src="js/config.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/misc.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/nifABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/genesisABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/farmABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/farmShopABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/marketABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/swapABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/lib.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/lib-bridge.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/lib-market.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/market-dapp.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/dapp-init.js?v=1.9.10"></script>
-    <script type="text/javascript" src="js/cookie.js?v=1.9.10"></script>
+    <script type="text/javascript" src="js/config.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/misc.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/nifABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/erc1155ABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/multiBatchABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/genesisABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/farmABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/farmShopABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/erc20ABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/univ2ABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/marketABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/swapABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/lib.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/lib-bridge.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/lib-market.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/market-dapp.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/dapp-init.js?v=1.9.11"></script>
+    <script type="text/javascript" src="js/cookie.js?v=1.9.11"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="js/sidebar.js"></script>  
     <script src="assets/js/core/popper.min.js" type="text/javascript"></script>
@@ -369,15 +369,16 @@
         </ul>
   
         <div class="sidebar-divider"></div>
-  
-        <ul class="nav">
-          <li class="nav-item">
-            <a id="menu-collapse" class="nav-link">
-              <i class="material-icons-round">menu_open</i>
-              <p>Collapse menu</p>
-            </a>
-          </li>
-        </ul>
+
+        <!--
+       <ul class="nav">
+         <li class="nav-item">
+           <a id="menu-collapse" class="nav-link">
+             <i class="material-icons-round">menu_open</i>
+             <p>Collapse menu</p>
+           </a>
+         </li>
+       </ul>-->
   
         <div class="sidebar-bottom">
           <div class="sidebar-text">
@@ -628,19 +629,19 @@
                             {{#ifNotEquals onsale "0"}}
                             {{#ifNotEquals buy ""}}
                                 {{#ifNotEquals batch ""}}
-                                    <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                    <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{_price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                         Buy
                                     </button>
                                     <div class="text-muted mb-2" style="font-size: 1.5rem">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                                 {{/ifNotEquals}}
                                 {{#ifEquals batch ""}}
                                     {{#ifEquals onsale "1"}}
-                                        <button class="btn btn-outline" style="cursor: pointer;" id="nftBuyButtonShortcut{{index}}" data-price="{{price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                        <button class="btn btn-outline" style="cursor: pointer;" id="nftBuyButtonShortcut{{index}}" data-price="{{_price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                             Buy
                                         </button>
                                     {{/ifEquals}}
                                     {{#ifNotEquals onsale "1"}}
-                                        <button id="nftBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-toggle="modal" data-price="{{price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
+                                        <button id="nftBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-toggle="modal" data-price="{{_price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                             Buy
                                         </button>
                                     {{/ifNotEquals}}
