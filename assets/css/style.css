@@ -403,7 +403,7 @@ textarea, input {
 
 .changelog-text {
   color: var(--text-primary);
-  font-size: 18px; }
+  font-size: 1.125em; }
   .changelog-text span {
     margin-bottom: 16px;
     display: block; }
@@ -424,6 +424,11 @@ textarea, input {
   border: 0; }
   .brand-assets-btn i {
     padding-right: 10px; }
+  .brand-assets-btn:hover {
+    cursor: var(--cursor-pointer); }
+
+.brand-spacing {
+  padding: 10px; }
 
 .brand-assets-grid {
   display: grid;
