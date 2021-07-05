@@ -27,30 +27,6 @@ $(window).resize(function () {
   }
 });
 
-function enableHoverSidebar() {
-  sb.hover(
-    function () {
-      expandSidebar();
-    },
-    function () {
-      setTimeout(() => {
-        collapseSidebar();        
-      }, 750);
-    }
-  );
-
-  collapsibleSidebar = true;
-
-  $("#menu-collapse").find("p").html("Expand Menu");
-}
-
-function disableHoverSidebar() {
-  collapsibleSidebar = false;
-  $("#menu-collapse").find("p").html("Collapse Menu");
-
-  sb.unbind("mouseenter mouseleave");
-}
-
 function userDefault() {
   if (
     localStorage.getItem("sidebar") === "expanded" ||
@@ -58,11 +34,9 @@ function userDefault() {
   ) {
     collapsibleSidebar = false;
     expandSidebar();
-    disableHoverSidebar();
   } else {
     collapsibleSidebar = true;
     collapseSidebar();
-    enableHoverSidebar();
   }
 }
 
@@ -80,11 +54,9 @@ function initElements() {
 function toggleSidebar() {
   if (collapsibleSidebar) {
     expandSidebar();
-    disableHoverSidebar();
     localStorage.setItem("sidebar", "expanded");
   } else {
     collapseSidebar();
-    enableHoverSidebar();
     localStorage.setItem("sidebar", "collapsed");
   }
 }
@@ -103,17 +75,22 @@ function expandSidebar() {
   socialIcons.show();
   sidebarRights.html(sidebarText);
 
+  $("#menu-collapse").find("p").text("Collapse sidebar");
+
   parentCollapsables.each(function () {
     $(this).find("a").attr("data-toggle", "collapse");
   });
 
-  //removingPopopvers();
+  collapsibleSidebar = false;
+  removingPopopvers();
 }
 
 function collapseSidebar() {
   sb.addClass("collapsed");
   mainPanel.css("width", "calc(100% - 10rem)");
   socialIcons.hide();
+
+  $("#menu-collapse").find("p").text("Expand sidebar");
 
   sidebarRights.html(
     '<span><i class="material-icons">copyright</i> Unifty</span>'
@@ -123,8 +100,9 @@ function collapseSidebar() {
     $(this).find("a").removeAttr("data-toggle");
   });
 
+  collapsibleSidebar = true;
   closeOpenDropdowns();
-  //addingPopopvers();
+  addingPopopvers();
 }
 
 //Keeping DOM clean and css working
