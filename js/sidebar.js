@@ -15,7 +15,14 @@ $(document).ready(function () {
 
   initElements();
   removeUnecessaryShops();
-  userDefault();
+
+  if ($(window).width() <= 974) {
+    defaultSidebar();
+    mainPanel.css("width", "100%");
+  } else {
+    $("#menu-collapse").show();
+    userDefault();
+  }
 });
 
 $(window).resize(function () {
@@ -24,6 +31,7 @@ $(window).resize(function () {
     defaultSidebar();
   } else {
     $("#menu-collapse").show();
+    userDefault();
   }
 });
 
@@ -62,8 +70,9 @@ function toggleSidebar() {
 }
 
 function defaultSidebar() {
+  expandSidebar();
+
   $("#menu-collapse").hide();
-  sb.removeClass("collapsed");
   mainPanel.removeAttr("style");
 
   removingPopopvers();
