@@ -2133,6 +2133,7 @@ textarea, input {
     .dark-edition .sidebar.collapsed .sidebar-wrapper .nav .nav-item p,
     .light-edition .sidebar.collapsed .sidebar-wrapper .nav .nav-item p {
       width: 0px;
+      height: 0px;
       overflow: auto; }
     .dark-edition .sidebar.collapsed .sidebar-wrapper .nav .nav-item.collapsibleParent a::after,
     .light-edition .sidebar.collapsed .sidebar-wrapper .nav .nav-item.collapsibleParent a::after {
