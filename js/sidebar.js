@@ -137,7 +137,7 @@ function closeOpenDropdowns() {
 }
 
 function addingPopopvers() {
-  let menuTags = $('.nav .nav-item:not(".collapsible") a');
+  let menuTags = $('.sidebar-wrapper .nav .nav-item:not(".collapsible") a');
   let $this;
 
   menuTags.each(function () {
