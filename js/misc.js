@@ -9,7 +9,7 @@
 let api_url = 'https://api.unifty.cloud/';
 
 $.ajaxSetup({
-    timeout: 5000
+    timeout: 60000
 });
 
 $(document).ready(function(){

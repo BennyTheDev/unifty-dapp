@@ -31,6 +31,7 @@ switch(chain_id){
     // Binance Smart Chain
     case '38':
         blocked_collections = [
+            "0x009958B1D79559570D75f8C852b3D4627CB6af30".toLowerCase(), // ariadna
             "0x6b8CBD4A71621D993e2b49b5e87471a6F08704E9".toLowerCase(), // bc
             "0x51d9aea9dd54bCA1496A6CAA1fD58B021ea4B0e6".toLowerCase(), // hentai token
             "0x045439b7B4AA4Ac72fD47Af6BbF225141BC5972e".toLowerCase(), // my nudez
