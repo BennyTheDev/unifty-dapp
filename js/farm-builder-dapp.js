@@ -204,6 +204,8 @@ function TncDapp() {
 
                 break;
             }
+            
+            fixingDropdowns();
         }
 
         if(currentIndex > 0){
