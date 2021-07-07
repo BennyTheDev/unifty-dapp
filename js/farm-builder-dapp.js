@@ -1209,8 +1209,67 @@ function TncDapp() {
           if(socialMediaFields.find('input[type="text"]').val()){
             socialMediaFields.find('input[type="text"]').val('');
             socialMediaWrapper.append(socialMediaFields);
+            socialMediaFields.find("a").on('click', function(){
+                removesSocial(this)
+            });
           }
+
         });
+
+        $(".removeSocial").on('click', function(){
+            removesSocial(this)
+        })
+        
+        function removesSocial(el){            
+            if($(el).parent().siblings().length > 0){
+                $(el).parent().remove();
+            }
+        }
+
+        //Setting up the range slider
+        let range = document.querySelector(".range");
+        let bubble = document.querySelector(".bubble");
+        
+        range.value = 10; //Setting the default value
+        range.addEventListener("input", () => {
+          setBubble();
+        });
+        setBubble();
+
+        function setBubble() {
+          let val = range.value;
+
+          let min = range.min ? range.min : 0;
+          let max = range.max ? range.max : 100;
+          let step = range.step;
+          let newVal = Number(((val - min) * 100) / (max - min));
+
+          let currentTick = val / step;
+
+          if (currentTick <= 10) {
+            bubble.innerHTML = val / 10;
+          } else {
+            bubble.innerHTML = step * ((currentTick - 10) * 10);
+          }
+
+          bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+        }
+
+        $("#rewardPerDayInput").change(function () {
+          let userValue = $(this).val();
+          userValue = Number(userValue);
+
+          range.value = userValue * 10;
+
+          $(range).attr({
+            min: userValue,
+            max: userValue * 20,
+            step: userValue,
+          });
+
+          setBubble();
+        });
+        //------------------------------------
 
         $('#farmSubmit').on('click', async function(){
 

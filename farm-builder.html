@@ -474,14 +474,6 @@
 
                   <form id="farmForm" onsubmit="return false;">
 
-                    <p>
-                      <strong>NOTE:</strong> please don't use deflationy or inflationary staking tokens (e.g. SafeMoon based contracts).<br/>
-                      Those tokens are known to cause problems when being staked in smart contracts as they don't behave as of the EIP-20 standard.<br/><br/>
-                      Alternatively you can use Liquidity-Tokens instead.
-                      <br/><br/>
-                      Please understand that Unifty is not responsible for faulty 3rd-party tokens. In doubts, please contact the token developer directly.
-                    </p>
-
                     <div class="form-group">
                       <label for="farmName">Name<span class="required">*</span></label>
                       <input type="text" placeholder="Enter a name for your farm" class="form-control" id="farmName">
@@ -513,20 +505,22 @@
                     </div>
 
                     <div class="form-group">
-                      <label for="farmDescription">Description</label>
-                      <textarea class="form-control" id="farmDescription" rows="3"></textarea>
+                      <label for="rewardPerDay">Reward Rate per day<span class="required">*</span></label>
+                      <div id="rewardPerDay">
+                        <input type="text" placeholder="1" class="form-control" id="rewardPerDayInput">
+  
+                          <button>ADD MIN.</button>
+                          <button>ADD MAX.</button>
+
+
+                      </div>
                     </div>
 
-                    <div class="form-group img-selector">
-                        <label for="farmImageFile">
-                          <i class="material-icons-round" style="margin-right: 5px;">image</i>
-                          Click to Choose Image
-                        </label>
-                        <input type="file" class="form-control-file imageFile" id="farmImageFile" accept="image/*">
-                        <div class="imageFileDisplay mt-3"></div>
-                        <input type="hidden" id="farmImageUrl" value="" />
+                    <div class="range-wrap">
+                      <input type="range" class="range" min="1" max="20" value=10 step=1>
+                      <output class="bubble"></output>
                     </div>
-
+                    
                     <div class="form-group">
                       <label for="farmControllerAddress">Controller Address<span class="required">*</span></label>
                       <input type="text"
@@ -534,6 +528,26 @@
                         class="form-control" id="farmControllerAddress">
                     </div>
 
+                    
+                    <div class="form-group img-selector">
+                      <div class="imageFileDisplay mb-3"></div>
+                      <div class="img-side">
+                          <label for="farmImageFile">
+                            <i class="material-icons-round" style="margin-right: 5px;">image</i>
+                            Click to Choose Image
+                          </label>
+                          <input type="file" class="form-control-file imageFile" id="farmImageFile" accept="image/*">
+                          <input type="hidden" id="farmImageUrl" value="" />
+                        <p>You can upload JPG, PNG or GIF file</p>
+                      </div>
+                      
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="farmDescription">Description</label>
+                      <textarea class="form-control" id="farmDescription" rows="3" placeholder="Enter a description for your farm"></textarea>
+                    </div>
+                    
                     <div class="form-group">
                       <label for="farmSocialMediaName">Social Media (optional)</label>
                       <div class="farmSocialMediaGroupWrapper">
@@ -541,7 +555,7 @@
                           <select name="socialMediaName[]" class="socialMediaName form-control col-4">
                             <option value="website" selected>Website</option>
                             <option value="twitter">Twitter</option>
-                            <option value="discard">Discard</option>
+                            <option value="discord">Discord</option>
                             <option value="telegram">Telegram</option>
                             <option value="medium">Medium</option>
                             <option value="instagram">Instagram</option>
@@ -549,10 +563,16 @@
                             <option value="email">Email</option>
                             <option value="phone">Phone</option>
                           </select>
-                          <input type="text" name="socialMediaLink[]" value="" class="form-control col-8" placeholder="Link to your social media account">
+                          <input type="text" name="socialMediaLink[]" value="" class="form-control col-7" placeholder="Link to your social media account">
+                          <a class="removeSocial" style="display:flex; align-items: center;">
+                            <i class="material-icons-round">cancel</i>                          
+                          </a>
                         </div>
                       </div>
-                      <button type="button" name="farmSocialMediaAdd" class="farmSocialMediaAdd">Add More</button>
+                      <a type="button" id="farmSocialMediaAdd" name="farmSocialMediaAdd" class="farmSocialMediaAdd mt-3">
+                        <i class="material-icons-round">add_circle</i>
+                        <p>Add More Social Media</p>
+                      </a>
                     </div>
 
                     <input type="hidden" id="farmUpdateAddress" value="" />
