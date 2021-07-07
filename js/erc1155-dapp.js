@@ -167,7 +167,7 @@ function TncDapp() {
                 break;
             }
 
-            //fixingDropdowns();
+            fixingDropdowns();
         }
 
         if(currentIndex > 0){
