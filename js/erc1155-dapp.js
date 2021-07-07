@@ -157,6 +157,8 @@ function TncDapp() {
                 console.log('Trouble resolving collection uri: ', _uri);
             }
 
+            fixingDropdowns();
+
             let maxPerLoad = 8;
             let currInvertedIndex = (length - 1) - i;
 
@@ -289,6 +291,8 @@ function TncDapp() {
 
                 break;
             }
+
+            fixingDropdowns();
         }
 
         if(currentIndex + 1 < nfts.length){

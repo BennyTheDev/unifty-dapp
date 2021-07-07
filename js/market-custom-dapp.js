@@ -513,6 +513,8 @@ function TncDapp() {
             });
 
         }
+
+        fixingDropdowns();
     };
 
     this.truncate = function(str, n){

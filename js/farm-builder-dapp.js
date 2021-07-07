@@ -194,6 +194,7 @@ function TncDapp() {
 
                 console.log('Trouble resolving farm uri: ', _uri);
             }
+            fixingDropdowns();
 
             let maxPerLoad = 9;
             let currInvertedIndex = (length - 1) - i;
@@ -203,7 +204,7 @@ function TncDapp() {
                 _this.lastFarmIndex = i;
 
                 break;
-            }
+            }            
         }
 
         if(currentIndex > 0){

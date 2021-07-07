@@ -167,6 +167,8 @@ function TncDapp() {
                     }, 300);
                 });
             }
+            
+            fixingDropdowns();
 
             let maxPerLoad = 9;
             let currInvertedIndex = (length - 1) - i;
