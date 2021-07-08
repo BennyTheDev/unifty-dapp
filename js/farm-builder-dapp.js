@@ -1255,20 +1255,40 @@ function TncDapp() {
           bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
         }
 
-        $("#rewardPerDayInput").change(function () {
-          let userValue = $(this).val();
-          userValue = Number(userValue);
+        $("#rewardPerDayInput").change(function () {        
+          let userValue = Number($(this).val());
+          if (userValue <= 0 || isNaN(userValue)) {
+            $(range).attr({
+              min: 1,
+              max: 20,
+              step: 1,
+            });
+            range.value = 10;
 
-          range.value = userValue * 10;
-
-          $(range).attr({
-            min: userValue,
-            max: userValue * 20,
-            step: userValue,
-          });
+            $(this).val("1");
+          } else {
+            $(range).attr({
+              min: userValue,
+              max: userValue * 20,
+              step: userValue,
+            });
+            range.value = userValue * 10;
+          }
 
           setBubble();
         });
+
+        $("#rangeMin").on("click", function(){
+            range.value = $(range).attr("min");
+          setBubble();
+
+        })
+
+        $("#rangeMax").on("click", function(){
+            range.value = $(range).attr("max");
+          setBubble();
+
+        })
         //------------------------------------
 
         $('#farmSubmit').on('click', async function(){
