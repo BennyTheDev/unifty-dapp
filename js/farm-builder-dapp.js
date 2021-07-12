@@ -855,7 +855,8 @@ function TncDapp() {
         $(o).html("Custom ERC20 Token");
         $("#farmTokenAddress").append(o);
 
-        $('#farm-builder-currency').html(getCurrency());
+        $('#farm-builder-currency').html(getCurrency());        
+        $('#farm-builder-fee').html(fee);
     }
 
     this.clearFarm = function(){
