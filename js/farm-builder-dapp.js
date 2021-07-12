@@ -1219,12 +1219,12 @@ function TncDapp() {
             socialMediaWrapper.append(socialMediaFields);
 
             socialMediaFields.find(".removeSocial").on("click", function () {
-              removeListener(this);
+              removeSocialMediaGroup(this);
             });
           }
         });
 
-        function removeListener(el) {
+        function removeSocialMediaGroup(el) {
           let removedOption = $(el)
             .parent()
             .find("select")
@@ -1236,7 +1236,7 @@ function TncDapp() {
         }
 
         $(".removeSocial").on("click", function () {
-          removeListener(this);
+          removeSocialMediaGroup(this);
         });
 
         //Remove option from dropdown if it is already selected
