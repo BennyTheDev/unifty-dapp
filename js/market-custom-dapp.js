@@ -1298,6 +1298,21 @@ function TncDapp() {
         let nftCount = 0;
         let collections = [];
 
+        // tiktok-address
+        if(chain_id == '38') {
+            let verse = tncLib.tiktokCollection;
+            collections.push(verse);
+            let nfts = await tncLib.getNftsByAddress(address, verse);
+            for (let i = 0; i < nfts.length; i++) {
+                if (await tncLib.balanceof(verse, address, nfts[i]) > 0) {
+                    _this.renderSellSelection(verse, nfts[i], address);
+                    await sleep(300);
+                    nftCount++;
+                    await waitForDiv($('#nftSellWallet'), nftCount);
+                }
+            }
+        }
+
         // uniftyverse
         if(chain_id == '1') {
             let verse = tncLibBridgeIn.uniftyverse.options.address;
