@@ -460,8 +460,6 @@ textarea, input {
     border-radius: .6rem;
     box-shadow: var(--shadow-primary);
     transition: all .2s ease-in-out; }
-    .brand-assets-img-element .img-holder:hover {
-      transform: scale(1.15); }
     .brand-assets-img-element .img-holder img {
       max-width: 90%;
       max-height: 90%; }
