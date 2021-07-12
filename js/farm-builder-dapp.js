@@ -1218,24 +1218,13 @@ function TncDapp() {
             socialMediaWrapper.append(socialMediaFields);
 
             socialMediaFields.find(".removeSocial").on("click", function () {
-              removeSocialMediaGroup(this);
+                removesSocial(this);
             });
           }
         });
 
-        function removeSocialMediaGroup(el) {
-          let removedOption = $(el)
-            .parent()
-            .find("select")
-            .find(":selected")
-            .text();
-
-          removesSocial(el);
-          reAddOptions(removedOption);
-        }
-
         $(".removeSocial").on("click", function () {
-          removeSocialMediaGroup(this);
+            removesSocial(this);
         });
 
         //Remove option from dropdown if it is already selected
@@ -1257,8 +1246,16 @@ function TncDapp() {
         }
         
         function removesSocial(el){            
-            if($(el).parent().siblings().length > 0){
-                $(el).parent().remove();
+            if ($(el).parent().siblings().length > 0) {
+              let removedOption = $(el)
+                .parent()
+                .find("select")
+                .find(":selected")
+                .text();
+
+              reAddOptions(removedOption);
+
+              $(el).parent().remove();
             }
         }
 
