@@ -1,6 +1,10 @@
 #collectiblePage .collectible-wrapper {
     display: flex;
     margin-top: 3rem;
+
+    @media screen and (max-width: 700px) {
+      flex-direction: column;
+    }
   }
   
   #collectiblePage .collectible-wrapper .image-container {
@@ -15,6 +19,10 @@
     align-self: flex-start;
     box-shadow: var(--shadow-primary);
     border-radius: .4rem;
+
+    @media screen and (max-width: 700px) {
+      margin: auto;
+    }
   
     .btn.btn-outline.video-btn-link {
       border: 1px solid var(--dark-primary);
