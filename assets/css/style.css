@@ -1698,6 +1698,9 @@ textarea, input {
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .farmSocialMediaGroup {
       display: flex;
       justify-content: space-between; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .socialMediaName[disabled=disabled],
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .socialMediaName[disabled=disabled] {
+      opacity: 0.6; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap {
       position: relative;

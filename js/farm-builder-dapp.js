@@ -1198,27 +1198,64 @@ function TncDapp() {
 
         });
 
-        $('.farmSocialMediaAdd').on('click', async function(){
-          let socialMediaWrapper = $('.farmSocialMediaGroupWrapper');
-          let socialMediaFields = $('.farmSocialMediaGroup').last().clone();
+        $(".farmSocialMediaAdd").on("click", async function () {
+          let socialMediaWrapper = $(".farmSocialMediaGroupWrapper");
+          let socialMediaFields = $(".farmSocialMediaGroup").last().clone();
 
-          $('select[name="socialMediaName[]"]').each(function(i){
-            socialMediaFields.find('option[value="'+$(this).val()+'"]').remove();
+
+          $('select[name="socialMediaName[]"]').each(function (i) {
+            removeOption($(this).val());
+            socialMediaFields
+              .find('option[value="' + $(this).val() + '"]')
+              .remove();
           });
 
-          if(socialMediaFields.find('input[type="text"]').val()){
-            socialMediaFields.find('input[type="text"]').val('');
+          if (socialMediaFields.find('input[type="text"]').val()) {
+            socialMediaFields.find('input[type="text"]').val("");
+            $(".farmSocialMediaGroup")
+            .last()
+            .find("select")
+            .attr("disabled", "true");
             socialMediaWrapper.append(socialMediaFields);
-            socialMediaFields.find("a").on('click', function(){
-                removesSocial(this)
+
+            socialMediaFields.find(".removeSocial").on("click", function () {
+              removeListener(this);
             });
           }
-
         });
 
-        $(".removeSocial").on('click', function(){
-            removesSocial(this)
-        })
+        function removeListener(el) {
+          let removedOption = $(el)
+            .parent()
+            .find("select")
+            .find(":selected")
+            .text();
+
+          removesSocial(el);
+          reAddOptions(removedOption);
+        }
+
+        $(".removeSocial").on("click", function () {
+          removeListener(this);
+        });
+
+        //Remove option from dropdown if it is already selected
+        function removeOption(option) {
+          $('[name="socialMediaName[]"]').each(function () {
+            if ($(this).find(":selected").val() != option) {
+              $(this)
+                .find('option[value="' + option + '"]')
+                .remove();
+            }
+          });
+        }
+
+        function reAddOptions(option){
+            $('[name="socialMediaName[]"]').each(function(){
+                let optionString = "<option value=" + option + ">" + option + "</option>";
+                $(this).append(optionString);
+            })
+        }
         
         function removesSocial(el){            
             if($(el).parent().siblings().length > 0){
