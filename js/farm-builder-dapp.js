@@ -855,9 +855,8 @@ function TncDapp() {
         $(o).html("Custom ERC20 Token");
         $("#farmTokenAddress").append(o);
 
-        $('#nifMinFarm').html(nif);
-        $('#ethFeeFarm').html(fee);
-    };
+        $('#farm-builder-currency').html(getCurrency());
+    }
 
     this.clearFarm = function(){
         $("#farmForm")[0].reset();
@@ -1330,7 +1329,9 @@ function TncDapp() {
 
         $('#farmSubmit').on('click', async function(){
 
-            await _this.newFarm();
+            if($(".farm-builder-checkbox input[type=checkbox]").is(':checked')){
+                await _this.newFarm();
+            }
 
         });
 
@@ -1344,6 +1345,16 @@ function TncDapp() {
             }
             console.log(error);
         });
+
+        $(".farm-builder-checkbox input[type=checkbox]").change(function(){
+            if($(this).is(':checked')){
+                $("#farmSubmit").removeClass("disabled")
+            }
+            else{
+                $("#farmSubmit").addClass("disabled")
+            }
+        })
+
     });
 }
 

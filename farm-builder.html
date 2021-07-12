@@ -583,15 +583,18 @@
               </div>
 
               <div class="modal-footer">
-                <div id="feeCollection" class="footer-description"><span id="ethFeeFarm"></span> <span class="currency"></span> developer fee per
-                  farm. <div id="paymentDescription">Unlimited farm creation if holding <span id="nifMinFarm"></span>
-                    NIF or owning one of our <a
-                      href="https://opensea.io/assets/0x774418646555f414cbaeca6cf3c72a0613d4dab4/10"
-                      target="_blank">farm builder wildcards</a>.</div> No subsequent fees, one-time payment. Gas fees
-                  always apply.</div>
+                <div id="feeCollection" class="footer-description">
+                  <h3>Please read the notice and check the box to continue!</h3>
+                  <div class="farm-builder-checkbox">
+                    <input type="checkbox" id="flexCheckDefault">
+                    <label for="flexCheckDefault">
+                      <span id="farm-builder-fee">120</span> <span id="farm-builder-currency">MATIC</span> developer fee per farm. No subsequent fees, one-time payment. Gas fees always apply.
+                    </label>
+                  </div>
+                </div>
                   <div class="buttons-container">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary submitNewUpdate" id="farmSubmit">Create Farm</button>
+                    <button type="button" class="btn btn-primary submitNewUpdate disabled" id="farmSubmit">Create Farm</button>
                   </div>
               </div>
             </div>
