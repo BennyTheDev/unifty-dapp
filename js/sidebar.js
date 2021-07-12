@@ -13,6 +13,8 @@ $(document).ready(function () {
     toggleSidebar();
   });
 
+  $(".collapsibleParent").parent().css("overflow", "hidden");
+
   initElements();
   removeUnecessaryShops();
   fixingDropdowns();
