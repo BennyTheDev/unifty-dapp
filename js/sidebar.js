@@ -19,7 +19,7 @@ $(document).ready(function () {
   removeUnecessaryShops();
   fixingDropdowns();
 
-  if ($(window).width() <= 974) {
+  if ($(window).width() <= 991) {
     defaultSidebar();
     mainPanel.css("width", "100%");
   } else {
@@ -59,7 +59,7 @@ function reOpenDropdown(el, styleText) {
 
 $(window).resize(function () {
   // This will execute whenever the window is resized
-  if ($(window).width() <= 974) {
+  if ($(window).width() <= 991) {
     defaultSidebar();
   } else {
     $("#menu-collapse").show();
