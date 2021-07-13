@@ -1267,8 +1267,10 @@ function TncDapp() {
         //Setting up the range slider
         let range = document.querySelector(".range");
         let bubble = document.querySelector(".bubble");
+
+        let defaultSliderValue = 86400 //Setting the default value
         
-        range.value = 10; //Setting the default value
+        range.value = defaultSliderValue * 10; 
         range.addEventListener("input", () => {
           setBubble();
         });
@@ -1297,13 +1299,13 @@ function TncDapp() {
           let userValue = Number($(this).val());
           if (userValue <= 0 || isNaN(userValue)) {
             $(range).attr({
-              min: 1,
-              max: 20,
-              step: 1,
+              min: defaultSliderValue,
+              max: defaultSliderValue * 20,
+              step: defaultSliderValue,
             });
-            range.value = 10;
+            range.value = defaultSliderValue * 10;
 
-            $(this).val("1");
+            $(this).val(defaultSliderValue);
           } else {
             $(range).attr({
               min: userValue,
