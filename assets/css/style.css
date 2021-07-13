@@ -2074,7 +2074,6 @@ textarea, input {
         transform: rotateX(180deg); }
   .sidebar .nav li.collapsibleParent i svg {
     width: 2.5rem;
-    height: 2.5rem;
     position: relative;
     top: 0.3rem;
     left: 0.15rem; }
