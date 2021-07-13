@@ -514,7 +514,6 @@ function TncDapp() {
         }
         let minStake = $('#farmMinStake').val().trim();
         let maxStake = $('#farmMaxStake').val().trim();
-        let rewardRatePerDay = $('output.bubble').val();
         let description = $('#farmDescription').val().trim();
         let image = $('#farmImageUrl').val().trim();
         let controller = $('#farmControllerAddress').val().trim();
@@ -528,7 +527,7 @@ function TncDapp() {
             name: name,
             value: value
           }
-        }); 
+        });
 
         if(name == ''){ _alert('Please enter a farm name'); return; }
         if(token == '' || token == 'custom'){ _alert('Please choose a staking token or add a custom address'); return; }
