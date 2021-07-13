@@ -514,6 +514,7 @@ function TncDapp() {
         }
         let minStake = $('#farmMinStake').val().trim();
         let maxStake = $('#farmMaxStake').val().trim();
+        let rewardRatePerDay = $('output.bubble').val();
         let description = $('#farmDescription').val().trim();
         let image = $('#farmImageUrl').val().trim();
         let controller = $('#farmControllerAddress').val().trim();
@@ -527,15 +528,15 @@ function TncDapp() {
             name: name,
             value: value
           }
-        });
+        }); 
 
         if(name == ''){ _alert('Please enter a farm name'); return; }
         if(token == '' || token == 'custom'){ _alert('Please choose a staking token or add a custom address'); return; }
         if(!await web3.utils.isAddress(token)){ _alert('Invalid staking token address'); return; }
         if(minStake == ''){ _alert('Please enter a minimum stake'); return; }
-        if(parseFloat(minStake) == NaN){ _alert('Please enter a correct minimum stake as number'); return; }
+        if(isNaN(parseFloat(minStake))){ _alert('Please enter a correct minimum stake as number'); return; }
         if(maxStake == ''){ _alert('Please enter a maximum stake'); return; }
-        if(parseFloat(maxStake) == NaN){ _alert('Please enter a correct maximum stake as number'); return; }
+        if(isNaN(parseFloat(maxStake))){ _alert('Please enter a correct maximum stake as number'); return; }
         if(parseFloat(minStake) < 0){ _alert('Minimum Stake must be larger than zero'); return; }
         if(parseFloat(maxStake) < parseFloat(minStake) || parseFloat(maxStake) == 0){ _alert('Maximum stake must be equal or larger than minimum stake'); return; }
         if(controller == ''){ _alert('Please enter a controller address'); return; }
