@@ -530,6 +530,13 @@ function TncDapp() {
           }
         });
 
+        socialMedia["custom"] = {
+            name: $("#farmCustomLink").val().trim(),
+            value: $("#farmCustomLinkText").val().trim()
+        }
+
+        console.log(socialMedia)
+
         if(name == ''){ _alert('Please enter a farm name'); return; }
         if(token == '' || token == 'custom'){ _alert('Please choose a staking token or add a custom address'); return; }
         if(!await web3.utils.isAddress(token)){ _alert('Invalid staking token address'); return; }

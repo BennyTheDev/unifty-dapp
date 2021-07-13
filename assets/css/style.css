@@ -1603,14 +1603,7 @@ textarea, input {
   .light-edition .main-panel .modal-dialog .modal-content .modal-body {
     padding: 1rem 2rem;
     color: var(--modal-border-text);
-    font-size: 1.3rem;
-    /*
-
-      &::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb{
-        background: var(--primary-color) !important;
-      }
-    }
-    */ }
+    font-size: 1.3rem; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .container,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .container {
       border-radius: 0.4rem;
@@ -1709,6 +1702,13 @@ textarea, input {
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .socialMediaName[disabled="disabled"],
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .socialMediaName[disabled="disabled"] {
       opacity: 0.6; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv {
+      display: flex;
+      justify-content: space-between; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv input,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv input {
+        width: 49%; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap {
       position: relative;

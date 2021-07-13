@@ -184,13 +184,16 @@
       opacity: 0.6;
     }
 
-    /*
+    .customLinkDiv{
+      display: flex;
+      justify-content: space-between;
 
-      &::-webkit-slider-thumb, &::-moz-range-thumb, &::-ms-thumb{
-        background: var(--primary-color) !important;
+      input{
+        width: 49%;
+
       }
     }
-    */
+
     .range-wrap {
       position: relative;
       margin: 1rem auto 3rem;
