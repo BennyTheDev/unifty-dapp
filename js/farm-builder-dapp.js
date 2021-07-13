@@ -518,15 +518,6 @@ function TncDapp() {
         let description = $('#farmDescription').val().trim();
         let image = $('#farmImageUrl').val().trim();
         let controller = $('#farmControllerAddress').val().trim();
-        let twitter = $('#farmTwitter').val().trim();
-        let discord = $('#farmDiscord').val().trim();
-        let telegram = $('#farmTelegram').val().trim();
-        let medium = $('#farmMedium').val().trim();
-        let instagram = $('#farmInstagram').val().trim();
-        let youtube = $('#farmYoutube').val().trim();
-        let web = $('#farmWeb').val().trim();
-        let email = $('#farmEmail').val().trim();
-        let phone = $('#farmPhone').val().trim();
         let link = $('#farmCustomLink').val().trim();
         let text = $('#farmCustomLinkText').val().trim();
 
@@ -546,17 +537,15 @@ function TncDapp() {
             name : name,
             description : description,
             image : image,
-            twitter : twitter,
-            discord: discord,
-            telegram: telegram,
-            medium: medium,
-            instagram: instagram,
-            youtube : youtube,
-            web : web,
-            email : email,
-            phone : phone,
             customLink : { name : text, value : link }
         };
+
+        $(".farmSocialMediaGroup").each(function(){
+            let social = $(this).find("select option:selected").val();
+            let link = $(this).find("input").val().trim();
+
+            farmInfo[social] = link
+        })
 
         console.log(JSON.stringify(farmInfo));
 
@@ -1228,7 +1217,7 @@ function TncDapp() {
             $(this).popover();
         })
 
-$(".farmSocialMediaAdd").on("click", async function () {
+        $(".farmSocialMediaAdd").on("click", async function () {
           let socialMediaWrapper = $(".farmSocialMediaGroupWrapper");
           let socialMediaFields = $(".farmSocialMediaGroup").last().clone();
 
