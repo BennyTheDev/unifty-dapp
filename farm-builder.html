@@ -464,6 +464,12 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="farmModalLabel">New Farm</h5>
+
+                <button type="button" class="btn btn-secondary infoHover" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Information" data-content="Hover over the form input title for more information.">
+                  <span class="material-icons-round">
+                    info
+                  </span>
+                </button>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -475,37 +481,49 @@
                   <form id="farmForm" onsubmit="return false;">
 
                     <div class="form-group">
-                      <label for="farmName">Name<span class="required">*</span></label>
+                      <label for="farmName" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Name" data-content="sssHover over the form input title for more information.">
+                        Name<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Enter a name for your farm" class="form-control" id="farmName">
                     </div>
 
                     <div class="form-group">
-                      <label for="farmTokenAddress">Staking Token<span class="required">*</span></label>
+                      <label for="farmTokenAddress" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Staking token" data-content="Hover over the form input title for more information.">
+                        Staking Token<span class="required">*</span>
+                      </label>
                       <select class="form-control" id="farmTokenAddress">
                       </select>
                     </div>
 
                     <div id="farmCustomTokenAddressWrapper" class="form-group" style="display:none;">
-                      <label for="farmCustomTokenAddress">Custom <span class="networkStd"></span> Token Address<span class="required">*</span></label>
+                      <label for="farmCustomTokenAddress" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Custom token" data-content="Hover over the form input title for more information.">
+                        Custom <span class="networkStd"></span> Token Address<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Enter a token address to stake with" class="form-control"
                         id="farmCustomTokenAddress">
                       <small id="farmCustomTokenAddressInfo" class="form-text text-muted"></small>
                     </div>
 
                     <div class="form-group">
-                      <label for="farmMinStake">Minimum Stake<span class="required">*</span></label>
+                      <label for="farmMinStake" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Minimum stake" data-content="Hover over the form input title for more information.">
+                        Minimum Stake<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Minimum amount of tokens to stake with" class="form-control"
                         id="farmMinStake" value="0">
                     </div>
 
                     <div class="form-group">
-                      <label for="farmMaxStake">Maximum Stake<span class="required">*</span></label>
+                      <label for="farmMaxStake" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Maximum stake" data-content="Hover over the form input title for more information.">
+                        Maximum Stake<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Maximum amount of tokens to stake with" class="form-control"
                         id="farmMaxStake">
                     </div>
 
                     <div class="form-group">
-                      <label for="rewardPerDay">Reward Rate per day<span class="required">*</span></label>
+                      <label for="rewardPerDay" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Reward rate per day" data-content="Hover over the form input title for more information.">
+                        Reward Rate per day<span class="required">*</span>
+                      </label>
                       <div id="rewardPerDay">
                         <input type="text" placeholder="1" class="form-control" id="rewardPerDayInput">
   
@@ -522,7 +540,9 @@
                     </div>
                     
                     <div class="form-group">
-                      <label for="farmControllerAddress">Controller Address<span class="required">*</span></label>
+                      <label for="farmControllerAddress" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Controller address" data-content="Hover over the form input title for more information.">
+                        Controller Address<span class="required">*</span>
+                      </label>
                       <input type="text"
                         placeholder="The Ethereum address of the controller. Used to receive controller fees."
                         class="form-control" id="farmControllerAddress">
@@ -544,12 +564,16 @@
                     </div>
                     
                     <div class="form-group">
-                      <label for="farmDescription">Description</label>
+                      <label for="farmDescription" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-content="Hover over the form input title for more information.">
+                        Description
+                      </label>
                       <textarea class="form-control" id="farmDescription" rows="3" placeholder="Enter a description for your farm"></textarea>
                     </div>
                     
                     <div class="form-group">
-                      <label for="farmSocialMediaName">Social Media (optional)</label>
+                      <label for="farmSocialMediaName" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Social media" data-content="Hover over the form input title for more information.">
+                        Social Media (optional)
+                      </label>
                       <div class="farmSocialMediaGroupWrapper">
                         <div class="farmSocialMediaGroup row mb-2">
                           <select name="socialMediaName[]" class="socialMediaName form-control col-4">

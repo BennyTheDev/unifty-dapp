@@ -1198,6 +1198,10 @@ function TncDapp() {
 
         });
 
+        $("#farmModal [data-toggle='popover']").each(function(){
+            $(this).popover();
+        })
+
         $(".farmSocialMediaAdd").on("click", async function () {
           let socialMediaWrapper = $(".farmSocialMediaGroupWrapper");
           let socialMediaFields = $(".farmSocialMediaGroup").last().clone();

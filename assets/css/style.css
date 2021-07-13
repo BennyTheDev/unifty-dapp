@@ -1583,11 +1583,16 @@ textarea, input {
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: 0.48px; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-header .infoHover,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-header .infoHover {
+      margin: 0 1rem 0 auto;
+      padding: 0; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-header .close,
     .light-edition .main-panel .modal-dialog .modal-content .modal-header .close {
       color: var(--modal-text);
       opacity: 1;
-      text-shadow: none; }
+      text-shadow: none;
+      margin: -1rem; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-header .close:focus,
       .light-edition .main-panel .modal-dialog .modal-content .modal-header .close:focus {
         outline: none; }
@@ -1611,6 +1616,9 @@ textarea, input {
       border-radius: 0.4rem;
       background-color: var(--bg-primary);
       margin-bottom: 1rem; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body label,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body label {
+      width: max-content; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body select,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body select {
       background-color: transparent;
@@ -1921,7 +1929,7 @@ textarea, input {
       font-family: Poppins;
       font-size: 1.3rem;
       line-height: 1.56;
-      cursor: var(--cursor-text); }
+      cursor: var(--cursor-pointer); }
       .dark-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label span,
       .light-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label span {
         font-weight: 500;
