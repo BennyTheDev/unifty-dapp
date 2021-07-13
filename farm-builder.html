@@ -603,8 +603,14 @@
             <div class="modal-content">
               <div class="modal-header">
                 <h5 class="modal-title" id="farmModalLabel">New Farm</h5>
+
+                <button type="button" class="btn btn-secondary infoHover" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Information" data-content="Hover over the form input title for more information.">
+                  <span class="material-icons-round">
+                    info
+                  </span>
+                </button>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+                  <span aria-hidden="true">×</span>
                 </button>
               </div>
               <div class="modal-body modal-non-nft-content">
@@ -613,116 +619,117 @@
 
                   <form id="farmForm" onsubmit="return false;">
 
-                    <p>
-                      <strong>NOTE:</strong> please don't use deflationy or inflationary staking tokens (e.g. SafeMoon based contracts).<br/>
-                      Those tokens are known to cause problems when being staked in smart contracts as they don't behave as of the EIP-20 standard.<br/><br/>
-                      Alternatively you can use Liquidity-Tokens instead.
-                      <br/><br/>
-                      Please understand that Unifty is not responsible for faulty 3rd-party tokens. In doubts, please contact the token developer directly.
-                    </p>
-
                     <div class="form-group">
-                      <label for="farmName">Name<span class="required">*</span></label>
+                      <label for="farmName" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Name" data-content="Enter the name you want for your farm">
+                        Name<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Enter a name for your farm" class="form-control" id="farmName">
                     </div>
 
                     <div class="form-group">
-                      <label for="farmTokenAddress">Staking Token<span class="required">*</span></label>
+                      <label for="farmTokenAddress" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Staking token" data-content="Use the token you would like to use or select custom token if your token is not in the list">
+                        Staking Token<span class="required">*</span>
+                      </label>
                       <select class="form-control" id="farmTokenAddress">
                       </select>
                     </div>
 
                     <div id="farmCustomTokenAddressWrapper" class="form-group" style="display:none;">
-                      <label for="farmCustomTokenAddress">Custom <span class="networkStd"></span> Token Address<span class="required">*</span></label>
+                      <label for="farmCustomTokenAddress" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Custom token" data-content="Enter a contract address for the token, which you can find on a block explorer like Etherscan">
+                        Custom <span class="networkStd"></span> Token Address<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Enter a token address to stake with" class="form-control"
                         id="farmCustomTokenAddress">
                       <small id="farmCustomTokenAddressInfo" class="form-text text-muted"></small>
                     </div>
 
                     <div class="form-group">
-                      <label for="farmMinStake">Minimum Stake<span class="required">*</span></label>
+                      <label for="farmMinStake" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Minimum stake" data-content="Enter a minimum of tokens a user needs to stake">
+                        Minimum Stake<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Minimum amount of tokens to stake with" class="form-control"
                         id="farmMinStake" value="0">
                     </div>
 
                     <div class="form-group">
-                      <label for="farmMaxStake">Maximum Stake<span class="required">*</span></label>
+                      <label for="farmMaxStake" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Maximum stake" data-content="Enter the maximum tokens a user can stake">
+                        Maximum Stake<span class="required">*</span>
+                      </label>
                       <input type="text" placeholder="Maximum amount of tokens to stake with" class="form-control"
                         id="farmMaxStake">
                     </div>
 
                     <div class="form-group">
-                      <label for="farmDescription">Description</label>
-                      <textarea class="form-control" id="farmDescription" rows="3"></textarea>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="farmImageFile">Click to Choose Image....</label>
-                      <input type="file" class="form-control-file imageFile" id="farmImageFile" accept="image/*">
-                      <div class="imageFileDisplay mt-3"></div>
-                      <input type="hidden" id="farmImageUrl" value="" />
-                    </div>
-
-                    <div class="form-group">
-                      <label for="farmControllerAddress">Controller Address<span class="required">*</span></label>
+                      <label for="farmControllerAddress" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Controller address" data-content="Enter farms owner wallet address">
+                        Controller Address<span class="required">*</span>
+                      </label>
                       <input type="text"
                         placeholder="The Ethereum address of the controller. Used to receive controller fees."
                         class="form-control" id="farmControllerAddress">
                     </div>
 
-                    <fieldset class="form-group">
-                      <legend>Social (optional)</legend>
-
-                      <div class="form-row">
-                        <div class="col">
-                          <input type="text" class="form-control mb-3" placeholder="Twitter Url" id="farmTwitter">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Discord Url" id="farmDiscord">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Telegram Url" id="farmTelegram">
+                    
+                    <div class="form-group img-selector">
+                      <div class="imageFileDisplay mb-3"></div>
+                      <div class="img-side">
+                          <label for="farmImageFile" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Farm image" data-content="Upload farm image">
+                            <i class="material-icons-round" style="margin-right: 5px;">image</i>
+                            Click to Choose Image
+                          </label>
+                          <input type="file" class="form-control-file imageFile" id="farmImageFile" accept="image/*">
+                          <input type="hidden" id="farmImageUrl" value="" />
+                        <p>You can upload JPG, PNG or GIF file</p>
+                      </div>
+                      
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="farmDescription" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-content="Enter description of the farm">
+                        Description
+                      </label>
+                      <textarea class="form-control" id="farmDescription" rows="3" placeholder="Enter a description for your farm"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                      <label for="farmSocialMediaName" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Social media" data-content="Enter social media links attached to the farm">
+                        Social Media (optional)
+                      </label>
+                      <div class="farmSocialMediaGroupWrapper">
+                        <div class="farmSocialMediaGroup row mb-2">
+                          <select name="socialMediaName[]" class="socialMediaName form-control col-4">
+                            <option value="website">Website</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="discord">Discord</option>
+                            <option value="telegram">Telegram</option>
+                            <option value="medium">Medium</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="youtube">YouTube</option>
+                            <option value="email">Email</option>
+                            <option value="phone">Phone</option>
+                          </select>
+                          <input type="text" name="socialMediaLink[]" value="" class="form-control col-7" placeholder="Link to your social media account">
+                          <a class="removeSocial" style="display:flex; align-items: center;">
+                            <i class="material-icons-round">cancel</i>                          
+                          </a>
                         </div>
                       </div>
+                      <a type="button" id="farmSocialMediaAdd" name="farmSocialMediaAdd" class="farmSocialMediaAdd mt-3">
+                        <i class="material-icons-round">add_circle</i>
+                        <p>Add More Social Media</p>
+                      </a>
+                    </div>
 
-                      <div class="form-row">
-                        <div class="col">
-                          <input type="text" class="form-control mb-3" placeholder="Medium Url" id="farmMedium">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Instagram Url" id="farmInstagram">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Youtube Url" id="farmYoutube">
-                        </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="col">
-                          <input type="text" class="form-control mb-3" placeholder="Website Url" id="farmWeb">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Email address" id="farmEmail">
-                        </div>
-                        <div class="col">
-                          <input type="text" class="form-control" placeholder="Phone" id="farmPhone">
-                        </div>
-                      </div>
-
-                      <div class="form-row">
-                        <div class="col">
-                          <label for="farmCustomLink">Custom Link</label>
+                    <div class="form-group">
+                        <label for="farmCustomLink" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Custom link" data-content="Enter a custom link attached to the farm">
+                          Custom Link
+                        </label>
+                        <div class="customLinkDiv">
                           <input type="text" class="form-control" placeholder="Enter a link to a custom url"
                             id="farmCustomLink">
-                        </div>
-                        <div class="col">
-                          <label for="farmCustomLinkText">Custom Link Text</label>
                           <input type="text" class="form-control" placeholder="Enter a link text for your custom url"
                             id="farmCustomLinkText">
                         </div>
-                      </div>
-
-                    </fieldset>
+                    </div>
 
                     <input type="hidden" id="farmUpdateAddress" value="" />
                     <input type="hidden" id="farmIsEdit" value="0" />
@@ -732,20 +739,25 @@
               </div>
 
               <div class="modal-footer">
-                <div id="feeCollection" class="footer-description"><span id="ethFeeFarm"></span> <span class="currency"></span> developer fee per
-                  farm. <div id="paymentDescription">Unlimited farm creation if holding <span id="nifMinFarm"></span>
-                    NIF or owning one of our <a
-                      href="https://opensea.io/assets/0x774418646555f414cbaeca6cf3c72a0613d4dab4/10"
-                      target="_blank">farm builder wildcards</a>.</div> No subsequent fees, one-time payment. Gas fees
-                  always apply.</div>
+                <div id="feeCollection" class="footer-description">
+                  <h3>Please read the notice and check the box to continue!</h3>
+                  <div class="farm-builder-checkbox">
+                    <input type="checkbox" id="flexCheckDefault">
+                    <label for="flexCheckDefault">
+                      <span id="farm-builder-fee">120</span> <span id="farm-builder-currency">MATIC</span> developer fee per farm. No subsequent fees, one-time payment. Gas fees always apply.
+                    </label>
+                  </div>
+                </div>
                   <div class="buttons-container">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary submitNewUpdate" id="farmSubmit">Create Farm</button>
+                    <button type="button" class="btn btn-primary submitNewUpdate disabled" id="farmSubmit">Create Farm</button>
                   </div>
               </div>
             </div>
           </div>
         </div>
+
+
 
         <!-- Edit Farm Info Modal -->
         <div class="modal fade" style="overflow-y: scroll;" id="farmInfoModal" tabindex="-1"
@@ -932,17 +944,28 @@
               <div class="modal-header">
                 <h5 class="modal-title" id="editRewardRateModalLabel">Edit Reward Rate</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
+                  <span aria-hidden="true">×</span>
                 </button>
               </div>
               <div class="modal-body modal-non-nft-content">
 
                 <form onsubmit="return false;">
-
+                  
                   <div class="form-group">
-                    <label for="farmEditRewardRate">Reward Rate (in seconds)<span class="required">*</span></label>
-                    <input type="text" placeholder="The reward rate in seconds. Default is 86400 seconds (1 day)."
-                      class="form-control" id="farmEditRewardRate">
+                    <label for="farmEditRewardRate">
+                      Reward Rate per day<span class="required">*</span>
+                    </label>
+                    <div id="rewardPerDay">
+                      <input type="text" placeholder="86400" class="form-control" id="farmEditRewardRate">
+
+                        <button id="rangeMin">ADD MIN.</button>
+                        <button id="rangeMax">ADD MAX.</button>
+                    </div>
+                  </div>
+
+                  <div class="range-wrap">
+                    <input type="range" class="range" min="86400" max="1728000" value=864000 step=86400>
+                    <output class="bubble"></output>
                   </div>
 
                   <input type="hidden" value="" id="editRewardRate" name="editRewardRate" />

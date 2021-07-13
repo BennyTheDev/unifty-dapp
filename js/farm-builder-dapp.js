@@ -1222,6 +1222,161 @@ function TncDapp() {
             }
             console.log(error);
         });
+
+        
+        $("#farmModal [data-toggle='popover']").each(function(){
+            $(this).popover();
+        })
+
+$(".farmSocialMediaAdd").on("click", async function () {
+          let socialMediaWrapper = $(".farmSocialMediaGroupWrapper");
+          let socialMediaFields = $(".farmSocialMediaGroup").last().clone();
+
+
+          $('select[name="socialMediaName[]"]').each(function (i) {
+            removeOption($(this).val());
+            socialMediaFields
+              .find('option[value="' + $(this).val() + '"]')
+              .remove();
+          });
+
+          if (socialMediaFields.find('input[type="text"]').val()) {
+            socialMediaFields.find('input[type="text"]').val("");
+            $(".farmSocialMediaGroup")
+            .last()
+            .find("select")
+            .attr("disabled", "true");
+
+            socialMediaFields.find("select").removeAttr("disabled")
+            socialMediaWrapper.append(socialMediaFields);
+
+            socialMediaFields.find(".removeSocial").on("click", function () {
+                removesSocial(this);
+            });
+          }
+        });
+
+        $(".removeSocial").on("click", function () {
+            removesSocial(this);
+        });
+
+        //Remove option from dropdown if it is already selected
+        function removeOption(option) {
+          $('[name="socialMediaName[]"]').each(function () {
+            if ($(this).find(":selected").val() != option) {
+              $(this)
+                .find('option[value="' + option + '"]')
+                .remove();
+            }
+          });
+        }
+
+        function reAddOptions(option){
+            $('[name="socialMediaName[]"]').each(function(){
+                let optionString = "<option value=" + option + ">" + option + "</option>";
+                $(this).append(optionString);
+            })
+        }
+        
+        function removesSocial(el){            
+            if ($(el).parent().siblings().length > 0) {
+
+                let attr = $(el).parent().find("select").attr("disabled")
+                if (typeof attr !== 'undefined' && attr !== false) {
+                    let removedOption = $(el)
+                    .parent()
+                    .find("select")
+                    .find(":selected")
+                    .text();
+                    
+                    reAddOptions(removedOption);
+                }                
+
+              $(el).parent().remove();
+            }
+        }
+
+        //Setting up the range slider
+        let range = document.querySelector(".range");
+        let bubble = document.querySelector(".bubble");
+
+        let defaultSliderValue = 86400 //Setting the default value
+        
+        range.value = defaultSliderValue * 10; 
+        range.addEventListener("input", () => {
+          setBubble();
+        });
+        setBubble();
+
+        function setBubble() {
+          let val = range.value;
+
+          let min = range.min ? range.min : 0;
+          let max = range.max ? range.max : 100;
+          let step = range.step;
+          let newVal = Number(((val - min) * 100) / (max - min));
+
+          let currentTick = val / step;
+
+          if (currentTick <= 10) {
+            bubble.innerHTML = val / 10;
+          } else {
+            bubble.innerHTML = step * ((currentTick - 10) * 10);
+          }
+
+          bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
+        }
+
+        $("#farmEditRewardRate").change(function(){
+            setRewardRate();
+        });
+
+        window.setRewardRate = function() {
+          let input = $("#farmEditRewardRate");
+          let userValue = Number(input.val());
+
+          if (userValue <= 0 || isNaN(userValue)) {
+            $(range).attr({
+              min: defaultSliderValue,
+              max: defaultSliderValue * 20,
+              step: defaultSliderValue,
+            });
+            range.value = defaultSliderValue * 10;
+
+            input.val(defaultSliderValue);
+          } else {
+            $(range).attr({
+              min: userValue,
+              max: userValue * 20,
+              step: userValue,
+            });
+            range.value = userValue * 10;
+          }
+
+          setBubble();
+        }
+
+        $("#rangeMin").on("click", function(){
+            range.value = $(range).attr("min");
+          setBubble();
+
+        })
+
+        $("#rangeMax").on("click", function(){
+            range.value = $(range).attr("max");
+          setBubble();
+
+        })
+        //------------------------------------
+        
+        $(".farm-builder-checkbox input[type=checkbox]").change(function(){
+            if($(this).is(':checked')){
+                $("#farmSubmit").removeClass("disabled")
+            }
+            else{
+                $("#farmSubmit").addClass("disabled")
+            }
+        })
     });
 }
 

@@ -1572,18 +1572,23 @@ textarea, input {
     padding: 1.5rem;
     color: var(--modal-text);
     border-bottom: 0.1rem solid var(--modal-border-text);
-    background-color: var(--bg-tertiary); }
+    background-color: var(--bg-primary); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-header h5.modal-title,
     .light-edition .main-panel .modal-dialog .modal-content .modal-header h5.modal-title {
       font-family: "Poppins", sans-serif;
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: 0.48px; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-header .infoHover,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-header .infoHover {
+      margin: 0 1rem 0 auto;
+      padding: 0; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-header .close,
     .light-edition .main-panel .modal-dialog .modal-content .modal-header .close {
       color: var(--modal-text);
       opacity: 1;
-      text-shadow: none; }
+      text-shadow: none;
+      margin: -1rem; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-header .close:focus,
       .light-edition .main-panel .modal-dialog .modal-content .modal-header .close:focus {
         outline: none; }
@@ -1600,23 +1605,35 @@ textarea, input {
       border-radius: 0.4rem;
       background-color: var(--bg-primary);
       margin-bottom: 1rem; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body label,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body label {
+      width: max-content; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body select,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body select {
       background-color: transparent;
       height: auto;
-      background-image: none;
       border: 0.1rem solid #3b414c;
       border-radius: 0.8rem;
       font-size: 1.3rem;
       color: var(--modal-text);
-      padding: 1rem; }
+      padding: 1rem;
+      background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 60%), linear-gradient(135deg, var(--primary-color) 40%, transparent 50%) !important;
+      background-position: calc(100% - 28px) 16px, calc(100% - 22px) 16px, 100% 0;
+      background-size: 6px 6px, 6px 6px;
+      background-repeat: no-repeat;
+      -webkit-appearance: none;
+      -moz-appearance: none; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body select:hover,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body select:hover {
         cursor: var(--cursor-pointer); }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body select optgroup,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body select optgroup {
+        background-color: var(--bg-secondary);
+        color: #a3abb2; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body select option,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body select option {
-        background-color: var(--bg-tertiary);
-        padding: 0.5rem 0; }
+        background-color: var(--bg-secondary);
+        color: var(--text-primary); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .col {
       padding: 0; }
@@ -1635,6 +1652,171 @@ textarea, input {
         border: 0.1rem solid var(--primary-hover-dark);
         color: var(--primary-hover-dark);
         cursor: var(--cursor-pointer) !important; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector {
+      display: flex;
+      flex-direction: column; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector div.img-side,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector div.img-side {
+        display: flex;
+        flex-direction: row;
+        align-items: center; }
+        .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector div.img-side p,
+        .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector div.img-side p {
+          height: max-content;
+          margin-left: 1.5rem; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector label,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector label {
+        width: max-content;
+        color: var(--modal-text);
+        padding: 1rem;
+        border: 0.1rem solid var(--modal-text);
+        border-radius: 0.8rem; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector p,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group.img-selector p {
+        margin: 0.5rem; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body #rewardPerDay,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body #rewardPerDay {
+      display: flex;
+      justify-content: space-around; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body #rewardPerDay button,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body #rewardPerDay button {
+        margin-left: 1rem; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body #farmSocialMediaAdd,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body #farmSocialMediaAdd {
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body #farmSocialMediaAdd p,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body #farmSocialMediaAdd p {
+        margin: 0;
+        margin-left: 1rem; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .farmSocialMediaGroup,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .farmSocialMediaGroup {
+      display: flex;
+      justify-content: space-between; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .socialMediaName[disabled="disabled"],
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .socialMediaName[disabled="disabled"] {
+      opacity: 0.6; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv {
+      display: flex;
+      justify-content: space-between; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv input,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .customLinkDiv input {
+        width: 49%; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap {
+      position: relative;
+      margin: 1rem auto 3rem; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap input,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range-wrap input {
+        cursor: var(--cursor-pointer) !important; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .range {
+      width: 100%;
+      background-color: transparent; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus {
+        outline: none; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-webkit-slider-runnable-track,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        animate: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: var(--bg-primary);
+        border-radius: 10px;
+        border: 0px solid #000000; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-webkit-slider-thumb,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-webkit-slider-thumb {
+        box-shadow: 1px 1px 0px #000000;
+        border: 0px solid #000000;
+        height: 32px;
+        width: 12px;
+        border-radius: 8px;
+        background: var(--primary-color);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -14px; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus::-webkit-slider-runnable-track,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus::-webkit-slider-runnable-track {
+        background: var(--bg-primary); }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-moz-range-track,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-moz-range-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        animate: 0.2s;
+        box-shadow: 0px 0px 0px #000000;
+        background: var(--bg-primary);
+        border-radius: 10px;
+        border: 0px solid #000000; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-moz-range-thumb,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-moz-range-thumb {
+        box-shadow: 1px 1px 0px #000000;
+        border: 0px solid #000000;
+        height: 32px;
+        width: 12px;
+        border-radius: 8px;
+        background: var(--primary-color);
+        cursor: pointer; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-track,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-track {
+        width: 100%;
+        height: 4px;
+        cursor: pointer;
+        animate: 0.2s;
+        background: transparent;
+        border-color: transparent;
+        color: transparent; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-fill-lower,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-fill-lower {
+        background: var(--bg-primary);
+        border: 0px solid #000000;
+        border-radius: 20px;
+        box-shadow: 0px 0px 0px #000000; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-fill-upper,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-fill-upper {
+        background: var(--bg-primary);
+        border: 0px solid #000000;
+        border-radius: 20px;
+        box-shadow: 0px 0px 0px #000000; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-thumb,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range::-ms-thumb {
+        margin-top: 1px;
+        box-shadow: 1px 1px 0px #000000;
+        border: 0px solid #000000;
+        height: 32px;
+        width: 12px;
+        border-radius: 8px;
+        background: var(--primary-color);
+        cursor: pointer; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus::-ms-fill-lower,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus::-ms-fill-lower {
+        background: var(--bg-primary); }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus::-ms-fill-upper,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus::-ms-fill-upper {
+        background: var(--bg-primary); }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body .bubble,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body .bubble {
+      background: var(--primary-color);
+      color: white;
+      padding: 4px 12px;
+      position: absolute;
+      border-radius: 4px;
+      left: 50%;
+      top: 3rem;
+      transform: translateX(-50%); }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body .bubble::after,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body .bubble::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 2px;
+        background: var(--primary-color);
+        left: 50%; }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group label {
       display: flex;
@@ -1663,7 +1845,6 @@ textarea, input {
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group input,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .col-3 input {
-      height: auto;
       background-color: transparent !important;
       background-image: none;
       border: 0.1rem solid var(--modal-border-text);
@@ -1697,6 +1878,10 @@ textarea, input {
       font-size: 1.3rem;
       color: var(--modal-text);
       transition: all 0.3s; }
+      .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea::placeholder,
+      .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea::placeholder {
+        font-size: 1.3rem;
+        color: var(--modal-border-text); }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea:focus,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form .form-group textarea:focus {
         border: 0.1rem solid var(--primary-color); }
@@ -1719,14 +1904,45 @@ textarea, input {
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group select {
         height: auto;
         margin-bottom: 1rem; }
+  .dark-edition .main-panel .modal-dialog .modal-content #feeCollection h3,
+  .light-edition .main-panel .modal-dialog .modal-content #feeCollection h3 {
+    font-family: Poppins;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 1.56;
+    color: var(--primary-color); }
+  .dark-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox,
+  .light-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox {
+    display: flex;
+    align-items: flex-start; }
+    .dark-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox input,
+    .light-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox input {
+      margin-top: 0.2rem;
+      margin-right: 1rem;
+      cursor: var(--cursor-pointer); }
+    .dark-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label,
+    .light-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label {
+      font-family: Poppins;
+      font-size: 1.3rem;
+      line-height: 1.56;
+      cursor: var(--cursor-pointer); }
+      .dark-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label span,
+      .light-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label span {
+        font-weight: 500;
+        color: var(--primary-color); }
   .dark-edition .main-panel .modal-dialog .modal-content .modal-footer,
   .light-edition .main-panel .modal-dialog .modal-content .modal-footer {
+    background-color: var(--bg-primary);
     border-top: 0.1rem solid var(--modal-border-text);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 1.5rem;
     line-height: 1.3; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-footer .disabled,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-footer .disabled {
+      opacity: 0.65;
+      cursor: var(--cursor-default); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-footer > :not(:first-child),
     .light-edition .main-panel .modal-dialog .modal-content .modal-footer > :not(:first-child) {
       margin-left: 0; }
@@ -1775,42 +1991,34 @@ textarea, input {
       .light-edition .main-panel .modal-dialog .modal-content .modal-footer .btn.btn-primary:active {
         background-color: var(--primary-hover-dark); }
 
-#marketForm #tierGroup select {
-  background-image: linear-gradient(45deg, transparent 50%, var(--primary-color) 60%), linear-gradient(135deg, var(--primary-color) 40%, transparent 50%) !important;
-  background-position: calc(100% - 29px) 16px, calc(100% - 22px) 16px, 100% 0;
-  background-size: 6px 6px, 6px 6px;
-  background-repeat: no-repeat;
-  -webkit-appearance: none;
-  -moz-appearance: none; }
-
 #nftSellWallet .approveNft {
   display: block; }
 
-#nftSellWallet .modalErrorDiv {
+.modalErrorDiv {
   display: flex;
   align-items: center; }
-  #nftSellWallet .modalErrorDiv .imageContainer {
+  .modalErrorDiv .imageContainer {
     display: flex;
     width: 4.8rem;
     height: 4.8rem;
     margin-right: 2.4rem;
     justify-content: center;
     align-items: center; }
-    #nftSellWallet .modalErrorDiv .imageContainer img {
+    .modalErrorDiv .imageContainer img {
       width: max-content;
       height: max-content; }
-  #nftSellWallet .modalErrorDiv h3 {
+  .modalErrorDiv h3 {
     margin-bottom: 0;
     color: var(--heading-color);
     font-weight: 500; }
-  #nftSellWallet .modalErrorDiv h4 {
+  .modalErrorDiv h4 {
     color: var(--heading-color);
     font-weight: bold; }
-  #nftSellWallet .modalErrorDiv p {
+  .modalErrorDiv p {
     color: var(--text-primary);
     margin: 0; }
 
-#nftSellWallet .modalDivider {
+.modalDivider {
   width: 100%;
   height: 1px;
   background-color: rgba(0, 0, 0, 0.24);
