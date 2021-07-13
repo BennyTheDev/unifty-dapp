@@ -234,6 +234,7 @@ function TncDapp() {
 
         let rate = await tncLib.farmRewardRate(farmAddress);
         $('#farmEditRewardRate').val(rate);
+        setRewardRate();
     };
 
     this.populateController = async function(e){
@@ -594,8 +595,8 @@ function TncDapp() {
     };
 
     this.updateRewardRate = async function(){
-        let rate = $('#farmEditRewardRate').val().trim();
-        if(rate == '' || parseInt(rate) <= 0){ _alert('Please enter a valid reward rate in seconds. Default is 86400 (1 day).'); return; }
+        let rate = $('output.bubble').val();
+        if(isNaN(parseFloat(rate)) || parseFloat(rate) <= 0){ _alert('Please enter a valid reward rate in seconds. Default is 86400 (1 day).'); return; }
         let farmAddress = $('#editRewardRate').val();
         await tncLib.farmSetRewardRate(
             rate,
@@ -1295,8 +1296,14 @@ function TncDapp() {
           bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
         }
 
-        $("#rewardPerDayInput").change(function () {        
-          let userValue = Number($(this).val());
+        $("#farmEditRewardRate").change(function(){
+            setRewardRate();
+        });
+
+        window.setRewardRate = function() {
+          let input = $("#farmEditRewardRate");
+          let userValue = Number(input.val());
+
           if (userValue <= 0 || isNaN(userValue)) {
             $(range).attr({
               min: defaultSliderValue,
@@ -1305,7 +1312,7 @@ function TncDapp() {
             });
             range.value = defaultSliderValue * 10;
 
-            $(this).val(defaultSliderValue);
+            input.val(defaultSliderValue);
           } else {
             $(range).attr({
               min: userValue,
@@ -1316,7 +1323,7 @@ function TncDapp() {
           }
 
           setBubble();
-        });
+        }
 
         $("#rangeMin").on("click", function(){
             range.value = $(range).attr("min");
