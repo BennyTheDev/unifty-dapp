@@ -1221,6 +1221,8 @@ function TncDapp() {
             .last()
             .find("select")
             .attr("disabled", "true");
+
+            socialMediaFields.find("select").removeAttr("disabled")
             socialMediaWrapper.append(socialMediaFields);
 
             socialMediaFields.find(".removeSocial").on("click", function () {
@@ -1253,13 +1255,17 @@ function TncDapp() {
         
         function removesSocial(el){            
             if ($(el).parent().siblings().length > 0) {
-              let removedOption = $(el)
-                .parent()
-                .find("select")
-                .find(":selected")
-                .text();
 
-              reAddOptions(removedOption);
+                let attr = $(el).parent().find("select").attr("disabled")
+                if (typeof attr !== 'undefined' && attr !== false) {
+                    let removedOption = $(el)
+                    .parent()
+                    .find("select")
+                    .find(":selected")
+                    .text();
+                    
+                    reAddOptions(removedOption);
+                }                
 
               $(el).parent().remove();
             }
