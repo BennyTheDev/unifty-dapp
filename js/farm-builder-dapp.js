@@ -237,6 +237,7 @@ function TncDapp() {
 
         let rate = await tncLib.farmRewardRate(farmAddress);
         $('#farmEditRewardRate').val(rate);
+        setRewardRate();
     };
 
     this.populateController = async function(e){
@@ -639,23 +640,20 @@ function TncDapp() {
     }
 
     this.updateRewardRate = async function(){
-        let rate = $('#farmEditRewardRate').val().trim();
-        if(rate == '' || parseInt(rate) <= 0){ _alert('Please enter a valid reward rate in seconds. Default is 86400 (1 day).'); return; }
+        let rate = $('output.bubble').val();
+        if(isNaN(parseFloat(rate)) || parseFloat(rate) <= 0){ _alert('Please enter a valid reward rate in seconds. Default is 86400 (1 day).'); return; }
         let farmAddress = $('#editRewardRate').val();
         await tncLib.farmSetRewardRate(
             rate,
             farmAddress,
             function () {
-                $('#editRewardRateButton').prop('disabled', true);
-                $('#editRewardRateButton').html('Processing...');
-                toastr["info"]('Please wait for the transaction to finish.', "Set Reward Rate...");
+                $("#editRewardRateModal").modal("hide");
+                _this.infoModal("info" ,"Please wait for the transaction to finish.");
             },
             function (receipt) {
-                console.log(receipt);
-                toastr.remove();
-                $('#editRewardRateButton').prop('disabled', false);
-                $('#editRewardRateButton').html('Update');
-                toastr["success"]('Transaction has been finished.', "Success");
+                console.log(receipt);                
+                $("#editRewardRateModal").modal("hide");
+                _this.infoModal("success" ,"Transaction has been finished.");
             },
             function (err) {
                 toastr.remove();
