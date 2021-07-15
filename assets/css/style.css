@@ -831,7 +831,8 @@ textarea, input {
   .farmListing .card .traits-collapse,
   .nftHeader .card .traits-collapse {
     font-size: 1.4rem; }
-  .nftListing .card-profile, .nftListing .header-profile,
+  .nftListing .card-profile,
+  .nftListing .header-profile,
   .farmListing .card-profile,
   .farmListing .header-profile,
   .nftHeader .card-profile,
@@ -839,7 +840,8 @@ textarea, input {
     position: relative;
     margin-top: 0;
     box-shadow: var(--shadow-primary); }
-    .nftListing .card-profile .card-avatar, .nftListing .header-profile .card-avatar,
+    .nftListing .card-profile .card-avatar,
+    .nftListing .header-profile .card-avatar,
     .farmListing .card-profile .card-avatar,
     .farmListing .header-profile .card-avatar,
     .nftHeader .card-profile .card-avatar,
@@ -848,17 +850,18 @@ textarea, input {
       min-height: 15.6rem;
       max-width: 15.6rem;
       max-height: 15.6rem;
-      padding: .8rem !important;
-      margin: 1.5rem auto .5rem;
+      padding: 0.8rem !important;
+      margin: 1.5rem auto 0.5rem;
       background-color: var(--image-padding);
-      border-radius: .6rem !important;
+      border-radius: 0.6rem !important;
       object-fit: cover;
       /*
             -webkit-filter: blur(5px); // Safari 6.0 - 9.0
             filter: blur(5px);
             */
-      transition: transform .2s; }
-    .nftListing .card-profile .card-avatar:hover, .nftListing .header-profile .card-avatar:hover,
+      transition: transform 0.2s; }
+    .nftListing .card-profile .card-avatar:hover,
+    .nftListing .header-profile .card-avatar:hover,
     .farmListing .card-profile .card-avatar:hover,
     .farmListing .header-profile .card-avatar:hover,
     .nftHeader .card-profile .card-avatar:hover,
@@ -868,7 +871,10 @@ textarea, input {
           -webkit-filter: blur(0px); // Safari 6.0 - 9.0
           filter: blur(0px);
           */ }
-    .nftListing .card-profile .card-body, .nftListing .card-profile .header-left, .nftListing .header-profile .card-body, .nftListing .header-profile .header-left,
+    .nftListing .card-profile .card-body,
+    .nftListing .card-profile .header-left,
+    .nftListing .header-profile .card-body,
+    .nftListing .header-profile .header-left,
     .farmListing .card-profile .card-body,
     .farmListing .card-profile .header-left,
     .farmListing .header-profile .card-body,
@@ -878,7 +884,10 @@ textarea, input {
     .nftHeader .header-profile .card-body,
     .nftHeader .header-profile .header-left {
       position: static; }
-      .nftListing .card-profile .card-body .text-truncate a, .nftListing .card-profile .header-left .text-truncate a, .nftListing .header-profile .card-body .text-truncate a, .nftListing .header-profile .header-left .text-truncate a,
+      .nftListing .card-profile .card-body .text-truncate a,
+      .nftListing .card-profile .header-left .text-truncate a,
+      .nftListing .header-profile .card-body .text-truncate a,
+      .nftListing .header-profile .header-left .text-truncate a,
       .farmListing .card-profile .card-body .text-truncate a,
       .farmListing .card-profile .header-left .text-truncate a,
       .farmListing .header-profile .card-body .text-truncate a,
@@ -888,7 +897,10 @@ textarea, input {
       .nftHeader .header-profile .card-body .text-truncate a,
       .nftHeader .header-profile .header-left .text-truncate a {
         color: var(--heading-color); }
-      .nftListing .card-profile .card-body .text-truncate button, .nftListing .card-profile .header-left .text-truncate button, .nftListing .header-profile .card-body .text-truncate button, .nftListing .header-profile .header-left .text-truncate button,
+      .nftListing .card-profile .card-body .text-truncate button,
+      .nftListing .card-profile .header-left .text-truncate button,
+      .nftListing .header-profile .card-body .text-truncate button,
+      .nftListing .header-profile .header-left .text-truncate button,
       .farmListing .card-profile .card-body .text-truncate button,
       .farmListing .card-profile .header-left .text-truncate button,
       .farmListing .header-profile .card-body .text-truncate button,
@@ -898,7 +910,10 @@ textarea, input {
       .nftHeader .header-profile .card-body .text-truncate button,
       .nftHeader .header-profile .header-left .text-truncate button {
         color: var(--heading-color); }
-      .nftListing .card-profile .card-body h5.card-title, .nftListing .card-profile .header-left h5.card-title, .nftListing .header-profile .card-body h5.card-title, .nftListing .header-profile .header-left h5.card-title,
+      .nftListing .card-profile .card-body h5.card-title,
+      .nftListing .card-profile .header-left h5.card-title,
+      .nftListing .header-profile .card-body h5.card-title,
+      .nftListing .header-profile .header-left h5.card-title,
       .farmListing .card-profile .card-body h5.card-title,
       .farmListing .card-profile .header-left h5.card-title,
       .farmListing .header-profile .card-body h5.card-title,
@@ -909,9 +924,12 @@ textarea, input {
       .nftHeader .header-profile .header-left h5.card-title {
         font-size: 1.8rem;
         font-weight: 700;
-        letter-spacing: .28px;
+        letter-spacing: 0.28px;
         margin: 0 0 1rem 0; }
-        .nftListing .card-profile .card-body h5.card-title a, .nftListing .card-profile .header-left h5.card-title a, .nftListing .header-profile .card-body h5.card-title a, .nftListing .header-profile .header-left h5.card-title a,
+        .nftListing .card-profile .card-body h5.card-title a,
+        .nftListing .card-profile .header-left h5.card-title a,
+        .nftListing .header-profile .card-body h5.card-title a,
+        .nftListing .header-profile .header-left h5.card-title a,
         .farmListing .card-profile .card-body h5.card-title a,
         .farmListing .card-profile .header-left h5.card-title a,
         .farmListing .header-profile .card-body h5.card-title a,
@@ -921,7 +939,24 @@ textarea, input {
         .nftHeader .header-profile .card-body h5.card-title a,
         .nftHeader .header-profile .header-left h5.card-title a {
           color: var(--heading-color); }
-      .nftListing .card-profile .card-body .collection-name, .nftListing .card-profile .header-left .collection-name, .nftListing .header-profile .card-body .collection-name, .nftListing .header-profile .header-left .collection-name,
+          .nftListing .card-profile .card-body h5.card-title a i,
+          .nftListing .card-profile .header-left h5.card-title a i,
+          .nftListing .header-profile .card-body h5.card-title a i,
+          .nftListing .header-profile .header-left h5.card-title a i,
+          .farmListing .card-profile .card-body h5.card-title a i,
+          .farmListing .card-profile .header-left h5.card-title a i,
+          .farmListing .header-profile .card-body h5.card-title a i,
+          .farmListing .header-profile .header-left h5.card-title a i,
+          .nftHeader .card-profile .card-body h5.card-title a i,
+          .nftHeader .card-profile .header-left h5.card-title a i,
+          .nftHeader .header-profile .card-body h5.card-title a i,
+          .nftHeader .header-profile .header-left h5.card-title a i {
+            font-weight: 700;
+            font-size: 1.4rem !important; }
+      .nftListing .card-profile .card-body .collection-name,
+      .nftListing .card-profile .header-left .collection-name,
+      .nftListing .header-profile .card-body .collection-name,
+      .nftListing .header-profile .header-left .collection-name,
       .farmListing .card-profile .card-body .collection-name,
       .farmListing .card-profile .header-left .collection-name,
       .farmListing .header-profile .card-body .collection-name,
@@ -931,8 +966,11 @@ textarea, input {
       .nftHeader .header-profile .card-body .collection-name,
       .nftHeader .header-profile .header-left .collection-name {
         font-size: 1.2rem;
-        margin: -.8rem 0 1rem 0; }
-      .nftListing .card-profile .card-body a.video-btn-link, .nftListing .card-profile .header-left a.video-btn-link, .nftListing .header-profile .card-body a.video-btn-link, .nftListing .header-profile .header-left a.video-btn-link,
+        margin: -0.8rem 0 1rem 0; }
+      .nftListing .card-profile .card-body a.video-btn-link,
+      .nftListing .card-profile .header-left a.video-btn-link,
+      .nftListing .header-profile .card-body a.video-btn-link,
+      .nftListing .header-profile .header-left a.video-btn-link,
       .farmListing .card-profile .card-body a.video-btn-link,
       .farmListing .card-profile .header-left a.video-btn-link,
       .farmListing .header-profile .card-body a.video-btn-link,
@@ -950,7 +988,10 @@ textarea, input {
         text-transform: none;
         padding: 0;
         margin: 0 0 1rem 0 !important; }
-        .nftListing .card-profile .card-body a.video-btn-link:hover, .nftListing .card-profile .header-left a.video-btn-link:hover, .nftListing .header-profile .card-body a.video-btn-link:hover, .nftListing .header-profile .header-left a.video-btn-link:hover,
+        .nftListing .card-profile .card-body a.video-btn-link:hover,
+        .nftListing .card-profile .header-left a.video-btn-link:hover,
+        .nftListing .header-profile .card-body a.video-btn-link:hover,
+        .nftListing .header-profile .header-left a.video-btn-link:hover,
         .farmListing .card-profile .card-body a.video-btn-link:hover,
         .farmListing .card-profile .header-left a.video-btn-link:hover,
         .farmListing .header-profile .card-body a.video-btn-link:hover,
@@ -960,7 +1001,10 @@ textarea, input {
         .nftHeader .header-profile .card-body a.video-btn-link:hover,
         .nftHeader .header-profile .header-left a.video-btn-link:hover {
           color: var(--primary-hover-dark); }
-        .nftListing .card-profile .card-body a.video-btn-link span, .nftListing .card-profile .header-left a.video-btn-link span, .nftListing .header-profile .card-body a.video-btn-link span, .nftListing .header-profile .header-left a.video-btn-link span,
+        .nftListing .card-profile .card-body a.video-btn-link span,
+        .nftListing .card-profile .header-left a.video-btn-link span,
+        .nftListing .header-profile .card-body a.video-btn-link span,
+        .nftListing .header-profile .header-left a.video-btn-link span,
         .farmListing .card-profile .card-body a.video-btn-link span,
         .farmListing .card-profile .header-left a.video-btn-link span,
         .farmListing .header-profile .card-body a.video-btn-link span,
@@ -970,8 +1014,11 @@ textarea, input {
         .nftHeader .header-profile .card-body a.video-btn-link span,
         .nftHeader .header-profile .header-left a.video-btn-link span {
           font-size: 2rem;
-          margin-right: .5rem; }
-      .nftListing .card-profile .card-body audio, .nftListing .card-profile .header-left audio, .nftListing .header-profile .card-body audio, .nftListing .header-profile .header-left audio,
+          margin-right: 0.5rem; }
+      .nftListing .card-profile .card-body audio,
+      .nftListing .card-profile .header-left audio,
+      .nftListing .header-profile .card-body audio,
+      .nftListing .header-profile .header-left audio,
       .farmListing .card-profile .card-body audio,
       .farmListing .card-profile .header-left audio,
       .farmListing .header-profile .card-body audio,
@@ -982,7 +1029,10 @@ textarea, input {
       .nftHeader .header-profile .header-left audio {
         height: 3.2rem;
         margin: 0 0 1rem 0 !important; }
-      .nftListing .card-profile .card-body .badge, .nftListing .card-profile .header-left .badge, .nftListing .header-profile .card-body .badge, .nftListing .header-profile .header-left .badge,
+      .nftListing .card-profile .card-body .badge,
+      .nftListing .card-profile .header-left .badge,
+      .nftListing .header-profile .card-body .badge,
+      .nftListing .header-profile .header-left .badge,
       .farmListing .card-profile .card-body .badge,
       .farmListing .card-profile .header-left .badge,
       .farmListing .header-profile .card-body .badge,
@@ -991,11 +1041,14 @@ textarea, input {
       .nftHeader .card-profile .header-left .badge,
       .nftHeader .header-profile .card-body .badge,
       .nftHeader .header-profile .header-left .badge {
-        padding: .5rem;
+        padding: 0.5rem;
         font-size: 1rem;
         font-weight: 300;
         position: relative; }
-        .nftListing .card-profile .card-body .badge.badge-info, .nftListing .card-profile .header-left .badge.badge-info, .nftListing .header-profile .card-body .badge.badge-info, .nftListing .header-profile .header-left .badge.badge-info,
+        .nftListing .card-profile .card-body .badge.badge-info,
+        .nftListing .card-profile .header-left .badge.badge-info,
+        .nftListing .header-profile .card-body .badge.badge-info,
+        .nftListing .header-profile .header-left .badge.badge-info,
         .farmListing .card-profile .card-body .badge.badge-info,
         .farmListing .card-profile .header-left .badge.badge-info,
         .farmListing .header-profile .card-body .badge.badge-info,
@@ -1006,7 +1059,10 @@ textarea, input {
         .nftHeader .header-profile .header-left .badge.badge-info {
           color: var(--text-primary);
           background-color: transparent; }
-          .nftListing .card-profile .card-body .badge.badge-info:not(:last-child)::before, .nftListing .card-profile .header-left .badge.badge-info:not(:last-child)::before, .nftListing .header-profile .card-body .badge.badge-info:not(:last-child)::before, .nftListing .header-profile .header-left .badge.badge-info:not(:last-child)::before,
+          .nftListing .card-profile .card-body .badge.badge-info:not(:last-child)::before,
+          .nftListing .card-profile .header-left .badge.badge-info:not(:last-child)::before,
+          .nftListing .header-profile .card-body .badge.badge-info:not(:last-child)::before,
+          .nftListing .header-profile .header-left .badge.badge-info:not(:last-child)::before,
           .farmListing .card-profile .card-body .badge.badge-info:not(:last-child)::before,
           .farmListing .card-profile .header-left .badge.badge-info:not(:last-child)::before,
           .farmListing .header-profile .card-body .badge.badge-info:not(:last-child)::before,
@@ -1024,7 +1080,10 @@ textarea, input {
             right: -2px;
             top: 50%;
             transform: translateY(-50%); }
-          .nftListing .card-profile .card-body .badge.badge-info a, .nftListing .card-profile .header-left .badge.badge-info a, .nftListing .header-profile .card-body .badge.badge-info a, .nftListing .header-profile .header-left .badge.badge-info a,
+          .nftListing .card-profile .card-body .badge.badge-info a,
+          .nftListing .card-profile .header-left .badge.badge-info a,
+          .nftListing .header-profile .card-body .badge.badge-info a,
+          .nftListing .header-profile .header-left .badge.badge-info a,
           .farmListing .card-profile .card-body .badge.badge-info a,
           .farmListing .card-profile .header-left .badge.badge-info a,
           .farmListing .header-profile .card-body .badge.badge-info a,
@@ -1034,7 +1093,10 @@ textarea, input {
           .nftHeader .header-profile .card-body .badge.badge-info a,
           .nftHeader .header-profile .header-left .badge.badge-info a {
             color: var(--heading-color); }
-      .nftListing .card-profile .card-body a.redeemButton, .nftListing .card-profile .header-left a.redeemButton, .nftListing .header-profile .card-body a.redeemButton, .nftListing .header-profile .header-left a.redeemButton,
+      .nftListing .card-profile .card-body a.redeemButton,
+      .nftListing .card-profile .header-left a.redeemButton,
+      .nftListing .header-profile .card-body a.redeemButton,
+      .nftListing .header-profile .header-left a.redeemButton,
       .farmListing .card-profile .card-body a.redeemButton,
       .farmListing .card-profile .header-left a.redeemButton,
       .farmListing .header-profile .card-body a.redeemButton,
@@ -1047,16 +1109,19 @@ textarea, input {
         box-shadow: none;
         border: none;
         text-transform: none;
-        border-radius: .6rem;
+        border-radius: 0.6rem;
         background-color: var(--primary-color);
         color: var(--bg-secondary);
-        padding: .3rem .8rem;
+        padding: 0.3rem 0.8rem;
         font-weight: 500;
         width: 90%;
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap; }
-        .nftListing .card-profile .card-body a.redeemButton:active, .nftListing .card-profile .header-left a.redeemButton:active, .nftListing .header-profile .card-body a.redeemButton:active, .nftListing .header-profile .header-left a.redeemButton:active,
+        .nftListing .card-profile .card-body a.redeemButton:active,
+        .nftListing .card-profile .header-left a.redeemButton:active,
+        .nftListing .header-profile .card-body a.redeemButton:active,
+        .nftListing .header-profile .header-left a.redeemButton:active,
         .farmListing .card-profile .card-body a.redeemButton:active,
         .farmListing .card-profile .header-left a.redeemButton:active,
         .farmListing .header-profile .card-body a.redeemButton:active,
@@ -1068,7 +1133,10 @@ textarea, input {
           color: var(--bg-secondary);
           background-color: var(--primary-hover-dark);
           font-weight: 400; }
-      .nftListing .card-profile .card-body a.traits, .nftListing .card-profile .header-left a.traits, .nftListing .header-profile .card-body a.traits, .nftListing .header-profile .header-left a.traits,
+      .nftListing .card-profile .card-body a.traits,
+      .nftListing .card-profile .header-left a.traits,
+      .nftListing .header-profile .card-body a.traits,
+      .nftListing .header-profile .header-left a.traits,
       .farmListing .card-profile .card-body a.traits,
       .farmListing .card-profile .header-left a.traits,
       .farmListing .header-profile .card-body a.traits,
@@ -1079,13 +1147,16 @@ textarea, input {
       .nftHeader .header-profile .header-left a.traits {
         font-size: 1.4rem;
         border: 0.1rem solid var(--text-primary);
-        border-radius: .6rem;
+        border-radius: 0.6rem;
         background-color: var(--image-padding) !important;
         text-transform: none;
         color: var(--text-primary);
-        padding: .3rem .8rem;
+        padding: 0.3rem 0.8rem;
         width: 90%; }
-      .nftListing .card-profile .card-body .popover-description, .nftListing .card-profile .header-left .popover-description, .nftListing .header-profile .card-body .popover-description, .nftListing .header-profile .header-left .popover-description,
+      .nftListing .card-profile .card-body .popover-description,
+      .nftListing .card-profile .header-left .popover-description,
+      .nftListing .header-profile .card-body .popover-description,
+      .nftListing .header-profile .header-left .popover-description,
       .farmListing .card-profile .card-body .popover-description,
       .farmListing .card-profile .header-left .popover-description,
       .farmListing .header-profile .card-body .popover-description,
@@ -1102,7 +1173,10 @@ textarea, input {
         box-shadow: none;
         padding: 0;
         margin: 0; }
-        .nftListing .card-profile .card-body .popover-description span, .nftListing .card-profile .header-left .popover-description span, .nftListing .header-profile .card-body .popover-description span, .nftListing .header-profile .header-left .popover-description span,
+        .nftListing .card-profile .card-body .popover-description span,
+        .nftListing .card-profile .header-left .popover-description span,
+        .nftListing .header-profile .card-body .popover-description span,
+        .nftListing .header-profile .header-left .popover-description span,
         .farmListing .card-profile .card-body .popover-description span,
         .farmListing .card-profile .header-left .popover-description span,
         .farmListing .header-profile .card-body .popover-description span,
@@ -1112,7 +1186,13 @@ textarea, input {
         .nftHeader .header-profile .card-body .popover-description span,
         .nftHeader .header-profile .header-left .popover-description span {
           font-size: 1.8rem; }
-        .nftListing .card-profile .card-body .popover-description:hover span, .nftListing .card-profile .card-body .popover-description:active span, .nftListing .card-profile .header-left .popover-description:hover span, .nftListing .card-profile .header-left .popover-description:active span, .nftListing .header-profile .card-body .popover-description:hover span, .nftListing .header-profile .card-body .popover-description:active span, .nftListing .header-profile .header-left .popover-description:hover span, .nftListing .header-profile .header-left .popover-description:active span,
+        .nftListing .card-profile .card-body .popover-description:hover span, .nftListing .card-profile .card-body .popover-description:active span,
+        .nftListing .card-profile .header-left .popover-description:hover span,
+        .nftListing .card-profile .header-left .popover-description:active span,
+        .nftListing .header-profile .card-body .popover-description:hover span,
+        .nftListing .header-profile .card-body .popover-description:active span,
+        .nftListing .header-profile .header-left .popover-description:hover span,
+        .nftListing .header-profile .header-left .popover-description:active span,
         .farmListing .card-profile .card-body .popover-description:hover span,
         .farmListing .card-profile .card-body .popover-description:active span,
         .farmListing .card-profile .header-left .popover-description:hover span,
@@ -1130,7 +1210,10 @@ textarea, input {
         .nftHeader .header-profile .header-left .popover-description:hover span,
         .nftHeader .header-profile .header-left .popover-description:active span {
           color: var(--text-primary-light); }
-      .nftListing .card-profile .card-body .dropdown, .nftListing .card-profile .header-left .dropdown, .nftListing .header-profile .card-body .dropdown, .nftListing .header-profile .header-left .dropdown,
+      .nftListing .card-profile .card-body .dropdown,
+      .nftListing .card-profile .header-left .dropdown,
+      .nftListing .header-profile .card-body .dropdown,
+      .nftListing .header-profile .header-left .dropdown,
       .farmListing .card-profile .card-body .dropdown,
       .farmListing .card-profile .header-left .dropdown,
       .farmListing .header-profile .card-body .dropdown,
@@ -1142,7 +1225,10 @@ textarea, input {
         position: absolute;
         top: 1rem;
         left: 1rem; }
-        .nftListing .card-profile .card-body .dropdown a, .nftListing .card-profile .header-left .dropdown a, .nftListing .header-profile .card-body .dropdown a, .nftListing .header-profile .header-left .dropdown a,
+        .nftListing .card-profile .card-body .dropdown a,
+        .nftListing .card-profile .header-left .dropdown a,
+        .nftListing .header-profile .card-body .dropdown a,
+        .nftListing .header-profile .header-left .dropdown a,
         .farmListing .card-profile .card-body .dropdown a,
         .farmListing .card-profile .header-left .dropdown a,
         .farmListing .header-profile .card-body .dropdown a,
@@ -1155,7 +1241,10 @@ textarea, input {
           margin: 0;
           background-color: transparent;
           box-shadow: none; }
-          .nftListing .card-profile .card-body .dropdown a::after, .nftListing .card-profile .header-left .dropdown a::after, .nftListing .header-profile .card-body .dropdown a::after, .nftListing .header-profile .header-left .dropdown a::after,
+          .nftListing .card-profile .card-body .dropdown a::after,
+          .nftListing .card-profile .header-left .dropdown a::after,
+          .nftListing .header-profile .card-body .dropdown a::after,
+          .nftListing .header-profile .header-left .dropdown a::after,
           .farmListing .card-profile .card-body .dropdown a::after,
           .farmListing .card-profile .header-left .dropdown a::after,
           .farmListing .header-profile .card-body .dropdown a::after,
@@ -1165,7 +1254,10 @@ textarea, input {
           .nftHeader .header-profile .card-body .dropdown a::after,
           .nftHeader .header-profile .header-left .dropdown a::after {
             content: none; }
-          .nftListing .card-profile .card-body .dropdown a span, .nftListing .card-profile .header-left .dropdown a span, .nftListing .header-profile .card-body .dropdown a span, .nftListing .header-profile .header-left .dropdown a span,
+          .nftListing .card-profile .card-body .dropdown a span,
+          .nftListing .card-profile .header-left .dropdown a span,
+          .nftListing .header-profile .card-body .dropdown a span,
+          .nftListing .header-profile .header-left .dropdown a span,
           .farmListing .card-profile .card-body .dropdown a span,
           .farmListing .card-profile .header-left .dropdown a span,
           .farmListing .header-profile .card-body .dropdown a span,
@@ -1176,7 +1268,13 @@ textarea, input {
           .nftHeader .header-profile .header-left .dropdown a span {
             color: var(--text-primary);
             font-size: 1.8rem; }
-          .nftListing .card-profile .card-body .dropdown a:hover span, .nftListing .card-profile .card-body .dropdown a:active span, .nftListing .card-profile .header-left .dropdown a:hover span, .nftListing .card-profile .header-left .dropdown a:active span, .nftListing .header-profile .card-body .dropdown a:hover span, .nftListing .header-profile .card-body .dropdown a:active span, .nftListing .header-profile .header-left .dropdown a:hover span, .nftListing .header-profile .header-left .dropdown a:active span,
+          .nftListing .card-profile .card-body .dropdown a:hover span, .nftListing .card-profile .card-body .dropdown a:active span,
+          .nftListing .card-profile .header-left .dropdown a:hover span,
+          .nftListing .card-profile .header-left .dropdown a:active span,
+          .nftListing .header-profile .card-body .dropdown a:hover span,
+          .nftListing .header-profile .card-body .dropdown a:active span,
+          .nftListing .header-profile .header-left .dropdown a:hover span,
+          .nftListing .header-profile .header-left .dropdown a:active span,
           .farmListing .card-profile .card-body .dropdown a:hover span,
           .farmListing .card-profile .card-body .dropdown a:active span,
           .farmListing .card-profile .header-left .dropdown a:hover span,
@@ -1194,34 +1292,168 @@ textarea, input {
           .nftHeader .header-profile .header-left .dropdown a:hover span,
           .nftHeader .header-profile .header-left .dropdown a:active span {
             color: var(--text-primary-light); }
-      .nftListing .card-profile .card-body .dropdown.show a, .nftListing .card-profile .header-left .dropdown.show a, .nftListing .header-profile .card-body .dropdown.show a, .nftListing .header-profile .header-left .dropdown.show a,
-      .farmListing .card-profile .card-body .dropdown.show a,
-      .farmListing .card-profile .header-left .dropdown.show a,
-      .farmListing .header-profile .card-body .dropdown.show a,
-      .farmListing .header-profile .header-left .dropdown.show a,
-      .nftHeader .card-profile .card-body .dropdown.show a,
-      .nftHeader .card-profile .header-left .dropdown.show a,
-      .nftHeader .header-profile .card-body .dropdown.show a,
-      .nftHeader .header-profile .header-left .dropdown.show a {
-        background-color: transparent; }
-        .nftListing .card-profile .card-body .dropdown.show a span, .nftListing .card-profile .header-left .dropdown.show a span, .nftListing .header-profile .card-body .dropdown.show a span, .nftListing .header-profile .header-left .dropdown.show a span,
-        .farmListing .card-profile .card-body .dropdown.show a span,
-        .farmListing .card-profile .header-left .dropdown.show a span,
-        .farmListing .header-profile .card-body .dropdown.show a span,
-        .farmListing .header-profile .header-left .dropdown.show a span,
-        .nftHeader .card-profile .card-body .dropdown.show a span,
-        .nftHeader .card-profile .header-left .dropdown.show a span,
-        .nftHeader .header-profile .card-body .dropdown.show a span,
-        .nftHeader .header-profile .header-left .dropdown.show a span {
-          color: var(--text-primary-light); }
+        .nftListing .card-profile .card-body .dropdown.show a,
+        .nftListing .card-profile .header-left .dropdown.show a,
+        .nftListing .header-profile .card-body .dropdown.show a,
+        .nftListing .header-profile .header-left .dropdown.show a,
+        .farmListing .card-profile .card-body .dropdown.show a,
+        .farmListing .card-profile .header-left .dropdown.show a,
+        .farmListing .header-profile .card-body .dropdown.show a,
+        .farmListing .header-profile .header-left .dropdown.show a,
+        .nftHeader .card-profile .card-body .dropdown.show a,
+        .nftHeader .card-profile .header-left .dropdown.show a,
+        .nftHeader .header-profile .card-body .dropdown.show a,
+        .nftHeader .header-profile .header-left .dropdown.show a {
+          background-color: transparent; }
+          .nftListing .card-profile .card-body .dropdown.show a span,
+          .nftListing .card-profile .header-left .dropdown.show a span,
+          .nftListing .header-profile .card-body .dropdown.show a span,
+          .nftListing .header-profile .header-left .dropdown.show a span,
+          .farmListing .card-profile .card-body .dropdown.show a span,
+          .farmListing .card-profile .header-left .dropdown.show a span,
+          .farmListing .header-profile .card-body .dropdown.show a span,
+          .farmListing .header-profile .header-left .dropdown.show a span,
+          .nftHeader .card-profile .card-body .dropdown.show a span,
+          .nftHeader .card-profile .header-left .dropdown.show a span,
+          .nftHeader .header-profile .card-body .dropdown.show a span,
+          .nftHeader .header-profile .header-left .dropdown.show a span {
+            color: var(--text-primary-light); }
+      .nftListing .card-profile .card-body .dropdown-btn,
+      .nftListing .card-profile .header-left .dropdown-btn,
+      .nftListing .header-profile .card-body .dropdown-btn,
+      .nftListing .header-profile .header-left .dropdown-btn,
+      .farmListing .card-profile .card-body .dropdown-btn,
+      .farmListing .card-profile .header-left .dropdown-btn,
+      .farmListing .header-profile .card-body .dropdown-btn,
+      .farmListing .header-profile .header-left .dropdown-btn,
+      .nftHeader .card-profile .card-body .dropdown-btn,
+      .nftHeader .card-profile .header-left .dropdown-btn,
+      .nftHeader .header-profile .card-body .dropdown-btn,
+      .nftHeader .header-profile .header-left .dropdown-btn {
+        position: relative;
+        display: inline-block; }
+        .nftListing .card-profile .card-body .dropdown-btn > a,
+        .nftListing .card-profile .header-left .dropdown-btn > a,
+        .nftListing .header-profile .card-body .dropdown-btn > a,
+        .nftListing .header-profile .header-left .dropdown-btn > a,
+        .farmListing .card-profile .card-body .dropdown-btn > a,
+        .farmListing .card-profile .header-left .dropdown-btn > a,
+        .farmListing .header-profile .card-body .dropdown-btn > a,
+        .farmListing .header-profile .header-left .dropdown-btn > a,
+        .nftHeader .card-profile .card-body .dropdown-btn > a,
+        .nftHeader .card-profile .header-left .dropdown-btn > a,
+        .nftHeader .header-profile .card-body .dropdown-btn > a,
+        .nftHeader .header-profile .header-left .dropdown-btn > a {
+          font-size: 1.4rem;
+          padding: 0.3rem 1rem;
+          background-color: var(--bg-secondary);
+          color: var(--primary-color);
+          box-shadow: none; }
+          .nftListing .card-profile .card-body .dropdown-btn > a::before,
+          .nftListing .card-profile .header-left .dropdown-btn > a::before,
+          .nftListing .header-profile .card-body .dropdown-btn > a::before,
+          .nftListing .header-profile .header-left .dropdown-btn > a::before,
+          .farmListing .card-profile .card-body .dropdown-btn > a::before,
+          .farmListing .card-profile .header-left .dropdown-btn > a::before,
+          .farmListing .header-profile .card-body .dropdown-btn > a::before,
+          .farmListing .header-profile .header-left .dropdown-btn > a::before,
+          .nftHeader .card-profile .card-body .dropdown-btn > a::before,
+          .nftHeader .card-profile .header-left .dropdown-btn > a::before,
+          .nftHeader .header-profile .card-body .dropdown-btn > a::before,
+          .nftHeader .header-profile .header-left .dropdown-btn > a::before {
+            font-family: "Material Icons Round";
+            content: "edit";
+            display: inline-block;
+            font-size: 1.2rem;
+            margin-right: 1.7rem; }
+          .nftListing .card-profile .card-body .dropdown-btn > a::after,
+          .nftListing .card-profile .header-left .dropdown-btn > a::after,
+          .nftListing .header-profile .card-body .dropdown-btn > a::after,
+          .nftListing .header-profile .header-left .dropdown-btn > a::after,
+          .farmListing .card-profile .card-body .dropdown-btn > a::after,
+          .farmListing .card-profile .header-left .dropdown-btn > a::after,
+          .farmListing .header-profile .card-body .dropdown-btn > a::after,
+          .farmListing .header-profile .header-left .dropdown-btn > a::after,
+          .nftHeader .card-profile .card-body .dropdown-btn > a::after,
+          .nftHeader .card-profile .header-left .dropdown-btn > a::after,
+          .nftHeader .header-profile .card-body .dropdown-btn > a::after,
+          .nftHeader .header-profile .header-left .dropdown-btn > a::after {
+            margin-left: 1.7rem; }
+          .nftListing .card-profile .card-body .dropdown-btn > a span,
+          .nftListing .card-profile .header-left .dropdown-btn > a span,
+          .nftListing .header-profile .card-body .dropdown-btn > a span,
+          .nftListing .header-profile .header-left .dropdown-btn > a span,
+          .farmListing .card-profile .card-body .dropdown-btn > a span,
+          .farmListing .card-profile .header-left .dropdown-btn > a span,
+          .farmListing .header-profile .card-body .dropdown-btn > a span,
+          .farmListing .header-profile .header-left .dropdown-btn > a span,
+          .nftHeader .card-profile .card-body .dropdown-btn > a span,
+          .nftHeader .card-profile .header-left .dropdown-btn > a span,
+          .nftHeader .header-profile .card-body .dropdown-btn > a span,
+          .nftHeader .header-profile .header-left .dropdown-btn > a span {
+            color: var(--text-primary);
+            font-size: 1.8rem; }
+          .nftListing .card-profile .card-body .dropdown-btn > a:hover span, .nftListing .card-profile .card-body .dropdown-btn > a:active span,
+          .nftListing .card-profile .header-left .dropdown-btn > a:hover span,
+          .nftListing .card-profile .header-left .dropdown-btn > a:active span,
+          .nftListing .header-profile .card-body .dropdown-btn > a:hover span,
+          .nftListing .header-profile .card-body .dropdown-btn > a:active span,
+          .nftListing .header-profile .header-left .dropdown-btn > a:hover span,
+          .nftListing .header-profile .header-left .dropdown-btn > a:active span,
+          .farmListing .card-profile .card-body .dropdown-btn > a:hover span,
+          .farmListing .card-profile .card-body .dropdown-btn > a:active span,
+          .farmListing .card-profile .header-left .dropdown-btn > a:hover span,
+          .farmListing .card-profile .header-left .dropdown-btn > a:active span,
+          .farmListing .header-profile .card-body .dropdown-btn > a:hover span,
+          .farmListing .header-profile .card-body .dropdown-btn > a:active span,
+          .farmListing .header-profile .header-left .dropdown-btn > a:hover span,
+          .farmListing .header-profile .header-left .dropdown-btn > a:active span,
+          .nftHeader .card-profile .card-body .dropdown-btn > a:hover span,
+          .nftHeader .card-profile .card-body .dropdown-btn > a:active span,
+          .nftHeader .card-profile .header-left .dropdown-btn > a:hover span,
+          .nftHeader .card-profile .header-left .dropdown-btn > a:active span,
+          .nftHeader .header-profile .card-body .dropdown-btn > a:hover span,
+          .nftHeader .header-profile .card-body .dropdown-btn > a:active span,
+          .nftHeader .header-profile .header-left .dropdown-btn > a:hover span,
+          .nftHeader .header-profile .header-left .dropdown-btn > a:active span {
+            color: var(--text-primary); }
+        .nftListing .card-profile .card-body .dropdown-btn.show a,
+        .nftListing .card-profile .header-left .dropdown-btn.show a,
+        .nftListing .header-profile .card-body .dropdown-btn.show a,
+        .nftListing .header-profile .header-left .dropdown-btn.show a,
+        .farmListing .card-profile .card-body .dropdown-btn.show a,
+        .farmListing .card-profile .header-left .dropdown-btn.show a,
+        .farmListing .header-profile .card-body .dropdown-btn.show a,
+        .farmListing .header-profile .header-left .dropdown-btn.show a,
+        .nftHeader .card-profile .card-body .dropdown-btn.show a,
+        .nftHeader .card-profile .header-left .dropdown-btn.show a,
+        .nftHeader .header-profile .card-body .dropdown-btn.show a,
+        .nftHeader .header-profile .header-left .dropdown-btn.show a {
+          background-color: var(--bg-secondary);
+          font-size: 1.4rem;
+          color: var(--text-primary); }
+        .nftListing .card-profile .card-body .dropdown-btn .dropdown-menu.show,
+        .nftListing .card-profile .header-left .dropdown-btn .dropdown-menu.show,
+        .nftListing .header-profile .card-body .dropdown-btn .dropdown-menu.show,
+        .nftListing .header-profile .header-left .dropdown-btn .dropdown-menu.show,
+        .farmListing .card-profile .card-body .dropdown-btn .dropdown-menu.show,
+        .farmListing .card-profile .header-left .dropdown-btn .dropdown-menu.show,
+        .farmListing .header-profile .card-body .dropdown-btn .dropdown-menu.show,
+        .farmListing .header-profile .header-left .dropdown-btn .dropdown-menu.show,
+        .nftHeader .card-profile .card-body .dropdown-btn .dropdown-menu.show,
+        .nftHeader .card-profile .header-left .dropdown-btn .dropdown-menu.show,
+        .nftHeader .header-profile .card-body .dropdown-btn .dropdown-menu.show,
+        .nftHeader .header-profile .header-left .dropdown-btn .dropdown-menu.show {
+          width: 100%; }
 
 .dark-edition .popover.bs-popover-bottom,
 .dark-edition .popover.bs-popover-top,
 .light-edition .popover.bs-popover-bottom,
 .light-edition .popover.bs-popover-top {
-  background-color: var(--bg-tertiary);
+  background-color: var(--bg-secondary);
   box-shadow: var(--shadow-primary); }
-  .dark-edition .popover.bs-popover-bottom .arrow, .dark-edition .popover.bs-popover-bottom .arrow::before,
+  .dark-edition .popover.bs-popover-bottom .arrow,
+  .dark-edition .popover.bs-popover-bottom .arrow::before,
   .dark-edition .popover.bs-popover-top .arrow,
   .dark-edition .popover.bs-popover-top .arrow::before,
   .light-edition .popover.bs-popover-bottom .arrow,
@@ -1229,7 +1461,8 @@ textarea, input {
   .light-edition .popover.bs-popover-top .arrow,
   .light-edition .popover.bs-popover-top .arrow::before {
     display: none; }
-  .dark-edition .popover.bs-popover-bottom .popover-header, .dark-edition .popover.bs-popover-bottom .popover-body,
+  .dark-edition .popover.bs-popover-bottom .popover-header,
+  .dark-edition .popover.bs-popover-bottom .popover-body,
   .dark-edition .popover.bs-popover-top .popover-header,
   .dark-edition .popover.bs-popover-top .popover-body,
   .light-edition .popover.bs-popover-bottom .popover-header,
@@ -1240,16 +1473,18 @@ textarea, input {
     max-height: 15rem;
     overflow: auto;
     color: var(--text-primary); }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
+    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar,
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar,
     .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar,
     .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar,
     .light-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar {
-      width: .5rem;
-      height: .3rem; }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
+      width: 0.5rem;
+      height: 0.3rem; }
+    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb,
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb,
     .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb,
     .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb,
@@ -1258,7 +1493,8 @@ textarea, input {
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb {
       background: var(--scrollbar-thumb);
       border-radius: 10px; }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb:hover, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb:hover,
+    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb:hover,
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-thumb:hover,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb:hover,
     .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb:hover,
     .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-thumb:hover,
@@ -1266,7 +1502,8 @@ textarea, input {
     .light-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-thumb:hover,
     .light-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-thumb:hover {
       background: var(--scrollbar-thumb-hover); }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
+    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track,
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track,
     .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track,
     .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track,
@@ -1276,7 +1513,8 @@ textarea, input {
       background: var(--scrolbar-track);
       border-radius: 10px;
       box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow); }
-    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track:hover, .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track:hover,
+    .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track:hover,
+    .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar-track:hover,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar-track:hover,
     .dark-edition .popover.bs-popover-top .popover-body::-webkit-scrollbar-track:hover,
     .light-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar-track:hover,
@@ -1289,7 +1527,7 @@ textarea, input {
   .light-edition .popover.bs-popover-bottom .popover-header,
   .light-edition .popover.bs-popover-top .popover-header {
     background-color: transparent;
-    border-bottom: 0.1rem solid var(--modal-border-text);
+    border-bottom: 1px solid var(--modal-border-text);
     font-family: "Poppins", sans-serif;
     font-size: 1.3rem;
     color: var(--text-primary);
@@ -1312,7 +1550,8 @@ textarea, input {
 .dark-edition .tooltip.bs-tooltip-top .tooltip-inner,
 .light-edition .tooltip.bs-tooltip-bottom .tooltip-inner,
 .light-edition .tooltip.bs-tooltip-top .tooltip-inner {
-  background-color: var(--subheading-color); }
+  background-color: var(--bg-secondary);
+  color: var(--text-primary); }
 
 .nftHeader {
   width: 100%; }
