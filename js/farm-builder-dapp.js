@@ -870,9 +870,9 @@ function TncDapp() {
 
         let fee = await web3.utils.fromWei(await window.tncLib.getFarmFee()+"");
         let nif = await web3.utils.fromWei(await window.tncLib.getFarmMinimumNif());
-
-        $('#nifMinFarm').html(nif);
-        $('#ethFeeFarm').html(fee);
+        
+        $('#farm-builder-currency').html(getCurrency());        
+        $('#farm-builder-fee').html(fee);
     };
 
     this.clearFarm = function(){
