@@ -1237,12 +1237,11 @@ function TncDapp() {
         })
 
         $(".farmSocialMediaAdd").on("click", async function () {
-          let socialMediaWrapper = $(".farmSocialMediaGroupWrapper");
-          let socialMediaFields = $(".farmSocialMediaGroup").last().clone();
+          let socialMediaWrapper = $(this).siblings(".farmSocialMediaGroupWrapper");
+          let socialMediaFields = socialMediaWrapper.find(".farmSocialMediaGroup").last().clone();
 
-
-          $('select[name="socialMediaName[]"]').each(function (i) {
-            removeOption($(this).val());
+          socialMediaWrapper.find('select[name="socialMediaName[]"]').each(function (i) {
+            removeOption(this);
             socialMediaFields
               .find('option[value="' + $(this).val() + '"]')
               .remove();
@@ -1250,27 +1249,26 @@ function TncDapp() {
 
           if (socialMediaFields.find('input[type="text"]').val()) {
             socialMediaFields.find('input[type="text"]').val("");
-            $(".farmSocialMediaGroup")
-            .last()
-            .find("select")
-            .attr("disabled", "true");
+            socialMediaWrapper.find(".farmSocialMediaGroup").last().find("select").attr("disabled", "true");
 
-            socialMediaFields.find("select").removeAttr("disabled")
+            socialMediaFields.find("select").removeAttr("disabled");
             socialMediaWrapper.append(socialMediaFields);
 
             socialMediaFields.find(".removeSocial").on("click", function () {
-                removesSocial(this);
+              removesSocial(this);
             });
           }
         });
 
         $(".removeSocial").on("click", function () {
-            removesSocial(this);
+          removesSocial(this);
         });
 
         //Remove option from dropdown if it is already selected
-        function removeOption(option) {
-          $('[name="socialMediaName[]"]').each(function () {
+        function removeOption(el) {
+          //el is select
+          let option = $(el).val();
+          $(el).parent().siblings().find('[name="socialMediaName[]"]').each(function () {
             if ($(this).find(":selected").val() != option) {
               $(this)
                 .find('option[value="' + option + '"]')
@@ -1279,25 +1277,29 @@ function TncDapp() {
           });
         }
 
-        function reAddOptions(option){
-            $('[name="socialMediaName[]"]').each(function(){
+        function reAddOptions(el){
+            //el is remove button
+
+            let option = $(el)
+            .parent()
+            .find("select")
+            .find(":selected")
+            .text();
+
+            $(el).parent().siblings().find('[name="socialMediaName[]"]').each(function(){
                 let optionString = "<option value=" + option + ">" + option + "</option>";
                 $(this).append(optionString);
             })
         }
         
-        function removesSocial(el){            
+        function removesSocial(el){   
+            //el is remove button         
             if ($(el).parent().siblings().length > 0) {
 
                 let attr = $(el).parent().find("select").attr("disabled")
                 if (typeof attr !== 'undefined' && attr !== false) {
-                    let removedOption = $(el)
-                    .parent()
-                    .find("select")
-                    .find(":selected")
-                    .text();
                     
-                    reAddOptions(removedOption);
+                    reAddOptions(el);
                 }                
 
               $(el).parent().remove();
