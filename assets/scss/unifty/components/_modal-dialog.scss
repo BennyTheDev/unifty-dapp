@@ -205,6 +205,7 @@
     .range {
       width: 100%;
       background-color: transparent;
+      -webkit-appearance: none;
 
       &:focus {
         outline: none;

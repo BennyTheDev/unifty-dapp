@@ -1715,7 +1715,8 @@ textarea, input {
     .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range,
     .light-edition .main-panel .modal-dialog .modal-content .modal-body .range {
       width: 100%;
-      background-color: transparent; }
+      background-color: transparent;
+      -webkit-appearance: none; }
       .dark-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus,
       .light-edition .main-panel .modal-dialog .modal-content .modal-body .range:focus {
         outline: none; }
