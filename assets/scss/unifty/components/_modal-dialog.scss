@@ -592,3 +592,23 @@
 
   margin: 1rem 0;
 }
+
+
+.modalFarmInfo{
+  display: flex;
+  align-items: center;
+
+  margin: 0.7rem 0.4rem;
+
+  img{
+    width: 4rem;
+  }
+
+  h3{
+    margin: 0;
+    margin-left: 1rem;
+
+    font-weight: 500;
+    color: var(--primary-color);
+  }
+}

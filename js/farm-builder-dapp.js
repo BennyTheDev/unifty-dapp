@@ -571,12 +571,13 @@ function TncDapp() {
                 token,
                 farmJsonUrl,
                 function () {
-                    toastr["info"]('Please wait for the transaction to finish.', "New Farm....");
+                    $("#farmModal").modal("hide")
+                    _this.infoModal("info" ,"Please wait for the transaction to finish.");
                 },
                 function (receipt) {
                     console.log(receipt);
-                    toastr.remove();
-                    toastr["success"]('Transaction has been finished.', "Success");
+                    $("#farmModal").modal("hide")
+                    _this.infoModal("success" ,"Transaction has been finished.");
 
                     _this.lastFarmIndex = -1;
                     _this.populateMyFarms();
@@ -591,6 +592,24 @@ function TncDapp() {
 
         });
     };
+
+
+    this.infoModal = function(state, message){
+
+        let imgSource
+
+        if(state == "success"){
+            imgSource = "assets/img/icons/task_success_black_48.svg";
+        }
+        else{
+            imgSource = "assets/img/icons/info_black_48.svg";
+        }
+
+        _alert("<div class='modalFarmInfo'>" +
+        "<img src='" + imgSource + "'>" +
+        "<h3>" + message + "</h3>" +
+        "</div>");        
+    }
 
     this.updateRewardRate = async function(){
         let rate = $('#farmEditRewardRate').val().trim();
