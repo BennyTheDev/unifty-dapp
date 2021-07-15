@@ -1254,6 +1254,11 @@ function TncDapp() {
           let socialMediaWrapper = $(this).siblings(".farmSocialMediaGroupWrapper");
           let socialMediaFields = socialMediaWrapper.find(".farmSocialMediaGroup").last().clone();
 
+          if($(socialMediaFields).find("option").length == 1){
+            //Prevent from creating more dropdowns than there are social media options  
+            return;
+          }
+
           socialMediaWrapper.find('select[name="socialMediaName[]"]').each(function (i) {
             removeOption(this);
             socialMediaFields
