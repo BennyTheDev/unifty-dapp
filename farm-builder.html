@@ -782,56 +782,37 @@
                     <input type="text" placeholder="Enter a name for your farm" class="form-control" id="farmInfoName">
                   </div>
 
+                  <div class="form-group img-selector">
+                    <div class="imageFileDisplay mb-3"></div>
+                    <div class="img-side">
+                        <label for="farmInfoImageFile" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Farm image" data-content="Upload farm image">
+                          <i class="material-icons-round" style="margin-right: 5px;">image</i>
+                          Click to Choose Image
+                        </label>
+                        <input type="file" class="form-control-file imageFile" id="farmInfoImageFile" accept="image/*">
+                        <input type="hidden" id="farmInfoImageUrl" value="" />
+                      <p>You can upload JPG, PNG or GIF file</p>
+                    </div>
+                    
+                  </div>
+
                   <div class="form-group">
                     <label for="farmInfoDescription">Description</label>
                     <textarea class="form-control" id="farmInfoDescription" rows="3"></textarea>
                   </div>
 
-                  <div class="form-group">
-                    <label for="farmInfoImageFile">Click to Choose Image....</label>
-                    <input type="file" class="form-control-file imageFile" id="farmInfoImageFile" accept="image/*">
-                    <div class="imageFileDisplay mt-3"></div>
-                    <input type="hidden" id="farmInfoImageUrl" value="" />
-                  </div>
 
-                  <fieldset class="form-group">
+                  <fieldset id="editSocialMedia" class="form-group">
                     <legend>Social (optional)</legend>
 
-                    <div class="form-row">
-                      <div class="col">
-                        <input type="text" class="form-control mb-3" placeholder="Twitter Url" id="farmInfoTwitter">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="Discord Url" id="farmInfoDiscord">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="Telegram Url" id="farmInfoTelegram">
-                      </div>
+                    <div class="farmSocialMediaGroupWrapper">
+                      
                     </div>
 
-                    <div class="form-row">
-                      <div class="col">
-                        <input type="text" class="form-control mb-3" placeholder="Medium Url" id="farmInfoMedium">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="Instagram Url" id="farmInfoInstagram">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="Youtube Url" id="farmInfoYoutube">
-                      </div>
-                    </div>
-
-                    <div class="form-row">
-                      <div class="col">
-                        <input type="text" class="form-control mb-3" placeholder="Website Url" id="farmInfoWeb">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="Email address" id="farmInfoEmail">
-                      </div>
-                      <div class="col">
-                        <input type="text" class="form-control" placeholder="Phone" id="farmInfoPhone">
-                      </div>
-                    </div>
+                    <a type="button" id="farmSocialMediaAdd" name="farmSocialMediaAdd" class="farmSocialMediaAdd mt-3 mb-3">
+                      <i class="material-icons-round">add_circle</i>
+                      <p>Add More Social Media</p>
+                    </a>
 
                     <div class="form-row">
                       <div class="col">

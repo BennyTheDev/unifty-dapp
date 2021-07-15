@@ -10,6 +10,8 @@ function TncDapp() {
     this.prevAccounts = [];
     this.prevChainId = '';
 
+    this.defaultSocialMediaRow;
+
     this.populateMyFarms = async function(){
 
         if(_this.lastFarmIndex == -1) {
@@ -281,19 +283,39 @@ function TncDapp() {
             let data = await $.getJSON(_uri);
             if (typeof data == 'object') {
 
+                //Get the social media dropdown row without any values
+                let socialMediaRow = _this.defaultSocialMediaRow;
+
+                console.log(socialMediaRow)
+                socialMediaRow.find(".removeSocial").on("click", function () {
+                    removesSocial(this);
+                });
+
+                for(let key in data){
+                    if(key == "name" || key == "description" || key == "image" || key == "customLink" || data[key] == ""){
+                        continue;
+                    }
+
+                    let copy_SocialMediaRow = socialMediaRow.clone();
+
+                    copy_SocialMediaRow.find("select").val(key).attr("disabled", "true");
+                    copy_SocialMediaRow.find("input").val(data[key]);
+                    copy_SocialMediaRow.find(".removeSocial").on("click", function () {
+                        removesSocial(this);
+                      });
+
+                    $("#editSocialMedia .farmSocialMediaGroupWrapper").append(copy_SocialMediaRow);
+                }
+
+                if($("#editSocialMedia .farmSocialMediaGroupWrapper").children().length == 0){
+                    //If there are no links then add a blank row
+                    $("#editSocialMedia .farmSocialMediaGroupWrapper").append(socialMediaRow);
+                }
+                
                 $('#farmInfoFarmAddress').val(farmAddress);
                 $('#farmInfoName').val(data.name);
                 $('#farmInfoDescription').val(data.description);
                 $('#farmInfoImageUrl').val(data.image);
-                $('#farmInfoTwitter').val(data.twitter);
-                $('#farmInfoDiscord').val(data.discord);
-                $('#farmInfoTelegram').val(data.telegram);
-                $('#farmInfoMedium').val(data.medium);
-                $('#farmInfoInstagram').val(data.instagram);
-                $('#farmInfoYoutube').val(data.youtube);
-                $('#farmInfoWeb').val(data.web);
-                $('#farmInfoEmail').val(data.email);
-                $('#farmInfoPhone').val(data.phone);
                 $('#farmInfoCustomLink').val(data.customLink.value);
                 $('#farmInfoCustomLinkText').val(data.customLink.name);
                 $('.imageFileDisplay').html('<img src=' + JSON.stringify(data.image) + ' border="0" width="200"/>');
@@ -303,6 +325,11 @@ function TncDapp() {
 
             console.log('Trouble resolving farm uri: ', _uri);
         }
+
+        //Resetting value to default on close
+        $("#farmInfoModal").on('hidden.bs.modal', function () {
+            $("#editSocialMedia .farmSocialMediaGroup").remove();
+        });
     };
 
     this.populateShopEdit = async function(e){
@@ -721,15 +748,6 @@ function TncDapp() {
         let name = $('#farmInfoName').val().trim();
         let description = $('#farmInfoDescription').val().trim();
         let image = $('#farmInfoImageUrl').val().trim();
-        let twitter = $('#farmInfoTwitter').val().trim();
-        let discord = $('#farmInfoDiscord').val().trim();
-        let telegram = $('#farmInfoTelegram').val().trim();
-        let medium = $('#farmInfoMedium').val().trim();
-        let instagram = $('#farmInfoInstagram').val().trim();
-        let youtube = $('#farmInfoYoutube').val().trim();
-        let web = $('#farmInfoWeb').val().trim();
-        let email = $('#farmInfoEmail').val().trim();
-        let phone = $('#farmInfoPhone').val().trim();
         let link = $('#farmInfoCustomLink').val().trim();
         let text = $('#farmInfoCustomLinkText').val().trim();
 
@@ -739,17 +757,15 @@ function TncDapp() {
             name : name,
             description : description,
             image : image,
-            twitter : twitter,
-            discord: discord,
-            telegram: telegram,
-            medium: medium,
-            instagram: instagram,
-            youtube : youtube,
-            web : web,
-            email : email,
-            phone : phone,
             customLink : { name : text, value : link }
         };
+
+        $("#editSocialMedia .farmSocialMediaGroup").each(function(){
+            let social = $(this).find("select option:selected").val();
+            let link = $(this).find("input").val().trim();
+
+            farmInfo[social] = link
+        })
 
         console.log(JSON.stringify(farmInfo));
 
@@ -767,16 +783,14 @@ function TncDapp() {
                 $('#farmInfoFarmAddress').val(),
                 farmJsonUrl,
                 function () {
-                    $('#farmInfoButton').prop('disabled', true);
-                    $('#farmInfoButton').html('Processing...');
-                    toastr["info"]('Please wait for the transaction to finish.', "Update Farm Info....");
+                    $("#farmInfoModal").modal("hide");
+                    _this.infoModal("info" ,"Please wait for the transaction to finish.");
                 },
                 function (receipt) {
                     console.log(receipt);
-                    toastr.remove();
-                    $('#farmInfoButton').prop('disabled', false);
-                    $('#farmInfoButton').html('Update');
-                    toastr["success"]('Transaction has been finished.', "Success");
+                    $("#farmInfoModal").modal("hide");
+                    _this.infoModal("success" ,"Transaction has been finished.");
+
                     _this.lastFarmIndex = -1;
                     _this.populateMyFarms();
                 },
@@ -1189,6 +1203,8 @@ function TncDapp() {
         $('#editStakeButton').on('click', _this.updateStakes);
         $('#farmInfoButton').on('click', _this.updateFarmInfo);
 
+        _this.defaultSocialMediaRow = $(".farmSocialMediaGroup").first().clone();
+        
         $('#farmCustomTokenAddress').on('change', async function(){
             let token = $(this).val().trim();
             if(await web3.utils.isAddress(token)){
@@ -1292,7 +1308,7 @@ function TncDapp() {
             })
         }
         
-        function removesSocial(el){   
+        window.removesSocial = function(el){
             //el is remove button         
             if ($(el).parent().siblings().length > 0) {
 
