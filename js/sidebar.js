@@ -9,21 +9,16 @@ let parentCollapsables;
 let collapsibleSidebar;
 
 $(document).ready(function () {
-  $("#menu-collapse").click(() => {
-    toggleSidebar();
-  });
-
   $(".collapsibleParent").parent().css("overflow", "hidden");
 
   initElements();
   removeUnecessaryShops();
-  fixingDropdowns();
-
+  
   if ($(window).width() <= 991) {
     defaultSidebar();
     mainPanel.css("width", "100%");
   } else {
-    $("#menu-collapse").show();
+    //$("#menu-collapse").show();
     userDefault();
   }
 });
@@ -39,13 +34,6 @@ function fixingDropdowns() {
   let openedDropdown = $('[data-toggle="dropdown"][aria-expanded="true"]');
   let styleText = openedDropdown.attr("style");
   
-  let scrollPos = $(document).scrollTop();
-  dropdowns.click();
-
-  //Prevent popups from opening by simulating clicks
-  $(".sidebar").click();
-  $(document).scrollTop(scrollPos);
-
   if (openedDropdown.length > 0) {
     reOpenDropdown(openedDropdown, styleText);
   }
@@ -62,22 +50,26 @@ $(window).resize(function () {
   if ($(window).width() <= 991) {
     defaultSidebar();
   } else {
-    $("#menu-collapse").show();
+    //$("#menu-collapse").show();
     userDefault();
   }
 });
 
 function userDefault() {
+  expandSidebar();
+
+  /*
   if (
     localStorage.getItem("sidebar") === "expanded" ||
     localStorage.getItem("sidebar") === null
-  ) {
-    collapsibleSidebar = false;
-    expandSidebar();
+    ) {
+      collapsibleSidebar = false;
+      expandSidebar();
   } else {
     collapsibleSidebar = true;
     collapseSidebar();
   }
+  */
 }
 
 function initElements() {
@@ -104,7 +96,7 @@ function toggleSidebar() {
 function defaultSidebar() {
   expandSidebar();
 
-  $("#menu-collapse").hide();
+  //$("#menu-collapse").hide();
   mainPanel.removeAttr("style");
 
   removingPopopvers();
