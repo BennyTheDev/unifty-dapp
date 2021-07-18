@@ -43,7 +43,7 @@ function TncDapp() {
                 toastr.remove();
                 $(_button).prop("disabled", false);
                 $(_button).html("Withdraw");
-                let errMsg = "An Withdraw occurred with your unregistering transaction.";
+                let errMsg = "An error occurred with your unregistering transaction.";
                 toastr["error"](
                     errMsg,
                     "Error"
@@ -278,7 +278,7 @@ function TncDapp() {
                 handle,
                 funds.toString(),
                 function (){
-                    toastr["info"]('Please wait for the transaction to finish.', "Buying....");
+                    toastr["info"]('Please wait for the transaction to finish.', "Registering....");
                 },
                 async function(receipt){
                     console.log(receipt);
@@ -292,7 +292,7 @@ function TncDapp() {
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Register');
-                    let errMsg = 'An error occurred with your buying transaction.';
+                    let errMsg = 'An error occurred with your registering transaction.';
                     toastr["error"](errMsg, "Error");
                     errorPopup("Error", errMsg, err.stack);
                 }
@@ -355,6 +355,7 @@ function TncDapp() {
     };
 
     this.removingDecimals = function (string) {
+        if(string == '0') return '0';
         while (true) {
             if (string.slice(-1) == 0) {
                 string = string.substring(0, string.length - 1);

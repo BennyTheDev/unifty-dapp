@@ -1097,11 +1097,6 @@ function TncDapp() {
                     return;
                 }
 
-                // tiktok-address
-                if(chain_id == '38') {
-                    addresses.push(tncLib.tiktokCollection);
-                }
-
                 for(let i = length - 1; i >= 0; i--){
                     let myCollection = await tncLib.getMyErc1155(i);
                     addresses.push(myCollection.erc1155);

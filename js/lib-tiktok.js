@@ -59,7 +59,7 @@ function TncLibTikTok(){
 
     this.authorized = async function(handle){
         await sleep(sleep_time);
-        return await this.tiktok.methods.authorized(handle).call({from:this.account});
+        return 0 != await this.tiktok.methods.authorized(handle).call({from:this.account});
     };
 
     this.iHaveAnyWildcard = async function(){
