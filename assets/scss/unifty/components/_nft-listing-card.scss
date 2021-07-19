@@ -289,6 +289,20 @@
   }
 }
 
+//FarmBuilder cards
+#farmsPage .popover-description{
+  position: initial;
+  display:flex;
+  margin: 1.5rem auto;
+  font-size: 1.34rem;
+  text-transform: initial;
+
+  span{
+    margin-right: 0.5rem;
+  }
+
+}
+
 .dark-edition .popover.bs-popover-bottom,
 .dark-edition .popover.bs-popover-top,
 .light-edition .popover.bs-popover-bottom,

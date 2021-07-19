@@ -1446,6 +1446,15 @@ textarea, input {
         .nftHeader .header-profile .header-left .dropdown-btn .dropdown-menu.show {
           width: 100%; }
 
+#farmsPage .popover-description {
+  position: initial;
+  display: flex;
+  margin: 1.5rem auto;
+  font-size: 1.34rem;
+  text-transform: initial; }
+  #farmsPage .popover-description span {
+    margin-right: 0.5rem; }
+
 .dark-edition .popover.bs-popover-bottom,
 .dark-edition .popover.bs-popover-top,
 .light-edition .popover.bs-popover-bottom,
