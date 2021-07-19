@@ -528,15 +528,14 @@ function TncDapp() {
             shopAddress,
             runMode,
             function () {
-                toastr["info"]('Please wait for the transaction to finish.', "Shop RunMode....");
+                $("#farmShopEditModal").modal("hide")
+                _this.infoModal("info" ,"Please wait for the transaction to finish.");
             },
             function (receipt) {
                 console.log(receipt);
                 toastr.remove();
-                toastr["success"]('Transaction has been finished.', "Success");
-
-                $('#farmShopEditButton').prop('disabled', false);
-                $('#farmShopEditButton').html('Save');
+                $("#farmShopEditModal").modal("hide")
+                _this.infoModal("success" ,"Transaction has been finished.");
             },
             function (err) {
                 toastr.remove();
@@ -693,16 +692,14 @@ function TncDapp() {
             controller,
             farmAddress,
             function () {
-                $('#editControllerButton').prop('disabled', true);
-                $('#editControllerButton').html('Processing...');
-                toastr["info"]('Please wait for the transaction to finish.', "Set Controller...");
+                $("#editControllerModal").modal("hide")
+                _this.infoModal("info" ,"Please wait for the transaction to finish.");
             },
             function (receipt) {
                 console.log(receipt);
                 toastr.remove();
-                $('#editControllerButton').prop('disabled', false);
-                $('#editControllerButton').html('Update');
-                toastr["success"]('Transaction has been finished.', "Success");
+                $("#editControllerModal").modal("hide")
+                _this.infoModal("success" ,"Transaction has been finished.");
             },
             function (err) {
                 toastr.remove();
@@ -736,16 +733,14 @@ function TncDapp() {
             maxStake,
             farmAddress,
             function () {
-                $('#editStakeButton').prop('disabled', true);
-                $('#editStakeButton').html('Processing...');
-                toastr["info"]('Please wait for the transaction to finish.', "Edit Stakes...");
+                $("#editStakeModal").modal("hide")
+                _this.infoModal("info" ,"Please wait for the transaction to finish.");
             },
             function (receipt) {
                 console.log(receipt);
                 toastr.remove();
-                $('#editStakeButton').prop('disabled', false);
-                $('#editStakeButton').html('Update');
-                toastr["success"]('Transaction has been finished.', "Success");
+                $("#editStakeModal").modal("hide")
+                _this.infoModal("success" ,"Transaction has been finished.");
             },
             function (err) {
                 toastr.remove();
