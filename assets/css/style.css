@@ -2285,6 +2285,19 @@ textarea, input {
     font-weight: 500;
     color: var(--primary-color); }
 
+#farmShopEditModal .modal-body .form-check {
+  margin: 1.5rem 0; }
+  #farmShopEditModal .modal-body .form-check input {
+    margin-top: 0.35rem; }
+  #farmShopEditModal .modal-body .form-check label {
+    width: initial; }
+    #farmShopEditModal .modal-body .form-check label span {
+      display: initial;
+      position: initial; }
+      #farmShopEditModal .modal-body .form-check label span.radioBtnLabel {
+        color: var(--primary-color);
+        font-weight: 500; }
+
 .dark-edition .main-panel .content .container-fluid.wallet .title-options-container,
 .light-edition .main-panel .content .container-fluid.wallet .title-options-container {
   display: flex;

@@ -612,3 +612,30 @@
     color: var(--primary-color);
   }
 }
+
+#farmShopEditModal{
+  .modal-body{
+
+    .form-check{
+      margin: 1.5rem 0;
+
+      input{
+        margin-top: 0.35rem;
+      }
+  
+      label{
+        width: initial;
+  
+        span{
+          display: initial;
+          position: initial; 
+  
+          &.radioBtnLabel{
+            color: var(--primary-color);
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
