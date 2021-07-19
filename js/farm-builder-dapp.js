@@ -287,13 +287,30 @@ function TncDapp() {
                 //Get the social media dropdown row without any values
                 let socialMediaRow = _this.defaultSocialMediaRow;
 
-                console.log(socialMediaRow)
+                console.log(data)
                 socialMediaRow.find(".removeSocial").on("click", function () {
                     removesSocial(this);
                 });
 
                 for(let key in data){
                     if(key == "name" || key == "description" || key == "image" || key == "customLink" || data[key] == ""){
+                        continue;
+                    }
+
+                    //Special case where the object was stored differently in previous versions
+                    if (typeof data[key] == 'object') {
+                        for(let key2 in data[key]){
+                            let copy_SocialMediaRow = socialMediaRow.clone();
+
+                            copy_SocialMediaRow.find("select").val(data[key][key2].name).attr("disabled", "true");
+                            copy_SocialMediaRow.find("input").val(data[key][key2].value);
+                            copy_SocialMediaRow.find(".removeSocial").on("click", function () {
+                                removesSocial(this);
+                            });
+
+                            $("#editSocialMedia .farmSocialMediaGroupWrapper").append(copy_SocialMediaRow);
+                        }
+
                         continue;
                     }
 
