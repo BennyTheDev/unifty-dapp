@@ -690,6 +690,7 @@ textarea, input {
   .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .first-row {
     display: flex;
+    flex-direction: column;
     width: 100%; }
     @media only screen and (max-width: 26em) {
       .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row,
@@ -697,6 +698,7 @@ textarea, input {
         flex-direction: column; } }
     .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row .divider,
     .light-edition .nftHeader-stakingOptions-container #stakingOptions .first-row .divider {
+      height: 1rem;
       width: 1rem; }
     @media only screen and (max-width: 26em) {
       .dark-edition .nftHeader-stakingOptions-container #stakingOptions .first-row a:not(:last-child),
@@ -2153,6 +2155,20 @@ textarea, input {
       .light-edition .main-panel .modal-dialog .modal-content .modal-body form fieldset .form-group select {
         height: auto;
         margin-bottom: 1rem; }
+    .dark-edition .main-panel .modal-dialog .modal-content .modal-body #farmSelectNftButton,
+    .light-edition .main-panel .modal-dialog .modal-content .modal-body #farmSelectNftButton {
+      display: flex;
+      align-items: center; }
+  .dark-edition .main-panel .modal-dialog .modal-content .helperHeader,
+  .light-edition .main-panel .modal-dialog .modal-content .helperHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2rem !important; }
+    .dark-edition .main-panel .modal-dialog .modal-content .helperHeader p,
+    .light-edition .main-panel .modal-dialog .modal-content .helperHeader p {
+      margin: 0;
+      font-weight: 600; }
   .dark-edition .main-panel .modal-dialog .modal-content #feeCollection h3,
   .light-edition .main-panel .modal-dialog .modal-content #feeCollection h3 {
     font-family: Poppins;

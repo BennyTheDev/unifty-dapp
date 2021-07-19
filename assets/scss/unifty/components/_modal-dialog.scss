@@ -411,6 +411,25 @@
         }
       }
     }
+
+    #farmSelectNftButton{
+      display:flex;
+      align-items: center;
+    }
+  }
+
+  
+  .helperHeader{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0 2rem !important;
+
+    p{
+      margin:0;
+      font-weight: 600;
+    }
   }
 
   #feeCollection{

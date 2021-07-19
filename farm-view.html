@@ -497,6 +497,10 @@
                         </div>
                       </div>
                       <div class="card-links">
+                        {{#ifNotEquals web ""}}
+                            <a href="{{web}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-globe"></i> Web</a>
+                        {{/ifNotEquals}}
+
                         {{#ifNotEquals custom_link_value ""}}
                             <a href="{{custom_link_value}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-external-link"></i> {{custom_link_name}}</a>
                         {{/ifNotEquals}}
@@ -525,16 +529,12 @@
                             <a href="{{youtube}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-youtube"></i> Youtube</a>
                         {{/ifNotEquals}}
 
-                        {{#ifNotEquals web ""}}
-                            <a href="{{web}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-home"></i> Web</a>
-                        {{/ifNotEquals}}
-
                         {{#ifNotEquals email ""}}
                             <a href="mailto:{{email}}" class="card-link" style="white-space: nowrap;"><i class="fa fa-envelope"></i> Email</a>
                         {{/ifNotEquals}}
 
                         {{#ifNotEquals phone ""}}
-                            <div class="mt-2" style="white-space: nowrap;">Phone: {{phone}}</div>
+                            <div class="mt-2" style="white-space: nowrap;"><i class="fa fa-phone"></i> {{phone}}</div>
                         {{/ifNotEquals}}
                       </div>
                     </div>
@@ -650,17 +650,21 @@
                     {{/ifNotEquals}}
 
                       {{#ifNotEquals options ""}}
-                      <div class="dropdown">
-                          <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <span class="material-icons-round">
-                                create
-                              </span>
+                      <div class="dropdown-btn mt-3 mb-3">
+                        <a href="javascript:void(0);" class="dropdown-toggle dropdown-primary mb-3" id="farmNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          OPTIONS
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
+                          <a href="javascript:void(0);"id="farmEditData{{erc1155}}{{id}}" class="farmEditData dropdown-item" data-toggle="modal" data-target="#farmEditDataModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}">
+                            Edit Data
                           </a>
-                          <div class="dropdown-menu" aria-labelledby="farmNftActions{{erc1155}}{{id}}">
-                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmEditDataModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmEditData{{erc1155}}{{id}}" class="farmEditData">Edit Data</a>
-                              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#farmRemoveNftsModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" id="farmRemoveNfts{{erc1155}}{{id}}" class="farmRemoveNfts">Remove NFTs</a>
-                              <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmSetShopPriceModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" data-shop-address="{{shop}}" id="farmSetShopPrice{{erc1155}}{{id}}" class="farmSetShopPrice">Set Shop Price</a>
-                          </div>
+                          <a href="javascript:void(0);" id="farmRemoveNfts{{erc1155}}{{id}}" class="dropdown-item farmRemoveNfts" data-toggle="modal" data-target="#farmRemoveNftsModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}">
+                            Remove NFTs
+                          </a>
+                          <a href="javascript:void(0);" style="display:none;" id="farmSetShopPrice{{erc1155}}{{id}}" class="dropdown-item farmSetShopPrice" data-toggle="modal" data-target="#farmSetShopPriceModal" data-contract-address="{{erc1155}}" data-contract-id="{{id}}" data-shop-address="{{shop}}">
+                            Set Shop Price
+                          </a>
+                        </div>
                       </div>
                       {{/ifNotEquals}}
 
@@ -749,7 +753,9 @@
                   <input type="hidden" id="farmSelectedWalletId" value="" />
 
                   <button type="submit" class="btn btn-primary mb-2" data-toggle="modal" data-target="#farmWalletModal"
-                    id="farmSelectNftButton">Open Wallet</button>
+                    id="farmSelectNftButton">
+                    <i class="material-icons-round" style="margin-right: 5px;">image</i>
+                    Open Wallet</button>
 
                   <div class="row" id="farmSelectedCode"></div>
 
@@ -879,6 +885,20 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
+              </div>
+              <div>
+                
+
+                <div class="row mb-2 pb-2 helperHeader" style="border-bottom: 1px solid #ccc">
+                  <div class="col-2"><p>NFT</p></div>
+                  <div class="col-3"><p>Name</p></div>
+                  <div class="col-3"><p>Collection</p></div>
+                  <div class="col-2"><p>No.</p></div>
+                  <div class="col-2"><p>You own</p></div>
+                </div>
+                
+
+
               </div>
               <div class="modal-body modal-non-nft-content" id="walletModalBody">
               </div>
