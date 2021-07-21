@@ -314,6 +314,99 @@ textarea, input {
         content: "keyboard_arrow_up";
         font-size: 1.8rem; }
 
+#dashboard-btn-container {
+  display: flex;
+  align-items: center; }
+  #dashboard-btn-container .outline-btn {
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);
+    border: 0.2rem solid var(--primary-color);
+    border-radius: 0.8rem;
+    box-shadow: none;
+    font-size: 1.8rem;
+    text-transform: none;
+    padding: 1rem 1.8rem;
+    font-weight: 700;
+    height: 4.3rem; }
+    #dashboard-btn-container .outline-btn:hover {
+      color: var(--primary-color); }
+    #dashboard-btn-container .outline-btn:focus {
+      color: var(--primary-color); }
+  #dashboard-btn-container #sortingFarm-container {
+    display: flex;
+    align-items: center; }
+    #dashboard-btn-container #sortingFarm-container #sortingFarm {
+      display: block;
+      height: 4.3rem; }
+    #dashboard-btn-container #sortingFarm-container .dropdown-item {
+      color: var(--text-primary); }
+      #dashboard-btn-container #sortingFarm-container .dropdown-item:hover {
+        color: var(--text-primary);
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: none;
+        background-color: var(--primary-hover-light); }
+    #dashboard-btn-container #sortingFarm-container h3 {
+      margin: 0 3rem; }
+    #dashboard-btn-container #sortingFarm-container #clearNFT {
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+      padding-left: 1rem;
+      opacity: 0.7; }
+  #dashboard-btn-container .divider {
+    background-color: var(--primary-color);
+    height: 5rem;
+    width: 1px;
+    margin: 0 3rem; }
+
+#farmSorting table {
+  width: 100%;
+  table-layout: fixed; }
+  #farmSorting table thead {
+    background-color: var(--bg-tertiary);
+    height: 5rem;
+    line-height: 5rem; }
+    #farmSorting table thead td p {
+      font-family: Poppins;
+      font-size: 1.6rem;
+      font-weight: bold;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.56;
+      color: var(--primary-color);
+      margin: 0;
+      text-align: left; }
+    #farmSorting table thead td:first-child p {
+      text-align: center; }
+  #farmSorting table tbody .farmSortingItem {
+    height: 5rem; }
+    #farmSorting table tbody .farmSortingItem td p {
+      font-family: Poppins;
+      font-size: 14px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin: 0;
+      text-align: left; }
+    #farmSorting table tbody .farmSortingItem td:first-child p {
+      text-align: center; }
+  #farmSorting table tfoot {
+    border-top: 2px solid black; }
+    #farmSorting table tfoot tr {
+      height: 5rem; }
+      #farmSorting table tfoot tr p {
+        font-family: Poppins;
+        font-size: 1.6rem;
+        font-weight: bold;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.56;
+        color: var(--primary-color);
+        margin: 0;
+        text-align: left; }
+
 @media only screen and (max-width: 990px) {
   .card.card.farm-card {
     width: 671px; } }

@@ -126,6 +126,164 @@
   }
 }
 
+#dashboard-btn-container{
+
+  display:flex;
+  align-items: center;
+
+  .outline-btn{
+    background-color: var(--bg-secondary);
+    color: var(--primary-color);
+    border: 0.2rem solid var(--primary-color);
+    border-radius: 0.8rem;
+    box-shadow: none;
+    font-size: 1.8rem;
+    text-transform: none;
+    padding: 1rem 1.8rem;
+    font-weight: 700;
+
+    height: 4.3rem;
+  
+    &:hover{
+      color: var(--primary-color);
+    }
+  
+    &:focus{
+      color: var(--primary-color);
+    }
+  }
+
+  #sortingFarm-container{
+    display: flex;
+    align-items: center;
+
+    #sortingFarm{
+      display: block;
+      height: 4.3rem;
+    }
+
+    .dropdown-item{
+
+      color: var(--text-primary);
+
+      &:hover{
+        color: var(--text-primary);
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: none;
+        background-color: var(--primary-hover-light);
+      }
+    }
+
+    h3{
+      margin: 0 3rem;
+    }
+
+    #clearNFT{
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+      padding-left: 1rem;
+
+      opacity: 0.7;
+    }
+  }
+
+  .divider{
+    background-color: var(--primary-color);
+    height: 5rem;
+    width: 1px;
+    margin: 0 3rem;
+  }
+}
+
+#farmSorting{
+  table{
+    width: 100%;
+    table-layout: fixed;
+
+    thead{
+      background-color: var(--bg-tertiary);
+      height: 5rem;
+       line-height: 5rem;
+       
+       td{
+         p{
+          font-family: Poppins;
+          font-size: 1.6rem;        
+          font-weight: bold;        
+          font-stretch: normal;        
+          font-style: normal;        
+          line-height: 1.56;        
+          color: var(--primary-color);
+
+           margin:0;
+           text-align: left;
+         }
+   
+         &:first-child{
+           p{
+             text-align: center;
+           }
+         }
+         
+       }
+    }
+
+    tbody{
+      .farmSortingItem{
+        height: 5rem;
+
+        td{
+          p{
+            font-family: Poppins;        
+            font-size: 14px;      
+            font-weight: normal;      
+            font-stretch: normal;      
+            font-style: normal;      
+            line-height: 1.5;
+          
+            color: var(--text-primary);
+
+            margin:0;
+            text-align: left;
+          }
+  
+          &:first-child{
+            p{
+              text-align: center;
+            }
+          }
+
+        }
+      }
+    }
+
+    tfoot{
+      border-top: 2px solid black;
+
+      tr{
+        height: 5rem;
+
+        p{
+          font-family: Poppins;
+          font-size: 1.6rem;        
+          font-weight: bold;        
+          font-stretch: normal;        
+          font-style: normal;        
+          line-height: 1.56;        
+          color: var(--primary-color);
+
+           margin:0;
+           text-align: left;
+        }
+      }
+    }
+  
+  
+  }
+}
+
+
 @media only screen and (max-width: 990px) {
   .card.card.farm-card {
     width: 671px;

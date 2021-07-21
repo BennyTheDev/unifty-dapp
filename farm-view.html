@@ -723,6 +723,69 @@
           
         </script>
 
+        <div id="dashboard-btn-container" class="mb-5">
+          
+          <a href="javascript:void(0);" id="dashboard-btn" class="outline-btn">DASHBOARD</a>
+
+          <div id="sortingFarm-container" style="display: none;">
+            <div class="divider"></div>
+  
+            <div class="dropdown-btn">
+              <a href="javascript:void(0);" class="dropdown-toggle dropdown-primary" id="sortingFarm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                SORT BY
+              </a>
+              <div class="dropdown-menu" aria-labelledby="sortingFarm">
+                <a href="javascript:void(0);" class="dropdown-item">
+                  Most Tokens
+                </a>
+                <a href="javascript:void(0);" class="dropdown-item">
+                  Least Tokens
+                </a>
+                <a href="javascript:void(0);" class="dropdown-item">
+                  Most Points
+                </a>
+                <a href="javascript:void(0);" class="dropdown-item">
+                  Least Points
+                </a>
+              </div>
+            </div>
+
+            <h3>Show holders of NFTs</h3>
+
+            <a href="javascript:void(0);" id="selectNFT" class="outline-btn">SELECT NFT</a>
+            <a href="javascript:void(0);" id="clearNFT" class="outline-btn">
+              <i class="material-icons-round" style="margin-right: 5px;">clear</i>
+              Clear NFT
+            </a>
+          </div>
+
+
+
+        </div>
+
+        <div class="row" id="farmSorting" style="display: none;">
+          <table>
+            <thead>
+              <tr>
+                <td style="width: 5%;"><p>#</p></td>
+                <td style="width: 40%;"><p>Wallet Address</p></td>
+                <td style="width: 20%;"><p>Tokens Staked</p></td>
+                <td><p>Points</p></td>
+              </tr>
+            </thead>
+            <tbody>              
+            </tbody>
+            <tfoot>
+              <tr>
+                <td style="width: 5%;"><p></p></td>
+                <td style="width: 40%;"><p>Total</p></td>
+                <td style="width: 20%;"><p>500 NIF</p></td>
+                <td><p>Points</p></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+
         <div class="row" id="farmPage" style="display: none;"></div>
 
         <script id="next-button" type="text/x-handlebars-template">

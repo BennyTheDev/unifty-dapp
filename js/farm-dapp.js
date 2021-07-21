@@ -1454,6 +1454,59 @@ function TncDapp() {
         "</div>");        
     }
 
+    this.farmSorting = function () {
+      let farmSorting = false;
+      let dashboardBtn = $("#dashboard-btn");
+      let sortingContainer = $("#sortingFarm-container");
+      let farmPage = $("#farmPage");
+      let farmTable = $("#farmSorting")
+
+
+      dashboardBtn.on("click", function () {
+        if (farmSorting) {
+          deactivateSorting();
+        } else {
+          activateSorting();
+        }
+
+        farmSorting = !farmSorting;
+      });
+
+      function activateSorting() {
+        //Turn on farm
+        dashboardBtn.text("FARM");
+        sortingContainer.fadeIn();
+        farmTable.fadeIn();
+        farmPage.fadeOut();
+      }
+
+      function deactivateSorting() {
+        //Turn off farm
+        dashboardBtn.text("DASHBOARD");
+        sortingContainer.fadeOut();
+        farmTable.fadeOut();
+        farmPage.fadeIn();
+
+
+
+      }
+
+      
+      
+
+      $("#farmSorting tbody").append(tableRow("adresa", "123 NIF", "22 boda"));
+      $("#farmSorting tbody").append(tableRow("adresa", "123 NIF", "22 boda"));
+      $("#farmSorting tbody").append(tableRow("adresa", "123 NIF", "22 boda"));
+
+      function tableRow(walletAddress, tokenStaked, points){
+        return '<tr class="farmSortingItem"> <td style="width: 5%;"><p>' + 1 + '</p></td> ' +
+        '<td style="width: 40%;"><p>' + walletAddress + '</p></td>' +
+        '<td style="width: 20%;"><p>' + tokenStaked + '</p></td>' +
+        '<td><p>' + points + '</p></td></tr>';
+
+      }
+    };
+
     $(document).ready(async function(){
 
         $('#myPoolsButton').on('click', function(){
@@ -1466,6 +1519,8 @@ function TncDapp() {
             }
             console.log(error);
         });
+
+        _this.farmSorting();
     });
 }
 
