@@ -9,7 +9,7 @@ function TncLibDao(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.dao = new web3.eth.Contract(daoABI, '0xE9c58dd8F89c5453f16fF1ff02CA3511bDfB083d', {from: this.account});
+        this.dao = new web3.eth.Contract(daoABI, '0x5A658ea1a22576e42ff255f6d1f88c6fF91a3A22', {from: this.account});
         this.account = '';
 
     } else{

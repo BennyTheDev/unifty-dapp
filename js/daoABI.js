@@ -673,6 +673,25 @@ const daoABI = [
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "internalType": "contract IUniftyDaoConsumer",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "mintedUntConsumer",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "nifAddress",
         "outputs": [
@@ -1332,19 +1351,6 @@ const daoABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_account",
-                "type": "address"
-            }
-        ],
-        "name": "updateAllocationTime",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     },
     {

@@ -722,7 +722,7 @@ function TncDapp() {
 
         if( nifBalance.lt( amount ) ){
 
-            _alert('Insufficient funds. You own ' + _this.cleanUpDecimals(_this.formatNumberString(amount.toString(), 18))) + ' $NIF';
+            _alert('Insufficient funds. You own ' + _this.cleanUpDecimals(_this.formatNumberString(nifBalance.toString(), 18))) + ' $NIF';
             return;
         }
 
@@ -811,7 +811,7 @@ function TncDapp() {
             function () {
                 toastr["info"](
                     "Please wait for the transaction to finish.",
-                    "Unregistering...."
+                    "Unstaking...."
                 );
             },
             function (receipt) {
