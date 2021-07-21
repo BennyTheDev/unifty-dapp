@@ -33,6 +33,7 @@
 
   .first-row {
     display: flex;
+    flex-direction: column;
     width: 100%;
 
     @media only screen and (max-width: 26em) {
@@ -40,6 +41,7 @@
     }
 
     .divider {
+      height: 1rem;
       width: 1rem;
     }
 

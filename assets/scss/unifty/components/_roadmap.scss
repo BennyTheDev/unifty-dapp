@@ -172,9 +172,7 @@
     border-radius: .6rem;
     box-shadow: var(--shadow-primary);
     transition: all .2s ease-in-out;
-    &:hover{
-      transform: scale(1.15);
-    }
+    
     img{
       max-width: 90%;
       max-height: 90%;
