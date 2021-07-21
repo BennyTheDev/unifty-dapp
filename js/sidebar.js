@@ -247,6 +247,8 @@ function removingPopopvers() {
       "data-container data-placement data-trigger data-content data-original-title title"
     );
 
-    $(this).popover("dispose").off("mouseenter").off("mouseleave");
+    if($(this).data("bs.popover") != undefined){
+      $(this).popover("dispose").off("mouseenter").off("mouseleave");
+    }
   });
 }
