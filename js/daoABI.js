@@ -10,6 +10,68 @@ const daoABI = [
             {
                 "indexed": true,
                 "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "contract IUniftyDaoConsumer",
+                "name": "consumer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "peer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "untEarned",
+                "type": "uint256"
+            }
+        ],
+        "name": "Allocated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "contract IUniftyDaoConsumer",
+                "name": "consumer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "peer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "untEarned",
+                "type": "uint256"
+            }
+        ],
+        "name": "Dellocated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
                 "name": "executor",
                 "type": "address"
             },
@@ -68,6 +130,18 @@ const daoABI = [
                 "internalType": "uint256",
                 "name": "stake",
                 "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "peerAccepted",
+                "type": "bool"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "untEarned",
+                "type": "uint256"
             }
         ],
         "name": "Staked",
@@ -86,6 +160,18 @@ const daoABI = [
                 "indexed": false,
                 "internalType": "uint256",
                 "name": "unstake",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "peerAccepted",
+                "type": "bool"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "untEarned",
                 "type": "uint256"
             }
         ],
@@ -261,7 +347,13 @@ const daoABI = [
             }
         ],
         "name": "allocate",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -435,7 +527,13 @@ const daoABI = [
     {
         "inputs": [],
         "name": "dellocate",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -1115,6 +1213,29 @@ const daoABI = [
         "inputs": [
             {
                 "internalType": "uint256",
+                "name": "_nifStakeTimelock",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_duration",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "_url",
+                "type": "string"
+            }
+        ],
+        "name": "proposeNifStakeTimelock",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
                 "name": "_proposalExecutionLimit",
                 "type": "uint256"
             },
@@ -1266,7 +1387,18 @@ const daoABI = [
             }
         ],
         "name": "stake",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -1334,9 +1466,26 @@ const daoABI = [
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_unstaking",
+                "type": "uint256"
+            }
+        ],
         "name": "unstake",
-        "outputs": [],
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            },
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },

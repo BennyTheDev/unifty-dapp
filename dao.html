@@ -565,7 +565,8 @@
                                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal"
                                    data-target="#proposal">New Proposal</a>
                                 <a href="javascript:void(0);" class="dropdown-item" id="withdrawUnt">Withdraw $UNT</a>
-                                <a href="javascript:void(0);" class="dropdown-item" id="unstakeNif">Unstake $NIF</a>
+                                <a href="javascript:void(0);" class="dropdown-item"  data-toggle="modal"
+                                   data-target="#unstakeNif">Unstake $NIF</a>
                             </div>
                         </div>
                     </div>
@@ -976,6 +977,42 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary"
                                 id="stakeNifButton">Stake</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UNSTAKE NIF -->
+    <div class="modal fade" style="overflow-y: scroll;" id="unstakeNif" tabindex="-1" role="dialog"
+         aria-labelledby="unstakeNifModallLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="unstakeNifModallLabel">Unstake $NIF</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body modal-non-nft-content">
+
+                    <form onsubmit="return false;">
+
+                        <div class="form-group">
+                            <label for="unstakeNifAmount">$NIF to unstake</label>
+                            <input type="text" placeholder="Enter how much $NIF you would like to unstake." class="form-control"
+                                   id="unstakeNifAmount">
+                            <button type="button" class="btn btn-link" id="unstakeMaxButton">Max.</button>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <div class="buttons-container">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary"
+                                id="unstakeNifButton">Unstake</button>
                     </div>
                 </div>
             </div>

@@ -9,10 +9,10 @@ function TncLibDao(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.dao = new web3.eth.Contract(daoABI, '0x5A658ea1a22576e42ff255f6d1f88c6fF91a3A22', {from: this.account});
+        this.dao = new web3.eth.Contract(daoABI, '0x005fF3D806188D698e29A02D42Ad16E3B425Ba31', {from: this.account});
         this.account = '';
 
-    } else{
+    } else {
 
         this.account = '';
 
@@ -32,6 +32,12 @@ function TncLibDao(){
         await sleep(sleep_time);
         let con = new web3.eth.Contract(daoConsumerABI, consumer, {from: this.account});
         return await con.methods.peerUri(peer).call({from:this.account});
+    }
+
+    this.peerNifCap = async function(consumer, peer){
+        await sleep(sleep_time);
+        let con = new web3.eth.Contract(daoConsumerABI, consumer, {from: this.account});
+        return await con.methods.peerNifCap(peer).call({from:this.account});
     }
 
     this.frozen = async function(account){
@@ -59,9 +65,19 @@ function TncLibDao(){
         return await this.dao.methods.consumerInfo(id).call({from:this.account});
     };
 
+    this.accountInfo = async function(_account){
+        await sleep(sleep_time);
+        return await this.dao.methods.accountInfo(_account).call({from:this.account});
+    };
+
     this.votesCounter = async function(pid){
         await sleep(sleep_time);
         return await this.dao.methods.votesCounter(pid).call({from:this.account});
+    };
+
+    this.mintedUntConsumer = async function(consumer){
+        await sleep(sleep_time);
+        return await this.dao.methods.mintedUntConsumer(consumer).call({from:this.account});
     };
 
     this.votes = async function(pid, id){
@@ -153,13 +169,13 @@ function TncLibDao(){
             });
     };
 
-    this.unstake = async function(preCallback, postCallback, errCallback){
+    this.unstake = async function(amount, preCallback, postCallback, errCallback){
 
         let gas = 0;
 
         try {
             await sleep(sleep_time);
-            gas = await this.dao.methods.unstake().estimateGas({
+            gas = await this.dao.methods.unstake(amount).estimateGas({
                 from:this.account
             });
         }catch(e){
@@ -170,7 +186,7 @@ function TncLibDao(){
 
         const price = await web3.eth.getGasPrice();
 
-        this.dao.methods.unstake()
+        this.dao.methods.unstake(amount)
             .send({
                 from:this.account,
                 gas: gas + Math.floor( gas * 0.1 ),

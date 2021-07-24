@@ -21,9 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dao.html" beforeDir="false" afterPath="$PROJECT_DIR$/dao.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/dao-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dao-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/daoABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/daoABI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/daoConsumerABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/daoConsumerABI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/lib-dao.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-dao.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -141,6 +143,8 @@
       <workItem from="1626001013570" duration="24474000" />
       <workItem from="1626108811385" duration="80518000" />
       <workItem from="1626472094810" duration="34743000" />
+      <workItem from="1626971754532" duration="5439000" />
+      <workItem from="1627073378617" duration="8332000" />
     </task>
     <task id="LOCAL-00008" summary="#minor load optimization in farmbuilder and farms">
       <created>1617409116132</created>
@@ -558,10 +562,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1623178660854" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1626526824724">
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1627077690848">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1626526824724" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1627077690848" />
     <state x="569" y="313" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1625075220004">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -574,9 +578,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="426" y="188" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1622900258120" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1623180920533">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1627084193171">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1623180920533" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1627084193171" />
   </component>
 </project>
