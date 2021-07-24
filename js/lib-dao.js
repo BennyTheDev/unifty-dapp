@@ -9,7 +9,7 @@ function TncLibDao(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.dao = new web3.eth.Contract(daoABI, '0x005fF3D806188D698e29A02D42Ad16E3B425Ba31', {from: this.account});
+        this.dao = new web3.eth.Contract(daoABI, '0xCD63A8eDff54bE74f45B7541B7Faf87026271B45', {from: this.account});
         this.account = '';
 
     } else {
@@ -26,6 +26,12 @@ function TncLibDao(){
         await sleep(sleep_time);
         let con = new web3.eth.Contract(daoConsumerABI, consumer, {from: this.account});
         return await con.methods.earned(account).call({from:this.account});
+    }
+
+    this.earnedLiveConsumer = async function(consumer, account){
+        await sleep(sleep_time);
+        let con = new web3.eth.Contract(daoConsumerABI, consumer, {from: this.account});
+        return await con.methods.earnedLive(account).call({from:this.account});
     }
 
     this.peerUri = async function(consumer, peer){
@@ -53,6 +59,11 @@ function TncLibDao(){
     this.consumerCounter = async function(){
         await sleep(sleep_time);
         return await this.dao.methods.consumerCounter().call({from:this.account});
+    };
+
+    this.consumerPeerNifAllocation = async function(consumer, peer){
+        await sleep(sleep_time);
+        return await this.dao.methods.consumerPeerNifAllocation(consumer, peer).call({from:this.account});
     };
 
     this.consumers = async function(id){

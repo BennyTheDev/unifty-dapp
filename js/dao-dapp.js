@@ -795,9 +795,9 @@ function TncDapp() {
                     } else {
                         txt = "You successfully staked $NIF.";
                     }
-                    if(!receipt.events.Staked.returnValues.untEarned.accepted){
+                    if(!receipt.events.Staked.returnValues.peerAccepted){
 
-                        txt += "<br/><br/>Your vault denied your staking amount. This is most likely due to staking limits being reached. Please check your vault for $NIF limits.";
+                        txt += "<br/><br/><strong>Note: </strong>Your vault denied your staking amount. This is most likely due to staking limits being reached. Please check your vault for $NIF limits as your most recent $NIF stakes might not be taken into account.";
                     }
                     _alert(txt);
                 },
@@ -889,11 +889,12 @@ function TncDapp() {
         let zero   = web3.utils.toBN("0");
         let earned = web3.utils.toBN(await tncLibDao.earnedConsumer(consumer, tncLib.account));
 
+        /*
         if(earned.eq(zero)){
 
             _alert("Nothing to withdraw.");
             return;
-        }
+        }*/
 
         toastr.remove();
 
@@ -1305,7 +1306,7 @@ function TncDapp() {
                 }
                 inner += "<br/><strong>Supplied $UNT:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( supplied.toString(), 18 ) ) );
                 inner += "<br/><strong>Remaining $UNT:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( remainingUnt, 18 ) ) );
-                inner += "<br/><strong>Global $NIF Limit:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( await tncLibDao.peerNifCap(consumer.consumer, peers[j]), 18 ) ) );
+                inner += "<br/><strong>$NIF Limit:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( await tncLibDao.consumerPeerNifAllocation(consumer.consumer, peers[j]), 18 ) ) ) + " / " + ( _this.cleanUpDecimals( _this.formatNumberString( await tncLibDao.peerNifCap(consumer.consumer, peers[j]), 18 ) ) );
                 if(peers[j].toLowerCase() != accountInfo[1].toLowerCase()) {
                     inner += '<br/><br/><button class="btn btn-primary allocate" id="allocate' + consumer.consumer + peers[j] + '" data-consumer="' + consumer.consumer + '" data-peer="' + peers[j] + '">Allocate</button>';
                 }else{
@@ -1373,7 +1374,7 @@ function TncDapp() {
 
                 if( err.stack.toLowerCase().includes('execution reverted') ){
 
-                    errorPopup("Error", "The vault denied your allocation. Please make sure the vault's allocation limits aren't reached.", '');
+                    errorPopup("Error", "The vault denied your allocation. Please make sure you stake $NIF and your selected vault's allocation limits aren't reached.", '');
 
                 }else{
 
@@ -1404,6 +1405,15 @@ function TncDapp() {
                 let earned = await tncLibDao.earnedConsumer(consumer, tncLib.account);
                 earned = Number(_this.cleanUpDecimals(_this.formatNumberString(web3.utils.toBN(earned).toString(), 18))).toFixed(4);
                 $('#untEarned').text(earned);
+
+                let earnedLive = await tncLibDao.earnedLiveConsumer(consumer, tncLib.account);
+                earnedLive = Number(_this.cleanUpDecimals(_this.formatNumberString(web3.utils.toBN(earnedLive).toString(), 18))).toFixed(4);
+                $('#untEarnedLive').text(earnedLive);
+            }
+            else
+            {
+                $('#untEarned').text('0.0000');
+                $('#untEarnedLive').text('0.0000');
             }
         }
     }
