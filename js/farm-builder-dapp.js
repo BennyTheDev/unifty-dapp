@@ -287,10 +287,11 @@ function TncDapp() {
                 //Get the social media dropdown row without any values
                 let socialMediaRow = _this.defaultSocialMediaRow;
 
-                console.log(data)
                 socialMediaRow.find(".removeSocial").on("click", function () {
                     removesSocial(this);
                 });
+
+              $(".farmSocialMediaAdd").fadeIn();
 
                 for(let key in data){
                     if(key == "name" || key == "description" || key == "image" || key == "customLink" || data[key] == ""){
@@ -303,7 +304,7 @@ function TncDapp() {
                             let copy_SocialMediaRow = socialMediaRow.clone();
 
                             copy_SocialMediaRow.find("select").val(data[key][key2].name).attr("disabled", "true");
-                            copy_SocialMediaRow.find("input").val(data[key][key2].value);
+                            copy_SocialMediaRow.find("input").val(data[key][key2].value).prop("disabled", true);;
                             copy_SocialMediaRow.find(".removeSocial").on("click", function () {
                                 removesSocial(this);
                             });
@@ -317,7 +318,7 @@ function TncDapp() {
                     let copy_SocialMediaRow = socialMediaRow.clone();
 
                     copy_SocialMediaRow.find("select").val(key).attr("disabled", "true");
-                    copy_SocialMediaRow.find("input").val(data[key]);
+                    copy_SocialMediaRow.find("input").val(data[key]).prop("disabled", true);
                     copy_SocialMediaRow.find(".removeSocial").on("click", function () {
                         removesSocial(this);
                       });
@@ -1281,9 +1282,15 @@ function TncDapp() {
           if (socialMediaFields.find('input[type="text"]').val()) {
             socialMediaFields.find('input[type="text"]').val("");
             socialMediaWrapper.find(".farmSocialMediaGroup").last().find("select").attr("disabled", "true");
+            socialMediaWrapper.find(".farmSocialMediaGroup").last().find("input").prop("disabled", true);
 
             socialMediaFields.find("select").removeAttr("disabled");
+            socialMediaFields.find("input").prop("disabled", false);
             socialMediaWrapper.append(socialMediaFields);
+
+            if($(socialMediaFields).find("option").length == 1){
+                $(this).fadeOut();
+            }
 
             socialMediaFields.find(".removeSocial").on("click", function () {
               removesSocial(this);
@@ -1327,6 +1334,12 @@ function TncDapp() {
             //el is remove button         
             if ($(el).parent().siblings().length > 0) {
 
+                if($(el).parent().siblings().length == 1){
+                    //Re enabling the dropdown when only one is available
+                    $(el).parent().siblings().find("select").removeAttr("disabled");
+                    $(el).parent().siblings().find("input").prop("disabled", false);
+                }
+
                 let attr = $(el).parent().find("select").attr("disabled")
                 if (typeof attr !== 'undefined' && attr !== false) {
                     
@@ -1334,6 +1347,9 @@ function TncDapp() {
                 }                
 
               $(el).parent().remove();
+              
+
+              $(".farmSocialMediaAdd").fadeIn();
             }
         }
 
