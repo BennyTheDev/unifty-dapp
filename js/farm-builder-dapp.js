@@ -1391,15 +1391,50 @@ function TncDapp() {
         $("#farmEditRewardRate").change(function(){
             setRewardRate();
 
+            let userInput = $("#farmEditRewardRate").val();
+
             //Multiplication is neccesary because of the way the nonlinear input works
-            if($("#farmEditRewardRate").val() * 10 < Number(range.min)){
+            if(userInput * 10 < Number(range.min)){
               bubble.style.left = '8px'
             }
-            else if($("#farmEditRewardRate").val() * 10 > Number(range.max)){
-              bubble.style.left = 'calc(100% + -7px)'
+            //The number is the middle value in between the ranges values. The ones displayed are a bit different because of the way the nonlinear input works
+            else if(userInput > 86400 && userInput <= 475200){
+                range.value = 864000;
             }
-            else{
+            else if(userInput > 475200 && userInput <= 1296000){
+                range.value = 950400;
             }
+            else if(userInput > 1296000 && userInput <= 2160000){
+                range.value = 1036800;
+            }
+            else if(userInput > 2160000 && userInput <= 3024000){
+                range.value = 1123200;
+            }
+            else if(userInput > 3024000 && userInput <= 3888000){
+                range.value = 1209600;
+            }
+            else if(userInput > 3888000 && userInput <= 4752000){
+                range.value = 1296000;
+            }
+            else if(userInput > 4752000 && userInput <= 5616000){
+                range.value = 1382400;
+            }
+            else if(userInput > 5616000 && userInput <= 6480000){
+                range.value = 1468800;
+            }
+            else if(userInput > 6480000 && userInput <= 7344000){
+                range.value = 1555200;
+            }
+            else if(userInput > 7344000){
+                range.value = 1641600;
+                bubble.style.left = 'calc(100% + -7px)'
+            }
+            else if(userInput * 10 > Number(range.max)){
+                bubble.style.left = 'calc(100% + -7px)'
+            }
+
+            bubble.innerHTML = userInput;
+            setBubble();
         });
 
         window.setRewardRate = function() {
