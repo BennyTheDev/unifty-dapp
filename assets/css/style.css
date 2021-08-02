@@ -335,7 +335,7 @@ textarea, input {
   color: var(--bg-primary); }
 
 .main-timeline h5.title {
-  font-family: "Poppins", sans-serif;
+  font-family: "Baloo 2", sans-serif;
   color: var(--heading-color);
   font-size: 2rem;
   font-weight: 400; }
@@ -1553,7 +1553,7 @@ textarea, input {
   .light-edition .popover.bs-popover-bottom .popover-body,
   .light-edition .popover.bs-popover-top .popover-body {
     font-size: 1.2rem;
-    font-family: "Poppins", sans-serif;
+    font-family: "Baloo 2", sans-serif;
     color: var(--text-primary);
     font-weight: 400; }
 
@@ -1825,7 +1825,7 @@ textarea, input {
     background-color: var(--bg-primary); }
     .dark-edition .main-panel .modal-dialog .modal-content .modal-header h5.modal-title,
     .light-edition .main-panel .modal-dialog .modal-content .modal-header h5.modal-title {
-      font-family: "Poppins", sans-serif;
+      font-family: "Baloo 2", sans-serif;
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: 0.48px; }
@@ -2699,7 +2699,7 @@ textarea, input {
 .dark-edition .main-panel,
 .light-edition .main-panel {
   width: calc(100% - 28rem);
-  background-color: var(--bg-primary); }
+  background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%, rgba(51, 76, 245, 0.03), rgba(150, 61, 219, 0.03) 25%, rgba(211, 64, 196, 0.03) 50%, rgba(228, 124, 135, 0.03) 75%, rgba(244, 183, 75, 0.03)); }
   @media only screen and (max-width: 991px) {
     .dark-edition .main-panel,
     .light-edition .main-panel {
