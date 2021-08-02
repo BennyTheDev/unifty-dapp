@@ -2411,13 +2411,12 @@ textarea, input {
 .dark-edition .sidebar,
 .light-edition .sidebar {
   width: 28rem;
-  background-color: var(--bg-secondary);
   opacity: 1;
   font-size: 1.6rem;
-  box-shadow: var(--shadow-primary); }
+  box-shadow: var(--shadow-primary);
+  background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%, rgba(51, 76, 245, 0.03), rgba(150, 61, 219, 0.03) 25%, rgba(211, 64, 196, 0.03) 50%, rgba(228, 124, 135, 0.03) 75%, rgba(244, 183, 75, 0.03)); }
   .dark-edition .sidebar::before,
   .light-edition .sidebar::before {
-    background-color: var(--bg-secondary);
     font-size: 1.6rem; }
   @media only screen and (max-width: 991px) {
     .dark-edition .sidebar,
@@ -2699,7 +2698,7 @@ textarea, input {
 .dark-edition .main-panel,
 .light-edition .main-panel {
   width: calc(100% - 28rem);
-  background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%, rgba(51, 76, 245, 0.03), rgba(150, 61, 219, 0.03) 25%, rgba(211, 64, 196, 0.03) 50%, rgba(228, 124, 135, 0.03) 75%, rgba(244, 183, 75, 0.03)); }
+  background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%, rgba(51, 76, 245, 0.03), rgba(150, 61, 219, 0.03) 25%, rgba(211, 64, 196, 0.03) 50%, rgba(228, 124, 135, 0.03) 75%, rgba(244, 183, 75, 0.03)) !important; }
   @media only screen and (max-width: 991px) {
     .dark-edition .main-panel,
     .light-edition .main-panel {
@@ -2708,8 +2707,7 @@ textarea, input {
   .light-edition .main-panel .content {
     margin-top: 0.5rem;
     padding: 3rem 5rem 7rem;
-    min-height: calc(100vh - 0.5rem);
-    background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%, rgba(51, 76, 245, 0.03), rgba(150, 61, 219, 0.03) 25%, rgba(211, 64, 196, 0.03) 50%, rgba(228, 124, 135, 0.03) 75%, rgba(244, 183, 75, 0.03)); }
+    min-height: calc(100vh - 0.5rem); }
   .dark-edition .main-panel .content .add-new-card-container,
   .light-edition .main-panel .content .add-new-card-container {
     width: max-content;
