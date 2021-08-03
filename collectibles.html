@@ -500,7 +500,7 @@
         
         <div class="title-options-container">
           <h1>Wallet</h1>
-         
+
           <div id="walletOptions" style="display:none;">
             <div class="dropdown">
               <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle mb-3" id="walletActions"
@@ -509,47 +509,24 @@
                   add_circle
                 </span>
               </a>
+
               <div class="dropdown-menu" aria-labelledby="walletActions">
-                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#addCollectionModal"
-                  id="addCollectionModalButton">Register Collection</a>
                 <a href="javascript:void(0);" style="display: none;" class="dropdown-item" data-toggle="modal"
                   data-target="#cancelBridgeModal" id="cancelBridgeModalButton">Cancel Bridge Job</a>
-
+  
                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#convert721Modal"
                    id="convert721ModalButton">Convert From EIP-721</a>
-
+  
                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#return721Modal"
-                   id="return721ModalButton">Return To EIP-721</a>
-              </div>
+                id="return721ModalButton">Return To EIP-721</a>
+              </div>       
             </div>
           </div>
         </div>
         <p>
-          If you don't see your NFTs, you need to register your collection.
-          <br>
-          
-          Settings -> Register Collection -> Collection address.
-          <br><br>
-
-          *your collection address is located above the name of your collection. Simply click on it - and it's copied.
+          If you don't see your NFTs, you need to register your collection. <strong>Register Collection -> Collection address.</strong>
+        *your collection address is located above the name of your collection. Simply click on it - and it's copied.
         </p>
-        <!-- <div id="walletOptions" style="display:none;" class="row">
-          <div class="dropdown">
-            <a href="javascript:void(0);" class="btn btn-primary dropdown-toggle mb-3" id="walletActions"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="material-icons">
-                settings
-              </span>
-              Wallet Options
-            </a>
-            <div class="dropdown-menu" aria-labelledby="walletActions">
-              <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#addCollectionModal"
-                id="addCollectionModalButton">Register Collection</a>
-              <a href="javascript:void(0);" style="display: none;" class="dropdown-item" data-toggle="modal"
-                data-target="#cancelBridgeModal" id="cancelBridgeModalButton">Cancel Bridge Job</a>
-            </div>
-          </div>
-        </div> -->
 
         <div id="foreignWalletInfo" style="display:none;" class="row">
           <h3 id="walletAddress"></h3>
