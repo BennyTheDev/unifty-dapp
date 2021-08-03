@@ -127,7 +127,7 @@
   }
 
   p {
-    font-size: 1.4rem;
+    font-size: 1.18rem;
     font-weight: 500;
     letter-spacing: 0.32px;
     color: #808080;
@@ -232,7 +232,9 @@
 
   li.collapsible {
     a {
-      background-color: var(--bg-primary);
+      //background-color: (var(--bg-primary),0.9);
+      
+     //background-color: rgba(var(--bg-primary), 0.9);
       margin-top: 0 !important;
       border-radius: 0;
 

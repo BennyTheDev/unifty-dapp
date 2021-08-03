@@ -30,7 +30,7 @@
     padding: 12px;
     font-weight: 700;
     text-transform: uppercase;
-    border-radius: 8px;
+    border-radius: 30px;
     background-color: var(--primary-color);
 
     &:hover {
@@ -70,7 +70,7 @@
 
   //card general style
   .card {
-    background: var(--bg-tertiary);
+    //background: var(--bg-tertiary);
     border-radius: 0.8rem;
     z-index: auto;
     margin: 0;
