@@ -1,4 +1,4 @@
-const daoABI = [
+const govABI = [
     {
         "inputs": [],
         "stateMutability": "nonpayable",
@@ -15,7 +15,7 @@ const daoABI = [
             },
             {
                 "indexed": false,
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "consumer",
                 "type": "address"
             },
@@ -46,7 +46,7 @@ const daoABI = [
             },
             {
                 "indexed": false,
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "consumer",
                 "type": "address"
             },
@@ -226,7 +226,7 @@ const daoABI = [
         "name": "accountInfo",
         "outputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "",
                 "type": "address"
             },
@@ -336,7 +336,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             },
@@ -373,7 +373,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "",
                 "type": "address"
             }
@@ -392,7 +392,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             }
@@ -426,7 +426,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "",
                 "type": "address"
             }
@@ -445,7 +445,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "",
                 "type": "address"
             },
@@ -469,7 +469,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "",
                 "type": "address"
             },
@@ -501,7 +501,7 @@ const daoABI = [
         "name": "consumers",
         "outputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "consumer",
                 "type": "address"
             },
@@ -540,7 +540,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             }
@@ -681,6 +681,19 @@ const daoABI = [
     },
     {
         "inputs": [],
+        "name": "lastProposalTime",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
         "name": "maxProposalDuration",
         "outputs": [
             {
@@ -773,7 +786,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "",
                 "type": "address"
             }
@@ -818,7 +831,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "",
                 "type": "address"
             },
@@ -924,6 +937,19 @@ const daoABI = [
         "type": "function"
     },
     {
+        "inputs": [],
+        "name": "proposalFloodLimit",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [
             {
                 "internalType": "uint256",
@@ -985,7 +1011,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             },
@@ -1023,7 +1049,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             },
@@ -1051,7 +1077,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             },
@@ -1281,7 +1307,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             },
@@ -1304,7 +1330,7 @@ const daoABI = [
     {
         "inputs": [
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "_consumer",
                 "type": "address"
             },
@@ -1518,7 +1544,7 @@ const daoABI = [
                 "type": "address"
             },
             {
-                "internalType": "contract IUniftyDaoConsumer",
+                "internalType": "contract IUniftyGovernanceConsumer",
                 "name": "peerConsumer",
                 "type": "address"
             },

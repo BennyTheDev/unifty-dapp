@@ -446,6 +446,14 @@ function TncDapp() {
 
     this.performCancellation = async function(){
 
+        let ask = await tncLibMarket.getAskBase($('#nftBuyIndex').val());
+
+        if(parseInt(ask.amounts) == 0){
+
+            _alert('The offer has been sold or cancelled already.');
+            return;
+        }
+
         toastr.remove();
         $(this).html('Pending Transaction...');
         $(this).prop('disabled', 'disabled');

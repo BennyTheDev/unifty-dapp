@@ -2,25 +2,25 @@ function TncDapp() {
 
     const ipfs = window.IpfsHttpClient('ipfs.infura.io', '5001', { protocol: 'https' });
 
-    this.daoTemplate = Handlebars.compile($('#dao-template').html());
+    this.govTemplate = Handlebars.compile($('#gov-template').html());
 
     let _this = this;
 
     this.getProposals = async function(){
 
         let count     = 0;
-        let length    = await tncLibDao.proposalCount();
+        let length    = await tncLibGov.proposalCount();
         let block     = await web3.eth.getBlock('latest');
-        let pausing   = await tncLibDao.isPausing();
-        let graceTime = await tncLibDao.graceTime();
-        let proposalExecutionLimit = await tncLibDao.proposalExecutionLimit();
+        let pausing   = await tncLibGov.isPausing();
+        let graceTime = await tncLibGov.graceTime();
+        let proposalExecutionLimit = await tncLibGov.proposalExecutionLimit();
 
         for(let i = length - 1; i >= 0; i--){
 
             let pName = 'Proposal';
             let pDescription = '';
 
-            let proposal = await tncLibDao.getProposal(i);
+            let proposal = await tncLibGov.getProposal(i);
 
             try{
 
@@ -36,13 +36,13 @@ function TncDapp() {
 
             let timeLeft = _this.timeLeft(proposal, block.timestamp);
 
-            let tmpl = _this.daoTemplate({
+            let tmpl = _this.govTemplate({
 
                 name : pName,
                 subtitle : 'Proposal #'+ parseInt( proposal.proposalId ),
                 description : pDescription,
                 proposalId : parseInt(proposal.proposalId),
-                details_button : _this.votable(proposal, block.timestamp, pausing, await tncLibDao.voted(proposal.proposalId, tncLib.account)) ? 'Vote' : 'Details',
+                details_button : _this.votable(proposal, block.timestamp, pausing, await tncLibGov.voted(proposal.proposalId, tncLib.account)) ? 'Vote' : 'Details',
                 executable : _this.executable(proposal, block.timestamp, pausing, graceTime, proposalExecutionLimit)  ? 'true' : '',
                 timeLeft : timeLeft,
                 resolved : _this.resolved(proposal, block.timestamp),
@@ -218,7 +218,7 @@ function TncDapp() {
         $(_button).html("Pending Transaction...");
         $(_button).prop("disabled", "disabled");
 
-        tncLibDao.proposeUpdateConsumerGrant(
+        tncLibGov.proposeUpdateConsumerGrant(
             address,
             grant,
             rate,
@@ -297,7 +297,7 @@ function TncDapp() {
         $(_button).html("Pending Transaction...");
         $(_button).prop("disabled", "disabled");
 
-        tncLibDao.proposeAddConsumer(
+        tncLibGov.proposeAddConsumer(
             address,
             grant,
             rate,
@@ -362,7 +362,7 @@ function TncDapp() {
         $(_button).html("Pending Transaction...");
         $(_button).prop("disabled", "disabled");
 
-        tncLibDao.proposeConsumerWhitelistPeer(
+        tncLibGov.proposeConsumerWhitelistPeer(
             address,
             peer,
             duration,
@@ -419,7 +419,7 @@ function TncDapp() {
         $(_button).html("Pending Transaction...");
         $(_button).prop("disabled", "disabled");
 
-        tncLibDao.proposeRemoveConsumer(
+        tncLibGov.proposeRemoveConsumer(
             address,
             duration,
             ipfsUri,
@@ -481,7 +481,7 @@ function TncDapp() {
         $(_button).html("Pending Transaction...");
         $(_button).prop("disabled", "disabled");
 
-        tncLibDao.proposeConsumerRemovePeerFromWhitelist(
+        tncLibGov.proposeConsumerRemovePeerFromWhitelist(
             address,
             peer,
             duration,
@@ -532,7 +532,7 @@ function TncDapp() {
         $(_button).html("Pending Transaction...");
         $(_button).prop("disabled", "disabled");
 
-        tncLibDao.proposeGeneral(
+        tncLibGov.proposeGeneral(
             duration,
             ipfsUri,
             function () {
@@ -596,7 +596,7 @@ function TncDapp() {
         $(_button).html("Pending Transaction...");
         $(_button).prop("disabled", "disabled");
 
-        tncLibDao.proposeNumeric(
+        tncLibGov.proposeNumeric(
             type,
             value,
             duration,
@@ -729,7 +729,7 @@ function TncDapp() {
         let allowance = web3.utils.toBN( await tncLib.allowanceErc20Raw(
             tncLib.nif.options.address,
             tncLib.account,
-            tncLibDao.dao.options.address
+            tncLibGov.gov.options.address
         ) );
 
         if( allowance.lt( amount ) ){
@@ -744,7 +744,7 @@ function TncDapp() {
             await window.tncLib.approveErc20(
                 tncLib.nif.options.address,
                 amount.toString(),
-                tncLibDao.dao.options.address,
+                tncLibGov.gov.options.address,
                 function () {
                     toastr["info"]('Please wait for the transaction to finish.', "Approve....");
                 },
@@ -776,7 +776,7 @@ function TncDapp() {
             $(_button).html('Pending Transaction...');
             $(_button).prop('disabled', true);
 
-            tncLibDao.stake(
+            tncLibGov.stake(
                 amount.toString(),
                 function (){
                     toastr["info"]('Please wait for the transaction to finish.', "Staking....");
@@ -791,7 +791,7 @@ function TncDapp() {
                     let txt = "";
                     let earned = _this.cleanUpDecimals( _this.formatNumberString( receipt.events.Staked.returnValues.untEarned+"" ,18) );
                     if(parseFloat(earned) != 0) {
-                        txt = "You successfully staked $NIF to the DAO and earned " + earned + " $UNT from your current vault.";
+                        txt = "You successfully staked $NIF to the governance and earned " + earned + " $UNT from your current vault.";
                     } else {
                         txt = "You successfully staked $NIF.";
                     }
@@ -832,7 +832,7 @@ function TncDapp() {
             return;
         }
 
-        let account = await tncLibDao.accountInfo(tncLib.account);
+        let account = await tncLibGov.accountInfo(tncLib.account);
         let balance = web3.utils.toBN( _this.resolveNumberString(account[4], 18) );
 
         if( balance.lt( amount ) ){
@@ -845,7 +845,7 @@ function TncDapp() {
 
         toastr.remove();
 
-        tncLibDao.unstake(
+        tncLibGov.unstake(
             amount.toString(),
             function () {
                 toastr["info"](
@@ -877,7 +877,7 @@ function TncDapp() {
 
     this.withdrawUnt = async function(){
 
-        let accountInfo = await tncLibDao.accountInfo(tncLib.account);
+        let accountInfo = await tncLibGov.accountInfo(tncLib.account);
         let consumer = accountInfo[0];
 
         if(consumer == '0x0000000000000000000000000000000000000000'){
@@ -887,7 +887,7 @@ function TncDapp() {
         }
 
         let zero   = web3.utils.toBN("0");
-        let earned = web3.utils.toBN(await tncLibDao.earnedConsumer(consumer, tncLib.account));
+        let earned = web3.utils.toBN(await tncLibGov.earnedConsumer(consumer, tncLib.account));
 
         /*
         if(earned.eq(zero)){
@@ -898,7 +898,7 @@ function TncDapp() {
 
         toastr.remove();
 
-        tncLibDao.withdraw(
+        tncLibGov.withdraw(
             consumer,
             function () {
                 toastr["info"](
@@ -945,14 +945,14 @@ function TncDapp() {
         let block = await web3.eth.getBlock('latest');
         let pName = 'Proposal';
         let pDescription = '';
-        let proposal = await tncLibDao.getProposal(proposalId);
+        let proposal = await tncLibGov.getProposal(proposalId);
         let resolved = _this.resolved(proposal, block.timestamp);
         let result = _this.result(proposal, block.timestamp);
-        let pausing = await tncLibDao.isPausing();
-        let graceTime = await tncLibDao.graceTime();
-        let proposalExecutionLimit = await tncLibDao.proposalExecutionLimit();
-        let addressProp = await tncLibDao.addressProposalInfo(proposalId);
-        let uint256Prop = await tncLibDao.uint256ProposalInfo(proposalId);
+        let pausing = await tncLibGov.isPausing();
+        let graceTime = await tncLibGov.graceTime();
+        let proposalExecutionLimit = await tncLibGov.proposalExecutionLimit();
+        let addressProp = await tncLibGov.addressProposalInfo(proposalId);
+        let uint256Prop = await tncLibGov.uint256ProposalInfo(proposalId);
         let prop = '';
 
         try{
@@ -1107,13 +1107,13 @@ function TncDapp() {
         $('#detailsReject').off('click');
         $('#detailsExecute').off('click');
 
-        if(_this.votable(proposal, block.timestamp, pausing, await tncLibDao.voted(proposalId, tncLib.account))){
+        if(_this.votable(proposal, block.timestamp, pausing, await tncLibGov.voted(proposalId, tncLib.account))){
 
             $('#detailsVote').css('display', 'block');
 
             $('#detailsApprove').on('click', async function(){
 
-                let minNifStake = web3.utils.toBN( await tncLibDao.minNifStake() );
+                let minNifStake = web3.utils.toBN( await tncLibGov.minNifStake() );
                 let nifBalance = web3.utils.toBN( await tncLib.balanceOfErc20Raw(tncLib.nif.options.address, tncLib.account) );
 
                 if(nifBalance.lt(minNifStake)){
@@ -1126,7 +1126,7 @@ function TncDapp() {
 
             $('#detailsReject').on('click', async function(){
 
-                let minNifStake = web3.utils.toBN( await tncLibDao.minNifStake() );
+                let minNifStake = web3.utils.toBN( await tncLibGov.minNifStake() );
                 let nifBalance = web3.utils.toBN( await tncLib.balanceOfErc20Raw(tncLib.nif.options.address, tncLib.account) );
 
                 if(nifBalance.lt(minNifStake)){
@@ -1159,7 +1159,7 @@ function TncDapp() {
          * Populating initiator & voters
          */
 
-        let votesLength = await tncLibDao.votesCounter(proposalId);
+        let votesLength = await tncLibGov.votesCounter(proposalId);
 
         if(votesLength != 0) {
 
@@ -1169,7 +1169,7 @@ function TncDapp() {
 
             for (let i = 0; i < votesLength; i++) {
 
-                let vote = await tncLibDao.votes(proposalId, i);
+                let vote = await tncLibGov.votes(proposalId, i);
                 let init = i == 0 ? ' (initiator)' : '';
 
                 let inner = '<strong>Account:</strong> ' + vote.voter + init + "<br/>";
@@ -1186,7 +1186,7 @@ function TncDapp() {
 
         toastr.remove();
 
-        tncLibDao.execute(
+        tncLibGov.execute(
             id,
             function () {
                 toastr["info"](
@@ -1217,7 +1217,7 @@ function TncDapp() {
 
         toastr.remove();
 
-        tncLibDao.vote(
+        tncLibGov.vote(
             id,
             supporting,
             function () {
@@ -1252,23 +1252,23 @@ function TncDapp() {
 
         $('#peerList').html('<h3>Vaults</h3><hr/>');
 
-        let accountInfo = await tncLibDao.accountInfo(tncLib.account);
-        let length = await tncLibDao.consumerCounter();
+        let accountInfo = await tncLibGov.accountInfo(tncLib.account);
+        let length = await tncLibGov.consumerCounter();
 
         for(let i = length - 1; i >= 1; i--){
 
-            let consumer = await tncLibDao.consumers(i);
-            let info = await tncLibDao.consumerInfo(consumer.consumer);
+            let consumer = await tncLibGov.consumers(i);
+            let info = await tncLibGov.consumerInfo(consumer.consumer);
             let peers = info[3]; // peers
 
-            let minted = web3.utils.toBN(await tncLibDao.mintedUntConsumer( consumer.consumer ));
-            let earnedUnt = web3.utils.toBN(await tncLibDao.earnedUnt( consumer.consumer ) );
+            let minted = web3.utils.toBN(await tncLibGov.mintedUntConsumer( consumer.consumer ));
+            let earnedUnt = web3.utils.toBN(await tncLibGov.earnedUnt( consumer.consumer ) );
             let supplied = minted.add(earnedUnt);
             let remainingUnt = consumer.grantSizeUnt;
 
             for(let j = peers.length - 1; j >= 0; j--){
 
-                let uri = await tncLibDao.peerUri(consumer.consumer, peers[j]);
+                let uri = await tncLibGov.peerUri(consumer.consumer, peers[j]);
 
                 let name = 'Vault';
                 let description = '';
@@ -1306,7 +1306,7 @@ function TncDapp() {
                 }
                 inner += "<br/><strong>Supplied $UNT:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( supplied.toString(), 18 ) ) );
                 inner += "<br/><strong>Remaining $UNT:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( remainingUnt, 18 ) ) );
-                inner += "<br/><strong>$NIF Limit:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( await tncLibDao.consumerPeerNifAllocation(consumer.consumer, peers[j]), 18 ) ) ) + " / " + ( _this.cleanUpDecimals( _this.formatNumberString( await tncLibDao.peerNifCap(consumer.consumer, peers[j]), 18 ) ) );
+                inner += "<br/><strong>$NIF Limit:</strong> " + ( _this.cleanUpDecimals( _this.formatNumberString( await tncLibGov.consumerPeerNifAllocation(consumer.consumer, peers[j]), 18 ) ) ) + " / " + ( _this.cleanUpDecimals( _this.formatNumberString( await tncLibGov.peerNifCap(consumer.consumer, peers[j]), 18 ) ) );
                 if(peers[j].toLowerCase() != accountInfo[1].toLowerCase()) {
                     inner += '<br/><br/><button class="btn btn-primary allocate" id="allocate' + consumer.consumer + peers[j] + '" data-consumer="' + consumer.consumer + '" data-peer="' + peers[j] + '">Allocate</button>';
                 }else{
@@ -1319,7 +1319,7 @@ function TncDapp() {
                 $('.allocate').off('click');
                 $('.allocate').on('click', async function(e){
 
-                    if( await tncLibDao.frozen(tncLib.account) ){
+                    if( await tncLibGov.frozen(tncLib.account) ){
 
                         _alert('You are not released from your current vault yet.');
 
@@ -1347,7 +1347,7 @@ function TncDapp() {
 
         toastr.remove();
 
-        tncLibDao.allocate(
+        tncLibGov.allocate(
             consumer,
             peer,
             function () {
@@ -1386,27 +1386,27 @@ function TncDapp() {
 
     this.updateStakedNifDisplay = async function(){
 
-        if(typeof tncLibDao != 'undefined'){
+        if(typeof tncLibGov != 'undefined'){
 
-            let accountInfo = await tncLibDao.accountInfo(tncLib.account);
+            let accountInfo = await tncLibGov.accountInfo(tncLib.account);
             $('#nifStaked').html( Number( _this.cleanUpDecimals( _this.formatNumberString( accountInfo[4], 18 ) ) ).toFixed(4) );
         }
     }
 
     this.updateEarnedUntDisplay = async function(){
 
-        if(typeof tncLibDao != 'undefined'){
+        if(typeof tncLibGov != 'undefined'){
 
-            let accountInfo = await tncLibDao.accountInfo(tncLib.account);
+            let accountInfo = await tncLibGov.accountInfo(tncLib.account);
             let consumer = accountInfo[0];
 
             if(consumer != '0x0000000000000000000000000000000000000000') {
 
-                let earned = await tncLibDao.earnedConsumer(consumer, tncLib.account);
+                let earned = await tncLibGov.earnedConsumer(consumer, tncLib.account);
                 earned = Number(_this.cleanUpDecimals(_this.formatNumberString(web3.utils.toBN(earned).toString(), 18))).toFixed(4);
                 $('#untEarned').text(earned);
 
-                let earnedLive = await tncLibDao.earnedLiveConsumer(consumer, tncLib.account);
+                let earnedLive = await tncLibGov.earnedLiveConsumer(consumer, tncLib.account);
                 earnedLive = Number(_this.cleanUpDecimals(_this.formatNumberString(web3.utils.toBN(earnedLive).toString(), 18))).toFixed(4);
                 $('#untEarnedLive').text(earnedLive);
             }
@@ -1432,7 +1432,7 @@ function TncDapp() {
         $('#unstakeNifButton').on('click', _this.unstakeNif);
         $('#unstakeMaxButton').on('click', async function(){
 
-            let amount = await tncLibDao.accountInfo(tncLib.account);
+            let amount = await tncLibGov.accountInfo(tncLib.account);
             $('#unstakeNifAmount').val( _this.cleanUpDecimals( _this.formatNumberString(amount[4], 18) ) );
 
         });
@@ -1712,8 +1712,8 @@ function run(connected) {
         window.tncLib = new TncLib();
         tncLib.account = accounts[0];
 
-        window.tncLibDao = new TncLibDao();
-        tncLibDao.account = tncLib.account;
+        window.tncLibGov = new TncLibGov();
+        tncLibGov.account = tncLib.account;
 
         if(typeof accounts == 'undefined' || accounts.length == 0){
 

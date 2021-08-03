@@ -1,4 +1,4 @@
-const daoConsumerABI = [
+govConsumerABI = [
     {
         "anonymous": false,
         "inputs": [
@@ -73,7 +73,7 @@ const daoConsumerABI = [
     },
     {
         "inputs": [],
-        "name": "aprInfo",
+        "name": "apInfo",
         "outputs": [
             {
                 "internalType": "uint256",
