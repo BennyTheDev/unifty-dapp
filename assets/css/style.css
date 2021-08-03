@@ -2318,7 +2318,7 @@ textarea, input {
 .light-edition .main-panel .content .container-fluid.wallet .title-options-container {
   display: flex;
   padding: 1rem 0;
-  align-items: center; }
+  flex-direction: column; }
   .dark-edition .main-panel .content .container-fluid.wallet .title-options-container h1,
   .light-edition .main-panel .content .container-fluid.wallet .title-options-container h1 {
     margin-bottom: 0; }
@@ -2334,6 +2334,24 @@ textarea, input {
     .dark-edition .main-panel .content .container-fluid.wallet .title-options-container a#walletActions::after,
     .light-edition .main-panel .content .container-fluid.wallet .title-options-container a#walletActions::after {
       display: none; }
+  .dark-edition .main-panel .content .container-fluid.wallet .title-options-container button#walletActions,
+  .light-edition .main-panel .content .container-fluid.wallet .title-options-container button#walletActions {
+    font-size: 1.33rem;
+    font-weight: bold;
+    margin: 0;
+    padding: 0.8rem 1.2rem; }
+
+.dark-edition .main-panel .content .container-fluid.wallet p,
+.light-edition .main-panel .content .container-fluid.wallet p {
+  font-family: Poppins;
+  font-size: 1.4rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: var(--text-primary); }
 
 .dark-edition .main-panel .content .container-fluid.wallet .wallet-container,
 .light-edition .main-panel .content .container-fluid.wallet .wallet-container {
@@ -2407,6 +2425,21 @@ textarea, input {
     .dark-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span.dark-mode.active,
     .light-edition .main-panel .content .custom-header__dropdowns .theme-toggler .theme-options span.dark-mode.active {
       background-color: var(--primary-color); }
+
+.outline-btn {
+  background-color: var(--bg-secondary);
+  color: var(--primary-color);
+  border: 0.2rem solid var(--primary-color);
+  border-radius: 0.8rem;
+  box-shadow: none;
+  font-size: 1.4rem;
+  text-transform: none;
+  padding: 0.7rem 1.5rem;
+  font-weight: bold; }
+  .outline-btn:hover {
+    color: var(--primary-color); }
+  .outline-btn:focus {
+    color: var(--primary-color); }
 
 .dark-edition .sidebar,
 .light-edition .sidebar {

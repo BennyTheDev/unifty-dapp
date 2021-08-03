@@ -1433,8 +1433,8 @@ function TncDapp() {
                 bubble.style.left = 'calc(100% + -7px)'
             }
 
-            bubble.innerHTML = userInput;
             setBubble();
+            bubble.innerHTML = userInput;
         });
 
         window.setRewardRate = function() {
