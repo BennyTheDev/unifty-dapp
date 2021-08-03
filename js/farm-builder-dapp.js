@@ -287,10 +287,11 @@ function TncDapp() {
                 //Get the social media dropdown row without any values
                 let socialMediaRow = _this.defaultSocialMediaRow;
 
-                console.log(data)
                 socialMediaRow.find(".removeSocial").on("click", function () {
                     removesSocial(this);
                 });
+
+              $(".farmSocialMediaAdd").fadeIn();
 
                 for(let key in data){
                     if(key == "name" || key == "description" || key == "image" || key == "customLink" || data[key] == ""){
@@ -303,7 +304,7 @@ function TncDapp() {
                             let copy_SocialMediaRow = socialMediaRow.clone();
 
                             copy_SocialMediaRow.find("select").val(data[key][key2].name).attr("disabled", "true");
-                            copy_SocialMediaRow.find("input").val(data[key][key2].value);
+                            copy_SocialMediaRow.find("input").val(data[key][key2].value).prop("disabled", true);;
                             copy_SocialMediaRow.find(".removeSocial").on("click", function () {
                                 removesSocial(this);
                             });
@@ -317,7 +318,7 @@ function TncDapp() {
                     let copy_SocialMediaRow = socialMediaRow.clone();
 
                     copy_SocialMediaRow.find("select").val(key).attr("disabled", "true");
-                    copy_SocialMediaRow.find("input").val(data[key]);
+                    copy_SocialMediaRow.find("input").val(data[key]).prop("disabled", true);
                     copy_SocialMediaRow.find(".removeSocial").on("click", function () {
                         removesSocial(this);
                       });
@@ -656,7 +657,7 @@ function TncDapp() {
     }
 
     this.updateRewardRate = async function(){
-        let rate = $('output.bubble').val();
+        let rate = $('#farmEditRewardRate').val();
         if(isNaN(parseFloat(rate)) || parseFloat(rate) <= 0){ _alert('Please enter a valid reward rate in seconds. Default is 86400 (1 day).'); return; }
         let farmAddress = $('#editRewardRate').val();
         await tncLib.farmSetRewardRate(
@@ -1281,9 +1282,15 @@ function TncDapp() {
           if (socialMediaFields.find('input[type="text"]').val()) {
             socialMediaFields.find('input[type="text"]').val("");
             socialMediaWrapper.find(".farmSocialMediaGroup").last().find("select").attr("disabled", "true");
+            socialMediaWrapper.find(".farmSocialMediaGroup").last().find("input").prop("disabled", true);
 
             socialMediaFields.find("select").removeAttr("disabled");
+            socialMediaFields.find("input").prop("disabled", false);
             socialMediaWrapper.append(socialMediaFields);
+
+            if($(socialMediaFields).find("option").length == 1){
+                $(this).fadeOut();
+            }
 
             socialMediaFields.find(".removeSocial").on("click", function () {
               removesSocial(this);
@@ -1327,6 +1334,12 @@ function TncDapp() {
             //el is remove button         
             if ($(el).parent().siblings().length > 0) {
 
+                if($(el).parent().siblings().length == 1){
+                    //Re enabling the dropdown when only one is available
+                    $(el).parent().siblings().find("select").removeAttr("disabled");
+                    $(el).parent().siblings().find("input").prop("disabled", false);
+                }
+
                 let attr = $(el).parent().find("select").attr("disabled")
                 if (typeof attr !== 'undefined' && attr !== false) {
                     
@@ -1334,18 +1347,24 @@ function TncDapp() {
                 }                
 
               $(el).parent().remove();
+              
+
+              $(".farmSocialMediaAdd").fadeIn();
             }
         }
 
         //Setting up the range slider
         let range = document.querySelector(".range");
         let bubble = document.querySelector(".bubble");
+        let currentTick = 0;
+        let bubbleValue = 0;
 
         let defaultSliderValue = 86400 //Setting the default value
         
         range.value = defaultSliderValue * 10; 
         range.addEventListener("input", () => {
-          setBubble();
+            setBubble();
+            $("#farmEditRewardRate").val(bubbleValue)
         });
         setBubble();
 
@@ -1357,19 +1376,65 @@ function TncDapp() {
           let step = range.step;
           let newVal = Number(((val - min) * 100) / (max - min));
 
-          let currentTick = val / step;
+          currentTick = val / step;
 
           if (currentTick <= 10) {
-            bubble.innerHTML = val / 10;
+            bubbleValue = val / 10;
           } else {
-            bubble.innerHTML = step * ((currentTick - 10) * 10);
+            bubbleValue = step * ((currentTick - 10) * 10);
           }
 
+          bubble.innerHTML = bubbleValue;          
           bubble.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
         }
-
+        
         $("#farmEditRewardRate").change(function(){
             setRewardRate();
+
+            let userInput = $("#farmEditRewardRate").val();
+
+            //Multiplication is neccesary because of the way the nonlinear input works
+            if(userInput * 10 < Number(range.min)){
+              bubble.style.left = '8px'
+            }
+            //The number is the middle value in between the ranges values. The ones displayed are a bit different because of the way the nonlinear input works
+            else if(userInput > 86400 && userInput <= 475200){
+                range.value = 864000;
+            }
+            else if(userInput > 475200 && userInput <= 1296000){
+                range.value = 950400;
+            }
+            else if(userInput > 1296000 && userInput <= 2160000){
+                range.value = 1036800;
+            }
+            else if(userInput > 2160000 && userInput <= 3024000){
+                range.value = 1123200;
+            }
+            else if(userInput > 3024000 && userInput <= 3888000){
+                range.value = 1209600;
+            }
+            else if(userInput > 3888000 && userInput <= 4752000){
+                range.value = 1296000;
+            }
+            else if(userInput > 4752000 && userInput <= 5616000){
+                range.value = 1382400;
+            }
+            else if(userInput > 5616000 && userInput <= 6480000){
+                range.value = 1468800;
+            }
+            else if(userInput > 6480000 && userInput <= 7344000){
+                range.value = 1555200;
+            }
+            else if(userInput > 7344000){
+                range.value = 1641600;
+                bubble.style.left = 'calc(100% + -7px)'
+            }
+            else if(userInput * 10 > Number(range.max)){
+                bubble.style.left = 'calc(100% + -7px)'
+            }
+
+            setBubble();
+            bubble.innerHTML = userInput;
         });
 
         window.setRewardRate = function() {
@@ -1386,26 +1451,26 @@ function TncDapp() {
 
             input.val(defaultSliderValue);
           } else {
-            $(range).attr({
-              min: userValue,
-              max: userValue * 20,
-              step: userValue,
-            });
             range.value = userValue * 10;
           }
-
+          
           setBubble();
+          bubble.innerHTML = $("#farmEditRewardRate").val();
+          
         }
 
         $("#rangeMin").on("click", function(){
             range.value = $(range).attr("min");
           setBubble();
+          $("#farmEditRewardRate").val(bubble.innerHTML);
 
         })
 
         $("#rangeMax").on("click", function(){
             range.value = $(range).attr("max");
           setBubble();
+          $("#farmEditRewardRate").val(bubble.innerHTML);
+
 
         })
         //------------------------------------
