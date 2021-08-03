@@ -597,6 +597,7 @@ textarea, input {
   width: 30%;
   height: 100%;
   margin-left: 4rem;
+  background-color: var(--bg-secondary) !important;
   padding: 3rem; }
   #learn-more-socialDiv h3 {
     color: var(--primary-color);
@@ -663,7 +664,6 @@ textarea, input {
   flex-direction: column;
   align-items: center;
   justify-content: space-around !important;
-  background-color: var(--bg-tertiary);
   padding: 2.4rem 3.6rem 1.3rem;
   border-radius: .8rem;
   box-shadow: var(--shadow-primary); }
@@ -1539,7 +1539,7 @@ textarea, input {
   .light-edition .popover.bs-popover-top .popover-header {
     background-color: transparent;
     border-bottom: 1px solid var(--modal-border-text);
-    font-family: "Poppins", sans-serif;
+    font-family: "Roboto Mono", sans-serif;
     font-size: 1.3rem;
     color: var(--text-primary);
     font-weight: 500; }
@@ -2187,7 +2187,7 @@ textarea, input {
       cursor: var(--cursor-pointer); }
     .dark-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label,
     .light-edition .main-panel .modal-dialog .modal-content .farm-builder-checkbox label {
-      font-family: Poppins;
+      font-family: "Roboto Mono";
       font-size: 1.3rem;
       line-height: 1.56;
       cursor: var(--cursor-pointer); }
@@ -2343,7 +2343,7 @@ textarea, input {
 
 .dark-edition .main-panel .content .container-fluid.wallet p,
 .light-edition .main-panel .content .container-fluid.wallet p {
-  font-family: Poppins;
+  font-family: "Roboto Mono";
   font-size: 1.4rem;
   font-weight: normal;
   font-stretch: normal;
