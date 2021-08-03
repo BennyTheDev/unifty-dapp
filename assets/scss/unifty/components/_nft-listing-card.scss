@@ -276,8 +276,8 @@
 
         &.show a {
           background-color: var(--bg-secondary);
-          font-size: 1.4rem;
-
+          font-size: 1.2rem;
+          padding: 1rem;
           color: var(--text-primary);
         }
 
@@ -346,7 +346,7 @@
   .popover-header {
     background-color: transparent;
     border-bottom: 1px solid var(--modal-border-text);
-    font-family: "Poppins", sans-serif;
+    font-family: "Roboto Mono", sans-serif;
     font-size: 1.3rem;
     color: var(--text-primary);
     font-weight: 500;
