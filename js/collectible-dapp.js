@@ -300,11 +300,6 @@ function TncDapp() {
         let decimals = await tncLib.tokenDecimalsErc20(token);
         price = _this.formatNumberString(price, decimals);
 
-        if(price.length >= 10) {
-
-            price = price.substring(0, price.length - 10);
-        }
-
         let rawPrice = price;
 
         if(decimals > 2) {
@@ -1305,6 +1300,7 @@ p
     };
 
     this.removingDecimals = function (string) {
+        if(string == '0') return '0';
       while (true) {
         if (string.slice(-1) == 0) {
           string = string.substring(0, string.length - 1);

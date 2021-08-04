@@ -27,6 +27,7 @@ function TncDapp() {
             stop = 1;
         }
 
+
         // skipping the first as it is a dummy
         for(let i = length - 1; i >= stop; i--){
 
@@ -192,12 +193,9 @@ function TncDapp() {
 
         let decimals = await tncLib.tokenDecimalsErc20(token);
 
+        console.log("PRICE: ", price);
+
         price = _this.formatNumberString(price, decimals);
-
-        if(price.length >= 10) {
-
-            price = price.substring(0, price.length - 10);
-        }
 
         let rawPrice = price;
 
@@ -2290,6 +2288,7 @@ function TncDapp() {
       };
   
       this.removingDecimals = function (string) {
+          if(string == '0') return '0';
         while (true) {
           if (string.slice(-1) == 0) {
             string = string.substring(0, string.length - 1);
