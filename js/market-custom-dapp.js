@@ -518,7 +518,7 @@ function TncDapp() {
 
     this.performCancellation = async function(){
 
-        let ask = await tncLibMarket.getAskBase($('#nftBuyIndex').val());
+        let ask = await tncLibMarket.getAskBase($('#nftBuyIndex').val(), _this.marketAddress);
 
         if(parseInt(ask.amounts) == 0){
 

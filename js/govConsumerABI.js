@@ -1,4 +1,4 @@
-govConsumerABI = [
+const govConsumerABI = [
     {
         "anonymous": false,
         "inputs": [
@@ -72,7 +72,13 @@ govConsumerABI = [
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_peer",
+                "type": "address"
+            }
+        ],
         "name": "apInfo",
         "outputs": [
             {

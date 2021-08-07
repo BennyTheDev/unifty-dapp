@@ -681,19 +681,6 @@ const govABI = [
     },
     {
         "inputs": [],
-        "name": "lastProposalTime",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "maxProposalDuration",
         "outputs": [
             {
@@ -926,19 +913,6 @@ const govABI = [
     {
         "inputs": [],
         "name": "proposalExecutionLimit",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "proposalFloodLimit",
         "outputs": [
             {
                 "internalType": "uint256",

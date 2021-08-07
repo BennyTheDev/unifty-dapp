@@ -795,20 +795,16 @@ function TncDapp() {
                     } else {
                         txt = "You successfully staked $NIF.";
                     }
-                    if(!receipt.events.Staked.returnValues.peerAccepted){
-
-                        txt += "<br/><br/><strong>Note: </strong>Your vault denied your staking amount. This is most likely due to staking limits being reached. Please check your vault for $NIF limits as your most recent $NIF stakes might not be taken into account.";
-                    }
                     _alert(txt);
                 },
                 function(err){
                     toastr.remove();
                     $(_button).prop('disabled', false);
                     $(_button).html('Stake');
-                    let errMsg = 'An error occurred with your buying transaction.';
+                    let errMsg = 'Your selected vault denied your staking request, most likely the max. amount of $NIF has been reached. Please check the vault description for details.';
                     toastr["error"](errMsg, "Error");
                     $('#stakeNif').modal('hide');
-                    errorPopup("Error", errMsg, err.stack);
+                    errorPopup("Error", errMsg, '');
                 }
             );
         }
@@ -1045,7 +1041,7 @@ function TncDapp() {
                 break;
 
             // remove peer
-            case 5:
+            case 6:
 
                 prop = '<strong>Type:</strong> Remove Peer from Consumer<br/>';
                 prop += '<strong>Consumer:</strong> ' + addressProp[2][0] + '<br/>';
