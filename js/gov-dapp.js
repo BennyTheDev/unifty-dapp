@@ -804,7 +804,11 @@ function TncDapp() {
                     let errMsg = 'Your selected vault denied your staking request, most likely the max. amount of $NIF has been reached. Please check the vault description for details.';
                     toastr["error"](errMsg, "Error");
                     $('#stakeNif').modal('hide');
-                    errorPopup("Error", errMsg, '');
+                    if(err.stack.toLowerCase().includes('allocation update has been rejected')){
+                        _alert('The vault rejected your allocation update.');
+                    }else {
+                        errorPopup("Error", errMsg, err.stack);
+                    }
                 }
             );
         }
@@ -865,7 +869,14 @@ function TncDapp() {
                     errMsg,
                     "Error"
                 );
-                errorPopup("Error", errMsg, err.stack);
+
+                if(err.stack.toLowerCase().includes('nif still locked')){
+                    _alert('Your $NIF is still locked.');
+                } else if(err.stack.toLowerCase().includes('allocation still frozen by consumer')){
+                    _alert('Your $NIF allocation is still locked by your current vault. Please note that you might only receive your $UNT rewards once fully unstaked.');
+                } else {
+                    errorPopup("Error", errMsg, err.stack);
+                }
 
             }
         );
@@ -918,6 +929,12 @@ function TncDapp() {
                 );
                 if(err.stack.toLowerCase().includes('out of unt')){
                     _alert('Not enough $UNT released to this vault yet. Please come back later.');
+                }else if(err.stack.toLowerCase().includes('cannot mint UNT')){
+                    _alert('Not enough $UNT released to this vault yet. Please come back later.');
+                }else if(err.stack.toLowerCase().includes('nothing to pay out')){
+                    _alert('Nothing to pay out. Most likely the grant ran out of $UNT.');
+                }else if(err.stack.toLowerCase().includes('you are withdrawing too early')){
+                    _alert('Your $UNT is still locked. Please wait for the unlock.');
                 }else {
                     errorPopup("Error", errMsg, err.stack);
                 }
@@ -1203,7 +1220,21 @@ function TncDapp() {
                     errMsg,
                     "Error"
                 );
-                errorPopup("Error", errMsg, err.stack);
+                if(err.stack.toLowerCase().includes('not an executive')){
+                    _alert('You are not allowed to execute this proposal.');
+                }else if(err.stack.toLowerCase().includes('not enough support')){
+                    _alert('The proposal has not been accepted.');
+                }else if(err.stack.toLowerCase().includes('quorum not reached')){
+                    _alert('Quorum too low. The proposal has not been accepted.');
+                }else if(err.stack.toLowerCase().includes('need at least 2 votes')){
+                    _alert('Need at least 2 votes. The proposal has not been accepted.');
+                }else if(err.stack.toLowerCase().includes('voting and grace time not yet ended')){
+                    _alert('The voting period did not end yet.');
+                }else if(err.stack.toLowerCase().includes('execution window expired')){
+                    _alert('The execution window expired.');
+                }else {
+                    errorPopup("Error", errMsg, err.stack);
+                }
 
             }
         );

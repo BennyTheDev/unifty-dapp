@@ -9,11 +9,12 @@ function TncLibGov(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.gov = new web3.eth.Contract(govABI, '0x5976A888Af778173dF82c094E9838ab00f880bE0', {from: this.account});
+        this.gov = new web3.eth.Contract(govABI, '0x8A59bA3fb733912B4895c236A7679Ee433844d9d', {from: this.account});
         this.account = '';
 
     } else {
 
+        this.gov = new web3.eth.Contract(govABI, '0x4fc279038774b065Df6A88b784280BF6F10DfA94', {from: this.account});
         this.account = '';
 
     }

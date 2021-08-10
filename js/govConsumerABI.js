@@ -26,6 +26,11 @@ const govConsumerABI = [
                 "type": "address"
             },
             {
+                "internalType": "uint256",
+                "name": "prevAllocation",
+                "type": "uint256"
+            },
+            {
                 "internalType": "address",
                 "name": "_peer",
                 "type": "address"
@@ -48,6 +53,16 @@ const govConsumerABI = [
                 "internalType": "address",
                 "name": "_account",
                 "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "prevAmount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "prevAllocation",
+                "type": "uint256"
             },
             {
                 "internalType": "address",
@@ -101,6 +116,11 @@ const govConsumerABI = [
                 "internalType": "address",
                 "name": "_account",
                 "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "prevAllocation",
+                "type": "uint256"
             },
             {
                 "internalType": "address",

@@ -130,11 +130,6 @@ function TncDapp() {
             let decimals = await tncLib.tokenDecimalsErc20(ask.tokenAddress);
             price = _this.formatNumberString(price, decimals);
 
-            if(price.length >= 10) {
-
-                price = price.substring(0, price.length - 10);
-            }
-
             rawPrice = price;
 
             if(decimals > 2) {

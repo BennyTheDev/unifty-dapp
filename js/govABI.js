@@ -270,6 +270,19 @@ const govABI = [
     {
         "inputs": [
             {
+                "internalType": "address",
+                "name": "_executive",
+                "type": "address"
+            }
+        ],
+        "name": "addExecutive",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
@@ -667,6 +680,25 @@ const govABI = [
         "type": "function"
     },
     {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "isExecutive",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "inputs": [],
         "name": "isPausing",
         "outputs": [
@@ -847,19 +879,6 @@ const govABI = [
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "pauser",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
             }
         ],
         "stateMutability": "view",
@@ -1355,12 +1374,12 @@ const govABI = [
     {
         "inputs": [
             {
-                "internalType": "bool",
-                "name": "_pausing",
-                "type": "bool"
+                "internalType": "address",
+                "name": "_executive",
+                "type": "address"
             }
         ],
-        "name": "setPaused",
+        "name": "removeExecutive",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1368,12 +1387,12 @@ const govABI = [
     {
         "inputs": [
             {
-                "internalType": "address",
-                "name": "_newPauser",
-                "type": "address"
+                "internalType": "bool",
+                "name": "_pausing",
+                "type": "bool"
             }
         ],
-        "name": "setPauser",
+        "name": "setPaused",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
