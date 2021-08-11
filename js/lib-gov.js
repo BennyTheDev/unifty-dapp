@@ -9,7 +9,7 @@ function TncLibGov(){
     // ETHEREUM RINKEBY
     if(chain_id === "4") {
 
-        this.gov = new web3.eth.Contract(govABI, '0x8A59bA3fb733912B4895c236A7679Ee433844d9d', {from: this.account});
+        this.gov = new web3.eth.Contract(govABI, '0x580CEf1eF62a5fEC1A829489c3619De178fe7153', {from: this.account});
         this.account = '';
 
     } else {
@@ -50,6 +50,11 @@ function TncLibGov(){
     this.frozen = async function(account){
         await sleep(sleep_time);
         return await this.gov.methods.frozen(account).call({from:this.account});
+    };
+
+    this.credit = async function(account){
+        await sleep(sleep_time);
+        return await this.gov.methods.credit(account).call({from:this.account});
     };
 
     this.minNifStake = async function(){
@@ -165,6 +170,40 @@ function TncLibGov(){
         const price = await web3.eth.getGasPrice();
 
         this.gov.methods.stake(funds)
+            .send({
+                from:this.account,
+                gas: gas + Math.floor( gas * 0.1 ),
+                gasPrice: Number(price) + Math.floor( Number(price) * 0.1 )
+            })
+            .on('error', async function(e){
+                errCallback(e);
+            })
+            .on('transactionHash', async function(transactionHash){
+                preCallback();
+            })
+            .on("receipt", function (receipt) {
+                postCallback(receipt);
+            });
+    };
+
+    this.withdrawNif = async function(preCallback, postCallback, errCallback){
+
+        let gas = 0;
+
+        try {
+            await sleep(sleep_time);
+            gas = await this.gov.methods.withdraw().estimateGas({
+                from:this.account
+            });
+        }catch(e){
+            console.log(e.message);
+            errCallback(e);
+            return;
+        }
+
+        const price = await web3.eth.getGasPrice();
+
+        this.gov.methods.withdraw()
             .send({
                 from:this.account,
                 gas: gas + Math.floor( gas * 0.1 ),

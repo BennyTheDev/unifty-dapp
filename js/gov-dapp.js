@@ -828,7 +828,7 @@ function TncDapp() {
 
         if( amount.eq( zero ) ){
 
-            _alert('You cannot unstake zero.');
+            _alert('You cannot unlock zero.');
             return;
         }
 
@@ -870,8 +870,8 @@ function TncDapp() {
                     "Error"
                 );
 
-                if(err.stack.toLowerCase().includes('nif still locked')){
-                    _alert('Your $NIF is still locked.');
+                if(err.stack.toLowerCase().includes('insufficient funds')){
+                    _alert('Insufficient funds.');
                 } else if(err.stack.toLowerCase().includes('allocation still frozen by consumer')){
                     _alert('Your $NIF allocation is still locked by your current vault. Please note that you might only receive your $UNT rewards once fully unstaked.');
                 } else {
@@ -936,6 +936,40 @@ function TncDapp() {
                 }else if(err.stack.toLowerCase().includes('you are withdrawing too early')){
                     _alert('Your $UNT is still locked. Please wait for the unlock.');
                 }else {
+                    errorPopup("Error", errMsg, err.stack);
+                }
+            }
+        );
+    }
+
+    this.withdrawNif = async function(){
+
+        toastr.remove();
+
+        tncLibGov.withdrawNif(
+            function () {
+                toastr["info"](
+                    "Please wait for the transaction to finish.",
+                    "Withdrawing...."
+                );
+            },
+            function (receipt) {
+                console.log(receipt);
+                toastr.remove();
+                toastr["success"]("Transaction has been finished.", "Success");
+                let drawn = _this.cleanUpDecimals( _this.formatNumberString( receipt.events.Withdrawn.returnValues.amount+"" ,18) );
+                _alert("You successfully withdrew " + drawn + " $NIF.");
+            },
+            function (err) {
+                toastr.remove();
+                let errMsg = "An error occurred with your withdrawing transaction.";
+                toastr["error"](
+                    errMsg,
+                    "Error"
+                );
+                if(err.stack.toLowerCase().includes('nif still locked')){
+                    _alert('Your $NIF is still within the cooldown period.');
+                } else {
                     errorPopup("Error", errMsg, err.stack);
                 }
             }
@@ -1415,6 +1449,9 @@ function TncDapp() {
 
         if(typeof tncLibGov != 'undefined'){
 
+            let credit = await tncLibGov.credit(tncLib.account);
+            $('#withdrawableNIF').html(Number(_this.cleanUpDecimals(_this.formatNumberString(web3.utils.toBN(credit).toString(), 18))).toFixed(4));
+
             let accountInfo = await tncLibGov.accountInfo(tncLib.account);
             $('#nifStaked').html( Number( _this.cleanUpDecimals( _this.formatNumberString( accountInfo[4], 18 ) ) ).toFixed(4) );
         }
@@ -1441,6 +1478,7 @@ function TncDapp() {
             {
                 $('#untEarned').text('0.0000');
                 $('#untEarnedLive').text('0.0000');
+                $('#withdrawableNIF').text('');
             }
         }
     }
@@ -1465,6 +1503,7 @@ function TncDapp() {
         });
 
         $('#withdrawUnt').on('click', _this.withdrawUnt);
+        $('#withdrawNif').on('click', _this.withdrawNif);
         $('#proposalButton').on('click', _this.newProposal);
 
         $('#proposalType').on('change', function(){

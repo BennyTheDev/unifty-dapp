@@ -216,6 +216,25 @@ const govABI = [
         "type": "event"
     },
     {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "Withdrawn",
+        "type": "event"
+    },
+    {
         "inputs": [
             {
                 "internalType": "address",
@@ -265,19 +284,6 @@ const govABI = [
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_executive",
-                "type": "address"
-            }
-        ],
-        "name": "addExecutive",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -531,6 +537,25 @@ const govABI = [
             {
                 "internalType": "uint256",
                 "name": "grantSizeUnt",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "credit",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
                 "type": "uint256"
             }
         ],
@@ -1377,9 +1402,14 @@ const govABI = [
                 "internalType": "address",
                 "name": "_executive",
                 "type": "address"
+            },
+            {
+                "internalType": "bool",
+                "name": "_add",
+                "type": "bool"
             }
         ],
-        "name": "removeExecutive",
+        "name": "setExecutive",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -1668,6 +1698,13 @@ const govABI = [
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "withdraw",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     }
 ];
