@@ -260,30 +260,45 @@
 
 //icons and rights
 .sidebar-text {
+  background-color: #fff;
+  box-shadow: var(--shadow-primary);
+  //margin-top: 2.5rem;
+  padding: 1rem;
   display: flex;
-  flex-direction: column;
+  //flex-direction: column;
   align-items: center;
   color: var(--text-footer);
 
   &.icons {
-    margin: 4rem 0 1rem;
+    //margin: 4rem 0 1rem;
+    padding-left: 10rem;
+    
     span a {
       margin: 0 1rem;
+      
+      img{
+        height: 2rem;
+      }
+  
     }
-
+    
     span a:hover {
       color: var(--heading-color);
     }
   }
 
-  &.rights {
+  &.left {
+    margin-left:3.3rem;
+    
     span {
       font-size: 1.2rem;
       font-weight: 300;
       letter-spacing: 0.24px;
       text-align: center;
+      margin-left: 2rem;
 
       i {
+
         font-size: 1rem;
         vertical-align: middle;
       }
