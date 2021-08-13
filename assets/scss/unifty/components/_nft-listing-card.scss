@@ -7,7 +7,8 @@
   min-width: unset;
 
   .btn {
-    font-size: 1.2rem;
+    font-size: 1.2rem;    
+    border-radius: 3rem;
   }
 
   .card .traits-collapse {
@@ -26,10 +27,11 @@
       min-height: 15.6rem;
       max-width: 15.6rem;
       max-height: 15.6rem;
-      padding: 0.8rem !important;
+      padding: 0.25rem !important;
       margin: 1.5rem auto 0.5rem;
-      background-color: var(--image-padding);
-
+      //background-color: var(--image-padding);
+      background-color: var(--bg-secondary); 
+      box-shadow: var(--shadow-primary);
       border-radius: 0.6rem !important;
       object-fit: cover;
 
@@ -143,14 +145,14 @@
 
       //points
       a.redeemButton {
+        border-radius: 3rem;
+        padding: 0.6rem 0.8rem;
         font-size: 1.4rem;
         box-shadow: none;
         border: none;
         text-transform: none;
-        border-radius: 0.6rem;
         background-color: var(--primary-color);
         color: var(--bg-secondary);
-        padding: 0.3rem 0.8rem;
         font-weight: 500;
         width: 90%;
         text-overflow: ellipsis;
@@ -168,8 +170,8 @@
       a.traits {
         font-size: 1.4rem;
         border: 0.1rem solid var(--text-primary);
-        border-radius: 0.6rem;
-        background-color: var(--image-padding) !important;
+        border-radius: 3rem;
+        //background-color: var(--image-padding) !important;
         text-transform: none;
         color: var(--text-primary);
         padding: 0.3rem 0.8rem;
