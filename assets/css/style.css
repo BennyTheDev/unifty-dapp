@@ -2623,8 +2623,7 @@ textarea, input {
     color: var(--primary-color); }
 
 .sidebar-text {
-  background-color: #fff;
-  box-shadow: var(--shadow-primary);
+  background-color: var(--bg-secondary);
   padding: 1rem;
   display: flex;
   align-items: center;
