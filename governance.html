@@ -25,11 +25,11 @@
     <script type="text/javascript" src="js/farmABI.js?v=1.9.13"></script>
     <script type="text/javascript" src="js/farmShopABI.js?v=1.9.13"></script>
     <script type="text/javascript" src="js/erc20ABI.js?v=1.9.13"></script>
-    <script type="text/javascript" src="js/govABI.js?v=1.9.13"></script>
-    <script type="text/javascript" src="js/govConsumerABI.js?v=1.9.13"></script>
+    <script type="text/javascript" src="js/govABI2.js?v=1.9.13"></script>
+    <script type="text/javascript" src="js/govConsumerABI2.js?v=1.9.13"></script>
     <script type="text/javascript" src="js/lib.js?v=1.9.13"></script>
-    <script type="text/javascript" src="js/lib-gov.js?v=1.9.13"></script>
-    <script type="text/javascript" src="js/gov-dapp.js?v=1.9.13"></script>
+    <script type="text/javascript" src="js/lib-gov2.js?v=1.9.13"></script>
+    <script type="text/javascript" src="js/gov-dapp2.js?v=1.9.13"></script>
     <script type="text/javascript" src="js/dapp-init.js?v=1.9.13"></script>
     <script type="text/javascript" src="js/cookie.js?v=1.9.13"></script>
     <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
@@ -199,7 +199,7 @@
                 </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="https://unifty.io/gov.html">
+                <a class="nav-link" href="https://unifty.io/governance.html">
                     <i class="material-icons-round">explore</i>
                     <p>Governance / $UNT</p>
                 </a>
@@ -534,16 +534,19 @@
                                                 Once 150,000 NIF are staked it will activate all features like proposals, votes and ultimately UNT.
                                                 <br/>
                                                 <br/>
+                                                <a href="https://unifty.io/governance1.html" target="_blank">Click here to unstake from the old governance!</a>
+                                                <br/>
+                                                <br/>
                                                 Documentation:<br/><a href="https://docs.unifty.com" target="_blank">docs.unifty.com</a>
                                                 <br/>
                                                 <br/>
-                                                Governance Contract:<br/><a href="https://etherscan.io/address/0x4fc279038774b065df6a88b784280bf6f10dfa94" target="_blank">0x4fc279038774b065df6a88b784280bf6f10dfa94</a>
+                                                Governance Contract:<br/><a href="https://etherscan.io/address/0xCF532428021BEd194F3AB8D4C003cC2e2cD8628a" target="_blank">0xCF532428021BEd194F3AB8D4C003cC2e2cD8628a</a>
                                                 <br/>
                                                 <br/>
                                                 $NIF Contract:<br/><a href="https://etherscan.io/address/0x7e291890B01E5181f7ecC98D79ffBe12Ad23df9e" target="_blank">0x7e291890B01E5181f7ecC98D79ffBe12Ad23df9e</a>
                                                 <br/>
                                                 <br/>
-                                                $UNT Contract:<br/><a href="https://etherscan.io/address/0xA01b53aDfdA1FCd39d3623e193E1E05dd851aeC2" target="_blank">0xA01b53aDfdA1FCd39d3623e193E1E05dd851aeC2</a>
+                                                $UNT Contract:<br/><a href="https://etherscan.io/address/0xF8fCC10506ae0734dfd2029959b93E6ACe5b2a70" target="_blank">0xF8fCC10506ae0734dfd2029959b93E6ACe5b2a70</a>
                                             </p>
                                         </div>
                                     </div>
@@ -563,6 +566,10 @@
                         <a href="javascript:void(0);" class="btn btn-secondary mb-3 mr-1">
                             Earned <span id="untEarned">0.0000</span> $UNT</span><br/>
                             <sub>Current Estimate: <span id="untEarnedLive">0.0000</span> $UNT</sub>
+                        </a>
+                        <a id="cooldown" style="margin-top: 10px !important; display: none;" href="javascript:void(0);" class="btn btn-secondary mb-3 mr-1">
+                            Unstaked <span id="nifUnstaked">0.0000</span> $NIF</span><br/>
+                            <sub>Available: <span id="nifCooldownAvailable"></span></sub>
                         </a>
                     </div>
 
@@ -988,7 +995,10 @@
                             <label for="nifAmount">$NIF to stake</label>
                             <input type="text" placeholder="Enter how much $NIF you would like to stake." class="form-control"
                                    id="nifAmount">
-                           <sub>The amount will be added to already staked $NIF of yours. 14 days lock.</sub>
+
+                            <button type="button" class="btn btn-link" id="stakeMaxButton">Max.</button>
+                            <br/>
+                            <sub>The amount will be added to already staked $NIF of yours. 14 days cooldown period upon unstaking.</sub>
                         </div>
 
                     </form>
