@@ -188,9 +188,11 @@
         box-shadow: none;
         padding: 0;
         margin: 0;
-
+       
         span {
           font-size: 1.8rem;
+
+          
         }
 
         &:hover,
@@ -311,7 +313,8 @@
 .light-edition .popover.bs-popover-top {
   background-color: var(--bg-secondary);
   box-shadow: var(--shadow-primary);
-
+  
+  
   .arrow,
   .arrow::before {
     display: none;
@@ -319,11 +322,12 @@
 
   .popover-header,
   .popover-body {
+    
     padding: 1rem;
     max-height: 15rem;
-    overflow: auto;
+    //overflow: auto;
     color: var(--text-primary);
-
+    justify-content: flex-start;
     &::-webkit-scrollbar {
       width: 0.5rem;
       height: 0.3rem;
@@ -379,4 +383,7 @@
 
 .nftHeader {
   width: 100%;
+}
+.aria-describedby{
+  font-size: 200px;
 }

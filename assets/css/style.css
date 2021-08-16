@@ -1479,8 +1479,8 @@ textarea, input {
   .light-edition .popover.bs-popover-top .popover-body {
     padding: 1rem;
     max-height: 15rem;
-    overflow: auto;
-    color: var(--text-primary); }
+    color: var(--text-primary);
+    justify-content: flex-start; }
     .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar,
     .dark-edition .popover.bs-popover-bottom .popover-body::-webkit-scrollbar,
     .dark-edition .popover.bs-popover-top .popover-header::-webkit-scrollbar,
@@ -1563,6 +1563,9 @@ textarea, input {
 
 .nftHeader {
   width: 100%; }
+
+.aria-describedby {
+  font-size: 200px; }
 
 .dark-edition
 .main-panel
