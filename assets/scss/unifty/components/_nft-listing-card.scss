@@ -52,6 +52,7 @@
     .card-body,
     .header-left {
       position: static;
+      background-color: var(--bg-secondary);
 
       //copy address
       .text-truncate {
