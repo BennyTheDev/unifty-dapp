@@ -2632,15 +2632,15 @@ textarea, input {
     color: var(--primary-color); }
 
 .sidebar-text {
-  padding: 1rem;
+  margin: auto;
+  background-color: var(--bg-secondary);
+  height: 5.3rem;
   display: flex;
   align-items: center;
-  color: var(--text-footer);
-  justify-content: flex-end;
-  box-shadow: var(--shadow-primary); }
+  color: var(--text-footer); }
   .sidebar-text.icons {
-    padding-left: 9rem;
-    height: 4rem; }
+    float: right;
+    justify-content: flex-end; }
     .sidebar-text.icons span a {
       margin: 0 1rem; }
       .sidebar-text.icons span a img {
@@ -2648,9 +2648,9 @@ textarea, input {
     .sidebar-text.icons span a:hover {
       color: var(--heading-color); }
   .sidebar-text.left {
-    margin-left: 3.3rem;
-    height: 4rem;
-    padding-left: 0; }
+    padding-left: 0;
+    justify-content: flex-start;
+    float: left; }
     .sidebar-text.left span {
       font-size: 1.2rem;
       font-weight: 300;

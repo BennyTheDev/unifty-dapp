@@ -260,21 +260,27 @@
 
 //icons and rights
 .sidebar-text {
-  //background-color: var(--bg-secondary);
+  margin:auto;
+  background-color: var(--bg-secondary);
+  height: 5.3rem;
   //box-shadow: var(--shadow-primary);
   //margin-top: 2.5rem;
-  padding: 1rem;
+  //padding: 2rem 3.8rem 2rem;
   display: flex;
   //flex-direction: column;
   align-items: center;
   color: var(--text-footer);
-  justify-content: flex-end;
-  box-shadow: var(--shadow-primary);
+  //justify-content: flex-end;
+  //box-shadow: var(--shadow-primary);
+
+  
 
   &.icons {
     //margin: 4rem 0 1rem;
-    padding-left: 9rem;
-    height: 4rem;
+    //padding-left: 9rem;
+    //height: 4rem;
+    float: right;
+    justify-content: flex-end;
     
     span a {
       margin: 0 1rem;
@@ -291,9 +297,11 @@
   }
 
   &.left {
-    margin-left:3.3rem;
-    height: 4rem;
+    //margin-left:3.3rem;
+    //height: 4rem;
     padding-left: 0;
+    justify-content: flex-start;
+    float: left;
     
     span {
       font-size: 1.2rem;
