@@ -33,6 +33,25 @@ body {
 
 body.dark-edition {
   cursor: var(--cursor-default);
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.1rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--scrolbar-track);
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
+  }
+  &::-webkit-scrollbar-track:hover {
+    background: var(--scrollbar-track-hover);
+  }
 
   a:link,
   a:hover,
@@ -44,7 +63,25 @@ body.dark-edition {
 
 body.light-edition {
   cursor: var(--cursor-default);
-
+  &::-webkit-scrollbar {
+    width: 0.8rem;
+    height: 0.1rem;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
+  &::-webkit-scrollbar-track {
+    background: var(--scrolbar-track);
+    border-radius: 10px;
+    box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
+  }
+  &::-webkit-scrollbar-track:hover {
+    background: var(--scrollbar-track-hover);
+  }
 
   a:link,
   a:hover,

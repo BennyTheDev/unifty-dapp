@@ -26,25 +26,25 @@
     height: calc(100vh - 16rem);
     display: flex;
     flex-direction: column;
-    padding-bottom: 6rem;
+    padding-bottom: 0;
     overflow: hidden;
     overflow-y: auto;
 
-    @include respond(big-desktop) {
-      padding-bottom: 0.7rem;
-    }
-    @include respond(tab-land) {
-      padding-bottom: 5rem;
-    }
-    @include respond(nav-collapse) {
-      padding-bottom: 4rem;
-    }
-    @include respond(tab-port) {
-      padding-bottom: 5.5rem;
-    }
-    @include respond(phone) {
-      padding-bottom: 8rem;
-    }
+    // @include respond(big-desktop) {
+    //   padding-bottom: 0.7rem;
+    // }
+    // @include respond(tab-land) {
+    //   padding-bottom: 5rem;
+    // }
+    // @include respond(nav-collapse) {
+    //   padding-bottom: 4rem;
+    // }
+    // @include respond(tab-port) {
+    //   padding-bottom: 5.5rem;
+    // }
+    // @include respond(phone) {
+    //   padding-bottom: 8rem;
+    // }
 
     .sidebar-bottom {
       flex: 1;
@@ -329,12 +329,14 @@
   }
   .sidebar-wrapper {
     .nav {
+      height: max-content;
       li > a {
         margin: 1rem 2.6rem 0;
       }
       .nav-item {
         width: max-content;
-
+        height: 42px;
+        
         i {
           margin: 0;
         }
