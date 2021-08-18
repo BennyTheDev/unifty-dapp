@@ -260,8 +260,9 @@
 
 //icons and rights
 .sidebar-text {
+  font-family: "Baloo 2", sans-serif;
   margin:auto;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-collectible);
   height: 5.3rem;
   //box-shadow: var(--shadow-primary);
   //margin-top: 2.5rem;
@@ -304,7 +305,7 @@
     float: left;
     
     span {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
       font-weight: 300;
       letter-spacing: 0.24px;
       text-align: center;

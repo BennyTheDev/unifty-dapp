@@ -280,9 +280,17 @@
 
         &.show a {
           background-color: var(--bg-secondary);
-          font-size: 1.2rem;
-          padding: 1rem;
+          font-size: 1.4rem;
+          padding: 0.3rem 1rem;
           color: var(--text-primary);
+          &:hover{
+            background: none;
+            box-shadow: none;
+            background-color: var(--primary-hover-light);
+
+          }
+
+          
         }
 
         .dropdown-menu.show {
