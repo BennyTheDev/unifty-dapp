@@ -2676,8 +2676,8 @@ textarea, input {
   align-items: center;
   color: var(--text-footer); }
   .sidebar-text.icons {
-    display: show !important;
-    justify-content: flex-end; }
+    padding-top: 1rem;
+    display: inline-block !important; }
     .sidebar-text.icons span a {
       margin: 0 1rem;
       height: 1.6rem; }
@@ -2686,9 +2686,7 @@ textarea, input {
     .sidebar-text.icons span a:hover {
       color: var(--heading-color); }
   .sidebar-text.left {
-    padding-left: 0;
-    justify-content: flex-start;
-    float: left; }
+    padding-left: 0; }
     .sidebar-text.left span {
       font-weight: 300;
       letter-spacing: 0.24px;
