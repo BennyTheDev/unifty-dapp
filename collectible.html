@@ -477,7 +477,7 @@
                             <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{_price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                 Buy
                             </button>
-                            <div class="text-muted mb-2" style="font-size: 1.5rem;">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
+                            <div class="text-muted mb-2" style="font-size: 1.5rem; margin: 0.5rem;">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
                             {{/ifNotEquals}}
                         {{#ifEquals batch ""}}
                             {{#ifEquals onsale "1"}}
@@ -485,21 +485,21 @@
                                 Buy
                             </button>
                             {{/ifEquals}}
-                            <br>
+                  
                         {{#ifNotEquals onsale "1"}}
                             <button id="nftBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-toggle="modal" data-price="{{_price}}" data-target="#nftBuyModal" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                 Buy
                             </button>
                         {{/ifNotEquals}}
-                            <br>
-                        <div class="text-muted mb-2" style="font-size: 1.5rem;">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
+                            
+                        <div class="text-muted mb-2" style="font-size: 1.5rem; margin: 0.5rem;">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
                         {{/ifEquals}}
                         {{/ifNotEquals}}
 
                         {{#ifNotEquals swap ""}}
                         {{#ifNotEquals buy ""}}
                         
-                        <br/>
+                        
                         {{/ifNotEquals}}
                         <button id="nftSwap{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-target="#nftSwapModal" data-index="{{index}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                             Swap

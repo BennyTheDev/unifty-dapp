@@ -70,10 +70,12 @@
         }
   
         #amount-div {
+          text-align: right;
           span.badge.badge-info {
             background-color: unset;
             color: var(--text-primary);
             font-size: 1.2rem;
+            
           }
         }
       }
@@ -131,7 +133,7 @@
         font-size: 1.2rem;
         color: var(--text-primary);
         padding: 0 4.5rem;
-        background-color: var(--bg-secondary);
+        background-color: var(--bg-collectible);
         border-radius: .4rem;
   
         .utils-vertical {
@@ -159,7 +161,7 @@
         font-size: 1.2rem;
         color: var(--text-primary);
         padding: 0 4.5rem;
-        background-color: var(--bg-secondary);
+        background-color: var(--bg-collectible);
         border-radius: .4rem;
   
         .utils-vertical {

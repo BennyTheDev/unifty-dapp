@@ -9,6 +9,7 @@
   .btn {
     font-size: 1.2rem;    
     border-radius: 3rem;
+    font-family: "Baloo 2", sans-serif;
   }
 
   .card .traits-collapse {
@@ -68,10 +69,13 @@
 
       //title
       h5.card-title {
-        font-size: 1.8rem;
+        
         font-weight: 700;
         letter-spacing: 0.28px;
         margin: 0 0 1rem 0;
+        font-size: 2rem;
+        font-family: "Baloo 2", sans-serif;
+
 
         a {
           color: var(--heading-color);

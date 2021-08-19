@@ -121,18 +121,21 @@
   margin-top: 0;
 
   i {
-    font-size: 2.1rem;
+    font-size: 2rem;
     color: var(--primary-color);
     margin-right: 1.3rem;
   }
 
   p {
-    font-size: 1.18rem;
     font-weight: 500;
     letter-spacing: 0.32px;
     color: #808080;
     width: max-content;
     overflow: hidden;
+    font-size: 1.35rem;
+    color: var(--text-primary);
+    font-family: "Baloo 2", sans-serif;
+
   }
 
   li > a {
@@ -332,8 +335,8 @@
 
   .logo {
     img {
-      width: 8.5rem;
-      height: 8.5rem;
+      
+      
     }
   }
   .sidebar-wrapper {
@@ -386,7 +389,7 @@
 
     padding: 0.8rem;
     p {
-      font-family: "Roboto Mono";
+      
       font-size: 1.6rem;
       font-weight: normal;
       font-stretch: normal;
@@ -394,9 +397,14 @@
       line-height: 1.5;
       letter-spacing: normal;
       text-align: left;
-      color: #6c757d;
+      
 
       margin: 0;
+
+      font-family: "Baloo 2", sans-serif;
+      color: var(--text-primary);
+      padding:  0   0.5rem;   
+
     }
 
     i {

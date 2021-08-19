@@ -848,7 +848,7 @@
     }
     .navbar-collapse{
         .nav p{
-            font-size: $font-size-base;
+            font-size: 1.6rem !important;
             margin: 0;
         }
     }
@@ -860,6 +860,8 @@
     .navbar .navbar-collapse {
       .navbar-nav .nav-item .nav-link p {
         display: none;
+      
+
       }
     }
   }

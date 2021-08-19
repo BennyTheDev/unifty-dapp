@@ -101,7 +101,7 @@ body.light-edition {
   --bg-primary: #0d141a;
   --bg-secondary: #121a21;
   --bg-secondary-light: rgba(18, 26, 33, .5);
-  --bg-tertiary: --bg-tertiary: #202940;
+  --bg-tertiary: #202940;
 
   --text-primary: #9d9db4;
   --text-primary-light: rgba(157, 157, 180, .5);
@@ -117,14 +117,14 @@ body.light-edition {
 
   --traits-bg: rgba(13, 20, 26, .5);
 
-  --shadow-primary:--shadow-primary: 0 16px 20px -12px rgba(0, 0, 0, .20), 0 4px 20px 0px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .20);
+  --shadow-primary: 0 16px 20px -12px rgba(0, 0, 0, .20), 0 4px 20px 0px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .20);
 
   --cursor-default: url(../img/unifty-icons/cursor-default-dark.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto;
   --cursor-text: url(../img/unifty-icons/cursor-text-dark-thin.svg), auto;
 
   //scrollbar bg
-  -scrollbar-track: rgba(253, 121, 226, .1);
+  --scrollbar-track: rgba(253, 121, 226, .1);
   --scrollbar-track-shadow: #121a21;
   --scrollbar-track-hover: #666666;
   --scrollbar-thumb: linear-gradient(0deg, #5c5c73 27%,rgba(253, 121, 226, .5) 60%);
