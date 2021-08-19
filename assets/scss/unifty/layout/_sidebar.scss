@@ -283,11 +283,13 @@
     //margin: 4rem 0 1rem;
     //padding-left: 9rem;
     //height: 4rem;
-    float: right;
+    display: show !important;
+    //float: right;
     justify-content: flex-end;
     
     span a {
       margin: 0 1rem;
+      height: 1.6rem;
       
       img{
         height: 2rem;
@@ -308,11 +310,11 @@
     float: left;
     
     span {
-      font-size: 1.6rem;
       font-weight: 300;
       letter-spacing: 0.24px;
       text-align: center;
       margin-left: 2rem;
+      font-size: 1.35rem;
 
       i {
 

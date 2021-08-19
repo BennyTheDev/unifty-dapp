@@ -255,6 +255,8 @@
           background-color: var(--bg-secondary);
           color: var(--primary-color);
           box-shadow: none;
+          font-family: "Baloo 2", sans-serif;
+          min-width: 100%;
 
           &::before {
             font-family: "Material Icons Round";
@@ -285,7 +287,7 @@
         &.show a {
           background-color: var(--bg-secondary);
           font-size: 1.4rem;
-          padding: 0.3rem 1rem;
+          padding: 1rem 1.2rem;
           color: var(--text-primary);
           &:hover{
             background: none;

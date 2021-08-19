@@ -32,10 +32,7 @@
     font-size: 1.35rem;
     font-weight: 700;
     font-family: "Baloo 2", sans-serif;
-    @media (max-width: 991px)
-    {
-    font-size: 1.75rem !important;
-    }
+   
 
 
     span {
@@ -48,10 +45,12 @@
     background-color: var(--bg-secondary);
     min-width: 100%;
     font-family: "Baloo 2", sans-serif !important;
+    
 
 
     a.dropdown-item {
       font-size: 1.4rem;
+      
     }
 
     
