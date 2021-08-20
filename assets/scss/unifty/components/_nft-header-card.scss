@@ -8,7 +8,7 @@
 .dark-edition .main-panel .nftHeader-stakingOptions-container,
 .light-edition .main-panel .nftHeader-stakingOptions-container {
   #farmHeader {
-    //background-color: var(--bg-tertiary);
+    background-color: var(--bg-tertiary);
     flex: 1;
     margin-right: 2rem;
     box-shadow: var(--shadow-primary);
@@ -16,7 +16,7 @@
 
     @include respond (bootstrap-xxl) {
       margin-right: 0;
-      //margin-bottom: 3rem;
+      margin-bottom: 3rem;
     }
 
     .nftHeader.col-md-12.mb-4 {
@@ -36,7 +36,6 @@
         word-wrap: normal;
         padding: .5rem 2rem;
         box-shadow: none;
-        background-color: var(--bg-secondary);
 
         .card-content {
           display: flex;
