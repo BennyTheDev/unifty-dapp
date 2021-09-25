@@ -747,7 +747,6 @@ textarea, input {
 
 .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
 .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-  background-color: var(--bg-tertiary);
   flex: 1;
   margin-right: 2rem;
   box-shadow: var(--shadow-primary);
@@ -755,8 +754,7 @@ textarea, input {
   @media only screen and (max-width: 87.5em) {
     .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
     .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-      margin-right: 0;
-      margin-bottom: 3rem; } }
+      margin-right: 0; } }
   .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader.col-md-12.mb-4,
   .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader.col-md-12.mb-4 {
     padding: 0 !important;
@@ -772,7 +770,8 @@ textarea, input {
       color: var(--text-primary);
       word-wrap: normal;
       padding: .5rem 2rem;
-      box-shadow: none; }
+      box-shadow: none;
+      background-color: var(--bg-secondary); }
       .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content,
       .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader .card .card-content {
         display: flex; }
@@ -884,7 +883,8 @@ textarea, input {
     .nftHeader .card-profile .header-left,
     .nftHeader .header-profile .card-body,
     .nftHeader .header-profile .header-left {
-      position: static; }
+      position: static;
+      background-color: var(--bg-secondary); }
       .nftListing .card-profile .card-body .text-truncate a,
       .nftListing .card-profile .header-left .text-truncate a,
       .nftListing .header-profile .card-body .text-truncate a,
@@ -2787,11 +2787,8 @@ textarea, input {
   .dark-edition .main-panel .nftHeader-stakingOptions-container,
   .light-edition .main-panel .nftHeader-stakingOptions-container {
     display: flex;
-    margin-bottom: 3rem; }
-    @media only screen and (max-width: 87.5em) {
-      .dark-edition .main-panel .nftHeader-stakingOptions-container,
-      .light-edition .main-panel .nftHeader-stakingOptions-container {
-        flex-direction: column; } }
+    margin-bottom: 3rem;
+    background-color: var(--bg-secondary); }
   .dark-edition .main-panel .content .row,
   .light-edition .main-panel .content .row {
     margin: 0 0 1rem 0; }

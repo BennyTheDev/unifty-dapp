@@ -80,9 +80,10 @@
   .nftHeader-stakingOptions-container {
     display: flex;
     margin-bottom: 3rem;
+    background-color: var(--bg-secondary);
 
     @include respond(bootstrap-xxl) {
-      flex-direction: column;
+      //flex-direction: column;
     }
   }
 
