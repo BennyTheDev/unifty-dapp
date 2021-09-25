@@ -1418,7 +1418,7 @@ function TncDapp() {
             },
             function (err) {
                 toastr.remove();
-                let errMsg = "An error occurred with your voting transaction.";
+                let errMsg = "An error occurred with your allocation transaction.";
                 toastr["error"](
                     errMsg,
                     "Error"
@@ -1428,6 +1428,43 @@ function TncDapp() {
                 if( err.stack.toLowerCase().includes('execution reverted') ){
 
                     errorPopup("Error", "The vault denied your allocation. Please make sure you stake $NIF and your selected vault's allocation limits aren't reached.", '');
+
+                }else{
+
+                    errorPopup("Error", errMsg, err.stack);
+                }
+            }
+        );
+    }
+
+    this.dellocate = async function(){
+
+        toastr.remove();
+
+        tncLibGov.dellocate(
+            function () {
+                toastr["info"](
+                    "Please wait for the transaction to finish.",
+                    "De-Allocating...."
+                );
+            },
+            function (receipt) {
+                console.log(receipt);
+                toastr.remove();
+                toastr["success"]("Transaction has been finished.", "Success");
+                _alert("You successfully de-allocated!");
+            },
+            function (err) {
+                toastr.remove();
+                let errMsg = "An error occurred with your de-allocation transaction.";
+                toastr["error"](
+                    errMsg,
+                    "Error"
+                );
+
+                if( err.stack.toLowerCase().includes('execution reverted') ){
+
+                    errorPopup("Error", "The vault denied your de-allocation.", '');
 
                 }else{
 
@@ -1468,6 +1505,8 @@ function TncDapp() {
 
             if(consumer != '0x0000000000000000000000000000000000000000') {
 
+                $('#dellocate').css('display','flex');
+
                 let earned = await tncLibGov.earnedConsumer(consumer, tncLib.account);
                 earned = Number(_this.cleanUpDecimals(_this.formatNumberString(web3.utils.toBN(earned).toString(), 18))).toFixed(4);
                 $('#untEarned').text(earned);
@@ -1478,6 +1517,7 @@ function TncDapp() {
             }
             else
             {
+                $('#dellocate').css('display','none');
                 $('#untEarned').text('0.0000');
                 $('#untEarnedLive').text('0.0000');
                 $('#withdrawableNIF').text('0.0000');
@@ -1509,6 +1549,7 @@ function TncDapp() {
             $('#nifAmount').val( _this.cleanUpDecimals( _this.formatNumberString(nifBalance, 18) ) );
         });
 
+        $('#dellocate').on('click', _this.dellocate);
         $('#withdrawUnt').on('click', _this.withdrawUnt);
         $('#withdrawNif').on('click', _this.withdrawNif);
         $('#proposalButton').on('click', _this.newProposal);

@@ -31,6 +31,8 @@ switch(chain_id){
     // Binance Smart Chain
     case '38':
         blocked_collections = [
+            "0x56eC49a9B28Eb09655c2Ed72b3bBDdcEbf5aa09e".toLowerCase(), // PASION DE ANGEL
+            "0x4f499F278c4F638C8DBC3fbf511863Ad6C445474".toLowerCase(), // JesseGoneWild
             "0xee47899A976CA85AE0fCFFb8c2a0fA4c9Eaa7ba7".toLowerCase(), // skin on skin
             "0x009958B1D79559570D75f8C852b3D4627CB6af30".toLowerCase(), // ariadna
             "0x6b8CBD4A71621D993e2b49b5e87471a6F08704E9".toLowerCase(), // bc

@@ -20,39 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/governance1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/gov-dapp1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/govABI1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/govConsumerABI2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/lib-gov1.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/brand-assets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridge.html" beforeDir="false" afterPath="$PROJECT_DIR$/bridge.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changelog.html" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/custom-collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gov.html" beforeDir="false" afterPath="$PROJECT_DIR$/governance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guides-faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/guides-faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectible-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/gov-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/gov-dapp2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/govABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/govABI2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/govConsumerABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/govConsumerABI1.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-convert721.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-convert721.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-gov.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-gov2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-custom-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-custom-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roadmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/roadmap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tiktok.html" beforeDir="false" afterPath="$PROJECT_DIR$/tiktok.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/governance.html" beforeDir="false" afterPath="$PROJECT_DIR$/governance.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/gov-dapp2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/gov-dapp2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lib-gov2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-gov2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/multiBatchABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/multiBatchABI.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/web3.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/web3.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/web3.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/js/web3.min.js.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,14 +154,17 @@
       <workItem from="1627948641286" duration="11015000" />
       <workItem from="1628102532259" duration="11533000" />
       <workItem from="1628365388446" duration="4288000" />
-      <workItem from="1628552286765" duration="50809000" />
-    </task>
-    <task id="LOCAL-00016" summary="+ added collection optimization through api.unifty.cloud">
-      <created>1619111848827</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1619111848827</updated>
+      <workItem from="1628552286765" duration="51448000" />
+      <workItem from="1628961968270" duration="6574000" />
+      <workItem from="1629410985204" duration="613000" />
+      <workItem from="1629562063994" duration="723000" />
+      <workItem from="1629980000994" duration="681000" />
+      <workItem from="1630178555634" duration="3250000" />
+      <workItem from="1630573589229" duration="3284000" />
+      <workItem from="1631196112877" duration="402000" />
+      <workItem from="1631780716723" duration="6114000" />
+      <workItem from="1631916020683" duration="9059000" />
+      <workItem from="1632515990865" duration="3599000" />
     </task>
     <task id="LOCAL-00017" summary="+ added collection optimization through api.unifty.cloud">
       <created>1619202148413</created>
@@ -523,7 +502,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628682265866</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="+ added new governance contract and view">
+      <created>1628892619244</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1628892619244</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +540,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="# fixed category and &quot;your offers&quot; links to point to the correct market being used" />
     <MESSAGE value="+ added another nsfw collection to the bsc blocklist&#10;+ added an alert if buy orders cannot be processed" />
     <MESSAGE value="- removed advisors because outdated until it is clear who to add&#10;&#10;- removed investor's information indefinitely" />
     <MESSAGE value="+ added fee setup&#10;+  added admin cancellation for listings" />
@@ -579,45 +564,35 @@
     <MESSAGE value="# fixed a cancellation bug in custom marketplaces" />
     <MESSAGE value="+ release of governance" />
     <MESSAGE value="# minor governance UI improvement" />
-    <option name="LAST_COMMIT_MESSAGE" value="# minor governance UI improvement" />
+    <MESSAGE value="+ added new governance contract and view" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added new governance contract and view" />
   </component>
   <component name="WindowStateProjectService">
     <state x="528" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626009055343">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="528" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1626009055343" />
-    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1628682265366">
+    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1628892618615">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1628682265366" />
+    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1628892618615" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1628035698985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1628035698985" />
-    <state x="147" y="64" key="MergeDialog" timestamp="1622231791486">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1628892625107">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1622231791486" />
-    <state x="407" y="173" key="MultipleFileMergeDialog" timestamp="1622231792904">
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1628892625107" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1632259796040">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="407" y="173" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1622231792904" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1628682276204">
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1632259796040" />
+    <state x="233" y="117" width="3375" height="806" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3840.1040@0.0.3840.1040" timestamp="1631982159484" />
+    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1630178750237">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1628682276204" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1628035529865">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1628035529865" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1623178660854">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1623178660854" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1628612841447">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1628612841447" />
+    <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1630178750237" />
     <state x="569" y="313" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1625075220004">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
