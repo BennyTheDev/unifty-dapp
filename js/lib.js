@@ -1624,6 +1624,8 @@ function TncLib(){
         let erc1155 = new web3.eth.Contract( erc1155ABI, erc1155Address, {from:this.account} );
         let events = await fetchUrl(api_url + '1.0/'+chain_id+'/collections/events/TransferSingle/erc1155Address/'+erc1155Address+'/to/'+address, 5000);
 
+        console.log(api_url + '1.0/'+chain_id+'/collections/events/TransferSingle/erc1155Address/'+erc1155Address+'/to/'+address);
+
         if(events == 'not-indexed'){
             events = '[]';
         }
