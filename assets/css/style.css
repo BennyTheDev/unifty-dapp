@@ -2573,7 +2573,7 @@ textarea, input {
   display: none; }
 
 .dark-edition .sidebar .sidebar-wrapper ul.nav:first-child, .light-edition .sidebar .sidebar-wrapper ul.nav:first-child {
-  overflow: auto; }
+  overflow: inherit; }
 
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
@@ -2677,7 +2677,7 @@ textarea, input {
   color: var(--text-footer); }
   .sidebar-text.icons {
     padding-top: 1rem;
-    display: inline-block !important; }
+    display: block !important; }
     .sidebar-text.icons span a {
       margin: 0 1rem;
       height: 1.6rem; }
