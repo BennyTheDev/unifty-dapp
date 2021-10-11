@@ -5,6 +5,14 @@
   font-size: 2rem;
 }
 
+@media only screen and (max-width: 800px){
+  .dark-edition .main-panel .nftHeader-stakingOptions-container,
+  .light-edition .main-panel .nftHeader-stakingOptions-container 
+  #farmHeader {
+  max-width: 35rem !important;
+}
+  }
+
 .dark-edition .main-panel .nftHeader-stakingOptions-container,
 .light-edition .main-panel .nftHeader-stakingOptions-container {
   #farmHeader {
@@ -14,10 +22,16 @@
     box-shadow: var(--shadow-primary);
     border-radius: .8rem;
 
+    @media only screen and (max-width: 800px){
+      max-width: 35rem !important;
+      }
+
     @include respond (bootstrap-xxl) {
       margin-right: 0;
       //margin-bottom: 3rem;
     }
+
+    
 
     .nftHeader.col-md-12.mb-4 {
       padding: 0 !important;
