@@ -699,7 +699,8 @@ textarea, input {
   justify-content: space-around !important;
   padding: 2.4rem 3.6rem 1.3rem;
   border-radius: .8rem;
-  box-shadow: var(--shadow-primary); }
+  box-shadow: var(--shadow-primary);
+  background-color: var(--bg-secondary) !important; }
   .dark-edition .nftHeader-stakingOptions-container #stakingOptions .mb-3, .dark-edition .nftHeader-stakingOptions-container #stakingOptions .my-3,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .mb-3,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .my-3 {
