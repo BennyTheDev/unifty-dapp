@@ -584,6 +584,12 @@
                             {{/ifNotEquals}}
 
 
+                            
+
+                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
+
+                            <div class="collection-name">{{{collectionName}}}</div>
+
                             <div class="mb-3">
                                 {{#ifEquals batch ""}}
                                     <span class="badge badge-info">In Stock: <span id="marketAmountInfo{{erc1155}}{{id}}">{{onsale}}</span></span>
@@ -592,10 +598,6 @@
                                 <span class="badge badge-info"><a href="javascript:void(0);" data-index="{{index}}" data-toggle="modal" data-target="#nftsView">This + {{multiplier}} more NFTs</a></span>
                                 {{/ifNotEquals}}
                             </div>
-
-                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
-
-                            <div class="collection-name">{{{collectionName}}}</div>
 
                             {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
@@ -760,6 +762,12 @@
                             {{/ifNotEquals}}
 
 
+                           
+
+                            <h5 class="card-title text-truncate"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+
+                            <div class="collection-name">{{{collectionName}}}</div>
+
                             <div class="mb-3">
                                 {{#ifEquals batch ""}}
                                 <span class="badge badge-info">In Stock: <span id="marketAmountInfo2{{erc1155}}{{id}}">{{onsale}}</span></span>
@@ -768,10 +776,6 @@
                                 <span class="badge badge-info"><a href="javascript:void(0);" data-index="{{index}}" data-toggle="modal" data-target="#nftsView">This + {{multiplier}} more NFTs</a></span>
                                 {{/ifNotEquals}}
                             </div>
-
-                            <h5 class="card-title text-truncate"><a href="{{url}}" target="_blank">{{name}}</a></h5>
-
-                            <div class="collection-name">{{{collectionName}}}</div>
 
                             {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">

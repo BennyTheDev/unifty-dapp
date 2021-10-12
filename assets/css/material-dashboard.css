@@ -9412,7 +9412,12 @@ a.text-dark:focus {
 
 .text-muted,
 .bmd-help {
-  color: #6c757d !important;
+  color: #202060 !important;
+  font-family: "Poppins";
+  font-stretch: normal;
+  font-style: normal;
+  font-size: 18px !important;
+  font-weight: bold;
 }
 
 .text-hide {
@@ -17860,7 +17865,7 @@ label {
 
 .card-profile .card-avatar {
   margin: -50px auto 0;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   overflow: hidden;
   padding: 0;
   box-shadow: 0 16px 38px -12px rgba(0, 0, 0, 0.56), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);

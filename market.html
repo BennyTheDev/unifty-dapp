@@ -509,6 +509,12 @@
                             {{/ifNotEquals}}
 
 
+                            
+
+                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
+
+                            <div class="collection-name">{{{collectionName}}}</div>
+
                             <div class="mb-3">
                                 {{#ifEquals batch ""}}
                                     <span class="badge badge-info">In Stock: <span id="marketAmountInfo{{erc1155}}{{id}}">{{onsale}}</span></span>
@@ -518,9 +524,8 @@
                                 {{/ifNotEquals}}
                             </div>
 
-                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
-
-                            <div class="collection-name">{{{collectionName}}}</div>
+                            <div class="text-muted mb-2" style="font-size: 1.5rem">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> <span style="font-weight: normal;
+                                color: #4c4c6f;">each</span></div>
 
                             {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
@@ -549,7 +554,7 @@
                                     <button id="nftBatchBuy{{index}}" class="btn btn-outline" style="cursor: pointer;" data-multiplier="{{multiplier}}" data-price="{{_price}}" data-index="{{index}}" data-ticker="{{ticker}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
                                         Buy
                                     </button>
-                                    <div class="text-muted mb-2" style="font-size: 1.5rem">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a></div>
+                                    
                                 {{/ifNotEquals}}
                                 {{#ifEquals batch ""}}
                                     {{#ifEquals onsale "1"}}
@@ -562,13 +567,13 @@
                                             Buy
                                         </button>
                                     {{/ifNotEquals}}
-                                    <div class="text-muted mb-2" style="font-size: 1.5rem">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> each</div>
+                                    
                                 {{/ifEquals}}
                             {{/ifNotEquals}}
 
                             {{#ifNotEquals swap ""}}
                                 {{#ifNotEquals buy ""}}
-                                <span style="font-size: 1.4rem; display: block;">Or</span>
+                               
 
                                 {{/ifNotEquals}}
                                 <button id="nftSwap{{index}}" class="btn btn-outline mb-3" style="cursor: pointer;" data-toggle="modal" data-target="#nftSwapModal" data-index="{{index}}" data-name="{{name}}" data-erc1155="{{erc1155}}" data-id="{{id}}">
@@ -583,20 +588,20 @@
                             {{/ifEquals}}
 
                             {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="traits btn btn-outline" href="{{opensea}}"
+                            <a class="traits  btn btn-outline" href="{{opensea}}"
                                 target="_blank">{{checkOpenSea}}</a>
                             {{/ifEquals}}
                             
                             {{#ifEquals checkOpenSea "Open Details"}}
-                            <a class="traits btn btn-outline"
+                            <a class="traits  btn btn-outline"
                                 href="{{opensea}}">{{checkOpenSea}}</a>
                             {{/ifEquals}}
                             
                             
                             
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button"
+                            <a {{{traitsHide}}} class="traits trait btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button"
                                 aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                                Traits
+                                Show Traits
                             </a>
 
                             <div class="collapse traits-collapse" id="collapse2{{index}}">
@@ -687,6 +692,12 @@
                             {{/ifNotEquals}}
 
 
+                           
+
+                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
+
+                            <div class="collection-name">{{{collectionName}}}</div>
+
                             <div class="mb-3">
                                 {{#ifEquals batch ""}}
                                 <span class="badge badge-info">In Stock: <span id="marketAmountInfo2{{erc1155}}{{id}}">{{onsale}}</span></span>
@@ -696,9 +707,8 @@
                                 {{/ifNotEquals}}
                             </div>
 
-                            <h5 class="card-title text-truncate"><a href="{{opensea}}" target="_blank">{{name}}</a></h5>
-
-                            <div class="collection-name">{{{collectionName}}}</div>
+                            <div class="text-muted mb-2" style="font-size: 1.5rem">{{price}} <a href="{{explorer}}" target="_blank">{{ticker}}</a> <span style="font-weight: normal;
+                                color: #4c4c6f;">each </span></div>
 
                             {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
@@ -708,8 +718,8 @@
                             </button>
                             {{/ifNotEquals}}
 
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                                Traits
+                            <a {{{traitsHide}}} class="traits  trait btn btn-outline" data-toggle="collapse" href="#collapse{{index}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                                Show Traits
                             </a>
 
                             <div class="collapse traits-collapse" id="collapse{{index}}">
