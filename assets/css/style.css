@@ -1229,7 +1229,8 @@ textarea, input {
         text-transform: none;
         color: var(--text-primary);
         padding: 0.3rem 0.8rem;
-        width: 90%; }
+        width: 90%;
+        font-family: "Poppins"; }
         .nftListing .card-profile .card-body a.traits.trait,
         .nftListing .card-profile .header-left a.traits.trait,
         .nftListing .header-profile .card-body a.traits.trait,
@@ -1698,6 +1699,7 @@ textarea, input {
   font-size: 1.6rem;
   color: var(--bg-secondary);
   font-weight: 700;
+  font-family: "Poppins";
   padding: 0.3rem 0.8rem;
   width: 90%; }
   .dark-edition

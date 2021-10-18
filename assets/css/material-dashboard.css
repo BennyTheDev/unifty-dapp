@@ -5371,6 +5371,7 @@ tbody.collapse.show {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
+  font-family: 'Poppins';
 }
 
 .list-group-item-action {
