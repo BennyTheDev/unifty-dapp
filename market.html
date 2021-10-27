@@ -598,9 +598,7 @@
                                 href="{{opensea}}">{{checkOpenSea}}</a>
                             {{/ifEquals}}
                             
-                            
-                            
-                            <a {{{traitsHide}}} class="traits trait btn btn-outline" data-toggle="collapse" href="#collapse2{{index}}" role="button"
+                            <a {{{traitsHide}}} class="traits trait btn btn-outline" onclick="toggleName({{index}})" id="{{index}}" data-dropdown="collapse2{{index}}" data-toggle="collapse" href="#collapse2{{index}}" role="button"
                                 aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
                                 Show Traits
                             </a>
@@ -1183,5 +1181,6 @@
 </div>
 <script src="js/ramp-init.js"></script>
 <script src="js/themeSwitch.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
