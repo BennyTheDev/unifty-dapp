@@ -457,7 +457,7 @@
             <script id="offer-template" type="text/x-handlebars-template">
                 <div class="nftListing mb-3">
                     <div class="card card-profile">
-
+                        <div class="c-image">
                         {{#ifNotEquals image ""}}
                         <a href="{{opensea}}">
                         
@@ -471,6 +471,7 @@
                         
                         </a>
                         {{/ifNotEquals}}
+                        </div>
 
                         <div class="card-body">
 
@@ -646,9 +647,11 @@
             <script id="picker-template" type="text/x-handlebars-template">
 
                 <div style="{{#ifEquals which "request"}}min-width: 100%;{{/ifEquals}}{{#ifEquals which "request2"}}margin-bottom: 3rem !important;margin-left: 3rem !important;{{/ifEquals}}cursor: pointer;display: inline-block;vertical-align:top;" id="nftListing{{index}}" data-index="{{index}}" class="nftListing col-md-4 mb-3">
+                   
                     <div class="card card-profile">
 
                         {{#ifNotEquals image ""}}
+
                         <a href="{{opensea}}">
                             <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         </a>

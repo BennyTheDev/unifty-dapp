@@ -877,6 +877,10 @@ textarea, input {
   .farmListing .card .traits-collapse,
   .nftHeader .card .traits-collapse {
     font-size: 1.4rem; }
+  .nftListing .c-image,
+  .farmListing .c-image,
+  .nftHeader .c-image {
+    min-height: 200px; }
   .nftListing .card-profile,
   .nftListing .header-profile,
   .farmListing .card-profile,
