@@ -914,7 +914,6 @@ textarea, input {
     .farmListing .header-profile .card-avatar:hover,
     .nftHeader .card-profile .card-avatar:hover,
     .nftHeader .header-profile .card-avatar:hover {
-      transform: scale(1.3);
       /*
           -webkit-filter: blur(0px); // Safari 6.0 - 9.0
           filter: blur(0px);
