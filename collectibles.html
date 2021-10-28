@@ -84,6 +84,18 @@
       min-width: 300px;
     }
 
+    .btn-opensea{
+      border-radius: 8px !important;
+      border: solid 1px #202060;
+      background-color: #f4f7fb !important;
+      font-family: "Poppins" !important;
+      color: #4c4c6f !important;
+      width: 248px;
+      height: 32px;
+      margin-left: 1.5rem;
+      margin: auto;
+    }
+
     .btn-outline {
       background-color: transparent !important;
       box-shadow: none !important;
@@ -457,24 +469,24 @@
         <script id="collectible-template" type="text/x-handlebars-template">
                 <div class="nftListing mb-3">
                     <div class="card card-profile">
-
+                      <div class="c-image" >
                         {{#ifNotEquals image ""}}
                             <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                         {{/ifNotEquals}}
-
-                        {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                            <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}" target="_blank">{{checkOpenSea}}</a>
-                        {{/ifEquals}}
+                          </div>
+                       
 
                         {{#ifEquals checkOpenSea "Open Details"}}
                             <a class="opensea text-muted mt-2" style="font-size: 1.0em; width: 50%; margin: 0 auto;" href="{{opensea}}">{{checkOpenSea}}</a>
                         {{/ifEquals}}
-                    
+
+                        
                         <div class="card-body">
                           <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
                           <div class="collection-name">
                             {{{collectionName}}}
                           </div>
+                          
 
                             {{#ifNotEquals animation_url ""}}
                             <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
@@ -513,6 +525,9 @@
                             <div class="mb-3">
                                 <span class="badge badge-info">{{owns}}: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
                             </div>
+                            {{#ifEquals checkOpenSea "Check on OpenSea"}}
+                          <a class="btn btn-opensea"  href="{{opensea}}" target="_blank" >{{checkOpenSea}}</a>
+                          {{/ifEquals}}
 
                           {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
@@ -546,8 +561,8 @@
                                 </div>
                             {{/ifNotEquals}}
 
-                            <a {{{traitsHide}}} class="traits btn btn-outline" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
-                                Traits
+                            <a {{{traitsHide}}} class="traits trait btn btn-outline" onclick="toggleName({{index}})" id="{{index}}" data-dropdown="collapse2{{index}}" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
+                                Show Traits
                             </a>
 
                             <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
@@ -1132,6 +1147,7 @@
   </div>
   <script src="js/ramp-init.js"></script>
   <script src="js/themeSwitch.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>

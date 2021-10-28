@@ -897,7 +897,6 @@ textarea, input {
     .nftHeader .card-profile .card-avatar,
     .nftHeader .header-profile .card-avatar {
       min-width: 90%;
-      min-height: 90%;
       max-width: 15.6rem;
       max-height: 15.6rem;
       margin: 1.5rem auto 0.5rem;
