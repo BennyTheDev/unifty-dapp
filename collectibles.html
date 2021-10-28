@@ -89,14 +89,11 @@
       border: solid 1px #202060;
       background-color: #f4f7fb !important;
       font-family: "Poppins" !important;
-      width: 248px;
-      height: 32px;
-      margin: auto;
-      font-size: 16px !important;
-      padding: 0;
-      padding-top: 0.5rem;
       color: #4c4c6f !important;
-      text-transform: none !important;
+      width: 100%;
+      padding: 8px;
+      height: 32px;
+      margin: 1rem auto;
     }
     .btn-opensea:hover{
       box-shadow: none;
@@ -173,6 +170,25 @@
       width: unset !important;
       height: unset !important;
       margin-right: -20px !important;
+    }
+    .option-btn{
+      position: inherit !important;
+      top: 0px;
+      left: 0px;
+      margin: 0px !important;
+    }
+    .option-btn button {
+      width: 100%;
+      display: block !important;
+      height: 34px;
+      padding: 6px !important;
+    }
+    .option-btn button::after{
+      float: right;
+      margin-top: 6px;
+    }
+    .option-btn button a{
+      float: left;
     }
   </style>
 
@@ -531,9 +547,35 @@
                             <div class="mb-3">
                                 <span class="badge badge-info">{{owns}}: <span id="farmOwnInfo{{erc1155}}{{id}}">{{balance}}</span></span>
                             </div>
+
+                            <div class="dropdown option-btn ml-3 mr-3 dropdown--chains">
+                              <button id="walletActions" class="btn btn-info dropdown-toggle" type="button"
+                                      id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="walletNftActions0xEab73ceC9332fC1aec346EB38c2C4e75af1555461" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  <span class="material-icons">
+                                    create
+                                  </span>
+                                </a>
+                                OPTIONS
+                              </button>
+
+                              <div class="dropdown-menu" aria-labelledby="walletNftActions{{erc1155}}{{id}}">
+                                {{#ifNotEquals bridgeOn ""}}
+                                  <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeButton{{erc1155}}{{id}}">Bridge to Ethereum</a>
+                                {{/ifNotEquals}}
+                                {{#ifNotEquals bridgeOnBack ""}}
+                                  <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeBackModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeBackButton{{erc1155}}{{id}}">Bridge Back</a>
+                                {{/ifNotEquals}}
+                                <a href="javascript:void(0);" class="dropdown-item marketSellLink" data-toggle="modal" data-target="#nftSellModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftSell{{erc1155}}{{id}}">Sell</a>
+                                <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftTransferModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftTransfer{{erc1155}}{{id}}">Transfer</a>
+                                <a href="javascript:void(0);" style="display:none;" class="dropdown-item marketRoyaltiesLink" data-toggle="modal" data-target="#royaltiesModal" data-edit="true" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftRoyaltiesModalButton{{erc1155}}{{id}}">Royalties</a>
+                              </div>      
+                            </div>
+                            
                             {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                          <a class="btn btn-opensea"  href="{{opensea}}" target="_blank" >{{checkOpenSea}}</a>
-                          {{/ifEquals}}
+                              <a class="btn btn-opensea"  href="{{opensea}}" target="_blank" >{{checkOpenSea}}</a>
+                            {{/ifEquals}}
 
                           {{#ifNotEquals description ""}}
                             <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
@@ -544,7 +586,7 @@
                           {{/ifNotEquals}}
 
                             {{#ifNotEquals options ""}}
-                                <div class="dropdown">
+                                <!-- <div class="dropdown">
                                     <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="walletNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                       <span class="material-icons">
                                         create
@@ -564,7 +606,7 @@
                                       <a href="javascript:void(0);" style="display:none;" class="dropdown-item marketRoyaltiesLink" data-toggle="modal" data-target="#royaltiesModal" data-edit="true" data-contract-address="{{erc1155}}" data-nft-id="{{id}}" id="nftRoyaltiesModalButton{{erc1155}}{{id}}">Royalties</a>
 
                                     </div>
-                                </div>
+                                </div> -->
                             {{/ifNotEquals}}
 
                             <a {{{traitsHide}}} class="traits trait btn btn-outline" onclick="toggleName({{index}})" id="{{index}}" data-dropdown="collapse2{{index}}" data-toggle="collapse" href="#collapse{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapse{{erc1155}}{{id}}">
