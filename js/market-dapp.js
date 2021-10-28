@@ -10,6 +10,11 @@ function TncDapp() {
 
     this.getMarketNfts = async function(address, which, category){
 
+        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' ) {
+
+            _this.updateRegisteredCollections(tncLibConvert721.uniftyverse721);
+        }
+
         let nftCount = 0;
 
         let asksLengths = 0;
@@ -191,6 +196,16 @@ function TncDapp() {
             bridgeBack = true;
         }
 
+        let srcInfo721 = [0,0,0];
+        let verse721 = false;
+
+        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
+
+            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
+            verse721 = true;
+            console.log(srcInfo721);
+        }
+
         let decimals = await tncLib.tokenDecimalsErc20(token);
 
         console.log("PRICE: ", price);
@@ -250,6 +265,9 @@ function TncDapp() {
                 srcChainid : srcInfo[2],
                 srcCollection : srcInfo[0],
                 srcId : srcInfo[1],
+                srcCollection721 : srcInfo721[0],
+                srcId721 : srcInfo721[1],
+                verse721: verse721 ? verse721 : '',
                 bridgeOnBack : bridgeBack ? chain_id : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
@@ -336,6 +354,9 @@ function TncDapp() {
                 srcChainid : srcInfo[2],
                 srcCollection : srcInfo[0],
                 srcId : srcInfo[1],
+                srcCollection721 : srcInfo721[0],
+                srcId721 : srcInfo721[1],
+                verse721: verse721 ? verse721 : '',
                 bridgeOnBack : bridgeBack ? chain_id : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
@@ -2418,12 +2439,15 @@ function run(connected) {
         tncLibMarket.account = tncLib.account;
         window.tncLibBridgeIn = new TncLibBridge();
         tncLibBridgeIn.account = tncLib.account;
+        window.tncLibConvert721 = new TncLibConvert721();
+        tncLibConvert721.account = tncLib.account;
 
         if(typeof accounts == 'undefined' || accounts.length == 0){
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
             tncLibMarket.account = '0x0000000000000000000000000000000000000000';
             tncLibBridgeIn.account = '0x0000000000000000000000000000000000000000';
+            tncLibConvert721.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();

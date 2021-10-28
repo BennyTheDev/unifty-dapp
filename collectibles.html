@@ -34,6 +34,7 @@
   <script type="text/javascript" src="js/swapABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/converter721To1155ABI.js?v=1.9.13"></script>
+  <script type="text/javascript" src="js/uniftyverse721ABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/lib.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/lib-convert721.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/lib-bridge.js?v=1.9.13"></script>
@@ -474,6 +475,10 @@
                           <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
                           <div class="collection-name">
                             {{{collectionName}}}
+                            {{#ifNotEquals verse721 ""}}
+                              <div><small>Original Contract: {{srcCollection721}}</small></div>
+                              <div><small>Original NFT ID: {{srcId721}}</small></div>
+                            {{/ifNotEquals}}
                           </div>
 
                             {{#ifNotEquals animation_url ""}}
