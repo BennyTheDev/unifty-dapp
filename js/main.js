@@ -10,7 +10,6 @@ function toggleName(inner) {
 }
 
 function toggleList(id,erc) {
-    console.log(erc,id);
     const inner_id = 'collapse'+erc+id;
     const new_id=erc+id;
     console.log(inner_id);
@@ -21,5 +20,19 @@ function toggleList(id,erc) {
         btn.innerText="Show Traits";
     } else {
         btn.innerText="Hide Traits";
+    }
+}
+
+function toggleVideo(id, address) {
+    const img = document.getElementById(`${id}${address}`);
+    const div = document.querySelector(`#collapseVideo${address}${id}`);  
+    const text = document.getElementById(`${address}${id}`);
+
+    if(div.classList.contains('show') == true) {
+        img.style.display = 'block';
+        text.innerHTML = "Play Video";
+    } else {
+        img.style.display = 'none';
+        text.innerHTML = "Hide Video";
     }
 }

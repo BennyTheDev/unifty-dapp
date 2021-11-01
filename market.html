@@ -154,6 +154,9 @@
             height: unset !important;
             margin-right: -20px !important;
         }
+        .hide {
+            display: none
+        }
     </style>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap');
@@ -457,32 +460,21 @@
             <script id="offer-template" type="text/x-handlebars-template">
                 <div class="nftListing mb-3">
                     <div class="card card-profile">
-                        <div class="c-image">
                         {{#ifNotEquals image ""}}
-                        <a href="{{opensea}}">
-                        
-                            {{#ifEquals shadowed "false"}}
-                            <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
-                        
-                            {{/ifEquals}}
-                            {{#ifEquals shadowed "true"}}                        
-                            <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">                        
-                            {{/ifEquals}}
-                        
-                        </a>
+                            <div class="c-image" id={{id}}{{erc1155}}>
+                                <a href="{{opensea}}">
+                                
+                                    {{#ifEquals shadowed "false"}}
+                                    <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
+                                
+                                    {{/ifEquals}}
+                                    {{#ifEquals shadowed "true"}}                        
+                                    <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">                        
+                                    {{/ifEquals}}
+                                </a>
+                            </div>
                         {{/ifNotEquals}}
-                        </div>
-
-                        <div class="card-body">
-                            
-                            {{#ifNotEquals animation_url ""}}
-                            <div class="videos" style="display: flex; justify-content: space-between;" >
-                            <a class="btn btn-outline mb-3 video-btn-link" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
-                                <span class="material-icons">
-                                  play_circle
-                                </span>
-                                Play Video
-                            </a>
+                        {{#ifNotEquals animation_url ""}}
                             <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
                                 <ul class="list-group">
                                     <li class="list-group-item">
@@ -492,6 +484,17 @@
                                     </li>
                                 </ul>
                             </div>
+                        {{/ifNotEquals}}
+                        <div class="card-body">
+                            
+                            {{#ifNotEquals animation_url ""}}
+                            <div class="videos">
+                            <a class="btn btn-outline mb-3 video-btn-link" id="{{erc1155}}{{id}}" onclick="toggleVideo({{id}},'{{erc1155}}')" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
+                                <span class="material-icons">
+                                  play_circle
+                                </span>
+                                Play Video
+                            </a>
                             {{/ifNotEquals}}
 
                             {{#ifNotEquals audio_url ""}}
