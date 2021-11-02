@@ -490,13 +490,22 @@
                         <div class="card-body">
                             
                             {{#ifNotEquals animation_url ""}}
-                            <div class="videos">
-                            <a class="btn btn-outline mb-3 video-btn-link" id="{{erc1155}}{{id}}" onclick="toggleVideo({{id}},'{{erc1155}}')" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
-                                <span class="material-icons">
-                                  play_circle
-                                </span>
-                                PLAY VIDEO
-                            </a>
+                                <div class="videos" {{#ifNotEquals interactive_url ""}} style="display: flex;" {{/ifNotEquals}}>
+                                    <a class="btn btn-outline mb-3 video-btn-link" {{#ifNotEquals interactive_url ""}}  style="width: 50%;display: -webkit-inline-box;" {{/ifNotEquals}} id="{{erc1155}}{{id}}" onclick="toggleVideo({{id}},'{{erc1155}}')" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
+                                        <span class="material-icons">
+                                        play_circle
+                                        </span>
+                                        Play Video
+                                    </a>
+                                    {{#ifNotEquals interactive_url ""}}
+                                        <a class="btn btn-outline mb-3 video-btn-link" style="cursor: pointer;width: 50%;display: -webkit-inline-box;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
+                                                <span class="material-icons">
+                                                play_circle
+                                                </span>
+                                            RUN NFT
+                                        </a>
+                                    {{/ifNotEquals}}
+                                </div>
                             {{/ifNotEquals}}
 
                             {{#ifNotEquals audio_url ""}}
@@ -504,16 +513,6 @@
                                     <source src="{{audio_url}}" type="audio/mp3">
                                     Your browser does not support the audio tag.
                                 </audio>
-                            {{/ifNotEquals}}
-
-                            {{#ifNotEquals interactive_url ""}}
-                            <a class="btn btn-outline mb-3 video-btn-link" style="cursor: pointer;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
-                                    <span class="material-icons">
-                                      play_circle
-                                    </span>
-                                RUN NFT
-                            </a>
-                            </div>
                             {{/ifNotEquals}}
 
 
