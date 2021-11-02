@@ -31,6 +31,7 @@ function toggleVideo(id, address) {
     if(div.classList.contains('show') == true) {
         img.style.display = 'block';
         text.innerHTML = "Play Video";
+        
     } else {
         img.style.display = 'none';
         text.innerHTML = "Hide Video";

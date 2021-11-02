@@ -460,8 +460,9 @@
             <script id="offer-template" type="text/x-handlebars-template">
                 <div class="nftListing mb-3">
                     <div class="card card-profile">
+                        <div class="c-image" id={{id}}{{erc1155}}>
                         {{#ifNotEquals image ""}}
-                            <div class="c-image" id={{id}}{{erc1155}}>
+                            
                                 <a href="{{opensea}}">
                                 
                                     {{#ifEquals shadowed "false"}}
@@ -472,8 +473,9 @@
                                     <img class="card-avatar" loading="lazy" src="assets/img/nsfw.jpg" alt="{{name}}">                        
                                     {{/ifEquals}}
                                 </a>
-                            </div>
+                            
                         {{/ifNotEquals}}
+                        </div>
                         {{#ifNotEquals animation_url ""}}
                             <div class="collapse traits-collapse" id="collapseVideo{{erc1155}}{{id}}">
                                 <ul class="list-group">
