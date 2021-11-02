@@ -1460,7 +1460,7 @@ textarea, input {
             content: "edit";
             display: inline-block;
             font-size: 1.2rem;
-            margin-right: 1.7rem; }
+            margin-right: 7rem; }
           .nftListing .card-profile .card-body .dropdown-btn > a::after,
           .nftListing .card-profile .header-left .dropdown-btn > a::after,
           .nftListing .header-profile .card-body .dropdown-btn > a::after,
@@ -1473,7 +1473,7 @@ textarea, input {
           .nftHeader .card-profile .header-left .dropdown-btn > a::after,
           .nftHeader .header-profile .card-body .dropdown-btn > a::after,
           .nftHeader .header-profile .header-left .dropdown-btn > a::after {
-            margin-left: 1.7rem; }
+            margin-left: 7rem; }
           .nftListing .card-profile .card-body .dropdown-btn > a span,
           .nftListing .card-profile .header-left .dropdown-btn > a span,
           .nftListing .header-profile .card-body .dropdown-btn > a span,
@@ -1526,7 +1526,6 @@ textarea, input {
         .nftHeader .header-profile .header-left .dropdown-btn.show a {
           background-color: var(--bg-secondary);
           font-size: 1.4rem;
-          padding: 1rem 1.2rem;
           color: var(--text-primary); }
           .nftListing .card-profile .card-body .dropdown-btn.show a:hover,
           .nftListing .card-profile .header-left .dropdown-btn.show a:hover,
@@ -1541,8 +1540,7 @@ textarea, input {
           .nftHeader .header-profile .card-body .dropdown-btn.show a:hover,
           .nftHeader .header-profile .header-left .dropdown-btn.show a:hover {
             background: none;
-            box-shadow: none;
-            background-color: var(--primary-hover-light); }
+            box-shadow: none; }
         .nftListing .card-profile .card-body .dropdown-btn .dropdown-menu.show,
         .nftListing .card-profile .header-left .dropdown-btn .dropdown-menu.show,
         .nftListing .header-profile .card-body .dropdown-btn .dropdown-menu.show,

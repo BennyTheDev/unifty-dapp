@@ -23,6 +23,8 @@ function toggleList(id,erc) {
     }
 }
 
+
+
 function toggleVideo(id, address) {
     const img = document.getElementById(`${id}${address}`);
     const div = document.querySelector(`#collapseVideo${address}${id}`);  

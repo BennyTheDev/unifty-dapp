@@ -442,13 +442,36 @@
 
           <div class="farmListing mb-3">
             <div class="card card-profile">
+              <div class="c-image">
                 {{#ifNotEquals image ""}}
                 <img class="card-avatar" loading="lazy" src="{{image}}" alt="{{name}}">
                 {{/ifNotEquals}}
-
+                </div>
                 <div class="card-body">
+                    <div class="mt-5" style="margin-top: 0 !important; ">
+                      <h5 class="card-title">
+                        <!-- <button class="btn btn-sm btn-clipboard btn-clipboard{{index2}}" data-clipboard-text="{{url}}" data-toggle="tooltip" data-placement="top" title="Copied">
+                            <i class="fa fa-clipboard"></i>
+                        </button> -->
+                         <a href="{{url}}"><i class="fa fa-clipboard"></i> {{name}} </a>
+                      </h5>
+                      <p class="text-truncate">
+                          <button class="btn btn-sm btn-clipboard btn-clipboard{{index}}" data-clipboard-text="{{farm}}" data-toggle="tooltip" data-placement="top" title="Copied">
+                            <i class="fa fa-clipboard"></i>
+                          </button>
+                          <a style="font-size: 1.2rem !important;" href="{{explorer}}{{farm}}" target="_blank">{{farm}}</a>
+                      </p>
+                    </div>
 
-                    <div class="dropdown-btn mt-3">
+                
+
+                    <div class="mb-3">
+                        <span class="badge badge-info">NFT Count: <span style="font-weight: bold;">{{nftcount}}</span></span>
+                        <span class="badge badge-info">Controller Funds:<span style="font-weight: bold;"> {{controllerFunds}} {{currency}}</span></span>
+                        <span class="badge badge-info">Total Fees:<span style="font-weight: bold;"> {{totalFees}} {{currency}}</span></span>
+                    </div>
+
+                    <div class="dropdown-btn mt-3" style="margin-bottom: 1.5rem;">
                       <a href="javascript:void(0);" class="dropdown-toggle dropdown-primary mb-3" id="farmActions{{farm}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         OPTIONS
                       </a>
@@ -462,28 +485,6 @@
                           <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#shopAddonPauserModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}" id="farmShopAddonPauser{{farm}}">Shop Addon Step 3</a>
                           <a href="javascript:void(0);" style="display:none;" class="dropdown-item" data-toggle="modal" data-target="#farmShopEditModal" data-contract-address="{{farm}}" data-shop-address="{{shop}}"  data-shop-runmode="{{runmode}}"  id="farmShopEdit{{farm}}">Edit Shop Addon</a>
                       </div>
-                    </div>
-
-                    <div class="mt-5">
-                      <p class="text-truncate">
-                          <button class="btn btn-sm btn-clipboard btn-clipboard{{index}}" data-clipboard-text="{{farm}}" data-toggle="tooltip" data-placement="top" title="Copied">
-                              <i class="fa fa-clipboard"></i>
-                          </button>
-                          <a style="font-size: 1.2rem !important;" href="{{explorer}}{{farm}}" target="_blank">{{farm}}</a>
-                      </p>
-                    </div>
-
-                    <h5 class="card-title">
-                      <!-- <button class="btn btn-sm btn-clipboard btn-clipboard{{index2}}" data-clipboard-text="{{url}}" data-toggle="tooltip" data-placement="top" title="Copied">
-                          <i class="fa fa-clipboard"></i>
-                      </button> -->
-                      <a href="{{url}}">{{name}} <i class="fa fa-external-link"></i></a>
-                    </h5>
-
-                    <div class="mb-3">
-                        <span class="badge badge-info">NFT Count: {{nftcount}}</span>
-                        <span class="badge badge-info">Controller Funds: {{controllerFunds}} {{currency}}</span>
-                        <span class="badge badge-info">Total Fees: {{totalFees}} {{currency}}</span>
                     </div>
 
 

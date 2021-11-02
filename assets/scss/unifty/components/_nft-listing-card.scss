@@ -280,11 +280,11 @@
             content: "edit";
             display: inline-block;
             font-size: 1.2rem;
-            margin-right: 1.7rem;
+            margin-right: 7rem;
           }
 
           &::after {
-            margin-left: 1.7rem;
+            margin-left: 7rem;
           }
 
           span {
@@ -304,12 +304,12 @@
         &.show a {
           background-color: var(--bg-secondary);
           font-size: 1.4rem;
-          padding: 1rem 1.2rem;
+          //padding: 1rem 1.2rem;
           color: var(--text-primary);
           &:hover{
             background: none;
             box-shadow: none;
-            background-color: var(--primary-hover-light);
+            
 
           }
 
