@@ -32,10 +32,10 @@ function toggleVideo(id, address) {
 
     if(div.classList.contains('show') == true) {
         img.style.display = 'block';
-        text.innerHTML = '<span class="material-icons"> play_circle</span>  PLAY VIDEO';
+        text.innerHTML = 'PLAY VIDEO';
         
     } else {
         img.style.display = 'none';
-        text.innerHTML = '<span class="material-icons"> play_circle</span>  HIDE VIDEO';
+        text.innerHTML = 'HIDE VIDEO';
     }
 }

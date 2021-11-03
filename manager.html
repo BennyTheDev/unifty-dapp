@@ -153,6 +153,26 @@
       margin-top: 0px !important;
     }
    
+    .option-btn{
+      position: inherit !important;
+      top: 0px;
+      left: 0px;
+      margin: 0px !important;
+    }
+    .option-btn button {
+      width: 100%;
+      display: block !important;
+      height: 34px;
+      padding: 6px !important;
+    }
+    .option-btn button::after{
+      float: right;
+      margin-top: 6px;
+    }
+    .option-btn button a{
+      float: left;
+    }
+
   </style>
 
   <style>
@@ -445,21 +465,29 @@
                             <a style="font-size: 1.2rem !important;" href="{{explorer}}{{erc1155}}" target="_blank">{{erc1155}}</a>
                         </p>
                     </div>
-                    <div class="dropdown">
-                        <a href="javascript:void(0);" class="btn btn-secondary dropdown-toggle mb-3" id="nftActionSelection{{erc1155}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="material-icons-round">
+
+                    <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+
+                    <div class="dropdown option-btn ml-3 mr-3 dropdown--chains">
+                      <button id="walletActions" class="btn btn-info dropdown-toggle" type="button"
+                              id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                        <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="walletNftActions0xEab73ceC9332fC1aec346EB38c2C4e75af1555461" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="material-icons">
                             create
                           </span>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="nftActionSelection{{erc1155}}">
-                            <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftNewModal" data-contract-address="{{erc1155}}">New NFT</a>
-                            {{#if hasNfts}}
-                            <a href="javascript:void(0);" class="dropdown-item manageNftsButton manageNftsButton{{index}}" data-contract-name="{{name}}" data-contract-address="{{erc1155}}">Manage NFTs</a>
-                            {{/if}}
-                            <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftContractModal" data-edit="true" data-contract-address="{{erc1155}}">Edit Collection</a>
-                        </div>
+                        OPTIONS
+                      </button>
+
+                      <div class="dropdown-menu" aria-labelledby="nftActionSelection{{erc1155}}">
+                          <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftNewModal" data-contract-address="{{erc1155}}">New NFT</a>
+                          {{#if hasNfts}}
+                          <a href="javascript:void(0);" class="dropdown-item manageNftsButton manageNftsButton{{index}}" data-contract-name="{{name}}" data-contract-address="{{erc1155}}">Manage NFTs</a>
+                          {{/if}}
+                          <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftContractModal" data-edit="true" data-contract-address="{{erc1155}}">Edit Collection</a>
+                      </div> 
                     </div>
-                    <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
 
                     {{#ifNotEquals description ""}}
                       <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
