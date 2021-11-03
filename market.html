@@ -525,6 +525,11 @@
 
                             <div class="collection-name">
                                 {{{collectionName}}}
+                                {{#ifNotEquals verified ""}}
+                                <span class="material-icons" style="color:green;">
+                                  check_circle
+                                </span>
+                                {{/ifNotEquals}}
                                 {{#ifNotEquals verse721 ""}}
                                 <div><small>Original Contract: {{srcCollection721}}</small></div>
                                 <div><small>Original NFT ID: {{srcId721}}</small></div>
@@ -709,6 +714,11 @@
 
                             <div class="collection-name">
                                 {{{collectionName}}}
+                                {{#ifNotEquals verified ""}}
+                                <span class="material-icons" styl="color:blue;">
+                                  check_circle
+                                </span>
+                                {{/ifNotEquals}}
                                 {{#ifNotEquals verse721 ""}}
                                 <div><small>Original Contract: {{srcCollection721}}</small></div>
                                 <div><small>Original NFT ID: {{srcId721}}</small></div>

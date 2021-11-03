@@ -57,6 +57,18 @@ function TncDapp() {
                 shadowed = 'false';
             }
 
+            if( typeof tncLibConvert721.uniftyverse721 != 'undefined'){
+
+                let srcInfo721 = await tncLibConvert721.in_getSourceInfo(ask.id[0]);
+
+                if( blocked_collections.includes(srcInfo721[0].toLowerCase()) ) {
+
+                    console.log('blocked: ', srcInfo721[0]);
+
+                    shadowed = 'true';
+                }
+            }
+
             let hasMore = 0;
 
             if (ask.erc1155Address.length > 1) {
@@ -203,7 +215,18 @@ function TncDapp() {
 
             srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
             verse721 = true;
-            console.log(srcInfo721);
+        }
+
+        let verified = false;
+
+        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
+
+            verified = true;
+        }
+
+        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
+
+            verified = true;
         }
 
         let decimals = await tncLib.tokenDecimalsErc20(token);
@@ -260,6 +283,7 @@ function TncDapp() {
             }
 
             let tmpl = _this.pickerTemplate({
+                verified: verified ? 'true' : '',
                 which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcChainid : srcInfo[2],
@@ -350,6 +374,7 @@ function TncDapp() {
             }
 
             let tmpl = _this.offerTemplate({
+                verified: verified ? 'true' : '',
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcChainid : srcInfo[2],
                 srcCollection : srcInfo[0],

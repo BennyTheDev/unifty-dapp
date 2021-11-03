@@ -219,11 +219,24 @@ function TncDapp() {
             console.log(srcInfo721);
         }
 
+        let verified = false;
+
+        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
+
+            verified = true;
+        }
+
+        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
+
+            verified = true;
+        }
+
         if(data_interactive_url != ''){
             data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id;
         }
 
         let tmpl = _this.collectibleTemplate({
+            verified: verified ? 'true' : '',
             srcChainid : srcInfo[2],
             srcCollection : srcInfo[0],
             srcId : srcInfo[1],

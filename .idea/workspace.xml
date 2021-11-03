@@ -20,14 +20,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/uniftyverse721ABI.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/farm-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-convert721.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-convert721.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/custom-collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom-collectible-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dapp-init.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dapp-init.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/market-custom-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-custom-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
     </list>
@@ -181,14 +183,10 @@
       <workItem from="1635015187188" duration="1918000" />
       <workItem from="1635081159914" duration="832000" />
       <workItem from="1635178082957" duration="1279000" />
-      <workItem from="1635272838452" duration="11453000" />
-    </task>
-    <task id="LOCAL-00018" summary="+ added collection optimization through api.unifty.cloud">
-      <created>1619202166948</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1619202166948</updated>
+      <workItem from="1635272838452" duration="11777000" />
+      <workItem from="1635427516973" duration="6857000" />
+      <workItem from="1635784100068" duration="1028000" />
+      <workItem from="1635848917668" duration="4216000" />
     </task>
     <task id="LOCAL-00019" summary="+ added collection optimization through api.unifty.cloud">
       <created>1619202195878</created>
@@ -526,7 +524,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632562083321</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="+ added origin displayed for erc721 wrapped collections">
+      <created>1635426379741</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1635426379741</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +562,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="+ added another nsfw collection to the bsc blocklist&#10;+ added an alert if buy orders cannot be processed" />
     <MESSAGE value="- removed advisors because outdated until it is clear who to add&#10;&#10;- removed investor's information indefinitely" />
     <MESSAGE value="+ added fee setup&#10;+  added admin cancellation for listings" />
     <MESSAGE value="# changed js files version number" />
@@ -582,20 +586,23 @@
     <MESSAGE value="+ release of governance" />
     <MESSAGE value="# minor governance UI improvement" />
     <MESSAGE value="+ added new governance contract and view" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ added new governance contract and view" />
+    <MESSAGE value="+ added origin displayed for erc721 wrapped collections" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added origin displayed for erc721 wrapped collections" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1632562082535">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1635426379229">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
+    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1635426379229" />
     <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1632562082535" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1628035698985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1628035698985" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1632562091669">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="362" y="145" key="Vcs.Push.Dialog.v2" timestamp="1635426389270">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
+    <state x="362" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1635426389270" />
     <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1632562091669" />
     <state x="233" y="116" width="3375" height="800" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1635081998399">
       <screen x="0" y="0" width="3840" height="1032" />
@@ -603,10 +610,10 @@
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1632259796040" />
     <state x="233" y="116" width="3375" height="800" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3840.1032@0.0.3840.1032" timestamp="1635081998399" />
     <state x="233" y="117" width="3375" height="806" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3840.1040@0.0.3840.1040" timestamp="1631982159484" />
-    <state x="478" y="22" width="582" height="794" key="find.popup" timestamp="1635418434287">
+    <state x="478" y="15" width="582" height="801" key="find.popup" timestamp="1635932024607">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="478" y="22" width="582" height="794" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1635418434287" />
+    <state x="478" y="15" width="582" height="801" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1635932024607" />
     <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1630178750237" />
     <state x="1195" y="28" width="1453" height="1004" key="find.popup/0.0.3840.1032@0.0.3840.1032" timestamp="1633784761815" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1627950879556">

@@ -310,14 +310,14 @@ Handlebars.registerHelper("markdown", function(md, options) {
     if(typeof marked == 'undefined'){
         return new Handlebars.SafeString(md);
     }
-    return new Handlebars.SafeString(marked(md));
+    return new Handlebars.SafeString(marked.parse(md));
 });
 
 Handlebars.registerHelper("markdownNoBr", function(md, options) {
     if(typeof marked == 'undefined'){
         return new Handlebars.SafeString(md);
     }
-    return new Handlebars.SafeString(marked(md));
+    return new Handlebars.SafeString(marked.parse(md));
 });
 
 $(function () {
