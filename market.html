@@ -491,13 +491,13 @@
                             
                             {{#ifNotEquals animation_url ""}}
                                 <div class="videos" style="display: flex; margin-left:2.5rem"  {{#ifNotEquals interactive_url ""}} {{/ifNotEquals}}>
-                                    <span class="fa fa-play" style="font-size: 15px;margin-right: 5px;margin-top: 2px;">
+                                    <span class="fa fa-play" style="font-size: 15px;margin-right: 5px;margin-top: 2px;color:#202060">
                                     </span>
                                     <a class="btn btn-outline mb-3 video-btn-link" {{#ifNotEquals interactive_url ""}}  style="width: 50%;display: -webkit-inline-box;" {{/ifNotEquals}} id="{{erc1155}}{{id}}" onclick="toggleVideo({{id}},'{{erc1155}}')" data-toggle="collapse" href="#collapseVideo{{erc1155}}{{id}}" role="button" aria-expanded="false" aria-controls="collapseVideo{{erc1155}}{{id}}">
                                         PLAY VIDEO
                                     </a>
                                     {{#ifNotEquals interactive_url ""}}
-                                    <span class="fa fa-play" style="font-size: 15px;margin-right: 5px;margin-top: 2px;">
+                                    <span class="fa fa-play" style="font-size: 15px;margin-right: 5px;margin-top: 2px;color: #202060;">
                                     </span>
                                         <a class="btn btn-outline mb-3 video-btn-link" style="cursor: pointer;width: 50%;display: -webkit-inline-box;" data-toggle="modal" data-target="#nftInteractiveModal" data-interactive-url="{{interactive_url}}">
                                             
