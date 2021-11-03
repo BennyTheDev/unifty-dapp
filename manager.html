@@ -453,11 +453,14 @@
         <script id="mypool-template" type="text/x-handlebars-template">
         <div class="nftListing mb-3">
             <div class="card card-profile">
+              <div class="c-image">
                 {{#ifNotEquals image ""}}
                 <img class="card-avatar" src="{{image}}" alt="{{name}}"/>
                 {{/ifNotEquals}}
+              </div>
                 <div class="card-body">
-                    <div class="mt-5">
+                  <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                    <div class="mt-5" style="margin-top: 0rem !important;">
                         <p class="text-truncate">
                             <button class="btn btn-sm btn-clipboard btn-clipboard{{index}}" data-clipboard-text="{{erc1155}}" data-toggle="tooltip" data-placement="top" title="Copied">
                                 <i class="fa fa-clipboard"></i>
@@ -466,7 +469,7 @@
                         </p>
                     </div>
 
-                    <h5 class="card-title"><a href="{{url}}" target="_blank">{{name}}</a></h5>
+                    
 
                     <div class="dropdown option-btn ml-3 mr-3 dropdown--chains">
                       <button id="walletActions" class="btn btn-info dropdown-toggle" type="button"
