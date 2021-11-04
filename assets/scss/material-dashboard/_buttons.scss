@@ -21,7 +21,7 @@
   .btn-opensea{
   border-radius: 8px;
   border: solid 1px #202060;
-  background-color: #f4f7fb;
+  background-color: var(--primary-color);
   }
   // Colors
   @include bmd-raised-button-color();
