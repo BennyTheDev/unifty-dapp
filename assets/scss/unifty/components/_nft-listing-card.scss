@@ -27,7 +27,7 @@
 
     //image
     .card-avatar {
-      min-width: 90%;
+      
       // min-height: 90%;
       max-width: 15.6rem;
       max-height: 15.6rem;
@@ -36,6 +36,11 @@
       background-color: var(--bg-secondary); 
       box-shadow: var(--shadow-primary);
       object-fit: contain;
+      border-radius: 5px 5px 0 0;
+
+      .img{
+        border-radius: 5px 5px 0 0;
+      }
 
       /*
             -webkit-filter: blur(5px); // Safari 6.0 - 9.0
@@ -203,12 +208,14 @@
       .popover-description {
         position: absolute;
         top: 16rem;
-        right: 2rem;
+        right: 5.8rem;
         color: var(--text-primary);
         background-color: transparent;
         box-shadow: none;
         padding: 0;
         margin: 0;
+        background-color: white;
+      border-radius: 20px;
        
         span {
           font-size: 1.8rem;
