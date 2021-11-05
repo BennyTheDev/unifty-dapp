@@ -29,13 +29,15 @@
     .card-avatar {
       
       // min-height: 90%;
-      max-width: 15.6rem;
-      max-height: 15.6rem;
+      // max-width: 16.6rem;
+      // max-height: 16.6rem;
+      min-width: 15.6rem;
+      min-height: 15.6rem;
       margin: 1.5rem auto 0.5rem;
       //background-color: var(--image-padding);
       background-color: var(--bg-secondary); 
       box-shadow: var(--shadow-primary);
-      object-fit: contain;
+      // object-fit: contain;
       border-radius: 5px 5px 0 0;
 
       .img{
@@ -68,6 +70,8 @@
         font-family: "Poppins";
         font-size: 16px !important;
         color: var(--text-primary);
+        width: 17.6rem;
+        margin-left: 4rem !important;
         a {
           color: var(--heading-color);
         }

@@ -896,12 +896,11 @@ textarea, input {
     .farmListing .header-profile .card-avatar,
     .nftHeader .card-profile .card-avatar,
     .nftHeader .header-profile .card-avatar {
-      max-width: 15.6rem;
-      max-height: 15.6rem;
+      min-width: 15.6rem;
+      min-height: 15.6rem;
       margin: 1.5rem auto 0.5rem;
       background-color: var(--bg-secondary);
       box-shadow: var(--shadow-primary);
-      object-fit: contain;
       border-radius: 5px 5px 0 0;
       /*
             -webkit-filter: blur(5px); // Safari 6.0 - 9.0
@@ -953,7 +952,9 @@ textarea, input {
       .nftHeader .header-profile .header-left .text-truncate {
         font-family: "Poppins";
         font-size: 16px !important;
-        color: var(--text-primary); }
+        color: var(--text-primary);
+        width: 17.6rem;
+        margin-left: 4rem !important; }
         .nftListing .card-profile .card-body .text-truncate a,
         .nftListing .card-profile .header-left .text-truncate a,
         .nftListing .header-profile .card-body .text-truncate a,
