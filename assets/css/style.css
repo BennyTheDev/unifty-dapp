@@ -700,7 +700,7 @@ textarea, input {
   padding: 2.4rem 3.6rem 1.3rem;
   border-radius: .8rem;
   box-shadow: var(--shadow-primary);
-  background-color: var(--bg-collectible); }
+  background-color: var(--bg-secondary) !important; }
   .dark-edition .nftHeader-stakingOptions-container #stakingOptions .mb-3, .dark-edition .nftHeader-stakingOptions-container #stakingOptions .my-3,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .mb-3,
   .light-edition .nftHeader-stakingOptions-container #stakingOptions .my-3 {
@@ -779,12 +779,22 @@ textarea, input {
 .card-title {
   font-size: 2rem; }
 
+@media only screen and (max-width: 800px) {
+  .dark-edition .main-panel .nftHeader-stakingOptions-container,
+  .light-edition .main-panel .nftHeader-stakingOptions-container
+#farmHeader {
+    max-width: 35rem !important; } }
+
 .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
 .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
   flex: 1;
   margin-right: 2rem;
   box-shadow: var(--shadow-primary);
   border-radius: .8rem; }
+  @media only screen and (max-width: 800px) {
+    .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
+    .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
+      max-width: 35rem !important; } }
   @media only screen and (max-width: 87.5em) {
     .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
     .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
@@ -2573,7 +2583,7 @@ textarea, input {
   display: none; }
 
 .dark-edition .sidebar .sidebar-wrapper ul.nav:first-child, .light-edition .sidebar .sidebar-wrapper ul.nav:first-child {
-  overflow: auto; }
+  overflow: inherit; }
 
 .dark-edition .sidebar .logo,
 .light-edition .sidebar .logo {
@@ -2677,10 +2687,14 @@ textarea, input {
   color: var(--text-footer); }
   .sidebar-text.icons {
     padding-top: 1rem;
-    display: inline-block !important; }
+    display: block !important; }
     .sidebar-text.icons span a {
       margin: 0 1rem;
       height: 1.6rem; }
+      @media only screen and (max-width: 700px) {
+        .sidebar-text.icons span a {
+          margin: 0 0.4rem;
+          height: 1.6rem; } }
       .sidebar-text.icons span a img {
         height: 2rem; }
     .sidebar-text.icons span a:hover {
