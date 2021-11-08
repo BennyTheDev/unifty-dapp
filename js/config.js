@@ -48,7 +48,7 @@ switch(chain_id){
             "0xc7921109FB1Bea0c19fCfB5288E700D606AE6B59".toLowerCase(), // animated art
             "0x3C6C221EeF17bEa444d4B531A878b4373D3edeFC".toLowerCase(), // haremtoken
             "0xD8A6d085DfDB9498a263563f91Cc26bE57EFE4b6".toLowerCase(), // Blackie
-            //"0x11F5780B54FCfF12fe791eafa34A60F770442d98".toLowerCase(), // anime token
+            //"0x11F5780B54FCfF12fe791eafa34A60F770442d98".toLowerCase(), // anime token //
             "0x48d76436F7596DDE45bDD384C375B71Cde3F0208".toLowerCase(), // oppai
             "0x306d4e3Add799686c48FF51DE01DC4f6F122EfF5".toLowerCase(), // appai 2
             "0x59a713632989883b29D544B98Ef3D090A1Ea540B".toLowerCase(),  // rylieeeeb
