@@ -5,13 +5,20 @@
   font-size: 2rem;
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 750px){
   .dark-edition .main-panel .nftHeader-stakingOptions-container,
   .light-edition .main-panel .nftHeader-stakingOptions-container 
   #farmHeader {
-  max-width: 35rem !important;
+  width: 25rem !important;
 }
-  }
+}
+@media only screen and (max-width: 400px){
+  .dark-edition .main-panel .nftHeader-stakingOptions-container,
+  .light-edition .main-panel .nftHeader-stakingOptions-container 
+  #farmHeader {
+  width: 15rem !important;
+}
+}
 
 .dark-edition .main-panel .nftHeader-stakingOptions-container,
 .light-edition .main-panel .nftHeader-stakingOptions-container {

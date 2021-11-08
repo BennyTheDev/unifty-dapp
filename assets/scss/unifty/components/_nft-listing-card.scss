@@ -339,7 +339,7 @@
   .popover-body {
     
     padding: 1rem;
-    max-height: 15rem;
+    max-height: fit-content;
     //overflow: auto;
     color: var(--text-primary);
     justify-content: flex-start;
