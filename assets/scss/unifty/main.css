@@ -47,6 +47,31 @@ body.dark-edition {
   cursor: var(--cursor-default);
 }
 
+body.dark-edition::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.1rem;
+}
+
+body.dark-edition::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+body.dark-edition::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+body.dark-edition::-webkit-scrollbar-track {
+  background: var(--scrolbar-track);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
+          box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
+}
+
+body.dark-edition::-webkit-scrollbar-track:hover {
+  background: var(--scrollbar-track-hover);
+}
+
 body.dark-edition a:link,
 body.dark-edition a:hover,
 body.dark-edition a:active,
@@ -56,6 +81,31 @@ body.dark-edition .btn:not(:disabled):not(.disabled) {
 
 body.light-edition {
   cursor: var(--cursor-default);
+}
+
+body.light-edition::-webkit-scrollbar {
+  width: 0.8rem;
+  height: 0.1rem;
+}
+
+body.light-edition::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+}
+
+body.light-edition::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+body.light-edition::-webkit-scrollbar-track {
+  background: var(--scrolbar-track);
+  border-radius: 10px;
+  -webkit-box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
+          box-shadow: inset 7px 10px 12px var(--scrollbar-track-shadow);
+}
+
+body.light-edition::-webkit-scrollbar-track:hover {
+  background: var(--scrollbar-track-hover);
 }
 
 body.light-edition a:link,
@@ -70,10 +120,11 @@ body.light-edition .btn:not(:disabled):not(.disabled) {
   --primary-hover-light: rgba(253, 121, 226, .1);
   --primary-hover-dark: #f047ce;
   --title-color: #ec6fd2;
+  --bg-collectible:#1f283e;
   --bg-primary: #0d141a;
   --bg-secondary: #121a21;
   --bg-secondary-light: rgba(18, 26, 33, .5);
-  --bg-tertiary: #121a21;
+  --bg-tertiary: #202940;
   --text-primary: #9d9db4;
   --text-primary-light: rgba(157, 157, 180, .5);
   --text-footer: #9d9db4;
@@ -83,13 +134,11 @@ body.light-edition .btn:not(:disabled):not(.disabled) {
   --modal-text: #f4f7fb;
   --image-padding: #192027;
   --traits-bg: rgba(13, 20, 26, .5);
-  --shadow-primary: 0 16px 38px -12px rgba(0, 0, 0, .56), 
-    0 4px 25px 0px rgba(0, 0, 0, .12), 
-    0 8px 10px -5px rgba(0, 0, 0, .20);
+  --shadow-primary: 0 16px 20px -12px rgba(0, 0, 0, .20), 0 4px 20px 0px rgba(0, 0, 0, .12), 0 8px 10px -5px rgba(0, 0, 0, .20);
   --cursor-default: url(../img/unifty-icons/cursor-default-dark.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-dark.svg), auto;
   --cursor-text: url(../img/unifty-icons/cursor-text-dark-thin.svg), auto;
-  -scrollbar-track: rgba(253, 121, 226, 0.1);
+  --scrollbar-track: rgba(253, 121, 226, .1);
   --scrollbar-track-shadow: #121a21;
   --scrollbar-track-hover: #666666;
   --scrollbar-thumb: linear-gradient(0deg, #5c5c73 27%,rgba(253, 121, 226, .5) 60%);
@@ -100,11 +149,12 @@ body.light-edition .btn:not(:disabled):not(.disabled) {
   --primary-color: #202060;
   --primary-hover-light: rgba(32, 32, 96, .1);
   --primary-hover-dark: #06064a;
+  --bg-collectible:#ffff;
   --title-color: #202040;
   --bg-primary: #f4f7fb;
   --bg-secondary: #ffffff;
   --bg-secondary-light: rgba(255, 255, 255, .5);
-  --bg-tertiary: #eef0f8;
+  --bg-tertiary: #fff;
   --text-primary: #4c4c6f;
   --text-primary-light: rgba(76, 76, 111, .5);
   --text-footer: rgba(76, 76, 111, .5);
@@ -114,9 +164,7 @@ body.light-edition .btn:not(:disabled):not(.disabled) {
   --modal-text: #202040;
   --image-padding: #e2e3e8;
   --traits-bg: #fff;
-  --shadow-primary: 0 16px 38px -12px rgba(225, 225, 225, .56), 
-    0 4px 25px 0px rgba(225, 225, 225, .12), 
-    0 8px 10px -5px rgba(225, 225, 225, .2);
+  --shadow-primary: 0 16px 20px -12px rgba(225, 225, 225, .4), 0 4px 20px 0px rgba(225, 225, 225, .12), 0 8px 10px -5px rgba(225, 225, 225, .2);
   --cursor-default: url(../img/unifty-icons/cursor-default-light.svg), auto;
   --cursor-pointer: url(../img/unifty-icons/cursor-pointer-light.svg), auto;
   --cursor-text: url(../img/unifty-icons/cursor-text-light-thin.svg), auto;
@@ -141,6 +189,7 @@ body.light-edition .btn:not(:disabled):not(.disabled) {
 #loadMore #loadMoreButton {
   font-size: 1.2rem;
   font-weight: 500;
+  border-radius: 3rem;
 }
 
 h1 {
@@ -250,9 +299,10 @@ textarea, input {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.2rem;
-  font-weight: 400;
   padding: 0.8rem 1.2rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-family: "Baloo 2", sans-serif;
 }
 
 .light-edition #walletActions span,
@@ -268,6 +318,8 @@ textarea, input {
 .light-edition .dropdown-menu,
 .dark-edition .dropdown-menu {
   background-color: var(--bg-secondary);
+  min-width: 100%;
+  font-family: "Baloo 2", sans-serif !important;
 }
 
 .light-edition .dropdown-menu a.dropdown-item,
@@ -324,7 +376,6 @@ textarea, input {
 
 .dark-edition .card.farm-card .card-body .card-title,
 .light-edition .card.farm-card .card-body .card-title {
-  font-size: 1.5rem;
   font-weight: 700;
   letter-spacing: .32px;
   margin-bottom: 1rem;
@@ -334,6 +385,8 @@ textarea, input {
   display: flex;
   width: calc(100% - 10rem);
   height: 6rem;
+  font-size: 1.65rem;
+  font-family: "Baloo 2", sans-serif;
 }
 
 .dark-edition .card.farm-card .card-body .card-description,
@@ -730,17 +783,18 @@ textarea, input {
   color: var(--heading-color) !important;
   font-size: 2rem;
   font-weight: 400;
-  padding: 15px 10px 10px;
+  padding: 15px 20px 10px;
+  font-family: "Baloo 2", sans-serif;
 }
 
 #guidesTabs .nav-item a.active {
   font-weight: bold;
   border: 1px solid !important;
   border-bottom: 2px solid !important;
-  border-color: var(--heading-color) var(--heading-color) var(--bg-primary) !important;
   border-radius: 8px 8px 0 0;
   margin-bottom: -1px;
   margin-left: -1px;
+  border-color: var(--heading-color) var(--heading-color) var(--bg-tertiary) !important;
   background-color: transparent;
 }
 
@@ -782,11 +836,9 @@ textarea, input {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-radius: 0;
-  -webkit-box-shadow: var(--shadow-primary);
-          box-shadow: var(--shadow-primary);
   padding: 13px 20px;
   border: 0;
-  background-color: var(--bg-tertiary) !important;
+  background-color: rgba(255, 255, 255, 0) !important;
   cursor: pointer;
 }
 
@@ -862,6 +914,8 @@ textarea, input {
   color: var(--primary-color);
   font-weight: bold;
   line-height: 1.5;
+  font-family: 'Baloo 2';
+  font-size: 2rem;
 }
 
 #learn-more-socialDiv > div {
@@ -969,6 +1023,7 @@ textarea, input {
   border-radius: .8rem;
   -webkit-box-shadow: var(--shadow-primary);
           box-shadow: var(--shadow-primary);
+  background-color: var(--bg-secondary) !important;
 }
 
 .dark-edition .nftHeader-stakingOptions-container #stakingOptions .mb-3, .dark-edition .nftHeader-stakingOptions-container #stakingOptions .my-3,
@@ -1096,6 +1151,14 @@ textarea, input {
   font-size: 2rem;
 }
 
+@media only screen and (max-width: 800px) {
+  .dark-edition .main-panel .nftHeader-stakingOptions-container,
+  .light-edition .main-panel .nftHeader-stakingOptions-container
+#farmHeader {
+    max-width: 35rem !important;
+  }
+}
+
 .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
 .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
   -webkit-box-flex: 1;
@@ -1105,6 +1168,13 @@ textarea, input {
   -webkit-box-shadow: var(--shadow-primary);
           box-shadow: var(--shadow-primary);
   border-radius: .8rem;
+}
+
+@media only screen and (max-width: 800px) {
+  .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
+  .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
+    max-width: 35rem !important;
+  }
 }
 
 @media only screen and (max-width: 87.5em) {
@@ -1224,12 +1294,20 @@ textarea, input {
 .farmListing .btn,
 .nftHeader .btn {
   font-size: 1.2rem;
+  border-radius: 3rem;
+  font-family: "Baloo 2", sans-serif;
 }
 
 .nftListing .card .traits-collapse,
 .farmListing .card .traits-collapse,
 .nftHeader .card .traits-collapse {
   font-size: 1.4rem;
+}
+
+.nftListing .c-image,
+.farmListing .c-image,
+.nftHeader .c-image {
+  min-height: 200px;
 }
 
 .nftListing .card-profile,
@@ -1252,14 +1330,11 @@ textarea, input {
 .nftHeader .header-profile .card-avatar {
   min-width: 15.6rem;
   min-height: 15.6rem;
-  max-width: 15.6rem;
-  max-height: 15.6rem;
-  padding: 0.8rem !important;
   margin: 1.5rem auto 0.5rem;
-  background-color: var(--image-padding);
-  border-radius: 0.6rem !important;
-  -o-object-fit: cover;
-     object-fit: cover;
+  background-color: var(--bg-secondary);
+  -webkit-box-shadow: var(--shadow-primary);
+          box-shadow: var(--shadow-primary);
+  border-radius: 5px 5px 0 0;
   /*
             -webkit-filter: blur(5px); // Safari 6.0 - 9.0
             filter: blur(5px);
@@ -1270,14 +1345,21 @@ textarea, input {
   transition: transform 0.2s, -webkit-transform 0.2s;
 }
 
+.nftListing .card-profile .card-avatar .img,
+.nftListing .header-profile .card-avatar .img,
+.farmListing .card-profile .card-avatar .img,
+.farmListing .header-profile .card-avatar .img,
+.nftHeader .card-profile .card-avatar .img,
+.nftHeader .header-profile .card-avatar .img {
+  border-radius: 5px 5px 0 0;
+}
+
 .nftListing .card-profile .card-avatar:hover,
 .nftListing .header-profile .card-avatar:hover,
 .farmListing .card-profile .card-avatar:hover,
 .farmListing .header-profile .card-avatar:hover,
 .nftHeader .card-profile .card-avatar:hover,
 .nftHeader .header-profile .card-avatar:hover {
-  -webkit-transform: scale(1.3);
-          transform: scale(1.3);
   /*
           -webkit-filter: blur(0px); // Safari 6.0 - 9.0
           filter: blur(0px);
@@ -1298,6 +1380,25 @@ textarea, input {
 .nftHeader .header-profile .header-left {
   position: static;
   background-color: var(--bg-secondary);
+}
+
+.nftListing .card-profile .card-body .text-truncate,
+.nftListing .card-profile .header-left .text-truncate,
+.nftListing .header-profile .card-body .text-truncate,
+.nftListing .header-profile .header-left .text-truncate,
+.farmListing .card-profile .card-body .text-truncate,
+.farmListing .card-profile .header-left .text-truncate,
+.farmListing .header-profile .card-body .text-truncate,
+.farmListing .header-profile .header-left .text-truncate,
+.nftHeader .card-profile .card-body .text-truncate,
+.nftHeader .card-profile .header-left .text-truncate,
+.nftHeader .header-profile .card-body .text-truncate,
+.nftHeader .header-profile .header-left .text-truncate {
+  font-family: "Poppins";
+  font-size: 16px !important;
+  color: var(--text-primary);
+  width: 17.6rem;
+  margin-left: 4rem !important;
 }
 
 .nftListing .card-profile .card-body .text-truncate a,
@@ -1342,10 +1443,11 @@ textarea, input {
 .nftHeader .card-profile .header-left h5.card-title,
 .nftHeader .header-profile .card-body h5.card-title,
 .nftHeader .header-profile .header-left h5.card-title {
-  font-size: 1.8rem;
   font-weight: 700;
   letter-spacing: 0.28px;
   margin: 0 0 1rem 0;
+  font-size: 2rem;
+  font-family: "Baloo 2", sans-serif;
 }
 
 .nftListing .card-profile .card-body h5.card-title a,
@@ -1360,7 +1462,8 @@ textarea, input {
 .nftHeader .card-profile .header-left h5.card-title a,
 .nftHeader .header-profile .card-body h5.card-title a,
 .nftHeader .header-profile .header-left h5.card-title a {
-  color: var(--heading-color);
+  color: var(--primary-color);
+  font-family: "Poppins";
 }
 
 .nftListing .card-profile .card-body h5.card-title a i,
@@ -1503,6 +1606,23 @@ textarea, input {
 .nftHeader .header-profile .header-left .badge.badge-info {
   color: var(--text-primary);
   background-color: transparent;
+  font-family: 'Poppins';
+  font-size: 12px;
+}
+
+.nftListing .card-profile .card-body .badge.badge-info span,
+.nftListing .card-profile .header-left .badge.badge-info span,
+.nftListing .header-profile .card-body .badge.badge-info span,
+.nftListing .header-profile .header-left .badge.badge-info span,
+.farmListing .card-profile .card-body .badge.badge-info span,
+.farmListing .card-profile .header-left .badge.badge-info span,
+.farmListing .header-profile .card-body .badge.badge-info span,
+.farmListing .header-profile .header-left .badge.badge-info span,
+.nftHeader .card-profile .card-body .badge.badge-info span,
+.nftHeader .card-profile .header-left .badge.badge-info span,
+.nftHeader .header-profile .card-body .badge.badge-info span,
+.nftHeader .header-profile .header-left .badge.badge-info span {
+  font-weight: bold;
 }
 
 .nftListing .card-profile .card-body .badge.badge-info:not(:last-child)::before,
@@ -1556,15 +1676,15 @@ textarea, input {
 .nftHeader .card-profile .header-left a.redeemButton,
 .nftHeader .header-profile .card-body a.redeemButton,
 .nftHeader .header-profile .header-left a.redeemButton {
+  border-radius: 3rem;
+  padding: 0.6rem 0.8rem;
   font-size: 1.4rem;
   -webkit-box-shadow: none;
           box-shadow: none;
   border: none;
   text-transform: none;
-  border-radius: 0.6rem;
   background-color: var(--primary-color);
   color: var(--bg-secondary);
-  padding: 0.3rem 0.8rem;
   font-weight: 500;
   width: 90%;
   text-overflow: ellipsis;
@@ -1603,12 +1723,27 @@ textarea, input {
 .nftHeader .header-profile .header-left a.traits {
   font-size: 1.4rem;
   border: 0.1rem solid var(--text-primary);
-  border-radius: 0.6rem;
-  background-color: var(--image-padding) !important;
+  border-radius: 8px;
   text-transform: none;
   color: var(--text-primary);
   padding: 0.3rem 0.8rem;
   width: 90%;
+  font-family: "Poppins";
+}
+
+.nftListing .card-profile .card-body a.traits.trait,
+.nftListing .card-profile .header-left a.traits.trait,
+.nftListing .header-profile .card-body a.traits.trait,
+.nftListing .header-profile .header-left a.traits.trait,
+.farmListing .card-profile .card-body a.traits.trait,
+.farmListing .card-profile .header-left a.traits.trait,
+.farmListing .header-profile .card-body a.traits.trait,
+.farmListing .header-profile .header-left a.traits.trait,
+.nftHeader .card-profile .card-body a.traits.trait,
+.nftHeader .card-profile .header-left a.traits.trait,
+.nftHeader .header-profile .card-body a.traits.trait,
+.nftHeader .header-profile .header-left a.traits.trait {
+  border: none;
 }
 
 .nftListing .card-profile .card-body .popover-description,
@@ -1624,14 +1759,17 @@ textarea, input {
 .nftHeader .header-profile .card-body .popover-description,
 .nftHeader .header-profile .header-left .popover-description {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 16rem;
+  right: 5.8rem;
+  height: 19px;
   color: var(--text-primary);
   background-color: transparent;
   -webkit-box-shadow: none;
           box-shadow: none;
   padding: 0;
   margin: 0;
+  background-color: var(--bg-primary);
+  border-radius: 20px;
 }
 
 .nftListing .card-profile .card-body .popover-description span,
@@ -1832,6 +1970,8 @@ textarea, input {
   color: var(--primary-color);
   -webkit-box-shadow: none;
           box-shadow: none;
+  font-family: "Baloo 2", sans-serif;
+  min-width: 100%;
 }
 
 .nftListing .card-profile .card-body .dropdown-btn > a::before,
@@ -1850,7 +1990,7 @@ textarea, input {
   content: "edit";
   display: inline-block;
   font-size: 1.2rem;
-  margin-right: 1.7rem;
+  margin-right: 7rem;
 }
 
 .nftListing .card-profile .card-body .dropdown-btn > a::after,
@@ -1865,7 +2005,7 @@ textarea, input {
 .nftHeader .card-profile .header-left .dropdown-btn > a::after,
 .nftHeader .header-profile .card-body .dropdown-btn > a::after,
 .nftHeader .header-profile .header-left .dropdown-btn > a::after {
-  margin-left: 1.7rem;
+  margin-left: 7rem;
 }
 
 .nftListing .card-profile .card-body .dropdown-btn > a span,
@@ -1923,9 +2063,25 @@ textarea, input {
 .nftHeader .header-profile .card-body .dropdown-btn.show a,
 .nftHeader .header-profile .header-left .dropdown-btn.show a {
   background-color: var(--bg-secondary);
-  font-size: 1.2rem;
-  padding: 1rem;
+  font-size: 1.4rem;
   color: var(--text-primary);
+}
+
+.nftListing .card-profile .card-body .dropdown-btn.show a:hover,
+.nftListing .card-profile .header-left .dropdown-btn.show a:hover,
+.nftListing .header-profile .card-body .dropdown-btn.show a:hover,
+.nftListing .header-profile .header-left .dropdown-btn.show a:hover,
+.farmListing .card-profile .card-body .dropdown-btn.show a:hover,
+.farmListing .card-profile .header-left .dropdown-btn.show a:hover,
+.farmListing .header-profile .card-body .dropdown-btn.show a:hover,
+.farmListing .header-profile .header-left .dropdown-btn.show a:hover,
+.nftHeader .card-profile .card-body .dropdown-btn.show a:hover,
+.nftHeader .card-profile .header-left .dropdown-btn.show a:hover,
+.nftHeader .header-profile .card-body .dropdown-btn.show a:hover,
+.nftHeader .header-profile .header-left .dropdown-btn.show a:hover {
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .nftListing .card-profile .card-body .dropdown-btn .dropdown-menu.show,
@@ -1987,8 +2143,10 @@ textarea, input {
 .light-edition .popover.bs-popover-top .popover-body {
   padding: 1rem;
   max-height: 15rem;
-  overflow: auto;
   color: var(--text-primary);
+  -webkit-box-pack: start !important;
+      -ms-flex-pack: start !important;
+          justify-content: flex-start !important;
 }
 
 .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar,
@@ -2092,6 +2250,10 @@ textarea, input {
   width: 100%;
 }
 
+.aria-describedby {
+  font-size: 200px;
+}
+
 .dark-edition
 .main-panel
 .content
@@ -2109,11 +2271,12 @@ textarea, input {
 .card.card-profile
 .card-body button.btn-outline {
   background: var(--primary-color) !important;
-  border-radius: 0.6rem;
+  border-radius: 8px !important;
   border: 0.1rem solid var(--bg-primary);
   font-size: 1.6rem;
   color: var(--bg-secondary);
   font-weight: 700;
+  font-family: "Poppins";
   padding: 0.3rem 0.8rem;
   width: 90%;
 }
@@ -2172,7 +2335,7 @@ textarea, input {
   -webkit-box-flex: 2;
       -ms-flex: 2;
           flex: 2;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-collectible);
   margin-right: 3rem;
   padding: 5rem;
   text-align: center;
@@ -2232,7 +2395,7 @@ textarea, input {
 }
 
 #collectiblePage .collectible-wrapper .details-container__upper {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-collectible);
   padding: 5rem;
   -webkit-box-shadow: var(--shadow-primary);
           box-shadow: var(--shadow-primary);
@@ -2261,6 +2424,10 @@ textarea, input {
   margin: 0;
 }
 
+#collectiblePage .collectible-wrapper .details-container__upper .header #amount-div {
+  text-align: right;
+}
+
 #collectiblePage .collectible-wrapper .details-container__upper .header #amount-div span.badge.badge-info {
   background-color: unset;
   color: var(--text-primary);
@@ -2287,7 +2454,7 @@ textarea, input {
   min-width: 20rem;
   -webkit-box-shadow: none;
           box-shadow: none;
-  border-radius: .6rem;
+  border-radius: 30px;
   border: 1px solid var(--primary-color);
   background-color: var(--primary-color) !important;
   color: var(--bg-secondary);
@@ -2301,7 +2468,7 @@ textarea, input {
 #collectiblePage .collectible-wrapper .details-container__lower #collapse-nft-description.collapse {
   font-size: 1.2rem;
   color: var(--text-primary);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-collectible);
   padding: 0 4.5rem;
   border-radius: .4rem;
 }
@@ -2318,7 +2485,7 @@ textarea, input {
   font-size: 1.2rem;
   color: var(--text-primary);
   padding: 0 4.5rem;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-collectible);
   border-radius: .4rem;
 }
 
@@ -2355,7 +2522,7 @@ textarea, input {
   font-size: 1.2rem;
   color: var(--text-primary);
   padding: 0 4.5rem;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-collectible);
   border-radius: .4rem;
 }
 
@@ -2482,6 +2649,9 @@ textarea, input {
 .light-edition .main-panel .modal-dialog .modal-content .modal-header .infoHover {
   margin: 0 1rem 0 auto;
   padding: 0;
+  background: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .dark-edition .main-panel .modal-dialog .modal-content .modal-header .close,
@@ -2568,7 +2738,7 @@ textarea, input {
   padding: 0.8rem 0.5rem;
   font-size: 1.2rem;
   border: 0.1rem solid var(--primary-color);
-  border-radius: 0.4rem;
+  border-radius: 30px;
   background-color: transparent;
   color: var(--primary-color);
   -webkit-box-shadow: none;
@@ -3462,7 +3632,7 @@ textarea, input {
 
 .outline-btn {
   background-color: var(--bg-secondary);
-  color: var(--primary-color);
+  color: var(--primary-color) !important;
   border: 0.2rem solid var(--primary-color);
   border-radius: 0.8rem;
   -webkit-box-shadow: none;
@@ -3471,6 +3641,7 @@ textarea, input {
   text-transform: none;
   padding: 0.7rem 1.5rem;
   font-weight: bold;
+  font-family: "Baloo 2", sans-serif;
 }
 
 .outline-btn:hover {
@@ -3488,7 +3659,7 @@ textarea, input {
   font-size: 1.6rem;
   -webkit-box-shadow: var(--shadow-primary);
           box-shadow: var(--shadow-primary);
-  background-image: repeating-radial-gradient(circle farthest-corner at 50% 50%, rgba(51, 76, 245, 0.03), rgba(150, 61, 219, 0.03) 25%, rgba(211, 64, 196, 0.03) 50%, rgba(228, 124, 135, 0.03) 75%, rgba(244, 183, 75, 0.03));
+  background-image: none;
 }
 
 .dark-edition .sidebar::before,
@@ -3515,44 +3686,9 @@ textarea, input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding-bottom: 6rem;
+  padding-bottom: 0;
   overflow: hidden;
   overflow-y: auto;
-}
-
-@media only screen and (min-width: 112.5em) {
-  .dark-edition .sidebar .sidebar-wrapper,
-  .light-edition .sidebar .sidebar-wrapper {
-    padding-bottom: 0.7rem;
-  }
-}
-
-@media only screen and (max-width: 75em) {
-  .dark-edition .sidebar .sidebar-wrapper,
-  .light-edition .sidebar .sidebar-wrapper {
-    padding-bottom: 5rem;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .dark-edition .sidebar .sidebar-wrapper,
-  .light-edition .sidebar .sidebar-wrapper {
-    padding-bottom: 4rem;
-  }
-}
-
-@media only screen and (max-width: 56.25em) {
-  .dark-edition .sidebar .sidebar-wrapper,
-  .light-edition .sidebar .sidebar-wrapper {
-    padding-bottom: 5.5rem;
-  }
-}
-
-@media only screen and (max-width: 37.5em) {
-  .dark-edition .sidebar .sidebar-wrapper,
-  .light-edition .sidebar .sidebar-wrapper {
-    padding-bottom: 8rem;
-  }
 }
 
 .dark-edition .sidebar .sidebar-wrapper .sidebar-bottom,
@@ -3624,7 +3760,7 @@ textarea, input {
 }
 
 .dark-edition .sidebar .sidebar-wrapper ul.nav:first-child, .light-edition .sidebar .sidebar-wrapper ul.nav:first-child {
-  overflow: auto;
+  overflow: inherit;
 }
 
 .dark-edition .sidebar .logo,
@@ -3647,13 +3783,12 @@ textarea, input {
 }
 
 .sidebar .nav i {
-  font-size: 2.1rem;
+  font-size: 2rem;
   color: var(--primary-color);
   margin-right: 1.3rem;
 }
 
 .sidebar .nav p {
-  font-size: 1.18rem;
   font-weight: 500;
   letter-spacing: 0.32px;
   color: #808080;
@@ -3661,6 +3796,9 @@ textarea, input {
   width: -moz-max-content;
   width: max-content;
   overflow: hidden;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  font-family: "Baloo 2", sans-serif;
 }
 
 .sidebar .nav li > a {
@@ -3781,13 +3919,13 @@ textarea, input {
 }
 
 .sidebar-text {
+  font-family: "Baloo 2", sans-serif;
+  margin: auto;
+  background-color: var(--bg-collectible);
+  height: 5.3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3795,25 +3933,43 @@ textarea, input {
 }
 
 .sidebar-text.icons {
-  margin: 4rem 0 1rem;
+  padding-top: 1rem;
+  display: block !important;
 }
 
 .sidebar-text.icons span a {
   margin: 0 1rem;
+  height: 1.6rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .sidebar-text.icons span a {
+    margin: 0 0.4rem;
+    height: 1.6rem;
+  }
+}
+
+.sidebar-text.icons span a img {
+  height: 2rem;
 }
 
 .sidebar-text.icons span a:hover {
   color: var(--heading-color);
 }
 
-.sidebar-text.rights span {
-  font-size: 1.2rem;
+.sidebar-text.left {
+  padding-left: 0;
+}
+
+.sidebar-text.left span {
   font-weight: 300;
   letter-spacing: 0.24px;
   text-align: center;
+  margin-left: 2rem;
+  font-size: 1.35rem;
 }
 
-.sidebar-text.rights span i {
+.sidebar-text.left span i {
   font-size: 1rem;
   vertical-align: middle;
 }
@@ -3828,10 +3984,11 @@ textarea, input {
   width: 10rem;
 }
 
-.dark-edition .sidebar.collapsed .logo img,
-.light-edition .sidebar.collapsed .logo img {
-  width: 8.5rem;
-  height: 8.5rem;
+.dark-edition .sidebar.collapsed .sidebar-wrapper .nav,
+.light-edition .sidebar.collapsed .sidebar-wrapper .nav {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
 }
 
 .dark-edition .sidebar.collapsed .sidebar-wrapper .nav li > a,
@@ -3844,6 +4001,7 @@ textarea, input {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
+  height: 42px;
 }
 
 .dark-edition .sidebar.collapsed .sidebar-wrapper .nav .nav-item i,
@@ -3888,7 +4046,6 @@ textarea, input {
 }
 
 .sidebarPopover a p {
-  font-family: "Roboto Mono";
   font-size: 1.6rem;
   font-weight: normal;
   font-stretch: normal;
@@ -3896,8 +4053,10 @@ textarea, input {
   line-height: 1.5;
   letter-spacing: normal;
   text-align: left;
-  color: #6c757d;
   margin: 0;
+  font-family: "Baloo 2", sans-serif;
+  color: var(--text-primary);
+  padding: 0   0.5rem;
 }
 
 .sidebarPopover a i {
@@ -3982,11 +4141,12 @@ textarea, input {
   font-size: 1.4rem;
   color: var(--bg-primary);
   margin: 2rem 0 3rem 0;
-  padding: 12px;
   font-weight: 700;
   text-transform: uppercase;
   border-radius: 30px;
   background-color: var(--primary-color);
+  padding: 1rem 1.5rem;
+  font-family: "Baloo 2", sans-serif;
 }
 
 .dark-edition .main-panel .content .add-new-card-container:hover,
@@ -4091,6 +4251,7 @@ textarea, input {
   -ms-grid-columns: (minmax(25rem, 1fr))[auto-fill];
       grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
   grid-gap: 2rem;
+  margin: 3rem 0 0 0;
 }
 
 .dark-edition .main-panel .content .container-fluid .col-xl-12,
