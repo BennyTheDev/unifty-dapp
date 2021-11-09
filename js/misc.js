@@ -66,7 +66,7 @@ $(document).ready(function(){
         //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
-        $('#bscLogo').html('xDai Chain');
+        // $('#bscLogo').html('xDai Chain');
         $('#bscLogo').css('display', 'block');
         $('#paymentDescription').css('display', 'none');
         $('.hideNonEth').css('display', 'none');
@@ -310,14 +310,14 @@ Handlebars.registerHelper("markdown", function(md, options) {
     if(typeof marked == 'undefined'){
         return new Handlebars.SafeString(md);
     }
-    return new Handlebars.SafeString(marked.parse(md));
+    return new Handlebars.SafeString(marked(md));
 });
 
 Handlebars.registerHelper("markdownNoBr", function(md, options) {
     if(typeof marked == 'undefined'){
         return new Handlebars.SafeString(md);
     }
-    return new Handlebars.SafeString(marked.parse(md));
+    return new Handlebars.SafeString(marked(md));
 });
 
 $(function () {

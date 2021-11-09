@@ -209,40 +209,14 @@ function TncDapp() {
 
         }
 
-        let srcInfo721 = [0,0,0];
-        let verse721 = false;
-
-        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
-
-            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
-            verse721 = true;
-            console.log(srcInfo721);
-        }
-
-        let verified = false;
-
-        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
-
-            verified = true;
-        }
-
-        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
-
-            verified = true;
-        }
-
         if(data_interactive_url != ''){
             data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id;
         }
 
         let tmpl = _this.collectibleTemplate({
-            verified: verified ? 'true' : '',
             srcChainid : srcInfo[2],
             srcCollection : srcInfo[0],
             srcId : srcInfo[1],
-            srcCollection721 : srcInfo721[0],
-            srcId721 : srcInfo721[1],
-            verse721: verse721 ? verse721 : '',
             bridgeOn : chain_id == '64' || chain_id == '4' ? chain_id : '',
             bridgeOnBack : bridgeBack ? chain_id : '',
             checkOpenSea : chain_id == '1' || chain_id == '4' ? 'Check on OpenSea' : 'Open Details',
@@ -1545,7 +1519,6 @@ function run(connected) {
             tncLib.account = '0x0000000000000000000000000000000000000000';
             tncLibMarket.account = '0x0000000000000000000000000000000000000000';
             tncLibBridgeIn.account = '0x0000000000000000000000000000000000000000';
-            tncLibConvert721.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();
