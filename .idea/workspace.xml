@@ -19,9 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="+ added origin displayed for erc721 wrapped collections">
+    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/gov-dapp2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/gov-dapp2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,14 +177,9 @@
       <workItem from="1635427516973" duration="6857000" />
       <workItem from="1635784100068" duration="1028000" />
       <workItem from="1635848917668" duration="5144000" />
-      <workItem from="1636114342643" duration="2253000" />
-    </task>
-    <task id="LOCAL-00020" summary="+ added collection optimization through api.unifty.cloud">
-      <created>1619999545777</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1619999545777</updated>
+      <workItem from="1636114342643" duration="3220000" />
+      <workItem from="1636218480760" duration="4727000" />
+      <workItem from="1636456617632" duration="255000" />
     </task>
     <task id="LOCAL-00021" summary="+ added another featured farm">
       <created>1620140721873</created>
@@ -522,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1635932531910</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="# fixed NFT staking display bug">
+      <created>1636120637272</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1636120637273</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,7 +555,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="- removed advisors because outdated until it is clear who to add&#10;&#10;- removed investor's information indefinitely" />
     <MESSAGE value="+ added fee setup&#10;+  added admin cancellation for listings" />
     <MESSAGE value="# changed js files version number" />
     <MESSAGE value="# fixed parameter order in nft block status arguments" />
@@ -578,24 +579,26 @@
     <MESSAGE value="# minor governance UI improvement" />
     <MESSAGE value="+ added new governance contract and view" />
     <MESSAGE value="+ added origin displayed for erc721 wrapped collections" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ added origin displayed for erc721 wrapped collections" />
+    <MESSAGE value="# fixed NFT staking display bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="# fixed NFT staking display bug" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="478" y="0" key="CommitChangelistDialog2" timestamp="1636114361497">
+    <state x="478" y="0" key="CommitChangelistDialog2" timestamp="1636120636806">
       <screen x="0" y="0" width="3840" height="1032" />
     </state>
     <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1635932531272" />
     <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1632562082535" />
-    <state x="478" y="0" key="CommitChangelistDialog2/0.0.3840.1032@0.0.3840.1032" timestamp="1636114361497" />
+    <state x="478" y="0" key="CommitChangelistDialog2/0.0.3840.1032@0.0.3840.1032" timestamp="1636120636806" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1628035698985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1628035698985" />
-    <state x="362" y="145" key="Vcs.Push.Dialog.v2" timestamp="1635932537747">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="905" y="183" key="Vcs.Push.Dialog.v2" timestamp="1636120643608">
+      <screen x="0" y="0" width="3840" height="1032" />
     </state>
     <state x="362" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1635932537747" />
     <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1632562091669" />
+    <state x="905" y="183" key="Vcs.Push.Dialog.v2/0.0.3840.1032@0.0.3840.1032" timestamp="1636120643608" />
     <state x="233" y="116" width="3375" height="800" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1635081998399">
       <screen x="0" y="0" width="3840" height="1032" />
     </state>

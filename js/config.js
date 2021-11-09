@@ -1,8 +1,8 @@
 // The name of the network/chain the dapps are supported to run on
-let network = 'Celo';
+let network = 'Rinkeby';
 
 // the chain id of the network as hex value without leading 0x
-let chain_id = 'a4ec';
+let chain_id = '4';
 
 // set to true to hide the sell button in the wallet.
 // useful if you want to use a custom marketplace and prevent confusion
@@ -14,10 +14,11 @@ let disable_sell_button = false;
 // as the royalties button is solely meant for the built-in marketplace, not for custom marketplaces
 let disable_royalties_button = false;
 
-
+// list of verified collections
 let verified_collections = [];
 
 switch(chain_id) {
+    // celo
     case 'a4ec':
         verified_collections = [
             "0x9f46B8290A6D41B28dA037aDE0C3eBe24a5D1160".toLowerCase(), // celopunks
@@ -25,13 +26,13 @@ switch(chain_id) {
         break;
 }
 
-// recommended block lists for adult collections on the marketplace
+// recommended block lists for adult or scam collections on the marketplace
 // remove the switch below to display all offers from these collections in the public marketplace
 // add more items of any collection you want to block
-
 let blocked_collections = [];
 
 switch(chain_id){
+    // celo
     case 'a4ec':
         blocked_collections = [
         "0x9F46f32A7Ad897858Fd30bC4EF535D83cF0d1160".toLowerCase(), // faked celopunks
