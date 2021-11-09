@@ -10,11 +10,6 @@ function TncDapp() {
 
     this.getMarketNfts = async function(address, which, category){
 
-        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' ) {
-
-            _this.updateRegisteredCollections(tncLibConvert721.uniftyverse721);
-        }
-
         let nftCount = 0;
 
         let asksLengths = 0;
@@ -55,18 +50,6 @@ function TncDapp() {
             if( !blocked_collections.includes(ask.erc1155Address[0].toLowerCase()) ) {
 
                 shadowed = 'false';
-            }
-
-            if( typeof tncLibConvert721.uniftyverse721 != 'undefined'){
-
-                let srcInfo721 = await tncLibConvert721.in_getSourceInfo(ask.id[0]);
-
-                if( blocked_collections.includes(srcInfo721[0].toLowerCase()) ) {
-
-                    console.log('blocked: ', srcInfo721[0]);
-
-                    shadowed = 'true';
-                }
             }
 
             let hasMore = 0;
@@ -208,27 +191,6 @@ function TncDapp() {
             bridgeBack = true;
         }
 
-        let srcInfo721 = [0,0,0];
-        let verse721 = false;
-
-        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
-
-            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
-            verse721 = true;
-        }
-
-        let verified = false;
-
-        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
-
-            verified = true;
-        }
-
-        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
-
-            verified = true;
-        }
-
         let decimals = await tncLib.tokenDecimalsErc20(token);
 
         console.log("PRICE: ", price);
@@ -283,15 +245,11 @@ function TncDapp() {
             }
 
             let tmpl = _this.pickerTemplate({
-                verified: verified ? 'true' : '',
                 which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcChainid : srcInfo[2],
                 srcCollection : srcInfo[0],
                 srcId : srcInfo[1],
-                srcCollection721 : srcInfo721[0],
-                srcId721 : srcInfo721[1],
-                verse721: verse721 ? verse721 : '',
                 bridgeOnBack : bridgeBack ? chain_id : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
@@ -374,14 +332,10 @@ function TncDapp() {
             }
 
             let tmpl = _this.offerTemplate({
-                verified: verified ? 'true' : '',
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcChainid : srcInfo[2],
                 srcCollection : srcInfo[0],
                 srcId : srcInfo[1],
-                srcCollection721 : srcInfo721[0],
-                srcId721 : srcInfo721[1],
-                verse721: verse721 ? verse721 : '',
                 bridgeOnBack : bridgeBack ? chain_id : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
@@ -2464,15 +2418,12 @@ function run(connected) {
         tncLibMarket.account = tncLib.account;
         window.tncLibBridgeIn = new TncLibBridge();
         tncLibBridgeIn.account = tncLib.account;
-        window.tncLibConvert721 = new TncLibConvert721();
-        tncLibConvert721.account = tncLib.account;
 
         if(typeof accounts == 'undefined' || accounts.length == 0){
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
             tncLibMarket.account = '0x0000000000000000000000000000000000000000';
             tncLibBridgeIn.account = '0x0000000000000000000000000000000000000000';
-            tncLibConvert721.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();
