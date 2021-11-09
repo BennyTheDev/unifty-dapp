@@ -1520,6 +1520,7 @@ function TncDapp() {
                 $('#dellocate').css('display','none');
                 $('#untEarned').text('0.0000');
                 $('#untEarnedLive').text('0.0000');
+                $('#withdrawableNIF').text('0.0000');
             }
         }
     }
@@ -1831,7 +1832,7 @@ function run(connected) {
         if(typeof accounts == 'undefined' || accounts.length == 0){
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
-            tncLibGov.account = '0x0000000000000000000000000000000000000000';
+            tncLibTikTok.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();

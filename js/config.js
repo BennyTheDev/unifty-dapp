@@ -1,8 +1,8 @@
 // The name of the network/chain the dapps are supported to run on
-let network = 'Celo';
+let network = 'Rinkeby';
 
 // the chain id of the network as hex value without leading 0x
-let chain_id = 'a4ec';
+let chain_id = '4';
 
 // set to true to hide the sell button in the wallet.
 // useful if you want to use a custom marketplace and prevent confusion
@@ -14,32 +14,12 @@ let disable_sell_button = false;
 // as the royalties button is solely meant for the built-in marketplace, not for custom marketplaces
 let disable_royalties_button = false;
 
-
-let verified_collections = [];
-
-switch(chain_id) {
-    case 'a4ec':
-        verified_collections = [
-            "0x9f46B8290A6D41B28dA037aDE0C3eBe24a5D1160".toLowerCase(), // celopunks
-        ];
-        break;
-}
-
 // recommended block lists for adult collections on the marketplace
 // remove the switch below to display all offers from these collections in the public marketplace
 // add more items of any collection you want to block
-
 let blocked_collections = [];
 
 switch(chain_id){
-    case 'a4ec':
-        blocked_collections = [
-        "0x9F46f32A7Ad897858Fd30bC4EF535D83cF0d1160".toLowerCase(), // faked celopunks
-        "0x67FdC022FaDFa0527788546F916A008cE277d597".toLowerCase(), // faked celopunks
-        "0x780C57355a86Ef4aBeD90370e86F4566f27d1591".toLowerCase(), // faked celopunks
-        "0x9F46B8290AeF6840EE5c3684B34c6469F6BDcFdc".toLowerCase(), // faked celopunks
-        ];
-        break;
     // xDai
     case '64':
         blocked_collections = [
@@ -68,7 +48,7 @@ switch(chain_id){
             "0xc7921109FB1Bea0c19fCfB5288E700D606AE6B59".toLowerCase(), // animated art
             "0x3C6C221EeF17bEa444d4B531A878b4373D3edeFC".toLowerCase(), // haremtoken
             "0xD8A6d085DfDB9498a263563f91Cc26bE57EFE4b6".toLowerCase(), // Blackie
-            //"0x11F5780B54FCfF12fe791eafa34A60F770442d98".toLowerCase(), // anime token
+            //"0x11F5780B54FCfF12fe791eafa34A60F770442d98".toLowerCase(), // anime token //
             "0x48d76436F7596DDE45bDD384C375B71Cde3F0208".toLowerCase(), // oppai
             "0x306d4e3Add799686c48FF51DE01DC4f6F122EfF5".toLowerCase(), // appai 2
             "0x59a713632989883b29D544B98Ef3D090A1Ea540B".toLowerCase(),  // rylieeeeb
