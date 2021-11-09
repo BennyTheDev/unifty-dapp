@@ -625,7 +625,7 @@ textarea, input {
         line-height: 1.5; }
 
 #learn-more-socialDiv {
-  width: 30%;
+  width: 40%;
   height: 100%;
   margin-left: 4rem;
   background-color: var(--bg-secondary) !important;
@@ -797,14 +797,6 @@ textarea, input {
   margin-right: 2rem;
   box-shadow: var(--shadow-primary);
   border-radius: .8rem; }
-  @media only screen and (max-width: 800px) {
-    .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
-    .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-      max-width: 35rem !important; } }
-  @media only screen and (max-width: 87.5em) {
-    .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader,
-    .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader {
-      margin-right: 0; } }
   .dark-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader.col-md-12.mb-4,
   .light-edition .main-panel .nftHeader-stakingOptions-container #farmHeader .nftHeader.col-md-12.mb-4 {
     padding: 0 !important;
@@ -1551,7 +1543,8 @@ textarea, input {
   .light-edition .popover.bs-popover-top .popover-header,
   .light-edition .popover.bs-popover-top .popover-body {
     padding: 1rem;
-    max-height: fit-content;
+    max-height: 15rem;
+    overflow: auto;
     color: var(--text-primary);
     justify-content: flex-start; }
     .dark-edition .popover.bs-popover-bottom .popover-header::-webkit-scrollbar,
@@ -2865,6 +2858,10 @@ textarea, input {
     display: flex;
     margin-bottom: 3rem;
     background-color: var(--bg-secondary); }
+    @media only screen and (max-width: 87.5em) {
+      .dark-edition .main-panel .nftHeader-stakingOptions-container,
+      .light-edition .main-panel .nftHeader-stakingOptions-container {
+        flex-direction: column; } }
   .dark-edition .main-panel .content .row,
   .light-edition .main-panel .content .row {
     margin: 0 0 1rem 0; }

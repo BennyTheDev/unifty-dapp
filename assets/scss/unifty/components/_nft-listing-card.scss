@@ -339,9 +339,8 @@
   .popover-body {
     
     padding: 1rem;
-    max-height: fit-content;
-    width: auto;
-    //overflow: auto;
+    max-height: 15rem;
+    overflow: auto;
     color: var(--text-primary);
     justify-content: flex-start;
     &::-webkit-scrollbar {

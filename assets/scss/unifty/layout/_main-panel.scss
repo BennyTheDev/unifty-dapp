@@ -85,7 +85,7 @@
     background-color: var(--bg-secondary);
 
     @include respond(bootstrap-xxl) {
-      //flex-direction: column;
+      flex-direction: column;
     }
   }
 
