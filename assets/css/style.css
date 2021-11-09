@@ -222,6 +222,10 @@ textarea, input {
 .dark-edition #categoryDropdown {
   display: flex;
   align-items: center;
+  margin: auto;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  width: 90%;
   padding: 0.8rem 1.2rem;
   font-size: 1.35rem;
   font-weight: 700;
@@ -953,8 +957,8 @@ textarea, input {
         font-family: "Poppins";
         font-size: 16px !important;
         color: var(--text-primary);
-        width: 17.6rem;
-        margin-left: 4rem !important; }
+        width: 90%;
+        margin: auto; }
         .nftListing .card-profile .card-body .text-truncate a,
         .nftListing .card-profile .header-left .text-truncate a,
         .nftListing .header-profile .card-body .text-truncate a,
@@ -1269,12 +1273,13 @@ textarea, input {
         position: absolute;
         top: 16rem;
         right: 5.8rem;
+        height: 19px;
         color: var(--text-primary);
         background-color: transparent;
         box-shadow: none;
         padding: 0;
         margin: 0;
-        background-color: white;
+        background-color: var(--bg-primary);
         border-radius: 20px; }
         .nftListing .card-profile .card-body .popover-description span,
         .nftListing .card-profile .header-left .popover-description span,
