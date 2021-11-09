@@ -19,16 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
+    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="+ added origin displayed for erc721 wrapped collections">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/governance.html" beforeDir="false" afterPath="$PROJECT_DIR$/governance.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/gov-dapp2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/gov-dapp2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-gov2.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-gov2.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/multiBatchABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/multiBatchABI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/web3.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/web3.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/web3.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/js/web3.min.js.map" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +50,9 @@
   </component>
   <component name="NamedScopeManager">
     <scope name="local" pattern="file[dapp_new]:assets/scss//*||file:assets/scss/unifty/main.scss" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="1pgM1DQtbF5MxRKtjcR9T2oRgYa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -164,28 +160,24 @@
       <workItem from="1631196112877" duration="402000" />
       <workItem from="1631780716723" duration="6114000" />
       <workItem from="1631916020683" duration="9059000" />
-      <workItem from="1632515990865" duration="3599000" />
-    </task>
-    <task id="LOCAL-00017" summary="+ added collection optimization through api.unifty.cloud">
-      <created>1619202148413</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1619202148413</updated>
-    </task>
-    <task id="LOCAL-00018" summary="+ added collection optimization through api.unifty.cloud">
-      <created>1619202166948</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1619202166948</updated>
-    </task>
-    <task id="LOCAL-00019" summary="+ added collection optimization through api.unifty.cloud">
-      <created>1619202195878</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1619202195878</updated>
+      <workItem from="1632515990865" duration="4821000" />
+      <workItem from="1632574141497" duration="2766000" />
+      <workItem from="1632665995368" duration="159000" />
+      <workItem from="1632667127515" duration="2249000" />
+      <workItem from="1632740283489" duration="106000" />
+      <workItem from="1633002421908" duration="7587000" />
+      <workItem from="1633264780488" duration="10768000" />
+      <workItem from="1633689637993" duration="1776000" />
+      <workItem from="1633784440969" duration="949000" />
+      <workItem from="1634320189846" duration="4000" />
+      <workItem from="1635015187188" duration="1918000" />
+      <workItem from="1635081159914" duration="832000" />
+      <workItem from="1635178082957" duration="1279000" />
+      <workItem from="1635272838452" duration="11777000" />
+      <workItem from="1635427516973" duration="6857000" />
+      <workItem from="1635784100068" duration="1028000" />
+      <workItem from="1635848917668" duration="5144000" />
+      <workItem from="1636114342643" duration="2253000" />
     </task>
     <task id="LOCAL-00020" summary="+ added collection optimization through api.unifty.cloud">
       <created>1619999545777</created>
@@ -509,7 +501,28 @@
       <option name="project" value="LOCAL" />
       <updated>1628892619244</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="+ added new governance contract and view">
+      <created>1632562083321</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1632562083321</updated>
+    </task>
+    <task id="LOCAL-00067" summary="+ added origin displayed for erc721 wrapped collections">
+      <created>1635426379741</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1635426379741</updated>
+    </task>
+    <task id="LOCAL-00068" summary="+ added origin displayed for erc721 wrapped collections">
+      <created>1635932531910</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1635932531910</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,7 +553,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="+ added another nsfw collection to the bsc blocklist&#10;+ added an alert if buy orders cannot be processed" />
     <MESSAGE value="- removed advisors because outdated until it is clear who to add&#10;&#10;- removed investor's information indefinitely" />
     <MESSAGE value="+ added fee setup&#10;+  added admin cancellation for listings" />
     <MESSAGE value="# changed js files version number" />
@@ -565,42 +577,37 @@
     <MESSAGE value="+ release of governance" />
     <MESSAGE value="# minor governance UI improvement" />
     <MESSAGE value="+ added new governance contract and view" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ added new governance contract and view" />
+    <MESSAGE value="+ added origin displayed for erc721 wrapped collections" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added origin displayed for erc721 wrapped collections" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="528" y="214" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1626009055343">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="478" y="0" key="CommitChangelistDialog2" timestamp="1636114361497">
+      <screen x="0" y="0" width="3840" height="1032" />
     </state>
-    <state x="528" y="214" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1626009055343" />
-    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1628892618615">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1628892618615" />
+    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1635932531272" />
+    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1632562082535" />
+    <state x="478" y="0" key="CommitChangelistDialog2/0.0.3840.1032@0.0.3840.1032" timestamp="1636114361497" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1628035698985">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1628035698985" />
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2" timestamp="1628892625107">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="362" y="145" key="Vcs.Push.Dialog.v2" timestamp="1635932537747">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1628892625107" />
-    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1632259796040">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="362" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1635932537747" />
+    <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1632562091669" />
+    <state x="233" y="116" width="3375" height="800" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1635081998399">
+      <screen x="0" y="0" width="3840" height="1032" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1632259796040" />
+    <state x="233" y="116" width="3375" height="800" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3840.1032@0.0.3840.1032" timestamp="1635081998399" />
     <state x="233" y="117" width="3375" height="806" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3840.1040@0.0.3840.1040" timestamp="1631982159484" />
-    <state x="478" y="23" width="581" height="801" key="find.popup" timestamp="1630178750237">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="478" y="15" width="582" height="801" key="find.popup" timestamp="1635932024607">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
+    <state x="478" y="15" width="582" height="801" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1635932024607" />
     <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1630178750237" />
-    <state x="569" y="313" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1625075220004">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="569" y="313" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.824@0.0.1536.824" timestamp="1625075220004" />
-    <state x="584" y="256" key="git4idea.ui.GitTagDialog" timestamp="1625075204817">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="584" y="256" key="git4idea.ui.GitTagDialog/0.0.1536.824@0.0.1536.824" timestamp="1625075204817" />
+    <state x="1195" y="28" width="1453" height="1004" key="find.popup/0.0.3840.1032@0.0.3840.1032" timestamp="1633784761815" />
     <state x="426" y="188" key="run.anything.popup" timestamp="1627950879556">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

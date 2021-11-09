@@ -78,6 +78,14 @@ function TncLibConvert721() {
         this.account = address;
     };
 
+    this.in_getSourceInfo = async function(nftId){
+
+        await sleep(sleep_time);
+        let univ = new web3.eth.Contract(uniftyverse721ABI, this.uniftyverse721, {from: this.account});
+        return await univ.methods.getConvertedSrc(nftId).call({from:this.account});
+
+    }
+
     this.convert = async function(eip721Address, tokenId, fractions, preCallback, postCallback, errCallback){
 
         await sleep(sleep_time);
