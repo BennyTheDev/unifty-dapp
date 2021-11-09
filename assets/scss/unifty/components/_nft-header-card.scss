@@ -29,16 +29,7 @@
     box-shadow: var(--shadow-primary);
     border-radius: .8rem;
 
-    @media only screen and (max-width: 800px){
-      max-width: 35rem !important;
-      
-      }
-
-    @include respond (bootstrap-xxl) {
-      margin-right: 0;
-      //margin-bottom: 3rem;
-    }
-
+   
     
 
     .nftHeader.col-md-12.mb-4 {
