@@ -188,12 +188,46 @@
       height: 34px;
       padding: 6px !important;
     }
-    .option-btn button::after{
+    .option-btn button::after {
       float: right;
       margin-top: 6px;
     }
-    .option-btn button a{
+    .option-btn button a {
       float: left;
+    }
+    .check-opensea {
+      width: 91% !important;
+      margin-left: 0px !important;
+    }
+    .toggle {
+      top: 376px;
+      left: 35px;
+      min-width: 80% !important;
+    }
+    .on-hover-description{
+      box-shadow: 0 2px 5px 0 rgb(0 0 0 / 26%);
+      border-radius: 1rem;
+      height: inherit;
+      position: absolute;
+      display: none;
+      text-align: left;
+      font-size: 1.3rem !important;
+      background: #fff;
+      top: 226px;
+      z-index: 100;
+      left: 1rem;
+      font-size: 1rem;
+      right: 1rem;
+    }
+    .description-title {
+      border-bottom: 1px solid;
+      padding: 1rem;
+    }
+    .description-content {
+      padding: 1rem;
+    }
+    #info-icon:hover + .on-hover-description{
+      display: block;
     }
   </style>
 
@@ -565,7 +599,7 @@
                                 OPTIONS
                               </button>
 
-                              <div class="dropdown-menu" aria-labelledby="walletNftActions{{erc1155}}{{id}}">
+                              <div class="dropdown-menu toggle" aria-labelledby="walletNftActions{{erc1155}}{{id}}">
                                 {{#ifNotEquals bridgeOn ""}}
                                   <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeButton{{erc1155}}{{id}}">Bridge to Ethereum</a>
                                 {{/ifNotEquals}}
@@ -579,17 +613,25 @@
                             </div>
                             
                             {{#ifEquals checkOpenSea "Check on OpenSea"}}
-                              <a class="btn btn-opensea"  href="{{opensea}}" target="_blank" >{{checkOpenSea}}</a>
+                              <a class="btn btn-opensea check-opensea"  href="{{opensea}}" target="_blank" >{{checkOpenSea}}</a>
                             {{/ifEquals}}
 
                           {{#ifNotEquals description ""}}
-                            <button type="button" class="popover-description btn btn-secondary" data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom" title="Description" data-html="true" data-content="{{breaklines description}}">
+                            <button type="button" id="info-icon" class="popover-description btn btn-secondary">
                               <span class="material-icons-round">
                                 info
                               </span>
                             </button>
+                            <!-- data-container="body" data-toggle="popover" data-trigger="hover" data-placement="bottom"  data-html="true" -->
+                            <div class="on-hover-description">
+                              <div class="description-title">
+                                Description
+                              </div>
+                              <div class="description-content">
+                                {{breaklines description}}
+                              </div>
+                            </div> 
                           {{/ifNotEquals}}
-
                             {{#ifNotEquals options ""}}
                                 <!-- <div class="dropdown">
                                     <a href="javascript:void(0);" class="btn btn-secondary btn-light dropdown-toggle mb-3" id="walletNftActions{{erc1155}}{{id}}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
