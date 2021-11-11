@@ -1053,8 +1053,8 @@ function TncDapp() {
 
         $("#farmNftCollection").html('');
 
-        var o = new Option("Unifty", "unifty");
-        $(o).html("Unifty");
+        var o = new Option("Rarity Garden", "unifty");
+        $(o).html("Rarity Garden");
         $("#farmNftCollection").append(o);
 
         switch(chain_id){
@@ -1086,7 +1086,7 @@ function TncDapp() {
             case 'unifty':
                 let length = await tncLib.getMyErc1155Length();
                 if(length == 0){
-                    $('#walletModalBody').html("You don't own any Unifty collection.");
+                    $('#walletModalBody').html("You don't own any Rarity Garden collection.");
                     return;
                 }
 

@@ -113,7 +113,7 @@ function collapseSidebar() {
   $("#menu-collapse").find("p").text("Expand sidebar");
 
   sidebarRights.html(
-    '<span><i class="material-icons">copyright</i> Unifty</span>'
+    '<span><i class="material-icons">copyright</i> Rarity Garden</span>'
   );
 
   parentCollapsables.each(function () {

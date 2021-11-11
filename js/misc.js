@@ -14,9 +14,6 @@ $.ajaxSetup({
 
 $(document).ready(function(){
 
-    if(chain_id != '1'){
-        $('.bridgeNav').css('display', 'none');
-    }
 
     if(chain_id != '1'){
 
@@ -31,15 +28,8 @@ $(document).ready(function(){
         $('#marketSellLink').css('display', 'none');
     }
 
-    if(chain_id == '38'){
-
-        $('#tiktokNFTs').css('display', 'block');
-    }
-
     if(chain_id == '61' || chain_id == '38') {
         $('#featured').css('display', 'none');
-        //$('#genesisFarm').css('display', 'none');
-        //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
         $('#bscLogo').css('display', 'block');
@@ -51,8 +41,6 @@ $(document).ready(function(){
         $('#shopXdai').css('display', 'none');
     }else if(chain_id == '4d'){
         $('#featured').css('display', 'none');
-        //$('#genesisFarm').css('display', 'none');
-        //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
         $('#bscLogo').html('xDai/POA (Sokol) Testnet');
@@ -62,11 +50,9 @@ $(document).ready(function(){
         $('.networkStd').html('ERC20');
     }else if(chain_id == '64'){
         $('#featured').css('display', 'none');
-        //$('#genesisFarm').css('display', 'none');
-        //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
-        // $('#bscLogo').html('xDai Chain');
+        $('#bscLogo').html('xDai');
         $('#bscLogo').css('display', 'block');
         $('#paymentDescription').css('display', 'none');
         $('.hideNonEth').css('display', 'none');
@@ -76,8 +62,6 @@ $(document).ready(function(){
         $('#shopXdai').css('display', 'block');
     }else if(chain_id == '89'){
         $('#featured').css('display', 'none');
-        //$('#genesisFarm').css('display', 'none');
-        //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
         $('#bscLogo').html('Polygon (Matic)');
@@ -87,8 +71,6 @@ $(document).ready(function(){
         $('.networkStd').html('ERC20');
     }else if(chain_id == '507'){
         $('#featured').css('display', 'none');
-        //$('#genesisFarm').css('display', 'none');
-        //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
         $('#bscLogo').html('Moonbeam (Alpha)');
@@ -98,8 +80,6 @@ $(document).ready(function(){
         $('.networkStd').html('PRC20');
     }else if(chain_id == 'a4ec'){
         $('#featured').css('display', 'none');
-        //$('#genesisFarm').css('display', 'none');
-        //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
         $('#bscLogo').html('CELO');
@@ -109,8 +89,6 @@ $(document).ready(function(){
         $('.networkStd').html('CRC20');
     }else if(chain_id == 'a86a'){
         $('#featured').css('display', 'none');
-        //$('#genesisFarm').css('display', 'none');
-        //$('#xdaiFarm').css('display', 'none');
         $('#getNifUniswap').css('display', 'none');
         $('#mirror').css('display', 'none');
         $('#bscLogo').html('AVALANCHE');
@@ -129,9 +107,6 @@ $(document).ready(function(){
         $('#shopBsc').css('display', 'none');
         $('#shopXdai').css('display', 'none');
     }
-
-    //Button to display project funding
-    // $('#nulsSco').on('click', displayNulsScoInfo);
 });
 
 if(typeof marked != 'undefined') {
@@ -150,23 +125,6 @@ function _alert(msg){
     $('#alertModal .modal-body').html(msg);
     $('#alertModal').modal('show');
 };
-
-function displayNulsScoInfo(){
-
-    _alert("Project capital funding is brokered by <a href=\"https://www.nuls.io/\" target=\"_blank\">NULS'</a> <a href=\"https://nuls.medium.com/nuls-2-0-project-nerve-network-bridges-into-the-larger-bitcoin-and-ethereum-universe-5a54bf0138e6\" target=\"_blank\">SCO</a> platform (Staked Coin Output) and highly recommended by the Unifty project.<br /><br />\n" +
-        "As an entrepreneur, you may issue your own token on the NULS blockchain and the POCM platform will automatically introduce your project to investors.<br /><br />\n" +
-        "Investors will stake on your token and you receive $NULS rewards as capital.<br /><br />\n" +
-        "Additionally, your token will be listed on NULS' Nerve Network DEX (Decentralized Exchange) once completed.<br /><br />\n" +
-        "A NULS token bridge will be available soon, enabling you to use your token with our services such as the Farm Builder.<br /><br />\n" +
-        "\n" +
-        "<button style=\"cursor: pointer;\" type=\"button\" class\"btn btn-secondary\" onclick=\"window.location.href='https://pocm.nuls.io/pocm';\">Get Project Funding</button><br/><br/>\n" +
-        "\n" +
-        "Disclaimer: Our support for NULS' project funding is not a paid promotion. We are planning to build native NULS chain support for Unifty. Once completed, tokens created on NULS' SCO platform will be directly usable with our platform and won't need any bridging.\n" +
-        "\n" +
-        "\n" +
-        "\n");
-
-}
 
 function getCurrency(){
     if(chain_id == '61' || chain_id == '38') {
@@ -310,14 +268,14 @@ Handlebars.registerHelper("markdown", function(md, options) {
     if(typeof marked == 'undefined'){
         return new Handlebars.SafeString(md);
     }
-    return new Handlebars.SafeString(marked(md));
+    return new Handlebars.SafeString(marked.parse(md));
 });
 
 Handlebars.registerHelper("markdownNoBr", function(md, options) {
     if(typeof marked == 'undefined'){
         return new Handlebars.SafeString(md);
     }
-    return new Handlebars.SafeString(marked(md));
+    return new Handlebars.SafeString(marked.parse(md));
 });
 
 $(function () {

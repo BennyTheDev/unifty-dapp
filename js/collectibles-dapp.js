@@ -12,36 +12,6 @@ function TncDapp() {
         let nftCount = 0;
         let collections = [];
 
-        // tiktok-address
-        if(chain_id == '38') {
-            let verse = tncLib.tiktokCollection;
-            collections.push(verse);
-            let nfts = await tncLib.getNftsByAddress(address, verse);
-            for (let i = 0; i < nfts.length; i++) {
-                if (await tncLib.balanceof(verse, address, nfts[i]) > 0) {
-                    _this.render(verse, nfts[i], address);
-                    await sleep(150);
-                    nftCount++;
-                    await waitForPaging('collectiblesPage', nftCount);
-                }
-            }
-        }
-
-        // uniftyverse
-        if(chain_id == '1') {
-            let verse = tncLibBridgeIn.uniftyverse.options.address;
-            collections.push(verse);
-            let nfts = await tncLib.getNftsByAddress(address, verse);
-            for (let i = 0; i < nfts.length; i++) {
-                if (await tncLib.balanceof(verse, address, nfts[i]) > 0) {
-                    _this.render(verse, nfts[i], address);
-                    await sleep(150);
-                    nftCount++;
-                    await waitForPaging('collectiblesPage', nftCount);
-                }
-            }
-        }
-
         let verse721 = tncLibConvert721.uniftyverse721;
         collections.push(verse721);
         let nfts = await tncLib.getNftsByAddress(address, verse721);
@@ -197,28 +167,11 @@ function TncDapp() {
 
         let meta = await tncLib.getErc1155Meta(erc1155);
 
-        let srcInfo = [0,0,0];
-        let bridgeBack = false;
-
-        if( chain_id == '1' && erc1155.toLowerCase() == tncLibBridgeIn.uniftyverseAddress.toLowerCase()){
-
-            srcInfo = await tncLibBridgeIn.in_getSourceInfo(id);
-            srcInfo[2] = _this.hexToInt(srcInfo[2]);
-            srcInfo[1] = _this.hexToInt(srcInfo[1]);
-            bridgeBack = true;
-
-        }
-
         if(data_interactive_url != ''){
             data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id;
         }
 
         let tmpl = _this.collectibleTemplate({
-            srcChainid : srcInfo[2],
-            srcCollection : srcInfo[0],
-            srcId : srcInfo[1],
-            bridgeOn : chain_id == '64' || chain_id == '4' ? chain_id : '',
-            bridgeOnBack : bridgeBack ? chain_id : '',
             checkOpenSea : chain_id == '1' || chain_id == '4' ? 'Check on OpenSea' : 'Open Details',
             image: data_image,
             animation_url: data_animation_url,
@@ -233,7 +186,7 @@ function TncDapp() {
             supply: nft.supply,
             maxSupply: nft.maxSupply,
             balance: nft.balance,
-            traitsHide : bridgeBack ? '' : traits_hide,
+            traitsHide : traits_hide,
             owns: address == tncLib.account ? 'You Own' : 'Owns',
             options: address == tncLib.account ? 'true' : '',
             collectionName : meta.name != 'n/a' ? '<div class="text-truncate" style="font-size: 1.4rem !important;">' + meta.name + '</div>' : '<div class="text-truncate" style="font-size: 1.4rem !important;">' + erc1155 + '</div>',
@@ -629,246 +582,6 @@ function TncDapp() {
 
     };
 
-    this.populateBridging = async function(e){
-
-        let contractAddress = $(e.relatedTarget).data('contractAddress');
-        let id = $(e.relatedTarget).data('id');
-
-        $('#bridgeErc1155Address').val(contractAddress);
-        $('#bridgeNftId').val(id);
-
-    }
-
-    this.populateBackBridging = async function(e){
-
-        let contractAddress = $(e.relatedTarget).data('contractAddress');
-        let id = $(e.relatedTarget).data('id');
-
-        $('#bridgeBackErc1155Address').val(contractAddress);
-        $('#bridgeBackNftId').val(id);
-    }
-
-    this.cancelJob = async function(){
-
-        let jobId = $('#jobId').val().trim();
-
-        if(jobId == '' || parseInt(jobId) <= 0){
-
-            _alert('Please enter a valid Job ID.');
-            return;
-        }
-
-        toastr.remove();
-        $(this).html('Pending Transaction...');
-        $(this).prop('disabled', 'disabled');
-
-        let _button = this;
-
-        tncLibBridgeIn.in_cancelJob(
-            jobId,
-            function (){
-                toastr["info"]('Please wait for the transaction to finish.', "Cancelling....");
-            },
-            function(receipt){
-                console.log(receipt);
-                toastr.remove();
-                $(_button).html('Cancel');
-                $(_button).prop('disabled', false);
-                toastr["success"]('Transaction has been finished.', "Success");
-                $('#bridgedPage').html('');
-                _this.loadPage('');
-            },
-            function(err){
-                toastr.remove();
-                _alert('Your job cancellation request failed. Either the NFT has been redeemed already or the 2-hour grace-time did not expire yet.');
-                $(_button).html('Cancel Error');
-                $(_button).prop('disabled', false);
-                setTimeout(function(){
-                    $(_button).html('Cancel');
-                }, 3000);
-
-                let errMsg = 'An occurred with your job cancellation transaction.';
-                toastr["error"](errMsg, "Error");                
-                errorPopup("Error", errMsg, err.stack);
-            }
-        );
-    }
-
-    this.performBridging = async function(e){
-
-        let contractAddress = $('#bridgeErc1155Address').val();
-        let id = $('#bridgeNftId').val();
-        let amount = $('#bridgeAmount').val().trim();
-
-        if(amount == '' || parseInt(amount) <= 0){
-
-            _alert('Please enter a valid amount of NFTs to bridge.');
-            return;
-        }
-
-        if(parseInt(amount) > await tncLib.balanceof(contractAddress, tncLib.account, id)){
-
-            _alert('Not enough NFTs to perform bridging.');
-            return;
-        }
-
-        toastr.remove();
-
-        let _button = this;
-
-        let approved = await tncLib.erc1155IsApprovedForAll(tncLib.account, tncLibBridgeIn.chainIn.options.address, contractAddress);
-
-        if(approved) {
-
-            $(_button).html('Pending Transaction...');
-            $(_button).prop('disabled', true);
-
-            tncLibBridgeIn.in_performBridging(
-                contractAddress,
-                id,
-                amount,
-                function () {
-                    toastr["info"]('Please wait for the transaction to finish.', "Bridging....");
-                },
-                function (receipt) {
-                    _alert("Please backup this Job ID for reference:<br/><br/><h2>#" + receipt.events.Bridge.returnValues._jobId + '</h2>You can track the state of your Job by checking our <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord</a> logs using your Job ID.');
-                    console.log(receipt);
-                    toastr.remove();
-                    $(_button).html('Bridge');
-                    $(_button).prop('disabled', false);
-                    toastr["success"]('Transaction has been finished.', "Success");
-                },
-                function (err) {
-                    console.log(err);
-                    toastr.remove();
-                    $(_button).prop('disabled', false);
-                    $(_button).html('Bridge');
-
-                    let errMsg = 'An error occurred with your bridging transaction.';                    
-                    toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.stack);
-
-                }
-            );
-
-        }else{
-
-            $(_button).prop('disabled', true);
-            $(_button).html('Approve first...');
-
-            tncLib.erc1155SetApprovalForAll(
-                tncLibBridgeIn.chainIn.options.address,
-                true,
-                contractAddress,
-                function () {
-                    toastr["info"]('Please wait for the transaction to finish.', "Set approval for all....");
-                },
-                function (receipt) {
-                    console.log(receipt);
-                    toastr.remove();
-                    $(_button).prop('disabled', false);
-                    $(_button).html('Approved! Bridge Now');
-                    toastr["success"]('Transaction has been finished.', "Success");
-                },
-                function (err) {
-                    toastr.remove();
-                    $(_button).prop('disabled', false);
-                    $(_button).html('Bridge');
-                    let errMsg = 'An error occurred with your set approval for all transaction.';                    
-                    toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.stack);
-                }
-            );
-        }
-    }
-
-    this.performBackBridging = async function(e){
-
-        let contractAddress = $('#bridgeBackErc1155Address').val();
-        let id = $('#bridgeBackNftId').val();
-        let amount = $('#bridgeBackAmount').val().trim();
-
-        if(amount == '' || parseInt(amount) <= 0){
-
-            _alert('Please enter a valid amount of NFTs to bridge.');
-            return;
-        }
-
-        if(parseInt(amount) > await tncLib.balanceof(contractAddress, tncLib.account, id)){
-
-            _alert('Not enough NFTs to perform bridging.');
-            return;
-        }
-
-        toastr.remove();
-
-        let _button = this;
-
-        let approved = await tncLib.erc1155IsApprovedForAll(tncLib.account, tncLibBridgeIn.ethOut.options.address, contractAddress);
-
-        if(approved) {
-
-            $(_button).html('Pending Transaction...');
-            $(_button).prop('disabled', true);
-
-            tncLibBridgeIn.performBackBridging(
-                id,
-                amount,
-                function () {
-                    toastr["info"]('Please wait for the transaction to finish.', "Bridging....");
-                },
-                function (receipt) {
-                    _alert("Please backup this Job ID for reference:<br/><br/><h2>#" + receipt.events.Restore.returnValues._jobId + '</h2><br/></br>You can track the state of your Job by checking our <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord</a> logs using your Job ID.');
-                    console.log(receipt);
-                    toastr.remove();
-                    $(_button).html('Bridge');
-                    $(_button).prop('disabled', false);
-                    toastr["success"]('Transaction has been finished.', "Success");
-                },
-                function (err) {
-                    toastr.remove();
-                    $(_button).prop('disabled', false);
-                    $(_button).html('Bridge');
-
-                    let errMsg = 'An error occurred with your bridging transaction.';                    
-                    toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.stack);
-                }
-            );
-
-        }else{
-
-            $(_button).prop('disabled', true);
-            $(_button).html('Approve first...');
-
-            tncLib.erc1155SetApprovalForAll(
-                tncLibBridgeIn.ethOut.options.address,
-                true,
-                contractAddress,
-                function () {
-                    toastr["info"]('Please wait for the transaction to finish.', "Set approval for all....");
-                },
-                function (receipt) {
-                    console.log(receipt);
-                    toastr.remove();
-                    $(_button).prop('disabled', false);
-                    $(_button).html('Approved! Bridge Now');
-                    toastr["success"]('Transaction has been finished.', "Success");
-                },
-                function (err) {
-                    toastr.remove();
-                    $(_button).prop('disabled', false);
-                    $(_button).html('Bridge');
-                    
-                    let errMsg = 'An error occurred with your set approval for all transaction.';                    
-                    toastr["error"](errMsg, "Error");
-                    errorPopup("Error", errMsg, err.stack);
-                    
-                }
-            );
-        }
-    }
-
     this.sell = async function(){
 
         let erc1155 = $('#nftSellErc1155Address').val();
@@ -1026,25 +739,6 @@ function TncDapp() {
 
             default:
 
-                switch(chain_id){
-
-                    case '64':
-                    case '4':
-                        $('#cancelBridgeModalButton').css('display', 'block');
-                        break;
-                }
-
-                $('#bridgeAddMax').on('click', async function(){
-
-                    $('#bridgeAmount').val(await tncLib.balanceof($('#bridgeErc1155Address').val(), tncLib.account, $('#bridgeNftId').val()));
-
-                });
-
-                $('#bridgeBackAddMax').on('click', async function(){
-
-                    $('#bridgeBackAmount').val(await tncLib.balanceof($('#bridgeBackErc1155Address').val(), tncLib.account, $('#bridgeBackNftId').val()));
-
-                });
 
                 $('#storeRoyaltiesButton').off('click');
                 $('#storeRoyaltiesButton').on('click', _this.performRoyalties);
@@ -1056,8 +750,6 @@ function TncDapp() {
                 $('#convert721Modal').on('show.bs.modal', _this.populateConvert721);
 
                 $('#cancelButton').on('click', _this.cancelJob);
-                $('#bridgeButton').on('click', _this.performBridging);
-                $('#bridgeBackButton').on('click', _this.performBackBridging);
                 $('#addCollectionButton').on('click', _this.registerCollection);
                 $('#nftTransferButton').on('click', _this.transfer);
                 $('#nftSellButton').on('click', _this.sell);
@@ -1068,12 +760,6 @@ function TncDapp() {
                 $('#nftInteractiveModal').on('hide.bs.modal', function(){
                     $('#interactiveBody').html(window.interactiveDefault);
                 });
-
-                $('#bridgeModal').off('show.bs.modal');
-                $('#bridgeModal').on('show.bs.modal', _this.populateBridging);
-
-                $('#bridgeBackModal').off('show.bs.modal');
-                $('#bridgeBackModal').on('show.bs.modal', _this.populateBackBridging);
 
                 $('#nftInteractiveModal').off('show.bs.modal');
                 $('#nftInteractiveModal').on('show.bs.modal', _this.populateInteractive);
@@ -1509,8 +1195,6 @@ function run(connected) {
         tncLib.account = accounts[0];
         window.tncLibMarket = new TncLibMarket();
         tncLibMarket.account = tncLib.account;
-        window.tncLibBridgeIn = new TncLibBridge();
-        tncLibBridgeIn.account = tncLib.account;
         window.tncLibConvert721 = new TncLibConvert721();
         tncLibConvert721.account = tncLib.account;
 
@@ -1518,7 +1202,6 @@ function run(connected) {
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
             tncLibMarket.account = '0x0000000000000000000000000000000000000000';
-            tncLibBridgeIn.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();

@@ -66,7 +66,7 @@ function TncDapp() {
 
             let _uri = market.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/');
 
-            let data = {name: 'NFT Market', description: '', image: 'https://unifty.io/assets/img/unifty2.png'};
+            let data = {name: 'NFT Market', description: '', image: 'https://rarity.garden/assets/img/unifty2.png'};
 
             try {
 
@@ -466,7 +466,7 @@ function TncDapp() {
             email: '',
             phone: '',
             customLink: {value: '', name: ''},
-            image : 'https://unifty.io/assets/img/unifty2.png'
+            image : 'https://rarity.garden/assets/img/unifty2.png'
         };
 
         try {

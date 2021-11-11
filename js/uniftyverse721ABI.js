@@ -1,4 +1,4 @@
-const uniftyverseABI = [
+const uniftyverse721ABI = [
     {
         "inputs": [
             {
@@ -283,68 +283,6 @@ const uniftyverseABI = [
         "type": "function"
     },
     {
-        "constant": true,
-        "inputs": [
-            {
-                "internalType": "bytes",
-                "name": "",
-                "type": "bytes"
-            },
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            },
-            {
-                "internalType": "bytes",
-                "name": "",
-                "type": "bytes"
-            }
-        ],
-        "name": "bridged",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "constant": true,
-        "inputs": [
-            {
-                "internalType": "bytes",
-                "name": "",
-                "type": "bytes"
-            }
-        ],
-        "name": "bridgedMap",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "_address",
-                "type": "address"
-            },
-            {
-                "internalType": "bytes",
-                "name": "_b_id",
-                "type": "bytes"
-            },
-            {
-                "internalType": "bytes",
-                "name": "_b_chainId",
-                "type": "bytes"
-            }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "constant": false,
         "inputs": [
             {
@@ -385,22 +323,64 @@ const uniftyverseABI = [
         "type": "function"
     },
     {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "name": "converted",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "name": "convertedMap",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "_address",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_i_id",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
         "constant": false,
         "inputs": [
             {
                 "internalType": "address",
                 "name": "_owner",
                 "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_maxSupply",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_initialSupply",
-                "type": "uint256"
             },
             {
                 "internalType": "uint256",
@@ -423,14 +403,9 @@ const uniftyverseABI = [
                 "type": "address"
             },
             {
-                "internalType": "bytes",
+                "internalType": "uint256",
                 "name": "_srcId",
-                "type": "bytes"
-            },
-            {
-                "internalType": "bytes",
-                "name": "_chainId",
-                "type": "bytes"
+                "type": "uint256"
             }
         ],
         "name": "create",
@@ -470,13 +445,8 @@ const uniftyverseABI = [
         "constant": true,
         "inputs": [
             {
-                "internalType": "bytes",
-                "name": "_chainId",
-                "type": "bytes"
-            },
-            {
                 "internalType": "address",
-                "name": "_erc1155Address",
+                "name": "_erc721Address",
                 "type": "address"
             },
             {
@@ -485,7 +455,7 @@ const uniftyverseABI = [
                 "type": "bytes"
             }
         ],
-        "name": "getBridgedId",
+        "name": "getConvertedId",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -506,7 +476,7 @@ const uniftyverseABI = [
                 "type": "uint256"
             }
         ],
-        "name": "getBridgedSrc",
+        "name": "getConvertedSrc",
         "outputs": [
             {
                 "internalType": "address",
@@ -514,14 +484,9 @@ const uniftyverseABI = [
                 "type": "address"
             },
             {
-                "internalType": "bytes",
+                "internalType": "uint256",
                 "name": "",
-                "type": "bytes"
-            },
-            {
-                "internalType": "bytes",
-                "name": "",
-                "type": "bytes"
+                "type": "uint256"
             }
         ],
         "payable": false,
@@ -583,13 +548,8 @@ const uniftyverseABI = [
         "constant": true,
         "inputs": [
             {
-                "internalType": "bytes",
-                "name": "_chainId",
-                "type": "bytes"
-            },
-            {
                 "internalType": "address",
-                "name": "_erc1155Address",
+                "name": "_erc721Address",
                 "type": "address"
             },
             {
@@ -598,7 +558,7 @@ const uniftyverseABI = [
                 "type": "bytes"
             }
         ],
-        "name": "isBridged",
+        "name": "isConverted",
         "outputs": [
             {
                 "internalType": "bool",
@@ -800,6 +760,26 @@ const uniftyverseABI = [
         "constant": false,
         "inputs": [],
         "name": "renounceWhitelistAdmin",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_erc721Address",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_id",
+                "type": "bytes"
+            }
+        ],
+        "name": "resetConversion",
         "outputs": [],
         "payable": false,
         "stateMutability": "nonpayable",

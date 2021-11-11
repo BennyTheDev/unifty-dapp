@@ -283,17 +283,6 @@ function TncDapp() {
 
         let meta = await tncLib.getErc1155Meta(erc1155);
 
-        let srcInfo = [0,0,0];
-        let bridgeBack = false;
-
-        if( chain_id == '1' && erc1155.toLowerCase() == tncLibBridgeIn.uniftyverseAddress.toLowerCase()){
-
-            srcInfo = await tncLibBridgeIn.in_getSourceInfo(id);
-            srcInfo[2] = _this.hexToInt(srcInfo[2]);
-            srcInfo[1] = _this.hexToInt(srcInfo[1]);
-            bridgeBack = true;
-        }
-
         let decimals = await tncLib.tokenDecimalsErc20(token);
         price = _this.formatNumberString(price, decimals);
 
@@ -346,10 +335,6 @@ function TncDapp() {
             let tmpl = _this.pickerTemplate({
                 which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
-                srcChainid : srcInfo[2],
-                srcCollection : srcInfo[0],
-                srcId : srcInfo[1],
-                bridgeOnBack : bridgeBack ? chain_id : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,
@@ -412,10 +397,6 @@ function TncDapp() {
 
             let tmpl = _this.offerTemplate({
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
-                srcChainid : srcInfo[2],
-                srcCollection : srcInfo[0],
-                srcId : srcInfo[1],
-                bridgeOnBack : bridgeBack ? chain_id : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,

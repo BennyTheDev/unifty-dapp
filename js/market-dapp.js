@@ -52,6 +52,18 @@ function TncDapp() {
                 shadowed = 'false';
             }
 
+            if( typeof tncLibConvert721.uniftyverse721 != 'undefined'){
+
+                let srcInfo721 = await tncLibConvert721.in_getSourceInfo(ask.id[0]);
+
+                if( blocked_collections.includes(srcInfo721[0].toLowerCase()) ) {
+
+                    console.log('blocked: ', srcInfo721[0]);
+
+                    shadowed = 'true';
+                }
+            }
+
             let hasMore = 0;
 
             if (ask.erc1155Address.length > 1) {
@@ -180,15 +192,25 @@ function TncDapp() {
 
         let meta = await tncLib.getErc1155Meta(erc1155);
 
-        let srcInfo = [0,0,0];
-        let bridgeBack = false;
+        let srcInfo721 = [0,0,0];
+        let verse721 = false;
 
-        if( chain_id == '1' && erc1155.toLowerCase() == tncLibBridgeIn.uniftyverseAddress.toLowerCase()){
+        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
 
-            srcInfo = await tncLibBridgeIn.in_getSourceInfo(id);
-            srcInfo[2] = _this.hexToInt(srcInfo[2]);
-            srcInfo[1] = _this.hexToInt(srcInfo[1]);
-            bridgeBack = true;
+            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
+            verse721 = true;
+        }
+
+        let verified = false;
+
+        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
+
+            verified = true;
+        }
+
+        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
+
+            verified = true;
         }
 
         let decimals = await tncLib.tokenDecimalsErc20(token);
@@ -245,12 +267,12 @@ function TncDapp() {
             }
 
             let tmpl = _this.pickerTemplate({
+                verified: verified ? 'true' : '',
                 which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
-                srcChainid : srcInfo[2],
-                srcCollection : srcInfo[0],
-                srcId : srcInfo[1],
-                bridgeOnBack : bridgeBack ? chain_id : '',
+                srcCollection721 : srcInfo721[0],
+                srcId721 : srcInfo721[1],
+                verse721: verse721 ? verse721 : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,
@@ -332,11 +354,11 @@ function TncDapp() {
             }
 
             let tmpl = _this.offerTemplate({
+                verified: verified ? 'true' : '',
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
-                srcChainid : srcInfo[2],
-                srcCollection : srcInfo[0],
-                srcId : srcInfo[1],
-                bridgeOnBack : bridgeBack ? chain_id : '',
+                srcCollection721 : srcInfo721[0],
+                srcId721 : srcInfo721[1],
+                verse721: verse721 ? verse721 : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,
@@ -1212,36 +1234,6 @@ function TncDapp() {
 
         let nftCount = 0;
         let collections = [];
-
-        // tiktok-address
-        if(chain_id == '38') {
-            let verse = tncLib.tiktokCollection;
-            collections.push(verse);
-            let nfts = await tncLib.getNftsByAddress(address, verse);
-            for (let i = 0; i < nfts.length; i++) {
-                if (await tncLib.balanceof(verse, address, nfts[i]) > 0) {
-                    _this.renderSellSelection(verse, nfts[i], address);
-                    await sleep(300);
-                    nftCount++;
-                    await waitForDiv($('#nftSellWallet'), nftCount);
-                }
-            }
-        }
-
-        // uniftyverse
-        if(chain_id == '1') {
-            let verse = tncLibBridgeIn.uniftyverse.options.address;
-            collections.push(verse);
-            let nfts = await tncLib.getNftsByAddress(address, verse);
-            for (let i = 0; i < nfts.length; i++) {
-                if (await tncLib.balanceof(verse, address, nfts[i]) > 0) {
-                    _this.renderSellSelection(verse, nfts[i], address);
-                    await sleep(300);
-                    nftCount++;
-                    await waitForDiv($('#nftSellWallet'), nftCount);
-                }
-            }
-        }
 
         // my unifty collections
         let length = await tncLib.getErc1155Length(address);
@@ -2416,15 +2408,16 @@ function run(connected) {
         tncLib.account = accounts[0];
         window.tncLibMarket = new TncLibMarket();
         tncLibMarket.account = tncLib.account;
-        window.tncLibBridgeIn = new TncLibBridge();
-        tncLibBridgeIn.account = tncLib.account;
+        window.tncLibConvert721 = new TncLibConvert721();
+        tncLibConvert721.account = tncLib.account;
 
         if(typeof accounts == 'undefined' || accounts.length == 0){
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
             tncLibMarket.account = '0x0000000000000000000000000000000000000000';
-            tncLibBridgeIn.account = '0x0000000000000000000000000000000000000000';
+            tncLibConvert721.account = '0x0000000000000000000000000000000000000000';
         }
+
 
         let dapp = new TncDapp();
         window.tncDapp = dapp;

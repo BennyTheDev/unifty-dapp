@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
-    <title>Farm Builder - Unifty</title>
+    <title>Farm Builder - Rarity Garden</title>
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Unifty_fav.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Unifty_fav.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-32x32.png">
     <link rel="manifest" href="site.webmanifest">
     <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
@@ -43,7 +43,7 @@
     <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@ramp-network/ramp-instant-sdk@2.3.0/dist/ramp-instant-sdk.umd.js" integrity="sha256-heFylj/fcCZffQpQuqUmrk1e08vdaGcpw0w9mWGnbz4=" crossorigin="anonymous"></script>
+
     <script>
         $(document).ready(function(){
             new ClipboardJS('.btn-clipboard');
@@ -157,10 +157,9 @@
 <!-- SIDEBAR -->
 <div class="sidebar">
     <div class="logo">
-        <a href="https://unifty.io" class="simple-text logo-normal">
-            <img src="assets/img/Unifty-Logo.svg" width="90px" border="0" />
+        <a href="https://rarity.garden" class="simple-text logo-normal">
+            <img src="assets/img/unifty2.png" width="160px" border="0" />
             <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
-                Binance Smart Chain
             </div>
         </a>
     </div>
@@ -173,12 +172,7 @@
               <p>Home</p>
             </a>
           </li>
-            <li class="nav-item">
-                <a class="nav-link" href="governance.html">
-                    <i class="material-icons-round">explore</i>
-                    <p>Governance / $UNT</p>
-                </a>
-            </li>
+
           <li class="nav-item" id="marketNavLink">
             <a class="nav-link" href="market.html">
               <i class="material-icons-round">storefront</i>
@@ -188,7 +182,7 @@
           <li class="nav-item">
             <a class="nav-link" href="collectibles.html">
               <i class="material-icons-round">account_balance_wallet</i>
-              <p>Your Wallet</p>
+              <p>Your NFT Wallet</p>
             </a>
           </li>
           <li class="nav-item">
@@ -209,18 +203,8 @@
               <p>Farm Builder</p>
             </a>
           </li>
-            <li class="nav-item" id="tiktokNFTs" style="display:none;">
-                <a class="nav-link" href="tiktok.html">
-                    <i class="material-icons-round">collections</i>
-                    <p>TikTok™ NFTs</p>
-                </a>
-            </li>
-          <li class="nav-item bridgeNav">
-            <a class="nav-link" href="bridge.html">
-              <i class="material-icons-round">360</i>
-              <p>NFT Bridge</p>
-            </a>
-          </li>
+
+
 
             <div id="accordion">
                 <!-- FARMS -->
@@ -240,23 +224,23 @@
                         <ul class="nav">
 
                             <li class="nav-item shop collapsible" id="shopEthereum" style="display:none;">
-                                <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
+                                <a class="nav-link" href="https://rarity.garden/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
                                   <i class="material-icons-round">
                                     fiber_manual_record
                                   </i>
-                                  <p>Unifty Shop</p>
+                                  <p>Rarity Garden Shop</p>
                                 </a>
                               </li>
 
                             <li class="nav-item collapsible" id="xdaiFarm">
-                                <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
+                                <a class="nav-link" href="https://rarity.garden/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
                                     <i class="material-icons">fiber_manual_record</i>
                                     <p>Rares Farm - NIF (xDai)</p>
                                 </a>
                             </li>
 
                             <li class="nav-item collapsible" id="genesisFarm">
-                                <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                                <a class="nav-link" href="https://rarity.garden/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
                                     <i class="material-icons">fiber_manual_record</i>
                                     <p>Genesis Farm - NIF-LP</p>
                                 </a>
@@ -266,20 +250,9 @@
                 </div>
 
                 <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link" target="_blank"
-                           href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-                            <i class="material-icons-round">find_replace</i>
-                            <p>Get $NIF on Uniswap</p>
-                        </a>
-                    </li>
 
-                    <li class="nav-item" id="ramp-btn">
-                        <a class="nav-link">
-                            <i class="material-icons-round">attach_money</i>
-                            <p>Buy crypto with RAMP</p>
-                        </a>
-                    </li>
+
+
                 </ul>
 
                 
@@ -344,7 +317,7 @@
 
         <!-- HEADER -->
         <div class="custom-header">
-            <div class="custom-header__title">Unifty.io</div>
+            <div class="custom-header__title">Rarity.Garden</div>
             <div class="custom-header__dropdowns">
 
                 <div class="dropdown ml-3 mr-3 dropdown--chains">
@@ -353,14 +326,14 @@
                         Ethereum
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="https://unifty.io/"><img src="assets/img/network-icons/ethereum_logo.svg">Ethereum</a>
-                        <a class="dropdown-item" href="https://unifty.io/xdai/"><img src="assets/img/network-icons/xdai_logo.svg">xDai</a>
-                        <a class="dropdown-item" href="https://unifty.io/bsc/"><img src="assets/img/network-icons/binance_logo.svg">Binance Smart Chain</a>
-                        <a class="dropdown-item" href="https://unifty.io/avalanche/"><img src="assets/img/network-icons/avalanche_logo.svg">Avalanche</a>
-                        <a class="dropdown-item" href="https://unifty.io/celo/"><img src="assets/img/network-icons/celo_logo.svg">Celo</a>
-                        <a class="dropdown-item" href="https://unifty.io/matic/"><img src="assets/img/network-icons/polygon-logo.svg">Polygon (Matic)</a>
-                        <a class="dropdown-item" href="https://unifty.io/moonbeam-alpha/"><img src="assets/img/network-icons/rinkeby_logo.svg">Moonbeam (Alpha)</a>
-                        <a class="dropdown-item" href="https://unifty.io/rinkeby/"><img src="assets/img/network-icons/rinkeby_logo.svg">Rinkeby (Testnet)</a>
+                        <a class="dropdown-item" href="https://rarity.garden/"><img src="assets/img/network-icons/ethereum_logo.svg">Ethereum</a>
+                        <a class="dropdown-item" href="https://rarity.garden/xdai/"><img src="assets/img/network-icons/xdai_logo.svg">xDai</a>
+                        <a class="dropdown-item" href="https://rarity.garden/bsc/"><img src="assets/img/network-icons/binance_logo.svg">Binance Smart Chain</a>
+                        <a class="dropdown-item" href="https://rarity.garden/avalanche/"><img src="assets/img/network-icons/avalanche_logo.svg">Avalanche</a>
+                        <a class="dropdown-item" href="https://rarity.garden/celo/"><img src="assets/img/network-icons/celo_logo.svg">Celo</a>
+                        <a class="dropdown-item" href="https://rarity.garden/matic/"><img src="assets/img/network-icons/polygon-logo.svg">Polygon (Matic)</a>
+                        <a class="dropdown-item" href="https://rarity.garden/moonbeam-alpha/"><img src="assets/img/network-icons/rinkeby_logo.svg">Moonbeam (Alpha)</a>
+                        <a class="dropdown-item" href="https://rarity.garden/rinkeby/"><img src="assets/img/network-icons/rinkeby_logo.svg">Rinkeby (Testnet)</a>
                       </div>
                 </div>
 
@@ -393,7 +366,7 @@
             <script id="no-offers" type="text/x-handlebars-template">
                 <div class="container-fluid">
                     <div style="text-align: center" class="justify-content-center content-center">
-                        No offers found. Feel free to put your NFTs on sale from within your <a href="collectibles.html">Unifty wallet</a>.
+                        No offers found. Feel free to put your NFTs on sale from within your <a href="collectibles.html">Rarity Garden wallet</a>.
                     </div>
                 </div>
             </script>
@@ -671,26 +644,6 @@
                             <div class="collapse traits-collapse" id="collapse{{index}}">
                                 <ul class="list-group">
 
-                                    {{#ifNotEquals bridgeOnBack ""}}
-                                    <li class="list-group-item">
-                                        <sub>Source Chain ID</sub><br />
-                                        <div>{{srcChainid}}</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <sub>Source Collection</sub><br />
-                                        <div class="text-truncate">
-                                            <button class="btn btn-sm btn-clipboard btn-clipboard{{index}}" data-clipboard-text="{{srcCollection}}" data-toggle="tooltip" data-placement="top" title="Copied">
-                                                <i class="fa fa-clipboard"></i>
-                                            </button>
-                                            <a style="font-size: 1.2rem !important;" href="{{explorer}}{{erc1155}}" target="_blank">{{srcCollection}}</a>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <sub>Source NFT ID</sub><br />
-                                        <div>{{srcId}}</div>
-                                    </li>
-                                    {{/ifNotEquals}}
-
                                     {{#each attributes}}
                                     <li class="list-group-item">
                                         <sub>{{this.trait_type}}</sub><br />
@@ -922,7 +875,7 @@
         <div class="sidebar-text left" >
           <span>
             <i class="material-icons">copyright</i>
-            Unifty Development d.o.o.
+            Rarity Garden
           </span>
           <span>
             All rights reserved
@@ -930,31 +883,18 @@
         </div>
         <div class="sidebar-text icons" >
             <span class="navbar-text">  
-              <a href="https://t.me/unifty" target="_blank">
-                <img src="assets/img/social-icons/telegram.svg">
-              </a>
               <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
-                <img src="assets/img/social-icons/discord.svg">
-              </a>
-              <a href="https://twitter.com/unifty_com" target="_blank">
-                <img src="assets/img/social-icons/twiter.svg">
-              </a>
-              
-              <a href="https://www.linkedin.com/company/unifty/" target="_blank">
-                <img src="assets/img/social-icons/linkedin.svg">             
-              </a>
-              <a href="https://www.youtube.com/channel/UCcObER-bpLPf8ni3vhDhUTw" target="_blank">
-                <img src="assets/img/social-icons/youtube.svg">             
-              </a>
-              <a href="https://www.instagram.com/uniftyofficial/" target="_blank">
-                <img src="assets/img/social-icons/instagram.svg">
-              </a>
+            <img src="assets/img/social-icons/discord.svg">
+          </a>
+          <a href="https://twitter.com/rarity_garden" target="_blank">
+            <img src="assets/img/social-icons/twiter.svg">
+          </a>
 
               </span>
             </div>
 
 </div>
-<script src="js/ramp-init.js"></script>
+
 <script src="js/themeSwitch.js"></script>
 </body>
 </html>

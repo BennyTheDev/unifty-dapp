@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta content='maximum-scale=1.0, initial-scale=1.0, width=device-width' name='viewport'>
-  <title>Your wallet - Unifty</title>
+  <title>Your NFT Wallet - Rarity Garden</title>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/Unifty_fav.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/Unifty_fav.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-32x32.png">
   <link rel="manifest" href="site.webmanifest">
   <link href="assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
@@ -28,15 +28,12 @@
   <script type="text/javascript" src="js/erc20ABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/univ2ABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/marketABI.js?v=1.9.13"></script>
-  <script type="text/javascript" src="js/bridgeInABI.js?v=1.9.13"></script>
-  <script type="text/javascript" src="js/bridgeOutABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/marketWrapABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/swapABI.js?v=1.9.13"></script>
-  <script type="text/javascript" src="js/uniftyverseABI.js?v=1.9.13"></script>
+
   <script type="text/javascript" src="js/converter721To1155ABI.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/lib.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/lib-convert721.js?v=1.9.13"></script>
-  <script type="text/javascript" src="js/lib-bridge.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/lib-market.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/collectibles-dapp.js?v=1.9.13"></script>
   <script type="text/javascript" src="js/dapp-init.js?v=1.9.13"></script>
@@ -51,7 +48,7 @@
   <script src="assets/js/material-dashboard.js?v=2.1.0" type="text/javascript"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@ramp-network/ramp-instant-sdk@2.3.0/dist/ramp-instant-sdk.umd.js" integrity="sha256-heFylj/fcCZffQpQuqUmrk1e08vdaGcpw0w9mWGnbz4=" crossorigin="anonymous"></script>
+
   <script>
     $(document).ready(function () {
       new ClipboardJS('.btn-clipboard');
@@ -174,10 +171,9 @@
   <!-- SIDEBAR -->
   <div class="sidebar">
     <div class="logo">
-      <a href="https://unifty.io" class="simple-text logo-normal">
-        <img src="assets/img/Unifty-Logo.svg" width="90px" border="0" />
+      <a href="https://rarity.garden" class="simple-text logo-normal">
+        <img src="assets/img/unifty2.png" width="160px" border="0" />
         <div id="bscLogo" class="text-muted" style="display: none; font-size: 0.7em;">
-          Binance Smart Chain
         </div>
       </a>
     </div>
@@ -190,12 +186,7 @@
             <p>Home</p>
           </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="governance.html">
-            <i class="material-icons-round">explore</i>
-            <p>Governance / $UNT</p>
-          </a>
-        </li>
+
         <li class="nav-item" id="marketNavLink">
           <a class="nav-link" href="market.html">
             <i class="material-icons-round">storefront</i>
@@ -205,7 +196,7 @@
         <li class="nav-item active">
           <a class="nav-link" href="collectibles.html">
             <i class="material-icons-round">account_balance_wallet</i>
-            <p>Your Wallet</p>
+            <p>Your NFT Wallet</p>
           </a>
         </li>
         <li class="nav-item">
@@ -226,18 +217,8 @@
             <p>Farm Builder</p>
           </a>
         </li>
-        <li class="nav-item" id="tiktokNFTs" style="display:none;">
-          <a class="nav-link" href="tiktok.html">
-            <i class="material-icons-round">collections</i>
-            <p>TikTok™ NFTs</p>
-          </a>
-        </li>
-        <li class="nav-item bridgeNav">
-          <a class="nav-link" href="bridge.html">
-            <i class="material-icons-round">360</i>
-            <p>NFT Bridge</p>
-          </a>
-        </li>
+
+
 
         <div id="accordion">
           <!-- FARMS -->
@@ -257,24 +238,24 @@
               <ul class="nav">
 
                 <li class="nav-item shop collapsible" id="shopEthereum" style="display:none;">
-                  <a class="nav-link" href="https://unifty.io/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
+                  <a class="nav-link" href="https://rarity.garden/farm-view.html?address=0x7387DF14E182b37aEF944C231E6f4D88EbBa1145">
                     <i class="material-icons-round">
                       fiber_manual_record
                     </i>
-                    <p>Unifty Shop</p>
+                    <p>Rarity Garden Shop</p>
                   </a>
                 </li>
 
 
                 <li class="nav-item collapsible" id="xdaiFarm">
-                  <a class="nav-link" href="https://unifty.io/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
+                  <a class="nav-link" href="https://rarity.garden/xdai/farm-view.html?address=0x87E5aFba16E3BEbd967699B4D5472B2ae1AA8Fa7">
                     <i class="material-icons">fiber_manual_record</i>
                     <p>Rares Farm - NIF (xDai)</p>
                   </a>
                 </li>
 
                 <li class="nav-item collapsible" id="genesisFarm">
-                  <a class="nav-link" href="https://unifty.io/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
+                  <a class="nav-link" href="https://rarity.garden/farm.html?farm=0xA2c88A39b1DE8f1d723d9E76AD07f6012826d0f3">
                     <i class="material-icons">fiber_manual_record</i>
                     <p>Genesis Farm - NIF-LP</p>
                   </a>
@@ -284,20 +265,9 @@
           </div>
 
           <ul class="nav">
-            <li class="nav-item">
-              <a class="nav-link" target="_blank"
-                 href="https://app.uniswap.org/#/swap?outputCurrency=0x7e291890b01e5181f7ecc98d79ffbe12ad23df9e">
-                <i class="material-icons-round">find_replace</i>
-                <p>Get $NIF on Uniswap</p>
-              </a>
-            </li>
 
-            <li class="nav-item" id="ramp-btn">
-              <a class="nav-link">
-                <i class="material-icons-round">attach_money</i>
-                <p>Buy crypto with RAMP</p>
-              </a>
-            </li>
+
+
           </ul>
 
           
@@ -365,7 +335,7 @@
 
       <!-- HEADER -->
       <div class="custom-header">
-        <div class="custom-header__title">Unifty.io</div>
+        <div class="custom-header__title">Rarity.Garden</div>
         <div class="custom-header__dropdowns">
 
           <div class="dropdown ml-3 mr-3 dropdown--chains">
@@ -374,14 +344,14 @@
               Ethereum
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="https://unifty.io/"><img src="assets/img/network-icons/ethereum_logo.svg">Ethereum</a>
-              <a class="dropdown-item" href="https://unifty.io/xdai/"><img src="assets/img/network-icons/xdai_logo.svg">xDai</a>
-              <a class="dropdown-item" href="https://unifty.io/bsc/"><img src="assets/img/network-icons/binance_logo.svg">Binance Smart Chain</a>
-              <a class="dropdown-item" href="https://unifty.io/avalanche/"><img src="assets/img/network-icons/avalanche_logo.svg">Avalanche</a>
-              <a class="dropdown-item" href="https://unifty.io/celo/"><img src="assets/img/network-icons/celo_logo.svg">Celo</a>
-              <a class="dropdown-item" href="https://unifty.io/matic/"><img src="assets/img/network-icons/polygon-logo.svg">Polygon (Matic)</a>
-              <a class="dropdown-item" href="https://unifty.io/moonbeam-alpha/"><img src="assets/img/network-icons/rinkeby_logo.svg">Moonbeam (Alpha)</a>
-              <a class="dropdown-item" href="https://unifty.io/rinkeby/"><img src="assets/img/network-icons/rinkeby_logo.svg">Rinkeby (Testnet)</a>
+              <a class="dropdown-item" href="https://rarity.garden/"><img src="assets/img/network-icons/ethereum_logo.svg">Ethereum</a>
+              <a class="dropdown-item" href="https://rarity.garden/xdai/"><img src="assets/img/network-icons/xdai_logo.svg">xDai</a>
+              <a class="dropdown-item" href="https://rarity.garden/bsc/"><img src="assets/img/network-icons/binance_logo.svg">Binance Smart Chain</a>
+              <a class="dropdown-item" href="https://rarity.garden/avalanche/"><img src="assets/img/network-icons/avalanche_logo.svg">Avalanche</a>
+              <a class="dropdown-item" href="https://rarity.garden/celo/"><img src="assets/img/network-icons/celo_logo.svg">Celo</a>
+              <a class="dropdown-item" href="https://rarity.garden/matic/"><img src="assets/img/network-icons/polygon-logo.svg">Polygon (Matic)</a>
+              <a class="dropdown-item" href="https://rarity.garden/moonbeam-alpha/"><img src="assets/img/network-icons/rinkeby_logo.svg">Moonbeam (Alpha)</a>
+              <a class="dropdown-item" href="https://rarity.garden/rinkeby/"><img src="assets/img/network-icons/rinkeby_logo.svg">Rinkeby (Testnet)</a>
             </div>        
           </div>
 
@@ -403,7 +373,7 @@
       
       <div class="content__welcome-text">
         <p>
-          Welcome to your personal NFT wallet on UNIFTY - a place for your NFTs.
+          Welcome to your personal NFT wallet on Rarity Garden - a place for your NFTs.
 
         </p>
       </div>
@@ -424,9 +394,7 @@
               </button>
 
               <div class="dropdown-menu" aria-labelledby="walletActions">
-                <a href="javascript:void(0);" style="display: none;" class="dropdown-item" data-toggle="modal"
-                  data-target="#cancelBridgeModal" id="cancelBridgeModalButton">Cancel Bridge Job</a>
-  
+
                 <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#convert721Modal"
                    id="convert721ModalButton">Convert From EIP-721</a>
   
@@ -530,12 +498,7 @@
                                       </span>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="walletNftActions{{erc1155}}{{id}}">
-                                        {{#ifNotEquals bridgeOn ""}}
-                                        <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeButton{{erc1155}}{{id}}">Bridge to Ethereum</a>
-                                        {{/ifNotEquals}}
-                                        {{#ifNotEquals bridgeOnBack ""}}
-                                        <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#bridgeBackModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="bridgeBackButton{{erc1155}}{{id}}">Bridge Back</a>
-                                        {{/ifNotEquals}}
+
                                       <a href="javascript:void(0);" class="dropdown-item marketSellLink" data-toggle="modal" data-target="#nftSellModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftSell{{erc1155}}{{id}}">Sell</a>
                                         <a href="javascript:void(0);" class="dropdown-item" data-toggle="modal" data-target="#nftTransferModal" data-contract-address="{{erc1155}}" data-id="{{id}}" id="nftTransfer{{erc1155}}{{id}}">Transfer</a>
 
@@ -553,25 +516,6 @@
                             <div class="collapse traits-collapse" id="collapse{{erc1155}}{{id}}">
                                 <ul class="list-group">
 
-                                    {{#ifNotEquals bridgeOnBack ""}}
-                                    <li class="list-group-item">
-                                        <sub>Source Chain ID</sub><br />
-                                        <div>{{srcChainid}}</div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <sub>Source Collection</sub><br />
-                                        <div class="text-truncate">
-                                            <button class="btn btn-sm btn-clipboard btn-clipboard{{id}}" data-clipboard-text="{{srcCollection}}" data-toggle="tooltip" data-placement="top" title="Copied">
-                                                <i class="fa fa-clipboard"></i>
-                                            </button>
-                                            <a style="font-size: 1.2rem !important;" href="{{explorer}}{{erc1155}}" target="_blank">{{srcCollection}}</a>
-                                        </div>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <sub>Source NFT ID</sub><br />
-                                        <div>{{srcId}}</div>
-                                    </li>
-                                    {{/ifNotEquals}}
 
                                     {{#each attributes}}
                                         <li class="list-group-item">
@@ -673,7 +617,7 @@
               </div>
               <div class="modal-footer">
                 <div class="mb-4" style="color: var(--primary-color);">
-                  By approving this transaction you acknowledge and accept that Unifty may remove content from <a href="unifty.io" target="_blank"><strong>unifty.io</strong></a> and <a href="unifty.com" target="_blank"><strong>unifty.com</strong></a>
+                  By approving this transaction you acknowledge and accept that Rarity Garden may remove content from <a href="unifty.io" target="_blank"><strong>unifty.io</strong></a> and <a href="unifty.com" target="_blank"><strong>unifty.com</strong></a>
                   at their own discretion and without notice, including but not limited to copyright and intellectual property
                   violations, content which violates or potentially violates laws, adult content, nudity, or violence.
                 </div>
@@ -686,142 +630,6 @@
           </div>
         </div>
 
-        <!-- Bridge -->  
-        <div class="modal fade" style="overflow-y: scroll;" id="bridgeModal" tabindex="-1" role="dialog"
-          aria-labelledby="bridgeModallLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="bridgeModallLabel">Bridge to Ethereum</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modal-non-nft-content">
-
-                <form onsubmit="return false;">
-
-                  <p>
-                    Before proceeding, please add enough gas <a href="https://unifty.io/bridge.html">here</a> (recommended: 0.03 - 0.05 ETH).
-                  </p>
-
-                  <div class="form-group">
-                    <label for="bridgeAmount">Amount to Bridge</label>
-                    <input type="text" placeholder="Enter the amount of NFTs you want to bridge." class="form-control"
-                      id="bridgeAmount">
-                    <button class="btn btn-secondary" type="button" id="bridgeAddMax">Add Max.</button>
-                  </div>
-
-                  <p>
-                    Please note: you will be given a Job ID after confirming the bridging transaction.<br /><br />
-                    You can use this Job ID to check the bridging progress in our <a
-                      href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord's</a> bridging logs
-                    channels.<br /><br />
-                    You will also need the Job ID to cancel and restore your NFTs if the bridging job fails after a
-                    2-hour grace-time.
-                  </p>
-
-                  <input type="hidden" name="bridgeErc1155Address" id="bridgeErc1155Address" value="" />
-                  <input type="hidden" name="bridgeNftId" id="bridgeNftId" value="" />
-
-                </form>
-
-              </div>
-              <div class="modal-footer">
-                <div class="buttons-container">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="bridgeButton">Bridge</button>
-                </div>            
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Bridge Back -->  
-        <div class="modal fade" style="overflow-y: scroll;" id="bridgeBackModal" tabindex="-1" role="dialog"
-          aria-labelledby="bridgeBackModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="bridgeBackModalLabel">Bridge Back</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modal-non-nft-content">
-
-                <form onsubmit="return false;">
-
-                  <div class="form-group">
-                    <label for="bridgeBackAmount">Amount to Bridge Back</label>
-                    <input type="text" placeholder="Enter the amount of NFTs you want to bridge back."
-                      class="form-control" id="bridgeBackAmount">
-                    <button class="btn btn-secondary" type="button" id="bridgeBackAddMax">Add Max.</button>
-                  </div>
-
-                  <p>
-                    Please note: you will be given a Job ID after confirming the bridging transaction.<br /><br />
-                    You can use this Job ID to check the bridging progress in our <a
-                      href="https://discord.gg/5ZBTgnAd9s" target="_blank">Discord's</a> bridging logs
-                    channels.<br /><br />
-                    You will also need the Job ID to cancel and restore your NFTs if the bridging job fails after a
-                    2-hour grace-time.
-                  </p>
-
-                  <input type="hidden" name="bridgeBackErc1155Address" id="bridgeBackErc1155Address" value="" />
-                  <input type="hidden" name="bridgeBackNftId" id="bridgeBackNftId" value="" />
-
-                </form>
-
-              </div>
-              <div class="modal-footer">
-                <div class="buttons-container">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="bridgeBackButton">Bridge</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- RESTORE -->  
-        <div class="modal fade" style="overflow-y: scroll;" id="cancelBridgeModal" tabindex="-1" role="dialog"
-          aria-labelledby="cancelBridgeModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="cancelBridgeModalLabel">Cancel Bridge Job</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body modal-non-nft-content">
-
-                <form onsubmit="return false;">
-
-                  <p>
-                    Please enter your Job ID to cancel the bridging job.<br />
-                    If the cancellation fails it means you either cancelled the job already or the 2-hour grace-time
-                    didn't expire yet.
-                  </p>
-
-                  <div class="form-group">
-                    <label for="jobId">Job ID</label>
-                    <input type="text" placeholder="Enter the Job ID to cancel the job" class="form-control" id="jobId">
-                  </div>
-
-                </form>
-
-              </div>
-              <div class="modal-footer">
-                <div class="buttons-container">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" data-dismiss="modal" id="cancelButton">Cancel</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <!-- Transfer Modal -->
         <div class="modal fade" style="overflow-y: scroll;" id="nftTransferModal" tabindex="-1"
@@ -916,7 +724,7 @@
               <div class="modal-body">
 
                 <p>
-                  If you intend to use royalties, please add them below in percent. 50% max. royalties allowed, only for purchases on the Unifty Market.
+                  If you intend to use royalties, please add them below in percent. 50% max. royalties allowed, only for purchases on the Rarity Garden Market.
                 </p>
 
                 <div class="form-group">
@@ -952,7 +760,7 @@
               </div>
               <div class="modal-body modal-non-nft-content">
 
-                <p>Please enter the EIP-1155 NFT ID from the Uniftyverse 721 collection in order to receive back the original EIP-721 token.<br/><br/>Please make sure you own all supply of the converted NFT in order to receive the original one.</p>
+                <p>Please enter the EIP-1155 NFT ID from the EIP-721 collection in order to receive back the original EIP-721 token.<br/><br/>Please make sure you own all supply of the converted NFT in order to receive the original one.</p>
 
                 <form onsubmit="return false;">
 
@@ -987,7 +795,7 @@
 
                 <p>Here you may convert individual EIP-721 that you own into EIP-1155 NFTs. You may also define fractions.
                   <br/><br/>Please note that if you want to get back your original EIP-721 NFT, you will need to return all EIP-1155 fractions associated with it.
-                  <br/><br/>The resulting EIP-1155 NFTs will be created in the Uniftyverse721 collection at address <span id="uniftyverse721Address"></span>.
+                  <br/><br/>The resulting EIP-1155 NFTs will be created in the EIP-721 collection at address <span id="uniftyverse721Address"></span>.
                   <br/><br/>After successful conversion, you will get the EIP-1155 token id. Please write down this ID as it is required to receive back your original EIP-721 NFT from the "Return to EIP-721" option.
                 </p>
 
@@ -1089,7 +897,7 @@
         <div class="sidebar-text left" >
           <span>
             <i class="material-icons">copyright</i>
-            Unifty Development d.o.o.
+            Rarity Garden
           </span>
           <span>
             All rights reserved
@@ -1097,24 +905,11 @@
         </div>
         <div class="sidebar-text icons" >
           <span class="navbar-text">  
-            <a href="https://t.me/unifty" target="_blank">
-              <img src="assets/img/social-icons/telegram.svg">
-            </a>
-            <a href="https://discord.gg/5ZBTgnAd9s" target="_blank">
+            <a href="https://discord.gg/Ur8XGaurSd" target="_blank">
               <img src="assets/img/social-icons/discord.svg">
             </a>
-            <a href="https://twitter.com/unifty_com" target="_blank">
+            <a href="https://twitter.com/rarity_garden" target="_blank">
               <img src="assets/img/social-icons/twiter.svg">
-            </a>
-            
-            <a href="https://www.linkedin.com/company/unifty/" target="_blank">
-              <img src="assets/img/social-icons/linkedin.svg">             
-            </a>
-            <a href="https://www.youtube.com/channel/UCcObER-bpLPf8ni3vhDhUTw" target="_blank">
-              <img src="assets/img/social-icons/youtube.svg">             
-            </a>
-            <a href="https://www.instagram.com/uniftyofficial/" target="_blank">
-              <img src="assets/img/social-icons/instagram.svg">
             </a>
 
             </span>
@@ -1123,7 +918,7 @@
     </div>
 
   </div>
-  <script src="js/ramp-init.js"></script>
+
   <script src="js/themeSwitch.js"></script>
 </body>
 
