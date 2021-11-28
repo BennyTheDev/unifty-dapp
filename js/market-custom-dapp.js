@@ -342,7 +342,7 @@ function TncDapp() {
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcCollection721 : srcInfo721[0],
                 srcId721 : srcInfo721[1],
-                verse721: verse721 ? verse721 : '',
+                verse721: verse721 ? 'true' : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,

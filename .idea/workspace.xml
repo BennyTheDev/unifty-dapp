@@ -5,68 +5,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
+    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="# converted from unifty to rarity garden&#10;- removed bridge&#10;- removed governance&#10;- removed tiktok (they are going native)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brand-assets.html" beforeDir="false" afterPath="$PROJECT_DIR$/brand-assets.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bridge.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changelog.html" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmc.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectibles.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectibles.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/custom-collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/custom-collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/farm.html" beforeDir="false" afterPath="$PROJECT_DIR$/farm.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/governance.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/governance1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/guides-faq.html" beforeDir="false" afterPath="$PROJECT_DIR$/guides-faq.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/horsehead.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bridge-dapp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bridgeInABI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/bridgeOutABI.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/js/collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectible-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectibles-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectibles-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/custom-collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom-collectible-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/farm-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/farm-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/gov-dapp1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/gov-dapp2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/govABI1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/govABI2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/govConsumerABI1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/govConsumerABI2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-bridge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-convert721.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib-convert721.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-gov1.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-gov2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib-tiktok.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/lib.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/lib.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-builder-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-builder-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/market-custom-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-custom-dapp.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/misc.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/misc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/ramp-init.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/themeDefault.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/themeDefault.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/tiktok-dapp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/tiktokABI.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/uniftyverseABI.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/uniftyverse721ABI.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/unifty-farm1.json" beforeDir="false" afterPath="$PROJECT_DIR$/json/unifty-farm1.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/json/uniftyverse.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/manager.html" beforeDir="false" afterPath="$PROJECT_DIR$/manager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-builder.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta/contract.json" beforeDir="false" afterPath="$PROJECT_DIR$/meta/contract.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta/uniftyverse721.json" beforeDir="false" afterPath="$PROJECT_DIR$/meta/uniftyverse721.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/meta/uniftyverse721Fallback.json" beforeDir="false" afterPath="$PROJECT_DIR$/meta/uniftyverse721Fallback.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/roadmap.html" beforeDir="false" afterPath="$PROJECT_DIR$/roadmap.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tiktok.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unifty3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/unifty4.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,28 +174,13 @@
       <workItem from="1636114342643" duration="3220000" />
       <workItem from="1636218480760" duration="4727000" />
       <workItem from="1636456617632" duration="3110000" />
-      <workItem from="1636577526559" duration="11147000" />
-    </task>
-    <task id="LOCAL-00023" summary="- removed several adult farms from featured&#10;+ added adult filters for genesis and rares farms&#10;+ optimized scroll load for marketplace and wallet&#10;+ added Matic Token support in Marketplace">
-      <created>1622238965708</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1622238965708</updated>
-    </task>
-    <task id="LOCAL-00024" summary="# changed script versions to 1.9.6">
-      <created>1622239036904</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1622239036904</updated>
-    </task>
-    <task id="LOCAL-00025" summary="# removed Matic Token again as it is only for mainnet">
-      <created>1622281840964</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1622281840964</updated>
+      <workItem from="1636577526559" duration="15156000" />
+      <workItem from="1636807792384" duration="1039000" />
+      <workItem from="1636896635469" duration="616000" />
+      <workItem from="1637091303031" duration="147000" />
+      <workItem from="1637265349547" duration="3205000" />
+      <workItem from="1637350241221" duration="5875000" />
+      <workItem from="1638132998721" duration="4027000" />
     </task>
     <task id="LOCAL-00026" summary="# i forgot what I changed but it was important for sure">
       <created>1622645807485</created>
@@ -570,7 +504,28 @@
       <option name="project" value="LOCAL" />
       <updated>1636463773521</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="# converted from unifty to rarity garden&#10;- removed bridge&#10;- removed governance&#10;- removed tiktok (they are going native)">
+      <created>1636589320063</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1636589320063</updated>
+    </task>
+    <task id="LOCAL-00073" summary="# renamed &quot;NFT Market&quot; to &quot;Decentralized Market&quot;">
+      <created>1637279105465</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1637279105467</updated>
+    </task>
+    <task id="LOCAL-00074" summary="# added whitelabel info">
+      <created>1637456813273</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1637456813273</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,9 +586,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="+ added fee setup&#10;+  added admin cancellation for listings" />
-    <MESSAGE value="# changed js files version number" />
-    <MESSAGE value="# fixed parameter order in nft block status arguments" />
     <MESSAGE value="- removed all NSFW occurences&#10;+ added the eip-721 to eip-1155 converted in the wallet dapp" />
     <MESSAGE value="# updated js file versions" />
     <MESSAGE value="+ added moonbeam alpha" />
@@ -656,52 +608,47 @@
     <MESSAGE value="+ added new governance contract and view" />
     <MESSAGE value="+ added origin displayed for erc721 wrapped collections" />
     <MESSAGE value="# fixed NFT staking display bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="# fixed NFT staking display bug" />
+    <MESSAGE value="# converted from unifty to rarity garden&#10;- removed bridge&#10;- removed governance&#10;- removed tiktok (they are going native)" />
+    <MESSAGE value="# renamed &quot;NFT Market&quot; to &quot;Decentralized Market&quot;" />
+    <MESSAGE value="# added whitelabel info" />
+    <option name="LAST_COMMIT_MESSAGE" value="# added whitelabel info" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="262" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1636579825814">
       <screen x="0" y="0" width="3840" height="1032" />
     </state>
     <state x="437" y="262" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.3840.1032@0.0.3840.1032" timestamp="1636579825814" />
-    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1636463773184">
-      <screen x="0" y="0" width="1536" height="816" />
+    <state x="478" y="0" key="CommitChangelistDialog2" timestamp="1637456812938">
+      <screen x="0" y="0" width="3840" height="1032" />
     </state>
-    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1636463773184" />
+    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1637279104964" />
     <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1632562082535" />
-    <state x="478" y="0" key="CommitChangelistDialog2/0.0.3840.1032@0.0.3840.1032" timestamp="1636120636806" />
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1628035698985">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1628035698985" />
+    <state x="478" y="0" key="CommitChangelistDialog2/0.0.3840.1032@0.0.3840.1032" timestamp="1637456812938" />
     <state x="407" y="169" key="MultipleFileMergeDialog" timestamp="1636463790593">
       <screen x="0" y="0" width="1536" height="816" />
     </state>
     <state x="407" y="169" key="MultipleFileMergeDialog/0.0.1536.816@0.0.1536.816" timestamp="1636463790593" />
-    <state x="905" y="183" key="Vcs.Push.Dialog.v2" timestamp="1636120643608">
+    <state x="905" y="183" key="Vcs.Push.Dialog.v2" timestamp="1637456829154">
       <screen x="0" y="0" width="3840" height="1032" />
     </state>
-    <state x="362" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1635932537747" />
+    <state x="362" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.816@0.0.1536.816" timestamp="1637279110815" />
     <state x="362" y="146" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1632562091669" />
-    <state x="905" y="183" key="Vcs.Push.Dialog.v2/0.0.3840.1032@0.0.3840.1032" timestamp="1636120643608" />
+    <state x="905" y="183" key="Vcs.Push.Dialog.v2/0.0.3840.1032@0.0.3840.1032" timestamp="1637456829154" />
     <state x="233" y="116" width="3375" height="800" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1635081998399">
       <screen x="0" y="0" width="3840" height="1032" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1632259796040" />
     <state x="233" y="116" width="3375" height="800" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3840.1032@0.0.3840.1032" timestamp="1635081998399" />
     <state x="233" y="117" width="3375" height="806" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.3840.1040@0.0.3840.1040" timestamp="1631982159484" />
-    <state x="1215" y="28" width="1453" height="1004" key="find.popup" timestamp="1636588809305">
+    <state x="1215" y="28" width="1453" height="1004" key="find.popup" timestamp="1637457387851">
       <screen x="0" y="0" width="3840" height="1032" />
     </state>
-    <state x="478" y="15" width="582" height="801" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1635932024607" />
+    <state x="478" y="15" width="582" height="801" key="find.popup/0.0.1536.816@0.0.1536.816" timestamp="1637277906635" />
     <state x="478" y="23" width="581" height="801" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1630178750237" />
-    <state x="1215" y="28" width="1453" height="1004" key="find.popup/0.0.3840.1032@0.0.3840.1032" timestamp="1636588809305" />
-    <state x="426" y="188" key="run.anything.popup" timestamp="1627950879556">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="1215" y="28" width="1453" height="1004" key="find.popup/0.0.3840.1032@0.0.3840.1032" timestamp="1637457387851" />
+    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup" timestamp="1638136210168">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="426" y="188" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1627950879556" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1628798438492">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1628798438492" />
+    <state x="431" y="137" width="672" height="678" key="search.everywhere.popup/0.0.1536.816@0.0.1536.816" timestamp="1638136210168" />
   </component>
 </project>

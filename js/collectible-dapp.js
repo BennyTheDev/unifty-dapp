@@ -88,6 +88,28 @@ function TncDapp() {
 
         let meta = await tncLib.getErc1155Meta(erc1155);
 
+        let srcInfo721 = [0,0,0];
+        let verse721 = false;
+
+        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
+
+            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
+
+            verse721 = true;
+        }
+
+        let verified = false;
+
+        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
+
+            verified = true;
+        }
+
+        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
+
+            verified = true;
+        }
+
         if(data_interactive_url != ''){
             data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id;
         }
@@ -154,6 +176,12 @@ function TncDapp() {
         let tmpl = _this.collectibleTemplate({
 
             buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
+
+            verified: verified ? 'true' : '',
+            srcCollection721 : srcInfo721[0],
+            srcId721 : srcInfo721[1],
+            verse721: verse721 ? 'true' : '',
+
             batch: isBatch ? 'true' : '',
             multiplier : multiplier,
             onsale: onsale,
@@ -283,6 +311,28 @@ function TncDapp() {
 
         let meta = await tncLib.getErc1155Meta(erc1155);
 
+        let srcInfo721 = [0,0,0];
+        let verse721 = false;
+
+        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
+
+            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
+
+            verse721 = true;
+        }
+
+        let verified = false;
+
+        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
+
+            verified = true;
+        }
+
+        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
+
+            verified = true;
+        }
+
         let decimals = await tncLib.tokenDecimalsErc20(token);
         price = _this.formatNumberString(price, decimals);
 
@@ -333,8 +383,12 @@ function TncDapp() {
             }
 
             let tmpl = _this.pickerTemplate({
+                verified: verified ? 'true' : '',
                 which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
+                srcCollection721 : srcInfo721[0],
+                srcId721 : srcInfo721[1],
+                verse721: verse721 ? 'true' : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,
@@ -397,6 +451,9 @@ function TncDapp() {
 
             let tmpl = _this.offerTemplate({
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
+                srcCollection721 : srcInfo721[0],
+                srcId721 : srcInfo721[1],
+                verse721: verse721 ? 'true' : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,
@@ -1406,11 +1463,14 @@ function run(connected) {
         tncLib.account = accounts[0];
         window.tncLibMarket = new TncLibMarket();
         tncLibMarket.account = tncLib.account;
+        window.tncLibConvert721 = new TncLibConvert721();
+        tncLibConvert721.account = tncLib.account;
 
         if(typeof accounts == 'undefined' || accounts.length == 0){
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
             tncLibMarket.account = '0x0000000000000000000000000000000000000000';
+            tncLibConvert721.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();

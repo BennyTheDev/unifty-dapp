@@ -1,8 +1,8 @@
 // The name of the network/chain the dapps are supported to run on
-let network = 'Avalanche';
+let network = 'Celo';
 
 // the chain id of the network as hex value without leading 0x
-let chain_id = 'a86a';
+let chain_id = 'a4ec';
 
 // set to true to hide the sell button in the wallet.
 // useful if you want to use a custom marketplace and prevent confusion
