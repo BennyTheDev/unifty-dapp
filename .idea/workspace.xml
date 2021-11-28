@@ -5,17 +5,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="# converted from unifty to rarity garden&#10;- removed bridge&#10;- removed governance&#10;- removed tiktok (they are going native)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom-collectible.html" beforeDir="false" afterPath="$PROJECT_DIR$/custom-collectible.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/collectible-dapp.js" afterDir="false" />
+    <list default="true" id="ccd242b4-8838-4db5-aaf8-7648b6a78e88" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/js/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/custom-collectible-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/custom-collectible-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-custom-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-custom-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/market-dapp.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/market-dapp.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/market-view.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/market.html" beforeDir="false" afterPath="$PROJECT_DIR$/market.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,14 +171,7 @@
       <workItem from="1637091303031" duration="147000" />
       <workItem from="1637265349547" duration="3205000" />
       <workItem from="1637350241221" duration="5875000" />
-      <workItem from="1638132998721" duration="4027000" />
-    </task>
-    <task id="LOCAL-00026" summary="# i forgot what I changed but it was important for sure">
-      <created>1622645807485</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1622645807485</updated>
+      <workItem from="1638132998721" duration="4066000" />
     </task>
     <task id="LOCAL-00027" summary="+ added config.js and moved configuration items from misc.js&#10;&#10;+ added initial revision for the market builder">
       <created>1622797126810</created>
@@ -525,7 +509,14 @@
       <option name="project" value="LOCAL" />
       <updated>1637456813273</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="+ added display of fractions in marketplaces for uniftyverse 721 converted collections">
+      <created>1638137287291</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1638137287292</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,7 +577,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="- removed all NSFW occurences&#10;+ added the eip-721 to eip-1155 converted in the wallet dapp" />
     <MESSAGE value="# updated js file versions" />
     <MESSAGE value="+ added moonbeam alpha" />
     <MESSAGE value="+ added moonbeam menu items&#10;# changed js file versions" />
@@ -611,17 +601,18 @@
     <MESSAGE value="# converted from unifty to rarity garden&#10;- removed bridge&#10;- removed governance&#10;- removed tiktok (they are going native)" />
     <MESSAGE value="# renamed &quot;NFT Market&quot; to &quot;Decentralized Market&quot;" />
     <MESSAGE value="# added whitelabel info" />
-    <option name="LAST_COMMIT_MESSAGE" value="# added whitelabel info" />
+    <MESSAGE value="+ added display of fractions in marketplaces for uniftyverse 721 converted collections" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ added display of fractions in marketplaces for uniftyverse 721 converted collections" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="262" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1636579825814">
       <screen x="0" y="0" width="3840" height="1032" />
     </state>
     <state x="437" y="262" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.3840.1032@0.0.3840.1032" timestamp="1636579825814" />
-    <state x="478" y="0" key="CommitChangelistDialog2" timestamp="1637456812938">
-      <screen x="0" y="0" width="3840" height="1032" />
+    <state x="191" y="0" key="CommitChangelistDialog2" timestamp="1638137286727">
+      <screen x="0" y="0" width="1536" height="816" />
     </state>
-    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1637279104964" />
+    <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.816@0.0.1536.816" timestamp="1638137286727" />
     <state x="191" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1632562082535" />
     <state x="478" y="0" key="CommitChangelistDialog2/0.0.3840.1032@0.0.3840.1032" timestamp="1637456812938" />
     <state x="407" y="169" key="MultipleFileMergeDialog" timestamp="1636463790593">
