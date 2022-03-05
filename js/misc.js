@@ -6,7 +6,7 @@
  */
 
 //let api_url = 'http://localhost/knots/rest/public/';
-let api_url = 'https://api.unifty.cloud/';
+let api_url = 'https://api.rarity.garden/';
 
 $.ajaxSetup({
     timeout: 60000

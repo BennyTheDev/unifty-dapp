@@ -45,14 +45,14 @@ function TncDapp() {
 
         try {
 
-            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
+            let data = await $.getJSON(nft.uri.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
 
             if (typeof data == 'object') {
 
-                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
                 data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                 data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                 data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -62,14 +62,14 @@ function TncDapp() {
         }catch (e){
 
             try {
-                let data = await $.getJSON(nft.uri.toLowerCase().replace('gateway.ipfs.io', 'cloudflare-ipfs.com'));
+                let data = await $.getJSON(nft.uri.toLowerCase().replace('dweb.link', 'rarity.mypinata.cloud'));
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -85,27 +85,6 @@ function TncDapp() {
         }
 
         let meta = await tncLib.getErc1155Meta(erc1155);
-
-        let srcInfo721 = [0,0,0];
-        let verse721 = false;
-
-        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
-
-            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
-            verse721 = true;
-        }
-
-        let verified = false;
-
-        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
-
-            verified = true;
-        }
-
-        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
-
-            verified = true;
-        }
 
         if(data_interactive_url != ''){
             data_interactive_url = data_interactive_url + "?erc1155Address="+erc1155+"&id="+id+"&chain_id="+chain_id;
@@ -191,11 +170,6 @@ function TncDapp() {
             seller: seller,
             royalties: royalties,
 
-            verified: verified ? 'true' : '',
-            srcCollection721 : srcInfo721[0],
-            srcId721 : srcInfo721[1],
-            verse721: verse721 ? 'true' : '',
-
             displayOpensea: chain_id == '1' || chain_id == '4' ? '' : 'false',
             image: data_image,
             animation_url: data_animation_url,
@@ -272,14 +246,14 @@ function TncDapp() {
 
         try {
 
-            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
+            let data = await $.getJSON(nft.uri.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
 
             if (typeof data == 'object') {
 
-                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
                 data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                 data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                 data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -289,14 +263,14 @@ function TncDapp() {
         }catch (e){
 
             try {
-                let data = await $.getJSON(nft.uri.toLowerCase().replace('gateway.ipfs.io', 'cloudflare-ipfs.com'));
+                let data = await $.getJSON(nft.uri.toLowerCase().replace('dweb.link', 'rarity.mypinata.cloud'));
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -312,27 +286,6 @@ function TncDapp() {
         }
 
         let meta = await tncLib.getErc1155Meta(erc1155);
-
-        let srcInfo721 = [0,0,0];
-        let verse721 = false;
-
-        if( typeof tncLibConvert721.uniftyverse721 != 'undefined' && erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase()){
-
-            srcInfo721 = await tncLibConvert721.in_getSourceInfo(id);
-            verse721 = true;
-        }
-
-        let verified = false;
-
-        if(erc1155.toLowerCase() != tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(erc1155.toLowerCase())){
-
-            verified = true;
-        }
-
-        if(erc1155.toLowerCase() == tncLibConvert721.uniftyverse721.toLowerCase() && verified_collections.includes(srcInfo721[0].toLowerCase())){
-
-            verified = true;
-        }
 
         let decimals = await tncLib.tokenDecimalsErc20(token);
         price = _this.formatNumberString(price, decimals);
@@ -387,10 +340,6 @@ function TncDapp() {
             let tmpl = _this.pickerTemplate({
                 which: which,
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
-                verified: verified ? 'true' : '',
-                srcCollection721 : srcInfo721[0],
-                srcId721 : srcInfo721[1],
-                verse721: verse721 ? 'true' : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,
@@ -1451,14 +1400,11 @@ function run(connected) {
         tncLib.account = accounts[0];
         window.tncLibMarket = new TncLibCustomMarket();
         tncLibMarket.account = tncLib.account;
-        window.tncLibConvert721 = new TncLibConvert721();
-        tncLibConvert721.account = tncLib.account;
 
         if(typeof accounts == 'undefined' || accounts.length == 0){
 
             tncLib.account = '0x0000000000000000000000000000000000000000';
             tncLibMarket.account = '0x0000000000000000000000000000000000000000';
-            tncLibConvert721.account = '0x0000000000000000000000000000000000000000';
         }
 
         let dapp = new TncDapp();

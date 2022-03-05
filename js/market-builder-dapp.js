@@ -64,9 +64,9 @@ function TncDapp() {
 
             console.log("Market info: ", market);
 
-            let _uri = market.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/');
+            let _uri = market.uri.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/');
 
-            let data = {name: 'NFT Market', description: '', image: 'https://rarity.garden/assets/img/unifty2.png'};
+            let data = {name: 'NFT Market', description: '', image: 'https://v1.rarity.garden/assets/img/unifty2.png'};
 
             try {
 
@@ -88,7 +88,7 @@ function TncDapp() {
                 let tmpl = _this.marketTemplate({
                     explorer : explorer,
                     currency: getCurrency(),
-                    image: data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'),
+                    image: data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'),
                     name: data.name,
                     description: data.description,
                     url : window.location.origin + window.location.pathname.replace('market-builder.html', 'market-view.html') + "?location=" + market.wrapperAddress,
@@ -251,7 +251,7 @@ function TncDapp() {
 
             console.log(err, result);
 
-            let marketJsonUrl = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+            let marketJsonUrl = "https://dweb.link/ipfs/" + result[0].hash;
 
             _this.pin(result[0].hash);
 
@@ -407,7 +407,7 @@ function TncDapp() {
 
             console.log(err, result);
 
-            let farmJsonUrl = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+            let farmJsonUrl = "https://dweb.link/ipfs/" + result[0].hash;
 
             _this.pin(result[0].hash);
 
@@ -466,7 +466,7 @@ function TncDapp() {
             email: '',
             phone: '',
             customLink: {value: '', name: ''},
-            image : 'https://rarity.garden/assets/img/unifty2.png'
+            image : 'https://v1.rarity.garden/assets/img/unifty2.png'
         };
 
         try {
@@ -1198,7 +1198,7 @@ function TncDapp() {
 
                 console.log(err, result);
 
-                let ipfsLink = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+                let ipfsLink = "https://dweb.link/ipfs/" + result[0].hash;
                 $(urlStorageElement).val(ipfsLink);
                 $('.imageFileDisplay').html('<img src=' + JSON.stringify(ipfsLink) + ' border="0" width="200"/>');
                 $('.submitNewUpdate').prop('disabled', false);

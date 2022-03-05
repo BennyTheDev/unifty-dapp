@@ -62,7 +62,7 @@ function TncDapp() {
         for(let i = offset - 1; i >= 0; i--){
             currentIndex = i;
             let farm = await window.tncLib.getMyFarm(i);
-            let _uri = farm.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/');
+            let _uri = farm.uri.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/');
 
             try {
 
@@ -84,7 +84,7 @@ function TncDapp() {
                     let tmpl = _this.farmTemplate({
                         explorer : explorer,
                         currency: getCurrency(),
-                        image: data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'),
+                        image: data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'),
                         name: data.name,
                         description: data.description,
                         url : window.location.origin + window.location.pathname.replace('farm-builder.html', 'farm-view.html') + "?address=" + farm.farm,
@@ -616,7 +616,7 @@ function TncDapp() {
 
             console.log(err, result);
 
-            let farmJsonUrl = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+            let farmJsonUrl = "https://dweb.link/ipfs/" + result[0].hash;
 
             _this.pin(result[0].hash);
 
@@ -802,7 +802,7 @@ function TncDapp() {
 
             console.log(err, result);
 
-            let farmJsonUrl = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+            let farmJsonUrl = "https://dweb.link/ipfs/" + result[0].hash;
 
             _this.pin(result[0].hash);
 
@@ -954,7 +954,7 @@ function TncDapp() {
 
                 console.log(err, result);
 
-                let ipfsLink = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+                let ipfsLink = "https://dweb.link/ipfs/" + result[0].hash;
                 $(urlStorageElement).val(ipfsLink);
                 $('.imageFileDisplay').html('<img src=' + JSON.stringify(ipfsLink) + ' border="0" width="200"/>');
                 $('.submitNewUpdate').prop('disabled', false);

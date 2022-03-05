@@ -48,7 +48,7 @@ function TncDapp() {
 
                 market_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                 market_description = typeof data.description != 'undefined' && data.description ? data.description : '';
-                market_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://', 'https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                market_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://', 'https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
                 market_twitter = typeof data.twitter != 'undefined' && data.twitter ? data.twitter : '';
                 market_discord = typeof data.discord != 'undefined' && data.discord ? data.discord : '';
                 market_instagram = typeof data.instagram != 'undefined' && data.instagram ? data.instagram : '';
@@ -229,14 +229,14 @@ function TncDapp() {
 
         try {
 
-            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
+            let data = await $.getJSON(nft.uri.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
 
             if (typeof data == 'object') {
 
-                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
                 data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                 data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                 data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -246,14 +246,14 @@ function TncDapp() {
         }catch (e){
 
             try {
-                let data = await $.getJSON(nft.uri.toLowerCase().replace('gateway.ipfs.io', 'cloudflare-ipfs.com'));
+                let data = await $.getJSON(nft.uri.toLowerCase().replace('dweb.link', 'rarity.mypinata.cloud'));
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : '';
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -342,7 +342,7 @@ function TncDapp() {
                 buy : swapMode == 0 || swapMode == 1 ? ' true' : '',
                 srcCollection721 : srcInfo721[0],
                 srcId721 : srcInfo721[1],
-                verse721: verse721 ? 'true' : '',
+                verse721: verse721 ? verse721 : '',
                 checkOpenSea : 'Open Details',
                 image: data_image,
                 animation_url: data_animation_url,
@@ -1414,14 +1414,14 @@ function TncDapp() {
 
         try {
 
-            let data = await $.getJSON(nft.uri.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
+            let data = await $.getJSON(nft.uri.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/'));
 
             if (typeof data == 'object') {
 
-                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
-                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
+                data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/') : '';
                 data_name = typeof data.name != 'undefined' && data.name ? data.name : "#"+id;
                 data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                 data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';
@@ -1431,14 +1431,14 @@ function TncDapp() {
         }catch (e){
 
             try {
-                let data = await $.getJSON(nft.uri.toLowerCase().replace('gateway.ipfs.io', 'cloudflare-ipfs.com'));
+                let data = await $.getJSON(nft.uri.toLowerCase().replace('dweb.link', 'rarity.mypinata.cloud'));
 
                 if (typeof data == 'object') {
 
-                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
-                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://gateway.ipfs.io/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('gateway.ipfs.io', 'cloudflare-ipfs.com') : '';
+                    data_image = typeof data.image != 'undefined' && data.image ? data.image.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_animation_url = typeof data.animation_url != 'undefined' && data.animation_url ? data.animation_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_audio_url = typeof data.audio_url != 'undefined' && data.audio_url ? data.audio_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
+                    data_interactive_url = typeof data.interactive_url != 'undefined' && data.interactive_url ? data.interactive_url.replace('ipfs://','https://dweb.link/ipfs/').replace('/ipfs/ipfs/', '/ipfs/').replace('dweb.link', 'rarity.mypinata.cloud') : '';
                     data_name = typeof data.name != 'undefined' && data.name ? data.name : "#"+id;
                     data_description = typeof data.description != 'undefined' && data.description ? data.description : '';
                     data_link = typeof data.external_link != 'undefined' && data.external_link ? data.external_link : '';

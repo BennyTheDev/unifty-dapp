@@ -316,6 +316,8 @@ $(document).ready(async function(){
     }
 });
 
+let torus_chain_id = chain_id;
+
 function enableTorus(){
 
     $.getScript('https://unpkg.com/@toruslabs/torus-embed').done(async function(){
@@ -329,18 +331,22 @@ function enableTorus(){
                 networkName = 'Rinkeby';
                 break;
             case '64':
+                torus_chain_id = '100';
                 chain = 'https://xdai1-rpc.unifty.cloud';
                 networkName = 'xDai';
                 break;
             case '89':
-                chain = 'matic';
+                torus_chain_id = '137';
+                chain = 'https://polygon-rpc.com/';
                 networkName = 'Polygon';
                 break;
             case '38':
+                torus_chain_id = '56';
                 chain = 'https://bsc-dataseed.binance.org/';
                 networkName = 'Binance Smart Chain';
                 break;
             case 'a86a':
+                torus_chain_id = '43114';
                 chain = 'https://api.avax.network/ext/bc/C/rpc';
                 networkName = 'Avalanche';
                 break;
@@ -364,7 +370,7 @@ function enableTorus(){
                 enableLogging: true, // default: false
                 network: {
                     host: chain, // default: mainnet
-                    chainId: chain_id, // default: 1
+                    chainId: torus_chain_id, // default: 1
                     networkName: networkName // default: Main Ethereum Network
                 },
                 showTorusButton: true // default: true

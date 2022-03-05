@@ -853,7 +853,7 @@ function TncDapp() {
 
                 console.log(err, result);
 
-                let ipfsLink = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+                let ipfsLink = "https://dweb.link/ipfs/" + result[0].hash;
                 $(urlStorageElement).val(ipfsLink);
                 $('.imageFileDisplay').html('<img src=' + JSON.stringify(ipfsLink) + ' border="0" width="200"/>');
                 $('.submitNewUpdate').prop('disabled', false);
@@ -883,7 +883,7 @@ function TncDapp() {
 
                 console.log(err, result);
 
-                let ipfsLink = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+                let ipfsLink = "https://dweb.link/ipfs/" + result[0].hash;
                 $(urlStorageElement).val(ipfsLink);
 
                 let tag = '<video autoplay="autoplay" preload="auto" muted="muted" loop="loop" width="400" controls="controls">\n' +
@@ -919,7 +919,7 @@ function TncDapp() {
 
                 console.log(err, result);
 
-                let ipfsLink = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+                let ipfsLink = "https://dweb.link/ipfs/" + result[0].hash;
                 $(urlStorageElement).val(ipfsLink);
 
                 let tag = '<audio controls="controls" preload="auto" loop="loop">\n' +
@@ -955,7 +955,7 @@ function TncDapp() {
 
                 console.log(err, result);
 
-                let ipfsLink = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+                let ipfsLink = "https://dweb.link/ipfs/" + result[0].hash;
                 $(urlStorageElement).val(ipfsLink);
 
                 let tag = '<iframe style="width:100%;height:400px;" src=' + JSON.stringify(ipfsLink) + ' sandbox="allow-scripts allow-pointer-lock allow-popups allow-forms"></iframe>';
@@ -1319,7 +1319,7 @@ function TncDapp() {
 
             _this.pin(result[0].hash);
 
-            let nftJsonUrl = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+            let nftJsonUrl = "https://dweb.link/ipfs/" + result[0].hash;
 
             if($('#nftIsEdit').val() == '0'){
 
@@ -1429,7 +1429,7 @@ function TncDapp() {
 
             console.log(err, result);
 
-            let contractJsonUrl = "https://gateway.ipfs.io/ipfs/" + result[0].hash;
+            let contractJsonUrl = "https://dweb.link/ipfs/" + result[0].hash;
 
             _this.pin(result[0].hash);
 
